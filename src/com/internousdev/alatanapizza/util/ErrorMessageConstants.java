@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.internousdev.alatanapizza.util;
 
 public interface ErrorMessageConstants {
@@ -10,3 +11,10 @@ public interface ErrorMessageConstants {
 	public static final String FAMILY_NAME_KANA_ERROR_MESSAGE="";
 
 }
+=======
+package com.internousdev.alatanapizza.util;
+
+public class ErrorMessageConstants {
+
+}
+>>>>>>> faff6d77143e1f53a2b5a0bd498d8ee01f47f022

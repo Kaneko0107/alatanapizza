@@ -41,6 +41,10 @@ public class CartInfoDAO extends ActionSupport{
 
 	//ログインユーザーのカート情報を引き出す
 	public ArrayList<CartInfoDTO>showUserCartList(String userId)throws SQLException{
+		System.out.println("しょｗUserCartList");
+		ArrayList<CartInfoDTO>cartList = new ArrayList<>();
+
+		String sql = "SE"
 
 	}
 

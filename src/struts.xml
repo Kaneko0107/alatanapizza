@@ -14,5 +14,12 @@
 			<result name="success">home.jsp</result>
 			<result name="error">home.jsp</result>
 		</action>
+
+		<action name="ChangePasswordAction" class="com.internousdev.alatanapizza.action.ChangePasswordAction" method="execute">
+		<result name="success">changePassword.jsp</result></action>
+		<action name="ChangePasswordConfirmAction" class="com.internousdev.alatanapizza.action.ChangePasswordConfirmAction" method="execute">
+		<result name="success">changePasswordConfirm.jsp</result>
+		<result name="error">changePassword.jsp</result></action>
+
 	</package>
 </struts>

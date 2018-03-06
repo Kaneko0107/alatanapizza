@@ -17,9 +17,9 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 	private String userFamilyNameKana;
 	private String userFirstNameKana;
 	private String email;
-	private String tell;
-	private String postalCode;
-	private String address;
+	private String telNumber;
+//	private String postalCode;
+	private String userAddress;
 
 	public Map<String,Object> session;
 	private DestinationDAO destinationDAO=new DestinationDAO();
@@ -31,9 +31,9 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 				session.get("userFamilyNameKana").toString(),
 				session.get("userFirstNameKana").toString(),
 				session.get("email").toString(),
-				session.get("tell").toString(),
-				session.get("postalCode").toString(),
-				session.get("address").toString());
+				session.get("telNumber").toString(),
+//				session.get("postalCode").toString(),
+				session.get("userAddress").toString());
 
 		String result = SUCCESS;
 
@@ -73,23 +73,27 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 	public void setEmail(String email){
 		this.email=email;
 	}
-	public String getTell(){
-		return tell;
+	public String getTelNumber(){
+		return telNumber;
 	}
-	public void setTell(String tell){
-		this.tell=tell;
+	public void setTelNumber(String telNumber){
+		this.telNumber=telNumber;
 	}
-	public String getPostalCode(){
-		return postalCode;
+	/**
+	 * 郵便番号いらなかったので注釈化
+	 * @return
+	 */
+//	public String getPostalCode(){
+//		return postalCode;
+//	}
+//	public void setPostalCode(String postalCode){
+//		this.postalCode=postalCode;
+//	}
+	public String getUserAddress(){
+		return userAddress;
 	}
-	public void setPostalCode(String postalCode){
-		this.postalCode=postalCode;
-	}
-	public String getAddress(){
-		return address;
-	}
-	public void setAddress(String address){
-		this.address=address;
+	public void setUserAddress(String userAddress){
+		this.userAddress=userAddress;
 	}
 	@Override
 	public void setSession(Map<String,Object> session){

@@ -22,11 +22,11 @@ import com.opensymphony.xwork2.ActionSupport;
 				<span>メールアドレス</span>
 				<s:textfield name="Email"/>
 				<span>電話番号</span>
-				<s:textfield name="Tell"/>
+				<s:textfield name="TelNumber"/>
 				<span>郵便番号</span>
 				<s:textfield name="PostalCode"/>
 				<span>住所</span>
-				<s:textfield name="Address"/>
+				<s:textfield name="UserAddress"/>
 				<s:submit value="登録情報確認画面へ"/>
  *
  *
@@ -41,9 +41,9 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	private String userFamilyNameKana;
 	private String userFirstNameKana;
 	private String email;
-	private String tell;
-	private String postalCode;
-	private String address;
+	private String telNumber;
+//	private String postalCode;
+	private String userAddress;
 
 	public Map<String,Object> session;
 	public String errorMessage;
@@ -60,17 +60,17 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 				&&!(userFamilyNameKana.equals(""))
 				&&!(userFirstNameKana.equals(""))
 				&&!(email.equals(""))
-				&&!(tell.equals(""))
-				&&!(postalCode.equals(""))
-				&&!(address.equals(""))){
+				&&!(telNumber.equals(""))
+//				&&!(postalCode.equals(""))
+				&&!(userAddress.equals(""))){
 			session.put("userFamilyName", userFamilyName);
 			session.put("userFirstName", userFirstName);
 			session.put("userFamilyNameKana", userFamilyNameKana);
 			session.put("userFirstNameKana", userFirstNameKana);
 			session.put("email", email);
-			session.put("tell", tell);
-			session.put("postalCode", postalCode);
-			session.put("address", address);
+			session.put("telNumber", telNumber);
+//			session.put("postalCode", postalCode);
+			session.put("userAddress", userAddress);
 
 		}else{
 			/**
@@ -113,23 +113,23 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	public void setEmail(String email){
 		this.email=email;
 	}
-	public String getTell(){
-		return tell;
+	public String getTelNumber(){
+		return telNumber;
 	}
-	public void setTell(String tell){
-		this.tell=tell;
+	public void setTelNumber(String telNumber){
+		this.telNumber=telNumber;
 	}
-	public String getPostalCode(){
-		return postalCode;
+//	public String getPostalCode(){
+//		return postalCode;
+//	}
+//	public void setPostalCode(String postalCode){
+//		this.postalCode=postalCode;
+//	}
+	public String getUserAddress(){
+		return userAddress;
 	}
-	public void setPostalCode(String postalCode){
-		this.postalCode=postalCode;
-	}
-	public String getAddress(){
-		return address;
-	}
-	public void setAddress(String address){
-		this.address=address;
+	public void setUserAddress(String userAddress){
+		this.userAddress=userAddress;
 	}
 	@Override
 	public void setSession(Map<String,Object> session){

@@ -37,11 +37,11 @@
 				<span>メールアドレス</span>
 				<s:property value="mail" escape="false"/>
 				<span>電話番号</span>
-				<s:property value="tell" escape="false"/>
-				<span>郵便番号</span>
-				<s:property value="postalCode" escape="false"/>
+				<s:property value="telNumber" escape="false"/>
+<!--  			<span>郵便番号</span>
+				<s:property value="postalCode" escape="false"/>-->
 				<span>住所</span>
-				<s:property value="address" escape="false"/>
+				<s:property value="userAddress" escape="false"/>
 				<s:submit value="登録情報確定画面へ"/>
 			</s:form>
 			</table>

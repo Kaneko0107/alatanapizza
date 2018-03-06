@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS cherry;
-CREATE DATABASE cherry CHARACTER SET utf8;
+DROP DATABASE IF EXISTS alatanapizza;
+CREATE DATABASE alatanapizza CHARACTER SET utf8;
 
-use cherry;
+use alatanapizza;
 
 -- -----------↓会員情報テーブル↓----------------------------
 CREATE TABLE user_info(

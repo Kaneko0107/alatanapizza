@@ -6,6 +6,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.LoginDAO;
 import com.internousdev.alatanapizza.dto.LoginDTO;
+import com.internousdev.alatanapizza.util.ErrorMessageConstants;
 
 //import com.internousdev.alatanapizza.dao.GoCartInfoDAO;
 //import com.internousdev.alatanapizza.dto.GoCartInfoDTO;
@@ -16,23 +17,43 @@ import com.internousdev.alatanapizza.dto.LoginDTO;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class LoginAction extends ActionSupport implements SessionAware {
+public class LoginAction extends ActionSupport implements SessionAware ,ErrorMessageConstants {
 
 	/**
-	 * ユーザーID
+	 * ログインに必要な情報
+	 * 登録した内容
+	 * →ID,PASSWORD
+	 *
+	 * カート情報を紐付けするために引き継ぐ仮ID
+	 *
+	 * カート内容
+	 *
+	 * エラーメッセージ
+	 *
+	 * くらい？
+	 */
+	/**
+	 *ID
 	 */
 	private String loginUserId;
 	/**
-	 * パスワード
+	 * pass
 	 */
 	private String loginPassword;
+	/**
+	 * 結果返すためのresult
+	 */
 	private String result;
 	/**
-	 * 便利なMap
+	 * 入れ物Map session
 	 */
 	public Map<String,Object> session;
+	/**
+	 * new
+	 */
 	private LoginDAO loginDAO=new LoginDAO();
 	private LoginDTO loginDTO=new LoginDTO();
+
 
 	public String execute(){
 		String result = ERROR;
@@ -48,7 +69,11 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		}
 		return result;
 	}
-
+/**
+ * カート内容の引継ぎ、仮IDと登録済みIDとのリンク機能、それに関するDBとの通信機能、
+ * 未入力欄がある場合のエラーメッセージを追加したい
+ * @return
+ */
 	public String getLoginUserId(){
 		return loginUserId;
 	}

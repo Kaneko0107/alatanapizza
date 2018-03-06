@@ -8,11 +8,12 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.CartInfoDAO;
 import com.internousdev.alatanapizza.dto.CartInfoDTO;
+import com.internousdev.alatanapizza.util.ErrorMessageConstants;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class GoCartAction extends ActionSupport implements SessionAware,ErrorMessageConstants{
 
-	Map<Strint, Object>session;
+	Map<String, Object>session;
 	ArrayList<CartInfoDTO>cartList = new ArrayList<>();
 	int totalPrice;
 

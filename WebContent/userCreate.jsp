@@ -6,16 +6,13 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <meta http-equiv="Content-Style-Type" content="text/css"/>
-  <meta http-equiv="Content-Script-Type" content="text/javascript"/>
+  <link href="css/craftdenki.css" rel="stylesheet">
 
   <title>UserCreate画面</title>
 </head>
 
 <body>
   <div id = "header">
-    <div id = "pr">
-    </div>
   </div>
 
   <div id = "main">
@@ -33,15 +30,16 @@
 
         <tr>
           <td>
-            <label>ログインID:</label>
+            <label>ユーザーID:</label>
           </td>
 
           <td>
             <input type = "text" name = "loginUserId" value = ""/>
           </td>
 
+        <tr>
           <td>
-            <label>ログインPASS:</label>
+            <label>パスワード:</label>
           </td>
 
           <td>
@@ -51,18 +49,84 @@
 
         <tr>
           <td>
-            <label>ユーザー名:</label>
+            <label>お名前:</label>
           </td>
 
           <td>
-            <input type = "text" name = "userName" value = ""/>
+            <input type = "text" name = "familyName" value = ""/>
+            <input type = "text" name = "fiestName" value = ""/>
           </td>
         </tr>
+
+        <tr>
+          <td>
+            <label>カナ:</label>
+          </td>
+
+          <td>
+            <input type = "text" name = "familyNameKana" value = ""/>
+            <input type = "text" name = "firstNameKana" value = ""/>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label>性別:</label>
+          </td>
+
+          <td>
+            <input type = "radio" name = "sex" value = "">男
+            <input type = "radio" name = "sex" value = "">女
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label>メールアドレス:</label>
+          </td>
+
+          <td>
+            <input type = "text" name = "mail" value = ""/>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label>〒:</label>
+          </td>
+
+          <td>
+            <input type = "text" name = "yubin" value = ""/>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label>住所:</label>
+          </td>
+
+          <td>
+            <input type = "text" name = "address" value = ""/>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label>電話番号:</label>
+          </td>
+
+          <td>
+            <input type = "text" name = "tel" value = ""/>
+          </td>
+        </tr>
+
 
         <s:submit value = "登録"/>
 
       </s:form>
       </table>
+
+
 
       <div>
         <span>前画面に戻る場合は</span>

@@ -16,17 +16,17 @@ color:red;}
 </style>
 </head>
 <body>
-<div class="error"><s:if test="errorUserid !=''">
+<div class="error"><s:if test='errorUserid !=""'>
 <s:property value="errorUserid"/><br>
 </s:if></div>
 <div class="error"><s:if test="errorpassword !=''">
 <s:property value="errorpassword"/>
 </s:if></div>
-<s:form action="ChangePasswordConfirmAction">
+<s:form action="ChangePasswordConfirmAction" >
 <table>
 <tr>
 <td>ユーザーID;</td>
-<td><input type="text" name="userid"/></td>
+<td><input type="text" value='<s:property value="userid"/>' name="userid"/></td>
 </tr>
 <tr>
 <td>秘密の質問:</td>
@@ -38,7 +38,7 @@ color:red;}
 </tr>
 <tr>
 <td>答え:</td>
-<td><input type="text" name="answer" required/></td>
+<td><input type="text" name="answer" value='<s:property value="answer"/>' required/></td>
 </tr>
 <tr>
 <td>新しいパスワード:</td>

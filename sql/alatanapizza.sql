@@ -1,5 +1,7 @@
+SET names utf8;
+SET foreign_key_checks = 0;
 DROP DATABASE IF EXISTS alatanapizza;
-CREATE DATABASE alatanapizza CHARACTER SET utf8;
+CREATE DATABASE IF NOT EXISTS alatanapizza;
 
 use alatanapizza;
 
@@ -44,8 +46,8 @@ msize_price int,-- Mサイズ価格
 lsize_price int,-- Lサイズ価格
 price int,-- サイドメニュー、ドリンク価格
 stock int,-- 在庫
-image_file_path varchar(100),--画像ファイルパス
-image_file_name varchar(255),-- 画像ファイル名
+image_file_path varchar(100),-- 画像ファイルパス
+image_file_name varchar(100),-- 画像ファイル名
 release_date datetime NOT NULL, -- 発売年月
 release_company varchar(50), -- 発売会社
 status tinyint NOT NULL DEFAULT 0,-- ステータス(0:無効、1:有効)
@@ -216,6 +218,7 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     lsize_price,-- Lサイズ値段
     price,-- サイドメニュー、ドリンク価格
     stock,-- 在庫
+    image_file_path, -- 画像ファイルパス
 	image_file_name, -- 画像ファイル名
 	release_date,-- 発売年月
 	release_company,-- 発売会社
@@ -232,9 +235,9 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     2500, -- Lサイズ値段
     0,
 	10,-- 在庫
-	"./images/pizza/Margherita.png",--画像ファイルパス
+	"./images/pizza/Margherita.png",-- 画像ファイルパス
 	"Margherita.png",-- 画像ファイル名
-	cast('2018-01-01' as date),-- 発売年月
+	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社
 	1,-- ステータス(0:無効、1:有効)
 	NOW(),-- 登録日
@@ -249,9 +252,9 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     2500, -- Lサイズ値段
     0,
 	10,-- 在庫
-	"./images/pizza/SeafoodMix.png",--画像ファイルパス
+	"./images/pizza/SeafoodMix.png",-- 画像ファイルパス
 	"SeafoodMix.png",-- 画像ファイル名
-	cast('2018-01-01' as date),-- 発売年月
+	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社
 	1,-- ステータス(0:無効、1:有効)
 	NOW(),-- 登録日
@@ -266,9 +269,9 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     2500, -- Lサイズ値段
     0,
 	10,-- 在庫
-	"./images/pizza/DeluxePizza.png",--画像ファイルパス
+	"./images/pizza/DeluxePizza.png",-- 画像ファイルパス
 	"DeluxePizza,png",-- 画像ファイル名
-	cast('2018-01-01' as date),-- 発売年月
+	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社
 	1,-- ステータス(0:無効、1:有効)
 	NOW(),-- 登録日
@@ -283,9 +286,9 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     2500, -- Lサイズ値段
     0,
 	10,-- 在庫
-	"./images/pizza/CheeseAndCheese.png",--画像ファイルパス
+	"./images/pizza/CheeseAndCheese.png",-- 画像ファイルパス
 	"CheeseAndCheese.png",-- 画像ファイル名
-	cast('2018-01-01' as date),-- 発売年月
+	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社
 	1,-- ステータス(0:無効、1:有効)
 	NOW(),-- 登録日
@@ -300,9 +303,9 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     2500, -- Lサイズ値段
     0,
 	10,-- 在庫
-	"./images/pizza/Ebimayo.png",--画像ファイルパス
+	"./images/pizza/Ebimayo.png",-- 画像ファイルパス
 	"Ebimayo.png",-- 画像ファイル名
-	cast('2018-01-01' as date),-- 発売年月
+	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社
 	1,-- ステータス(0:無効、1:有効)
 	NOW(),-- 登録日
@@ -317,9 +320,9 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     2500, -- Lサイズ値段
     0,
 	10,-- 在庫
-	"./images/pizza/TunaCheese.png",--画像ファイルパス
+	"./images/pizza/TunaCheese.png",-- 画像ファイルパス
 	"TunaCheese.png",-- 画像ファイル名
-	cast('2018-01-01' as date),-- 発売年月
+	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社
 	1,-- ステータス(0:無効、1:有効)
 	NOW(),-- 登録日
@@ -334,9 +337,9 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     2500, -- Lサイズ値段
     0,
 	10,-- 在庫
-	"./images/pizza/Mediterranean.png",--画像ファイルパス
+	"./images/pizza/Mediterranean.png",-- 画像ファイルパス
 	"Mediterranean.png",-- 画像ファイル名
-	cast('2018-01-01' as date),-- 発売年月
+	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社
 	1,-- ステータス(0:無効、1:有効)
 	NOW(),-- 登録日
@@ -351,9 +354,9 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     2500, -- Lサイズ値段
     0,
 	10,-- 在庫
-	"./images/pizza/BasilPizza.png",--画像ファイルパス
+	"./images/pizza/BasilPizza.png",-- 画像ファイルパス
 	"BasilPizza.png",-- 画像ファイル名
-	cast('2018-01-01' as date),-- 発売年月
+	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社
 	1,-- ステータス(0:無効、1:有効)
 	NOW(),-- 登録日
@@ -368,9 +371,9 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     2500, -- Lサイズ値段
     0,
 	10,-- 在庫
-	"./images/pizza/TeriyakiPizza.png",--画像ファイルパス
+	"./images/pizza/TeriyakiPizza.png",-- 画像ファイルパス
 	"TeriyakiPizza.png",-- 画像ファイル名
-	cast('2018-01-01' as date),-- 発売年月
+	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社
 	1,-- ステータス(0:無効、1:有効)
 	NOW(),-- 登録日
@@ -385,9 +388,9 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     0,
     520,-- 価格
 	30,-- 在庫
-	"./images/side/FriedChicken.png",--画像ファイルパス
+	"./images/side/FriedChicken.png",-- 画像ファイルパス
 	"FriedChicken.png",-- 画像ファイル名
-	cast('2018-01-01' as date),-- 発売年月
+	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社
 	1,-- ステータス(0:無効、1:有効)
 	NOW(),-- 登録日
@@ -402,9 +405,9 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     0,
     480,-- 価格
 	30,-- 在庫
-	"./images/side/FriedPotato.png",--画像ファイルパス
+	"./images/side/FriedPotato.png",-- 画像ファイルパス
 	"FriedPotato.png",-- 画像ファイル名
-	cast('2018-01-01' as date),-- 発売年月
+	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社
 	1,-- ステータス(0:無効、1:有効)
 	NOW(),-- 登録日
@@ -419,9 +422,9 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     0,
     620,-- 価格
 	30,-- 在庫
-	"./images/side/CaesarSalad.png",--画像ファイルパス
+	"./images/side/CaesarSalad.png",-- 画像ファイルパス
 	"CaesarSalad.png",-- 画像ファイル名
-	cast('2018-01-01' as date),-- 発売年月
+	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社
 	1,-- ステータス(0:無効、1:有効)
 	NOW(),-- 登録日
@@ -436,9 +439,9 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     0,
     680,-- 価格
 	10,-- 在庫
-	"./images/side/Gratin.png",--画像ファイルパス
+	"./images/side/Gratin.png",-- 画像ファイルパス
 	"Gratin.png",-- 画像ファイル名
-	cast('2018-01-01' as date),-- 発売年月
+	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社
 	1,-- ステータス(0:無効、1:有効)
 	NOW(),-- 登録日
@@ -453,9 +456,9 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     0,
     500,-- 価格
 	30,-- 在庫
-	"./images/side/CornSoup.png",--画像ファイルパス
+	"./images/side/CornSoup.png",-- 画像ファイルパス
 	"CornSoup.png",-- 画像ファイル名
-	cast('2018-01-01' as date),-- 発売年月
+	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社
 	1,-- ステータス(0:無効、1:有効)
 	NOW(),-- 登録日
@@ -470,9 +473,9 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     0,
     350,-- 価格
 	30,-- 在庫
-	"./images/side/Ice.png",--画像ファイルパス
+	"./images/side/Ice.png",-- 画像ファイルパス
 	"Ice.png",-- 画像ファイル名
-	cast('2018-01-01' as date),-- 発売年月
+	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社
 	1,-- ステータス(0:無効、1:有効)
 	NOW(),-- 登録日
@@ -487,9 +490,9 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     0,
     100,-- 価格
 	50,-- 在庫
-	"./images/drink/Cola.png",--画像ファイルパス
+	"./images/drink/Cola.png",-- 画像ファイルパス
 	"Cola.png",-- 画像ファイル名
-	cast('2018-01-01' as date),-- 発売年月
+	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社
 	1,-- ステータス(0:無効、1:有効)
 	NOW(),-- 登録日
@@ -504,9 +507,9 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     0,
     100,-- 価格
 	50,-- 在庫
-	"./images/drink/OolongTea.png",--画像ファイルパス
+	"./images/drink/OolongTea.png",-- 画像ファイルパス
 	" OolongTea.png",-- 画像ファイル名
-	cast('2018-01-01' as date),-- 発売年月
+	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社
 	1,-- ステータス(0:無効、1:有効)
 	NOW(),-- 登録日
@@ -521,9 +524,9 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     0,
     100,-- 価格
 	50,-- 在庫
-	"./images/side/OrangeJuice.png",--画像ファイルパス
+	"./images/side/OrangeJuice.png",-- 画像ファイルパス
 	"OrangeJuice.png",-- 画像ファイル名
-	cast('2018-01-01' as date),-- 発売年月
+	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社
 	1,-- ステータス(0:無効、1:有効)
 	NOW(),-- 登録日

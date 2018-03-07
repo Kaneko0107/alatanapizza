@@ -35,7 +35,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 	private Map<String, Object> session;
 
-	private String result;
+	// private String result;
 
 	private ArrayList<String> errMsgList = new ArrayList<>();
 	private ArrayList<String> errMsgListId = new ArrayList<>();

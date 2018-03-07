@@ -5,19 +5,23 @@
 <html>
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta http-equiv = "Content-Type" content = "text/html; charset = utf-8"/>
+  <meta http-equiv = "Content-Style-Type" content = "text/css"/>
+  <meta http-equiv = "Content-Script-Type" content = "text/javascript"/>
+
   <link href="css/craftdenki.css" rel="stylesheet">
 
-  <title>UserCreate画面</title>
+  <title>ユーザー情報入力画面</title>
 </head>
 
 <body>
-  <div id = "header">
-  </div>
+  <div id = "header"> </div>
 
   <div id = "main">
     <div id = "top">
-      <p>userCreate</p>
+      <h3>ユーザー情報入力画面</h3>
+      <br>
+      <p>下記情報を入力してください</p>
     </div>
 
     <div>
@@ -30,116 +34,175 @@
 
         <tr>
           <td>
-            <label>ユーザーID:</label>
+            <label>ユーザーID : </label>
           </td>
 
           <td>
-            <input type = "text" name = "loginUserId" value = ""/>
-          </td>
-
-        <tr>
-          <td>
-            <label>パスワード:</label>
-          </td>
-
-          <td>
-            <input type = "text" name = "loginPassword" value = ""/>
+            <input type = "text" name = "loginUserId" value = '<s:property value = "loginUserId"/>'  placeholder = "半角英数字 8文字以下"/>
+                <s:iterator value="errMsgListId">
+                  <s:property />
+                </s:iterator>
           </td>
         </tr>
 
         <tr>
           <td>
-            <label>お名前:</label>
+            <label>パスワード : </label>
           </td>
 
           <td>
-            <input type = "text" name = "familyName" value = ""/>
-            <input type = "text" name = "fiestName" value = ""/>
+            <input type = "password" name = "loginPassword" value = '<s:property value = "loginPassword"/>' placeholder = "半角英数字 16文字以下"/>
           </td>
         </tr>
 
         <tr>
           <td>
-            <label>カナ:</label>
+            <label>苗字 : </label>
           </td>
 
           <td>
-            <input type = "text" name = "familyNameKana" value = ""/>
-            <input type = "text" name = "firstNameKana" value = ""/>
+            <input type = "text" name = "familyName" value = '<s:property value = "familyName"/>' placeholder = "16文字以下"/>
           </td>
         </tr>
 
         <tr>
           <td>
-            <label>性別:</label>
+            <label>名前 : </label>
           </td>
 
           <td>
-            <input type = "radio" name = "sex" value = "">男
-            <input type = "radio" name = "sex" value = "">女
+            <input type = "text" name = "fiestName" value = '<s:property value = "firstName"/>' />
           </td>
         </tr>
 
         <tr>
           <td>
-            <label>メールアドレス:</label>
+            <label>苗字（かな） : </label>
           </td>
 
           <td>
-            <input type = "text" name = "mail" value = ""/>
+            <input type = "text" name = "familyNameKana" value = '<s:property value = "familyName"/>' placeholder = "ひらがな 16文字以下"/>
           </td>
         </tr>
 
         <tr>
           <td>
-            <label>〒:</label>
+            <label>名前（かな） : </label>
           </td>
 
           <td>
-            <input type = "text" name = "yubin" value = ""/>
+            <input type = "text" name = "firstNameKana" value = '<s:property value = "familyName"/>' />
           </td>
         </tr>
 
         <tr>
           <td>
-            <label>住所:</label>
+            <label>性別 : </label>
           </td>
 
           <td>
-            <input type = "text" name = "address" value = ""/>
+            <input type = "radio" name = "sex" value = '<s:property value = "sex"/>'>男
+            <input type = "radio" name = "sex" value = '<s:property value = "sex"/>'>女
           </td>
         </tr>
 
         <tr>
           <td>
-            <label>電話番号:</label>
+            <label>メールアドレス : </label>
           </td>
 
           <td>
-            <input type = "text" name = "tel" value = ""/>
+            <input type = "text" name = "mail" value = '<s:property value = "mail"/>' placeholder = "14文字以上32文字以下"/>
           </td>
         </tr>
 
+        <tr>
+          <td>
+            <label>〒 : </label>
+          </td>
 
-        <s:submit value = "登録"/>
+          <td>
+            <input type = "text" name = "yubin" value = '<s:property value = "yubin"/>'/>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label>住所 : </label>
+          </td>
+
+          <td>
+            <input type = "text" name = "address" value = '<s:property value = "address"/>'/>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label>電話番号 : </label>
+          </td>
+
+          <td>
+            <input type = "text" name = "tel" value = '<s:property value = "tel"/>'/>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label>秘密の質問 : </label>
+          </td>
+
+          <td>
+<%--            <s:if test = "secretQuestion == 1"> --%>
+            <select name = "secretQuestion" >
+              <option value = ""> 選択してください </option>
+              <option value = "1" selected> 好きな食べ物 </option>
+              <option value = "2"> 嫌いな食べ物</option>
+            </select>
+<%--            </s:if> --%>
+
+           <s:elseif test = "secretQuestion == 2">
+            <select name = "secretQuestion" id = "secretQuestion">
+              <option value = ""> 選択してください </option>
+              <option value = "1"> 好きな食べ物 </option>
+              <option value = "2" selected> 嫌いな食べ物</option>
+            </select>
+           </s:elseif>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label>答え : </label>
+          </td>
+
+          <td>
+            <input type = "text" name = "secretAnswer" value = '<s:property value = "secretAnswer"/>'/>
+          </td>
+        </tr>
+
 
       </s:form>
       </table>
 
 
-
+      <br>
       <div>
-        <span>前画面に戻る場合は</span>
-        <a href = '<s:url action="HomeAction"/> '>こちら</a>
+        <span>確認画面へ進む </span>
+        <a href = '<s:url action="UserCreateConfirmAction"/> '> → </a>
+      </div>
+
+
+      <br>
+      <div>
+        <span>前画面に戻る </span>
+        <a href = '<s:url action="HomeAction"/> '> ← </a>
       </div>
 
     </div>
-  </div>
+   </div>
 
-  <div id = "footer">
-    <div id = "pr">
-    </div>
-  </div>
+  <div id = "footer"> </div>
+
 
 </body>
 </html>

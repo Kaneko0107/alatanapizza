@@ -38,8 +38,6 @@
 				<s:property value="mail" escape="false"/>
 				<span>電話番号</span>
 				<s:property value="telNumber" escape="false"/>
-<!--  			<span>郵便番号</span>
-				<s:property value="postalCode" escape="false"/>-->
 				<span>住所</span>
 				<s:property value="userAddress" escape="false"/>
 				<s:submit value="登録情報確定画面へ"/>

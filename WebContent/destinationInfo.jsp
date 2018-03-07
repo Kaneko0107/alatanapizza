@@ -37,8 +37,6 @@
 				<s:textfield name="mail"/>
 				<span>電話番号</span>
 				<s:textfield name="telNumber"/>
-	<!-- 			<span>郵便番号</span>
-				<s:textfield name="postalCode"/>-->
 				<span>住所</span>
 				<s:textfield name="userAddress"/>
 				<s:submit value="登録情報確認画面へ"/>

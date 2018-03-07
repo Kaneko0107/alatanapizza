@@ -1,13 +1,13 @@
-package com.internousdev.AlatanaPizza.action;
+package com.internousdev.alatanapizza.action;
 
 import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.AlatanaPizza.DAO.MyPageDAO;
-import com.internousdev.AlatanaPizza.DTO.MyPageDTO;
-import com.internousdev.AlatanaPizza.util.ErrorMessageConstants;
+import com.internousdev.alatanapizza.dao.MyPageDAO;
+import com.internousdev.alatanapizza.dto.MyPageDTO;
+import com.internousdev.alatanapizza.util.ErrorMessageConstants;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class MyPageAction extends ActionSupport implements SessionAware, ErrorMessageConstants {
@@ -33,7 +33,7 @@ public class MyPageAction extends ActionSupport implements SessionAware, ErrorMe
 		/*---------------------------------------------------------
 		 セッション情報取得
 		---------------------------------------------------------*/
-		if (!(session.containsKey("userId"))) {
+		if (!(session.containsKey("userId"))) {//loginページで設定
 
 			setMessage("このサービスをご利用になるにはログインしてください。");
 

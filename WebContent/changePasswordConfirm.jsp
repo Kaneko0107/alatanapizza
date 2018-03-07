@@ -8,19 +8,24 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>パスワード変更画面</h3>
+<h3>変更内容確認画面</h3><br>
+<p>変更内容が正しければ下記の完了ボタンで再設定を完了します。</p>
 
 
+<s:form action="ChangePasswordCompleteAction">
 
-			<p>ログインPASS:</p>
-			<s:property value="newpass" escape="false" />
-			<input type="hidden" value="%{newpass}" /> <input type="hidden"
-				value="%{userid}" /> <input type="hidden" value="%{answer}" />
+		 <tr>
+		<td><span id="pro">変更後のパスワード:</span></td>
+		 <td><s:property value="newpass" escape="false"/>
+		 	<s:hidden name="newpass" value="%{newpass}" />
+			<s:hidden name="userid" value="%{userid}" />
+			<s:hidden name="answer" value="%{answer}"/>
+		</td>
+</tr><br>
 
-
-
-			<s:form action="ChangePasswordCompleteAction">
-				<s:submit value="完了" />
+<tr>
+				<td><s:submit value="完了" /></td>
+				</tr>
 			</s:form>
 
 

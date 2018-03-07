@@ -24,13 +24,16 @@ public class ChangePasswordConfirmAction extends ActionSupport implements Sessio
 public String execute(){
 	System.out.println(newpass);
 	System.out.println(checkpass);
-	session.put("newpass",newpass);
+
 
 	if(CPCdao.CheckAnswer(userid,question,answer)){
 		result=SUCCESS;
+		session.put("newpass",newpass);
+		session.put("userid",userid);
+		session.put("answer", answer);
 	}else{
 		result=ERROR;
-		errorUserid="*入力内容が間違っています";
+		errorUserid="*ユーザーIDと答えが一致していません";
 		session.put("errorUserid",errorUserid);
 	}
 	//値の確認出力

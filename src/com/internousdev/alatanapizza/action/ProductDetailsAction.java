@@ -58,6 +58,8 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 						session.put("d_product_name_kana", detail.getProduct_name_kana());
 						session.put("d_product_name", detail.getProduct_name());
 						session.put("d_product_description", detail.getProduct_description());
+						session.put("d_product_msize_price", detail.getMsize_price());
+						session.put("d_product_lsize_price", detail.getLsize_price());
 						session.put("d_product_price", detail.getPrice());
 						session.put("d_release_date", detail.getRelease_date());
 						session.put("d_release_company", detail.getRelease_company());

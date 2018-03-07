@@ -1,4 +1,4 @@
-package com.internousdev.AlatanaPizza.DTO;
+package com.internousdev.alatanapizza.dto;
 
 public class MyPageDTO {
 

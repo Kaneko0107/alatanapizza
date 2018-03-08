@@ -19,8 +19,7 @@
 	<title>新商品追加確認画面</title>
 </head>
 <body>
-<!-- ヘッダーフォーマット -->
-	<jsp:include page="include_header.jsp" />
+
 
 	<div class="titleName">
 		<h2>新商品追加確認画面</h2>
@@ -48,8 +47,8 @@
 							<br>
 						</s:form>
 
-						<div class="modoru" style="padding-left: 23px;">
-							<a href="/cherry/userRegister.jsp">戻 る</a>
+						<div class="back">
+							<a href="/alatanapizza/MasterAdd.jsp">戻 る</a>
 						</div>
 
 	</div>>
@@ -57,7 +56,5 @@
 
 
 
-<!-- フッターフォーマット -->
-	<jsp:include page="include_footer.jsp" />
 </body>
 </html>

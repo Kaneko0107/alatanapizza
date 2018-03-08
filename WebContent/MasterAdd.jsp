@@ -20,8 +20,8 @@
 <title>新商品追加画面</title>
 </head>
 <body>
-<!-- ヘッダーフォーマット -->
-	<jsp:include page="include_header.jsp" />
+
+
 
 	<div class="titleName">
 		<h2>新商品追加画面</h2>
@@ -94,9 +94,8 @@
 
 				</s:form>
 			</table>
+		</div>
 
-<!-- フッターフォーマット -->
-	<jsp:include page="include_footer.jsp" />
 
 
 

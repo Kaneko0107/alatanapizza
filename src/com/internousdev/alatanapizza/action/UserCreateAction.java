@@ -36,6 +36,8 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 
 
 
+
+
 	public String execute() {
 		return SUCCESS;
 	}

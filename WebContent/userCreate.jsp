@@ -26,7 +26,7 @@
 
     <div>
       <s:if test = "errorMessage ! = ' '">
-        <s:property value="errorMessage" escape = "false"/>
+        <s:property value = "errorMessage" escape = "false"/>
       </s:if>
 
       <table>
@@ -39,7 +39,7 @@
 
           <td>
             <input type = "text" name = "loginUserId" value = '<s:property value = "loginUserId"/>'  placeholder = "半角英数字 8文字以下"/>
-                <s:iterator value="errMsgListId">
+                <s:iterator value = "errMsgListId">
                   <s:property />
                 </s:iterator>
           </td>
@@ -152,13 +152,13 @@
           </td>
 
           <td>
-<%--            <s:if test = "secretQuestion == 1"> --%>
+           <s:if test = "secretQuestion == 1">
             <select name = "secretQuestion" >
               <option value = ""> 選択してください </option>
               <option value = "1" selected> 好きな食べ物 </option>
               <option value = "2"> 嫌いな食べ物</option>
             </select>
-<%--            </s:if> --%>
+           </s:if>
 
            <s:elseif test = "secretQuestion == 2">
             <select name = "secretQuestion" id = "secretQuestion">
@@ -187,15 +187,15 @@
 
       <br>
       <div>
-        <span>確認画面へ進む </span>
-        <a href = '<s:url action="UserCreateConfirmAction"/> '> → </a>
+        <span>確認画面へ進む</span>
+        <a href = '<s:url action = "UserCreateConfirmAction"/> '> → </a>
       </div>
 
 
       <br>
       <div>
-        <span>前画面に戻る </span>
-        <a href = '<s:url action="HomeAction"/> '> ← </a>
+        <span>前画面に戻る</span>
+        <a href = '<s:url action = "HomeAction"/> '> ← </a>
       </div>
 
     </div>

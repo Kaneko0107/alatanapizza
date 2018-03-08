@@ -5,11 +5,13 @@
 <html>
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta http-equiv="Content-Style-Type" content="text/css"/>
-  <meta http-equiv="Content-Script-Type" content="text/javascript"/>
+  <meta http-equiv = "Content-Type" content = "text/html; charset = utf-8"/>
+  <meta http-equiv = "Content-Style-Type" content = "text/css"/>
+  <meta http-equiv = "Content-Script-Type" content = "text/javascript"/>
 
-  <title>UserCreateComplete画面</title>
+  <link href="css/craftdenki.css" rel="stylesheet">
+
+  <title>登録完了画面</title>
 </head>
 
 <body>
@@ -19,21 +21,18 @@
   </div>
 
   <div id = "main">
-    <div id = "pr">
       <p>UserCreateComplete</p>
     </div>
 
     <div>
-      <h3>ユーザーの登録が完了しました。</h3>
+      <h3>登録が完了しました</h3>
+
       <div>
-        <a href = '<s:url action = "HomeAction"/>'>ログインへ</a>
+        <input type="button" onclick="location.href=' <s:url action= "LoginAction" />'" value = "ログインへ">
       </div>
     </div>
-  </div>
 
-  <div id = "footer">
-    <div id = "pr">
-    </div>
-  </div>
+  <div id = "footer"> </div>
+
 </body>
 </html>

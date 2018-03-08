@@ -26,8 +26,7 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 	private String secretQuestion;
 	private String secretAnswer;
 
-	private String yubin3;
-	private String yubin4;
+	private String yubin;
 
 	private String address;
 
@@ -41,6 +40,7 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 		return SUCCESS;
 	}
 
+
 	public String getLoginUserId() {
 		return loginUserId;
 	}
@@ -48,6 +48,7 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 	public void setLoginUserId(String loginUserId) {
 		this.loginUserId = loginUserId;
 	}
+
 
 	public String getLoginPassword() {
 		return loginPassword;
@@ -57,6 +58,7 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 		this.loginPassword = loginPassword;
 	}
 
+
 	public String getFamilyName() {
 		return familyName;
 	}
@@ -64,6 +66,7 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 	public void setFamilyName(String familyName) {
 		this.familyName = familyName;
 	}
+
 
 	public String getFirstName() {
 		return firstName;
@@ -73,6 +76,7 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 		this.firstName = firstName;
 	}
 
+
 	public String getFirstNameKana() {
 		return firstNameKana;
 	}
@@ -80,6 +84,7 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 	public void setFirstNameKana(String firstNameKana) {
 		this.firstNameKana = firstNameKana;
 	}
+
 
 	public String getFamilyNameKana() {
 		return familyNameKana;
@@ -89,6 +94,7 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 		this.familyNameKana = familyNameKana;
 	}
 
+
 	public String getSex() {
 		return sex;
 	}
@@ -96,6 +102,7 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
+
 
 	public String getMail() {
 		return mail;
@@ -105,6 +112,7 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 		this.mail = mail;
 	}
 
+
 	public String getSecretQuestion() {
 		return secretQuestion;
 	}
@@ -112,6 +120,7 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 	public void setSecretQuestion(String secretQuestion) {
 		this.secretQuestion = secretQuestion;
 	}
+
 
 	public String getSecretAnswer() {
 		return secretAnswer;
@@ -121,6 +130,7 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 		this.secretAnswer = secretAnswer;
 	}
 
+
 	public String getAddress() {
 		return address;
 	}
@@ -128,6 +138,7 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
 
 	public String getTel() {
 		return tel;
@@ -137,21 +148,15 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 		this.tel = tel;
 	}
 
-	public String getYuubin1() {
-		return yubin3;
+
+	public String getyubin() {
+		return yubin;
 	}
 
-	public void setyubin3(String yubin3) {
-		this.yubin3 = yubin3;
+	public void setyubin(String yubin) {
+		this.yubin = yubin;
 	}
 
-	public String getyubin4() {
-		return yubin4;
-	}
-
-	public void setyubin4(String yubin4) {
-		this.yubin4 = yubin4;
-	}
 
 	public Map<String, Object> getSession() {
 		return session;

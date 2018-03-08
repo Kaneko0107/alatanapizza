@@ -6,7 +6,6 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.LoginDAO;
 import com.internousdev.alatanapizza.dto.LoginDTO;
-import com.internousdev.alatanapizza.util.ErrorMessageConstants;
 
 //import com.internousdev.alatanapizza.dao.GoCartInfoDAO;
 //import com.internousdev.alatanapizza.dto.GoCartInfoDTO;
@@ -17,16 +16,17 @@ import com.internousdev.alatanapizza.util.ErrorMessageConstants;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class LoginAction extends ActionSupport implements SessionAware ,ErrorMessageConstants {
+public class LoginAction extends ActionSupport implements SessionAware /*,ErrorMessageConstants*/ {
 
 	/**
 	 * ログインに必要な情報
 	 * 登録した内容
 	 * →ID,PASSWORD
 	 *
-	 * カート情報を紐付けするために引き継ぐ仮ID
+	 * カート内容を引継ぎするために仮IDを本IDで上書きするにはどうするか
+	 * →LoginDAOのほうでPreparedStatementにてSQL文でtemp_user_idをuser_idでUpdateしたので解決？
 	 *
-	 * カート内容
+	 *
 	 *
 	 * エラーメッセージ
 	 *
@@ -35,7 +35,7 @@ public class LoginAction extends ActionSupport implements SessionAware ,ErrorMes
 	/**
 	 *ID
 	 */
-	private String loginUserId;
+	private String loginId;
 	/**
 	 * pass
 	 */
@@ -54,10 +54,15 @@ public class LoginAction extends ActionSupport implements SessionAware ,ErrorMes
 	private LoginDAO loginDAO=new LoginDAO();
 	private LoginDTO loginDTO=new LoginDTO();
 
+	private int i;
 
+//手直し中
 	public String execute(){
-		String result = ERROR;
-		loginDTO=loginDAO.getLoginUserInfo(loginUserId,loginPassword);
+
+
+	}
+/*		String result = ERROR;
+		loginDTO=loginDAO.getLoginUserInfo(loginId,loginPassword);
 		session.put("loginUser", loginDTO);
 
 		if(((LoginDTO) session.get("loginUser")).getLoginFlg()){
@@ -74,6 +79,7 @@ public class LoginAction extends ActionSupport implements SessionAware ,ErrorMes
  * 未入力欄がある場合のエラーメッセージを追加したい
  * @return
  */
+/*
 	public String getLoginUserId(){
 		return loginUserId;
 	}
@@ -91,6 +97,6 @@ public class LoginAction extends ActionSupport implements SessionAware ,ErrorMes
 	public void setSession(Map<String,Object> session){
 		this.session=session;
 	}
-
+*/
 
 }

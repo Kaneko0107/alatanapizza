@@ -8,6 +8,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.ProductDetailsDAO;
+import com.internousdev.alatanapizza.dao.ProductListDAO;
 import com.internousdev.alatanapizza.dto.ProductDTO;
 //import com.internousdev.alatanapizza.dto.Review2DTO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -46,11 +47,13 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 
 	private ProductDetailsDAO productDetailsDAO = new ProductDetailsDAO();
 
+	private ProductListDAO productListDAO = new ProductListDAO();
+
 	public String execute() throws SQLException {
 
 		// String[] productIdList = product_id.split(", ", 0);
 
-				// 商品詳細情報取得メソッド
+				// 商品詳細情報取得
 				try {
 					detail = productDetailsDAO.getProductDetailsInfo(product_id);
 					if (detail != null) {
@@ -58,6 +61,8 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 						session.put("d_product_name_kana", detail.getProduct_name_kana());
 						session.put("d_product_name", detail.getProduct_name());
 						session.put("d_product_description", detail.getProduct_description());
+						session.put("d_product_msize_price", detail.getMsize_price());
+						session.put("d_product_lsize_price", detail.getLsize_price());
 						session.put("d_product_price", detail.getPrice());
 						session.put("d_release_date", detail.getRelease_date());
 						session.put("d_release_company", detail.getRelease_company());
@@ -75,7 +80,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-
+/*
 				// おすすめリスト情報取得
 				try {
 					suggestList = productDetailsDAO
@@ -84,7 +89,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-
+*/
 				// レビュー情報取得メソッド
 				/*try {
 
@@ -94,6 +99,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 					e.printStackTrace();
 				}
 */
+
 				// 1から在庫数までの選択表示用List
 				for (int i = 1; i <= detail.getStock(); i++) {
 					stockList.add(i);
@@ -104,6 +110,13 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 				}
 
 				price = detail.getPrice();
+
+// トッピングメニュー
+				toppingList = productDetailsDAO.getToppingInfo();
+				session.put("toppingList", toppingList);
+
+
+
 				String result = SUCCESS;
 				return result;
 			}

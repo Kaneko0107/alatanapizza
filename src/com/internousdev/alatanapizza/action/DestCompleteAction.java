@@ -18,7 +18,6 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 	private String userFirstNameKana;
 	private String email;
 	private String telNumber;
-//	private String postalCode;
 	private String userAddress;
 
 	public Map<String,Object> session;
@@ -32,7 +31,6 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 				session.get("userFirstNameKana").toString(),
 				session.get("email").toString(),
 				session.get("telNumber").toString(),
-//				session.get("postalCode").toString(),
 				session.get("userAddress").toString());
 
 		String result = SUCCESS;
@@ -79,16 +77,6 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 	public void setTelNumber(String telNumber){
 		this.telNumber=telNumber;
 	}
-	/**
-	 * 郵便番号いらなかったので注釈化
-	 * @return
-	 */
-//	public String getPostalCode(){
-//		return postalCode;
-//	}
-//	public void setPostalCode(String postalCode){
-//		this.postalCode=postalCode;
-//	}
 	public String getUserAddress(){
 		return userAddress;
 	}

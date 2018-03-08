@@ -27,15 +27,15 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	private String secretQuestion;
 	private String secretAnswer;
 
-	private String yubin3;
-	private String yubin4;
+	private String yubin;
 
 	private String address;
 
 	private String tel;
 
 	private Map<String, Object> session;
-	private String result;
+
+	// private String result;
 
 	private ArrayList<String> errMsgList = new ArrayList<>();
 	private ArrayList<String> errMsgListId = new ArrayList<>();
@@ -225,8 +225,12 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		 session.put("secretQuestion", secretQuestion);
 		 session.put("secretAnswer", secretAnswer);
 		 session.put("address", address);
-		 session.put("tel", tel); }
+		 session.put("tel", tel);
 	}
+
+	return result;
+
+   }
 
 
 
@@ -337,21 +341,14 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		return session;
 	}
 
-	public String getYubin3() {
-		return yubin3;
+	public String getYubin() {
+		return yubin;
 	}
 
-	public void setyubin3(String yubin3) {
-		this.yubin3 = yubin3;
+	public void setyubin(String yubin) {
+		this.yubin = yubin;
 	}
 
-	public String getYubin4() {
-		return yubin4;
-	}
-
-	public void setYubin4(String yubin4) {
-		this.yubin4 = yubin4;
-	}
 
 	public ArrayList<String> getErrMsgList() {
 		return errMsgList;
@@ -440,6 +437,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	public void setErrMsgListTel(ArrayList<String> errMsgListTel) {
 		this.errMsgListTel = errMsgListTel;
 	}
+
 
 	public String getErrId() {
 		return errId2;

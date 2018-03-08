@@ -42,7 +42,6 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	private String userFirstNameKana;
 	private String email;
 	private String telNumber;
-//	private String postalCode;
 	private String userAddress;
 
 	public Map<String,Object> session;
@@ -61,7 +60,6 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 				&&!(userFirstNameKana.equals(""))
 				&&!(email.equals(""))
 				&&!(telNumber.equals(""))
-//				&&!(postalCode.equals(""))
 				&&!(userAddress.equals(""))){
 			session.put("userFamilyName", userFamilyName);
 			session.put("userFirstName", userFirstName);
@@ -69,7 +67,6 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 			session.put("userFirstNameKana", userFirstNameKana);
 			session.put("email", email);
 			session.put("telNumber", telNumber);
-//			session.put("postalCode", postalCode);
 			session.put("userAddress", userAddress);
 
 		}else{
@@ -119,12 +116,6 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	public void setTelNumber(String telNumber){
 		this.telNumber=telNumber;
 	}
-//	public String getPostalCode(){
-//		return postalCode;
-//	}
-//	public void setPostalCode(String postalCode){
-//		this.postalCode=postalCode;
-//	}
 	public String getUserAddress(){
 		return userAddress;
 	}

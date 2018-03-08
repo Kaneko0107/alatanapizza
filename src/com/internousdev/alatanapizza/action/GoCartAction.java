@@ -21,6 +21,18 @@ public class GoCartAction extends ActionSupport implements SessionAware,ErrorMes
 
 		CartInfoDAO dao = new CartInfoDAO();
 
+
+	//loginFlgが存在しているか判定
+	if(!session.containsKey("loginFlg")){
+		session.put("loginFlg",false);
+	}
+		if((boolean)session.get("loginFlg")){
+			dao.changeUserId(session.get("tempUserId").toString(), session.get("userId").toString());
+			cartList = dao.showUserCartList(session.get("userId").toString());
+		}else{
+			cartList = dao.showTempUserCartList(session.get("tempUserId").toString());
+		}
+
 	//合計金額の計算
 		totalPrice = calcTotalPrice(cartList);
 		return SUCCESS;
@@ -43,12 +55,13 @@ public class GoCartAction extends ActionSupport implements SessionAware,ErrorMes
 	}
 
 	//合計金額を計算するメソッド
-	public int calcTotalPrice(ArrayList<CartInfoDTO>cartList){
+	public int calcTotalPrice(ArrayList<CartInfoDTO> cartList){
 		int totalPrice = 0;
 		for(CartInfoDTO dto:cartList){
 			totalPrice += dto.getPrice() * dto.getProductCount();
 			System.out.println("合計" + totalPrice + "円");
 		}
+		return totalPrice;
 	}
 
 }

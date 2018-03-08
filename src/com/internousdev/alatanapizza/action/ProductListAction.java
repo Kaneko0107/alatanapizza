@@ -21,7 +21,7 @@ public class ProductListAction extends ActionSupport implements SessionAware {
     private ProductListDAO productListDAO = new ProductListDAO();
     //商品情報格納
     public ArrayList<ProductDTO> productList = new ArrayList<>();
-    //productListを18個ごとに格納したList
+    //productListを9個ごとに格納したList
     private ArrayList<ArrayList<ProductDTO>> trueList = new ArrayList<>();
     private int pageSelect;
     private int pageCount;
@@ -36,7 +36,7 @@ public class ProductListAction extends ActionSupport implements SessionAware {
             this.productList = null;
         }
 
-        //productListを18個ごとに格納
+        //productListを9個ごとに格納
         ProductListChange change = new ProductListChange();
         trueList = change.productListChange(productList);
 

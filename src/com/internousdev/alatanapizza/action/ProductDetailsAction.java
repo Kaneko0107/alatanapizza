@@ -8,6 +8,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.ProductDetailsDAO;
+import com.internousdev.alatanapizza.dao.ProductListDAO;
 import com.internousdev.alatanapizza.dto.ProductDTO;
 //import com.internousdev.alatanapizza.dto.Review2DTO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -46,6 +47,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 
 	private ProductDetailsDAO productDetailsDAO = new ProductDetailsDAO();
 
+	private ProductListDAO productListDAO = new ProductListDAO();
 
 	public String execute() throws SQLException {
 
@@ -108,6 +110,13 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 				}
 
 				price = detail.getPrice();
+
+// トッピングメニュー
+				toppingList = productDetailsDAO.getToppingInfo();
+				session.put("toppingList", toppingList);
+
+
+
 				String result = SUCCESS;
 				return result;
 			}

@@ -19,7 +19,7 @@ public class ProductDetailsDAO {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 		ProductDTO dto = new ProductDTO();
-		String sql = "SELECT * FROM product_info where product_id=? AND status = 0";
+		String sql = "SELECT * FROM product_info where product_id=? AND status = 1";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -45,7 +45,7 @@ public class ProductDetailsDAO {
 				dto.setUpdate_date(rs.getDate("update_date"));
 				dto.setStock(rs.getInt("stock"));
 			} else {
-				return null;
+				dto = null;
 			}
 
 		} catch (Exception e) {
@@ -245,4 +245,39 @@ public class ProductDetailsDAO {
 		return res;
 	}
 */
+    /* トッピング情報の取得 */
+    public ArrayList<ProductDTO> getToppingInfo() throws SQLException {
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+        ArrayList<ProductDTO> toppingList = new ArrayList<ProductDTO>();
+
+        //商品ID昇降順に
+        String sql = "SELECT * FROM m_topping";
+
+        try {
+           PreparedStatement ps = con.prepareStatement(sql);
+
+           ResultSet rs = ps.executeQuery();
+
+           while(rs.next()) {
+              ProductDTO dto = new ProductDTO();
+              dto.setId(rs.getInt("id"));
+              dto.setTopping_id(rs.getInt("topping_id"));
+              dto.setTopping_name(rs.getString("topping_name"));
+              dto.setMsize_price(rs.getInt("msize_price"));
+              dto.setLsize_price(rs.getInt("lsize_price"));
+              dto.setInsert_date(rs.getDate("insert_date"));
+              dto.setUpdate_date(rs.getDate("update_date"));
+              toppingList.add(dto);
+           }
+        } catch (Exception e) {
+           e.printStackTrace();
+        } finally {
+           con.close();
+        }
+        return toppingList;
+    }
+
+
+
 }

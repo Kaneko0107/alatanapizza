@@ -6,7 +6,19 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>商品詳細画面</title>
+<script src="./js//jquery-1.12.4.min.js">
+$(function(){
+$( 'input[name="optionsRadios"]:radio' ).change( function() {
+   var radioval = $(this).val();
+   if(radioval == 1){
+      $('#inputother').removeAttr('disabled');
+   }else{
+      $('#inputother').attr('disabled','disabled');
+   }
+});
 
+});
+</script>
 </head>
 <body>
 
@@ -18,23 +30,21 @@
 				<div class="img">
 					<img class="image"
 						src="<s:property value='session.d_image_file_path'/>" alt="Photo"
-						width="300" height="240">
+						width="400" height="270">
 				</div>
 				<table class="detailsTable">
 					<tr>
 						<td class="nowrap"><!-- 商品名 --></td>
 						<td><s:property value="session.d_product_name" /></td>
-					</tr>
-					<tr>
 						<td class="nowrap"><!-- 商品名かな --></td>
 						<td><s:property value="session.d_product_name_kana" /></td>
 					</tr>
 					<tr>
 						<td class="nowrap">M</td>
-						<td>￥<s:property value="session.d_product_price" />
+						<td><input type="radio" name="optionsRadios" id="optionsRadios1" value="1">￥<s:property value="session.d_product_msize_price" />
 						</td>
 						<td class="nowrap">L</td>
-						<td>￥<s:property value="session.d_product_price" />
+						<td><input type="radio" name="optionsRadios" id="optionsRadios1" value="1">￥<s:property value="session.d_product_lsize_price" />
 						</td>
 					</tr>
 					<tr>
@@ -50,15 +60,22 @@
 		<div class="ToppingList">
 			<div class="toppingList">
 			<table class="toppingTable">
-					<tr>
-						<td class="nowrap"><!-- 商品名 --></td>
-						<td><s:property value="session.d_product_name" /></td>
-					</tr>
-
-
+						<s:iterator value="session.toppingList">
+						<tr>
+						<s:checkbox name="checkList" fieldValue="%{id}"/>
+						 <s:property value="topping_name"/>
+						</tr>
+						 </s:iterator>
 			</table>
 			</div>
 		</div>
+
+	<h3>数量</h3>
+	<div>
+
+
+	</div>
+
 
 </div>
 

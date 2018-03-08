@@ -6,6 +6,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>商品詳細画面</title>
+
 <script src="./js//jquery-1.12.4.min.js">
 $(function(){
 $( 'input[name="optionsRadios"]:radio' ).change( function() {
@@ -19,10 +20,25 @@ $( 'input[name="optionsRadios"]:radio' ).change( function() {
 
 });
 </script>
+<script>
+function outputSelectedValueAndText(obj){
+	var data = document.select.product_count.value;
+	document.getElementById("productDetailPrice").value=data * 100;
+	var idx=obj.options[idx].value;
+	var text=obj.options[idx].text;
+	alert(idx);
+	alert(text);
+
+	console.log('value= '+value+','+'text= '+text);
+}
+</script>
 </head>
 <body>
 
-<!--商品情報 -->
+
+
+		<s:form action="GoCartAction" name="select">
+<!--商品詳細情報 -->
 <div class="main">
 		<h3><!-- ボタンの名前 --></h3>
 		<div class="DetailsList">
@@ -40,6 +56,7 @@ $( 'input[name="optionsRadios"]:radio' ).change( function() {
 						<td><s:property value="session.d_product_name_kana" /></td>
 					</tr>
 					<tr>
+					<!-- ピザのときとそのほかの時の金額表示をどうするか -->
 						<td class="nowrap">M</td>
 						<td><input type="radio" name="optionsRadios" id="optionsRadios1" value="1">￥<s:property value="session.d_product_msize_price" />
 						</td>
@@ -56,7 +73,7 @@ $( 'input[name="optionsRadios"]:radio' ).change( function() {
 			</div>
 		</div>
 
-		<h5>トッピング</h5>
+		<h4>トッピング</h4><h5>M\324,L\432</h5>
 		<div class="ToppingList">
 			<div class="toppingList">
 			<table class="toppingTable">
@@ -70,13 +87,58 @@ $( 'input[name="optionsRadios"]:radio' ).change( function() {
 			</div>
 		</div>
 
-	<h3>数量</h3>
-	<div>
 
 
-	</div>
+			数量
+	<s:select name="product_count" list="stockList" onchange="outputSelectedValueAndText(this);" />
+			選択した商品の金額
+	<s:textfield name="productDetailPrice" id="productDetailPrice" />
 
 
+
+			<s:hidden name="gocart" value="1"/>
+			<s:submit value="カートに入れる"/>
+
+
+
+</s:form>
+
+
+<h3>おすすめ関連商品</h3>
+<div>
+		<ul class="thumbnail clearFix">
+			<s:iterator value="sugestList">
+				<a href="<s:url action="ProductDetailsAction">
+				 <s:param name="product_id" value="%{product_id}" />
+ 			</s:url>">
+
+					<li class="list1">
+						<dl>
+							<dt>
+								<img class="image" src="<s:property value='image_file_path'/>"
+									alt="Photo" width="250" height="200">
+							</dt>
+							<table class="detailsTable">
+								<tr>
+									<td class="nowrap">商品名</td>
+									<td><s:property value="product_name" /></td>
+								</tr>
+								<tr>
+									<td class="nowrap">M</td>
+									<td>￥<s:property value="msize_price" />
+									<td class="nowrap">L</td>
+									<td>￥<s:property value="lsize_price" />
+									<td class="nowrap"><!-- サイドメニュー用 --></td>
+									<td>￥<s:property value="price" />
+									</td>
+								</tr>
+							</table>
+							<s:hidden name="product_id" value="%{product_id}" />
+						</dl>
+				</li>
+				</a>
+			</s:iterator>
+		</ul>
 </div>
 
 </body>

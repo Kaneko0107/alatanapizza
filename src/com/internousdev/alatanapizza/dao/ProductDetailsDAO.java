@@ -10,11 +10,10 @@ import java.util.List;
 import com.internousdev.alatanapizza.dto.ProductDTO;
 //import com.internousdev.alatanapizza.dto.Review2DTO;
 import com.internousdev.alatanapizza.util.DBConnector;
-//import com.internousdev.alatanapizza.util.DateUtil;
 
 public class ProductDetailsDAO {
 
-	// 商品詳細情報取得(単体)
+	// 商品詳細情報取得
 	public ProductDTO getProductDetailsInfo(String product_id) throws SQLException {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -64,7 +63,7 @@ public class ProductDetailsDAO {
 		ArrayList<ProductDTO> detailsList = new ArrayList<>();
 		for (int i = 0; i < productIdList.length; i++) {
 
-			String sql = "SELECT * FROM product_info where product_id = ? AND status = 0";
+			String sql = "SELECT * FROM product_info where product_id = ? AND status = 1";
 
 			try {
 				PreparedStatement ps = con.prepareStatement(sql);
@@ -90,16 +89,14 @@ public class ProductDetailsDAO {
 					dto.setUpdate_date(rs.getDate("update_date"));
 					dto.setStock(rs.getInt("stock"));
 				}
-
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-
 		return detailsList;
 	}
 
-/*
+
 	// おすすめ商品リスト
 	public ArrayList<ProductDTO> getSuggestProductInfo(int category_id) throws SQLException {
 		ArrayList<ProductDTO> suggestList = new ArrayList<ProductDTO>();
@@ -107,7 +104,7 @@ public class ProductDetailsDAO {
 		Connection con = db.getConnection();
 
 		//商品をランダムに3件表示させる
-		String sql = "SELECT * FROM product_info WHERE status = 0 AND category_id = ? ORDER BY RAND() LIMIT 3 ";
+		String sql = "SELECT * FROM product_info WHERE status = 1 AND category_id = ? ORDER BY RAND() LIMIT 3 ";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -144,7 +141,7 @@ public class ProductDetailsDAO {
 		}
 		return suggestList;
 	}
-*/
+
 	// レビュー情報取得
 	/*public ArrayList<Review2DTO> getReviewInfo(String product_id) throws SQLException {
 
@@ -251,7 +248,6 @@ public class ProductDetailsDAO {
 		Connection con = db.getConnection();
         ArrayList<ProductDTO> toppingList = new ArrayList<ProductDTO>();
 
-        //商品ID昇降順に
         String sql = "SELECT * FROM m_topping";
 
         try {

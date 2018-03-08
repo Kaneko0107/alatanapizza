@@ -8,7 +8,6 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.ProductDetailsDAO;
-import com.internousdev.alatanapizza.dao.ProductListDAO;
 import com.internousdev.alatanapizza.dto.ProductDTO;
 //import com.internousdev.alatanapizza.dto.Review2DTO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -21,6 +20,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 
 	private String id;
 	private String product_id;
+	private String category_name;
 	private String stock;
 	private String error;
 	private int insertFlg;
@@ -42,12 +42,12 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 	// お勧めリスト情報
 	public List<ProductDTO> suggestList = new ArrayList<ProductDTO>();
 
-	// レビュー情報｢リスト
+	// レビュー情報リスト
 	//public List<Review2DTO> reviewList = new ArrayList<Review2DTO>();
 
 	private ProductDetailsDAO productDetailsDAO = new ProductDetailsDAO();
 
-	private ProductListDAO productListDAO = new ProductListDAO();
+	//private ProductListDAO productListDAO = new ProductListDAO();
 
 	public String execute() throws SQLException {
 
@@ -72,15 +72,12 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 					} else {
 
 						return ERROR;
-
-						// トッピング情報取得
-						//((ProductDTO) session.get("ToppingInfo")).getProduct_id();
 					}
 
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-/*
+
 				// おすすめリスト情報取得
 				try {
 					suggestList = productDetailsDAO
@@ -89,7 +86,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-*/
+
 				// レビュー情報取得メソッド
 				/*try {
 
@@ -109,13 +106,10 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 					return ERROR;
 				}
 
-				price = detail.getPrice();
 
-// トッピングメニュー
+				// トッピングメニュー
 				toppingList = productDetailsDAO.getToppingInfo();
 				session.put("toppingList", toppingList);
-
-
 
 				String result = SUCCESS;
 				return result;
@@ -225,6 +219,14 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 
 			public int getCategory_id() {
 				return category_id;
+			}
+
+			public void setCategory_name(String category_name) {
+				this.category_name = category_name;
+			}
+
+			public String getCategory_name() {
+				return category_name;
 			}
 
 			public void setCategory_id(int category_id) {

@@ -45,6 +45,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 		        session.get("mail").toString(),
 		        Integer.parseInt(session.get("secretQuestion").toString()),
 		        session.get("secretAnswer").toString(),
+		        session.get("yubin").toString(),
 		        session.get("address").toString(),
 		        session.get("tel").toString() );
 
@@ -142,6 +143,15 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	public void setSecretAnswer(String secretAnswer) {
 		this.secretAnswer = secretAnswer;
 	}
+
+	public String getYubin() {
+		return address;
+	}
+
+	public void setYubin(String yubin) {
+		this.yubin = yubin;
+	}
+
 
 	public String getAddress() {
 		return address;

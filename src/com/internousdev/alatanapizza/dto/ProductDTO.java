@@ -24,7 +24,7 @@ public class ProductDTO {
     private String image_file_name; //画像ファイル名
     private String release_date; //発売年月日
     private String release_company; //発売会社
-    private String categoryName; //カテゴリー名
+    private String category_name; //カテゴリー名
     private String topping_name; //トッピング名
     private Date regist_date; //ピザ登録日
     private Date update_date; //更新日
@@ -34,10 +34,10 @@ public class ProductDTO {
 
 
     public String getCategoryName() {
-       return categoryName;
+       return category_name;
     }
     public void setCategoryName(String categoryName) {
-       this.categoryName = categoryName;
+       this.category_name = categoryName;
     }
 
     public void setCategoryName(Integer category_id) {
@@ -47,7 +47,7 @@ public class ProductDTO {
 
        for(int i = 0; i < categoryList.size(); i++) {
     	   if(categoryList.get(i).getCategory_id().equals(category_id.toString())) {
-				this.categoryName = categoryList.get(i).getCategory_name();
+				this.category_name = categoryList.get(i).getCategory_name();
           }
        }
     }

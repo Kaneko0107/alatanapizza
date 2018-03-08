@@ -87,11 +87,6 @@
       		<result name = "success">MasterAddComplete.jsp</result>
 		</action>
 
-<!-- 須藤作業中仮 -->
-		<action name="ProductDetailsAction" class="com.internousdev.alatanapizza.action.ProductDetailsAction" method="execute">
-			<result name="success">productDetails.jsp</result>
-		</action>
-		
 <!-- 商品グループ  -->
 <!--須藤担当 struts文  -->
 		<action name="ProductListAction" class="com.internousdev.alatanapizza.action.ProductListAction" method="execute">

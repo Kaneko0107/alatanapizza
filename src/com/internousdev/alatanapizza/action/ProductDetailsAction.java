@@ -46,11 +46,12 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 
 	private ProductDetailsDAO productDetailsDAO = new ProductDetailsDAO();
 
+
 	public String execute() throws SQLException {
 
 		// String[] productIdList = product_id.split(", ", 0);
 
-				// 商品詳細情報取得メソッド
+				// 商品詳細情報取得
 				try {
 					detail = productDetailsDAO.getProductDetailsInfo(product_id);
 					if (detail != null) {
@@ -77,7 +78,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-
+/*
 				// おすすめリスト情報取得
 				try {
 					suggestList = productDetailsDAO
@@ -86,7 +87,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-
+*/
 				// レビュー情報取得メソッド
 				/*try {
 
@@ -96,6 +97,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 					e.printStackTrace();
 				}
 */
+
 				// 1から在庫数までの選択表示用List
 				for (int i = 1; i <= detail.getStock(); i++) {
 					stockList.add(i);

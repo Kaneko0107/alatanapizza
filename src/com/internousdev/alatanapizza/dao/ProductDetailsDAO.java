@@ -10,7 +10,7 @@ import java.util.List;
 import com.internousdev.alatanapizza.dto.ProductDTO;
 //import com.internousdev.alatanapizza.dto.Review2DTO;
 import com.internousdev.alatanapizza.util.DBConnector;
-import com.internousdev.alatanapizza.util.DateUtil;
+//import com.internousdev.alatanapizza.util.DateUtil;
 
 public class ProductDetailsDAO {
 
@@ -61,7 +61,7 @@ public class ProductDetailsDAO {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
-		List<ProductDTO> detailsList = new ArrayList<ProductDTO>();
+		ArrayList<ProductDTO> detailsList = new ArrayList<>();
 		for (int i = 0; i < productIdList.length; i++) {
 
 			String sql = "SELECT * FROM product_info where product_id = ? AND status = 0";
@@ -69,7 +69,6 @@ public class ProductDetailsDAO {
 			try {
 				PreparedStatement ps = con.prepareStatement(sql);
 				ps.setString(1, String.valueOf(productIdList[i]));
-
 				ResultSet rs = ps.executeQuery();
 
 				while (rs.next()) {
@@ -100,7 +99,7 @@ public class ProductDetailsDAO {
 		return detailsList;
 	}
 
-
+/*
 	// おすすめ商品リスト
 	public ArrayList<ProductDTO> getSuggestProductInfo(int category_id) throws SQLException {
 		ArrayList<ProductDTO> suggestList = new ArrayList<ProductDTO>();
@@ -145,7 +144,7 @@ public class ProductDetailsDAO {
 		}
 		return suggestList;
 	}
-
+*/
 	// レビュー情報取得
 	/*public ArrayList<Review2DTO> getReviewInfo(String product_id) throws SQLException {
 
@@ -183,6 +182,7 @@ public class ProductDetailsDAO {
 	}
 */
 
+	/*
 	// 商品情報UPDATE
 	public int changeProductData(String product_id, String product_name, String product_name_kana, String product_description, Integer category_id,Integer msize_price,Integer lsize_price, Integer price, String image_file_path, String image_file_name, String release_date, String release_company) throws SQLException {
 
@@ -220,7 +220,8 @@ public class ProductDetailsDAO {
 		}
 		return res;
 	}
-
+*/
+	/*
 	// 商品情報表示⇔非表示切り替え
 	public int productRestoreHide(String productId) throws SQLException {
 
@@ -243,5 +244,5 @@ public class ProductDetailsDAO {
 		}
 		return res;
 	}
-
+*/
 }

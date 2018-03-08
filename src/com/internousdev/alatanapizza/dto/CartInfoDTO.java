@@ -39,6 +39,7 @@ public class CartInfoDTO {
 	public void setProductId(int productId){
 		this.productId = productId;
 	}
+
 	public int getProductCount(){
 		return productCount;
 	}

@@ -60,7 +60,6 @@ public class CartInfoDAO extends ActionSupport{
 	}
 
 	//ログインユーザーのカート情報を全表示させる
-	//エラーは「ProductDTO」待ちの為
 	public ArrayList<CartInfoDTO>showUserCartList(String userId)throws SQLException{
 		ArrayList<CartInfoDTO>cartList = new ArrayList<>();
 
@@ -77,12 +76,7 @@ public class CartInfoDAO extends ActionSupport{
 			while(rs.next()){
 				CartInfoDTO dto = new CartInfoDTO();
 				dto.setProductId(rs.getInt("product_id"));
-				dto.setProduct_name(rs.getString("product_name"));
-				dto.setProduct_name_kana(rs.getString("product_name_kane"));
-				dto.setImage_file_name(rs.getString("image_file_name"));
 				dto.setPrice(rs.getInt("price"));
-				dto.setRelease_company(rs.getString("release_company"));
-				dto.setRelease_date(rs.getString("release_date"));
 				dto.setProductCount(rs.getInt("product_count"));
 				cartList.add(dto);
 			}
@@ -94,8 +88,8 @@ public class CartInfoDAO extends ActionSupport{
 		return cartList;
 	}
 
+
 	//ゲストユーザーのカート情報を全表示させる
-	//エラーは「ProductDTO」待ちの為
 	public ArrayList<CartInfoDTO>showTempUserCartList(String tempUserId)throws SQLException{
 		ArrayList<CartInfoDTO>cartList = new ArrayList<>();
 
@@ -105,7 +99,7 @@ public class CartInfoDAO extends ActionSupport{
 
 		try{
 			con = db.getConnection();
-			PreparedStatement ps = con.prepareStatement(sql);
+			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
 			ps.setString(1, tempUserId);
 			ResultSet rs = ps.executeQuery();
 
@@ -113,12 +107,7 @@ public class CartInfoDAO extends ActionSupport{
 				CartInfoDTO dto = new CartInfoDTO();
 				dto.setProductId(rs.getInt("product_id"));
 				dto.setProductCount(rs.getInt("product_count"));
-				dto.setProduct_name(rs.getString("product_name"));
-				dto.setProduct_name_kane(rs.getString("image_file_name"));
-				dto.setImage_file_name(rs.getString("image_file_name"));
 				dto.setPrice(rs.getInt("price"));
-				dto.setRelease_company(rs.getString("release_company"));
-				dto.setRelease_date(rs.getString("release_date"));
 				cartList.add(dto);
 			}
 		}catch(SQLException e){
@@ -129,9 +118,7 @@ public class CartInfoDAO extends ActionSupport{
 		return cartList;
 	}
 
-
 	//ログインユーザーのカート情報を取得
-	//エラーは「ProductDTO」待ちの為
 	public ArrayList<CartInfoDTO>aquireUserCartInfo(String userId)throws SQLException{
 		Connection con = db.getConnection();
 		ArrayList<CartInfoDTO>cartList = new ArrayList<>();
@@ -145,7 +132,6 @@ public class CartInfoDAO extends ActionSupport{
 
 			while(rs.next()){
 				CartInfoDTO dto = new CartInfoDTO();
-				dto.setProduct_id(rs.getInt("product_id"));
 				dto.setProductCount(rs.getInt("product_count"));
 				cartList.add(dto);
 			}

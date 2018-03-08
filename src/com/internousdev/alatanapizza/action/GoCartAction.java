@@ -22,7 +22,7 @@ public class GoCartAction extends ActionSupport implements SessionAware,ErrorMes
 		CartInfoDAO dao = new CartInfoDAO();
 
 
-	//loginFlgが存在しているか判定
+	//loginFlgが存在しているか判定（登録ユーザーかゲストユーザーか判別する）
 	if(!session.containsKey("loginFlg")){
 		session.put("loginFlg",false);
 	}
@@ -33,7 +33,7 @@ public class GoCartAction extends ActionSupport implements SessionAware,ErrorMes
 			cartList = dao.showTempUserCartList(session.get("tempUserId").toString());
 		}
 
-	//合計金額の計算
+
 		totalPrice = calcTotalPrice(cartList);
 		return SUCCESS;
 	}

@@ -28,19 +28,19 @@
 	<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
 
 	<img class="image" src="<s:property value='image_file_path'/>" alt="Photo" width="200" height="170"><br>
-
+	</a>
 		商品名:<s:property value="product_name" /><br>
 		商品名かな:<s:property value="product_name_kana" /><br>
 		<s:if test="category_id==2"><br>
 		価格:(M)￥<s:property value="msize_price" />円 &nbsp(L)￥<s:property value="lsize_price" />円<br>
-		</s:if><br>
-		<s:if test="category_id==3">
-		サイドメニュー
 		</s:if>
-		<s:if test="category_id==4">
-		ドリンク
+		<s:if test="category_id==3"><br>
+		サイドメニュー:￥<s:property value="price"/>円<br>
 		</s:if>
-	</a>
+		<s:if test="category_id==4"><br>
+		ドリンク:￥<s:property value="price"/>円<br>
+		</s:if>
+		商品詳細:<s:property value="product_description" /><br>
 	</s:iterator>
 </ul>
 

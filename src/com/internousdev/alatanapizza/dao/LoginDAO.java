@@ -67,10 +67,17 @@ public class LoginDAO {
 	/**
 	 * カート情報引継ぎ
 	 * tempUserIdをloginIdで上書き
-	 * tempUserIdのカート内容をloginIdに引継ぎ
+	 * →いまここ　tempUserIdのカート内容をloginIdに引継ぎ
+	 * これだと仮にloginIdに商品があった場合にはその商品は追加されない
+	 *
+	 * なので、tempUserIdのカート内容をloginIdのカート内に追加してやる形をとる
+	 * その後でtempUserIdのカート内容を削除する
 	 */
 	public int cartInfo(String tempUserId,String loginId){
-		String sql="update cart_info set user_id=? where user_id=?";
+		String sql="INSERT INTO cart_info(product_id,product_count,price)"
+				+ "SELECT cart_info=?,product_count=?,price=?)"
+				+ "FROM temp_cart_info";
+	//	String sql="update cart_info set user_id=? where user_id=?";
 
 		try{
 			PreparedStatement ps=con.prepareStatement(sql);

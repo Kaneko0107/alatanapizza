@@ -25,6 +25,7 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 
 	public String execute() throws SQLException{
 		destinationDAO.createDestination(
+				session.get("userId").toString(),
 				session.get("userFamilyName").toString(),
 				session.get("userFirstName").toString(),
 				session.get("userFamilyNameKana").toString(),

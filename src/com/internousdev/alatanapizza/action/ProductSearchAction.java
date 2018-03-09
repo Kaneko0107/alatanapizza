@@ -3,7 +3,6 @@ package com.internousdev.alatanapizza.action;
 import java.sql.SQLException;
 import java.text.Normalizer;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -57,72 +56,16 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		}
 
 		/*---------------------------------------------------------
-				複数検索 カテゴリーなし
+				ピザを複数検索
 		-----------------------------------------------------------*/
 		/*
 		空白の場所を確認
 		*/
 		int kuuhakunobasho = keyword.indexOf(" ");
 
-		if (categoryId == 1 && kuuhakunobasho > 0) {
+		if (categoryId == 2 && kuuhakunobasho > 0) {
 
-			List<ProductSearchDTO> notUniqueSearchDTOList = new ArrayList<ProductSearchDTO>();
-
-			String[] searchWords = keyword.replace("|", "hogehoge").replace("_", "|_").replace("　", " ")
-					.replace("~", "～").replace("%", "|%").split("[\\s]+");
-			for (String str : searchWords) {
-				System.out.println(str);
-			}
-
-			/*
-			 * 検索ワードを作って重複ありのリストを作成
-			 *
-			 */ for (String str : searchWords) {
-				notUniqueSearchDTOList = searchDAO.BySerchWord(str);
-			}
-			/*
-			 * 重複ありのidリストを作成
-			 *
-			 *
-			 */ List<Integer> idList = new ArrayList<Integer>();
-			for (int i = 0; i < notUniqueSearchDTOList.size(); i++) {
-				int id = notUniqueSearchDTOList.get(i).getId();
-				idList.add(id);
-			}
-			/*
-			 * jspで引っ張られてしまうので、削除
-			 */
-			notUniqueSearchDTOList.clear();
-
-			/*
-			 * 重複なしのリストを作成
-			 *
-			 */
-
-			List<Integer> uniqueIdList = new ArrayList<Integer>(new HashSet<>(idList));
-			System.out.println("重複削除後は" + uniqueIdList);
-			/*
-			 * 検索開始
-			 *
-			 */ for (int uniqueId : uniqueIdList) {
-
-				searchDTOList = searchDAO.ByPrductId(uniqueId);
-			}
-
-			for (int i = 0; i < searchDTOList.size(); i++) {
-
-				System.out.println("検索結果は" + searchDTOList.get(i).getProductName());
-			}
-			ret = SUCCESS;
-			return ret;
-
-			/*---------------------------------------------------------
-					複数検索 カテゴリーあり
-			-----------------------------------------------------------*/
-
-		} else if (categoryId >= 1 && kuuhakunobasho > 0) {
-
-			List<ProductSearchDTO> notUniqueSearchDTOList = new ArrayList<ProductSearchDTO>();
+			List<ProductSearchDTO> searchDTOList = new ArrayList<ProductSearchDTO>();
 
 			String[] searchWords = keyword.replace("|", "hogehoge").replace("_", "|_").replace("　", " ")
 					.replace("~", "～").replace("%", "|%").split("[\\s]+");
@@ -131,34 +74,11 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 			}
 
 			/*
-			 * 検索ワードを作って重複ありのリストを作成
-			 *
-			 */ for (String str : searchWords) {
-				notUniqueSearchDTOList = searchDAO.BySerchWord(str);
-			}
-			/*
-			 * 重複ありのidリストを作成
-			 *
-			 *
-			 */ List<Integer> idList = new ArrayList<Integer>();
-			for (int i = 0; i < notUniqueSearchDTOList.size(); i++) {
-				int id = notUniqueSearchDTOList.get(i).getId();
-				idList.add(id);
-			}
-			/*
-			 * jspで引っ張られてしまうので、リストを削除
-			 */
-			notUniqueSearchDTOList.clear();
-
-			List<Integer> uniqueIdList = new ArrayList<Integer>(new HashSet<>(idList));
-			System.out.println("重複削除後は" + uniqueIdList);
-			/*
 			 * 検索開始
 			 *
-			 */ for (int uniqueId : uniqueIdList) {
+			 */
+			searchDTOList = searchDAO.selectBywords(searchWords);
 
-				searchDTOList = searchDAO.ByPrductIdANDcate(uniqueId, categoryId);
-			}
 
 			for (int i = 0; i < searchDTOList.size(); i++) {
 
@@ -166,13 +86,13 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 			}
 			ret = SUCCESS;
 			return ret;
+
 		}
-
 		/*---------------------------------------------------------
 					全件検索(カテゴリ、検索値なし)
 		-----------------------------------------------------------*/
 
-		else if (categoryId == 1 && keyword.isEmpty()) {
+		else if (categoryId == 2 && keyword.isEmpty()) {
 			setSearchDTOList(searchDAO.allProductInfo());
 			ret = SUCCESS;
 
@@ -181,20 +101,12 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		/*---------------------------------------------------------
 				ひらがな、カタカナ検索
 		-----------------------------------------------------------*/
-		else if (categoryId == 1
+		else if (categoryId == 2
 				&& (keyword.matches("^[\\u3040-\\u30FF]+$") || keyword.matches("^[\\u30A0-\\u30FF]+$"))) {
 			keyword = toHiragana.toZenkakuHiragana(keyword);
 			System.out.println(keyword);
 			setSearchDTOList(searchDAO.BySerchWordKana(keyword));
 			ret = SUCCESS;
-
-		} else if (categoryId > 1
-				&& (keyword.matches("^[\\u3040-\\u30FF]+$") || keyword.matches("^[\\u30A0-\\u30FF]+$"))) {
-			keyword = toHiragana.toZenkakuHiragana(keyword);
-			System.out.println(keyword);
-			setSearchDTOList(searchDAO.ByCategoryANDSerchWordKana(categoryId, keyword));
-			ret = SUCCESS;
-
 		}
 
 		/*---------------------------------------------------------
@@ -209,20 +121,11 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		/*---------------------------------------------------------
 				カテゴリなし、検索値あり
 		-----------------------------------------------------------*/
-		else if (categoryId == 1 && !(keyword.isEmpty())) {
+		else if (categoryId == 2 && !(keyword.isEmpty())) {
 			setSearchDTOList(searchDAO.BySerchWord(keyword));
 			ret = SUCCESS;
 		}
 
-		/*---------------------------------------------------------
-				カテゴリあり、検索値あり
-		-----------------------------------------------------------*/
-		else {
-			setSearchDTOList(searchDAO.ByCategoryANDSerchWord(categoryId, keyword));
-			System.out.println(keyword);
-			ret = SUCCESS;
-
-		}
 		keyword = getSearchWord();
 		return ret;
 	}
@@ -280,9 +183,8 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 	}
 
 	@Override
-	public void setSession(Map<String, Object> arg0) {
-		// TODO 自動生成されたメソッド・スタブ
-
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
 	}
 
 	public String[] getSearchWords() {

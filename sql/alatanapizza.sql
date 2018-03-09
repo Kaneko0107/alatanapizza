@@ -16,6 +16,8 @@ family_name_kana varchar(32) NOT NULL,-- 姓かな
 first_name_kana varchar(32) NOT NULL, -- 名かな
 sex tinyint NOT NULL DEFAULT 0, -- 性別 (0:男性 1:女性)
 email varchar(32) NOT NULL,-- メールアドレス
+secret_question int NOT NULL, -- 秘密の質問 (1:好きな食べ物 2:嫌いな食べ物)
+secret_answer varchar(32)  NOT NULL, -- 秘密の質問の答え
 status tinyint NOT NULL DEFAULT 1,-- ステータス (0:無効、1:有効)
 logined tinyint NOT NULL DEFAULT 0,-- ログインフラグ (0:未ログイン、1:ログイン済み)
 regist_date datetime NOT NULL,-- 登録日
@@ -136,6 +138,8 @@ INSERT INTO user_info(-- ------会員情報テーブルへ-----------------
 	first_name_kana, -- 名かな
 	sex,-- 性別 (0:男性 1:女性)
 	email,-- メールアドレス
+	secret_question,-- 秘密の質問 (1:好きな食べ物 2:嫌いな食べ物)
+	secret_answer,-- 秘密の質問の答え
 	regist_date -- 登録日
 )VALUES(
 	"taro",-- ユーザーID
@@ -146,6 +150,8 @@ INSERT INTO user_info(-- ------会員情報テーブルへ-----------------
 	"らいおん", -- 名かな
 	0,-- 性別 (0:男性 1:女性)
 	"ponde@com",-- メールアドレス
+	"1",-- 秘密の質問 (1:好きな食べ物 2:嫌いな食べ物)
+	"いちご",-- 秘密の質問の答え
 	NOW()-- 登録日
 );
 
@@ -524,7 +530,7 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     0,
     100,-- 価格
 	50,-- 在庫
-	"./images/side/OrangeJuice.png",-- 画像ファイルパス
+	"./images/drink/OrangeJuice.png",-- 画像ファイルパス
 	"OrangeJuice.png",-- 画像ファイル名
 	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社

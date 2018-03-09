@@ -211,4 +211,12 @@ public class ProductDTO {
           this.insert_date = insert_date;
        }
 
+       public String getCategory_name() {
+           return this.category_name;
+        }
+
+        public void setCategory_name(String category_name) {
+           this.category_name = category_name;
+        }
+
  }

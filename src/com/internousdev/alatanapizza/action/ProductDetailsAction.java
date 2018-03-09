@@ -69,20 +69,34 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 						session.put("d_stock", detail.getStock());
 						session.put("d_product_id", detail.getProduct_id());
 						session.put("d_category_id", detail.getCategory_id());
-					} else {
+						session.put("d_category_name", detail.getCategory_name());
 
+					} else {
 						return ERROR;
 					}
-
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 
 				// おすすめリスト情報取得
 				try {
-					suggestList = productDetailsDAO
-							.getSuggestProductInfo(Integer.parseInt((session.get("d_category_id")).toString()));
-
+					suggestList = productDetailsDAO.getSuggestProductInfo(product_id);
+					if (suggestList != null) {
+						session.put("s_image_file_path", detail.getImage_file_path());
+						session.put("s_product_name_kana", detail.getProduct_name_kana());
+						session.put("s_product_name", detail.getProduct_name());
+						session.put("s_product_description", detail.getProduct_description());
+						session.put("s_product_msize_price", detail.getMsize_price());
+						session.put("s_product_lsize_price", detail.getLsize_price());
+						session.put("s_product_price", detail.getPrice());
+						session.put("s_release_date", detail.getRelease_date());
+						session.put("s_release_company", detail.getRelease_company());
+						session.put("s_stock", detail.getStock());
+						session.put("s_product_id", detail.getProduct_id());
+						session.put("s_category_id", detail.getCategory_id());
+					} else {
+						return ERROR;
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -239,6 +253,42 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 
 			public void setError(String error) {
 				this.error = error;
+			}
+
+
+
+			public ProductDTO getDetail() {
+				return detail;
+			}
+
+
+
+			public ArrayList<ProductDTO> getToppingList() {
+				return toppingList;
+			}
+
+
+
+			public List<ProductDTO> getSuggestList() {
+				return suggestList;
+			}
+
+
+
+			public void setDetail(ProductDTO detail) {
+				this.detail = detail;
+			}
+
+
+
+			public void setToppingList(ArrayList<ProductDTO> toppingList) {
+				this.toppingList = toppingList;
+			}
+
+
+
+			public void setSuggestList(List<ProductDTO> suggestList) {
+				this.suggestList = suggestList;
 			}
 
 	}

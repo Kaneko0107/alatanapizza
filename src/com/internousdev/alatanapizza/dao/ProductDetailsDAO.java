@@ -13,7 +13,7 @@ import com.internousdev.alatanapizza.util.DBConnector;
 
 public class ProductDetailsDAO {
 
-	// 商品詳細情報取得
+	// 商品詳細情報取得( getProductDetailsInfo)
 	public ProductDTO getProductDetailsInfo(String product_id) throws SQLException {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -32,6 +32,7 @@ public class ProductDetailsDAO {
 				dto.setProduct_name(rs.getString("product_name"));
 				dto.setProduct_name_kana(rs.getString("product_name_kana"));
 				dto.setProduct_description(rs.getString("product_description"));
+				dto.setCategory_name(rs.getString("category_name"));
 				dto.setCategory_id(rs.getInt("category_id"));
 				dto.setMsize_price(rs.getInt("msize_price"));
 				dto.setLsize_price(rs.getInt("lsize_price"));
@@ -55,7 +56,7 @@ public class ProductDetailsDAO {
 		return dto;
 	}
 
-	// 商品詳細情報取得
+	// 商品詳細情報取得(getProductDetailsInfoList)
 	public List<ProductDTO> getProductDetailsInfoList(String[] productIdList) throws SQLException {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -72,6 +73,7 @@ public class ProductDetailsDAO {
 
 				while (rs.next()) {
 					ProductDTO dto = new ProductDTO();
+
 					dto.setId(rs.getInt("id"));
 					dto.setProduct_id(rs.getInt("product_id"));
 					dto.setProduct_name(rs.getString("product_name"));
@@ -98,22 +100,22 @@ public class ProductDetailsDAO {
 
 
 	// おすすめ商品リスト
-	public ArrayList<ProductDTO> getSuggestProductInfo(int category_id) throws SQLException {
+	public ArrayList<ProductDTO> getSuggestProductInfo(String product_id) throws SQLException {
 		ArrayList<ProductDTO> suggestList = new ArrayList<ProductDTO>();
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
 		//商品をランダムに3件表示させる
-		String sql = "SELECT * FROM product_info WHERE status = 1 AND category_id = ? ORDER BY RAND() LIMIT 3 ";
+		String sql = "SELECT * FROM product_info WHERE status = 1 AND product_id NOT IN(?) ORDER BY RAND() LIMIT 3";
+
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, category_id);
+			ps.setString(1, product_id);
 
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-
 				ProductDTO dto = new ProductDTO();
 
 				dto.setId(rs.getInt("id"));
@@ -132,6 +134,8 @@ public class ProductDetailsDAO {
 				dto.setRegist_date(rs.getDate("regist_date"));
 				dto.setUpdate_date(rs.getDate("update_date"));
 				dto.setStock(rs.getInt("stock"));
+
+				suggestList.add(dto);
 
 			}
 		} catch (Exception e) {

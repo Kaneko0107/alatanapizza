@@ -8,11 +8,12 @@ public class MyPageDTO {
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
-	/**
-	 * 0:男性、1:女性
-	 */
 	private boolean sex;
+
 	private String email;
+	private String tel_number;
+	private String user_address;
+
 	private String register_date;
 	private String update_date;
 
@@ -80,6 +81,22 @@ public class MyPageDTO {
 		this.email = email;
 	}
 
+	public String getTel_Number() {
+		return tel_number;
+	}
+
+	public void setTel_Number(String tel_number) {
+		this.tel_number=tel_number;
+	}
+
+	public String getUser_Address() {
+		return user_address;
+	}
+
+	public void setUser_Address(String user_address) {
+		this.user_address=user_address;
+	}
+
 	public String getRegister_date() {
 		return register_date;
 	}
@@ -96,15 +113,5 @@ public class MyPageDTO {
 		this.update_date = update_date;
 	}
 
-}
 
-/**
- * 登録情報テーブル id int PRIMARY KEY NOT NULL AUTO_INCREMENT,-- ID user_id varchar(16)
- * UNIQUE KEY NOT NULL,-- ユーザーID password varchar(16) NOT NULL,-- パスワード
- * family_name varchar(32) NOT NULL, -- 姓 first_name varchar(32) NOT NULL,-- 名
- * family_name_kana varchar(32) NOT NULL,-- 姓かな first_name_kana varchar(32) NOT
- * NULL, -- 名かな sex tinyint NOT NULL DEFAULT 0, -- 性別 (0:男性 1:女性) email
- * varchar(32) NOT NULL,-- メールアドレス status tinyint NOT NULL DEFAULT 1,-- ステータス
- * (0:無効、1:有効) logined tinyint NOT NULL DEFAULT 0,-- ログインフラグ (0:未ログイン、1:ログイン済み)
- * regist_date datetime NOT NULL,-- 登録日 update_date datetime-- 更新日
- */
+}

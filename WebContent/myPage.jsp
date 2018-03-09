@@ -85,7 +85,7 @@
 								</tr>
 
 								<tr>
-									<th>cherryID</th>
+									<th>alatanapizza ID</th>
 									<td><p>
 											<s:property value="userId" />
 										</p></td>
@@ -99,7 +99,7 @@
 									<td><p>
 											<s:property value="password" />
 										</p></td>
-									<td class="change"><a href="/cherry/ResetPasswordAction"
+									<td class="change"><a href="/alatanapizza/ChangePasswordAction"
 										class="btn">変更</a></td>
 								</tr>
 							</s:iterator>
@@ -108,7 +108,7 @@
 
 					<div class="buttonBox">
 						<div class="btnn">
-							<a href="/cherry/PurchaseHistoryAction" class="button">購入履歴</a>
+							<a href="/alatanapizza/PurchaseHistoryInfoAction" class="button">購入履歴</a>
 						</div>
 					</div>
 				</div>

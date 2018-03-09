@@ -24,11 +24,26 @@
     </div>
 
 
+    <s:form action = "UserCreateAction">
+
+      <input type = "hidden" name = "loginUserId" value = "<s:property value = "loginUserId" />"/>
+      <input type = "hidden" name = "loginPassword" value = "<s:property value = "loginPassword" />">
+      <input type = "hidden" name = "familyName" value = "<s:property value = "familyName" />">
+      <input type = "hidden" name = "firstName" value = "<s:property value = "firstName" />">
+      <input type = "hidden" name = "familyNameKana" value = "<s:property value = "familyNameKana" />">
+      <input type = "hidden" name = "firstNameKana" value = "<s:property value = "firstNameKana" />">
+      <input type = "hidden" name = "sex" value = "<s:property value = "sex" />">
+      <input type = "hidden" name = "mail" value = "<s:property value = "mail" />">
+      <input type = "hidden" name = "secretQuestion" value = "<s:property value = "secretQuestion" />">
+      <input type = "hidden" name = "secretAnswer" value = "<s:property value = "secretAnswer" />">
+
+    </s:form>
+
+
+
     <div>登録する内容は以下でよろしいですか？</div>
 
       <table>
-      <s:form action="UserCreateCompleteAction">
-
 
       <tr id = "box">
         <td> <label>ユーザーID : </label> </td>
@@ -84,31 +99,21 @@
         <td> <s:property value = "secretAnswer"/> </td>
       </tr>
 
-      <tr id = "box">
-        <td> <label>郵便番号 : </label> </td>
-        <td> <s:property value = "yubin"/> </td>
-      </tr>
-
-      <tr id = "box">
-        <td> <label>住所 : </label> </td>
-        <td> <s:property value = "address"/> </td>
-      </tr>
-
-      <tr id = "box">
-        <td> <label>電話番号 : </label> </td>
-        <td> <s:property value = "tel"/> </td>
-      </tr>
-
-
       <tr>
         <td>
+          <s:form action="UserCreateCompleteAction">
             <s:submit value = "登録する" />
+          </s:form>
         </td>
       </tr>
 
 
 
-      </s:form>
+      <tr>
+        <td>入力に戻る<a href='<s:url action="UserCreateAction" />'> ← </a></td>
+        <td>登録に進む<a href='<s:url action="UserCreateCompleteAction" />'> → </a></td>
+      </tr>
+
       </table>
     </div>
 

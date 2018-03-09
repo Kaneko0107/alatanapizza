@@ -1,8 +1,6 @@
 package com.internousdev.alatanapizza.dao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 import com.internousdev.alatanapizza.util.DBConnector;
 
@@ -11,12 +9,15 @@ public class UserCreateConfirmDAO {
 
 	private DBConnector dbConnector = new DBConnector();
 	private Connection connection = dbConnector.getConnection();
-	private boolean result;
 
-	// ログインID重複確認メソッド
+	//	private boolean result;
+
+
+
+	/* ログインID重複確認メソッド
 	public boolean getLoginUserId(String loginUserId) {
 
-		String sql = "SELECT*FROM user_info where user_id=?";
+		String sql = "SELECT * FROM user_info where user_id = ?";
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -31,8 +32,8 @@ public class UserCreateConfirmDAO {
 		} catch (Exception e) {
 				e.printStackTrace();
 			}
-			return result;
-		}
+			return result;   */
+}
 
-	}
+
 

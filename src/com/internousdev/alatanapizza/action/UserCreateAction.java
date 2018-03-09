@@ -26,12 +26,6 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 	private String secretQuestion;
 	private String secretAnswer;
 
-	private String yubin;
-
-	private String address;
-
-	private String tel;
-
 	private Map<String, Object> session;
 
 
@@ -79,21 +73,21 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 	}
 
 
-	public String getFirstNameKana() {
-		return firstNameKana;
-	}
-
-	public void setFirstNameKana(String firstNameKana) {
-		this.firstNameKana = firstNameKana;
-	}
-
-
 	public String getFamilyNameKana() {
 		return familyNameKana;
 	}
 
 	public void setFamilyNameKana(String familyNameKana) {
 		this.familyNameKana = familyNameKana;
+	}
+
+
+	public String getFirstNameKana() {
+		return firstNameKana;
+	}
+
+	public void setFirstNameKana(String firstNameKana) {
+		this.firstNameKana = firstNameKana;
 	}
 
 
@@ -130,33 +124,6 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 
 	public void setSecretAnswer(String secretAnswer) {
 		this.secretAnswer = secretAnswer;
-	}
-
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-
-	public String getTel() {
-		return tel;
-	}
-
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-
-
-	public String getyubin() {
-		return yubin;
-	}
-
-	public void setyubin(String yubin) {
-		this.yubin = yubin;
 	}
 
 

@@ -21,6 +21,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	private String mail;
 	private String secretQuestion;
 	private String secretAnswer;
+	private String yubin;
 	private String address;
 	private String tel;
 	public Map<String, Object> session;

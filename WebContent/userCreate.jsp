@@ -118,36 +118,6 @@
 
         <tr>
           <td>
-            <label>〒 : </label>
-          </td>
-
-          <td>
-            <input type = "text" name = "yubin" value = '<s:property value = "yubin"/>'/>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <label>住所 : </label>
-          </td>
-
-          <td>
-            <input type = "text" name = "address" value = '<s:property value = "address"/>'/>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <label>電話番号 : </label>
-          </td>
-
-          <td>
-            <input type = "text" name = "tel" value = '<s:property value = "tel"/>'/>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
             <label>秘密の質問 : </label>
           </td>
 

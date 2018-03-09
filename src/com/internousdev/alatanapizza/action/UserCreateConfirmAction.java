@@ -27,17 +27,12 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	private String secretQuestion;
 	private String secretAnswer;
 
-	private String yubin;
-
-	private String address;
-
-	private String tel;
-
 	private Map<String, Object> session;
 
 	// private String result;
 
 	private ArrayList<String> errMsgList = new ArrayList<>();
+
 	private ArrayList<String> errMsgListId = new ArrayList<>();
 	private ArrayList<String> errMsgListPass = new ArrayList<>();
 	private ArrayList<String> errMsgListName = new ArrayList<>();
@@ -46,8 +41,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	private ArrayList<String> errMsgListMail = new ArrayList<>();
 	private ArrayList<String> errMsgListQuestion = new ArrayList<>();
 	private ArrayList<String> errMsgListAnswer = new ArrayList<>();
-	private ArrayList<String> errMsgListAddress = new ArrayList<>();
-	private ArrayList<String> errMsgListTel = new ArrayList<>();
+
 
 	private String errId1;
 	private String errId2;
@@ -65,9 +59,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	private String errMail2;
 	private String errQuestion;
 	private String errAnswer;
-	private String errAddress;
-	private String errTel1;
-	private String errTel2;
+
 
 	private UserCreateConfirmDAO userCreateConfirmDAO = new UserCreateConfirmDAO();
 
@@ -86,12 +78,12 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
             || firstNameKana.equals("")
             || sex == null || mail.equals("")
 			|| secretQuestion.equals("")
-			|| secretAnswer.equals("")
-			|| address.equals("")
-			|| tel.equals("")) {
+			|| secretAnswer.equals("") )
+
 
             errMsgList.add("未入力の項目があります");
-		}
+	}
+
 
 	// ユーザーID
 	if(userCreateConfirmDAO.getLoginUserId(loginUserId)) {
@@ -109,6 +101,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		errMsgListId.add(errId3);
 	}
 
+
 	// パスワード
 	if (loginPassword.length() > 16) {
 		errPass1 = "パスワードは16文字以内で入力してください";
@@ -118,6 +111,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		errPass2 = "パスワードは半角英数字で入力してください";
 		errMsgListPass.add(errPass2);
 	}
+
 
 	// 名前
 	if (familyName.length() > 16) {
@@ -150,6 +144,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		errMsgListKana.add(errKana4);
 	}
 
+
 	// 性別
 	if (sex != null) {
 		if (!sex.matches("^[0-1]+$")) {
@@ -157,6 +152,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			errMsgListSex.add(errSex);
 		}
 	}
+
 
 	// メールアドレス
 	if (mail.length() < 14 || mail.length() > 32) {
@@ -169,35 +165,19 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		errMsgListMail.add(errMail2);
 	}
 
+
 	// 質問
 	if (!secretQuestion.matches("^[1-3]+$")) {
 		errQuestion = "質問を選択してください";
 		errMsgListQuestion.add(errQuestion);
 	}
 
+
 	// 答え
 	if (secretAnswer.length() > 16) {
 		errAnswer = "答えは16文字以内で入力してください";
 		errMsgListAnswer.add(errAnswer);
 	}
-
-	// 住所
-	if (address.length() < 10 || address.length() > 50) {
-		errAddress = "住所は10文字以上50文字以下で入力してください";
-		errMsgListAddress.add(errAddress);
-	}
-
-	// 電話番号
-	if (tel.length() < 10 || tel.length() > 13) {
-		errTel1 = "電話番号は10文字以上13文字以下で入力してください";
-		errMsgListTel.add(errTel1);
-	}
-
-	if (!tel.matches("^[0-9]+$")) {
-		errTel2 = "電話番号は半角英数字で入力してください";
-		errMsgListTel.add(errTel2);
-	}
-
 
 
 	if ( errMsgList.isEmpty()
@@ -208,9 +188,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		 && errMsgListSex.isEmpty()
 		 && errMsgListMail.isEmpty()
 		 && errMsgListQuestion.isEmpty()
-		 && errMsgListAnswer.isEmpty()
-		 && errMsgListAddress.isEmpty()
-		 && errMsgListTel.isEmpty())  {
+		 && errMsgListAnswer.isEmpty() )
 
 		 result = SUCCESS;
 
@@ -223,14 +201,14 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		 session.put("sex", sex);
 		 session.put("mail", mail);
 		 session.put("secretQuestion", secretQuestion);
-		 session.put("secretAnswer", secretAnswer);
-		 session.put("address", address);
-		 session.put("tel", tel);
-	}
+		 session.put("secretAnswer", secretAnswer) ;
+
+
 
 	return result;
 
    }
+}
 
 
 
@@ -242,6 +220,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		this.loginUserId = loginUserId;
 	}
 
+
 	public String getLoginPassword() {
 		return loginPassword;
 	}
@@ -249,6 +228,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	public void setLoginPassword(String loginPassword) {
 		this.loginPassword = loginPassword;
 	}
+
 
 	public String getFamilyName() {
 		return familyName;
@@ -258,6 +238,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		this.familyName = familyName;
 	}
 
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -266,13 +247,6 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		this.firstName = firstName;
 	}
 
-	public String getFirstNameKana() {
-		return firstNameKana;
-	}
-
-	public void setFirstNameKana(String firstNameKana) {
-		this.firstNameKana = firstNameKana;
-	}
 
 	public String getFamilyNameKana() {
 		return familyNameKana;
@@ -282,6 +256,16 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		this.familyNameKana = familyNameKana;
 	}
 
+
+	public String getFirstNameKana() {
+		return firstNameKana;
+	}
+
+	public void setFirstNameKana(String firstNameKana) {
+		this.firstNameKana = firstNameKana;
+	}
+
+
 	public String getSex() {
 		return sex;
 	}
@@ -289,6 +273,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
+
 
 	public String getMail() {
 		return mail;
@@ -298,6 +283,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		this.mail = mail;
 	}
 
+
 	public String getSecretQuestion() {
 		return secretQuestion;
 	}
@@ -306,6 +292,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		this.secretQuestion = secretQuestion;
 	}
 
+
 	public String getSecretAnswer() {
 		return secretAnswer;
 	}
@@ -313,23 +300,6 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	public void setSecretAnswer(String secretAnswer) {
 		this.secretAnswer = secretAnswer;
 	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getTel() {
-		return tel;
-	}
-
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-
 
 
 	@Override
@@ -341,14 +311,6 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		return session;
 	}
 
-	public String getYubin() {
-		return yubin;
-	}
-
-	public void setyubin(String yubin) {
-		this.yubin = yubin;
-	}
-
 
 	public ArrayList<String> getErrMsgList() {
 		return errMsgList;
@@ -358,6 +320,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		this.errMsgList = errMsgList;
 	}
 
+
 	public ArrayList<String> getErrMsgListId() {
 		return errMsgListId;
 	}
@@ -365,6 +328,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	public void setErrMsgListId(ArrayList<String> errMsgListId) {
 		this.errMsgListId = errMsgListId;
 	}
+
 
 	public ArrayList<String> getErrMsgListPass() {
 		return errMsgListPass;
@@ -374,6 +338,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		this.errMsgListPass = errMsgListPass;
 	}
 
+
 	public ArrayList<String> getErrMsgListName() {
 		return errMsgListName;
 	}
@@ -381,6 +346,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	public void setErrMsgListName(ArrayList<String> errMsgListName) {
 		this.errMsgListName = errMsgListName;
 	}
+
 
 	public ArrayList<String> getErrMsgListKana() {
 		return errMsgListKana;
@@ -390,6 +356,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		this.errMsgListKana = errMsgListKana;
 	}
 
+
 	public ArrayList<String> getErrMsgListSex() {
 		return errMsgListSex;
 	}
@@ -397,6 +364,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	public void setErrMsgListSex(ArrayList<String> errMsgListSex) {
 		this.errMsgListSex = errMsgListSex;
 	}
+
 
 	public ArrayList<String> getErrMsgListMail() {
 		return errMsgListMail;
@@ -406,6 +374,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		this.errMsgListMail = errMsgListMail;
 	}
 
+
 	public ArrayList<String> getErrMsgListQuestion() {
 		return errMsgListQuestion;
 	}
@@ -413,6 +382,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	public void setErrMsgListQuestion(ArrayList<String> errMsgListQuestion) {
 		this.errMsgListQuestion = errMsgListQuestion;
 	}
+
 
 	public ArrayList<String> getErrMsgListAnswer() {
 		return errMsgListAnswer;
@@ -422,29 +392,13 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		this.errMsgListAnswer = errMsgListAnswer;
 	}
 
-	public ArrayList<String> getErrMsgListAddress() {
-		return errMsgListAddress;
-	}
 
-	public void setErrMsgListAddress(ArrayList<String> errMsgListAddress) {
-		this.errMsgListAddress = errMsgListAddress;
-	}
-
-	public ArrayList<String> getErrMsgListTel() {
-		return errMsgListTel;
-	}
-
-	public void setErrMsgListTel(ArrayList<String> errMsgListTel) {
-		this.errMsgListTel = errMsgListTel;
-	}
-
-
-	public String getErrId() {
+/*	public String getErrId() {
 		return errId2;
 	}
 
 	public void setErrId(String errId2) {
 		this.errId2 = errId2;
-	}
+	}  */
 }
 

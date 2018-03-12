@@ -7,8 +7,10 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.CartInfoDAO;
+import com.internousdev.alatanapizza.dao.DestinationDAO;
 import com.internousdev.alatanapizza.dao.LoginDAO;
 import com.internousdev.alatanapizza.dto.CartInfoDTO;
+import com.internousdev.alatanapizza.dto.DestinationDTO;
 import com.internousdev.alatanapizza.dto.LoginDTO;
 import com.internousdev.alatanapizza.util.ErrorMessageConstants;
 
@@ -54,7 +56,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 	//合計金額
 	private int totalPrice;
 	//宛先情報一覧
-	private ArrayList<DestinationInfoDTO> destinationInfoListDTO= new ArrayList<DestinationInfoDTO>();
+	private ArrayList<DestinationDTO> destinationInfoListDTO= new ArrayList<DestinationDTO>();
 	//カートリスト→担当にArrayListを作成してもらう？
 	private ArrayList<CartInfoDTO> cartList=new ArrayList<CartInfoDTO>();
 
@@ -120,7 +122,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 					session.put("loginFlg", true); //ログインフラグ立て
 
 					CartInfoDAO cartInfoDAO=new CartInfoDAO(); //newカートリスト
-					DestinationInfoDAO destinationInfoDAO=new DestinationInfoDAO(); //new宛先
+					DestinationDAO destinationDAO=new DestinationDAO(); //new宛先
 					ArrayList<CartInfoDTO> cartList=new ArrayList<CartInfoDTO>(); //会員用カートリスト
 					ArrayList<CartInfoDTO> tempCartList=new ArrayList<CartInfoDTO>(); //ゲスト用カートリスト
 					ArrayList<Integer> productIdList=new ArrayList<Integer>(); //整数型　製品リスト
@@ -184,7 +186,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 					cartInfoDAO.changeUserId(session.get("tempUserId").toString(),session.get("userId").toString());
 					//userIdの情報すべてを引き出すメソッドを代入
 					cartList=cartInfoDAO.showUserCartList(session.get("userId").toString());
-					destinationInfoListDTO=destinationInfoDAO
+					destinationInfoListDTO=destinationDAO
 							.obtainingDestinationInfo(session.get("userId").toString());
 
 
@@ -196,7 +198,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 
 					if(kessai==1){
 						if((boolean) session.get("loginFlg")){
-							destinationInfoListDTO=destinationInfoDAO
+							destinationInfoListDTO=destinationDAO
 									.obtainingDestinationInfo(session.get("userId").toString());
 						}
 
@@ -321,10 +323,10 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		this.userAddress=userAddress;
 	}
 
-	public ArrayList<DestinationInfoDTO> getDestinationInfoListDTO(){
+	public ArrayList<DestinationDTO> getDestinationInfoListDTO(){
 		return destinationInfoListDTO;
 	}
-	public void setDestinationInfoListDTO(ArrayList<DestinationInfoDTO> destinationInfoListDTO){
+	public void setDestinationInfoListDTO(ArrayList<DestinationDTO> destinationInfoListDTO){
 		this.destinationInfoListDTO=destinationInfoListDTO;
 	}
 

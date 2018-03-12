@@ -21,18 +21,20 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ProductSearchAction extends ActionSupport implements SessionAware {
 	private String searchWord;
-	private String keyword;
+	private String searchWordHiragana;
 	private int categoryId;
 	private ProductSearchDAO searchDAO = new ProductSearchDAO();
 	private List<ProductSearchDTO> searchDTOList = new ArrayList<ProductSearchDTO>();
 	private ToHiragana toHiragana = new ToHiragana();
 	private String[] searchWords;
+	private String[] keywords;
 	public Map<String, Object> session;
 	private ArrayList<String> msgList = new ArrayList<String>();
+	private String ret;
 
 	public String execute() throws SQLException {
 
-		String ret = ERROR;
+		ret = ERROR;
 
 		if (searchWord.length() > 16) {
 			msgList.add("16字以内で検索してください");
@@ -45,11 +47,11 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		/*---------------------------------------------------------
 				検索値を全て全角に変換、適切な値に加工
 		-----------------------------------------------------------*/
-		keyword = Normalizer.normalize(searchWord, Normalizer.Form.NFKC);
-		keyword = toHiragana.toZenkakuHiragana(keyword);
-		System.out.println(keyword);
-		keyword = keyword.trim();
-		if (keyword.matches("^[\\p{Punct}]+$")) {
+	    searchWordHiragana = Normalizer.normalize(searchWord, Normalizer.Form.NFKC);
+		searchWordHiragana = toHiragana.toZenkakuHiragana(searchWordHiragana);
+		System.out.println(searchWordHiragana);
+		searchWordHiragana = searchWordHiragana.trim();
+		if (searchWordHiragana.matches("^[\\p{Punct}]+$")) {
 			msgList.add("一般的な検索ワードを使ってください");
 			ret = SUCCESS;
 			return ret;
@@ -61,15 +63,25 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		/*
 		空白の場所を確認
 		*/
-		int kuuhakunobasho = keyword.indexOf(" ");
+		int kuuhakunobasho = searchWordHiragana.indexOf(" ");
 
-		if (categoryId == 2 && kuuhakunobasho > 0) {
+		if (categoryId == 2 && kuuhakunobasho >= 0) {
 
 			List<ProductSearchDTO> searchDTOList = new ArrayList<ProductSearchDTO>();
 
-			String[] searchWords = keyword.replace("|", "hogehoge").replace("_", "|_").replace("　", " ")
-					.replace("~", "～").replace("%", "|%").split("[\\s]+");
+			/*
+			 * searchWordHiraganaを空白の場所ごとに分解
+			 */
+			String[] searchWords = searchWordHiragana.replace("　", " ").split("[\\s]+");
 			for (String str : searchWords) {
+				System.out.println(str);
+			}
+
+			/*
+			 * searchWordを空白の場所ごとに分解
+			 */
+			String[] keywords = searchWord.replace("　", " ").split("[\\s]+");
+			for (String str : keywords) {
 				System.out.println(str);
 			}
 
@@ -77,7 +89,8 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 			 * 検索開始
 			 *
 			 */
-			searchDTOList = searchDAO.selectBywords(searchWords);
+			//setSearchDTOList(searchDAO.selectBywords(searchWords));
+			this.searchDTOList = searchDAO.selectBywords(searchWords, keywords, categoryId);
 
 
 			for (int i = 0; i < searchDTOList.size(); i++) {
@@ -89,44 +102,38 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 		}
 		/*---------------------------------------------------------
-					全件検索(カテゴリ、検索値なし)
+					ピザを全件検索
 		-----------------------------------------------------------*/
 
-		else if (categoryId == 2 && keyword.isEmpty()) {
-			setSearchDTOList(searchDAO.allProductInfo());
+		else if (categoryId == 2 && searchWordHiragana.isEmpty()) {
+			setSearchDTOList(searchDAO.ByProductCategory(categoryId));
 			ret = SUCCESS;
 
 		}
 
-		/*---------------------------------------------------------
-				ひらがな、カタカナ検索
-		-----------------------------------------------------------*/
-		else if (categoryId == 2
-				&& (keyword.matches("^[\\u3040-\\u30FF]+$") || keyword.matches("^[\\u30A0-\\u30FF]+$"))) {
-			keyword = toHiragana.toZenkakuHiragana(keyword);
-			System.out.println(keyword);
-			setSearchDTOList(searchDAO.BySerchWordKana(keyword));
-			ret = SUCCESS;
-		}
+
 
 		/*---------------------------------------------------------
-				カテゴリ有り、検索値なし
+				サイドメニューまたはドリンクを検索
 		-----------------------------------------------------------*/
-		else if (categoryId > 1 && keyword.isEmpty()) {
+		else if (categoryId > 2 && searchWordHiragana.isEmpty()) {
 
 			setSearchDTOList(searchDAO.ByProductCategory(categoryId));
 			ret = SUCCESS;
 		}
 
 		/*---------------------------------------------------------
-				カテゴリなし、検索値あり
+				ピザを検索
 		-----------------------------------------------------------*/
-		else if (categoryId == 2 && !(keyword.isEmpty())) {
-			setSearchDTOList(searchDAO.BySerchWord(keyword));
+
+
+		else if (categoryId == 2 && !(searchWordHiragana.isEmpty())) {
+			setSearchDTOList(searchDAO. BySerchWord(searchWordHiragana, searchWord, categoryId));
 			ret = SUCCESS;
 		}
 
-		keyword = getSearchWord();
+
+		searchWordHiragana = getSearchWord();
 		return ret;
 	}
 
@@ -193,6 +200,14 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 	public void setSearchWords(String[] searchWords) {
 		this.searchWords = searchWords;
+	}
+
+	public String[] getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(String[] keywords) {
+		this.keywords = keywords;
 	}
 
 }

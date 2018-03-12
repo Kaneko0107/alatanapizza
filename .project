@@ -28,11 +28,4 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>WebContent/images/icon/haikei.jpg</name>
-			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Dropbox/%E7%94%BB%E5%83%8F/haikei.jpg</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>

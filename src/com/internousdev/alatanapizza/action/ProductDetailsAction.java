@@ -9,7 +9,6 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.ProductDetailsDAO;
 import com.internousdev.alatanapizza.dto.ProductDTO;
-//import com.internousdev.alatanapizza.dto.Review2DTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -42,16 +41,9 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 	// お勧めリスト情報
 	public List<ProductDTO> suggestList = new ArrayList<ProductDTO>();
 
-	// レビュー情報リスト
-	//public List<Review2DTO> reviewList = new ArrayList<Review2DTO>();
-
 	private ProductDetailsDAO productDetailsDAO = new ProductDetailsDAO();
 
-	//private ProductListDAO productListDAO = new ProductListDAO();
-
 	public String execute() throws SQLException {
-
-		// String[] productIdList = product_id.split(", ", 0);
 
 				// 商品詳細情報取得
 				try {
@@ -69,7 +61,6 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 						session.put("d_stock", detail.getStock());
 						session.put("d_product_id", detail.getProduct_id());
 						session.put("d_category_id", detail.getCategory_id());
-						session.put("d_category_name", detail.getCategory_name());
 
 					} else {
 						return ERROR;
@@ -77,6 +68,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+
 
 				// おすすめリスト情報取得
 				try {
@@ -101,34 +93,22 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 					e.printStackTrace();
 				}
 
-				// レビュー情報取得メソッド
-				/*try {
-
-					reviewList = productDetailsDAO.getReviewInfo(session.get("d_product_id").toString());
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-*/
 
 				// 1から在庫数までの選択表示用List
 				for (int i = 1; i <= detail.getStock(); i++) {
 					stockList.add(i);
 				}
-
 				if (session.get("d_category_id").equals("")) {
 					return ERROR;
 				}
 
 
-				// トッピングメニュー
+				// トッピングメニュー取得
 				toppingList = productDetailsDAO.getToppingInfo();
 				session.put("toppingList", toppingList);
-
 				String result = SUCCESS;
 				return result;
 			}
-
 
 
 	@Override

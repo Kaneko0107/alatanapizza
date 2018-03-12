@@ -10,18 +10,18 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ChangePasswordCompleteAction extends ActionSupport implements SessionAware{
 	private String newpass;
 	private String userid;
-	private String answer;
+	private String secret_answer;
 	private Map<String,Object>session;
 	private ChangePasswordCompleteDAO dao=new ChangePasswordCompleteDAO();
 	public String execute() throws SQLException{
 		System.out.println("----------");
 		System.out.println(newpass);
 		System.out.println(userid);
-		System.out.println(answer);
+		System.out.println(secret_answer);
 		System.out.println("---------");
 
 
-		int result=dao.changeComplete(newpass,userid,answer);
+		int result=dao.changeComplete(newpass,userid,secret_answer);
 		if(result>0){
 			return SUCCESS;
 		}else{
@@ -45,12 +45,12 @@ public class ChangePasswordCompleteAction extends ActionSupport implements Sessi
 		this.userid = userid;
 	}
 
-	public String getAnswer() {
-		return answer;
+	public String getSecret_answer() {
+		return secret_answer;
 	}
 
-	public void setAnswer(String answer) {
-		this.answer = answer;
+	public void setSecret_answer(String secret_answer) {
+		this.secret_answer = secret_answer;
 	}
 
 	public String getNewpass() {

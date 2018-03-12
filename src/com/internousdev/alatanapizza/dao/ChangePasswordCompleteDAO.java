@@ -14,16 +14,16 @@ public class ChangePasswordCompleteDAO {
 	public Map<String,Object>session;
 	private String newpass;
 	private String userid;
-	private String answer;
+	private String secret_answer;
 	private int result=0;
-	private String sql="update user_info set password=? where user_id=? and answer=?";
+	private String sql="update user_info set password=? where user_id=? and secret_answer=?";
 
-	public int changeComplete(String newpass,String userid,String answer) throws SQLException{
+	public int changeComplete(String newpass,String userid,String secret_answer) throws SQLException{
 		try{
 			PreparedStatement ps=con.prepareStatement(sql);
 			ps.setString(1,newpass);
 			ps.setString(2, userid);
-			ps.setString(3, answer);
+			ps.setString(3, secret_answer);
 			ps.executeUpdate();
 			result=ps.executeUpdate();
 
@@ -57,11 +57,11 @@ public class ChangePasswordCompleteDAO {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-	public String getAnswer() {
-		return answer;
+	public String getSecret_answer() {
+		return secret_answer;
 	}
-	public void setAnswer(String answer) {
-		this.answer = answer;
+	public void setSecret_answer(String secret_answer) {
+		this.secret_answer = secret_answer;
 	}
 
 

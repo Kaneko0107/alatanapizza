@@ -19,7 +19,7 @@
 		 <td><s:property value="newpass" escape="false"/>
 		 	<s:hidden name="newpass" value="%{newpass}" />
 			<s:hidden name="userid" value="%{userid}" />
-			<s:hidden name="answer" value="%{answer}"/>
+			<s:hidden name="secret_answer" value="%{secret_answer}"/>
 		</td>
 </tr><br>
 

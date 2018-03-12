@@ -11,8 +11,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ChangePasswordConfirmAction extends ActionSupport implements SessionAware{
 	private Map<String,Object>session;
 	private String result;
-	private String answer;
-	private int question;
+	private String secret_answer;
+	private int secret_question;
 	private String newpass;
 	private String errorUserid;
 	private String errorpassword;
@@ -26,11 +26,11 @@ public String execute(){
 	System.out.println(checkpass);
 
 
-	if(CPCdao.CheckAnswer(userid,question,answer)){
+	if(CPCdao.CheckAnswer(userid,secret_question,secret_answer)){
 		result=SUCCESS;
 		session.put("newpass",newpass);
 		session.put("userid",userid);
-		session.put("answer", answer);
+		session.put("secret_answer", secret_answer);
 	}else{
 		result=ERROR;
 		errorUserid="*ユーザーIDと答えが一致していません";
@@ -92,14 +92,14 @@ public void setErrorUserid(String errorUserid) {
 
 
 
-public int getQuestion() {
-	return question;
+public int getSecret_question() {
+	return secret_question;
 }
 
 
 
-public void setQuestion(int question) {
-	this.question = question;
+public void setSecret_question(int secret_question) {
+	this.secret_question = secret_question;
 }
 
 
@@ -136,8 +136,8 @@ public void setUserid(String userid) {
 
 
 
-public String getAnswer() {
-	return answer;
+public String getSecret_answer() {
+	return secret_answer;
 }
 
 
@@ -146,8 +146,8 @@ public String getAnswer() {
 
 
 
-public void setAnswer(String answer) {
-	this.answer = answer;
+public void setAnswer(String secret_answer) {
+	this.secret_answer = secret_answer;
 }
 
 

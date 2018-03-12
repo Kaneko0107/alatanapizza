@@ -3,22 +3,21 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
-
 <head>
-
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" type="text/css"
-		href="${pageContext.request.contextPath}/css/reset.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-		rel="stylesheet">
-	<link rel="stylesheet" type="text/css"
-		href="${pageContext.request.contextPath}/css/mt_style.css">
-	<link rel="shortcut icon"
-		href="${pageContext.request.contextPath}/img/favicon.ico">
-	<link rel="stylesheet" type="text/css"
-		href="${pageContext.request.contextPath}/css/ochiai_style.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta http-equiv="imagetoolbar" content="no"/>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
 <title>新商品追加画面</title>
+
+<style type="text/css">
+
+</style>
+
 </head>
+
 <body>
 
 
@@ -39,7 +38,7 @@
 							<label>商品名:</label>
 						</td>
 						<td>
-							<input type="text" name="productName" value="" />
+							<input type="text" name="itemName" value="" />
 						</td>
 					</tr>
 
@@ -48,7 +47,7 @@
 							<label>商品名(ひらがな):</label>
 						</td>
 						<td>
-							<input type="text" name="productKanaName" value="" />
+							<input type="text" name="itemKanaName" value="" />
 						</td>
 					</tr>
 
@@ -57,7 +56,7 @@
 							<label>価格:</label>
 						</td>
 						<td>
-							<input type="text" name="price" value="" />円
+							<input type="text" name="itemPrice" value="" />円
 						</td>
 					</tr>
 					<tr>
@@ -65,7 +64,7 @@
 							<label>個数:</label>
 						</td>
 						<td>
-							<select name="quantity">
+							<select name="itemStock">
 								<option value="1" selected="selected">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>

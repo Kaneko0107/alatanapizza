@@ -5,19 +5,17 @@
 <html>
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" type="text/css"
-		href="${pageContext.request.contextPath}/css/reset.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-		rel="stylesheet">
-	<link rel="stylesheet" type="text/css"
-		href="${pageContext.request.contextPath}/css/mt_style.css">
-	<link rel="shortcut icon"
-		href="${pageContext.request.contextPath}/img/favicon.ico">
-	<link rel="stylesheet" type="text/css"
-		href="${pageContext.request.contextPath}/css/ochiai_style.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta http-equiv="imagetoolbar" content="no"/>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
 	<title>新商品追加確認画面</title>
 </head>
+<style type="text/css">
+
+</style>
 <body>
 
 
@@ -30,7 +28,7 @@
 	</div>
 
 	<div class="main">//商品
-					<s:form action="XXX">
+					<s:form action="MasterAddConfirmAction">
 							<br>商品名:
 							<s:property value="productName" />
 							<br>

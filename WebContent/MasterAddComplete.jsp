@@ -5,19 +5,20 @@
 <html>
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" type="text/css"
-		href="${pageContext.request.contextPath}/css/reset.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-		rel="stylesheet">
-	<link rel="stylesheet" type="text/css"
-		href="${pageContext.request.contextPath}/css/mt_style.css">
-	<link rel="shortcut icon"
-		href="${pageContext.request.contextPath}/img/favicon.ico">
-	<link rel="stylesheet" type="text/css"
-		href="${pageContext.request.contextPath}/css/ochiai_style.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta http-equiv="imagetoolbar" content="no"/>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
 	<title>新商品追加完了</title>
+
+<style type="text/css">
+
+</style>
 </head>
+
+
 <body>
 
 商品の追加が完了しました。
@@ -33,7 +34,7 @@
 		</div>
 	</div>
 
-<a href='<s:url action="MasterChangeAction"/>'>管理者HOME画面へ戻る</a>
+<a href='<s:url action="MasterProductChangeAction"/>'>管理者HOME画面へ戻る</a>
 
 
 

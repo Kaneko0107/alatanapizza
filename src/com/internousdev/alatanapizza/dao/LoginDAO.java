@@ -21,23 +21,23 @@ import com.internousdev.alatanapizza.util.DBConnector;
 
 public class LoginDAO {
 
-	private LoginDTO dto=new LoginDTO();
+	private LoginDTO loginDTO=new LoginDTO();
 	private DBConnector db=new DBConnector();
 	private Connection con=db.getConnection();
-	private int exUp;
+	//private int exUp;
 
-	public LoginDTO loginUserInfo(String loginId,String loginPassword){
+	public LoginDTO loginUserInfo(String userId,String password){
 
-		System.out.println(loginId);
-		System.out.println(loginPassword);
+		System.out.println(userId);
+		System.out.println(password);
 
 		String sql="select * from user_info where user_id = ? and password = ?";
 
 		try{
 			PreparedStatement ps=con.prepareStatement(sql);
 
-			ps.setString(1, loginId);
-			ps.setString(2, loginPassword);
+			ps.setString(1, userId);
+			ps.setString(2, password);
 
 			ResultSet rs=ps.executeQuery();
 
@@ -45,37 +45,92 @@ public class LoginDAO {
 				System.out.println(rs.getString("user_id"));
 				System.out.println(rs.getString("password"));
 
-				dto.setLoginId(rs.getString("user_id"));
-				dto.setLoginPassword(rs.getString("password"));
-				dto.setFamilyName(rs.getString("famiry_name"));
-				dto.setFirstName(rs.getString("first_name"));
-				dto.setFamilyNameKana(rs.getString("family_name_kana"));
-				dto.setFirstNameKana(rs.getString("first_name_kana"));
-				dto.setSex(rs.getString("sex"));
-				dto.setEmail(rs.getString("email"));
+				loginDTO.setUserId(rs.getString("user_id"));
+				loginDTO.setPassword(rs.getString("password"));
+				loginDTO.setFamilyName(rs.getString("famiry_name"));
+				loginDTO.setFirstName(rs.getString("first_name"));
+				loginDTO.setFamilyNameKana(rs.getString("family_name_kana"));
+				loginDTO.setFirstNameKana(rs.getString("first_name_kana"));
+				loginDTO.setSex(rs.getString("sex"));
+				loginDTO.setEmail(rs.getString("email"));
 			}else{
-				dto.setLoginId("noID");
-				dto.setLoginPassword("noPASS");
+				loginDTO.setUserId("noID");
+				loginDTO.setPassword("noPASS");
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
-		return dto;
+		return loginDTO;
 
 	}
 
+	//ログイン判定
+	public boolean login(LoginDTO loginDTO)throws SQLException{
+		boolean result = false;
+		int updateCount =  0;
+		DBConnector db= new DBConnector();
+		Connection con = db.getConnection();
+
+		//ログインしたユーザーのログインフラグの値を1にする
+		String sql = "UPDATE user_info SET logined=1 WHERE user_id=?";
+		try{
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setString(1, loginDTO.getUserId());
+			updateCount=ps.executeUpdate();
+			//カウントが1以上ならトゥルー
+			if(updateCount>0){
+				System.out.println("ログイン済み");
+				result =true;
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			con.close();
+		}
+		return result;
+	}
+
+	//userIdが存在するかどうかのチェック
+	public boolean existsUserId(String userId)throws SQLException{
+		boolean result = false;
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+
+		String sql = "SELECT * FROM user_info WHERE user_id = ?";
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, userId);
+			ResultSet rs=ps.executeQuery();
+			if(rs.next()){
+				result = true;
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			con.close();
+		}
+		return result;
+	}
+}
 	/**
 	 * カート情報引継ぎ
 	 * tempUserIdをloginIdで上書き
-	 * tempUserIdのカート内容をloginIdに引継ぎ
+	 * →いまここ　tempUserIdのカート内容をloginIdに引継ぎ
+	 * これだと仮にloginIdに商品があった場合にはその商品は追加されない
+	 *
+	 * なので、tempUserIdのカート内容をloginIdのカート内に追加してやる形をとる
+	 * その後でtempUserIdのカート内容を削除する
 	 */
-	public int cartInfo(String tempUserId,String loginId){
-		String sql="update cart_info set user_id=? where user_id=?";
+/**public int cartInfo(String tempUserId,String userId){
+		String sql="INSERT INTO cart_info(product_id,product_count,price)"
+				+ "SELECT cart_info=?,product_count=?,price=?)"
+				+ "FROM temp_cart_info";
+	//	String sql="update cart_info set user_id=? where user_id=?";
 
 		try{
 			PreparedStatement ps=con.prepareStatement(sql);
 
-			ps.setString(1, loginId);
+			ps.setString(1, userId);
 			ps.setString(2, tempUserId);
 
 			exUp=ps.executeUpdate();
@@ -109,7 +164,7 @@ public class LoginDAO {
 
 			ResultSet resultSet=preparedStatement.executeQuery();
 
-			if(resultSet.next()){
+			if(resultSet.next()){l
 				loginDTO.setLoginId(resultSet.getString("login_id"));
 				loginDTO.setLoginPassword(resultSet.getString("login_pass"));
 				loginDTO.setUserName(resultSet.getString("user_name"));
@@ -128,4 +183,4 @@ public class LoginDAO {
 	}
 	*/
 
-}
+

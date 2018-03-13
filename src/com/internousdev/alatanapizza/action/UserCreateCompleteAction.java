@@ -21,13 +21,12 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	private String mail;
 	private String secretQuestion;
 	private String secretAnswer;
-	private String address;
-	private String tel;
+
 	public Map<String, Object> session;
 
-	private UserCreateCompleteDAO userCreateCompleteDAO = new UserCreateCompleteDAO();
+	private UserCreateCompleteDAO userCreateCompleteDAO=new UserCreateCompleteDAO();
 
-	/*private LoginDAO dao = new LoginDAO();  保留中*/
+	/*private LoginDAO dao=new LoginDAO();  保留中*/
 
 
 
@@ -44,12 +43,10 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 		        Integer.parseInt(session.get("sex").toString()),
 		        session.get("mail").toString(),
 		        Integer.parseInt(session.get("secretQuestion").toString()),
-		        session.get("secretAnswer").toString(),
-		        session.get("yubin").toString(),
-		        session.get("address").toString(),
-		        session.get("tel").toString() );
+		        session.get("secretAnswer").toString());
 
-		String result = SUCCESS;
+
+		String result=SUCCESS;
 
 		return result;
 	}
@@ -62,7 +59,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	}
 
 	public void setLoginUserId(String loginUserId) {
-		this.loginUserId = loginUserId;
+		this.loginUserId=loginUserId;
 	}
 
 
@@ -71,7 +68,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	}
 
 	public void setLoginPassword(String loginPassword) {
-		this.loginPassword = loginPassword;
+		this.loginPassword=loginPassword;
 	}
 
 
@@ -80,7 +77,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	}
 
 	public void setFamilyName(String familyName) {
-		this.familyName = familyName;
+		this.familyName=familyName;
 	}
 
 
@@ -89,7 +86,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	}
 
 	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+		this.firstName=firstName;
 	}
 
 
@@ -98,7 +95,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	}
 
 	public void setFirstNameKana(String firstNameKana) {
-		this.firstNameKana = firstNameKana;
+		this.firstNameKana=firstNameKana;
 	}
 
 
@@ -107,7 +104,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	}
 
 	public void setFamilyNameKana(String familyNameKana) {
-		this.familyNameKana = familyNameKana;
+		this.familyNameKana=familyNameKana;
 	}
 
 
@@ -116,7 +113,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	}
 
 	public void setSex(String sex) {
-		this.sex = sex;
+		this.sex=sex;
 	}
 
 
@@ -125,7 +122,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	}
 
 	public void setMail(String mail) {
-		this.mail = mail;
+		this.mail=mail;
 	}
 
 	public String getSecretQuestion() {
@@ -133,7 +130,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	}
 
 	public void setSecretQuestion(String secretQuestion) {
-		this.secretQuestion = secretQuestion;
+		this.secretQuestion=secretQuestion;
 	}
 
 	public String getSecretAnswer() {
@@ -141,37 +138,13 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	}
 
 	public void setSecretAnswer(String secretAnswer) {
-		this.secretAnswer = secretAnswer;
+		this.secretAnswer=secretAnswer;
 	}
 
-	public String getYubin() {
-		return address;
-	}
-
-	public void setYubin(String yubin) {
-		this.yubin = yubin;
-	}
-
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getTel() {
-		return tel;
-	}
-
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
 
 	@Override
 	public void setSession(Map<String, Object> session) {
-		this.session = session;
+		this.session=session;
 	}
 
 	public Map<String, Object> getSession() {

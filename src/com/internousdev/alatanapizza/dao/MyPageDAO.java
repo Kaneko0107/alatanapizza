@@ -1,4 +1,4 @@
-package com.internousdev.AlatanaPizza.DAO;
+package com.internousdev.alatanapizza.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.internousdev.AlatanaPizza.DTO.MyPageDTO;
-import com.internousdev.AlatanaPizza.util.DBConnector;
+import com.internousdev.alatanapizza.dto.MyPageDTO;
+import com.internousdev.alatanapizza.util.DBConnector;
 
 public class MyPageDAO {
 
@@ -23,11 +23,12 @@ public class MyPageDAO {
 		MyPageDTO myPageDTO = new MyPageDTO();
 		ArrayList<MyPageDTO> myPageList = new ArrayList<MyPageDTO>();
 
-		String sql = "SELECT * FROM user_info where user_id = ? ";
+		String sql1 = "SELECT * FROM user_info where user_id = ? ";
+
 		try {
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, userId);
-			ResultSet rs = ps.executeQuery();
+			PreparedStatement ps1 = con.prepareStatement(sql1);
+			ps1.setString(1, userId);
+			ResultSet rs = ps1.executeQuery();
 
 			while (rs.next()) {
 
@@ -41,11 +42,17 @@ public class MyPageDAO {
 
 				myPageDTO.setFirstNameKana(rs.getString("first_name_kana"));
 
-				myPageDTO.setSex(rs.getBoolean("sex"));
+				myPageDTO.setSex(rs.get???("sex"));
 
 				myPageDTO.setEmail(rs.getString("email"));
 
 				myPageDTO.setPassword(rs.getString("password"));
+
+				myPageDTO.setTel_Number(rs.getString("tel_number"));
+
+				myPageDTO.setUser_Address(rs.getString("user_address"));
+
+
 
 				System.out.println("---myPageDTO-----");
 				System.out.println(myPageDTO.getPassword());

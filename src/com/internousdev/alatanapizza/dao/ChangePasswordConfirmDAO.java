@@ -13,28 +13,28 @@ public class ChangePasswordConfirmDAO {
 
 	private String password;
 	private String userid;
-	private String answer;
+	private String secret_answer;
 
 	private boolean result=false;
-	public boolean CheckAnswer(String userid,int question,String answer){
+	public boolean CheckAnswer(String userid,int secret_question,String secret_answer){
 
 		try{
 			//値の確認出力
 			System.out.println(userid);
-			System.out.println(answer);
-			System.out.println(question);
+			System.out.println(secret_answer);
+			System.out.println(secret_question);
 
-			String sql="select * from user_info where user_id=? and question=? and answer=?";
+			String sql="select * from user_info where user_id=? and secret_question=? and secret_answer=?";
 			PreparedStatement ps=con.prepareStatement(sql);
 			ps.setString(1,userid);
-			ps.setInt(2,question);
-			ps.setString(3,answer);
+			ps.setInt(2,secret_question);
+			ps.setString(3,secret_answer);
 			ResultSet rs=ps.executeQuery();
 			if(rs.next()){
 					result=true;
 				setPassword(rs.getString("password"));
 				setUserid(rs.getString("user_id"));
-				setAnswer(rs.getString("answer"));
+				setSecret_answer(rs.getString("secret_answer"));
 
 
 				}
@@ -50,12 +50,12 @@ public class ChangePasswordConfirmDAO {
 		return result;
 	}
 
-	public String getAnswer() {
-		return answer;
+	public String getSecret_answer() {
+		return secret_answer;
 	}
 
-	public void setAnswer(String answer) {
-		this.answer = answer;
+	public void setSecret_answer(String secret_answer) {
+		this.secret_answer = secret_answer;
 	}
 
 	public String getPassword() {

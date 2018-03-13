@@ -26,13 +26,13 @@
 			<h3>下記に必要事項を記入してください</h3>
 			<s:form action="DestConfirmAction">
 				<span>姓</span>
-				<s:textfield name="userFamilyName"/>
+				<s:textfield name="familyName"/>
 				<span>名</span>
-				<s:textfield name="userFirstName"/>
+				<s:textfield name="firstName"/>
 				<span>姓ふりがな</span>
-				<s:textfield name="userFamilyNameKana"/>
+				<s:textfield name="familyNameKana"/>
 				<span>名ふりがな</span>
-				<s:textfield name="userFilstNameKana"/>
+				<s:textfield name="filstNameKana"/>
 				<span>メールアドレス</span>
 				<s:textfield name="mail"/>
 				<span>電話番号</span>

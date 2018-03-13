@@ -10,39 +10,39 @@ import com.internousdev.alatanapizza.util.DateUtil;
 
 public class UserCreateCompleteDAO {
 
-	private DBConnector dbConnector = new DBConnector();
-	private Connection connection = dbConnector.getConnection();
-	private DateUtil dateUtil = new DateUtil();
+	private DBConnector db=new DBConnector();
+	private Connection con=db.getConnection();
+	private DateUtil dateUtil=new DateUtil();
 
-	private String sql = "INSERT INTO login_user_transaction(user_id,password,family_name,first_name,family_name_kana,first_name_kana,sex,email,question,answer,regist_date)"
+	private String sql="INSERT INTO user_info(user_id, password, family_name, first_name, family_name_kana, first_name_kana, sex, email, secret_question, secret_answer, regist_date)"
 			+ "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 
 
 
-	public void createUser (String userid, String pass, String familyname, String firstname, String familynamekana,
-			String firstnamekana, int sex, String email, int secretquestion, String secretanswer, String address,
-			String tel) throws SQLException {
+	public void createUser ( String userid, String password, String familyname, String firstname, String familynamekana,
+			String firstnamekana, int sex, String email, int secretquestion, String secretanswer) throws SQLException {
 
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, userid);
-			preparedStatement.setString(2, pass);
-			preparedStatement.setString(3, familyname);
-			preparedStatement.setString(4, firstname);
-			preparedStatement.setString(5, familynamekana);
-			preparedStatement.setString(6, firstnamekana);
-			preparedStatement.setInt(7, sex);
-			preparedStatement.setString(8, email);
-			preparedStatement.setInt(9, secretquestion);
-			preparedStatement.setString(10, secretanswer);
-			preparedStatement.setString(11, dateUtil.getDate());
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, userid);
+			ps.setString(2, password);
+			ps.setString(3, familyname);
+			ps.setString(4, firstname);
+			ps.setString(5, familynamekana);
+			ps.setString(6, firstnamekana);
+			ps.setInt(7, sex);
+			ps.setString(8, email);
+			ps.setInt(9, secretquestion);
+			ps.setString(10, secretanswer);
 
-			preparedStatement.execute();
+			ps.setString(11, dateUtil.getDate());
 
-		}catch(Exception e) {
+			ps.execute();
+
+		} catch(SQLException e) {
 			e.printStackTrace();
-		}finally{
-		    connection.close();
+		} finally {
+		    con.close();
 	    }
         }
 }

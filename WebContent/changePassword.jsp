@@ -30,7 +30,7 @@ color:red;}
 </tr>
 <tr>
 <td>秘密の質問:</td>
-<td><select name="question">
+<td><select name="secret_question">
 <option value="1">好きな食べ物</option>
 <option value="2">嫌いな食べ物</option>
 </select>
@@ -38,7 +38,7 @@ color:red;}
 </tr>
 <tr>
 <td>答え:</td>
-<td><input type="text" name="answer" value='<s:property value="answer"/>' required/></td>
+<td><input type="text" name="secret_answer" value='<s:property value="secret_answer"/>' required/></td>
 </tr>
 <tr>
 <td>新しいパスワード:</td>

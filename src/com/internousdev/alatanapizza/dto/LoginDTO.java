@@ -1,27 +1,42 @@
 package com.internousdev.alatanapizza.dto;
 
+import java.util.Date;
+
 public class LoginDTO {
 
-	private String loginId;
-	private String loginPassword;
+	private int id;
+	private String userId;
+	private String password;
 	private String familyName;
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
-	private String sex;
+	//private String sex;
+	private boolean sex; //0:男性 1:女性
 	private String email;
+	private boolean status;
+	private boolean logined;
+	private Date register_date;
+	private Date update_date;
 
-	public String getLoginId(){
-		return loginId;
+
+	public int getId(){
+		return id;
 	}
-	public void setLoginId(String loginId){
-		this.loginId=loginId;
+	public void setId(int id){
+		this.id=id;
 	}
-	public String getLoginPassword(){
-		return loginPassword;
+	public String getUserId(){
+		return userId;
 	}
-	public void setLoginPassword(String loginPassword){
-		this.loginPassword=loginPassword;
+	public void setUserId(String userId){
+		this.userId=userId;
+	}
+	public String getPassword(){
+		return password;
+	}
+	public void setPassword(String password){
+		this.password=password;
 	}
 	public String getFamilyName(){
 		return familyName;
@@ -47,10 +62,18 @@ public class LoginDTO {
 	public void setFirstNameKana(String firstNameKana){
 		this.firstNameKana=firstNameKana;
 	}
+	/*
 	public String getSex(){
 		return sex;
 	}
 	public void setSex(String sex){
+		this.sex=sex;
+	}
+	*/
+	public boolean isSex(){
+		return sex;
+	}
+	public void setSex(boolean sex){
 		this.sex=sex;
 	}
 	public String getEmail(){
@@ -58,6 +81,31 @@ public class LoginDTO {
 	}
 	public void setEmail(String email){
 		this.email=email;
+	}
+	public boolean isLogined(){
+		return logined;
+	}
+	public void setLogined(boolean logined){
+		this.logined=logined;
+	}
+	public Date getRegister_date(){
+		return register_date;
+	}
+	public void setRegister_date(Date register_date){
+		this.register_date=register_date;
+	}
+	public Date getUpdate_date(){
+		return update_date;
+	}
+	public void setUpdate_date(Date update_date){
+		this.update_date=update_date;
+	}
+
+	public void setUserName(String familyName,String firstName,String familyNameKana,String firstNameKana){
+		this.familyName=familyName;
+		this.firstName=firstName;
+		this.familyNameKana=familyNameKana;
+		this.firstNameKana=firstNameKana;
 	}
 
 

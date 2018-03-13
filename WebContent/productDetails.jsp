@@ -5,9 +5,85 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
 
-<meta charset="UTF-8">
 <title>商品詳細画面</title>
+	<style type="text/css">
+		body {
+		   margin:0;
+		   padding:0;
+		   line-height:2.0;
+		   letter-spacing:1.5px;
+		   font-family:arial black, Helvetica, sans-serif;
+		   font-size:15px;
+		   color:white;
+		   text-align:center;
+		   background-color:black;
+			background-image:url("./images/icon/background.jpg");
+			background-size:cover;
+			background-repeat: no-repeat;
+		}
+		h2{
+			border-left:solid red 20px;
+		}
+		table {
+			margin:0 27% 0 27%;
+		}
+		#main {
+		   width: 100%;
+		   height: 500px;
+		   text-align: center;
+		}
+		#category{
+			text-align:left;
+			font-size:30px;
+		}
+		#productName{
+			 font-size:25px;
+			 border-bottom: double 5px red;
+		}
+		#productNameKana{
+			 font-size:20px;
+		}
+		#productPrice{
+			font-size:20px;
+		}
+		.productDescription{
+			position: relative;
+			 margin: 2em auto;
+ 			padding: 1.5em;
+ 			border: 1px solid white;
+ 			width: 80%;
+		}
+		.productDescription .productDescription1 {
+			 position: absolute;
+ 			padding: 0 .5em;
+ 			left: 1em;
+			 top: -1em;
+ 			content: "";
+ 			font-weight: bold;
+		}
+		#toppingtitle{
+			text-align:left;
+			line-height:0.5;
+			 font-size:20px;
+		}
+		.line {
+  			height: 0.5px;
+ 			 border : dashed 0.3px;
+ 			 margin:0 20% 0 20%;
+		}
+	#suggestProduct{
+		text-align:left;
+	}
+
+	</style>
 
 <script src="./js/jquery-1.12.4.min.js">
 	//ピザM,Lサイズ選択のラジオボタン
@@ -86,78 +162,89 @@ function culcTotal(){
 
 
 	<s:form action="GoCartAction" name="select">
-		<span class="main">
+
+
+	<table class="detailsTable">
+			<tr>
+			<th>
+			<span id="category">
 			<!-- カテゴリーの表示 -->
 			<s:if test="session.d_category_id==2">
-			<h1>Pizza</h1>
+			<h2>Pizza</h2>
 			</s:if>
 			<s:if test="session.d_category_id==3">
-			<h1>SideMenu</h1>
+			<h2>SideMenu</h2>
 			</s:if>
 			<s:if test="session.d_category_id==4">
-			<h1>DrinkMenu</h1>
+			<h2>DrinkMenu</h2>
 			</s:if>
+			</span>
+			</th>
+			</tr>
+
 
 			<!-- 画像の表示 -->
-			<span class="DetailsList">
-				<span class="detailsList">
-					<span class="img">
+			<tr>
+			<td>
+					<span id="img">
 						<img class="image"
 							src="<s:property value='session.d_image_file_path'/>" alt="Photo"
-							width="400" height="270">
+							width="400" height="300">
 					</span>
-
-					<table class="detailsTable">
-						<tr>
-							<th class="nowrap">
-								<!-- 商品名 --><h2>
-								<s:property value="session.d_product_name" /></h2></th>
-							<td class="nowrap">
+			</td>
+			<td>
+							<span id="productName">
+								<!-- 商品名 -->
+								<s:property value="session.d_product_name" /></span><br>
+							<span id="productNameKana">
 								<!-- 商品名かな -->
-							</td>
-							<td><s:property value="session.d_product_name_kana" /></td>
-						</tr>
+								<s:property value="session.d_product_name_kana" /></span>
+								<br>
 
 						<!-- カテゴリーによって値段表示変更 -->
-						<tr><form name="form1" action="">
+						<span id="productPrice">
 						<s:if test="session.d_category_id==2">
-							<td><input type="radio" name="optionsRadios"
+							<input type="radio" name="optionsRadios"
 								id="Radio1" value="1" onChange="culcItemSize();">M￥<s:property
-									value="session.d_product_msize_price" /></td>
-							<td><input type="radio" name="optionsRadios"
+									value="session.d_product_msize_price" />
+							<input type="radio" name="optionsRadios"
 								id="Radio2" value="1" onChange="culcItemSize();">L￥<s:property
-									value="session.d_product_lsize_price" /></td>
+									value="session.d_product_lsize_price" />
 						</s:if>
 						<s:if test="session.d_category_id==3 || session.d_category_id==4">
-						<td class="nowrap"><!-- サイド・ドリンク --></td>
-							<td>￥<s:property value="session.d_product_price" /></td>
-						</s:if></form>
-						</tr>
+						<!-- サイド・ドリンク -->
+							￥<s:property value="session.d_product_price" />
+						</s:if></span>
 
-						<tr>
-							<td class="nowrap">商品詳細</td>
-							<td>:</td>
-							<td><s:property value="session.d_product_description" /></td>
-						</tr>
+							<div class="productDescription">
+							<div class="productDescription1">商品詳細</div>
+							<s:property value="session.d_product_description" /></div>
+			</td>
+			</tr>
+	</table><br>
 
-					</table>
-				</span>
-			</span>
 
-			<h3>トッピング</h3>
-			<h4>M￥324,L￥432</h4>
-			<!--<span class="ToppingList">-->
-				<span class="toppingList">
-					<table class="toppingTable">
+<s:if test="session.d_category_id==2">
+	<table class="topping">
+		<tr>
+		<th>
+		<div id="toppingtitle">
+			Topping ￥324</div>
+		</th>
+		</tr>
+		<tr>
+		<td>
+		<div class="productDescription">
+		<div class="productDescription1"></div>
 						<s:iterator value="session.toppingList" status="topping-number">
-
 								<input type="checkbox" id='topping-number"<s:property value='#topping-number.count'/>"' value="<s:property value='msize_price'/>"  onclick="calcTotal();" />
 								<s:property value="topping_name" />
-
-						</s:iterator>
-					</table>
-				</span>
-			<!--</span>-->
+						</s:iterator></div>
+		</td>
+		</tr>
+		</div>
+	</table>
+</s:if><br><br>
 
 
 
@@ -172,53 +259,43 @@ function culcTotal(){
 			<s:hidden name="gocart" value="1" />
 			<s:submit value="カートに入れる" />
 
+	</s:form><br><br>
 
-		</span>
-	</s:form>
+	<hr class="line"><br>
 
-
-	<h2>その他おすすめ商品</h2>
-	<div>
-		<div class="thumbnail clearFix">
+	<table class="suggest">
+		<tr>
+		<th>
+			<span id="suggestProduct">
+			その他おすすめ商品</span>
+		</th>
+		<th></th>
+		</tr>
+		<tr>
+		<td>
 			<s:iterator value="suggestList">
-				<a
-					href="<s:url action="ProductDetailsAction">
-				 <s:param name="product_id" value="%{product_id}" />
- 			</s:url>">
-					<div class="list1">
-						<img class="image"
-							src="<s:property value='image_file_path'/>" alt="Photo"
-							width="250" height="200">
-						<table class="detailsTable">
-							<tr>
-								<td class="nowrap"><!-- 商品名 --></td>
-								<td><s:property value="product_name" /></td>
-								<td class="nowrap"><!-- 商品かな --></td>
-								<td><s:property value="product_name_kana" /></td>
-							</tr>
+				<a href="<s:url action="ProductDetailsAction">
+				 <s:param name="product_id" value="%{product_id}" /></s:url>">
+						<img class="image" src="<s:property value='image_file_path'/>
+						" alt="Photo" width="250" height="200">
 
-							<tr>
+								<s:property value="product_name" />
+								<s:property value="product_name_kana" />
+
 							<s:if test="category_id==2">
-								<td class="nowrap">M</td>
-								<td>￥<s:property value="msize_price" />
-								<td class="nowrap">L</td>
-								<td>￥<s:property value="lsize_price" />
-								<td class="nowrap">
-								</td>
+								M￥<s:property value="msize_price" />
+								L￥<s:property value="lsize_price" />
 							</s:if>
 							<s:if test="category_id==3 || category_id==4">
-								<td>￥<s:property value="price" />
-								</td>
+								￥<s:property value="price" />
 							</s:if>
-							</tr>
-						</table>
 						<s:hidden name="product_id" value="%{product_id}" />
 
-					</div>
-				</a>
+			</a>
 			</s:iterator>
-		</div>
-	</div>
+			</td>
+			</tr>
+	</table>
 
 
 

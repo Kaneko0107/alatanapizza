@@ -584,7 +584,7 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
 	cast('2018-03-01' as date)
 	),
     (6,
-	"Cheese",
+	"Cheese　",
 	324,
     486,
 	cast('2018-03-01' as date),

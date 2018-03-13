@@ -21,12 +21,13 @@ import com.internousdev.alatanapizza.util.DBConnector;
 
 public class LoginDAO {
 
+
 	private LoginDTO loginDTO=new LoginDTO();
 	private DBConnector db=new DBConnector();
 	private Connection con=db.getConnection();
 	//private int exUp;
 
-	public LoginDTO loginUserInfo(String userId,String password){
+	public LoginDTO select(String userId,String password){
 
 		System.out.println(userId);
 		System.out.println(password);
@@ -51,7 +52,6 @@ public class LoginDAO {
 				loginDTO.setFirstName(rs.getString("first_name"));
 				loginDTO.setFamilyNameKana(rs.getString("family_name_kana"));
 				loginDTO.setFirstNameKana(rs.getString("first_name_kana"));
-				loginDTO.setSex(rs.getString("sex"));
 				loginDTO.setEmail(rs.getString("email"));
 			}else{
 				loginDTO.setUserId("noID");

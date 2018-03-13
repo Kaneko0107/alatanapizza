@@ -14,6 +14,7 @@
 	<meta name="keywords" content="" />
 
 <title>商品詳細画面</title>
+
 	<style type="text/css">
 		body {
 		   margin:0;
@@ -34,11 +35,6 @@
 		}
 		table {
 			margin:0 27% 0 27%;
-		}
-		#main {
-		   width: 100%;
-		   height: 500px;
-		   text-align: center;
 		}
 		#category{
 			text-align:left;
@@ -81,10 +77,15 @@
 		}
 	#suggestProduct{
 		text-align:left;
+		font-size:20px;
+	}
+	#suggest{
+		float:left;
 	}
 
 	</style>
 
+<!--
 <script src="./js/jquery-1.12.4.min.js">
 	//ピザM,Lサイズ選択のラジオボタン
 	$(function() {
@@ -119,6 +120,7 @@ function culcItemSize(){
 }
 </script>
 
+
 <script>
 //トッピングのチェックボックスに番号をつけて合計数を計算
 function culcTotal(){
@@ -146,7 +148,7 @@ function culcTotal(){
 		//商品詳細合計の計算
 		document.getElementById("productDetailPrice").value = data
 						* ((<s:property value="session.s_product_msize_price"/> + <s:property value="s_product_lsize_price"/> + <s:property value="s_product_price"/>)
-						+culcTotal()) //+ $("#select").val();
+						 //+ $("#select").val();
 		var idx = obj.options[idx].value;
 		var text = obj.options[idx].text;
 		alert(idx);
@@ -154,7 +156,7 @@ function culcTotal(){
 		console.log('value= ' + value + ',' + 'text= ' + text);
 	}
 </script>
-
+-->
 
 </head>
 <body>
@@ -181,7 +183,6 @@ function culcTotal(){
 			</span>
 			</th>
 			</tr>
-
 
 			<!-- 画像の表示 -->
 			<tr>
@@ -235,14 +236,13 @@ function culcTotal(){
 		<tr>
 		<td>
 		<div class="productDescription">
-		<div class="productDescription1"></div>
+
 						<s:iterator value="session.toppingList" status="topping-number">
 								<input type="checkbox" id='topping-number"<s:property value='#topping-number.count'/>"' value="<s:property value='msize_price'/>"  onclick="calcTotal();" />
 								<s:property value="topping_name" />
 						</s:iterator></div>
 		</td>
 		</tr>
-		</div>
 	</table>
 </s:if><br><br>
 
@@ -263,25 +263,36 @@ function culcTotal(){
 
 	<hr class="line"><br>
 
-	<table class="suggest">
+
+	<table class="suggestProduct">
 		<tr>
 		<th>
 			<span id="suggestProduct">
-			その他おすすめ商品</span>
+				その他おすすめ商品</span>
 		</th>
-		<th></th>
 		</tr>
+
+			<s:iterator value="suggestList">
+		<div id="suggest">
 		<tr>
 		<td>
-			<s:iterator value="suggestList">
+
 				<a href="<s:url action="ProductDetailsAction">
 				 <s:param name="product_id" value="%{product_id}" /></s:url>">
 						<img class="image" src="<s:property value='image_file_path'/>
 						" alt="Photo" width="250" height="200">
+				</a>
 
+		</td>
+		</tr>
+		<tr>
+		<td>
 								<s:property value="product_name" />
 								<s:property value="product_name_kana" />
-
+		</td>
+		</tr>
+		<tr>
+		<td>
 							<s:if test="category_id==2">
 								M￥<s:property value="msize_price" />
 								L￥<s:property value="lsize_price" />
@@ -290,11 +301,11 @@ function culcTotal(){
 								￥<s:property value="price" />
 							</s:if>
 						<s:hidden name="product_id" value="%{product_id}" />
+		</td>
+		</tr>
+		</div>
+		</s:iterator>
 
-			</a>
-			</s:iterator>
-			</td>
-			</tr>
 	</table>
 
 

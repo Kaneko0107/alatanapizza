@@ -7,8 +7,10 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.CartInfoDAO;
+import com.internousdev.alatanapizza.dao.DestinationDAO;
 import com.internousdev.alatanapizza.dao.LoginDAO;
 import com.internousdev.alatanapizza.dto.CartInfoDTO;
+import com.internousdev.alatanapizza.dto.DestinationDTO;
 import com.internousdev.alatanapizza.dto.LoginDTO;
 import com.internousdev.alatanapizza.util.ErrorMessageConstants;
 
@@ -54,7 +56,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 	//合計金額
 	private int totalPrice;
 	//宛先情報一覧
-	private ArrayList<DestinationInfoDTO> destinationInfoListDTO= new ArrayList<DestinationInfoDTO>();
+	private ArrayList<DestinationDTO> destinationInfoListDTO= new ArrayList<DestinationDTO>();
 	//カートリスト→担当にArrayListを作成してもらう？
 	private ArrayList<CartInfoDTO> cartList=new ArrayList<CartInfoDTO>();
 
@@ -101,131 +103,144 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 			session.remove("saveId");
 		}
 
-		if(!userId.equals("") && !password.equals("")){ //どちらも空欄ではないとき
-			//ユーザーIDがDBに存在するか確認
-			if(!loginDAO.existsUserId(userId)){ //ユーザーIDがない
-				errorMessageList.add("IDが正しくありません");
-				result=ERROR;
-			}else{
-				loginDTO=loginDAO.select(userId,password);
 
-				//ログイン判定
-				if(userId.equals(loginDTO.getUserId()) && password.equals(loginDTO.getPassword())){ //二つとも一致した場合
-					loginDAO.login(loginDTO);
-
-					result=SUCCESS;
-
-					//Mapセッション情報の更新をする
-					session.put("userId", loginDTO.getUserId()); //
-					session.put("loginFlg", true); //ログインフラグ立て
-
-					CartInfoDAO cartInfoDAO=new CartInfoDAO(); //newカートリスト
-					DestinationInfoDAO destinationInfoDAO=new DestinationInfoDAO(); //new宛先
-					ArrayList<CartInfoDTO> cartList=new ArrayList<CartInfoDTO>(); //会員用カートリスト
-					ArrayList<CartInfoDTO> tempCartList=new ArrayList<CartInfoDTO>(); //ゲスト用カートリスト
-					ArrayList<Integer> productIdList=new ArrayList<Integer>(); //整数型　製品リスト
-					ArrayList<Integer> tempProductIdList=new ArrayList<Integer>(); //整数型　ゲスト用製品リスト
-
-					//Mapのsessionから取得するのでString型として取得した
-					//userIdのカート情報をすべて引き出すメソッドを代入
-					cartList=cartInfoDAO.showUserCartList(session.get("userId").toString());
-					//tempUserIdのカート情報をすべて引き出すメソッドを代入
-					tempCartList=cartInfoDAO.showUserCartList(session.get("tempUserId").toString());
-					int i=0;
+		//管理者画面へログイン
+		if(userId.equals("alatana"/*ここに管理者用のIDを入れて*/)
+				&& password.equals("pizza"/*ここに管理者用のPASSを入れて*/)){
+					session.put("masterFlg", true); //管理者フラグ立て
+					result ="master";
+		}else{
 
 
-					//ログイン後のカートの中身を生成
-					for(i=0;i<cartList.size();i++){
-						productIdList.add(cartList.get(i).getProductId());
-					}
+			//ログインチェック
+			if(!userId.equals("") && !password.equals("")){ //どちらも空欄ではないとき
+				//ユーザーIDがDBに存在するか確認
+				if(!loginDAO.existsUserId(userId)){ //ユーザーIDがない
+					errorMessageList.add("IDが正しくありません");
+					result=ERROR;
+				}else{
+					loginDTO=loginDAO.select(userId,password);
 
-					//ゲスト時のカートの中身をリストとして生成
-					i=0;
-					for(i=0;i<tempCartList.size();i++){
-						tempProductIdList.add(tempCartList.get(i).getProductId());
-					}
+					//ログイン判定
+					if(userId.equals(loginDTO.getUserId()) && password.equals(loginDTO.getPassword())){ //二つとも一致した場合
+						loginDAO.login(loginDTO);
 
-					//カートの中身の重複を確認
-					if(cartList.size()<tempCartList.size()){ //ログイン時のカートリスト < ゲスト用のカートリスト
+						result=SUCCESS;
+
+						//Mapセッション情報の更新をする
+						session.put("userId", loginDTO.getUserId()); //
+						session.put("loginFlg", true); //ログインフラグ立て
+
+						CartInfoDAO cartInfoDAO=new CartInfoDAO(); //newカートリスト
+						DestinationDAO destinationDAO=new DestinationDAO(); //new宛先
+						ArrayList<CartInfoDTO> cartList=new ArrayList<CartInfoDTO>(); //会員用カートリスト
+						ArrayList<CartInfoDTO> tempCartList=new ArrayList<CartInfoDTO>(); //ゲスト用カートリスト
+						ArrayList<Integer> productIdList=new ArrayList<Integer>(); //整数型　製品リスト
+						ArrayList<Integer> tempProductIdList=new ArrayList<Integer>(); //整数型　ゲスト用製品リスト
+
+						//Mapのsessionから取得するのでString型として取得した
+						//userIdのカート情報をすべて引き出すメソッドを代入
+						cartList=cartInfoDAO.showUserCartList(session.get("userId").toString());
+						//tempUserIdのカート情報をすべて引き出すメソッドを代入
+						tempCartList=cartInfoDAO.showUserCartList(session.get("tempUserId").toString());
+						int i=0;
+
+
+						//ログイン後のカートの中身を生成
+						for(i=0;i<cartList.size();i++){
+							productIdList.add(cartList.get(i).getProductId());
+						}
+
+						//ゲスト時のカートの中身をリストとして生成
 						i=0;
-						for(i=0;i<productIdList.size();i++){
-							boolean exist=tempProductIdList.contains(productIdList.get(i));
-							if(exist){
-								cartInfoDAO.changeProductStockId(Integer.valueOf(cartList.get(i).getProductCount()),
-										Integer.valueOf(productIdList.get(i)),session.get("userId").toString());
-								cartInfoDAO.deleteSeparate(session.get("tempUserId").toString(),
-										Integer.valueOf(productIdList.get(i)));
-							}else{
-								cartInfoDAO.changeUserId(session.get("tempUserId").toString(),
-										session.get("userId").toString());
+						for(i=0;i<tempCartList.size();i++){
+							tempProductIdList.add(tempCartList.get(i).getProductId());
+						}
+
+						//カートの中身の重複を確認
+						if(cartList.size()<tempCartList.size()){ //ログイン時のカートリスト < ゲスト用のカートリスト
+							i=0;
+							for(i=0;i<productIdList.size();i++){
+								boolean exist=tempProductIdList.contains(productIdList.get(i));
+								if(exist){
+									cartInfoDAO.changeProductStockId(Integer.valueOf(cartList.get(i).getProductCount()),
+										//cartInfoDAOにString userIdが入力されていないからエラーを吐いている　要修正
+									//BuyItemCompleteActionにて合計金額の算出コードの記載あるのでこちらではいらない？
+											Integer.valueOf(productIdList.get(i)),session.get("userId").toString());
+									cartInfoDAO.deleteSeparate(session.get("tempUserId").toString(),
+											Integer.valueOf(productIdList.get(i)));
+								}else{
+									cartInfoDAO.changeUserId(session.get("tempUserId").toString(),
+											session.get("userId").toString());
+								}
+								System.out.println("TEST1"+exist);
 							}
-							System.out.println("TEST1"+exist);
-						}
 
-					}else{ //ログインカートリスト < ゲスト用カートリスト　以外のケース
-						i=0;
-						for(i=0;i<tempProductIdList.size();i++){
-							boolean exist=productIdList.contains(tempProductIdList.get(i));
-							if(exist){
-								cartInfoDAO.changeProductStockId(Integer.valueOf(tempCartList.get(i).getProductCount()),
-										Integer.valueOf(tempProductIdList.get(i)),session.get("userId").toString());
-								cartInfoDAO.deleteSeparate(session.get("tempUserId").toString(),
-										Integer.valueOf(tempProductIdList.get(i)));
-							}else{
-								cartInfoDAO.changeUserId(session.get("tempUserId").toString(),
-										session.get("userId").toString());
+						}else{ //ログインカートリスト < ゲスト用カートリスト　以外のケース
+							i=0;
+							for(i=0;i<tempProductIdList.size();i++){
+								boolean exist=productIdList.contains(tempProductIdList.get(i));
+								if(exist){
+									cartInfoDAO.changeProductStockId(Integer.valueOf(tempCartList.get(i).getProductCount()),
+											Integer.valueOf(tempProductIdList.get(i)),session.get("userId").toString());
+									cartInfoDAO.deleteSeparate(session.get("tempUserId").toString(),
+											Integer.valueOf(tempProductIdList.get(i)));
+								}else{
+									cartInfoDAO.changeUserId(session.get("tempUserId").toString(),
+											session.get("userId").toString());
+								}
+								System.out.println("TEST2"+ exist);
 							}
-							System.out.println("TEST2"+ exist);
-						}
-					}
-
-					//cartInfoDAO内のchangeUserIdメソッドを使用、SQLのUPDATE文にてtempUserIdに一致するtemp_user_idを
-					//持つユーザーのuser_idとtemp_user_idをuserIdで上書きしている
-					cartInfoDAO.changeUserId(session.get("tempUserId").toString(),session.get("userId").toString());
-					//userIdの情報すべてを引き出すメソッドを代入
-					cartList=cartInfoDAO.showUserCartList(session.get("userId").toString());
-					destinationInfoListDTO=destinationInfoDAO
-							.obtainingDestinationInfo(session.get("userId").toString());
-
-
-					//合計金額の計算
-					totalPrice=calcTotalPrice(cartList);
-
-					//カート、宛先情報を引き継ぐ
-					System.out.println("kessai:"+kessai);
-
-					if(kessai==1){
-						if((boolean) session.get("loginFlg")){
-							destinationInfoListDTO=destinationInfoDAO
-									.obtainingDestinationInfo(session.get("userId").toString());
 						}
 
-						if(destinationInfoListDTO.size()>0){
-							result=SUCCESS;
-						}else if(!(boolean) session.get("loginFlg")){
-							result=ERROR;
-							kessai=1;
-							return result;
-						}else{
-							result="destination";
-							return result;
-						}
+						//cartInfoDAO内のchangeUserIdメソッドを使用、SQLのUPDATE文にてtempUserIdに一致するtemp_user_idを
+						//持つユーザーのuser_idとtemp_user_idをuserIdで上書きしている
+						cartInfoDAO.changeUserId(session.get("tempUserId").toString(),session.get("userId").toString());
+						//userIdの情報すべてを引き出すメソッドを代入
+						cartList=cartInfoDAO.showUserCartList(session.get("userId").toString());
+						destinationInfoListDTO=destinationDAO
+								.obtainingDestinationInfo(session.get("userId").toString());
 
-						System.out.println("LoginAction:kessaiは1");
 
 						//合計金額の計算
-						totalPrice=calcTotalPrice(cartList);//calc???????????適応するものを調べる必要あり
-						return KESSAI;
-					}
+						totalPrice=calcTotalPrice(cartList); //calc==計算　の意味
 
-				}else{
-					errorMessageList.add("入力されたパスワードが異なります。");
-					result=ERROR;
+						//カート、宛先情報を引き継ぐ
+						System.out.println("kessai:"+kessai);
+
+						if(kessai==1){
+							if((boolean) session.get("loginFlg")){
+								destinationInfoListDTO=destinationDAO
+										.obtainingDestinationInfo(session.get("userId").toString());
+							}
+
+							if(destinationInfoListDTO.size()>0){
+								result=SUCCESS;
+							}else if(!(boolean) session.get("loginFlg")){
+								result=ERROR;
+								kessai=1;
+								return result;
+							}else{
+								result="destination";
+								return result;
+							}
+
+							System.out.println("LoginAction:kessaiは1");
+
+							//合計金額の計算
+							totalPrice=calcTotalPrice(cartList);
+							return KESSAI;
+						}
+
+					}else{
+						errorMessageList.add("入力されたパスワードが異なります。");
+						result=ERROR;
+					}
 				}
 			}
-		}
 
-		return result;
+			return result;
+		}
 
 	}
 
@@ -321,10 +336,10 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		this.userAddress=userAddress;
 	}
 
-	public ArrayList<DestinationInfoDTO> getDestinationInfoListDTO(){
+	public ArrayList<DestinationDTO> getDestinationInfoListDTO(){
 		return destinationInfoListDTO;
 	}
-	public void setDestinationInfoListDTO(ArrayList<DestinationInfoDTO> destinationInfoListDTO){
+	public void setDestinationInfoListDTO(ArrayList<DestinationDTO> destinationInfoListDTO){
 		this.destinationInfoListDTO=destinationInfoListDTO;
 	}
 

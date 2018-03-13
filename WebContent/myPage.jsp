@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -18,15 +18,14 @@
 </head>
 <body>
 
-	<!-- ヘッダー -->
-	<jsp:include page="include_header.jsp" />
+
 	<div class="header"></div>
 
 
 
 	<div class="main">
 
-		<div id="secRegist" class="section">
+		<div class="Registration">
 
 			<div class="sectionInner">
 
@@ -43,12 +42,10 @@
 									<th>氏名</th>
 									<td>
 										<p>
+				<!-- s:propertyを用いてMyPageActionのmyPageListから情報を参照 -->
 											<s:property value="familyName" />
 											<s:property value="firstName" />
 										<p>
-									</td>
-									<td class="change">
-										<!-- <a href="アクション"></> -->
 									</td>
 								</tr>
 
@@ -58,28 +55,20 @@
 											<s:property value="familyNameKana" />
 											<s:property value="firstNameKana" />
 										<p></td>
-									<td class="change">
-										<!-- <a href="アクション"></> -->
-									</td>
 								</tr>
 
 								<tr>
 									<th>性別</th>
 									<td><p>
+				<!-- DBにTinyInt型でデータが入っており、getBooleanで値を取得-->
 											<s:if test="sex==0">男性</s:if>
 											<s:else>女性</s:else>
 										<p></td>
-									<td class="change">
-										<!-- <a href="アクション"></> -->
-									</td>
 								</tr>
 
 								<tr>
 									<th>メールアドレス</th>
 									<td><s:property value="email" /></td>
-									<td class="change">
-										<!-- <a href="アクション"></> -->
-									</td>
 								</tr>
 
 								<tr>
@@ -87,9 +76,6 @@
 									<td><p>
 											<s:property value="userId" />
 										</p></td>
-									<td class="change">
-										<!-- <a href="アクション"></> -->
-									</td>
 								</tr>
 
 								<tr>
@@ -97,37 +83,45 @@
 									<td><p>
 											<s:property value="password" />
 										</p></td>
-									<td class="change"><a href="/alatanapizza/ChangePasswordAction"
+			<!-- パスワード変更画面へ遷移 -->
+									<td class="change"><a href="ChangePasswordAction"
 										class="btn">変更</a></td>
 								</tr>
 							</s:iterator>
 						</tbody>
 					</table>
 
+
+
+
+
+			<!-- 購入履歴ページに遷移 -->
 					<div class="buttonBox">
 						<div class="btnn">
-							<a href="/alatanapizza/PurchaseHistoryInfoAction" class="button">購入履歴</a>
+							<a href="PurchaseHistoryAction" class="button">購入履歴へ</a>
 						</div>
 					</div>
 				</div>
 
-				<div class="buttonBox2">
-					<div class="btnn2">
-						<a href='<s:url action="FavoriteAction"/>'>お気に入り</a>
+			<!-- お気に入りページに遷移 -->
+					<div class="buttonBox2">
+						<div class="btnn2">
+							<a href='<s:url action="FavoriteAction"/>'>お気に入り一覧へ</a>
+						</div>
 					</div>
-				</div>
+
+			<!-- ユーザー情報変更ページに遷移 -->
+					<div class="buttonBox3">
+						<div class="btnn3">
+							<a href='<s:url action="UserUpdateAction"/>'>ユーザー情報を変更する</a>
+						</div>
+					</div>
 
 
 			</div>
 		</div>
 	</div>
 
-
-
-
-
-	<!-- フッター -->
-	<jsp:include page="include_footer.jsp" />
 
 
 </body>

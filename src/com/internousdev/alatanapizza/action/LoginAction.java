@@ -46,7 +46,8 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 	//パスワード
 	private String password;
 	//ID保持
-	private boolean saveLogin;
+	private String saveLogin;
+	//private boolean saveLogin;
 	//セッション
 	private Map<String,Object>session;
 	//エラーメッセージ
@@ -96,8 +97,10 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 			errorMessageList.add("パスワードは半角英数字で入力してください");
 		}
 
-		//ID保存
-		if(saveLogin){
+		//保持したIDを呼び出す
+		if(saveLogin==)
+
+		if(saveLogin.equals("true")){ //
 			session.put("saveId", userId);
 		}else{
 			session.remove("saveId");
@@ -201,7 +204,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 						destinationInfoListDTO=destinationDAO
 								.obtainingDestinationInfo(session.get("userId").toString());
 
-
+/*
 						//合計金額の計算
 						totalPrice=calcTotalPrice(cartList); //calc==計算　の意味
 
@@ -231,6 +234,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 							totalPrice=calcTotalPrice(cartList);
 							return KESSAI;
 						}
+*/
 
 					}else{
 						errorMessageList.add("入力されたパスワードが異なります。");
@@ -259,12 +263,19 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		this.password=password;
 	}
 
-	public boolean isSaveLogin(){ //booleanだからis
+	public String getSaveLogin(){
 		return saveLogin;
 	}
-	public void setSaveLogin(boolean saveLogin){
+	public void setSaveLogin(String saveLogin){
 		this.saveLogin=saveLogin;
 	}
+
+//	public boolean isSaveLogin(){ //booleanだからis
+//		return saveLogin;
+//	}
+//	public void setSaveLogin(boolean saveLogin){
+//		this.saveLogin=saveLogin;
+//	}
 
 	public Map<String,Object> getSession(){
 		return session;

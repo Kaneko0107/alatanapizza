@@ -38,13 +38,13 @@
 		<br/>
 	  	<div>
 		<span>パスワードを忘れた方は
-					<a href='<s:url action="ResetUserPassAction"/>'>こちら</a>
+					<a href='<s:url action="ChangePasswordAction"/>'>こちら</a>
 			</span>
 		</div>
 		<br/>
 		<div>
 			<span>新規ユーザー登録は
-				<a href='<s:url action="RegisterUserInfoAction"/>'>こちら</a>
+				<a href='<s:url action="UserCreateAction"/>'>こちら</a>
 			</span>
 		</div>
 	</div>

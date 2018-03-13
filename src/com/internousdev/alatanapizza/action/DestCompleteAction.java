@@ -17,9 +17,10 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
-	private String email;
-	private String telNumber;
+	private boolean sex;
 	private String userAddress;
+	private String telNumber;
+	private String email;
 
 	public Map<String,Object> session;
 
@@ -31,9 +32,10 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 		DestinationDTO destinationDTO=new DestinationDTO();
 		destinationDTO.setUserId(session.get("userId").toString());
 		destinationDTO.setFullName(familyName,firstName,familyNameKana,firstNameKana);
-		destinationDTO.setEmail(email);
-		destinationDTO.setTelNumber(telNumber);
+		destinationDTO.setSex(sex);
 		destinationDTO.setUserAddress(userAddress);
+		destinationDTO.setTelNumber(telNumber);
+		destinationDTO.setEmail(email);
 		System.out.println("宛先情報セット完了");
 
 		DestinationDAO destinationDAO=new DestinationDAO();
@@ -88,17 +90,11 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 	public void setFirstNameKana(String firstNameKana){
 		this.firstNameKana=firstNameKana;
 	}
-	public String getEmail(){
-		return email;
+	public boolean isSex(){
+		return sex;
 	}
-	public void setEmail(String email){
-		this.email=email;
-	}
-	public String getTelNumber(){
-		return telNumber;
-	}
-	public void setTelNumber(String telNumber){
-		this.telNumber=telNumber;
+	public void setSex(boolean sex){
+		this.sex=sex;
 	}
 	public String getUserAddress(){
 		return userAddress;
@@ -106,6 +102,19 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 	public void setUserAddress(String userAddress){
 		this.userAddress=userAddress;
 	}
+	public String getTelNumber(){
+		return telNumber;
+	}
+	public void setTelNumber(String telNumber){
+		this.telNumber=telNumber;
+	}
+	public String getEmail(){
+		return email;
+	}
+	public void setEmail(String email){
+		this.email=email;
+	}
+
 	//@Override
 	public void setSession(Map<String,Object> session){
 		this.session=session;

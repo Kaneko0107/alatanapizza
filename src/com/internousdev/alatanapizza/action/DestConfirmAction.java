@@ -42,9 +42,10 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
-	private String email;
-	private String telNumber;
+	private boolean sex;
 	private String userAddress;
+	private String telNumber;
+	private String email;
 	private ArrayList<String> errorMessageList=new ArrayList<>();
 
 	public Map<String,Object> session;
@@ -80,16 +81,20 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 			errorMessageList.add(i.firstNameKanaChk(firstNameKana));
 			result =ERROR;
 		}
-		if(!i.emailChk(email).equals("OK")){
-			errorMessageList.add(i.emailChk(email));
+		//if(!i.sexChk(sex).equals("OK")){
+		//	errorMessageList.add(i.sexChk(sex));
+		//	result =ERROR;
+		//}
+		if(!i.userAddressChk(userAddress).equals("OK")){
+			errorMessageList.add(i.userAddressChk(userAddress));
 			result =ERROR;
 		}
 		if(!i.telNumberChk(telNumber).equals("OK")){
 			errorMessageList.add(i.telNumberChk(telNumber));
 			result =ERROR;
 		}
-		if(!i.userAddressChk(userAddress).equals("OK")){
-			errorMessageList.add(i.userAddressChk(userAddress));
+		if(!i.emailChk(email).equals("OK")){
+			errorMessageList.add(i.emailChk(email));
 			result =ERROR;
 		}
 		return result;
@@ -146,11 +151,17 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	public void setFirstNameKana(String firstNameKana){
 		this.firstNameKana=firstNameKana;
 	}
-	public String getEmail(){
-		return email;
+	public boolean isSex(){
+		return sex;
 	}
-	public void setEmail(String email){
-		this.email=email;
+	public void setSex(boolean sex){
+		this.sex=sex;
+	}
+	public String getUserAddress(){
+		return userAddress;
+	}
+	public void setUserAddress(String userAddress){
+		this.userAddress=userAddress;
 	}
 	public String getTelNumber(){
 		return telNumber;
@@ -158,11 +169,11 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	public void setTelNumber(String telNumber){
 		this.telNumber=telNumber;
 	}
-	public String getUserAddress(){
-		return userAddress;
+	public String getEmail(){
+		return email;
 	}
-	public void setUserAddress(String userAddress){
-		this.userAddress=userAddress;
+	public void setEmail(String email){
+		this.email=email;
 	}
 	//@Override
 	public void setSession(Map<String,Object> session){

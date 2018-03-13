@@ -33,12 +33,15 @@
 				<s:textfield name="familyNameKana"/>
 				<span>名ふりがな</span>
 				<s:textfield name="filstNameKana"/>
-				<span>メールアドレス</span>
-				<s:textfield name="mail"/>
-				<span>電話番号</span>
-				<s:textfield name="telNumber"/>
+				<span>性別</span>
+				<label><input type="radio" name="sex" value="0" checked />男</label>
+				<label><input type="radio" name="sex" value="1"  />女</label>
 				<span>住所</span>
 				<s:textfield name="userAddress"/>
+				<span>電話番号</span>
+				<s:textfield name="telNumber"/>
+				<span>メールアドレス</span>
+				<s:textfield name="mail"/>
 				<s:submit value="登録情報確認画面へ"/>
 			</s:form>
 		</div>

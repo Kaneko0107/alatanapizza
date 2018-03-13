@@ -11,9 +11,10 @@ public class DestinationDTO {
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
-	private String email;
-	private String telNumber;
+	private boolean sex;
 	private String userAddress;
+	private String telNumber;
+	private String email;
 	private Date registDate;
 	private Date updateDate;
 
@@ -53,17 +54,11 @@ public class DestinationDTO {
 	public void setFirstNameKana(String firstNameKana){
 		this.firstNameKana =firstNameKana;
 	}
-	public String getEmail(){
-		return email;
+	public boolean isSex(){
+		return sex;
 	}
-	public void setEmail(String email){
-		this.email =email;
-	}
-	public String getTelNumber(){
-		return telNumber;
-	}
-	public void setTelNumber(String telNumber){
-		this.telNumber =telNumber;
+	public void setSex(boolean sex){
+		this.sex =sex;
 	}
 	public String getUserAddress(){
 		return userAddress;
@@ -71,6 +66,19 @@ public class DestinationDTO {
 	public void setUserAddress(String userAddress){
 		this.userAddress =userAddress;
 	}
+	public String getTelNumber(){
+		return telNumber;
+	}
+	public void setTelNumber(String telNumber){
+		this.telNumber =telNumber;
+	}
+	public String getEmail(){
+		return email;
+	}
+	public void setEmail(String email){
+		this.email =email;
+	}
+
 
 	public Date getUpdateDate(){
 		return updateDate;

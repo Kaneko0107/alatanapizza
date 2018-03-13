@@ -10,10 +10,10 @@ public class InputChecker {
 			result ="姓を入力してください。";
 		}else if(familyName.length() <1 || familyName.length() >16){
 			result ="姓は1文字以上16文字以下で入力してください。";
-		}else if(!familyName.matches("^[a-zA-Zぁ-ゞ一-龠々ァ-ヾ]+$")){
+		}else if(!familyName.matches("^[a-zA-Zぁ-ゞ一-龠々]+$")){
 			//"^[]+$"で囲われたうちのどれか一文字が使われたとき以外の時
 			//※^は否定の意味ではなく行の先頭の意味で使われているので注意　正規表現で検索
-			result ="姓は半角英語、漢字、ひらがな、カタカナで入力してください。";
+			result ="姓は半角英語、漢字、ひらがなで入力してください。";
 		}
 		return result;
 	}
@@ -25,8 +25,8 @@ public class InputChecker {
 			result ="名を入力してください。";
 		}else if(firstName.length() <1 || firstName.length() >16){
 			result ="名は一文字以上16文字以下で入力してください。";
-		}else if(!firstName.matches("^[a-zA-Zぁ-ゞ一-龠々ァ-ヾ]+$")){
-			result ="名は半角英語、漢字、ひらがな、カタカナで入力してください。";
+		}else if(!firstName.matches("^[a-zA-Zぁ-ゞ一-龠々]+$")){
+			result ="名は半角英語、漢字、ひらがなで入力してください。";
 		}
 
 		return result;
@@ -54,22 +54,6 @@ public class InputChecker {
 			result ="名ふりがなは1文字以上16文字以下で入力してください。";
 		}else if(firstNameKana.matches("^[ぁ-ゞ]+$")){
 			result ="名ぶりがなはひらがなで入力してください。";
-		}
-		return result;
-	}
-
-	public String emailChk(String email){
-		String result ="OK";
-
-		if(email.equals("")){
-			result ="メールアドレスを入力してください。";
-		}else if(email.length() <10 || email.length() >32){
-			result ="メールアドレスは10文字以上32文字以下で入力してください。";
-		}else if(!email.matches("^(([0-9a-zA-Z!#\\$%&'\\*\\+\\-/=\\?\\^_`\\{\\}\\|~]+"
-				+ "(\\.[0-9a-zA-Z!#\\$%&'\\*\\+\\-/=\\?\\^_`\\{\\}\\|~]+)*)|(\"[^\"]*\"))"
-				+ "@[0-9a-zA-Z!#\\$%&'\\*\\+\\-/=\\?\\^_`\\{\\}\\|~]+"
-				+ "(\\.[0-9a-zA-Z!#\\$%&'\\*\\+\\-/=\\?\\^_`\\{\\}\\|~]+)*$")){
-			result ="正しいメールアドレスの形式で入力してください。";
 		}
 		return result;
 	}
@@ -115,32 +99,47 @@ public class InputChecker {
 		return result;
 	}
 
+	public String userAddressChk(String userAddress){
+		String result ="OK";
+
+		if(userAddress.equals("")){
+			result ="住所を入力してください。";
+		}else if(userAddress.length() <15 || userAddress.length() >50){
+			result ="住所は15文字以上50文字以下で入力してください。";
+		}else if(!userAddress.matches("^[a-zA-Z0-9ァ-ヾ一-龠々!-~]+$")){
+			result ="住所は半角英数字、漢字、カタカナおよび半角記号で入力してください。";
+		}
+		return result;
+
+	}
+
+
 	public String telNumberChk(String telNumber){
 		String result ="OK";
 
 		if(telNumber.equals("")){
 			result ="電話番号を入力してください。";
-		}else if(telNumber.length() <8 || telNumber.length() >13){
-			result ="電話番号は7文字以上13文字以下で入力してください。";
+		}else if(telNumber.length() <11 || telNumber.length() >13){
+			result ="電話番号は11文字以上13文字以下で入力してください。";
 		}else if(!telNumber.matches("^[0-9]+$")){
 			result ="電話番号は半角英数字で入力してください。";
 		}
 		return result;
 	}
 
-	public String userAddressChk(String userAddress){
+	public String emailChk(String email){
 		String result ="OK";
 
-		if(userAddress.equals("")){
-			result ="住所を入力してください。";
-		}else if(userAddress.length() <7 || userAddress.length() >50){
-			result ="住所は7文字以上50文字以下で入力してください。";
-		}else if(!userAddress.matches("^[a-zA-Z0-9ぁ-ゞァ-ヾ一-龠々!-~]+$")){
-			result ="住所は半角英数字、漢字、ひらがな、カタカナおよび半角記号で入力してください。";
+		if(email.equals("")){
+			result ="メールアドレスを入力してください。";
+		}else if(email.length() <18 || email.length() >32){
+			result ="メールアドレスは18文字以上32文字以下で入力してください。";
+		}else if(!email.matches("^[0-9@;:!#$%&'*+-/=?^_`{|}~]+$")){
+			result ="メールアドレスは半角英数字、半角記号で入力してください。";
 		}
 		return result;
-
 	}
+
 
 	//検索ワードの入力チェック
 	public String keywordChk(String keywords){

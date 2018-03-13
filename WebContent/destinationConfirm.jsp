@@ -27,19 +27,22 @@
 			<table>
 			<s:form action="DestCompleteAction">
 				<span>姓</span>
-				<s:property value="userFamilyName" escape="false"/>
+				<s:property value="familyName" escape="false"/>
 				<span>名</span>
-				<s:property value="userFirstName" escape="false"/>
+				<s:property value="firstName" escape="false"/>
 				<span>姓ふりがな</span>
-				<s:property value="userFamilyNameKana" escape="false"/>
+				<s:property value="familyNameKana" escape="false"/>
 				<span>名ふりがな</span>
-				<s:property value="userFilstNameKana" escape="false"/>
-				<span>メールアドレス</span>
-				<s:property value="mail" escape="false"/>
-				<span>電話番号</span>
-				<s:property value="telNumber" escape="false"/>
+				<s:property value="filstNameKana" escape="false"/>
+				<span>性別</span>
+				<s:property value="sex" escape="false"/>
 				<span>住所</span>
 				<s:property value="userAddress" escape="false"/>
+				<span>電話番号</span>
+				<s:property value="telNumber" escape="false"/>
+				<span>メールアドレス</span>
+				<s:property value="mail" escape="false"/>
+
 				<s:submit value="登録情報確定画面へ"/>
 			</s:form>
 			</table>

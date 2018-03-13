@@ -14,8 +14,8 @@ public class MyPageAction extends ActionSupport implements SessionAware, ErrorMe
 
 	/**
 	 * 1.ログイン状態か確認(sessionにuserIdがあればログイン状態)
-	 * 2.未ログインならhome画面に返す
-	 * 3.ログイン状態ならユーザー登録情報を取得
+	 * 2.未ログインならerrorとし、ログイン画面に返す
+	 * 3.ログイン状態ならユーザー登録情報を取得し、successマイページへ遷移
 	 * @param userId
 	 */
 
@@ -33,7 +33,7 @@ public class MyPageAction extends ActionSupport implements SessionAware, ErrorMe
 		/*---------------------------------------------------------
 		 セッション情報取得
 		---------------------------------------------------------*/
-		if (!(session.containsKey("userId"))) {//loginページで設定
+		if (!(session.containsKey("userId"))) {//loginページで設定 <s:if test="Message!=''">
 
 			setMessage("このサービスをご利用になるにはログインしてください。");
 

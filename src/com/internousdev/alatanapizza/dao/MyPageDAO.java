@@ -42,7 +42,7 @@ public class MyPageDAO {
 
 				myPageDTO.setFirstNameKana(rs.getString("first_name_kana"));
 
-				myPageDTO.setSex(rs.get???("sex"));
+				myPageDTO.setSex(rs.getBoolean("sex"));
 
 				myPageDTO.setEmail(rs.getString("email"));
 

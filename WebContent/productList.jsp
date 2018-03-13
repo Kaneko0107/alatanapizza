@@ -33,35 +33,49 @@
 -->
 
 
-<ul>
+
 	<!-- 表示件数1ページ目 -->
-
-
+<table class="productList">
+	<tr>
+	<td>
 	<s:iterator value="displayList">
 	<div class="itemList">
-	<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
 
-	<img class="image" src="<s:property value='image_file_path'/>" alt="Photo" width="200" height="170"><br>
-	</a>
-		<s:property value="product_name" /><br>
-		<s:property value="product_name_kana" /><br>
-		<s:if test="category_id==2"><br>
-		<span>(M)</span>￥<s:property value="msize_price" />円 &nbsp<span>(L)</span>￥<s:property value="lsize_price" />円<br>
-		</s:if>
-		<s:if test="category_id==3"><br>
-		￥<s:property value="price"/>円<br>
-		</s:if>
-		<s:if test="category_id==4"><br>
-		￥<s:property value="price"/>円<br>
-		</s:if>
-		商品詳細:<s:property value="product_description" /><br>
-			<s:form action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" />
-		<s:submit value="注文に進む"/>
-		</s:form>
+				<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+					<img class="image" src="<s:property value='image_file_path'/>" alt="Photo" width="200" height="170"><br>
+				</a>
+			<!-- 商品名 -->
+				<s:property value="product_name" /><br>
+
+			<!-- 商品かな -->
+				<s:property value="product_name_kana" /><br>
+
+			<!-- カテゴリーが2(ピザ)の場合の価格 -->
+				<s:if test="category_id==2">
+				<span>(M)</span>￥<s:property value="msize_price" />円 &nbsp<span>(L)</span>￥<s:property value="lsize_price" />円<br>
+				</s:if>
+
+			<!-- カテゴリーが3(サイド)の場合の価格 -->
+				<s:if test="category_id==3"><br>
+				￥<s:property value="price"/>円<br>
+				</s:if>
+
+			<!-- カテゴリーが4(ドリンク)の場合の価格 -->
+				<s:if test="category_id==4"><br>
+				￥<s:property value="price"/>円<br>
+				</s:if>
+
+			商品詳細:<s:property value="product_description" /><br>
+
+				<s:form action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" />
+				<s:submit value="注文に進む"/>
+				</s:form>
+
 		</div>
 	</s:iterator>
-</ul>
-
+	</td>
+	</tr>
+</table>
 
 
 <!-- リストにデータが入っている時-->

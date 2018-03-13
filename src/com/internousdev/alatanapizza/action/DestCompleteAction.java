@@ -6,30 +6,52 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.DestinationDAO;
+import com.internousdev.alatanapizza.dto.DestinationDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class DestCompleteAction extends ActionSupport implements SessionAware {
 	/**
 	 * 値
 	 */
-	private String userFamilyName;
-	private String userFirstName;
-	private String userFamilyNameKana;
-	private String userFirstNameKana;
+	private String familyName;
+	private String firstName;
+	private String familyNameKana;
+	private String firstNameKana;
 	private String email;
 	private String telNumber;
 	private String userAddress;
 
 	public Map<String,Object> session;
-	private DestinationDAO destinationDAO=new DestinationDAO();
 
 	public String execute() throws SQLException{
+
+		String result =ERROR;
+		System.out.println("エラーです。ホームへ");
+
+		DestinationDTO destinationDTO=new DestinationDTO();
+		destinationDTO.setUserId(session.get("userId").toString());
+		destinationDTO.setFullName(familyName,firstName,familyNameKana,firstNameKana);
+		destinationDTO.setEmail(email);
+		destinationDTO.setTelNumber(telNumber);
+		destinationDTO.setUserAddress(userAddress);
+		System.out.println("宛先情報セット完了");
+
+		DestinationDAO destinationDAO=new DestinationDAO();
+		if(destinationDAO.registerDestination(destinationDTO)){
+			System.out.println("宛先DBに登録完了");
+			result =SUCCESS;
+		}
+		return result;
+
+	}
+
+	/*
 		destinationDAO.createDestination(
 				session.get("userId").toString(),
-				session.get("userFamilyName").toString(),
-				session.get("userFirstName").toString(),
-				session.get("userFamilyNameKana").toString(),
-				session.get("userFirstNameKana").toString(),
+				session.get("familyName").toString(),
+				session.get("firstName").toString(),
+				session.get("familyNameKana").toString(),
+				session.get("firstNameKana").toString(),
 				session.get("email").toString(),
 				session.get("telNumber").toString(),
 				session.get("userAddress").toString());
@@ -37,34 +59,34 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 		String result = SUCCESS;
 
 		return result;
-	}
+	*/
 	/**
 	 * ゲッターセッター
 	 * @return
 	 */
-	public String getUserFamilyName(){
-		return userFamilyName;
+	public String getFamilyName(){
+		return familyName;
 	}
-	public void setUserFamilyName(String userFamilyName){
-		this.userFamilyName=userFamilyName;
+	public void setFamilyName(String familyName){
+		this.familyName=familyName;
 	}
-	public String getUserFirstName(){
-		return userFirstName;
+	public String getFirstName(){
+		return firstName;
 	}
-	public void setUserFirstName(String userFirstName){
-		this.userFirstName=userFirstName;
+	public void setFirstName(String firstName){
+		this.firstName=firstName;
 	}
-	public String getUserFamilyNameKana(){
-		return userFamilyNameKana;
+	public String getFamilyNameKana(){
+		return familyNameKana;
 	}
-	public void setUserFamilyNameKana(String userFamilyNameKana){
-		this.userFamilyNameKana=userFamilyNameKana;
+	public void setFamilyNameKana(String familyNameKana){
+		this.familyNameKana=familyNameKana;
 	}
-	public String getUserFirstNameKana(){
-		return userFirstNameKana;
+	public String getFirstNameKana(){
+		return firstNameKana;
 	}
-	public void setUserFirstNameKana(String userFirstNameKana){
-		this.userFirstNameKana=userFirstNameKana;
+	public void setFirstNameKana(String firstNameKana){
+		this.firstNameKana=firstNameKana;
 	}
 	public String getEmail(){
 		return email;
@@ -84,7 +106,7 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 	public void setUserAddress(String userAddress){
 		this.userAddress=userAddress;
 	}
-	@Override
+	//@Override
 	public void setSession(Map<String,Object> session){
 		this.session=session;
 	}

@@ -1,9 +1,11 @@
 package com.internousdev.alatanapizza.action;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.alatanapizza.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -12,13 +14,13 @@ import com.opensymphony.xwork2.ActionSupport;
  *
  *			<s:form action="CompleteDestAction">
 				<span>姓</span>
-				<s:textfield name="UserFamilyName"/>
+				<s:textfield name="familyName"/>
 				<span>名</span>
-				<s:textfield name="UserFirstName"/>
+				<s:textfield name="firstName"/>
 				<span>姓ふりがな</span>
-				<s:textfield name="UserFamilyNameKana"/>
+				<s:textfield name="familyNameKana"/>
 				<span>名ふりがな</span>
-				<s:textfield name="UserFilstNameKana"/>
+				<s:textfield name="filstNameKana"/>
 				<span>メールアドレス</span>
 				<s:textfield name="Email"/>
 				<span>電話番号</span>
@@ -36,73 +38,113 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class DestConfirmAction extends ActionSupport implements SessionAware {
 
-	private String userFamilyName;
-	private String userFirstName;
-	private String userFamilyNameKana;
-	private String userFirstNameKana;
+	private String familyName;
+	private String firstName;
+	private String familyNameKana;
+	private String firstNameKana;
 	private String email;
 	private String telNumber;
 	private String userAddress;
+	private ArrayList<String> errorMessageList=new ArrayList<>();
 
 	public Map<String,Object> session;
-	public String errorMessage;
 
 	public String execute(){
 		String result= SUCCESS;
+
+		//ログイン判定
+		if(!(session.containsKey("userId"))){
+			System.out.println("ログアウトしています");
+			result="login";
+			return result;
+		}
 
 		/**
 		 * すべての欄が埋まっている場合
 		 * データ格納
 		 */
-		if(!(userFamilyName.equals(""))
-				&&!(userFirstName.equals(""))
-				&&!(userFamilyNameKana.equals(""))
-				&&!(userFirstNameKana.equals(""))
+		InputChecker i=new InputChecker();
+		if(!i.familyNameChk(familyName).equals("OK")){
+			errorMessageList.add(i.familyNameChk(familyName));
+			result =ERROR;
+		}
+		if(!i.firstNameChk(firstName).equals("OK")){
+			errorMessageList.add(i.firstNameChk(firstName));
+			result =ERROR;
+		}
+		if(!i.familyNameKanaChk(familyNameKana).equals("OK")){
+			errorMessageList.add(i.familyNameKanaChk(familyNameKana));
+			result =ERROR;
+		}
+		if(!i.firstNameKanaChk(firstNameKana).equals("OK")){
+			errorMessageList.add(i.firstNameKanaChk(firstNameKana));
+			result =ERROR;
+		}
+		if(!i.emailChk(email).equals("OK")){
+			errorMessageList.add(i.emailChk(email));
+			result =ERROR;
+		}
+		if(!i.telNumberChk(telNumber).equals("OK")){
+			errorMessageList.add(i.telNumberChk(telNumber));
+			result =ERROR;
+		}
+		if(!i.userAddressChk(userAddress).equals("OK")){
+			errorMessageList.add(i.userAddressChk(userAddress));
+			result =ERROR;
+		}
+		return result;
+	}
+
+
+
+		/*if(!(familyName.equals(""))
+				&&!(firstName.equals(""))
+				&&!(familyNameKana.equals(""))
+				&&!(firstNameKana.equals(""))
 				&&!(email.equals(""))
 				&&!(telNumber.equals(""))
 				&&!(userAddress.equals(""))){
-			session.put("userFamilyName", userFamilyName);
-			session.put("userFirstName", userFirstName);
-			session.put("userFamilyNameKana", userFamilyNameKana);
-			session.put("userFirstNameKana", userFirstNameKana);
+			session.put("familyName", familyName);
+			session.put("firstName", firstName);
+			session.put("familyNameKana", familyNameKana);
+			session.put("firstNameKana", firstNameKana);
 			session.put("email", email);
 			session.put("telNumber", telNumber);
 			session.put("userAddress", userAddress);
 
 		}else{
-			/**
+			**
 			 * 空欄がある場合のエラーメッセージ
-			 */
+			 *
 			setErrorMessage("未入力の項目があります。");
 			result=ERROR;
 		}
 		return result;
-
-	}
+*/
 
 	public String getUserFamilyName(){
-		return userFamilyName;
+		return familyName;
 	}
-	public void setUserFamilyName(String userFamilyName){
-		this.userFamilyName=userFamilyName;
+	public void setUserFamilyName(String familyName){
+		this.familyName=familyName;
 	}
-	public String getUserFirstName(){
-		return userFirstName;
+	public String getFirstName(){
+		return firstName;
 	}
-	public void setUserFirstName(String userFirstName){
-		this.userFirstName=userFirstName;
+	public void setFirstName(String firstName){
+		this.firstName=firstName;
 	}
-	public String getUserFamilyNameKana(){
-		return userFamilyNameKana;
+	public String getFamilyNameKana(){
+		return familyNameKana;
 	}
-	public void setUserFamilyNameKana(String userFamilyNameKana){
-		this.userFamilyNameKana=userFamilyNameKana;
+	public void setFamilyNameKana(String familyNameKana){
+		this.familyNameKana=familyNameKana;
 	}
-	public String getUserFirstNameKana(){
-		return userFirstNameKana;
+	public String getFirstNameKana(){
+		return firstNameKana;
 	}
-	public void setUserFirstNameKana(String userFirstNameKana){
-		this.userFirstNameKana=userFirstNameKana;
+	public void setFirstNameKana(String firstNameKana){
+		this.firstNameKana=firstNameKana;
 	}
 	public String getEmail(){
 		return email;
@@ -122,15 +164,15 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	public void setUserAddress(String userAddress){
 		this.userAddress=userAddress;
 	}
-	@Override
+	//@Override
 	public void setSession(Map<String,Object> session){
 		this.session=session;
 	}
-	public String getErrorMessage(){
-		return errorMessage;
+	public ArrayList<String> getErrorMessageList(){
+		return errorMessageList;
 	}
-	public void setErrorMessage(String errorMessage){
-		this.errorMessage=errorMessage;
+	public void setErrorMessageList(ArrayList<String> errorMessageList){
+		this.errorMessageList=errorMessageList;
 	}
 
 }

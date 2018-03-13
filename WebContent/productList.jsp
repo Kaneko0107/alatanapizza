@@ -6,10 +6,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>商品一覧</title>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link rel="stylesheet" href="./css/alatanapizza.css">
+
+<title>全商品一覧</title>
 </head>
 <body>
-	<h3>商品一覧</h3>
+	<!-- <div class="category">
+		<ul>
+		<li>PIZZA</li>
+		<li>SIDE</li>
+		<li>DRINK</li>
+		</ul>
+	</div><br>
+ -->
+
+	<h3>全商品一覧</h3>
+
 
 	<!-- 検索時のメッセージ
 	<s:if test="searchMessage != ''">
@@ -25,22 +38,27 @@
 
 
 	<s:iterator value="displayList">
+	<div class="itemList">
 	<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
 
 	<img class="image" src="<s:property value='image_file_path'/>" alt="Photo" width="200" height="170"><br>
 	</a>
-		商品名:<s:property value="product_name" /><br>
-		商品名かな:<s:property value="product_name_kana" /><br>
+		<s:property value="product_name" /><br>
+		<s:property value="product_name_kana" /><br>
 		<s:if test="category_id==2"><br>
-		価格:(M)￥<s:property value="msize_price" />円 &nbsp(L)￥<s:property value="lsize_price" />円<br>
+		<span>(M)</span>￥<s:property value="msize_price" />円 &nbsp<span>(L)</span>￥<s:property value="lsize_price" />円<br>
 		</s:if>
 		<s:if test="category_id==3"><br>
-		サイドメニュー:￥<s:property value="price"/>円<br>
+		￥<s:property value="price"/>円<br>
 		</s:if>
 		<s:if test="category_id==4"><br>
-		ドリンク:￥<s:property value="price"/>円<br>
+		￥<s:property value="price"/>円<br>
 		</s:if>
 		商品詳細:<s:property value="product_description" /><br>
+			<s:form action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" />
+		<s:submit value="注文に進む"/>
+		</s:form>
+		</div>
 	</s:iterator>
 </ul>
 

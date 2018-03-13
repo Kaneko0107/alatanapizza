@@ -105,8 +105,8 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 
 
 		//管理者画面へログイン
-		if(userId.equals(""/*ここに管理者用のIDを入れて*/)
-				&& password.equals(""/*ここに管理者用のPASSを入れて*/)){
+		if(userId.equals("alatana"/*ここに管理者用のIDを入れて*/)
+				&& password.equals("pizza"/*ここに管理者用のPASSを入れて*/)){
 					session.put("masterFlg", true); //管理者フラグ立て
 					result ="master";
 		}else{

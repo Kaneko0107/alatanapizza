@@ -30,6 +30,10 @@ public class MyPageAction extends ActionSupport implements SessionAware, ErrorMe
 	private String message;
 
 	public String execute() {
+
+
+
+
 		/*---------------------------------------------------------
 		 セッション情報取得
 		---------------------------------------------------------*/
@@ -59,6 +63,8 @@ public class MyPageAction extends ActionSupport implements SessionAware, ErrorMe
 			myPageList = dao.getMyPageUserInfo(userId);
 			if (myPageList.size() > 0) {
 				result = SUCCESS;
+
+
 			}
 		}
 		return result;

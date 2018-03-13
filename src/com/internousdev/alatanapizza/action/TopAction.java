@@ -14,10 +14,10 @@ public class TopAction extends ActionSupport implements SessionAware{
 		try{
 		if (!(session.containsKey("loginFlg"))) {
 			session.put("loginFlg", false);
-			double guestId=Math.random();
-			session.put("guestId",guestId);
+			double tempUserId=Math.random();
+			session.put("tempUserId",tempUserId);
 			System.out.println("--------");
-			System.out.println(guestId);
+			System.out.println(tempUserId);
 			System.out.println(session.get("loginFlg"));
 	}
 

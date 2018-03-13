@@ -25,16 +25,15 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 	private int categoryId;
 	private ProductSearchDAO searchDAO = new ProductSearchDAO();
 	private List<ProductSearchDTO> searchDTOList = new ArrayList<ProductSearchDTO>();
-	private ToHiragana toHiragana = new ToHiragana();
+
 	private String[] searchWords;
-	private String[] keywords;
+
 	public Map<String, Object> session;
 	private ArrayList<String> msgList = new ArrayList<String>();
-	private String ret;
 
 	public String execute() throws SQLException {
-
-		ret = ERROR;
+		System.out.println("CATEGORYID:"+categoryId);
+		String ret = ERROR;
 
 		if (searchWord.length() > 16) {
 			msgList.add("16字以内で検索してください");
@@ -44,6 +43,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 			msgList.add(searchWord);
 		}
 
+		ToHiragana toHiragana = new ToHiragana();
 		/*---------------------------------------------------------
 				検索値を全て全角に変換、適切な値に加工
 		-----------------------------------------------------------*/
@@ -58,21 +58,18 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		}
 
 		/*---------------------------------------------------------
-				ピザを複数検索
-		-----------------------------------------------------------*/
-		/*
-		空白の場所を確認
-		*/
+		 *       検索値が複数あった場合
+		 ----------------------------------------------------------*/
 		int kuuhakunobasho = searchWordHiragana.indexOf(" ");
+		String[] searchWords = null;
+		String[] keywords = null;
 
-		if (categoryId == 2 && kuuhakunobasho >= 0) {
-
-			List<ProductSearchDTO> searchDTOList = new ArrayList<ProductSearchDTO>();
+		if (kuuhakunobasho > 0) {
 
 			/*
 			 * searchWordHiraganaを空白の場所ごとに分解
 			 */
-			String[] searchWords = searchWordHiragana.replace("　", " ").split("[\\s]+");
+			searchWords = searchWordHiragana.replace("　", " ").split("[\\s]+");
 			for (String str : searchWords) {
 				System.out.println(str);
 			}
@@ -80,60 +77,92 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 			/*
 			 * searchWordを空白の場所ごとに分解
 			 */
-			String[] keywords = searchWord.replace("　", " ").split("[\\s]+");
+			keywords = searchWord.replace("　", " ").split("[\\s]+");
 			for (String str : keywords) {
 				System.out.println(str);
 			}
-
-			/*
-			 * 検索開始
-			 *
-			 */
-			//setSearchDTOList(searchDAO.selectBywords(searchWords));
-			this.searchDTOList = searchDAO.selectBywords(searchWords, keywords, categoryId);
-
-
-			for (int i = 0; i < searchDTOList.size(); i++) {
-
-				System.out.println("検索結果は" + searchDTOList.get(i).getProductName());
-			}
-			ret = SUCCESS;
-			return ret;
-
-		}
-		/*---------------------------------------------------------
-					ピザを全件検索
-		-----------------------------------------------------------*/
-
-		else if (categoryId == 2 && searchWordHiragana.isEmpty()) {
-			setSearchDTOList(searchDAO.ByProductCategory(categoryId));
-			ret = SUCCESS;
-
 		}
 
 
 
+        /*-----------------------------------------------------------------
+         *            検索機能
+         -------------------------------------------------------------------*/
+
+        if (categoryId == 1) {
+
+        	if (!(searchWord.isEmpty())) {
+
+        		if (kuuhakunobasho > 0) {
+
+        			searchDTOList = searchDAO.byWordsAllCategory(searchWords, keywords);
+        		} else {
+        			searchDTOList = searchDAO.bySearchWordAllCategory(searchWordHiragana, searchWord);
+        		}
+
+        	} else {
+
+        		searchDTOList = searchDAO.allProductInfo();
+        	}
+        }
+
+        else {
+
+        	if (!(searchWord.isEmpty())) {
+
+        		if (kuuhakunobasho > 0) {
+        			searchDTOList = searchDAO.byWords(searchWords, keywords, categoryId);
+        		} else {
+        			searchDTOList = searchDAO.bySearchWord(searchWordHiragana, searchWord, categoryId);
+        		}
+
+        	} else {
+
+        		System.out.println("byProductCategory");
+
+        		searchDTOList = searchDAO.byProductCategory(categoryId);
+
+        	}
+
+        }
+
+        ret = SUCCESS;
+
+
+
+
+
+		/*-----------------------------------------------------------
+	      全てのカテゴリーから商品を検索
+	 -------------------------------------------------------------
+
+  else if (categoryId == 1 && !(searchWordHiragana.isEmpty())) {
+  	searchDTOList = searchDAO.byAllProductCategory(searchWord, searchWordHiragana);
+  }
+
 		/*---------------------------------------------------------
-				サイドメニューまたはドリンクを検索
-		-----------------------------------------------------------*/
+		             サイドメニューまたはドリンクを検索
+        -----------------------------------------------------------
+        else if (categoryId > 2 && !(searchWordHiragana.isEmpty())) {
+	    searchDTOList = searchDAO.ByProductCategory(categoryId);
+	    ret = SUCCESS;
+        }
+        */
+
+		/*---------------------------------------------------------
+				サイドメニューまたはドリンクを全件検索(検索値なし)
+		-----------------------------------------------------------
 		else if (categoryId > 2 && searchWordHiragana.isEmpty()) {
-
-			setSearchDTOList(searchDAO.ByProductCategory(categoryId));
+			searchDTOList = searchDAO.ByProductCategory(categoryId);
 			ret = SUCCESS;
 		}
-
-		/*---------------------------------------------------------
-				ピザを検索
-		-----------------------------------------------------------*/
+		*/
 
 
-		else if (categoryId == 2 && !(searchWordHiragana.isEmpty())) {
-			setSearchDTOList(searchDAO. BySerchWord(searchWordHiragana, searchWord, categoryId));
-			ret = SUCCESS;
-		}
 
 
-		searchWordHiragana = getSearchWord();
+
+		searchWordHiragana = searchWord;
 		return ret;
 	}
 
@@ -169,14 +198,6 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		this.searchDTOList = searchDTOList;
 	}
 
-	public ToHiragana getToHiragana() {
-		return toHiragana;
-	}
-
-	public void setToHiragana(ToHiragana toHiragana) {
-		this.toHiragana = toHiragana;
-	}
-
 	public ArrayList<String> getMsgList() {
 		return msgList;
 	}
@@ -202,12 +223,5 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		this.searchWords = searchWords;
 	}
 
-	public String[] getKeywords() {
-		return keywords;
-	}
-
-	public void setKeywords(String[] keywords) {
-		this.keywords = keywords;
-	}
-
 }
+

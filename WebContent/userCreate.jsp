@@ -25,18 +25,20 @@
     </div>
 
     <div>
-      <s:if test="errorMessage!=' '">
-        <s:property value="errorMessage" escape="false"/>
+      <s:if test="#errMsgList!=''">
+        <s:iterator value="errMsgList">
+        <s:property/>
+        </s:iterator>
       </s:if>
-
+<s:form action="UserCreateConfirmAction">
       <table>
-      <s:form action="UserCreateConfirmAction">
+
 
         <tr>
           <td>ユーザーID : </td>
 
           <td>
-            <input type="text" name="loginUserId" value='<s:property value="loginUserId"/>' placeholder="半角英数字 8文字以下"/>
+            <input type="text" name="loginUserId"  placeholder="半角英数字 8文字以下"/>
                 <s:iterator value="errMsgListId">
                 </s:iterator>
           </td>
@@ -46,7 +48,7 @@
           <td>パスワード : </td>
 
           <td>
-            <input type="password" name="loginPassword" value='<s:property value="loginPassword"/>' placeholder="半角英数字 16文字以下"/>
+            <input type="password" name="loginPassword" placeholder="半角英数字 16文字以下"/>
           </td>
         </tr>
 
@@ -54,7 +56,7 @@
           <td>姓 : </td>
 
           <td>
-            <input type="text" name="familyName" value='<s:property value="familyName"/>' placeholder="16文字以下"/>
+            <input type="text" name="familyName"  placeholder="16文字以下"/>
           </td>
         </tr>
 
@@ -62,7 +64,7 @@
           <td>名 : </td>
 
           <td>
-            <input type="text" name="fiestName" value='<s:property value="firstName"/>'/>
+            <input type="text" name="firstName" />
           </td>
         </tr>
 
@@ -70,7 +72,7 @@
           <td>姓（かな） : </td>
 
           <td>
-            <input type="text" name="familyNameKana" value='<s:property value="familyName"/>' placeholder="ひらがな 16文字以下"/>
+            <input type="text" name="familyNameKana"  placeholder="ひらがな 16文字以下"/>
           </td>
         </tr>
 
@@ -78,7 +80,7 @@
           <td>名（かな） : </td>
 
           <td>
-            <input type="text" name="firstNameKana" value='<s:property value="familyName"/>'/>
+            <input type="text" name="firstNameKana" />
           </td>
         </tr>
 
@@ -86,8 +88,7 @@
           <td>性別 : </td>
 
           <td>
-            <input type="radio" name="sex" value='<s:property value="sex"/>'>男
-            <input type="radio" name="sex" value='<s:property value="sex"/>'>女
+           <s:radio name="sex" list="#{'0': '男性', '1': '女性'}" value="%{sex}"  />
           </td>
         </tr>
 
@@ -95,7 +96,7 @@
           <td>メールアドレス : </td>
 
           <td>
-            <input type="text" name="mail" value='<s:property value="mail"/>' placeholder="14文字以上32文字以下"/>
+            <input type="text" name="mail"  placeholder="14文字以上32文字以下"/>
           </td>
         </tr>
 
@@ -103,21 +104,13 @@
           <td>秘密の質問 : </td>
 
           <td>
-           <s:if test="secretQuestion==1">
             <select name="secretQuestion">
               <option value="">選択してください</option>
-              <option value="1" selected>好きな食べ物</option>
+              <option value="1">好きな食べ物</option>
               <option value="2">嫌いな食べ物</option>
             </select>
-           </s:if>
 
-           <s:elseif test="secretQuestion==2">
-            <select name="secretQuestion" id="secretQuestion">
-              <option value="">選択してください</option>
-              <option value="1">好きな食べ物</option>
-              <option value="2" selected>嫌いな食べ物</option>
-            </select>
-           </s:elseif>
+
           </td>
         </tr>
 
@@ -125,20 +118,24 @@
           <td>答え : </td>
 
           <td>
-            <input type="text" name="secretAnswer" value='<s:property value="secretAnswer"/>'/>
+            <input type="text" name="secretAnswer" />
           </td>
         </tr>
+        </table>
 
 
-      </s:form>
-      </table>
-
-
-      <br>
+         <br>
       <div>
         <span>確認画面へ進む</span>
-        <a href='<s:url action="UserCreateConfirmAction"/>'> → </a>
+      <s:submit value="ff"/>
       </div>
+       </s:form>
+
+
+
+
+
+
 
 
       <br>

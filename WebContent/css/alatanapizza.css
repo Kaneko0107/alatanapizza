@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+
+
+/*-------------------------------------------------------------------------
+	共通
+-------------------------------------------------------------------------*/
+body {
+		   margin:0;
+		   padding:0;
+		   line-height:2.0;
+		   letter-spacing:1.5px;
+		   font-family:arial black, Helvetica, sans-serif;
+		   font-size:15px;
+		   color:white;
+		   text-align:center;
+		   background-color:black;
+		}

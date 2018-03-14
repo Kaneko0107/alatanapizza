@@ -53,12 +53,13 @@ public class LoginDAO {
 				loginDTO.setFamilyNameKana(rs.getString("family_name_kana"));
 				loginDTO.setFirstNameKana(rs.getString("first_name_kana"));
 				loginDTO.setEmail(rs.getString("email"));
+				loginDTO.setMaster(rs.getBoolean("master"));
 			}else{
 				loginDTO.setUserId("noID");
 				loginDTO.setPassword("noPASS");
 			}
 		}catch(SQLException e){
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		return loginDTO;
 
@@ -83,7 +84,7 @@ public class LoginDAO {
 				result =true;
 			}
 		}catch(SQLException e){
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}finally{
 			con.close();
 		}
@@ -105,7 +106,7 @@ public class LoginDAO {
 				result = true;
 			}
 		}catch(SQLException e){
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}finally{
 			con.close();
 		}

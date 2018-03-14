@@ -97,23 +97,25 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 			errorMessageList.add("パスワードは半角英数字で入力してください");
 		}
 
-		//ID保持
-		//jsp側でvalue指定で呼び出す
-		//if(saveLogin==)
+//		//ID保持
+//		//jsp側でvalue指定で呼び出す
+//		//if(saveLogin==)
+//
+//		if(saveLogin.equals("true")){ //
+//			session.put("saveId", userId);
+//		}else{
+//			session.remove("saveId");
+//		}
+//
+//
+//		//管理者画面へログイン
+//		if(userId.equals("alatana"/*ここに管理者用のIDを入れて*/)
+//				&& password.equals("pizza"/*ここに管理者用のPASSを入れて*/)){
+//					session.put("masterFlg", true); //管理者フラグ立て
+//					result ="master";
+//		}else{
 
-		if(saveLogin.equals("true")){ //
-			session.put("saveId", userId);
-		}else{
-			session.remove("saveId");
-		}
 
-
-		//管理者画面へログイン
-		if(userId.equals("alatana"/*ここに管理者用のIDを入れて*/)
-				&& password.equals("pizza"/*ここに管理者用のPASSを入れて*/)){
-					session.put("masterFlg", true); //管理者フラグ立て
-					result ="master";
-		}else{
 
 
 			//ログインチェック
@@ -124,6 +126,10 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 					result=ERROR;
 				}else{
 					loginDTO=loginDAO.select(userId,password);
+					if(loginDTO.isMaster()){
+						session.put("masterFlg", true);//管理者フラグをたてる
+						result = "master";
+						return result;
 
 					//ログイン判定
 					if(userId.equals(loginDTO.getUserId()) && password.equals(loginDTO.getPassword())){ //二つとも一致した場合
@@ -134,6 +140,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 						//Mapセッション情報の更新をする
 						session.put("userId", loginDTO.getUserId()); //
 						session.put("loginFlg", true); //ログインフラグ立て
+						session.put("masterFlg", false);//管理者フラグ立て
 
 						CartInfoDAO cartInfoDAO=new CartInfoDAO(); //newカートリスト
 						DestinationDAO destinationDAO=new DestinationDAO(); //new宛先

@@ -36,6 +36,9 @@ public class LoginDTO {
 	public String getPassword(){
 		return password;
 	}
+	public void setPassword(String password){
+		this.password=password;
+	}
 
 	public boolean isMaster() {
 		return master;
@@ -44,9 +47,7 @@ public class LoginDTO {
 		this.master = master;
 	}
 
-	public void setPassword(String password){
-		this.password=password;
-	}
+
 	public String getFamilyName(){
 		return familyName;
 	}

@@ -95,7 +95,7 @@
 
 
 		</s:iterator>
-		<!----------------------履歴詳細   ここまで------------------------------->
+
 	</s:elseif> <a href='<s:url action="MyPageAction" />'>マイページに戻る</a> <br>
 	<p id="pageTop"><a href="#"><i class="fa fa-chevron-up"></i>ページトップに戻る</a>
 	</p>

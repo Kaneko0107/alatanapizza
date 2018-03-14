@@ -22,7 +22,7 @@ status tinyint NOT NULL DEFAULT 1,-- ステータス (0:無効、1:有効)
 logined tinyint NOT NULL DEFAULT 0,-- ログインフラグ (0:未ログイン、1:ログイン済み)
 regist_date datetime NOT NULL,-- 登録日
 update_date datetime,-- 更新日
-master tinyint NOT NULL
+master tinyint NOT NULL-- 管理者情報
 );
 
 
@@ -144,6 +144,20 @@ INSERT INTO user_info(-- ------会員情報テーブルへ-----------------
 	regist_date, -- 登録日
 	master
 )VALUES (
+	"taro",-- ユーザーID
+	"123",-- パスワード
+	"ポンデ",-- 姓
+	"ライオン",-- 名
+	"ぽんで",-- 姓かな
+	"らいおん", -- 名かな
+	0,-- 性別 (0:男性 1:女性)
+	"ponde@com",-- メールアドレス
+	"1",-- 秘密の質問 (1:好きな食べ物 2:嫌いな食べ物)
+	"いちご",-- 秘密の質問の答え
+	NOW(),-- 登録日
+	0-- 管理者情報
+	),
+	(
 	"alatana",-- ユーザーID
 	"pizza",-- パスワード
 	"アラタナ",-- 姓
@@ -155,7 +169,7 @@ INSERT INTO user_info(-- ------会員情報テーブルへ-----------------
 	"1",-- 秘密の質問 (1:好きな食べ物 2:嫌いな食べ物)
 	"ピザ",-- 秘密の質問の答え
 	NOW(), -- 登録日
-	1
+	1-- 管理者情報
 );
 
 INSERT INTO destination_info(-- -----------宛先情報テーブルへ-----------

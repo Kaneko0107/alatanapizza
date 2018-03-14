@@ -41,17 +41,12 @@
        </s:iterator>
 
        <s:form action="UserCreateConfirmAction">
-=======
->>>>>>> refs/remotes/origin/master
 
 
         <tr>
           <td>ユーザーID : </td>
 
           <td>
-<<<<<<< HEAD
-            <input type="text" name="loginUserId" value="" placeholder="半角英数字 8文字以下"/>
-=======
             <input type="text" name="loginUserId"  placeholder="半角英数字 8文字以下"/>
 >>>>>>> refs/remotes/origin/master
                 <s:iterator value="errMsgListId">

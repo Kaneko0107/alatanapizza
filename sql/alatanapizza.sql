@@ -21,7 +21,8 @@ secret_answer varchar(32)  NOT NULL, -- 秘密の質問の答え
 status tinyint NOT NULL DEFAULT 1,-- ステータス (0:無効、1:有効)
 logined tinyint NOT NULL DEFAULT 0,-- ログインフラグ (0:未ログイン、1:ログイン済み)
 regist_date datetime NOT NULL,-- 登録日
-update_date datetime-- 更新日
+update_date datetime,-- 更新日
+master tinyint NOT NULL
 );
 
 
@@ -140,8 +141,9 @@ INSERT INTO user_info(-- ------会員情報テーブルへ-----------------
 	email,-- メールアドレス
 	secret_question,-- 秘密の質問 (1:好きな食べ物 2:嫌いな食べ物)
 	secret_answer,-- 秘密の質問の答え
-	regist_date -- 登録日
-)VALUES(
+	regist_date, -- 登録日
+	master
+)VALUES (
 	"taro",-- ユーザーID
 	"123",-- パスワード
 	"ポンデ",-- 姓
@@ -152,7 +154,21 @@ INSERT INTO user_info(-- ------会員情報テーブルへ-----------------
 	"ponde@com",-- メールアドレス
 	"1",-- 秘密の質問 (1:好きな食べ物 2:嫌いな食べ物)
 	"いちご",-- 秘密の質問の答え
-	NOW()-- 登録日
+	NOW(), -- 登録日
+	0
+),(
+	"alatana",-- ユーザーID
+	"pizza",-- パスワード
+	"アラタナ",-- 姓
+	"ピザ",-- 名
+	"あらたな",-- 姓かな
+	"ぴざ", -- 名かな
+	0,-- 性別 (0:男性 1:女性)
+	"alatana@pizza.com",-- メールアドレス
+	"1",-- 秘密の質問 (1:好きな食べ物 2:嫌いな食べ物)
+	"ピザ",-- 秘密の質問の答え
+	NOW(), -- 登録日
+	1
 );
 
 INSERT INTO destination_info(-- -----------宛先情報テーブルへ-----------

@@ -46,8 +46,8 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 	//パスワード
 	private String password;
 	//ID保持
-	private String saveLogin;
-	//private boolean saveLogin;
+	//private String saveLogin;
+	private boolean saveLogin;
 	//セッション
 	private Map<String,Object>session;
 	//エラーメッセージ
@@ -101,11 +101,11 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 //		//jsp側でvalue指定で呼び出す
 //		//if(saveLogin==)
 //
-//		if(saveLogin.equals("true")){ //
-//			session.put("saveId", userId);
-//		}else{
-//			session.remove("saveId");
-//		}
+		if(saveLogin){ //
+			session.put("saveId", userId);
+		}else{
+			session.remove("saveId");
+		}
 //
 //
 //		//管理者画面へログイン
@@ -124,12 +124,11 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 				if(!loginDAO.existsUserId(userId)){ //ユーザーIDがない
 					errorMessageList.add("IDが正しくありません");
 					result=ERROR;
-				}else{
-					loginDTO=loginDAO.select(userId,password);
-					if(loginDTO.isMaster()){
+				}else if(loginDTO.isMaster()){ //管理者ログイン判定
+						loginDTO=loginDAO.select(userId,password);
 						session.put("masterFlg", true);//管理者フラグをたてる
 						result = "master";
-						return result;
+				}else{
 
 					//ログイン判定
 					if(userId.equals(loginDTO.getUserId()) && password.equals(loginDTO.getPassword())){ //二つとも一致した場合
@@ -174,7 +173,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 							for(i=0;i<productIdList.size();i++){
 								boolean exist=tempProductIdList.contains(productIdList.get(i));
 								if(exist){
-									cartInfoDAO.changeProductStock(Integer.valueOf(cartList.get(i).getProductCount()),
+									cartInfoDAO.changeProductStockId(Integer.valueOf(cartList.get(i).getProductCount()),
 											Integer.valueOf(productIdList.get(i)), session.get("userId").toString());
 									//cartInfoDAOにString userIdが入力されていないからエラーを吐いている　要修正
 								//BuyItemCompleteActionにて合計金額の算出コードの記載あるのでこちらではいらない？
@@ -192,7 +191,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 							for(i=0;i<tempProductIdList.size();i++){
 								boolean exist=productIdList.contains(tempProductIdList.get(i));
 								if(exist){
-									cartInfoDAO.changeProductStock(Integer.valueOf(tempCartList.get(i).getProductCount()),
+									cartInfoDAO.changeProductStockId(Integer.valueOf(tempCartList.get(i).getProductCount()),
 											Integer.valueOf(tempProductIdList.get(i)), session.get("userId").toString());
 									cartInfoDAO.deleteSeparate(session.get("tempUserId").toString(),
 											Integer.valueOf(tempProductIdList.get(i)));
@@ -249,10 +248,12 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 						result=ERROR;
 					}
 				}
+
 			}
 
+
 			return result;
-		}
+
 
 	}
 
@@ -271,19 +272,19 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		this.password=password;
 	}
 
-	public String getSaveLogin(){
-		return saveLogin;
-	}
-	public void setSaveLogin(String saveLogin){
-		this.saveLogin=saveLogin;
-	}
-
-//	public boolean isSaveLogin(){ //booleanだからis
+//	public String getSaveLogin(){
 //		return saveLogin;
 //	}
-//	public void setSaveLogin(boolean saveLogin){
+//	public void setSaveLogin(String saveLogin){
 //		this.saveLogin=saveLogin;
 //	}
+
+	public boolean isSaveLogin(){ //booleanだからis
+		return saveLogin;
+	}
+	public void setSaveLogin(boolean saveLogin){
+		this.saveLogin=saveLogin;
+	}
 
 	public Map<String,Object> getSession(){
 		return session;

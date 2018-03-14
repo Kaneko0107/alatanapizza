@@ -25,9 +25,14 @@
 			<span style="color: red;" ><s:property value="errorMessageList"/></span>
 			<h3>会員の方のログイン</h3>
 			<s:form action="LoginAction">
-				<s:textfield name="userId"/>
+				<s:textfield type="text" name="userId" value ="%{#session.saveId}"/>
 				<s:password name="password"/>
+				<label><s:checkbox name ="saveLogin"/>
+				次回からIDの入力を省略</label><!-- アラート化できたらしたい -->
+				<br>
+				<s:hidden name ="kessai" value ="%{kessai}"/>
 				<s:submit value="ログイン"/>
+
 			</s:form>
 		</div>
 		<br/>

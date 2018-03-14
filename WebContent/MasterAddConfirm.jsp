@@ -46,7 +46,7 @@
 						</s:form>
 
 						<div class="back">
-							<a href="/alatanapizza/MasterAdd.jsp">戻 る</a>
+							<a href="MasterAdd.jsp">戻 る</a>
 						</div>
 
 	</div>>

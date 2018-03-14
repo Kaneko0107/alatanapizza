@@ -111,7 +111,7 @@
 	</action>
 
 <!--金子担当 Cart struts文  -->
-	<action name="GoCartAction" class="com.internousdev.alatanapizza.action.GoCartAction" method="execute">
+	<action name="CartProductAction" class="com.internousdev.alatanapizza.action.CartProductAction" method="execute">
 		<result name="success">cart.jsp</result>
 	</action>
 

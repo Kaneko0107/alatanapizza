@@ -1,9 +1,13 @@
 package com.internousdev.alatanapizza.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import com.internousdev.alatanapizza.dto.LoginDTO;
 import com.internousdev.alatanapizza.util.DBConnector;
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
+
 
 /*
 import java.sql.Connection;

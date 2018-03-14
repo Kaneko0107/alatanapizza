@@ -53,7 +53,7 @@ public class ProductListDAO {
 
           }
        } catch (Exception e) {
-          e.printStackTrace();
+    	   throw new RuntimeException(e);
        } finally {
           con.close();
        }
@@ -96,7 +96,7 @@ public class ProductListDAO {
 
           }
        } catch (Exception e) {
-          e.printStackTrace();
+    	   throw new RuntimeException(e);
        } finally {
           con.close();
        }
@@ -119,13 +119,31 @@ public class ProductListDAO {
              result = true;
           }
        } catch (SQLException e) {
-          e.printStackTrace();
+    	   throw new RuntimeException(e);
        } finally {
           con.close();
        }
        return result;
     }
 
+    //管理者の在庫追加用
+    public boolean updateStock(Integer productId, Integer stock) throws SQLException {
+        boolean result = false;
+        con = db.getConnection();
+        String sql = "UPDATE product_info SET stock = ? WHERE product_id = ?";
+
+        try {
+           PreparedStatement ps = con.prepareStatement(sql);
+           ps.setInt(1, stock);
+           ps.setInt(2, productId);
+           ps.executeUpdate();
+        } catch (SQLException e) {
+           throw new RuntimeException(e);
+        } finally {
+           con.close();
+        }
+        return result;
+     }
 
     // �V���i��o�^
     public int productRegist(String product_id, String product_name, String product_name_kana, String product_description, Integer category_id,Integer msize_price,Integer lsize_price, Integer price, String image_file_path, String image_file_name, String release_date, String release_company) throws SQLException {
@@ -155,7 +173,7 @@ public class ProductListDAO {
 
           res = ps.executeUpdate();
        } catch (Exception e) {
-          e.printStackTrace();
+    	   throw new RuntimeException(e);
        } finally {
           con.close();
        }

@@ -97,22 +97,25 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 			errorMessageList.add("パスワードは半角英数字で入力してください");
 		}
 
-		//保持したIDを呼び出す
-		if(saveLogin==)
+//		//ID保持
+//		//jsp側でvalue指定で呼び出す
+//		//if(saveLogin==)
+//
+//		if(saveLogin.equals("true")){ //
+//			session.put("saveId", userId);
+//		}else{
+//			session.remove("saveId");
+//		}
+//
+//
+//		//管理者画面へログイン
+//		if(userId.equals("alatana"/*ここに管理者用のIDを入れて*/)
+//				&& password.equals("pizza"/*ここに管理者用のPASSを入れて*/)){
+//					session.put("masterFlg", true); //管理者フラグ立て
+//					result ="master";
+//		}else{
 
-		if(saveLogin.equals("true")){ //
-			session.put("saveId", userId);
-		}else{
-			session.remove("saveId");
-		}
 
-
-		//管理者画面へログイン
-		if(userId.equals("alatana"/*ここに管理者用のIDを入れて*/)
-				&& password.equals("pizza"/*ここに管理者用のPASSを入れて*/)){
-					session.put("masterFlg", true); //管理者フラグ立て
-					result ="master";
-		}else{
 
 
 			//ログインチェック
@@ -123,6 +126,10 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 					result=ERROR;
 				}else{
 					loginDTO=loginDAO.select(userId,password);
+					if(loginDTO.isMaster()){
+						session.put("masterFlg", true);//管理者フラグをたてる
+						result = "master";
+						return result;
 
 					//ログイン判定
 					if(userId.equals(loginDTO.getUserId()) && password.equals(loginDTO.getPassword())){ //二つとも一致した場合
@@ -133,6 +140,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 						//Mapセッション情報の更新をする
 						session.put("userId", loginDTO.getUserId()); //
 						session.put("loginFlg", true); //ログインフラグ立て
+						session.put("masterFlg", false);//管理者フラグ立て
 
 						CartInfoDAO cartInfoDAO=new CartInfoDAO(); //newカートリスト
 						DestinationDAO destinationDAO=new DestinationDAO(); //new宛先
@@ -166,10 +174,10 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 							for(i=0;i<productIdList.size();i++){
 								boolean exist=tempProductIdList.contains(productIdList.get(i));
 								if(exist){
-									cartInfoDAO.changeProductStockId(Integer.valueOf(cartList.get(i).getProductCount()),
-										//cartInfoDAOにString userIdが入力されていないからエラーを吐いている　要修正
-									//BuyItemCompleteActionにて合計金額の算出コードの記載あるのでこちらではいらない？
-											Integer.valueOf(productIdList.get(i)),session.get("userId").toString());
+									cartInfoDAO.changeProductStock(Integer.valueOf(cartList.get(i).getProductCount()),
+											Integer.valueOf(productIdList.get(i)), session.get("userId").toString());
+									//cartInfoDAOにString userIdが入力されていないからエラーを吐いている　要修正
+								//BuyItemCompleteActionにて合計金額の算出コードの記載あるのでこちらではいらない？
 									cartInfoDAO.deleteSeparate(session.get("tempUserId").toString(),
 											Integer.valueOf(productIdList.get(i)));
 								}else{
@@ -184,8 +192,8 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 							for(i=0;i<tempProductIdList.size();i++){
 								boolean exist=productIdList.contains(tempProductIdList.get(i));
 								if(exist){
-									cartInfoDAO.changeProductStockId(Integer.valueOf(tempCartList.get(i).getProductCount()),
-											Integer.valueOf(tempProductIdList.get(i)),session.get("userId").toString());
+									cartInfoDAO.changeProductStock(Integer.valueOf(tempCartList.get(i).getProductCount()),
+											Integer.valueOf(tempProductIdList.get(i)), session.get("userId").toString());
 									cartInfoDAO.deleteSeparate(session.get("tempUserId").toString(),
 											Integer.valueOf(tempProductIdList.get(i)));
 								}else{

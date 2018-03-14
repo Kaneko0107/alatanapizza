@@ -4,40 +4,44 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Map;
 
-import com.internousdev.alatanapizza.util.DBConnector;
+import org.apache.struts2.interceptor.SessionAware;
 
-public class ChangePasswordConfirmDAO {
+import com.internousdev.alatanapizza.util.DBConnector;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class ChangePasswordConfirmDAO extends ActionSupport implements SessionAware{
 	private DBConnector db=new DBConnector();
 	private Connection con=db.getConnection();
 	public Map<String,Object>session;
 
 	private String password;
 	private String userid;
-	private String secret_answer;
+	private String answer;
 
 	private boolean result=false;
-	public boolean CheckAnswer(String userid,int secret_question,String secret_answer){
+	public boolean CheckAnswer(String userid,int question,String answer){
 
 		try{
 			//値の確認出力
 			System.out.println(userid);
-			System.out.println(secret_answer);
-			System.out.println(secret_question);
+			System.out.println(answer);
+			System.out.println(question);
 
 			String sql="select * from user_info where user_id=? and secret_question=? and secret_answer=?";
 			PreparedStatement ps=con.prepareStatement(sql);
 			ps.setString(1,userid);
-			ps.setInt(2,secret_question);
-			ps.setString(3,secret_answer);
+			ps.setInt(2,question);
+			ps.setString(3,answer);
 			ResultSet rs=ps.executeQuery();
 			if(rs.next()){
 					result=true;
 				setPassword(rs.getString("password"));
 				setUserid(rs.getString("user_id"));
-				setSecret_answer(rs.getString("secret_answer"));
+				setAnswer(rs.getString("secret_answer"));
 
 
 				}
+
 			//値の確認出力
 
 
@@ -50,12 +54,15 @@ public class ChangePasswordConfirmDAO {
 		return result;
 	}
 
-	public String getSecret_answer() {
-		return secret_answer;
+
+
+
+	public String getAnswer() {
+		return answer;
 	}
 
-	public void setSecret_answer(String secret_answer) {
-		this.secret_answer = secret_answer;
+	public void setAnswer(String answer) {
+		this.answer = answer;
 	}
 
 	public String getPassword() {

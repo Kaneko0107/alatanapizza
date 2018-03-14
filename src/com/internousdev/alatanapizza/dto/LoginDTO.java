@@ -16,6 +16,7 @@ public class LoginDTO {
 	private String email;
 	private boolean status;
 	private boolean logined;
+	private boolean master;
 	private Date register_date;
 	private Date update_date;
 
@@ -35,6 +36,14 @@ public class LoginDTO {
 	public String getPassword(){
 		return password;
 	}
+
+	public boolean isMaster() {
+		return master;
+	}
+	public void setMaster(boolean master) {
+		this.master = master;
+	}
+
 	public void setPassword(String password){
 		this.password=password;
 	}

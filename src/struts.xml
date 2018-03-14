@@ -5,16 +5,30 @@
 <struts>
 	<constant name="struts.ui.theme" value="simple" />
 	<package name="com.internousdevwork.alatanapizza.action" extends="struts-default">
-
-<!-- 日本 Home画面への遷移(仮ID発行のため) -->
+<!--
+<<<<<<< HEAD
+ 日本 Home画面への遷移(仮ID発行のため) -->
+=======
+<!--  日本 Home画面への遷移(仮ID発行のため)
+>>>>>>> branch 'master' of https://internousdevwork:internous01@github.com/internousdevwork/alatanapizza.git
 	<action name="TopAction" class="com.internousdev.alatanapizza.action.TopAction" method="execute">
 	<result name="success">home.jsp</result>
 	</action>
+<<<<<<< HEAD-->
 <!--仮Home struts文  -->
+=======
+
+<!--仮Home struts文
+>>>>>>> branch 'master' of https://internousdevwork:internous01@github.com/internousdevwork/alatanapizza.git
 	<action name="HomeAction" class="com.internousdev.alatanapizza.action.HomeAction" method="execute">
 	<result name="success">login.jsp</result>
 	</action>
+<<<<<<< HEAD-->
 <!--高木担当 login struts文  -->
+
+
+<!--高木担当 login struts文
+>>>>>>> branch 'master' of https://internousdevwork:internous01@github.com/internousdevwork/alatanapizza.git
 	<action name="LoginAction" class="com.internousdev.alatanapizza.action.LoginAction" method="execute">
 	<result name ="master">masterLogin.jsp</result>
 	<result name ="success">home.jsp</result>
@@ -30,7 +44,11 @@
 	<result name ="success">userCreate.jsp</result>
 	</action>
 
+<<<<<<< HEAD
 <!--金子担当 Master struts文  -->
+
+<!--金子担当 Master struts文
+>>>>>>> branch 'master' of https://internousdevwork:internous01@github.com/internousdevwork/alatanapizza.git
 	<action name="MasterProductChangeAction" class="com.internousdev.alatanapizza.action.MasterProductChangeAction" method="execute">
 	<result name="master">master.jsp</result>
 	<result name="error">home.jsp</result>
@@ -40,7 +58,7 @@
 	<result name="form">masterAdd.jsp</result>
 	<result name="success">master.jsp</result>
 	<result name="error">master.jsp</result>
-	</action>
+	</action>-->
 
 <!-- 中島担当 usercreate struts文
 	<action name = "UserCreateAction" class ="com.internousdev.alatanapizza.action.UserCreateAction" method = "execute">
@@ -107,9 +125,13 @@
 
 
 
+<<<<<<< HEAD
 <!--金子担当 Cart struts文  -->
+=======
+<!--金子担当 Cart struts文
+>>>>>>> branch 'master' of https://internousdevwork:internous01@github.com/internousdevwork/alatanapizza.git
 		<action name="GoCartAction" class="com.internousdev.alatanapizza.action.GoCartAction" method="execute">
-			<result name="success">cart.jsp</result></action>
+			<result name="success">cart.jsp</result></action>-->
 
 <!--上原担当CartDeleteAction(カート内削除機能）
 		<action name="CartDeleteAction" class="com.internousdev.alatanapizza.action.CartDeleteAction" method="execute">

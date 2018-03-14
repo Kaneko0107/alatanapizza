@@ -11,26 +11,56 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ChangePasswordConfirmAction extends ActionSupport implements SessionAware{
 	private Map<String,Object>session;
 	private String result;
-	private String secret_answer;
-	private int secret_question;
+	private String answer;
+	private int question;
 	private String newpass;
 	private String errorUserid;
 	private String errorpassword;
 	private String userid;
 	private String checkpass;
+	private String hideNewPassword;
+	private String hideUserId;
 	private ChangePasswordConfirmDAO CPCdao=new ChangePasswordConfirmDAO();
 	//DTOいらんかも
 	private ChangePasswordDTO CPDTO=new ChangePasswordDTO();
+
+	public String hideString(String word,int a,int b){
+
+		//加工した文字を入れる型定義
+		String hideWord;
+
+		//文字の長さをセット
+		int wordLength;
+		wordLength = word.length();
+
+		//aからbまでの文字列を抽出
+		hideWord=word.substring(a,b);
+
+		//抽出した文字列以外は*に差し替える
+		//aの位置まで*に差し替え
+
+		int i=0;
+		while(i < wordLength - b){
+			hideWord = hideWord + "*";
+			i++;
+		}
+		return hideWord;
+		}
+
+
+
+
+
 public String execute(){
 	System.out.println(newpass);
 	System.out.println(checkpass);
 
 
-	if(CPCdao.CheckAnswer(userid,secret_question,secret_answer)){
+	if(CPCdao.CheckAnswer(userid,question,answer)){
 		result=SUCCESS;
 		session.put("newpass",newpass);
 		session.put("userid",userid);
-		session.put("secret_answer", secret_answer);
+		session.put("answer", answer);
 	}else{
 		result=ERROR;
 		errorUserid="*ユーザーIDと答えが一致していません";
@@ -54,6 +84,19 @@ public String execute(){
 	}else if(newpass.equals(CPCdao.getPassword())){
 		result=ERROR;
 		setErrorpassword("*新しいパスワードは以前のパスワードと同様の値に設定できません");
+
+		if(newpass.length() <= 1){
+			hideUserId = hideString(userid,0,2);
+			hideNewPassword = hideString(newpass,0,0);
+		}else if(newpass.length() == 2){
+			hideUserId = hideString(userid,0,2);
+			hideNewPassword = hideString(newpass,0,1);
+		}else{
+			hideUserId = hideString(userid,0,2);
+			hideNewPassword = hideString(newpass,0,2);
+		}
+
+
 
 	}
 	return result;
@@ -92,14 +135,14 @@ public void setErrorUserid(String errorUserid) {
 
 
 
-public int getSecret_question() {
-	return secret_question;
+public int getQuestion() {
+	return question;
 }
 
 
 
-public void setSecret_question(int secret_question) {
-	this.secret_question = secret_question;
+public void setQuestion(int question) {
+	this.question = question;
 }
 
 
@@ -136,8 +179,8 @@ public void setUserid(String userid) {
 
 
 
-public String getSecret_answer() {
-	return secret_answer;
+public String getAnswer() {
+	return answer;
 }
 
 
@@ -146,8 +189,8 @@ public String getSecret_answer() {
 
 
 
-public void setAnswer(String secret_answer) {
-	this.secret_answer = secret_answer;
+public void setAnswer(String answer) {
+	this.answer = answer;
 }
 
 
@@ -207,6 +250,46 @@ public ChangePasswordDTO getCPDTO() {
 
 public void setCPDTO(ChangePasswordDTO cPDTO) {
 	CPDTO = cPDTO;
+}
+
+
+
+
+
+
+
+public String getHideNewPassword() {
+	return hideNewPassword;
+}
+
+
+
+
+
+
+
+public void setHideNewPassword(String hideNewPassword) {
+	this.hideNewPassword = hideNewPassword;
+}
+
+
+
+
+
+
+
+public String getHideUserId() {
+	return hideUserId;
+}
+
+
+
+
+
+
+
+public void setHideUserId(String hideUserId) {
+	this.hideUserId = hideUserId;
 }
 
 

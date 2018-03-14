@@ -1,0 +1,95 @@
+@CHARSET "UTF-8";
+
+/*-------------------------------------------------------------------------
+	共通
+-------------------------------------------------------------------------*/
+body {
+		   margin:0;
+		   padding:0;
+		   line-height:2.0;
+		   letter-spacing:1.5px;
+		   font-family:arial black, Helvetica, sans-serif;
+		   font-size:15px;
+		   color:white;
+		   text-align:center;
+			background-image:url("../images/icon/background.jpg");
+			background-position: center center;
+			background-size:cover;
+			background-repeat: no-repeat;
+			background-color:black;
+		}
+		table {
+			margin:0 27% 0 27%;
+		}
+
+
+/*-------------------------------------------------------------------------
+商品一覧.jsp用
+-------------------------------------------------------------------------*/
+	.main{
+		width:1300px;
+		margin-right: auto;
+		margin-left : auto;
+		padding-bottom:100px;
+	}
+	.msgList{
+		color: red;
+		text-align: center;
+		padding-bottom:40px;
+		font-size: 30px;
+		font-wight:bold;
+	}
+
+
+/*-------------------------------------------------------------------------
+	商品詳細.jsp用
+-------------------------------------------------------------------------*/
+		h2{
+			border-left:solid red 20px;
+		}
+		#category{
+			text-align:left;
+			font-size:30px;
+		}
+		#productName{
+			 font-size:25px;
+			 border-bottom: double 5px red;
+		}
+		#productNameKana{
+			 font-size:20px;
+		}
+		form-product{
+			font-size:20px;
+		}
+		.productDescription{
+			position: relative;
+			 margin: 2em auto;
+ 			padding: 1.5em;
+ 			border: 1px solid white;
+ 			width: 80%;
+		}
+		.productDescription .productDescription1 {
+			 position: absolute;
+ 			padding: 0 .5em;
+ 			left: 1em;
+			 top: -1em;
+ 			content: "";
+ 			font-weight: bold;
+		}
+		#toppingtitle{
+			text-align:left;
+			line-height:0.5;
+			 font-size:20px;
+		}
+		.line {
+  			height: 0.5px;
+ 			 border : dashed 0.3px;
+ 			 margin:0 20% 0 20%;
+		}
+	#suggestProduct{
+		text-align:left;
+		font-size:20px;
+	}
+	#suggest{
+		float:left;
+	}

@@ -3,7 +3,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!-- 金額、日付表示カスタムタグ -->
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -13,7 +12,7 @@
 <title>決済確認画面</title>
 </head>
 <body>
-	<!--<jsp:include page="include_header.jsp" />-->
+	<jsp:include page="include_header.jsp" />
 
 	<!-- ------------------■main■ ----------------------------->
 	<div class="main">
@@ -25,7 +24,7 @@
 			<p class="message">購入情報は以下になります</p>
 			<br>
 
-<!-- ここからまわすよー！ -->
+			<!-- ここからまわすよー！ -->
 			<s:iterator value="cartList">
 
 				<!-- 画像 -->
@@ -47,17 +46,17 @@
 								<s:param name="id" value="productId" />
 							</s:url>
 							<s:a href="%{url}">
-								<!-- ふりがな -->
-								<div class="kana">
-									<s:property value="product_name_kana" />
-								</div>
-
 								<!-- 商品名 -->
-								<div class="name">
-									商品名:
-									<s:property value="product_name" />
-								</div>
+								<s:property value="product_name" />
+								<br>
+
+								<!-- 商品かな -->
+								<s:property value="product_name_kana" />
+								<br>
 							</s:a>
+
+							商品詳細:<s:property value="product_description" /><br>
+
 						</div>
 
 
@@ -65,7 +64,7 @@
 							<!-- 値段 -->
 							<div class="price">
 								価格:\
-								<fmt:formatNumber value="${price}" />
+
 							</div>
 
 							<!-- 個数 -->
@@ -85,7 +84,7 @@
 			<br>
 			<div class="totalprice">
 				合計金額:\
-				<fmt:formatNumber value="${totalPrice}" />
+
 			</div>
 			<br>
 
@@ -121,7 +120,7 @@
 					onclick="location.href='<s:url action="DestAction" />'">
 			</div>
 			<div class="btn_2">
-			<s:submit value="購入" class="submit "/>
+				<s:submit value="購入" class="submit " />
 
 
 			</div>

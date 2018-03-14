@@ -131,9 +131,9 @@ public class ProductSearchDAO {
 		ArrayList<ProductSearchDTO> searchDTOList = new ArrayList<ProductSearchDTO>();
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
-		  String sql = "SELECT * FROM product_info WHERE product_name LIKE \'%" + searchWord + "%\'"
+		  String sql = "SELECT * FROM product_info WHERE (product_name LIKE \'%" + searchWord + "%\'"
 		  		+ " OR product_name_kana LIKE \'%" + searchWordHiragana + "%\'"
-		  				+ " OR product_description LIKE \'%" + searchWord + "%\'"
+		  				+ " OR product_description LIKE \'%" + searchWord + "%\')"
 		  				+ " AND category_id=?";
 
 		try {
@@ -206,100 +206,6 @@ public class ProductSearchDAO {
 				searchDTO.setUpdateDate(rs.getDate("update_date"));
 
 				searchDTOList.add(searchDTO);
-
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return searchDTOList;
-
-	}
-
-	/**
-	 * 全てのカテゴリーから商品を検索
-	 *
-	 * @param categoryId
-	 * @param serchWord
-	 * @return searchDTOList
-	 *
-	public ArrayList<ProductSearchDTO> byAllProductCategory(String searchWord , String searchWordHiragana) {
-		DBConnector db = new DBConnector();
-		Connection con = db.getConnection();
-		ArrayList<ProductSearchDTO> searchDTOList = new ArrayList<ProductSearchDTO>();
-		String sql = "SELECT*FROM product_info WHERE product_name LIKE \'%' ? \'%' OR product_name_kana LIKE \'%' ? \'%'"
-				+ " OR product_description LIKE \'%' ? \'%'";
-		try {
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, searchWord);
-			ps.setString(2, searchWordHiragana);
-			ps.setString(3, searchWord);
-			ResultSet rs = ps.executeQuery();
-
-			while (rs.next()) {
-				ProductSearchDTO searchDTO = new ProductSearchDTO();
-				searchDTO.setId(rs.getInt("id"));
-				searchDTO.setProductId(rs.getInt("product_id"));
-				searchDTO.setProductName(rs.getString("product_name"));
-				searchDTO.setProductNameKana(rs.getString("product_name_kana"));
-				searchDTO.setProductDescription(rs.getString("product_description"));
-				searchDTO.setCategoryId(rs.getInt("category_id"));
-				searchDTO.setPrice(rs.getInt("price"));
-				searchDTO.setImageFileName(rs.getString("image_file_name"));
-				searchDTO.setReleaseDate(rs.getDate("release_date"));
-				searchDTO.setReleaseCompany(rs.getString("release_company"));
-				searchDTO.setStatus(rs.getShort("status"));
-				searchDTO.setRegistDate(rs.getDate("regist_date"));
-				searchDTO.setUpdateDate(rs.getDate("update_date"));
-
-				searchDTOList.add(searchDTO);
-
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return searchDTOList;
-
-	}
-
-	/**
-	 * ひらがな検索
-	 *
-	 * @param serchWord
-	 * @return searchDTOList
-	 *
-	public ArrayList<ProductSearchDTO> BySerchWordKana(String serchWord) {
-		DBConnector db = new DBConnector();
-		Connection con = db.getConnection();
-		ArrayList<ProductSearchDTO> searchDTOList = new ArrayList<ProductSearchDTO>();
-		String sql = "SELECT*FROM product_info WHERE product_name_kana LIKE \'%' ? \'%'";
-		try {
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, serchWord);
-			ResultSet rs = ps.executeQuery();
-
-			while (rs.next()) {
-				ProductSearchDTO serchDTO = new ProductSearchDTO();
-				serchDTO.setId(rs.getInt("id"));
-				serchDTO.setProductId(rs.getInt("product_id"));
-				serchDTO.setProductName(rs.getString("product_name"));
-				serchDTO.setProductNameKana(rs.getString("product_name_kana"));
-				serchDTO.setProductDescription(rs.getString("product_description"));
-				serchDTO.setCategoryId(rs.getInt("category_id"));
-				serchDTO.setMSizePrice(rs.getInt("msize_price"));
-				serchDTO.setLSizePrice(rs.getInt("lsize_price"));
-				serchDTO.setPrice(rs.getInt("price"));
-				serchDTO.setImageFileName(rs.getString("image_file_name"));
-				serchDTO.setReleaseDate(rs.getDate("release_date"));
-				serchDTO.setReleaseCompany(rs.getString("release_company"));
-				serchDTO.setStatus(rs.getShort("status"));
-				serchDTO.setRegistDate(rs.getDate("regist_date"));
-				serchDTO.setUpdateDate(rs.getDate("update_date"));
-
-				searchDTOList.add(serchDTO);
 
 			}
 		} catch (SQLException e) {

@@ -14,6 +14,9 @@ public class ProductSearchDTO {
 	private String productNameKana;
 	private String productDescription;
 	private int categoryId;
+	private int mSizePrice;
+	private int lSizePrice;
+	private int stock;
 	private int price;
 	private String imageFilePath;
 	private String imageFileName;
@@ -71,12 +74,36 @@ public class ProductSearchDTO {
 		this.categoryId = categoryId;
 	}
 
+	public int getMSizePrice() {
+		return mSizePrice;
+	}
+
+	public void setMSizePrice(int mSizePrice) {
+		this.mSizePrice = mSizePrice;
+	}
+
+	public int getLSizePrice() {
+		return lSizePrice;
+	}
+
+	public void setLSizePrice(int lSizePrice) {
+		this.lSizePrice = lSizePrice;
+	}
+
 	public int getPrice() {
 		return price;
 	}
 
 	public void setPrice(int price) {
 		this.price = price;
+	}
+
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
 
 	public String getImageFilePath() {

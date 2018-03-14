@@ -40,7 +40,10 @@ public class ProductSearchDAO {
 				searchDTO.setProductNameKana(rs.getString("product_name_kana"));
 				searchDTO.setProductDescription(rs.getString("product_description"));
 				searchDTO.setCategoryId(rs.getInt("category_id"));
+				searchDTO.setMSizePrice(rs.getInt("msize_price"));
+				searchDTO.setLSizePrice(rs.getInt("lsize_price"));
 				searchDTO.setPrice(rs.getInt("price"));
+				searchDTO.setStock(rs.getInt("stock"));
 				searchDTO.setImageFileName(rs.getString("image_file_name"));
 				searchDTO.setReleaseDate(rs.getDate("release_date"));
 				searchDTO.setReleaseCompany(rs.getString("release_company"));
@@ -103,17 +106,20 @@ public class ProductSearchDAO {
 				searchDTO.setProductNameKana(rs.getString("product_name_kana"));
 				searchDTO.setProductDescription(rs.getString("product_description"));
 				searchDTO.setCategoryId(rs.getInt("category_id"));
+				searchDTO.setMSizePrice(rs.getInt("msize_price"));
+				searchDTO.setLSizePrice(rs.getInt("lsize_price"));
 				searchDTO.setPrice(rs.getInt("price"));
+				searchDTO.setStock(rs.getInt("stock"));
 				searchDTO.setImageFileName(rs.getString("image_file_name"));
 				searchDTO.setReleaseDate(rs.getDate("release_date"));
 				searchDTO.setReleaseCompany(rs.getString("release_company"));
 				searchDTO.setStatus(rs.getShort("status"));
 				searchDTO.setRegistDate(rs.getDate("regist_date"));
 				searchDTO.setUpdateDate(rs.getDate("update_date"));
-
 				searchDTOList.add(searchDTO);
 
 			}
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -153,14 +159,16 @@ public class ProductSearchDAO {
 				searchDTO.setProductNameKana(rs.getString("product_name_kana"));
 				searchDTO.setProductDescription(rs.getString("product_description"));
 				searchDTO.setCategoryId(rs.getInt("category_id"));
+				searchDTO.setMSizePrice(rs.getInt("msize_price"));
+				searchDTO.setLSizePrice(rs.getInt("lsize_price"));
 				searchDTO.setPrice(rs.getInt("price"));
+				searchDTO.setStock(rs.getInt("stock"));
 				searchDTO.setImageFileName(rs.getString("image_file_name"));
 				searchDTO.setReleaseDate(rs.getDate("release_date"));
 				searchDTO.setReleaseCompany(rs.getString("release_company"));
 				searchDTO.setStatus(rs.getShort("status"));
 				searchDTO.setRegistDate(rs.getDate("regist_date"));
 				searchDTO.setUpdateDate(rs.getDate("update_date"));
-
 				searchDTOList.add(searchDTO);
 
 			}
@@ -197,14 +205,16 @@ public class ProductSearchDAO {
 				searchDTO.setProductNameKana(rs.getString("product_name_kana"));
 				searchDTO.setProductDescription(rs.getString("product_description"));
 				searchDTO.setCategoryId(rs.getInt("category_id"));
+				searchDTO.setMSizePrice(rs.getInt("msize_price"));
+				searchDTO.setLSizePrice(rs.getInt("lsize_price"));
 				searchDTO.setPrice(rs.getInt("price"));
+				searchDTO.setStock(rs.getInt("stock"));
 				searchDTO.setImageFileName(rs.getString("image_file_name"));
 				searchDTO.setReleaseDate(rs.getDate("release_date"));
 				searchDTO.setReleaseCompany(rs.getString("release_company"));
 				searchDTO.setStatus(rs.getShort("status"));
 				searchDTO.setRegistDate(rs.getDate("regist_date"));
 				searchDTO.setUpdateDate(rs.getDate("update_date"));
-
 				searchDTOList.add(searchDTO);
 
 			}
@@ -253,22 +263,24 @@ public class ProductSearchDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				ProductSearchDTO serchDTO = new ProductSearchDTO();
-				serchDTO.setId(rs.getInt("id"));
-				serchDTO.setProductId(rs.getInt("product_id"));
-				serchDTO.setProductName(rs.getString("product_name"));
-				serchDTO.setProductNameKana(rs.getString("product_name_kana"));
-				serchDTO.setProductDescription(rs.getString("product_description"));
-				serchDTO.setCategoryId(rs.getInt("category_id"));
-				serchDTO.setPrice(rs.getInt("price"));
-				serchDTO.setImageFileName(rs.getString("image_file_name"));
-				serchDTO.setReleaseDate(rs.getDate("release_date"));
-				serchDTO.setReleaseCompany(rs.getString("release_company"));
-				serchDTO.setStatus(rs.getShort("status"));
-				serchDTO.setRegistDate(rs.getDate("regist_date"));
-				serchDTO.setUpdateDate(rs.getDate("update_date"));
-
-				searchDTOList.add(serchDTO);
+				ProductSearchDTO searchDTO = new ProductSearchDTO();
+				searchDTO.setId(rs.getInt("id"));
+				searchDTO.setProductId(rs.getInt("product_id"));
+				searchDTO.setProductName(rs.getString("product_name"));
+				searchDTO.setProductNameKana(rs.getString("product_name_kana"));
+				searchDTO.setProductDescription(rs.getString("product_description"));
+				searchDTO.setCategoryId(rs.getInt("category_id"));
+				searchDTO.setMSizePrice(rs.getInt("msize_price"));
+				searchDTO.setLSizePrice(rs.getInt("lsize_price"));
+				searchDTO.setPrice(rs.getInt("price"));
+				searchDTO.setStock(rs.getInt("stock"));
+				searchDTO.setImageFileName(rs.getString("image_file_name"));
+				searchDTO.setReleaseDate(rs.getDate("release_date"));
+				searchDTO.setReleaseCompany(rs.getString("release_company"));
+				searchDTO.setStatus(rs.getShort("status"));
+				searchDTO.setRegistDate(rs.getDate("regist_date"));
+				searchDTO.setUpdateDate(rs.getDate("update_date"));
+				searchDTOList.add(searchDTO);
 
 			}
 		} catch (SQLException e) {
@@ -307,22 +319,24 @@ public class ProductSearchDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				ProductSearchDTO serchDTO = new ProductSearchDTO();
-				serchDTO.setId(rs.getInt("id"));
-				serchDTO.setProductId(rs.getInt("product_id"));
-				serchDTO.setProductName(rs.getString("product_name"));
-				serchDTO.setProductNameKana(rs.getString("product_name_kana"));
-				serchDTO.setProductDescription(rs.getString("product_description"));
-				serchDTO.setCategoryId(rs.getInt("category_id"));
-				serchDTO.setPrice(rs.getInt("price"));
-				serchDTO.setImageFileName(rs.getString("image_file_name"));
-				serchDTO.setReleaseDate(rs.getDate("release_date"));
-				serchDTO.setReleaseCompany(rs.getString("release_company"));
-				serchDTO.setStatus(rs.getShort("status"));
-				serchDTO.setRegistDate(rs.getDate("regist_date"));
-				serchDTO.setUpdateDate(rs.getDate("update_date"));
-
-				searchDTOList.add(serchDTO);
+				ProductSearchDTO searchDTO = new ProductSearchDTO();
+				searchDTO.setId(rs.getInt("id"));
+				searchDTO.setProductId(rs.getInt("product_id"));
+				searchDTO.setProductName(rs.getString("product_name"));
+				searchDTO.setProductNameKana(rs.getString("product_name_kana"));
+				searchDTO.setProductDescription(rs.getString("product_description"));
+				searchDTO.setCategoryId(rs.getInt("category_id"));
+				searchDTO.setMSizePrice(rs.getInt("msize_price"));
+				searchDTO.setLSizePrice(rs.getInt("lsize_price"));
+				searchDTO.setPrice(rs.getInt("price"));
+				searchDTO.setStock(rs.getInt("stock"));
+				searchDTO.setImageFileName(rs.getString("image_file_name"));
+				searchDTO.setReleaseDate(rs.getDate("release_date"));
+				searchDTO.setReleaseCompany(rs.getString("release_company"));
+				searchDTO.setStatus(rs.getShort("status"));
+				searchDTO.setRegistDate(rs.getDate("regist_date"));
+				searchDTO.setUpdateDate(rs.getDate("update_date"));
+				searchDTOList.add(searchDTO);
 
 			}
 		} catch (SQLException e) {

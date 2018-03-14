@@ -20,7 +20,7 @@ import com.internousdev.alatanapizza.util.DBConnector;
 
 
 
-public class LoginDAO {
+public class LoginDAO  {
 
 
 	private LoginDTO loginDTO=new LoginDTO();
@@ -55,12 +55,14 @@ public class LoginDAO {
 				loginDTO.setFirstNameKana(rs.getString("first_name_kana"));
 				loginDTO.setEmail(rs.getString("email"));
 				loginDTO.setMaster(rs.getBoolean("master"));
-			}else{
+				//sql文のmasterの型名をtinyint→tinyint(1)orbooleanに変更する必要あり？
+				}else{
 				loginDTO.setUserId("noID");
 				loginDTO.setPassword("noPASS");
 			}
 		}catch(SQLException e){
-			throw new RuntimeException(e);
+			e.printStackTrace();
+			//throw new RuntimeException(e);
 		}
 		return loginDTO;
 
@@ -85,6 +87,7 @@ public class LoginDAO {
 				result =true;
 			}
 		}catch(SQLException e){
+			//e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally{
 			con.close();
@@ -107,6 +110,7 @@ public class LoginDAO {
 				result = true;
 			}
 		}catch(SQLException e){
+			//e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally{
 			con.close();

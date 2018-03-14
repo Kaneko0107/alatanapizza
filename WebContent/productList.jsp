@@ -12,19 +12,25 @@
 <title>全商品一覧</title>
 </head>
 <body>
-
+	<!-- <div class="category">
+		<ul>
+		<li>PIZZA</li>
+		<li>SIDE</li>
+		<li>DRINK</li>
+		</ul>
+	</div><br>
+ -->
 
 	<h3>全商品一覧</h3>
 
 
-	<!-- 検索時のメッセージ -->
-	<s:iterator value="msgList">
-			<h1>検索キーワード "<s:property />"</h1>
-		</s:iterator>
-		<s:if test="searchDTOList.size()==0">
-			<h1>検索結果がありません。</h1>
-		</s:if>
-
+	<!-- 検索時のメッセージ
+	<s:if test="searchMessage != ''">
+		<h2>
+			<s:property value="searchMessage" escape="false" />
+		</h2>
+	</s:if>
+-->
 
 
 

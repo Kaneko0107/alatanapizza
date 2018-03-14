@@ -67,7 +67,7 @@ public class MyPageDAO {
 		try {
 			con.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		return myPageList;
 	}

@@ -195,6 +195,14 @@
 		<td>
 								<s:property value="product_name" />
 								<s:property value="product_name_kana" />
+									<%--お気に入りボタン,非ログイン時は非表示 --%>
+										<s:if test="#session.containsKey('userId')">
+											<div class="favlist">
+											<s:submit value=" ★" onclick="FavoriteAction();">
+												<s:hidden name="favoriteInsertFlg" value="1" />
+											</s:submit>
+											</div>
+										</s:if>
 		</td>
 		</tr>
 		<tr>

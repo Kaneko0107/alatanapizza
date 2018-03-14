@@ -12,6 +12,11 @@ public class CartInfoDTO {
 	private int price;
 	private Date registDate;
 	private Date updateDate;
+	private String productName;
+	private String productNameKana;
+	private String imageFileName;
+	private String releaseCompany;
+	private String releaseDate;
 
 	public int getId(){
 		return id;
@@ -64,4 +69,40 @@ public class CartInfoDTO {
 	public void setUpdateDate(Date updateDate){
 		this.updateDate = updateDate;
 	}
+
+	public String getProductName(){
+		return productName;
+	}
+	public void setProductName(String productName){
+		this.productName = productName;
+	}
+
+	public String getProductNameKana(){
+		return productNameKana;
+	}
+	public void setProductNameKana(String productNameKana){
+		this.productNameKana = productNameKana;
+	}
+
+	public String getImageFileName(){
+		return imageFileName;
+	}
+	public void setImageFileName(String imageFileName){
+		this.imageFileName = imageFileName;
+	}
+
+	public String getReleaseCompany(){
+		return releaseCompany;
+	}
+	public void setReleaseCompany(String releaseCompany){
+		this.releaseCompany = releaseCompany;
+	}
+
+	public String getReleaseDate(){
+		return releaseDate;
+	}
+	public void setReleaseDate(String releaseDate){
+		this.releaseDate = releaseDate;
+	}
+
 }

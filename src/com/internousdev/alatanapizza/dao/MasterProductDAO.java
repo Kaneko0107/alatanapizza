@@ -17,20 +17,25 @@ public class MasterProductDAO {
 
 	private DateUtil dateUtil=new DateUtil();
 
-	private String sql="INSERT INTO item_info_transaction (item_name, item_price, item_stock, insert_date) VALUES (?, ?, ?, ?)";
+	private String sql="INSERT INTO product_info (product_id, product_name, price, stock, regist_date, product_name_kana, product_description, category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
 	public ProductDTO productDTO(String itemName, String itemPrice, String itemStock) throws SQLException{
 
 		try{
 			PreparedStatement ps=connection.prepareStatement(sql);
-			ps.setString(1, itemName);
-			ps.setString(2, itemPrice);
-			ps.setString(3, itemStock);
-			ps.setString(4, dateUtil.getDate());
+			ps.setString(1, Double.valueOf(Math.random() * 1000).toString());
+			ps.setString(2, itemName);
+			ps.setString(3, itemPrice);
+			ps.setString(4, itemStock);
+			ps.setString(5, dateUtil.getDate());
+			ps.setString(6, itemName);
+			ps.setString(7, "11");
+			ps.setString(8, "11");
+
 
 			ps.executeUpdate();
 		}catch(Exception e){
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}finally{
 			connection.close();
 		}

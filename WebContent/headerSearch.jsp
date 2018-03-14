@@ -20,5 +20,9 @@
 		<s:submit value="検索" />
 </s:form>
 
+<s:form action="ProductListAction">
+<s:submit value="PRODUCT LIST"/>
+</s:form>
+
 </body>
 </html>

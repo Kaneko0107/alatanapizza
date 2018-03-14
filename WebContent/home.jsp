@@ -18,6 +18,10 @@
 </style>
 </head>
 <body>
+
+<!-- ヘッダーをインクルード -->
+<jsp:include page="headerSearch.jsp" />
+
 	<div id="main">
 		<div id="top">
 		</div>

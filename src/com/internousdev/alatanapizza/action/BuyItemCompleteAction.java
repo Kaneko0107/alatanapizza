@@ -5,7 +5,7 @@ package com.internousdev.alatanapizza.action;
 //<result>
 //ERROR→ログインからやり直し（login.jspへ）
 //SUCCESS→決済完了画面へ（settlement.jsp）
-//DESTINATION→宛先新規登録画面へ（destinationRegister.jsp)
+//DESTINATION→宛先新規登録画面へ（destinationinfo.jsp)
 //other→カートが空です（cart.jspへ）
 
 import java.sql.SQLException;
@@ -16,7 +16,9 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.CartInfoDAO;
+import com.internousdev.alatanapizza.dao.DestinationDAO;
 import com.internousdev.alatanapizza.dto.CartInfoDTO;
+import com.internousdev.alatanapizza.dto.DestinationDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemCompleteAction extends ActionSupport implements SessionAware {
@@ -24,36 +26,59 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 	private int totalPrice = 0; // 合計金額
 	private int productCount; // 個数
 	private List<CartInfoDTO> cartList = new ArrayList<CartInfoDTO>(); // カート情報一覧
-	private ArrayList<DestinationInfoDTO> destinationInfoListDTO = new ArrayList<DestinationInfoDTO>();
-	// ↑宛先情報一覧（ログイングループのをぱくる）
+	private ArrayList<DestinationDTO> destinationListDTO = new ArrayList<DestinationDTO>();
+	// ↑宛先情報一覧（ログイングループ）
 
 	public String execute() throws SQLException {
 		String result = ERROR;
-		System.out.println("PurchaseInfoAction--------------");
+		System.out.println("-----------BuyItemCompleteAction--------------");
 
 		// 決済情報取得メソッド
-		// 確認画面の商品情報は、カート情報をそのままもってきている。（かねごん担当のCartInfoDAO）
+		// 確認画面の商品情報は、カート情報をそのままもってきている。
 		// だから、このActionにはDAOはないです。
 		// 宛先情報とカーと情報をただのせるだけのページ。
 
+
+
+		//↓ログインユーザーのカート情報を全表示させる（金子さん担当アクション）↓
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 		cartList = cartInfoDAO.showUserCartList(session.get("userId").toString());
 
-		// ログインしてなければログインに飛ばす
+		// カートに何も入っていない場合
+				if (cartList.size() == 0) {
+					return "other";// ■cart.jspへ。
+				}
+				for (CartInfoDTO dto : cartList) {
+					totalPrice += dto.getPrice() * dto.getProductCount();
+				}
+
+
+		// もしログインしてなければログインに飛ばす
 		if (!session.containsKey("loginFlg")) {
 			return ERROR; // ■login.jspへ
 		}
+
+		//もしログインしていたら
+		//↓指定したユーザーの宛先情報取得 obtaining==入手（高木さん担当アクション）↓
 		if (session.containsKey("loginFlg")) {
-			DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
-			destinationInfoListDTO = destinationInfoDAO.obtainingDestinationInfo(session.get("userId").toString());
+			DestinationDAO destinationInfoDAO = new DestinationDAO();
+			destinationListDTO = destinationInfoDAO.obtainingDestinationInfo(session.get("userId").toString());
 		}
 
-		if (destinationInfoListDTO.size() > 0) {
+		//もし宛先情報が入っていれば、
+		if (destinationListDTO.size() > 0) {
 			result = SUCCESS;// ■決済完了画面へ（settlement.jsp）
-		} else {
-			result = "DESTINATION"; // ■宛先新規登録画面へ（destinationRegister.jsp)
+		}
+		//宛先情報が入っていなければ、
+		else {
+			result = "DESTINATION"; // ■宛先新規登録画面へ（destinationinfo.jsp)
 			return result;
 		}
+
+
+		return result;
+	}
+
 
 		/**
 		 * // 宛先情報取得メソッド 上の文に書き換えてみた↑ こっちがもともとの文面 if ((boolean)
@@ -74,15 +99,7 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 		 *
 		 */
 
-		// カートに何も入っていない場合
-		if (cartList.size() == 0) {
-			return "other";// ■cart.jspへ。
-		}
-		for (CartInfoDTO dto : cartList) {
-			totalPrice += dto.getPrice() * dto.getProductCount();
-		}
-		return result;
-	}
+
 
 	/**
 	 * @return session
@@ -129,12 +146,12 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 		this.totalPrice = totalPrice;
 	}
 
-	public ArrayList<DestinationInfoDTO> getDestinationInfoListDTO() {
-		return destinationInfoListDTO;
+	public ArrayList<DestinationDTO> getDestinationListDTO() {
+		return destinationListDTO;
 	}
 
-	public void setDestinationInfoListDTO(ArrayList<DestinationInfoDTO> destinationInfoListDTO) {
-		this.destinationInfoListDTO = destinationInfoListDTO;
+	public void setDestinationListDTO(ArrayList<DestinationDTO> destinationListDTO) {
+		this.destinationListDTO = destinationListDTO;
 	}
 
 	public int getProductCount() {
@@ -146,4 +163,3 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 	}
 
 }
-

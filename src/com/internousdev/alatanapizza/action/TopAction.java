@@ -12,9 +12,9 @@ public class TopAction extends ActionSupport implements SessionAware{
 
 	public String execute(){
 		try{
-		if (!(session.containsKey("loginFlg"))) {
+		if (!(session.containsKey("tempUserId"))) {
 			session.put("loginFlg", false);
-			double tempUserId=Math.random();
+			int tempUserId= (int) Math.random() * 1000000;
 			session.put("tempUserId",tempUserId);
 			System.out.println("--------");
 			System.out.println(tempUserId);
@@ -23,7 +23,7 @@ public class TopAction extends ActionSupport implements SessionAware{
 
 
 		}catch(Exception e){
-			e.printStackTrace();
+			throw new RuntimeException(e);
 			}
 
 		/*if ((boolean)session.get("loginFlg")) {

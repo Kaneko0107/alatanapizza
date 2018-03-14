@@ -22,10 +22,11 @@
 		<div id="top">
 		</div>
 		<div>
+			<span style="color: red;" ><s:property value="errorMessageList"/></span>
 			<h3>会員の方のログイン</h3>
 			<s:form action="LoginAction">
-				<s:textfield name="loginUserId"/>
-				<s:password name="loginPassword"/>
+				<s:textfield name="userId"/>
+				<s:password name="password"/>
 				<s:submit value="ログイン"/>
 			</s:form>
 		</div>

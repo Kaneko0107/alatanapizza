@@ -27,6 +27,12 @@
 				<s:submit value="ログインフォームへ"/>
 			</s:form>
 		</div>
+		<div>
+			<h3>商品フォームへ</h3>
+			<s:form action="ProductListAction">
+				<s:submit value="商品フォームへ"/>
+			</s:form>
+		</div>
 
 
 	</div>

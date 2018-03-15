@@ -91,6 +91,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 		}else{
 			count = dao.putProductIntoCart(userId,productId,productCount,total_price, toppings);
 		}
+		dao.changeStockCount(productCount, productId);
 		cartList = dao.showUserCartList(userId);
 
 

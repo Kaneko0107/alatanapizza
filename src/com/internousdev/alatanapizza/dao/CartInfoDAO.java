@@ -303,6 +303,25 @@ public class CartInfoDAO extends ActionSupport{
 	}
 
 	//在庫更新
+	public void changeStockCount(int productStock, int productId) throws SQLException {
+		System.out.println("Stockを変更");
+		String sql = "UPDATE product_info SET stock=stock-? WHERE product_id=?";
+
+		try {
+			con = db.getConnection();
+			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
+			ps.setInt(1, productStock);
+			ps.setInt(2, productId);
+
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			con.close();
+		}
+	}
+
+	// カート更新(同じ商品をカートに入れた時、購入個数を変更する）
 	public void changeProductStock(int productStock, int productId)throws SQLException{
 		String sql = "UPDATE cart_info SET product_count=product_count+? WHERE product_id=? AND user_id=?";
 
@@ -318,14 +337,14 @@ public class CartInfoDAO extends ActionSupport{
 		}
 	}
 	//カート内の商品を1件ずつ削除
-	public void deleteSeparate(String userId,Integer integer){
+	public void deleteSeparate(String userId,Integer productId){
 		String sql = "DELETE FROM cart_info WHERE user_id = ? AND product_id=?";
 
 		try{
 			con = db.getConnection();
 			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
 			ps.setString(1, userId);
-			ps.setLong(2, integer);
+			ps.setLong(2, productId);
 			ps.executeUpdate();
 
 		}catch(SQLException e){

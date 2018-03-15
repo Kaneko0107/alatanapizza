@@ -23,7 +23,7 @@
                 }
                 var count = $('#topping input:checkbox:checked').length;
                 var topping_price = parseInt(count) * 324;
-                var product_menu_count = $('[name="product_count"]').val();
+                var product_menu_count = $('[name="productCount"]').val();
                 var total_price = (parseInt(product_val) + parseInt(topping_price)) * parseInt(product_menu_count);
                 $('input:text[name="total_price"]').val(total_price);
             });
@@ -35,7 +35,7 @@
                 }
                 var count = $('#topping input:checkbox:checked').length;
                 var topping_price = parseInt(count) * 324;
-                var product_menu_count = $('[name="product_count"]').val();
+                var product_menu_count = $('[name="productCount"]').val();
                 var total_price = (parseInt(product_val) + parseInt(topping_price)) * parseInt(product_menu_count);
                 $('input:text[name="total_price"]').val(total_price);
             });
@@ -68,7 +68,7 @@
 	<jsp:include page="include_header.jsp" />
 
 
-	<s:form action="GoCartAction" name="select">
+	<s:form action="CartProductAction" name="select">
 
 
 	<table class="detailsTable">
@@ -142,7 +142,7 @@
 			<span id="topping">
 						<s:iterator value="session.toppingList" status="topping-number">
 
-								<input type="checkbox" id='topping-number"<s:property value='#topping-number.count'/>"' name='topping_menu<s:property value="#topping-number.count"/>'  value="<s:property value='msize_price'/>" class="topping_menu"  />
+								<input type="checkbox" name="topping_id_<s:property value='topping_id'/>" value="<s:property value='msize_price'/>" class="topping_menu"  />
 								<s:property value="topping_name" />
 						</s:iterator>
 			</span>
@@ -155,13 +155,12 @@
 
 
 			数量
-			<s:select name="product_count" id="product_count" list="stockList"
+			<s:select name="productCount" id="product_count" list="stockList"
 				onchange="outputSelectedValueAndText(this);" />
 			選択した商品の金額
 			<s:textfield name="total_price" id="total_price" />
 
-
-
+			<s:hidden name="productId" value="%{session.d_product_id}" ></s:hidden>
 			<s:hidden name="gocart" value="1" />
 			<s:submit value="カートに入れる" />
 

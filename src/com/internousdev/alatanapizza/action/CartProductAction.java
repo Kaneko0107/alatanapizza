@@ -87,7 +87,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 
 		//カートが重複しているか確認する
 		if(dao.isAlreadyIntoCart(userId, productId)){
-			count = dao.UpdateProductCount(userId,productId,productCount,total_price);
+			count = dao.UpdateProductCount(userId,productId,productCount);
 		}else{
 			count = dao.putProductIntoCart(userId,productId,productCount,total_price, toppings);
 		}

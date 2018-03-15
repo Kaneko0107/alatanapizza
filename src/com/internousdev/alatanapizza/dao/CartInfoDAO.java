@@ -266,16 +266,17 @@ public class CartInfoDAO extends ActionSupport{
 		}
 		return count;
 	}
-	public int UpdateProductCount(String userId, int productId, int productCount, int price)throws SQLException{
+	public int UpdateProductCount(String userId, int productId, int productCount)throws SQLException{
 		int count = 0;
-		String sql = "UPDATE cart_info SET product_count = product_count + ? WHERE user_id = ? AND product_id = ?";
+		String sql = "UPDATE cart_info SET price = (product_count + ?) * (price / product_count), product_count = product_count + ? WHERE user_id = ? AND product_id = ?";
 
 		try{
 			con = db.getConnection();
 			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
 			ps.setInt(1, productCount);
-			ps.setString(2, userId);
-			ps.setInt(3, productId);
+			ps.setInt(2, productCount);
+			ps.setString(3, userId);
+			ps.setInt(4, productId);
 			count = ps.executeUpdate();
 		}catch(SQLException e){
 			throw new RuntimeException(e);

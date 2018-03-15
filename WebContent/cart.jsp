@@ -105,7 +105,7 @@
 <!-- 決済に移行する -->
 			<s:if test="! cartList.isEmpty()">
 			<div class="settlement_btn">
-			 <a href='<s:url action ="PurchaseInfoAction" />'>決済画面へ</a>
+			 <a href='<s:url action ="BuyItemCompleteAction" />'>決済画面へ</a>
 			</div>
 			</s:if>
 <!-- F5キー（画面の更新）とBackspaceとDeleteの無効化 -->

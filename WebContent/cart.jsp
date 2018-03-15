@@ -34,13 +34,11 @@
 			<div class="border"></div>
 <!-- 画像を表示させる -->
 			<div class="main_content clearfix_bon">
-			<div class="pro_img">
 			<s:url id="url" action="ProductDetailsAction"><s:param name="product_id" value="productId" /></s:url>
 
 			<s:a href="%{url}">
-			  <img src='<s:property value="imageFilePath"/>' alt="画像なし"/>
+			  <img src='<s:property value="imageFilePath"/>' width="200" height="170" alt="画像なし"/>
 			</s:a>
-			</div>
 
 <!-- テキストデータを表示させる -->
 			<div class="pro_text">
@@ -94,14 +92,14 @@
 
 		</s:iterator>
 		<div class="border"></div>
-		</s:else>
-		</div>
-
 <!-- 合計金額の表示 -->
 			<div class="totalprice">
 			合計金額:¥
 			<s:property value="total_price" />
 			</div>
+		</s:else>
+		</div>
+
 
 <!-- 決済に移行する -->
 			<s:if test="! cartList.isEmpty()">

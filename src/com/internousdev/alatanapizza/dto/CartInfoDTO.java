@@ -1,5 +1,6 @@
 package com.internousdev.alatanapizza.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class CartInfoDTO {
@@ -7,16 +8,14 @@ public class CartInfoDTO {
 	private int id;
 	private String userId;
 	private String tempUserId;
+	private String productName;
+	private String imageFilePath;
 	private int productId;
 	private int productCount;
 	private int price;
 	private Date registDate;
 	private Date updateDate;
-	private String productName;
-	private String productNameKana;
-	private String imageFileName;
-	private String releaseCompany;
-	private String releaseDate;
+	private ArrayList<String> toppings;
 
 	public int getId(){
 		return id;
@@ -70,39 +69,27 @@ public class CartInfoDTO {
 		this.updateDate = updateDate;
 	}
 
-	public String getProductName(){
+	public String getProductName() {
 		return productName;
 	}
-	public void setProductName(String productName){
+
+	public void setProductName(String productName) {
 		this.productName = productName;
 	}
 
-	public String getProductNameKana(){
-		return productNameKana;
-	}
-	public void setProductNameKana(String productNameKana){
-		this.productNameKana = productNameKana;
+	public String getImageFilePath() {
+		return imageFilePath;
 	}
 
-	public String getImageFileName(){
-		return imageFileName;
-	}
-	public void setImageFileName(String imageFileName){
-		this.imageFileName = imageFileName;
+	public void setImageFilePath(String imageFilePath) {
+		this.imageFilePath = imageFilePath;
 	}
 
-	public String getReleaseCompany(){
-		return releaseCompany;
-	}
-	public void setReleaseCompany(String releaseCompany){
-		this.releaseCompany = releaseCompany;
+	public ArrayList<String> getToppings() {
+		return toppings;
 	}
 
-	public String getReleaseDate(){
-		return releaseDate;
+	public void setToppings(ArrayList<String> toppings) {
+		this.toppings = toppings;
 	}
-	public void setReleaseDate(String releaseDate){
-		this.releaseDate = releaseDate;
-	}
-
 }

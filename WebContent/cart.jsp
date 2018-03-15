@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -34,17 +35,17 @@
 <!-- 画像を表示させる -->
 			<div class="main_content clearfix_bon">
 			<div class="pro_img">
-			<s:url id="url" action="ProDetailAction"><s:param name="id" value="productId" /></s:url>
+			<s:url id="url" action="ProductDetailsAction"><s:param name="product_id" value="productId" /></s:url>
+
 			<s:a href="%{url}">
-			  <img src='<s:property value="image_file_name"/>' alt="画像なし"/>
+			  <img src='<s:property value="imageFilePath"/>' alt="画像なし"/>
 			</s:a>
 			</div>
 
 <!-- テキストデータを表示させる -->
 			<div class="pro_text">
 			<div class="name">
-			<s:url id="url" action="ProDetailAction"><s:param name="id value="productId" /></s:url>
-			<s:a href="%{url}">
+ 			<s:a href="%{url}">
 
 <!-- ふりがな表示 -->
 			<div class="kana">
@@ -53,15 +54,16 @@
 
 <!-- 商品名表示 -->
 			<div class="pro_name">
-			商品名：<s:property value="product_name" />
+			商品名：<s:property value="productName" />
 			</div>
 			</s:a>
 			</div>
+			<s:property value="toppings"/>
 
 <!-- 値段表示 -->
 			<div class="price_count"></div>
 			<div class="price">
-			価格:\<fmt:formatNumber value="${price}" />
+			価格:¥<fmt:formatNumber value="${price}" />
 			</div>
 
 <!-- 個数表示 -->

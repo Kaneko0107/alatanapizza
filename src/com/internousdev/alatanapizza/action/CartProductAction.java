@@ -7,12 +7,14 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.CartInfoDAO;
+import com.internousdev.alatanapizza.dao.ProductDetailsDAO;
 import com.internousdev.alatanapizza.dto.CartInfoDTO;
+import com.internousdev.alatanapizza.dto.ProductDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CartProductAction extends ActionSupport implements SessionAware{
 
-	//商品ID
+	//商品ID_商品購入ページから持ってくる
 	private int productId;
 
 	//セッション情報
@@ -27,11 +29,47 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 	private String price;
 	private int count;
 	private CartInfoDAO dao = new CartInfoDAO();
+	private ProductDetailsDAO productDAO = new ProductDetailsDAO();
 
 	//カート内の金額
 	private int totalPrice = 0;
+
+	public String topping_id_1;
+	public String topping_id_2;
+	public String topping_id_3;
+	public String topping_id_4;
+	public String topping_id_5;
+	public String topping_id_6;
+	public String topping_id_7;
+	public String topping_id_8;
+	public String topping_id_9;
+	public String topping_id_10;
+	public String topping_id_11;
+	public String topping_id_12;
+
+
 	public String execute()throws SQLException{
-		int TotalPrice = Integer.parseInt(price);
+		ArrayList<Integer> toppings = new ArrayList<Integer>();
+
+		System.out.println("トッピングは" + topping_id_1 + " " + topping_id_2 + " " + topping_id_3);
+		if (productId == 0 || productCount == 0) {
+			return "ERROR";
+		}
+
+		ProductDTO product = productDAO.getProductDetailsInfo(Integer.valueOf(productId).toString());
+		int totalPrice = product.getPrice() * productCount;
+		if (topping_id_1 != null) toppings.add(1);
+		if (topping_id_2 != null) toppings.add(2);
+		if (topping_id_3 != null) toppings.add(3);
+		if (topping_id_4 != null) toppings.add(4);
+		if (topping_id_5 != null) toppings.add(5);
+		if (topping_id_6 != null) toppings.add(6);
+		if (topping_id_7 != null) toppings.add(7);
+		if (topping_id_8 != null) toppings.add(8);
+		if (topping_id_9 != null) toppings.add(9);
+		if (topping_id_10 != null) toppings.add(10);
+		if (topping_id_11 != null) toppings.add(11);
+		if (topping_id_12 != null) toppings.add(12);
 
 		//"userId"を定義し、その中に"登録ユーザー"と"ゲストユーザー"を入れて処理する
 		String userId;
@@ -48,9 +86,9 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 		if(dao.isAlreadyIntoCart(userId, productId)){
 			count = dao.UpdateProductCount(userId,productId,productCount,totalPrice);
 		}else{
-			count = dao.putProductIntoCart(userId,productId,productCount,totalPrice);
+			count = dao.putProductIntoCart(userId,productId,productCount,totalPrice, toppings);
 		}
-		cartList = dao.showUserCartList(session.get("userId").toString());
+		cartList = dao.showUserCartList(userId);
 
 
 		//検索画面で購入個数をマイナスにした場合は"CountError"を返して別のページに飛ぶ
@@ -77,7 +115,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 	}
 
 	//セッションを【格納する】メソッド
-	public void setSession(Map<String,Object>session){
+	public void setSession(Map<String,Object> session){
 		this.session = session;
 	}
 

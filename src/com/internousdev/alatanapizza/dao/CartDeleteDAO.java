@@ -39,7 +39,7 @@ import com.internousdev.alatanapizza.util.DBConnector;
 
 
 			}catch(SQLException e){
-				e.printStackTrace();
+				throw new RuntimeException(e);
 
 			}return res;
 		}
@@ -56,7 +56,7 @@ import com.internousdev.alatanapizza.util.DBConnector;
 				res=ps.executeUpdate();
 
 			}catch(SQLException e){
-				e.printStackTrace();
+				throw new RuntimeException(e);
 
 			}return res;
 		}
@@ -75,7 +75,7 @@ import com.internousdev.alatanapizza.util.DBConnector;
 
 
 			}catch(SQLException e){
-				e.printStackTrace();
+				throw new RuntimeException(e);
 
 			}return res;
 		}
@@ -94,7 +94,7 @@ import com.internousdev.alatanapizza.util.DBConnector;
 
 
 				}catch(SQLException e){
-					e.printStackTrace();
+					throw new RuntimeException(e);
 
 				}return res;
 			}

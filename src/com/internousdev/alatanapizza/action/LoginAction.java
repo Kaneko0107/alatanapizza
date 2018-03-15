@@ -191,8 +191,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 								for(i=0;i<productIdList.size();i++){
 									boolean exist=tempProductIdList.contains(productIdList.get(i));
 									if(exist){
-										cartInfoDAO.changeProductStockId(Integer.valueOf(cartList.get(i).getProductCount()),
-												Integer.valueOf(productIdList.get(i)), session.get("userId").toString());
+										cartInfoDAO.changeProductStock(Integer.valueOf(productIdList.get(i)),Integer.parseInt((String) session.get("userId")));
 										//cartInfoDAOにString userIdが入力されていないからエラーを吐いている　要修正
 										//BuyItemCompleteActionにて合計金額の算出コードの記載あるのでこちらではいらない？
 										cartInfoDAO.deleteSeparate(session.get("tempUserId").toString(),
@@ -209,8 +208,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 								for(i=0;i<tempProductIdList.size();i++){
 									boolean exist=productIdList.contains(tempProductIdList.get(i));
 									if(exist){
-										cartInfoDAO.changeProductStockId(Integer.valueOf(tempCartList.get(i).getProductCount()),
-												Integer.valueOf(tempProductIdList.get(i)), session.get("userId").toString());
+										cartInfoDAO.changeProductStock(Integer.valueOf(productIdList.get(i)),Integer.parseInt((String) session.get("userId")));
 										cartInfoDAO.deleteSeparate(session.get("tempUserId").toString(),
 												Integer.valueOf(tempProductIdList.get(i)));
 									}else{

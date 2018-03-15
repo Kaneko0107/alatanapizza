@@ -18,14 +18,9 @@ public class GoCartAction extends ActionSupport implements SessionAware,ErrorMes
 	int totalPrice;
 
 	public String execute() throws SQLException{
-
 		CartInfoDAO dao = new CartInfoDAO();
 
 
-	//loginFlgが存在しているか判定（登録ユーザーかゲストユーザーか判別する）
-	if(!session.containsKey("loginFlg")){
-		session.put("loginFlg",false);
-	}
 		if((boolean)session.get("loginFlg")){
 			dao.changeUserId(session.get("tempUserId").toString(), session.get("userId").toString());
 			cartList = dao.showUserCartList(session.get("userId").toString());
@@ -65,4 +60,3 @@ public class GoCartAction extends ActionSupport implements SessionAware,ErrorMes
 	}
 
 }
-

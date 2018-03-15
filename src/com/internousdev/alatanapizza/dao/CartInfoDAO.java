@@ -95,6 +95,8 @@ public class CartInfoDAO extends ActionSupport{
 				dto.setProductId(rs.getInt("product_id"));
 				dto.setPrice(rs.getInt("cart_info.price"));
 				dto.setProductCount(rs.getInt("product_count"));
+				dto.setReleaseCompany(rs.getString("pi.release_company"));
+				dto.setReleaseDate(rs.getString("pi.release_date"));
 				ArrayList<String> toppings = new ArrayList<String>();
 				int cartId = rs.getInt("cart_info.id");
 				String toppingSql = "SELECT m_topping.topping_name FROM cart_topping_info " +

@@ -72,13 +72,12 @@
 
 <!-- 発売会社 -->
 			<div class="company">
-			発売会社：<s:property value="release_company" />
+			発売会社：<s:property value="releaseCompany" />
 			</div>
 
 <!-- 年月日 -->
 			<div class="release_date">
-			発売日：<fmt:parseDate var="date2" value="${release_date}" pattern="yyyy-MM-dd HH:mm:ss.SS" />
-					<fmt:formatDate value="${date2}" pattern="yyyy年M月d日" />
+			発売日：<s:property value="releaseDate"/>
 			</div>
 		</div>
 

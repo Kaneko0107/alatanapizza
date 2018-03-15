@@ -34,6 +34,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 	//カート内の金額
 	public int total_price = 0;
 
+	//トッピング情報
 	public String topping_id_1;
 	public String topping_id_2;
 	public String topping_id_3;

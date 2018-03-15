@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
-
 import com.internousdev.alatanapizza.dao.CartInfoDAO;
 import com.internousdev.alatanapizza.dto.CartInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -33,17 +32,15 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 		private Map<String, Object> session;
 
 		//カート内の商品情報リスト
-		private ArrayList<CartInfoDTO> cartList = new ArrayList<CartInfoDTO>();
+		private ArrayList<CartInfoDTO>cartList = new ArrayList<CartInfoDTO>();
 
-		//カートの商品情報（個数、価格）
-		int totalPrice;
+		//カート内の金額
+		public int total_price = 0;
+
 		private CartInfoDAO dao = new CartInfoDAO();
-		private CartInfoDAO deletedao = new CartInfoDAO();
-
 
 	//カート情報を削除するメソッド
 	public String execute() throws SQLException {
-		String result = ERROR;
 
 		//"userId"を定義し、その中に"登録ユーザー"と"ゲストユーザー"を入れて処理する
 		String userId;
@@ -58,8 +55,9 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 
 
 		//削除する
-		deletedao.deleteSeparate(userId, productId);
+		dao.deleteSeparate(userId, productId);
 		cartList = dao.showUserCartList(userId);
+		total_price = calcTotalPrice(cartList);
 		return SUCCESS;
 		}
 
@@ -67,7 +65,7 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 	public int calcTotalPrice(ArrayList<CartInfoDTO>cartList){
 		int totalPrice = 0;
 		for(CartInfoDTO dto : cartList){
-		totalPrice += dto.getPrice()*dto.getProductCount();
+		totalPrice += dto.getPrice();
 		System.out.println("合計" + totalPrice + "円");
 		}
 		return totalPrice;
@@ -123,12 +121,12 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 
 	//合計金額を【取得する】メソッド
 	public int getTotalPrice() {
-		return totalPrice;
+		return total_price;
 	}
 
 	//合計金額を【格納する】メソッド
-	public void setTotalPrice(int totalPrice) {
-		this.totalPrice = totalPrice;
+	public void setTotalPrice(int total_price) {
+		this.total_price = total_price;
 	}
 
 }

@@ -11,8 +11,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ChangePasswordConfirmAction extends ActionSupport implements SessionAware{
 	private Map<String,Object>session;
 	private String result;
-	private String answer;
-	private int question;
+	private String	secret_answer;
+	private int secret_question;
 	private String newpass;
 	private String errorUserid;
 	private String errorpassword;
@@ -52,21 +52,23 @@ public class ChangePasswordConfirmAction extends ActionSupport implements Sessio
 
 
 public String execute(){
+	System.out.println("-----------");
 	System.out.println(newpass);
 	System.out.println(checkpass);
 
 
-	if(CPCdao.CheckAnswer(userid,question,answer)){
+	if(CPCdao.CheckAnswer(userid,secret_question,secret_answer)){
 		result=SUCCESS;
 		session.put("newpass",newpass);
 		session.put("userid",userid);
-		session.put("answer", answer);
+		session.put("answer", secret_answer);
 	}else{
 		result=ERROR;
 		errorUserid="*ユーザーIDと答えが一致していません";
 		session.put("errorUserid",errorUserid);
 	}
 	//値の確認出力
+	System.out.println("-----------");
 		System.out.println(userid);
 		System.out.println(result);
 		System.out.println(CPCdao.getPassword());
@@ -135,16 +137,6 @@ public void setErrorUserid(String errorUserid) {
 
 
 
-public int getQuestion() {
-	return question;
-}
-
-
-
-public void setQuestion(int question) {
-	this.question = question;
-}
-
 
 
 public String getNewpass() {
@@ -176,23 +168,6 @@ public String getUserid() {
 public void setUserid(String userid) {
 	this.userid = userid;
 }
-
-
-
-public String getAnswer() {
-	return answer;
-}
-
-
-
-
-
-
-
-public void setAnswer(String answer) {
-	this.answer = answer;
-}
-
 
 
 
@@ -283,6 +258,38 @@ public String getHideUserId() {
 }
 
 
+
+
+
+
+
+public String getSecret_answer() {
+	return secret_answer;
+}
+
+
+
+
+
+public void setSecret_answer(String secret_answer) {
+	this.secret_answer = secret_answer;
+}
+
+
+
+
+
+public int getSecret_question() {
+	return secret_question;
+}
+
+
+
+
+
+public void setSecret_question(int secret_question) {
+	this.secret_question = secret_question;
+}
 
 
 

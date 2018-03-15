@@ -6,11 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css"/>
+<link rel="stylesheet" href="./css/alatanapizza.css">
 <title>Insert title here</title>
 <style>
 .error{
-color:red;}
-
+color:white;}
+.error1{
+coror:white;}
 
 
 </style>
@@ -19,7 +21,7 @@ color:red;}
 <div class="error"><s:if test='errorUserid !=""'>
 <s:property value="errorUserid"/><br>
 </s:if></div>
-<div class="error"><s:if test="errorpassword !=''">
+<div class="error1"><s:if test="errorpassword !=''">
 <s:property value="errorpassword"/>
 </s:if></div>
 <s:form action="ChangePasswordConfirmAction" >
@@ -38,15 +40,15 @@ color:red;}
 </tr>
 <tr>
 <td>答え:</td>
-<td><input type="text" name="secret_answer" value='<s:property value="secret_answer"/>' required/></td>
+<td><input type="text" name="secret_answer" value='<s:property value="secret_answer"/>' /></td>
 </tr>
 <tr>
 <td>新しいパスワード:</td>
-<td><input type="password" name="newpass" required/></td>
+<td><input type="password" name="newpass" /></td>
 </tr>
 <tr>
 <td>確認:</td>
-<td><input type="password" name="checkpass" required/></td>
+<td><input type="password" name="checkpass" /></td>
 </tr>
 <tr>
 <td><s:submit value="確認"/></td>

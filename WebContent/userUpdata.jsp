@@ -5,11 +5,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<link rel="stylesheet" href="./css/alatanapizza.css">
 <title>Insert title here</title>
 </head>
 <body>
 <div id="title"><p>ユーザー情報変更<p></div>
 <div>ユーザー情報を変更してください</div>
+<div>現在のパスワードは必ず入力してください</div>
 <div>以前の情報を保持したい箇所は空欄のまま先へ進んでください</div>
 <s:form action="UserUpdateConfirmAction">
 <table>
@@ -23,7 +26,7 @@
    </tr>
    <tr>
    <th>現在のパスワード</th>
-   <td><s:password name="password" placeholder="1～16文字の半角英数字"/></td>
+   <td><s:password name="password" placeholder="1～16文字の半角英数字" required="true"/></td>
    </tr>
    <tr>
    <th>新規パスワード</th>

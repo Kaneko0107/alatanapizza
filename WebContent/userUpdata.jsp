@@ -17,8 +17,8 @@
 
    <tr>
    <th>ユーザーID</th>
-   <td><s:property value="%{session.user_id}" />
-   <s:hidden name="user_id" value="%{session.user_id}"/>
+   <td><s:property value="%{session.userId}" />
+   <s:hidden name="user_id" value="%{session.userId}"/>
    </td>
    </tr>
    <tr>

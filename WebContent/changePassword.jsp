@@ -18,11 +18,17 @@ coror:white;}
 </style>
 </head>
 <body>
+<div class="error"><s:if test='nullError !=""'>
+<s:property value="nullError"/><br>
+</s:if></div>
 <div class="error"><s:if test='errorUserid !=""'>
 <s:property value="errorUserid"/><br>
 </s:if></div>
 <div class="error1"><s:if test="errorpassword !=''">
 <s:property value="errorpassword"/>
+</s:if></div>
+<div class="error1"><s:if test="errorpassword1 !=''">
+<s:property value="errorpassword1"/>
 </s:if></div>
 <s:form action="ChangePasswordConfirmAction" >
 <table>

@@ -16,6 +16,8 @@ public class ChangePasswordConfirmAction extends ActionSupport implements Sessio
 	private String newpass;
 	private String errorUserid;
 	private String errorpassword;
+	private String errorpassword1;
+	private String nullError;
 	private String userid;
 	private String checkpass;
 	private String hideNewPassword;
@@ -57,6 +59,12 @@ public String execute(){
 	System.out.println(checkpass);
 
 
+	if(newpass.equals("") || checkpass.equals("") || userid.equals("") || secret_answer.equals("")){
+		result=ERROR;
+		setNullError("*未入力の項目があります");
+	}
+
+
 	if(CPCdao.CheckAnswer(userid,secret_question,secret_answer)){
 		result=SUCCESS;
 		session.put("newpass",newpass);
@@ -83,11 +91,12 @@ public String execute(){
 	if(!(newpass.equals(checkpass))){
 		result=ERROR;
 		setErrorpassword("*新しいパスワードと確認用パスワードが合致しません");
-	}else if(newpass.equals(CPCdao.getPassword())){
+	}
+	if(newpass.equals(CPCdao.getPassword())){
 		result=ERROR;
-		setErrorpassword("*新しいパスワードは以前のパスワードと同様の値に設定できません");}
+		setErrorpassword1("*新しいパスワードは以前のパスワードと同様の値に設定できません");}
 
-
+if(!(newpass.equals("")) && !(checkpass.equals(""))){
 		if(newpass.length()<=1){
 			hideUserId = hideString(userid,0,2);
 			hideNewPassword = hideString(newpass,0,0);
@@ -102,7 +111,7 @@ public String execute(){
 			hideNewPassword = hideString(newpass,0,2);
 			session.put("hideNewPassword",hideNewPassword);
 		}
-
+}
 
 
 
@@ -301,6 +310,38 @@ public void setSecret_question(int secret_question) {
 
 public void setHideUserId(String hideUserId) {
 	this.hideUserId = hideUserId;
+}
+
+
+
+
+
+public String getErrorpassword1() {
+	return errorpassword1;
+}
+
+
+
+
+
+public void setErrorpassword1(String errorpassword1) {
+	this.errorpassword1 = errorpassword1;
+}
+
+
+
+
+
+public String getNullError() {
+	return nullError;
+}
+
+
+
+
+
+public void setNullError(String nullError) {
+	this.nullError = nullError;
 }
 
 

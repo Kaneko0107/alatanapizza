@@ -19,7 +19,7 @@ public class MasterProductDAO {
 
 	private String sql="INSERT INTO product_info (product_id, product_name, price, stock, regist_date, product_name_kana, product_description, category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-	public ProductDTO productDTO(String itemName, String itemPrice, String itemStock) throws SQLException{
+	public ProductDTO productDTO(String itemName, String itemKanaName, String itemPrice, String itemStock) throws SQLException{
 
 		try{
 			PreparedStatement ps=connection.prepareStatement(sql);
@@ -28,7 +28,7 @@ public class MasterProductDAO {
 			ps.setString(3, itemPrice);
 			ps.setString(4, itemStock);
 			ps.setString(5, dateUtil.getDate());
-			ps.setString(6, itemName);
+			ps.setString(6, itemKanaName);
 			ps.setString(7, "11");
 			ps.setString(8, "11");
 

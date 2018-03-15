@@ -22,6 +22,8 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 
 	private String itemName;
 
+	private String itemKanaName;
+
 	private String itemPrice;
 
 	private String itemStock;
@@ -42,13 +44,13 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 	public String execute() throws SQLException {
 
 		String result = ERROR;
-		if (itemName == null && itemPrice == null && itemStock == null) {
+		if (itemName == null && itemPrice == null && itemStock == null && itemKanaName==null) {
 			return "form";
 		}
 		//文字列が空白でなければsuccessを返す。何か空白が入っている場合は、errorを返す。
 
-		if (itemName.length() != 0 && itemPrice.length() != 0 && itemStock.length() != 0) {
-			dto = dao.productDTO(itemName, itemPrice, itemStock);
+		if (itemName.length() != 0 && itemKanaName.length() !=0 && itemPrice.length() != 0 && itemStock.length() != 0) {
+			dto = dao.productDTO(itemName, itemKanaName, itemPrice, itemStock);
 			session.put("ItemInsert", dto);
 			session.put("itemName", itemName);
 			session.put("itemPrice", itemPrice);
@@ -68,6 +70,17 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
+
+	public String getItemKanaName() {
+		return itemName;
+	}
+
+	public void setItemKanaName(String itemName) {
+		this.itemName = itemName;
+	}
+
+
+
 
 	public String getItemPrice() {
 		return itemPrice;

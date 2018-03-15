@@ -28,20 +28,20 @@
 	</div>
 
 	<div class="main">//商品
-					<s:form action="MasterAddConfirmAction">
+					<s:form action="MasterAddCompleteAction">
 							<br>商品名:
-							<s:property value="productName" />
+							<s:property value="itemName" />
 							<br>
 							<br>
 							<br>ふりがな:
-							<s:property value="productKanaName"/>
+							<s:property value="itemKanaName"/>
 							<br>
 							<br>
 							<br>個数:
-							<s:property value="quantity"/>
+							<s:property value="itemStock"/>
 							<br>
 							<br>価格:
-							<s:property value="price"/>
+							<s:property value="itemPrice"/>
 							<br>
 						</s:form>
 

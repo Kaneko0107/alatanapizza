@@ -32,7 +32,7 @@
 
 	<div class="main">
 			<table>
-				<s:form action="MasterAddAction"  method="post" enctype="multipart/form-data">
+				<s:form action="MasterAddConfirmAction"  method="post" enctype="multipart/form-data">
 					<tr>
 						<td>
 							<label>商品名:</label>

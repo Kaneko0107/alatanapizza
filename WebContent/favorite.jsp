@@ -22,6 +22,8 @@
 
 <div class="main">
 
+
+<!-- お気に入りリストが空の場合 -->
 	<div class="empty">
 
 	<h3>お気に入りリスト</h3>
@@ -30,7 +32,7 @@
 		<h4>お気に入りはありません。</h4>
 	</s:if>
 
-
+<!-- お気に入りリストがある場合 -->
 	<s:if test="favoriteList.size() > 0">
 		<h4>お気に入り情報は以下になります。</h4>
 		<p>&nbsp;&nbsp;</p>
@@ -39,15 +41,19 @@
 		<table border="0" cellspacing="0">
 
 			<s:iterator value="favoriteList">
+			<!-- ここにsプロパティの値が詰まっている。元をたどるとfavoriteActionのList favoriteactionの
+			記載のfavoriteDTOの変数名-->
 
 			<div class="ph-box">
 
 
-
+<!-- チェックボックス作成 -->
 				<div class="ph-check">
 					<s:checkbox name="checkList" value="1"
 							fieldValue="%{productId}" />
 				</div>
+				<!-- value=初期値でチェックされた状態　０にするとunchecked。0,1もしくはtrue,falseが入る。チェックボックス独特の書き方
+				field valueはiteratorの時。どの商品をチェックしたのを情報として送信 -->
 
 <br><br>
 
@@ -56,7 +62,7 @@
 
 
 
-					<s:hidden name="imageFilePath" value='<s:property value="imageFilePath"/>' />
+					<s:hidden name="imageFileName" value='<s:property value="imageFileName"/>' />
 					商品名:<span><s:property value="productName" /></span><br>
 
 					金額:<span><s:property value="price" /></span><br>

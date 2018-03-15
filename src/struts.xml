@@ -145,7 +145,7 @@
  		<result name = "error">home.jsp</result>
 	</action>
 
-	<action name = "MasterAddAction" class ="com.internousdev.alatanapizza.action.MasterAddAction" method = "execute">
+	<action name = "GoMasterAddAction" class ="com.internousdev.alatanapizza.action.GoMasterAddAction" method = "execute">
 		<result name = "success">MasterAdd.jsp</result>
 	</action>
 <!--

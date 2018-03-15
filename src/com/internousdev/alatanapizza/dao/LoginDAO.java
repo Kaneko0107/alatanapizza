@@ -61,6 +61,7 @@ public class LoginDAO  {
 				loginDTO.setPassword("noPASS");
 			}
 		}catch(SQLException e){
+			System.out.println("例外が発生しました");
 			e.printStackTrace();
 			//throw new RuntimeException(e);
 		}
@@ -77,7 +78,7 @@ public class LoginDAO  {
 
 		//ログインしたユーザーのログインフラグの値を1にする
 		String sql = "UPDATE user_info SET logined=1 WHERE user_id=?";
-		try{
+		try{ //例外が発生する可能性のある処理
 			PreparedStatement ps=con.prepareStatement(sql);
 			ps.setString(1, loginDTO.getUserId());
 			updateCount=ps.executeUpdate();
@@ -86,10 +87,11 @@ public class LoginDAO  {
 				System.out.println("ログイン済み");
 				result =true;
 			}
-		}catch(SQLException e){
-			//e.printStackTrace();
-			throw new RuntimeException(e);
-		}finally{
+		}catch(SQLException e){ //例外が発生した場合の処理(例外が発生しなければ行われない処理)
+			System.out.println("例外が発生しました");
+			e.printStackTrace();
+			//throw new RuntimeException(e);
+		}finally{ //例外の有無に関わらず、最後に必ず実行される処理
 			con.close();
 		}
 		return result;
@@ -110,8 +112,9 @@ public class LoginDAO  {
 				result = true;
 			}
 		}catch(SQLException e){
-			//e.printStackTrace();
-			throw new RuntimeException(e);
+			System.out.println("例外が発生しました");
+			e.printStackTrace();
+			//throw new RuntimeException(e);
 		}finally{
 			con.close();
 		}

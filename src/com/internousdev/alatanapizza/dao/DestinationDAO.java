@@ -60,6 +60,7 @@ public class DestinationDAO {
 
 	}catch(SQLException e){
 		//エラーになったらエラー文
+		System.out.println("例外が発生しました");
 		e.printStackTrace();
 	}finally{
 		//接続を切る
@@ -99,6 +100,7 @@ public class DestinationDAO {
 				destinationList.add(destinationDTO);
 			}
 		}catch(SQLException e){
+			System.out.println("例外が発生しました");
 			e.printStackTrace();
 		}finally{
 			con.close();

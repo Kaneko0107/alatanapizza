@@ -5,16 +5,9 @@
 
 
 
-<s:form action="ProductSearchAction" id="productSearchAction">
-		<select name="categoryId"  onclick="goProductSearchAction();">
-			<option value="1">全てのカテゴリ</option>
-			<option value="2">ピザ</option>
-			<option value="3">サイドメニュー</option>
-			<option value="4">ドリンク</option>
-	    </select>
-        <s:textfield name="searchWord" class="h_search" />
-		<s:submit value="検索" />
-</s:form>
+<!-- 検索ボックスをインクルード -->
+<jsp:include page="headerSearch.jsp" />
+
 <s:form action="MyPageAction">
 <s:submit value="マイページ"   class="submit"/><br>
 </s:form>

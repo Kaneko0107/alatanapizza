@@ -35,7 +35,7 @@
 							<s:param name="id" value="productId" />
 						</s:url>
 						<s:a href="%{url}">
-							<img src='<s:property value="image_file_name"/>' alt="画像なし" />
+							<img src='<s:property value="imageFilePath"/>' alt="画像なし" />
 
 						</s:a>
 					</div>
@@ -130,7 +130,7 @@
 	<br>
 
 	<div class="back">
-		<a href='<s:url action="GoCartAction" />'>カートに戻る</a>
+		<a href='<s:url action="CartProductAction" />'>カートに戻る</a>
 	</div>
 	<div>
 		<jsp:include page="include_footer.jsp" /></div>

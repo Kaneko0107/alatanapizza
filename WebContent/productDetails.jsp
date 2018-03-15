@@ -47,14 +47,14 @@
                 }
                 var count = $('#topping input:checkbox:checked').length;
                 var topping_price = parseInt(count) * 324;
-                var product_menu_count = $('[name="product_count"]').val();
+                var product_menu_count = $('[name="productCount"]').val();
                 var total_price = (parseInt(product_val) + parseInt(topping_price)) * parseInt(product_menu_count);
                 $('input:text[name="total_price"]').val(total_price);
             });
 
             $('#sAndDPrice').change(function() {
             	var sAndDPrice = sAndDPrice_val();
-            	var product_menu_count = $('[name="product_count"]').val();
+            	var product_menu_count = $('[name="productCount"]').val();
             	var total_price = parseInt(sAndDPrice_val) * parseInt(product_menu_count);
           	  $('input:text[name="total_price"]').val(sAndDPrice);
         	});

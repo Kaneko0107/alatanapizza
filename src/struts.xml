@@ -90,13 +90,13 @@
 	<result name ="success">destinationInfo.jsp</result>
 	</action>
 
-<!--
- 	<action name ="DestConfirmAction" class ="com.internousdev.alatanapizza.action.DestComfirmAction" method ="execute">
+
+ 	<action name ="DestConfirmAction" class ="com.internousdev.alatanapizza.action.DestConfirmAction" method ="execute">
 		<result name ="success">destinationConfirm.jsp</result>
 		<result name ="error">destinationInfo.jsp</result>
 	</action>
 
--->
+
 	 <action name ="DestCompleteAction" class ="com.internousdev.alatanapizza.action.DestCompleteAction" method ="execute">
 		<result name ="success">destinationComplete.jsp</result>
 	</action>

@@ -14,8 +14,8 @@ public class TopAction extends ActionSupport implements SessionAware{
 		try{
 		if (!(session.containsKey("tempUserId"))) {
 			session.put("loginFlg", false);
-			int tempUserId= (int) Math.random() * 1000000;
-			session.put("tempUserId",tempUserId);
+			Integer tempUserId = Integer.valueOf((int) (Math.random() * 1000000));
+			session.put("tempUserId",tempUserId.toString());
 			System.out.println("--------");
 			System.out.println(tempUserId);
 			System.out.println(session.get("loginFlg"));

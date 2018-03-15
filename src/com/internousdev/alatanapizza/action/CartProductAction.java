@@ -32,7 +32,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 	private ProductDetailsDAO productDAO = new ProductDetailsDAO();
 
 	//カート内の金額
-	private int totalPrice = 0;
+	public int total_price = 0;
 
 	public String topping_id_1;
 	public String topping_id_2;
@@ -51,13 +51,25 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 	public String execute()throws SQLException{
 		ArrayList<Integer> toppings = new ArrayList<Integer>();
 
+		//"userId"を定義し、その中に"登録ユーザー"と"ゲストユーザー"を入れて処理する
+		String userId;
+
+		//"登録ユーザー"と"ゲストユーザー"のどちらでログインしているか確認し、定義した"userId"に代入する
+		if((boolean)session.get("loginFlg")){
+			userId =(String)session.get("userId");
+		}
+		else{
+			userId =(String)session.get("tempUserId");
+		}
+
 		System.out.println("トッピングは" + topping_id_1 + " " + topping_id_2 + " " + topping_id_3);
 		if (productId == 0 || productCount == 0) {
-			return "ERROR";
+			cartList = dao.showUserCartList(userId);
+			total_price = calcTotalPrice(cartList);
+			return "success";
 		}
 
 		ProductDTO product = productDAO.getProductDetailsInfo(Integer.valueOf(productId).toString());
-		int totalPrice = product.getPrice() * productCount;
 		if (topping_id_1 != null) toppings.add(1);
 		if (topping_id_2 != null) toppings.add(2);
 		if (topping_id_3 != null) toppings.add(3);
@@ -71,22 +83,13 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 		if (topping_id_11 != null) toppings.add(11);
 		if (topping_id_12 != null) toppings.add(12);
 
-		//"userId"を定義し、その中に"登録ユーザー"と"ゲストユーザー"を入れて処理する
-		String userId;
 
-		//"登録ユーザー"と"ゲストユーザー"のどちらでログインしているか確認し、定義した"userId"に代入する
-		if((boolean)session.get("loginFlg")){
-			userId =(String)session.get("userId");
-		}
-		else{
-			userId =(String)session.get("tempUserId");
-		}
 
 		//カートが重複しているか確認する
 		if(dao.isAlreadyIntoCart(userId, productId)){
-			count = dao.UpdateProductCount(userId,productId,productCount,totalPrice);
+			count = dao.UpdateProductCount(userId,productId,productCount,total_price);
 		}else{
-			count = dao.putProductIntoCart(userId,productId,productCount,totalPrice, toppings);
+			count = dao.putProductIntoCart(userId,productId,productCount,total_price, toppings);
 		}
 		cartList = dao.showUserCartList(userId);
 
@@ -95,15 +98,15 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 		if(productCount < 0){
 		   return "CountError";
 		}
-		totalPrice = calcTotalPrice(cartList);
-		   return SUCCESS;
-		}
+		total_price = calcTotalPrice(cartList);
+		return SUCCESS;
+	}
 
 	//合計金額計算
 	public int calcTotalPrice(ArrayList<CartInfoDTO>cartList){
 		int totalPrice = 0;
 		for(CartInfoDTO dto : cartList){
-		totalPrice += dto.getPrice()*dto.getProductCount();
+		totalPrice += dto.getPrice();
 		System.out.println("合計" + totalPrice + "円");
 	}
 		return totalPrice;
@@ -147,16 +150,6 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 	//カート情報を【格納する】メソッド
 	public void setCartList(ArrayList<CartInfoDTO>cartList){
 		this.cartList = cartList;
-	}
-
-	//合計金額を【取得する】メソッド
-	public int getTotalPrice(){
-		return totalPrice;
-	}
-
-	//合計金額を【格納する】メソッド
-	public void setTotalPrice(int totalPrice){
-		this.totalPrice = totalPrice;
 	}
 
 	//カートの商品個数を【取得する】メソッド

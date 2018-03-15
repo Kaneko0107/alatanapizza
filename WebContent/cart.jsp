@@ -63,7 +63,8 @@
 <!-- 値段表示 -->
 			<div class="price_count"></div>
 			<div class="price">
-			価格:¥<fmt:formatNumber value="${price}" />
+			<%-- 価格:¥<fmt:formatNumber value="${price}" /> --%>
+			価格:¥<s:property value="price" />
 			</div>
 
 <!-- 個数表示 -->
@@ -98,8 +99,8 @@
 
 <!-- 合計金額の表示 -->
 			<div class="totalprice">
-			合計金額:\
-			<fmt;formatNumber value="${totalPrice}" />
+			合計金額:¥
+			<s:property value="total_price" />
 			</div>
 
 <!-- 決済に移行する -->

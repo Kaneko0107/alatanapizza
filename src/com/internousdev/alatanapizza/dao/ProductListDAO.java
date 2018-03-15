@@ -17,12 +17,12 @@ public class ProductListDAO {
 
 
 
-    /* ���i���X�g���̎擾 */
-    // ���[�U�[�ɕ\�����郊�X�g
+    // 商品リスト情報の取得
+ 	// ユーザーに表示するリスト
     public ArrayList<ProductDTO> getProductInfo() throws SQLException {
        ArrayList<ProductDTO> productList = new ArrayList<>();
 
-       //�X�e�[�^�X�������A���iID���~����
+
        String sql = "SELECT * FROM product_info WHERE status = 1 ORDER BY Product_id ASC";
 
        try {
@@ -61,11 +61,11 @@ public class ProductListDAO {
     }
 
 
-    // ���[�U�[�ɔ�\���̃��X�g
+    // 商品リスト情報の取得
+ 	// ユーザーに非表示のリスト
     public ArrayList<ProductDTO> getProductHideInfo() throws SQLException {
        ArrayList<ProductDTO> productList = new ArrayList<>();
 
-       //�X�e�[�^�X���L���A���iID���~����
        String sql = "SELECT * FROM product_info WHERE status = 1 ORDER BY Product_id ASC";
 
        try {
@@ -104,7 +104,7 @@ public class ProductListDAO {
     }
 
 
-    // ���iID�����ɑ��݂��Ă��邩�`�F�b�N
+    // 商品IDが既に存在しているかチェック
     public boolean existsProductId(String productId) throws SQLException {
        boolean result = false;
 
@@ -145,7 +145,7 @@ public class ProductListDAO {
         return result;
      }
 
-    // �V���i��o�^
+    // 新商品を登録
     public int productRegist(String product_id, String product_name, String product_name_kana, String product_description, Integer category_id,Integer msize_price,Integer lsize_price, Integer price, String image_file_path, String image_file_name, String release_date, String release_company) throws SQLException {
        DateUtil dateUtil = new DateUtil();
 
@@ -180,11 +180,11 @@ public class ProductListDAO {
        return res;
     }
 
-    /* �g�b�s���O���̎擾 */
+    //トッピング情報の取得
     public ArrayList<ProductDTO> getToppingInfo() throws SQLException {
         ArrayList<ProductDTO> toppingList = new ArrayList<>();
 
-        //���iID���~����
+        //昇順でidを表示
         String sql = "SELECT * FROM m_topping WHERE ORDER BY Product_id ASC";
 
         try {

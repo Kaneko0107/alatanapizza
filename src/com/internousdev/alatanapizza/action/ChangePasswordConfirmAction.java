@@ -85,22 +85,27 @@ public String execute(){
 		setErrorpassword("*新しいパスワードと確認用パスワードが合致しません");
 	}else if(newpass.equals(CPCdao.getPassword())){
 		result=ERROR;
-		setErrorpassword("*新しいパスワードは以前のパスワードと同様の値に設定できません");
+		setErrorpassword("*新しいパスワードは以前のパスワードと同様の値に設定できません");}
 
-		if(newpass.length() <= 1){
+
+		if(newpass.length()<=1){
 			hideUserId = hideString(userid,0,2);
 			hideNewPassword = hideString(newpass,0,0);
-		}else if(newpass.length() == 2){
+			session.put("hideNewPassword",hideNewPassword);
+		}
+		if(newpass.length()==2){
 			hideUserId = hideString(userid,0,2);
 			hideNewPassword = hideString(newpass,0,1);
-		}else{
+		}
+		if(newpass.length()>=3){
 			hideUserId = hideString(userid,0,2);
 			hideNewPassword = hideString(newpass,0,2);
+			session.put("hideNewPassword",hideNewPassword);
 		}
 
 
 
-	}
+
 	return result;
 
 
@@ -195,7 +200,6 @@ public String getErrorpassword() {
 public void setErrorpassword(String errorpassword) {
 	this.errorpassword = errorpassword;
 }
-
 
 
 

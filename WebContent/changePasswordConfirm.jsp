@@ -8,6 +8,10 @@
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <link rel="stylesheet" href="./css/alatanapizza.css">
 <title>Insert title here</title>
+<style>
+.aaa{
+color:white;}
+</style>
 </head>
 <body>
 <h3>変更内容確認画面</h3><br>
@@ -17,9 +21,9 @@
 <s:form action="ChangePasswordCompleteAction">
 
 		 <tr>
-		<td><span id="pro">変更後のパスワード:</span></td>
-		 <td><s:property value="newpass" escape="false"/>
-		 	<s:hidden name="newpass" value="%{newpass}" />
+		<td>変更後のパスワード:</td>
+		 <td><s:property value="%{hideNewPassword}"/></td>
+		 	<td><s:hidden name="newpass" value="%{newpass}" />
 			<s:hidden name="userid" value="%{userid}" />
 			<s:hidden name="secret_answer" value="%{secret_answer}"/>
 		</td>

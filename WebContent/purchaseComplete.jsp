@@ -8,8 +8,16 @@
 <title>決済完了しました</title>
 </head>
 <body>
+<jsp:include page="include_header.jsp" />
+
 決済が完了しました。
 
-これから、マイページに戻る。ホームに戻るボタンをつけます。
+
+
+<a href='<s:url action="MyPageAction" />'>マイページに戻る</a>
+	<br>
+
+
+	<jsp:include page="include_footer.jsp" />
 </body>
 </html>

@@ -55,7 +55,8 @@
                 var topping_price = parseInt(count) * 324;
                 var product_menu_count = $('[name="productCount"]').val();
                 var total_price = (parseInt(product_val) + parseInt(topping_price)) * parseInt(product_menu_count);
-                $('input:text[name="total_price"]').val(total_price);
+                $('input[name="total_price"]').val(total_price);
+                $('#total_price_text').text(total_price);
             });
 
             $('.topping_menu').change(function() {
@@ -67,7 +68,8 @@
                 var topping_price = parseInt(count) * 324;
                 var product_menu_count = $('[name="productCount"]').val();
                 var total_price = (parseInt(product_val) + parseInt(topping_price)) * parseInt(product_menu_count);
-                $('input:text[name="total_price"]').val(total_price);
+                $('input[name="total_price"]').val(total_price);
+                $('#total_price_text').text(total_price);
             });
 
             $('#product_count').change(function() {
@@ -79,7 +81,20 @@
                 var topping_price = parseInt(count) * 324;
                 var product_menu_count = $('[name="productCount"]').val();
                 var total_price = (parseInt(product_val) + parseInt(topping_price)) * parseInt(product_menu_count);
-                $('input:text[name="total_price"]').val(total_price);
+                $('input[name="total_price"]').val(total_price);
+                $('#total_price_text').text(total_price);
+            });
+            $(function() {
+                var product_val = $('input[name="product"]:checked').val();
+                if(product_val == window.undefined){
+                    product_val = $('#sAndDPrice').attr("value") || "0";
+                }
+                var count = $('#topping input:checkbox:checked').length;
+                var topping_price = parseInt(count) * 324;
+                var product_menu_count = $('[name="productCount"]').val();
+                var total_price = (parseInt(product_val) + parseInt(topping_price)) * parseInt(product_menu_count);
+                $('input[name="total_price"]').val(total_price);
+                $('#total_price_text').text(total_price);
             });
 
             $('#sAndDPrice').change(function() {
@@ -149,7 +164,7 @@
 						<span class="form-product">
 						<s:if test="session.d_category_id==2">
 						<p class="product_menu_size">
-							<input type="radio" name="product" value='<s:property value="session.d_product_msize_price" />'><img class="image" src="./images/icon/m.png" alt="Photo" >￥<s:property value="session.d_product_msize_price" />
+							<input type="radio" name="product" checked="checked" value='<s:property value="session.d_product_msize_price" />'><img class="image" src="./images/icon/m.png" alt="Photo" >￥<s:property value="session.d_product_msize_price" />
 							<input type="radio" name="product" value='<s:property value="session.d_product_lsize_price" />'><img class="image" src="./images/icon/l.png" alt="Photo" >￥<s:property value="session.d_product_lsize_price" />
 						</s:if>
 						<s:if test="session.d_category_id==3 || session.d_category_id==4">
@@ -196,7 +211,8 @@
 			<s:select name="productCount" id="product_count" list="stockList"
 				onchange="outputSelectedValueAndText(this);" />&nbsp;
 			TotalAmount:
-			<s:textfield name="total_price" id="total_price" />
+			<s:hidden name="total_price" id="total_price" />
+			<span id="total_price_text"></span>
 			<s:hidden name="productId" value="%{session.d_product_id}" ></s:hidden>
 			<s:hidden name="gocart" value="1" />
 			<s:submit value="カートに入れる" />

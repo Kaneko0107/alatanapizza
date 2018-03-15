@@ -12,7 +12,7 @@ public class UserUpdateAction extends ActionSupport implements SessionAware{
 	public String execute(){
 		String result;
 
-		if(session.containsKey("user_id")){
+		if(session.containsKey("userId")){
 			session.remove("newPassword");
 			session.remove("newEmail");
 			result = SUCCESS;

@@ -129,6 +129,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 						session.put("masterFlg", true);//管理者フラグをたてる
 						result = "master";
 				}else{
+						loginDTO =loginDAO.select(userId,password);
 
 					//ログイン判定
 					if(userId.equals(loginDTO.getUserId()) && password.equals(loginDTO.getPassword())){ //二つとも一致した場合

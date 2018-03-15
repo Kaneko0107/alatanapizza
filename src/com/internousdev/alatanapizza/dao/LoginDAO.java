@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import com.internousdev.alatanapizza.dto.LoginDTO;
 import com.internousdev.alatanapizza.util.DBConnector;
 
+
 /*
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -48,7 +49,7 @@ public class LoginDAO {
 
 				loginDTO.setUserId(rs.getString("user_id"));
 				loginDTO.setPassword(rs.getString("password"));
-				loginDTO.setFamilyName(rs.getString("famiry_name"));
+				loginDTO.setFamilyName(rs.getString("family_name"));
 				loginDTO.setFirstName(rs.getString("first_name"));
 				loginDTO.setFamilyNameKana(rs.getString("family_name_kana"));
 				loginDTO.setFirstNameKana(rs.getString("first_name_kana"));

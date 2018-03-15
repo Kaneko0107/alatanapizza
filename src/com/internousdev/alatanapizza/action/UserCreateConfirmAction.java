@@ -1,5 +1,6 @@
 package com.internousdev.alatanapizza.action;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -22,130 +23,12 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	private String secretAnswer;
 
 	private Map<String, Object> session;
-	//エラーメッセージ
-	private String errorMassage;
-
-
-
-
-	public String execute() {
-
-		String result = SUCCESS;
-
-		//もしuserCreate.jspでの入力が空欄ではなかったら(jspで"required"設定しているけど完全ではない為)
-		if(!(loginUserId.equals("")) && !(loginPassword.equals("")) && !(familyName.equals(""))&& !(firstName.equals("")) && !(familyNameKana.equals(""))&& !(firstNameKana.equals(""))
-				&& !(mail.equals(""))&& !(secretQuestion.equals("選択してください"))&& !(secretAnswer.equals(""))) {
-			//データーベース情報取得
-			UserCreateConfirmDAO dao = new UserCreateConfirmDAO();
-			//UserCreateConfirmDAOの"getUserInfo"メソッドの結果を"checkId"に代入
-			boolean checkId = dao.getUserInfo(loginUserId, loginPassword);
-				//userCreateConfirm.jspで使うのでsessionしておく
-				if(checkId){
-					session.put("loginUserId", loginUserId);
-					session.put("loginPassword", loginPassword);
-					session.put("familyName", familyName);
-					session.put("firstName", firstName);
-					session.put("familyNameKana", familyNameKana);
-					session.put("firstNameKana", firstNameKana);
-					session.put("mail", mail);
-					session.put("secretQuestion", secretQuestion);
-					session.put("secretAnswer", secretAnswer);
-				}else{
-				setErrorMassage("そのIDは使われています。");
-				result = ERROR;
-				}
-		}else {
-			if (secretQuestion.equals("質問を選んでください")) {
-				setErrorMassage("パスワードを忘れた時の秘密の質問を選んでください。");
-			} else {
-				setErrorMassage("未入力の項目があります。");
-			}
-			result = ERROR;
-		}
-		return result;
-	}
-
-
-
-//登録情報とsessionはprivateにしているため呼び出せるようにしておく
-	public String getLoginUserId() {
-		return loginUserId;
-	}
-	public void setLoginUserId(String loginUserId) {
-		this.loginUserId = loginUserId;
-	}
-	public String getLoginPassword() {
-		return loginPassword;
-	}
-	public void setLoginPassword(String loginPassword) {
-		this.loginPassword = loginPassword;
-	}
-	public String getSecretQuestion() {
-		return secretQuestion;
-	}
-	public void setSecretQuestion(String secretQuestion) {
-		this.secretQuestion = secretQuestion;
-	}
-	public String getSecretAnswer() {
-		return secretAnswer;
-	}
-	public void setSecretAnswer(String secretAnswer) {
-		this.secretAnswer = secretAnswer;
-	}
-	@Override
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
-	}
-	public String getErrorMassage() {
-		return errorMassage;
-	}
-	public void setErrorMassage(String errorMassage) {
-		this.errorMassage = errorMassage;
-	}
-	public String getFamilyName() {
-		return familyName;
-	}
-	public void setFamilyName(String familyName) {
-		this.familyName = familyName;
-	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getFamilyNameKana() {
-		return familyNameKana;
-	}
-	public void setFamilyNameKana(String familyNameKana) {
-		this.familyNameKana = familyNameKana;
-	}
-	public String getFirstNameKana() {
-		return firstNameKana;
-	}
-	public void setFirstNameKana(String firstNameKana) {
-		this.firstNameKana = firstNameKana;
-	}
-	public String getSex() {
-		return sex;
-	}
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
-	public String getMail() {
-		return mail;
-	}
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-
-
 
 
 	//private String result;
 
 
-		/*
+
 		private ArrayList<String> errMsgList=new ArrayList<>();
 
 		private ArrayList<String> errMsgListId=new ArrayList<>();
@@ -174,36 +57,47 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		private String errMail2;
 		private String errQuestion;
 		private String errAnswer;
-	*/
+
 
 		//private UserCreateConfirmDAO userCreateConfirmDAO = new UserCreateConfirmDAO();
 
 
-		/*
+		public String execute() {
+
 		String result=ERROR;
 
-		if(loginUserId.equals("")
-            || loginPassword.equals("")
-            || familyName.equals("")
-            || firstNameKana.equals("")
-            || familyNameKana.equals("")
-            || firstNameKana.equals("")
-            || sex==null || mail.equals("")
-			|| secretQuestion.equals("")
-			|| secretAnswer.equals("") )
+		//もしuserCreate.jspでの入力が空欄ではなかったら(jspで"required"設定しているけど完全ではない為)
+		if(!(loginUserId.equals(""))&& !(loginPassword.equals(""))&& !(familyName.equals(""))&& !(firstNameKana.equals(""))
+            && !(familyNameKana.equals(""))&& !(firstNameKana.equals(""))&& !(sex.equals(""))&& !(mail.equals(""))
+			&& !(secretQuestion.equals("選択してください"))&& !(secretAnswer.equals("")) ){
+			//データーベース情報取得
+			UserCreateConfirmDAO dao = new UserCreateConfirmDAO();
+			//UserCreateConfirmDAOの"getUserInfo"メソッドの結果を"checkId"に代入
+			boolean checkId = dao.getUserInfo(loginUserId, loginPassword);
+			//userCreateConfirm.jspで使うのでsessionしておく
+			if(checkId){
+				session.put("loginUserId", loginUserId);
+				 session.put("loginPassword", loginPassword);
+				 session.put("familyName", familyName);
+				 session.put("firstName", firstName);
+				 session.put("familyNameKana", familyNameKana);
+				 session.put("firstNameKana", firstNameKana);
+				 session.put("sex", sex);
+				 session.put("mail", mail);
+				 session.put("secretQuestion", secretQuestion);
+				 session.put("secretAnswer", secretAnswer) ;
+			}else{
+				errMsgList.add("そのIDは使われています。");
+			}
+		}else{
+			errMsgList.add("未入力の項目があります");
+		}
 
 
-            errMsgList.add("未入力の項目があります");
-*/
 
 
-	// ユーザーID
-	/*if(userCreateConfirmDAO.getLoginUserId(loginUserId)) {
-		errId1="そのIDはすでに使われています";
-		errMsgListId.add(errId1);
-	} */
 
-/*
+
 	if (loginUserId.length() > 8) {
 		errId2="ユーザーIDは8文字以内で入力してください";
 		errMsgListId.add(errId2);
@@ -304,17 +198,6 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		 && errMsgListAnswer.isEmpty() )
 
 		 result=SUCCESS;
-
-		 session.put("loginUserId", loginUserId);
-		 session.put("loginPassword", loginPassword);
-		 session.put("familyName", familyName);
-		 session.put("firstName", firstName);
-		 session.put("familyNameKana", familyNameKana);
-		 session.put("firstNameKana", firstNameKana);
-		 session.put("sex", sex);
-		 session.put("mail", mail);
-		 session.put("secretQuestion", secretQuestion);
-		 session.put("secretAnswer", secretAnswer) ;
 
 
 
@@ -423,14 +306,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		return session;
 	}
 
-	public String getErrorMassage() {
-		return errorMassage;
-	}
-	public void setErrorMassage(String errorMassage) {
-		this.errorMassage = errorMassage;
-	}
 
-/*
 	public ArrayList<String> getErrMsgList() {
 		return errMsgList;
 	}
@@ -510,7 +386,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	public void setErrMsgListAnswer(ArrayList<String> errMsgListAnswer) {
 		this.errMsgListAnswer=errMsgListAnswer;
 	}
-	*/
+
 }
 
 

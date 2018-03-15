@@ -36,14 +36,9 @@
 	<s:iterator value="msgList">
 			<h1>検索キーワード "<s:property />"</h1>
 	</s:iterator>
-	<!--
-	<s:if test="num == 0">
-			<span>検索結果がありません。</span>
+	<s:if test="number == 0">
+			<h1>検索結果がありません。</h1>
 	</s:if>
-	-->
-
-	<h1>検索結果がありません。</h1>
-
 
 
 	<!-- 表示件数1ページ目 -->

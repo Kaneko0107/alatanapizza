@@ -23,6 +23,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 	private String searchWord;
 	private String searchWordHiragana;
 	private int categoryId;
+	private int number;
 	private ProductSearchDAO searchDAO = new ProductSearchDAO();
 	private ArrayList<ProductDTO> searchDTOList = new ArrayList<ProductDTO>();
 
@@ -31,7 +32,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 	public Map<String, Object> session;
 	private ArrayList<String> msgList = new ArrayList<String>();
 
-	private int num = 0;
+
 
 	public String execute() throws SQLException {
 		System.out.println("CATEGORYID:"+categoryId);
@@ -130,12 +131,9 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
         }
 
-//        num = searchDTOList.size();
-//        System.out.println("num = " + num);
+        number = searchDTOList.size();
+        System.out.println("number = " + number);
 
-        if (searchDTOList.size() == 0) {
-        	msgList.add("検索結果がありません");
-        }
 
 
         Iterator<ProductDTO> iterator = searchDTOList.iterator();
@@ -200,11 +198,11 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 	}
 
 	public int getNumber() {
-		return num;
+		return number;
 	}
 
-	public void setNumber(int num) {
-		this.num = num;
+	public void setNumber(int number) {
+		this.number = number;
 	}
 
 	public ProductSearchDAO getSearchDAO() {

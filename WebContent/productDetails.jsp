@@ -11,6 +11,36 @@
 	<link rel="stylesheet" href="./css/product.css">
 
 <title>商品詳細画面</title>
+<style type="text/css">
+#total1{
+			font-size:25px;
+			width:50%;
+			background:rgba(0,0,0,0.5);
+			padding:2.5%;
+			margin-left:25%;
+		}
+		#product_count{
+			-moz-appearance: none;
+			-webkit-appearance: none;
+			appearance: none;
+			background-color: rgb(255, 152, 0, 0.1);
+			border: 1px solid #dddddd;
+			border-radius: 10px;
+			padding: 5px 20px;
+			color: black;
+			font-weight:bold;
+		}
+		#total_price{
+			text-align:right;
+			border-radius: 10px;
+			width: 10%;
+			padding:8px 0.1px;
+			font-size:20px;
+			font-weight:bold;
+		}
+
+</style>
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -47,14 +77,14 @@
                 }
                 var count = $('#topping input:checkbox:checked').length;
                 var topping_price = parseInt(count) * 324;
-                var product_menu_count = $('[name="productCount"]').val();
+                var product_menu_count = $('[name="product_count"]').val();
                 var total_price = (parseInt(product_val) + parseInt(topping_price)) * parseInt(product_menu_count);
                 $('input:text[name="total_price"]').val(total_price);
             });
 
             $('#sAndDPrice').change(function() {
             	var sAndDPrice = sAndDPrice_val();
-            	var product_menu_count = $('[name="productCount"]').val();
+            	var product_menu_count = $('[name="product_count"]').val();
             	var total_price = parseInt(sAndDPrice_val) * parseInt(product_menu_count);
           	  $('input:text[name="total_price"]').val(sAndDPrice);
         	});
@@ -106,13 +136,21 @@
 								<!-- 商品名かな -->
 								<s:property value="session.d_product_name_kana" /></span>
 								<br>
+									<%--お気に入りボタン,非ログイン時は非表示 --%>
+									<s:if test="#session.containsKey('userId')">
+										<span class="favlist">
+										<s:submit value=" ★" onclick="FavoriteAction();">
+											<s:hidden name="favoriteInsertFlg" value="1" />
+										</s:submit>
+										</span>
+									</s:if>
 
 						<!-- カテゴリーによって値段表示変更 -->
 						<span class="form-product">
 						<s:if test="session.d_category_id==2">
 						<p class="product_menu_size">
-							<input type="radio" name="product" value='<s:property value="session.d_product_msize_price" />'>M￥<s:property value="session.d_product_msize_price" />
-							<input type="radio" name="product" value='<s:property value="session.d_product_lsize_price" />'>L￥<s:property value="session.d_product_lsize_price" />
+							<input type="radio" name="product" value='<s:property value="session.d_product_msize_price" />'><img class="image" src="./images/icon/m.png" alt="Photo" >￥<s:property value="session.d_product_msize_price" />
+							<input type="radio" name="product" value='<s:property value="session.d_product_lsize_price" />'><img class="image" src="./images/icon/l.png" alt="Photo" >￥<s:property value="session.d_product_lsize_price" />
 						</s:if>
 						<s:if test="session.d_category_id==3 || session.d_category_id==4">
 						<!-- サイド・ドリンク -->
@@ -153,16 +191,16 @@
 </s:if><br><br>
 
 
-
-			数量
+	<p id="total1">
+			Quantity:
 			<s:select name="productCount" id="product_count" list="stockList"
-				onchange="outputSelectedValueAndText(this);" />
-			選択した商品の金額
+				onchange="outputSelectedValueAndText(this);" />&nbsp;
+			TotalAmount:
 			<s:textfield name="total_price" id="total_price" />
-
 			<s:hidden name="productId" value="%{session.d_product_id}" ></s:hidden>
 			<s:hidden name="gocart" value="1" />
 			<s:submit value="カートに入れる" />
+	</p>
 
 	</s:form><br><br>
 
@@ -196,14 +234,6 @@
 		<td>
 								<s:property value="product_name" />
 								<s:property value="product_name_kana" />
-									<%--お気に入りボタン,非ログイン時は非表示 --%>
-										<s:if test="#session.containsKey('userId')">
-											<div class="favlist">
-											<s:submit value=" ★" onclick="FavoriteAction();">
-												<s:hidden name="favoriteInsertFlg" value="1" />
-											</s:submit>
-											</div>
-										</s:if>
 		</td>
 		</tr>
 		<tr>

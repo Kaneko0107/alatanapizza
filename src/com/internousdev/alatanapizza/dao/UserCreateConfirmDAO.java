@@ -32,9 +32,9 @@ public class UserCreateConfirmDAO {
 				//"login_id"カラムにある情報とUserCreate.jspで入力した"loginUserId"がダブらないか検証
 				while(rs.next()){
 					//2.loginIdに代入     ↓1."login_id"カラムを呼び出して
-					String loginId = rs.getString("login_id");
+					String userId = rs.getString("user_id");
 					//もしUserCreate.jspで入力した"loginUserId"とloginIdが等しかったら
-					if(loginId.equals(loginUserId)){
+					if(userId.equals(loginUserId)){
 						//既に使われているのでresultにfalseを代入
 						result = false;
 						//結果を"result"に格納
@@ -61,68 +61,5 @@ public class UserCreateConfirmDAO {
 		}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-public class UserCreateConfirmDAO {
-
-	private DBConnector dbConnector=new DBConnector();
-	private Connection connection=dbConnector.getConnection();
-
-	 private boolean result;
-
-
-
-	 ログインID重複確認メソッド
-	public boolean getLoginUserId(String loginUserId) {
-
-		String sql="SELECT*FROM user_info where user_id=?";
-
-		try {
-			PreparedStatement preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setString(1, loginUserId);
-
-			ResultSet resultSet=preparedStatement.executeQuery();
-
-			if (resultSet.next()) {
-            	result=true;
-			}
-
-		} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return result;
-}  */
-
 
 

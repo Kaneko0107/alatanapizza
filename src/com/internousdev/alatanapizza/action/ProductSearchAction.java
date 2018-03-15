@@ -3,13 +3,13 @@ package com.internousdev.alatanapizza.action;
 import java.sql.SQLException;
 import java.text.Normalizer;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.ProductSearchDAO;
-import com.internousdev.alatanapizza.dto.ProductSearchDTO;
+import com.internousdev.alatanapizza.dto.ProductDTO;
 import com.internousdev.alatanapizza.util.ToHiragana;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -23,13 +23,16 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 	private String searchWord;
 	private String searchWordHiragana;
 	private int categoryId;
+	private int number;
 	private ProductSearchDAO searchDAO = new ProductSearchDAO();
-	private List<ProductSearchDTO> searchDTOList = new ArrayList<ProductSearchDTO>();
+	private ArrayList<ProductDTO> searchDTOList = new ArrayList<ProductDTO>();
 
 	private String[] searchWords;
 
 	public Map<String, Object> session;
 	private ArrayList<String> msgList = new ArrayList<String>();
+
+
 
 	public String execute() throws SQLException {
 		System.out.println("CATEGORYID:"+categoryId);
@@ -114,16 +117,28 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
         			searchDTOList = searchDAO.byWords(searchWords, keywords, categoryId);
         		} else {
         			searchDTOList = searchDAO.bySearchWord(searchWordHiragana, searchWord, categoryId);
+        			System.out.println("bySearchWord");
         		}
 
         	} else {
 
-        		System.out.println("byProductCategory");
+
 
         		searchDTOList = searchDAO.byProductCategory(categoryId);
+        		System.out.println("byProductCategory");
 
         	}
 
+        }
+
+        number = searchDTOList.size();
+        System.out.println("number = " + number);
+
+
+
+        Iterator<ProductDTO> iterator = searchDTOList.iterator();
+        if(!iterator.hasNext()) {
+            this.searchDTOList = null;
         }
 
         ret = SUCCESS;
@@ -182,6 +197,14 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		this.categoryId = categoryId;
 	}
 
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+
 	public ProductSearchDAO getSearchDAO() {
 		return searchDAO;
 	}
@@ -190,11 +213,11 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		this.searchDAO = searchDAO;
 	}
 
-	public List<ProductSearchDTO> getSearchDTOList() {
+	public ArrayList<ProductDTO> getSearchDTOList() {
 		return searchDTOList;
 	}
 
-	public void setSearchDTOList(List<ProductSearchDTO> searchDTOList) {
+	public void setSearchDTOList(ArrayList<ProductDTO> searchDTOList) {
 		this.searchDTOList = searchDTOList;
 	}
 
@@ -224,4 +247,3 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 	}
 
 }
-

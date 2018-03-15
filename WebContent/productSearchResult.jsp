@@ -38,7 +38,7 @@
 	<table class="productList">
 	<tr>
 	<td>
-	<s:iterator value="displayList">
+	<s:iterator value="searchDTOList">
 	<div class="itemList">
 
 				<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">

@@ -106,6 +106,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		}else{
 			session.remove("saveId");
 		}
+		System.out.println("ID保持=="+userId);
 //
 //
 //		//管理者画面へログイン
@@ -127,6 +128,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 				}else if(loginDTO.isMaster()){ //管理者ログイン判定
 						loginDTO=loginDAO.select(userId,password);
 						session.put("masterFlg", true);//管理者フラグをたてる
+						System.out.println("管理者ログイン");
 						result = "master";
 				}else{
 						loginDTO =loginDAO.select(userId,password);
@@ -134,7 +136,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 					//ログイン判定
 					if(userId.equals(loginDTO.getUserId()) && password.equals(loginDTO.getPassword())){ //二つとも一致した場合
 						loginDAO.login(loginDTO);
-
+						System.out.println("ログイン成功");
 						result=SUCCESS;
 
 						//Mapセッション情報の更新をする

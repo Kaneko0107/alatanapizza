@@ -32,7 +32,7 @@
 
 					<div class="img">
 						<s:url id="url" action="ProductDetailsAction">
-							<s:param name="id" value="productId" />
+							<s:param name="product_id" value="productId" />
 						</s:url>
 						<s:a href="%{url}">
 							<img src='<s:property value="imageFilePath"/>' alt="画像なし" />
@@ -43,27 +43,25 @@
 					<div class="pro_text">
 						<div class="name">
 							<s:url id="url" action="ProductDetailsAction">
-								<s:param name="id" value="productId" />
+								<s:param name="product_id" value="productId" />
 							</s:url>
 							<s:a href="%{url}">
 								<!-- 商品名 -->
-								<s:property value="product_name" />
+								<s:property value="productName" />
 								<br>
 
 								<!-- 商品かな -->
-								<s:property value="product_name_kana" />
+								<s:property value="productNameKana" />
 								<br>
 							</s:a>
-
-							商品詳細:<s:property value="product_description" /><br>
-
+							<s:property value="toppings"/>
 						</div>
 
 
 						<div class="price_count">
 							<!-- 値段 -->
 							<div class="price">
-								価格:\
+								価格:¥<s:property value="price"/>
 
 							</div>
 
@@ -83,7 +81,7 @@
 			<br>
 			<br>
 			<div class="totalprice">
-				合計金額:\
+				合計金額:¥<s:property value="totalPrice"/>
 
 			</div>
 			<br>

@@ -158,6 +158,12 @@
 	</action>
  -->
 
+	<action name="FavoriteAction" class="com.internousdev.alatanapizza.action.FavoriteAction" method="execute">
+ 		<result name="success">favorite.jsp</result>
+ 		<result name="error">myPage.jsp</result>
+ 	</action>
+
+
 <!-- 商品グループ  -->
 <!--田中担当 struts文  -->
 	<action name="ProductListAction" class="com.internousdev.alatanapizza.action.ProductListAction" method="execute">

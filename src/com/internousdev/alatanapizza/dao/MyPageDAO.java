@@ -48,9 +48,6 @@ public class MyPageDAO {
 
 				myPageDTO.setPassword(rs.getString("password"));
 
-				myPageDTO.setTel_Number(rs.getString("tel_number"));
-
-				myPageDTO.setUser_Address(rs.getString("user_address"));
 
 
 

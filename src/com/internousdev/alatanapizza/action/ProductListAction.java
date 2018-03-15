@@ -28,6 +28,7 @@ public class ProductListAction extends ActionSupport implements SessionAware {
     private ArrayList<ArrayList<ProductDTO>> productListBy9Items = new ArrayList<>();
     private int pageSelect;
     private int pageCount;
+    private int listFlg;
     private List<Integer> pageList = new ArrayList<>();
 
 
@@ -48,11 +49,10 @@ public class ProductListAction extends ActionSupport implements SessionAware {
 
         String result = ERROR;
 
-//    	int all=0;
 
         productList = productListDAO.getProductInfo();
 
-//        all=productList.size();
+
 
         number=productList.size();
 
@@ -60,23 +60,6 @@ public class ProductListAction extends ActionSupport implements SessionAware {
         if(!iterator.hasNext()) {
             this.productList = null;
         }
-
-        //productListを9個ごとに格納
-//        ProductListUtil productListUtil = new ProductListUtil();
-//        productListBy9Items = productListUtil.devideProductListBy9Items(productList);
-//
-//        for (int i = 0; i < productListBy9Items.size(); i++) {
-//			pageList.add(i + 1);
-//		}
-//
-//        for (int i = 0; i < productListBy9Items.size(); i++) {
-//			if (i == pageSelect) {
-//				productList = productListBy9Items.get(i);
-//				break;
-//            }
-//        }
-
-
 
 
 
@@ -205,6 +188,18 @@ public class ProductListAction extends ActionSupport implements SessionAware {
 
 	public void setPageNum(int pageNum) {
 		this.pageNum = pageNum;
+	}
+
+
+
+	public int getListFlg() {
+		return listFlg;
+	}
+
+
+
+	public void setListFlg(int listFlg) {
+		this.listFlg = listFlg;
 	}
 
 

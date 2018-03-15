@@ -10,6 +10,8 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.ProductSearchDAO;
 import com.internousdev.alatanapizza.dto.ProductDTO;
+import com.internousdev.alatanapizza.util.AllPages;
+import com.internousdev.alatanapizza.util.PageObject;
 import com.internousdev.alatanapizza.util.ToHiragana;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -23,7 +25,9 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 	private String searchWord;
 	private String searchWordHiragana;
 	private int categoryId;
+	private int pageNum;
 	private int number;
+	private int serachFlg;
 	private ProductSearchDAO searchDAO = new ProductSearchDAO();
 	private ArrayList<ProductDTO> searchDTOList = new ArrayList<ProductDTO>();
 
@@ -32,6 +36,11 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 	public Map<String, Object> session;
 	private ArrayList<String> msgList = new ArrayList<String>();
 
+	/**
+	* 検索数
+	*/
+	private int maxPage;
+	public ArrayList<ProductDTO> displaySearchList = new ArrayList<ProductDTO>();
 
 
 	public String execute() throws SQLException {
@@ -122,8 +131,6 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
         	} else {
 
-
-
         		searchDTOList = searchDAO.byProductCategory(categoryId);
         		System.out.println("byProductCategory");
 
@@ -141,10 +148,17 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
             this.searchDTOList = null;
         }
 
+        if(number > 0) {
+			//ページネーション処理
+			ArrayList<PageObject> allPages = new ArrayList<PageObject>();
+			AllPages allp = new AllPages();
+			allPages=allp.paginate(searchDTOList, 9);
+			setMaxPage(allp.getMaxPage(searchDTOList, 9));
+			setDisplaySearchList(allPages.get(pageNum-1).getPaginatedList());
+
+		}
+
         ret = SUCCESS;
-
-
-
 
 
 		/*-----------------------------------------------------------
@@ -205,6 +219,22 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		this.number = number;
 	}
 
+	public int getMaxPage() {
+		return maxPage;
+	}
+
+	public void setMaxPage(int maxPage) {
+		this.maxPage = maxPage;
+	}
+
+	public ArrayList<ProductDTO> getDisplaySearchList() {
+		return displaySearchList;
+	}
+
+	public void setDisplaySearchList(ArrayList<ProductDTO> displaySearchList) {
+		this.displaySearchList = displaySearchList;
+	}
+
 	public ProductSearchDAO getSearchDAO() {
 		return searchDAO;
 	}
@@ -245,5 +275,22 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 	public void setSearchWords(String[] searchWords) {
 		this.searchWords = searchWords;
 	}
+
+	public int getPageNum() {
+		return pageNum;
+	}
+
+	public void setPageNum(int pageNum) {
+		this.pageNum = pageNum;
+	}
+
+	public int getSerachFlg() {
+		return serachFlg;
+	}
+
+	public void setSerachFlg(int serachFlg) {
+		this.serachFlg = serachFlg;
+	}
+
 
 }

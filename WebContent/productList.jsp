@@ -9,38 +9,10 @@
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <link rel="stylesheet" href="./css/alatanapizza.css">
 
-<title>全商品一覧</title>
+<title>商品一覧</title>
 </head>
 <body>
-
-
-	<h3>全商品一覧</h3>
-
-	<h1>
-		<s:if test="categoryId == 1">
-			<span>全てのカテゴリ</span>
-		</s:if>
-		<s:if test="categoryId == 2">
-			<span>ピザ</span>
-		</s:if>
-		<s:if test="categoryId == 3">
-			<span>サイドメニュー</span>
-		</s:if>
-		<s:if test="categoryId == 4">
-			<span>ドリンク</span>
-		</s:if>
-	</h1>
-
-
-	<!-- 検索時のメッセージ -->
-	<s:iterator value="msgList">
-			<h1>検索キーワード "<s:property />"</h1>
-	</s:iterator>
-	<s:if test="number == 0">
-			<h1>検索結果がありません。</h1>
-	</s:if>
-
-
+<!------------------------------------------ 商品一覧ボタンを押した場合  --------------------------------------------------------->
 	<!-- 表示件数1ページ目 -->
 <table class="productList">
 	<tr>
@@ -74,9 +46,9 @@
 
 			商品詳細:<s:property value="product_description" /><br>
 
-				<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
-					<img class="image" src="./images/icon/modoru2.png" alt="Photo" ><br>
-				</a>
+				<s:form action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" />
+				<s:submit value="注文に進む"/>
+				</s:form>
 
 	</div>
 	</s:iterator>
@@ -84,11 +56,81 @@
 	</tr>
 </table>
 
-<!-- 商品検索結果を表示 -->
+<!-- リストにデータが入っている時-->
+<s:if test="number > 8">
+<s:if test="listFlg == 1">
+
+<div class="center" style="text-align:center;">
+						<!-- ページネーション:1ページ目のみ -->
+						<s:if test="pageNum == 1">
+						  <span>&laquo;<s:text name="戻る" /></span>
+						</s:if>
+
+						<!-- ページネーション:1ページ目以外 -->
+						<s:else>
+							<a href='<s:url action="ProductListAction">
+							<s:param name="pageNum" value="pageNum-1"/>
+							<s:param name="listFlg" value="listFlg"/>
+							</s:url>'>&laquo;<s:text name="戻る" /></a>
+
+						</s:else>
+
+
+                        <s:property value="pageNum" />
+
+
+						<!-- ページネーション:最終ページ -->
+						<s:if test="pageNum == maxPage">
+						<s:text name="進む" />&raquo;
+						</s:if>
+
+
+						<!-- 最終ページ以外 -->
+						<s:else>
+							<a href='<s:url action="ProductListAction">
+							<s:param name="pageNum" value="pageNum+1"/>
+							<s:param name="listFlg" value="listFlg"/>
+							</s:url>'><s:text name="進む" />&raquo;</a>
+
+						</s:else>
+
+
+</div>
+
+</s:if>
+</s:if>
+
+
+<!-------------------------------------------- 商品検索をした場合 ------------------------------------------->
+
+	<h1>
+		<s:if test="categoryId == 1">
+			<span>全てのカテゴリ</span>
+		</s:if>
+		<s:if test="categoryId == 2">
+			<span>ピザ</span>
+		</s:if>
+		<s:if test="categoryId == 3">
+			<span>サイドメニュー</span>
+		</s:if>
+		<s:if test="categoryId == 4">
+			<span>ドリンク</span>
+		</s:if>
+	</h1>
+
+
+	<!-- 検索時のメッセージ -->
+	<s:iterator value="msgList">
+			<h1>検索キーワード "<s:property />"</h1>
+	</s:iterator>
+	<s:if test="number == 0">
+			<h1>検索結果がありません。</h1>
+	</s:if>
+
 <table class="searchDTOList">
 	<tr>
 	<td>
-	<s:iterator value="searchDTOList">
+	<s:iterator value="displaySearchList">
 	<div class="itemList">
 
 				<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
@@ -132,6 +174,7 @@
 
 <!-- リストにデータが入っている時-->
 <s:if test="number > 8">
+<s:if test="serachFlg == 1">
 
 <div class="center" style="text-align:center;">
 						<!-- ページネーション:1ページ目のみ -->
@@ -141,15 +184,16 @@
 
 						<!-- ページネーション:1ページ目以外 -->
 						<s:else>
-							<a href='<s:url action="ProductListAction">
+							<a href='<s:url action="ProductSearchAction">
 							<s:param name="pageNum" value="pageNum-1"/>
+							<s:param name="searchWord" value="searchWord"/>
+							<s:param name="categoryId" value="categoryId"/>
+							<s:param name="serachFlg" value="serachFlg"/>
 							</s:url>'>&laquo;<s:text name="戻る" /></a>
 
 						</s:else>
 
-
                         <s:property value="pageNum" />
-
 
 						<!-- ページネーション:最終ページ -->
 						<s:if test="pageNum == maxPage">
@@ -159,8 +203,11 @@
 
 						<!-- 最終ページ以外 -->
 						<s:else>
-							<a href='<s:url action="ProductListAction">
+							<a href='<s:url action="ProductSearchAction">
 							<s:param name="pageNum" value="pageNum+1"/>
+							<s:param name="searchWord" value="searchWord"/>
+							<s:param name="categoryId" value="categoryId"/>
+							<s:param name="serachFlg" value="serachFlg"/>
 							</s:url>'><s:text name="進む" />&raquo;</a>
 
 						</s:else>
@@ -169,8 +216,7 @@
 </div>
 
 </s:if>
-
-
+</s:if>
 
 </body>
 </html>

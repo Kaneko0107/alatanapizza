@@ -31,7 +31,7 @@ public class PageObject {
 	 */
 	public ArrayList<ProductDTO> getPaginatedList() {
 			return paginatedItemList;
-			}
+	}
 
 	/**
 	 * ページネートされた商品リストを格納するメソッド
@@ -49,7 +49,7 @@ public class PageObject {
 	 */
 	public void addPaginatedList(ArrayList<ProductDTO> list, int j) {
 			paginatedItemList.add((ProductDTO)list.get(j));
-			}
+	}
 
 
 

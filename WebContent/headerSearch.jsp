@@ -16,11 +16,14 @@
 			<option value="3">サイドメニュー</option>
 			<option value="4">ドリンク</option>
 	    </select>
+	    <input type=hidden name="pageNum" value="1"/>
+	    <input type=hidden name="serachFlg" value="1"/>
         <s:textfield name="searchWord" class="h_search" />
 		<s:submit value="検索" />
 </s:form>
 
 <s:form action="ProductListAction">
+<input type=hidden name="listFlg" value="1"/>
 <s:submit value="PRODUCT LIST"/>
 </s:form>
 

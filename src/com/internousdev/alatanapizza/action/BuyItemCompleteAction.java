@@ -1,7 +1,6 @@
 package com.internousdev.alatanapizza.action;
 //決済確認画面　担当：上原
 
-
 //<result>
 //ERROR→ログインからやり直し（login.jspへ）
 //SUCCESS→決済完了画面へ（settlement.jsp）
@@ -38,68 +37,61 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 		// だから、このActionにはDAOはないです。
 		// 宛先情報とカーと情報をただのせるだけのページ。
 
-
-
-		//↓ログインユーザーのカート情報を全表示させる（金子さん担当アクション）↓
+		// ↓ログインユーザーのカート情報を全表示させる（金子さん担当アクション）↓
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 		cartList = cartInfoDAO.showUserCartList(session.get("userId").toString());
 
-		// カートに何も入っていない場合
-				if (cartList.size() == 0) {
-					return "other";// ■cart.jspへ。
-				}
-				for (CartInfoDTO dto : cartList) {
-					totalPrice += dto.getPrice() * dto.getProductCount();
-				}
-
-
-		// もしログインしてなければログインに飛ばす
-		if (!session.containsKey("loginFlg")) {
-			return ERROR; // ■login.jspへ
-		}
-
-		//もしログインしていたら
-		//↓指定したユーザーの宛先情報取得 obtaining==入手（高木さん担当アクション）↓
+		// もしログインしていたら
+		// ↓指定したユーザーの宛先情報取得 obtaining==入手（高木さん担当アクション）↓
 		if (session.containsKey("loginFlg")) {
 			DestinationDAO destinationInfoDAO = new DestinationDAO();
 			destinationListDTO = destinationInfoDAO.obtainingDestinationInfo(session.get("userId").toString());
 		}
 
-		//もし宛先情報が入っていれば、
+		// もしログインしてなければログインに飛ばす
+		else if (!session.containsKey("loginFlg")) {
+			return ERROR; // ■login.jspへ
+		}
+
+		// カートに何も入っていない場合
+		if (cartList.size() == 0) {
+			return "other";// ■cart.jspへ。
+		}
+		for (CartInfoDTO dto : cartList) {
+			totalPrice += dto.getPrice() * dto.getProductCount();
+		}
+
+		// もし宛先情報が入っていれば、
 		if (destinationListDTO.size() > 0) {
 			result = SUCCESS;// ■決済完了画面へ（settlement.jsp）
 		}
-		//宛先情報が入っていなければ、
+		// 宛先情報が入っていなければ、
 		else {
 			result = "DESTINATION"; // ■宛先新規登録画面へ（destinationinfo.jsp)
 			return result;
 		}
 
-
 		return result;
 	}
 
-
-		/**
-		 * // 宛先情報取得メソッド 上の文に書き換えてみた↑ こっちがもともとの文面 if ((boolean)
-		 * session.get("loginFlg")) { DestinationInfoDAO destinationInfoDAO =
-		 * new DestinationInfoDAO(); destinationInfoListDTO =
-		 * destinationInfoDAO.obtainingDestinationInfo(session.get("userId").
-		 * toString()); }
-		 *
-		 * if (destinationInfoListDTO.size() > 0) { result = SUCCESS;//
-		 * ■settlement.jspへ
-		 *
-		 * } else if (!(boolean) session.get("loginFlg")) { result = ERROR; //
-		 * ■login.jspへ kessai = 1; return result;
-		 *
-		 * } else { result = "DESTINATION";
-		 *
-		 * }
-		 *
-		 */
-
-
+	/**
+	 * // 宛先情報取得メソッド 上の文に書き換えてみた↑ こっちがもともとの文面 if ((boolean)
+	 * session.get("loginFlg")) { DestinationInfoDAO destinationInfoDAO = new
+	 * DestinationInfoDAO(); destinationInfoListDTO =
+	 * destinationInfoDAO.obtainingDestinationInfo(session.get("userId").
+	 * toString()); }
+	 *
+	 * if (destinationInfoListDTO.size() > 0) { result = SUCCESS;//
+	 * ■settlement.jspへ
+	 *
+	 * } else if (!(boolean) session.get("loginFlg")) { result = ERROR; //
+	 * ■login.jspへ kessai = 1; return result;
+	 *
+	 * } else { result = "DESTINATION";
+	 *
+	 * }
+	 *
+	 */
 
 	/**
 	 * @return session

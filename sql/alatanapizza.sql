@@ -86,6 +86,15 @@ update_date datetime,-- 更新日
 FOREIGN KEY(product_id) REFERENCES product_info(product_id) ON UPDATE CASCADE
 );
 
+-- -----------↓カート内のピザのトッピングテーブル↓----------------------------
+create table cart_topping_info(
+id int PRIMARY KEY NOT NULL AUTO_INCREMENT,-- ID
+cart_id int NOT NULL,
+topping_id int NOT NULL,
+regist_date datetime NOT NULL,-- 登録日
+update_date datetime-- 更新日
+);
+
 -- -----------↓お気に入り情報テーブル↓----------------------------
 CREATE TABLE favorite_info(
 id int not null primary key auto_increment,

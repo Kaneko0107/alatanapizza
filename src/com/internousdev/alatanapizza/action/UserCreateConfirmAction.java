@@ -33,8 +33,10 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 		private ArrayList<String> errMsgListId=new ArrayList<>();
 		private ArrayList<String> errMsgListPass=new ArrayList<>();
-		private ArrayList<String> errMsgListName=new ArrayList<>();
-		private ArrayList<String> errMsgListKana=new ArrayList<>();
+		private ArrayList<String> errMsgListFamilyName=new ArrayList<>();
+		private ArrayList<String> errMsgListFirstName=new ArrayList<>();
+		private ArrayList<String> errMsgListFamilyNameKana=new ArrayList<>();
+		private ArrayList<String> errMsgListFirstNameKana=new ArrayList<>();
 		private ArrayList<String> errMsgListSex=new ArrayList<>();
 		private ArrayList<String> errMsgListMail=new ArrayList<>();
 		private ArrayList<String> errMsgListQuestion=new ArrayList<>();
@@ -67,7 +69,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		String result=ERROR;
 
 		//もしuserCreate.jspでの入力が空欄ではなかったら(jspで"required"設定しているけど完全ではない為)
-		if(!(loginUserId.equals(""))&& !(loginPassword.equals(""))&& !(familyName.equals(""))&& !(firstNameKana.equals(""))
+		if(!(loginUserId.equals(""))&& !(loginPassword.equals(""))&& !(familyName.equals(""))&& !(firstName.equals(""))
             && !(familyNameKana.equals(""))&& !(firstNameKana.equals(""))&& !(sex.equals(""))&& !(mail.equals(""))
 			&& !(secretQuestion.equals("選択してください"))&& !(secretAnswer.equals("")) ){
 			//データーベース情報取得
@@ -90,7 +92,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 				errMsgList.add("そのIDは使われています。");
 			}
 		}else{
-			errMsgList.add("未入力の項目があります");
+			errMsgList.add("※ 未入力の項目があります ※");
 		}
 
 
@@ -123,32 +125,32 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	// 名前
 	if (familyName.length() > 16) {
 		errName1="姓は16文字以内で入力してください";
-		errMsgListName.add(errName1);
+		errMsgListFamilyName.add(errName1);
 	}
 
 	if (firstName.length() > 16) {
 		errName2="名は16文字以内で入力してください";
-		errMsgListName.add(errName2);
+		errMsgListFirstName.add(errName2);
 	}
 
 	if (familyNameKana.length() > 16) {
 		errKana1="(せい)は16文字以内で入力してください";
-		errMsgListKana.add(errKana1);
+		errMsgListFamilyNameKana.add(errKana1);
 	}
 
 	if (firstNameKana.length() > 16) {
 		errKana2="(めい)は16文字以内で入力してください";
-		errMsgListKana.add(errKana2);
+		errMsgListFirstNameKana.add(errKana2);
 	}
 
 	if (!familyNameKana.matches("^[ぁ-ん]+$")) {
 		errKana3="姓(かな)はひらがなで入力してください";
-		errMsgListKana.add(errKana3);
+		errMsgListFamilyNameKana.add(errKana3);
 	}
 
 	if (!firstNameKana.matches("^[ぁ-ん]+$")) {
 		errKana4="名(かな)はひらがなで入力してください";
-		errMsgListKana.add(errKana4);
+		errMsgListFirstNameKana.add(errKana4);
 	}
 
 
@@ -190,8 +192,10 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	if ( errMsgList.isEmpty()
 		 && errMsgListId.isEmpty()
 		 && errMsgListPass.isEmpty()
-		 && errMsgListName.isEmpty()
-		 && errMsgListKana.isEmpty()
+		 && errMsgListFamilyName.isEmpty()
+		 && errMsgListFirstName.isEmpty()
+		 && errMsgListFamilyNameKana.isEmpty()
+		 && errMsgListFirstNameKana.isEmpty()
 		 && errMsgListSex.isEmpty()
 		 && errMsgListMail.isEmpty()
 		 && errMsgListQuestion.isEmpty()
@@ -334,21 +338,37 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	}
 
 
-	public ArrayList<String> getErrMsgListName() {
-		return errMsgListName;
+	public ArrayList<String> getErrMsgListFamilyName() {
+		return errMsgListFamilyName;
 	}
 
-	public void setErrMsgListName(ArrayList<String> errMsgListName) {
-		this.errMsgListName=errMsgListName;
+	public void setErrMsgListFamilyName(ArrayList<String> errMsgListFamilyName) {
+		this.errMsgListFamilyName=errMsgListFamilyName;
+	}
+
+	public ArrayList<String> getErrMsgListFirstName() {
+		return errMsgListFirstName;
+	}
+
+	public void setErrMsgListFirstName(ArrayList<String> errMsgListFirstName) {
+		this.errMsgListFirstName=errMsgListFirstName;
 	}
 
 
-	public ArrayList<String> getErrMsgListKana() {
-		return errMsgListKana;
+	public ArrayList<String> getErrMsgListFamilyNameKana() {
+		return errMsgListFamilyNameKana;
 	}
 
-	public void setErrMsgListKana(ArrayList<String> errMsgListKana) {
-		this.errMsgListKana=errMsgListKana;
+	public void setErrMsgListFamilyNameKana(ArrayList<String> errMsgListFamilyNameKana) {
+		this.errMsgListFamilyNameKana=errMsgListFamilyNameKana;
+	}
+
+	public ArrayList<String> getErrMsgListFirstNameKana() {
+		return errMsgListFirstNameKana;
+	}
+
+	public void setErrMsgListFirstNameKana(ArrayList<String> errMsgListFirstNameKana) {
+		this.errMsgListFirstNameKana=errMsgListFirstNameKana;
 	}
 
 

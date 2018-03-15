@@ -24,11 +24,44 @@
       <p>下記情報を入力してください</p>
     </div>
 
+    <!-- エラーメッセージ-->
     <div>
-      <s:iterator value="errMsgList">
-          <s:property/>
-      </s:iterator>
+      <s:if test="errMsgList !=null && !(errMsgList.isEmpty())">
+        <td><s:iterator value="errMsgList"><s:property value="errMsgList"/></s:iterator><br></td>
+      </s:if>
+      <s:if test="errMsgListId != null && !(errMsgListId.isEmpty())">
+	    <td><s:iterator value="errMsgListId"><s:property value="errMsgListId"/></s:iterator></td>
+      </s:if>
+      <s:if test="errMsgListPass != null && !(errMsgListPass.isEmpty())">
+        <td><s:iterator value="errMsgListPass"><br><s:property value="errMsgListPass"/></s:iterator></td>
+      </s:if>
+      <s:if test="errMsgListFamilyName != null && !(errMsgListFamilyName.isEmpty())">
+        <td><s:iterator value="errMsgListFamilyName"><br><s:property value="errMsgListFamilyName"/></s:iterator></td>
+      </s:if>
+      <s:if test="errMsgListFirstName != null && !(errMsgListFirstName.isEmpty())">
+        <td><s:iterator value="errMsgListFirstName"><br><s:property value="errMsgListFirstName"/></s:iterator></td>
+      </s:if>
+      <s:if test="errMsgListFamilyNameKana != null && !(errMsgListFamilyNameKana.isEmpty())">
+        <td><s:iterator value="errMsgListFamilyNameKana"><br><s:property value="errMsgListFamilyNameKana"/></s:iterator></td>
+      </s:if>
+      <s:if test="errMsgListFirstNameKana != null && !(errMsgListFirstNameKana.isEmpty())">
+        <td><s:iterator value="errMsgListFirstNameKana"><br><s:property value="errMsgListFirstNameKana"/></s:iterator></td>
+      </s:if>
+      <s:if test="errMsgListSex != null && !(errMsgListSex.isEmpty())">
+        <td><s:iterator value="errMsgListSex"><s:property value="errMsgListSex"/></s:iterator></td>
+      </s:if>
+      <s:if test="errMsgListMail != null && !(errMsgListMail.isEmpty())">
+        <td><s:iterator value="errMsgListMail"><br><s:property value="errMsgListMail"/></s:iterator></td>
+      </s:if>
+      <s:if test="errMsgListQuestion != null && !(errMsgListQuestion.isEmpty())">
+        <td><s:iterator value="errMsgListQuestion"><s:property value="errMsgListQuestion"/></s:iterator></td>
+      </s:if>
+      <s:if test="errMsgListAnswer != null && !(errMsgListAnswer.isEmpty())">
+        <td><s:iterator value="errMsgListAnswer"><s:property value="errMsgListAnswer"/></s:iterator></td>
+      </s:if>
+    </div>
 
+    <div>
 
       <s:form action="UserCreateConfirmAction">
       <table>
@@ -39,9 +72,6 @@
 
           <td>
             <input type="text" name="loginUserId" value='<s:property value="loginUserId"/>' placeholder="半角英数字 8文字以下"/>
-                <s:iterator value="errMsgListId">
-                  <s:property/>
-                </s:iterator>
           </td>
         </tr>
 
@@ -50,9 +80,6 @@
 
           <td>
             <input type="password" name="loginPassword" placeholder="半角英数字 16文字以下"/>
-               <s:iterator value="errMsgListPass">
-                  <s:property/>
-               </s:iterator>
           </td>
         </tr>
 
@@ -61,10 +88,6 @@
 
           <td>
             <input type="text" name="familyName" value='<s:property value="familyName"/>' placeholder="16文字以下"/>
-              <s:iterator value="errMsgListName">
-                  <s:property/>
-               </s:iterator>
-
           </td>
         </tr>
 
@@ -73,9 +96,6 @@
 
           <td>
             <input type="text" name="firstName" value='<s:property value="firstName"/>'/>
-              <s:iterator value="errMsgListName">
-                  <s:property/>
-               </s:iterator>
           </td>
         </tr>
 
@@ -84,10 +104,6 @@
 
           <td>
             <input type="text" name="familyNameKana" value='<s:property value="familyNameKana"/>' placeholder="ひらがな 16文字以下"/>
-              <s:iterator value="errMsgListNameKana">
-                <s:property/>
-              </s:iterator>
-
           </td>
         </tr>
 
@@ -96,9 +112,6 @@
 
           <td>
             <input type="text" name="firstNameKana" value='<s:property value="firstNameKana"/>'/>
-              <s:iterator value="errMsgListNameKana">
-                <s:property/>
-              </s:iterator>
           </td>
         </tr>
 
@@ -106,20 +119,7 @@
           <td>性別 : </td>
 
           <td>
-          <s:if test="sex=男">
-            <input type=radio name="sex" value="男">男
-            <input type=radio name="sex" value="女">女
-          </s:if>
-
-          <s:else>
-          	<input type=radio name="sex" value="男">男
-            <input type=radio name="sex" value="女">女
-          </s:else>
-
-              <s:iterator value="errMsgListSex">
-                 <s:property/>
-              </s:iterator>
-          </td>
+            <s:radio name="sex" list="#{'0':'男','1':'女'}" value="0"/></td>
         </tr>
 
         <tr>
@@ -127,14 +127,13 @@
 
           <td>
             <input type="text" name="mail" value='<s:property value="mail"/>' placeholder="14文字以上32文字以下"/>
-              <s:iterator value="errMsgListMail">
-                <s:property/>
-              </s:iterator>
           </td>
         </tr>
 
+        <tr>
+         <td>秘密の質問 : </td>
 
-     <!--       <td>
+         <td>
           <s:if test="secretQuestion==1">
             <select name="secretQuestion">
               <option value="">選択してください</option>
@@ -158,23 +157,6 @@
               <option value="2">嫌いな食べ物</option>
             </select>
           </s:else>
-
-            <s:iterator value="errMsgListQuestion">
-              <s:property/>
-            </s:iterator>
-          </td>
-        </tr>   -->
-
-
-        <tr>
-          <td>秘密の質問 : </td>
-
-          <td>
-          <select name="secretQuestion">
-            <option value="選択してください">選択してください</option>
-            <option value="好きな食べ物">好きな食べ物</option>
-            <option value="嫌いな食べ物">嫌いな食べ物</option>
-          </select>
           </td>
         </tr>
 
@@ -183,26 +165,17 @@
 
           <td>
             <input type="text" name="secretAnswer" value='<s:property value="secretAnswer"/>'/>
-              <s:iterator value="errMsgListAnswer">
-                <s:property/>
-              </s:iterator>
           </td>
         </tr>
         </table>
 
 
-         <br>
+      <br>
       <div>
         <span>確認画面へ進む</span>
       <s:submit value="→"/>
       </div>
        </s:form>
-
-
-
-
-
-
 
 
       <br>

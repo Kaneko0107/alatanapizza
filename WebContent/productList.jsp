@@ -74,9 +74,9 @@
 
 			商品詳細:<s:property value="product_description" /><br>
 
-				<s:form action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" />
-				<s:submit value="注文に進む"/>
-				</s:form>
+				<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+					<img class="image" src="./images/icon/modoru2.png" alt="Photo" ><br>
+				</a>
 
 	</div>
 	</s:iterator>

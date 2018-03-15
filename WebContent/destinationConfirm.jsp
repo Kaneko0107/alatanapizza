@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta http-equiv="Content-Style-Type" content="text/css"/>
+<link rel="stylesheet" href="./css/alatanapizza.css">
 <meta http-equiv="Content-Script-Type" content="text/javascript"/>
 <meta http-equiv="imagetoolbar" content="no"/>
 <meta name="description" content="">
@@ -18,6 +19,7 @@
 </style>
 </head>
 <body>
+<jsp:include page="include_header.jsp" />
 	<div id="main">
 		<div id="top">
 		</div>
@@ -53,6 +55,6 @@
 
 
 	</div>
-
+<jsp:include page="include_footer.jsp" />
 </body>
 </html>

@@ -146,7 +146,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 						System.out.println("管理者フラグ=true");
 						System.out.println("管理者ログイン");
 						result = "master";
-						return result;
+
 					}else{
 
 						//ログイン判定

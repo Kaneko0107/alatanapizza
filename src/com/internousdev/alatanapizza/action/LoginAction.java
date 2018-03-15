@@ -70,6 +70,12 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 	private String userAddress;
 
 	public String execute() throws SQLException{
+
+		if("loginFlg".equals(true)){
+			errorMessageList.add("すでにログイン済みです");
+		}else{
+			errorMessageList.add("ログインページへようこそ");
+		}
 		String result=ERROR;
 		LoginDTO loginDTO=new LoginDTO(); //元のコードはUserInfoDTO、改変の必要出たので以下改変する予定
 		LoginDAO loginDAO=new LoginDAO();
@@ -101,10 +107,12 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 //		//jsp側でvalue指定で呼び出す
 //		//if(saveLogin==)
 //
-		if(saveLogin){ //
+		if(saveLogin){ //boolean型を使ったif文
+			//trueの時の処理
 			System.out.println("ID保持=="+userId);
 			session.put("saveId", userId);
 		}else{
+			//falseの時の処理
 			System.out.println("ID保持は希望しない");
 			session.remove("saveId");
 		}
@@ -220,7 +228,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 							destinationInfoListDTO=destinationDAO
 									.obtainingDestinationInfo(session.get("userId").toString());
 
-/*
+
 							//合計金額の計算
 							totalPrice=calcTotalPrice(cartList); //calc==計算　の意味
 
@@ -250,7 +258,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 								totalPrice=calcTotalPrice(cartList);
 								return KESSAI;
 							}
-*/
+
 
 						}else{
 							errorMessageList.add("入力されたパスワードが異なります。");

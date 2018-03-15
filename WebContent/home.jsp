@@ -27,7 +27,7 @@
 		</div>
 		<div>
 			<h3>ログインフォームへ</h3>
-			<s:form action="HomeAction">
+			<s:form action="LoginAction">
 				<s:submit value="ログインフォームへ"/>
 			</s:form>
 		</div>

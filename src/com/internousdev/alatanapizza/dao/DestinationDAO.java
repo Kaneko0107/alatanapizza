@@ -78,7 +78,7 @@ public class DestinationDAO {
 		ArrayList<DestinationDTO> destinationList =new ArrayList<DestinationDTO>();
 
 		String sql ="SELECT id,family_name,first_name,family_name_kana,first_name_kana,"
-				+ "user_address,tel_number,email FROM destination_inf WHERE user_id =?";
+				+ "user_address,tel_number,email FROM destination_info WHERE user_id =?";
 
 		try{
 			con =db.getConnection();

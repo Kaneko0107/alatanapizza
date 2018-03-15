@@ -22,7 +22,7 @@
 		<div id="top">
 		</div>
 		<div>
-			<span style="color: red;" ><s:property value="loginFlgMessageList"/></span>
+			<!-- <span style="color: red;" ><s:property value="loginFlgMessageList"/></span> -->
 			<span style="color: red;" ><s:property value="errorMessageList"/></span>
 			<h3>会員の方のログイン</h3>
 			<s:form action="LoginAction">

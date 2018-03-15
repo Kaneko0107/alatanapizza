@@ -133,18 +133,21 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 			//ログインチェック
 			if(!userId.equals("")){ //Idが空欄ではないとき
 				if(!password.equals("")){ //passも空欄ではないとき
+
+					loginDTO=loginDAO.select(userId,password);
+
 					//ユーザーIDがDBに存在するか確認
 					if(!loginDAO.existsUserId(userId)){ //ユーザーIDがない
 						errorMessageList.add("IDが正しくありません");
 						result=ERROR;
 					}else if(loginDTO.isMaster()){ //管理者ログイン判定
-						loginDTO=loginDAO.select(userId,password);
+
 						session.put("masterFlg", true);//管理者フラグをたてる
 						System.out.println("管理者フラグ=true");
 						System.out.println("管理者ログイン");
 						result = "master";
+						return result;
 					}else{
-						loginDTO =loginDAO.select(userId,password);
 
 						//ログイン判定
 						if(userId.equals(loginDTO.getUserId()) && password.equals(loginDTO.getPassword())){ //二つとも一致した場合

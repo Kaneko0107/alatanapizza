@@ -42,7 +42,7 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
-	private boolean sex;
+	private String sex;
 	private String userAddress;
 	private String telNumber;
 	private String email;
@@ -54,11 +54,11 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 		String result= SUCCESS;
 
 		//ログイン判定
-		if(!(session.containsKey("userId"))){
-			System.out.println("ログアウトしています");
-			result="login";
-			return result;
-		}
+//		if(!(session.containsKey("userId"))){
+//			System.out.println("ログアウトしています");
+//			result="login";
+//			return result;
+//		}
 
 		/**
 		 * すべての欄が埋まっている場合
@@ -127,10 +127,10 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 		return result;
 */
 
-	public String getUserFamilyName(){
+	public String getFamilyName(){
 		return familyName;
 	}
-	public void setUserFamilyName(String familyName){
+	public void setFamilyName(String familyName){
 		this.familyName=familyName;
 	}
 	public String getFirstName(){
@@ -151,10 +151,10 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	public void setFirstNameKana(String firstNameKana){
 		this.firstNameKana=firstNameKana;
 	}
-	public boolean isSex(){
+	public String getSex(){
 		return sex;
 	}
-	public void setSex(boolean sex){
+	public void setSex(String sex){
 		this.sex=sex;
 	}
 	public String getUserAddress(){

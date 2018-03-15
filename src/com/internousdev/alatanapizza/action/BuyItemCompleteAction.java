@@ -37,19 +37,34 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 		// だから、このActionにはDAOはないです。
 		// 宛先情報とカーと情報をただのせるだけのページ。
 
+		//"userId"を定義し、その中に"登録ユーザー"と"ゲストユーザー"を入れて処理する
+		String userId;
+		//"登録ユーザー"と"ゲストユーザー"のどちらでログインしているか確認し、定義した"userId"に代入する
+		if((boolean)session.get("loginFlg")){
+			userId =(String)session.get("userId");
+		}
+		else{
+			userId =(String)session.get("tempUserId");
+		}
+
 		// ↓ログインユーザーのカート情報を全表示させる（金子さん担当アクション）↓
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
-		cartList = cartInfoDAO.showUserCartList(session.get("userId").toString());
+		cartList = cartInfoDAO.showUserCartList(userId);
 
 		// もしログインしていたら
-		// ↓指定したユーザーの宛先情報取得 obtaining==入手（高木さん担当アクション）↓
-		if (session.containsKey("loginFlg")) {
+		// ↓指定したユーザーの宛先情報取得 obtaining==入手（高木さん担当アクション）
+		//↓"containsKey"はログインフラグの有無を確認しているだけで中身を取り出していないのでgetにする
+		// if (session.containsKey("loginFlg")) {
+
+		if((boolean)session.get("loginFlg")) {
 			DestinationDAO destinationInfoDAO = new DestinationDAO();
-			destinationListDTO = destinationInfoDAO.obtainingDestinationInfo(session.get("userId").toString());
+			destinationListDTO = destinationInfoDAO.obtainingDestinationInfo(userId);
 		}
 
 		// もしログインしてなければログインに飛ばす
-		else if (!session.containsKey("loginFlg")) {
+		// elseで動くので、簡単にする
+		// else if (!session.containsKey("loginFlg")) {
+		else {
 			return ERROR; // ■login.jspへ
 		}
 

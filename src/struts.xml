@@ -101,9 +101,6 @@
 		<result name ="success">destinationComplete.jsp</result>
 	</action>
 
-	<action name="BuyItemCompleteAction" class="com.internousdev.alatanapizza.action.BuyItemCompleteAction" method="execute">
-		<result name="success">settlement.jsp</result>
-	</action>
 
 <!-- 日本 ログアウト -->
 	<action name="LogoutAction" class="com.internousdev.alatanapizza.action.LogoutAction" method="execute">

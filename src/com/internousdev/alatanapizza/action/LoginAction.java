@@ -50,7 +50,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 	private boolean saveLogin;
 	//セッション
 	private Map<String,Object>session;
-	//エラーメッセージ
+	//jsp側で表示するエラーメッセージを格納するリスト
 	private ArrayList<String> errorMessageList=new ArrayList<>();//errorMessageConstants?
 	//決済ページへ
 	private int kessai;
@@ -68,14 +68,15 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 	private String email;
 	private String telNumber;
 	private String userAddress;
+	//private ArrayList<String> loginFlgMessageList=new ArrayList<>();
 
 	public String execute() throws SQLException{
 
-		if("loginFlg".equals(true)){
-			errorMessageList.add("すでにログイン済みです");
-		}else{
-			errorMessageList.add("ログインページへようこそ");
-		}
+		//if("loginFlg".equals(true)){
+		//	loginFlgMessageList.add("すでにログイン済みです");
+		//}else if("loginFlg".equals(false)){
+		//	loginFlgMessageList.add("未ログイン");
+		//}
 		String result=ERROR;
 		LoginDTO loginDTO=new LoginDTO(); //元のコードはUserInfoDTO、改変の必要出たので以下改変する予定
 		LoginDAO loginDAO=new LoginDAO();

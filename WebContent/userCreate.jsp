@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Style-Type" content="text/css"/>
   <meta http-equiv="Content-Script-Type" content="text/javascript"/>
 
-  <link href="css/craftdenki.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/alatanapizza.css">
 
   <title>ユーザー情報入力画面</title>
 </head>
@@ -25,12 +25,12 @@
     </div>
 
     <div>
-      <s:if test="#errMsgList!=''">
-        <s:iterator value="errMsgList">
-        <s:property/>
-        </s:iterator>
-      </s:if>
-<s:form action="UserCreateConfirmAction">
+      <s:iterator value="errMsgList">
+          <s:property/>
+      </s:iterator>
+
+
+      <s:form action="UserCreateConfirmAction">
       <table>
 
 
@@ -38,8 +38,9 @@
           <td>ユーザーID : </td>
 
           <td>
-            <input type="text" name="loginUserId"  placeholder="半角英数字 8文字以下"/>
+            <input type="text" name="loginUserId" value='<s:property value="loginUserId"/>' placeholder="半角英数字 8文字以下"/>
                 <s:iterator value="errMsgListId">
+                  <s:property/>
                 </s:iterator>
           </td>
         </tr>
@@ -49,6 +50,9 @@
 
           <td>
             <input type="password" name="loginPassword" placeholder="半角英数字 16文字以下"/>
+               <s:iterator value="errMsgListPass">
+                  <s:property/>
+               </s:iterator>
           </td>
         </tr>
 
@@ -56,7 +60,11 @@
           <td>姓 : </td>
 
           <td>
-            <input type="text" name="familyName"  placeholder="16文字以下"/>
+            <input type="text" name="familyName" value='<s:property value="familyName"/>' placeholder="16文字以下"/>
+              <s:iterator value="errMsgListName">
+                  <s:property/>
+               </s:iterator>
+
           </td>
         </tr>
 
@@ -64,7 +72,10 @@
           <td>名 : </td>
 
           <td>
-            <input type="text" name="firstName" />
+            <input type="text" name="firstName" value='<s:property value="firstName"/>'/>
+              <s:iterator value="errMsgListName">
+                  <s:property/>
+               </s:iterator>
           </td>
         </tr>
 
@@ -72,7 +83,11 @@
           <td>姓（かな） : </td>
 
           <td>
-            <input type="text" name="familyNameKana"  placeholder="ひらがな 16文字以下"/>
+            <input type="text" name="familyNameKana" value='<s:property value="familyNameKana"/>' placeholder="ひらがな 16文字以下"/>
+              <s:iterator value="errMsgListNameKana">
+                <s:property/>
+              </s:iterator>
+
           </td>
         </tr>
 
@@ -80,7 +95,10 @@
           <td>名（かな） : </td>
 
           <td>
-            <input type="text" name="firstNameKana" />
+            <input type="text" name="firstNameKana" value='<s:property value="firstNameKana"/>'/>
+              <s:iterator value="errMsgListNameKana">
+                <s:property/>
+              </s:iterator>
           </td>
         </tr>
 
@@ -88,8 +106,19 @@
           <td>性別 : </td>
 
           <td>
-            <input type="radio" name="sex">男
-            <input type="radio" name="sex">女
+          <s:if test="sex=男">
+            <input type=radio name="sex" value="男">男
+            <input type=radio name="sex" value="女">女
+          </s:if>
+
+          <s:else>
+          	<input type=radio name="sex" value="男">男
+            <input type=radio name="sex" value="女">女
+          </s:else>
+
+              <s:iterator value="errMsgListSex">
+                 <s:property/>
+              </s:iterator>
           </td>
         </tr>
 
@@ -97,21 +126,55 @@
           <td>メールアドレス : </td>
 
           <td>
-            <input type="text" name="mail"  placeholder="14文字以上32文字以下"/>
+            <input type="text" name="mail" value='<s:property value="mail"/>' placeholder="14文字以上32文字以下"/>
+              <s:iterator value="errMsgListMail">
+                <s:property/>
+              </s:iterator>
           </td>
         </tr>
 
-        <tr>
-          <td>秘密の質問 : </td>
 
-          <td>
+     <!--       <td>
+          <s:if test="secretQuestion==1">
+            <select name="secretQuestion">
+              <option value="">選択してください</option>
+              <option value="1" selected>好きな食べ物</option>
+              <option value="2">嫌いな食べ物</option>
+            </select>
+          </s:if>
+
+          <s:elseif test="secretQuestion==2">
+            <select name="secretQuestion">
+              <option value="">選択してください</option>
+              <option value="1">好きな食べ物</option>
+              <option value="2" selected>嫌いな食べ物</option>
+            </select>
+          </s:elseif>
+
+          <s:else>
             <select name="secretQuestion">
               <option value="">選択してください</option>
               <option value="1">好きな食べ物</option>
               <option value="2">嫌いな食べ物</option>
             </select>
+          </s:else>
+
+            <s:iterator value="errMsgListQuestion">
+              <s:property/>
+            </s:iterator>
+          </td>
+        </tr>   -->
 
 
+        <tr>
+          <td>秘密の質問 : </td>
+
+          <td>
+          <select name="secretQuestion">
+            <option value="選択してください">選択してください</option>
+            <option value="好きな食べ物">好きな食べ物</option>
+            <option value="嫌いな食べ物">嫌いな食べ物</option>
+          </select>
           </td>
         </tr>
 
@@ -119,7 +182,10 @@
           <td>答え : </td>
 
           <td>
-            <input type="text" name="secretAnswer" />
+            <input type="text" name="secretAnswer" value='<s:property value="secretAnswer"/>'/>
+              <s:iterator value="errMsgListAnswer">
+                <s:property/>
+              </s:iterator>
           </td>
         </tr>
         </table>
@@ -128,7 +194,7 @@
          <br>
       <div>
         <span>確認画面へ進む</span>
-      <s:submit value="ff"/>
+      <s:submit value="→"/>
       </div>
        </s:form>
 

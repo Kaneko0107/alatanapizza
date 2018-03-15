@@ -21,6 +21,7 @@ public class ProductListDAO {
  	// ユーザーに表示するリスト
     public ArrayList<ProductDTO> getProductInfo() throws SQLException {
        ArrayList<ProductDTO> productList = new ArrayList<>();
+       con = db.getConnection();
 
 
        String sql = "SELECT * FROM product_info WHERE status = 1 ORDER BY Product_id ASC";
@@ -65,6 +66,7 @@ public class ProductListDAO {
  	// ユーザーに非表示のリスト
     public ArrayList<ProductDTO> getProductHideInfo() throws SQLException {
        ArrayList<ProductDTO> productList = new ArrayList<>();
+       con = db.getConnection();
 
        String sql = "SELECT * FROM product_info WHERE status = 1 ORDER BY Product_id ASC";
 
@@ -108,6 +110,8 @@ public class ProductListDAO {
     public boolean existsProductId(String productId) throws SQLException {
        boolean result = false;
 
+       con = db.getConnection();
+
        String sql = "SELECT * FROM product_info WHERE product_id = ?";
 
        try {
@@ -149,6 +153,8 @@ public class ProductListDAO {
     public int productRegist(String product_id, String product_name, String product_name_kana, String product_description, Integer category_id,Integer msize_price,Integer lsize_price, Integer price, String image_file_path, String image_file_name, String release_date, String release_company) throws SQLException {
        DateUtil dateUtil = new DateUtil();
 
+       con = db.getConnection();
+
        String sql = "INSERT INTO product_info (" + "product_id," + "product_name," + "product_name_kana,"
 				+ "product_description," + "category_id," +"msize_price"+"lsize_price"+ "price," + "image_file_path," + "image_file_name,"
 				+ "release_date," + "release_company," + "regist_date)" + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -184,6 +190,8 @@ public class ProductListDAO {
     public ArrayList<ProductDTO> getToppingInfo() throws SQLException {
         ArrayList<ProductDTO> toppingList = new ArrayList<>();
 
+        con = db.getConnection();
+
         //昇順でidを表示
         String sql = "SELECT * FROM m_topping WHERE ORDER BY Product_id ASC";
 
@@ -203,7 +211,7 @@ public class ProductListDAO {
               dto.setUpdate_date(rs.getDate("update_date"));
            }
         } catch (Exception e) {
-           e.printStackTrace();
+        	throw new RuntimeException(e);
         } finally {
            con.close();
         }

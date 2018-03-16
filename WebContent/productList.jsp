@@ -223,4 +223,9 @@
 </s:if>
 
 </body>
+<div>
+			<span>ホーム画面は
+					<a href='<s:url action="HomeAction"/>'>こちら</a>
+			</span>
+		</div>
 </html>

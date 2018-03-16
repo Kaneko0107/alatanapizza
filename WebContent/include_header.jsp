@@ -68,6 +68,7 @@ a {
 				<s:submit value="カート" class="submit" />
 			</s:form></li>
 			<li><!-- 検索ボックスをインクルード -->
+	<br>
 	<jsp:include page="headerSearch.jsp" /></li>
 
 	</ul>

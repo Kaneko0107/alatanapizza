@@ -10,7 +10,7 @@
 <body>
 
 <s:form action="ProductSearchAction" id="productSearchAction">
-		<select name="categoryId"  onclick="goProductSearchAction();">
+		<select name="categoryId">
 			<option value="1">全てのカテゴリ</option>
 			<option value="2">ピザ</option>
 			<option value="3">サイドメニュー</option>

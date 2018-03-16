@@ -6,15 +6,13 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<title>カート画面</title>
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/reset.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mt_style.css">
-	<link rel="shortcut icon" href="${pageContext.request.contextPath}/img/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cart_style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<link rel="stylesheet" href="./css/alatanapizza.css">
+
+
+
 </head>
 <body>
-
+<jsp:include page="include_header.jsp" />
 
 	<div class="main">
 
@@ -45,7 +43,7 @@
 
 <!-- ふりがな表示 -->
 			<div class="kana">
-			<s:property value="product_name_kana"/>
+			商品かな：<s:property value="productNameKana"/>
 			</div>
 
 <!-- 商品名表示 -->
@@ -55,6 +53,13 @@
 			</s:a>
 			</div>
 			<s:property value="toppings"/>
+
+
+<!-- 商品説明 -->
+<div class="pro_namesetumei">
+			<!-- 商品詳細 -->
+				商品詳細:<s:property value="productDescription" />
+				<br>
 
 <!-- 値段表示 -->
 			<div class="price_count"></div>
@@ -142,5 +147,7 @@
 			});
 
 			</script>
+
+			<jsp:include page="include_footer.jsp" />
 </body>
 </html>

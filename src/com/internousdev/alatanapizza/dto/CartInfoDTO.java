@@ -19,6 +19,10 @@ public class CartInfoDTO {
 	private Date updateDate;
 	private ArrayList<String> toppings;
 
+	private String productDescription;
+	private String productNameKana;
+
+
 	public int getId(){
 		return id;
 	}
@@ -110,4 +114,23 @@ public class CartInfoDTO {
 	public void setReleaseDate(String releaseDate) {
 		this.releaseDate = releaseDate;
 	}
+
+	// ふりがな
+	public String getProductNameKana() {
+		return productNameKana;
+	}
+
+	public void setProductNameKana(String productNameKana) {
+		this.productNameKana = productNameKana;
+	}
+	//商品説明
+	public String getProductDescription() {
+		return productDescription;
+	}
+
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
+	}
+
+
 }

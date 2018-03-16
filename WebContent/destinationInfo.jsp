@@ -32,9 +32,9 @@
 				<s:textfield placeholder="1文字以上16文字以下、半角英語、漢字、ひらがな" name="familyName" value ="%{familyName}" />
 				<div>名</div>
 				<s:textfield placeholder="1文字以上16文字以下、半角英語、漢字、ひらがな" name="firstName" value ="%{firstName}"/>
-				<div>姓ふりがな</div>
+				<div>姓(かな)</div>
 				<s:textfield placeholder="1文字以上16文字以下、ひらがな" name="familyNameKana" value ="%{familyNameKana}"/>
-				<div>名ふりがな</div>
+				<div>名(かな)</div>
 				<s:textfield placeholder="1文字以上16文字以下、ひらがな" name="firstNameKana" value ="%{firstNameKana}"/>
 				<div>住所</div>
 				<s:textfield placeholder="15文字以上50文字以下、半角英数字、漢字、カタカナ、半角記号" name="userAddress" value ="%{userAddress}"/>
@@ -42,9 +42,12 @@
 				<s:textfield placeholder="11文字以上13文字以下" name="telNumber" value ="%{telNumber}"/>
 				<div>メールアドレス</div>
 				<s:textfield placeholder="18文字以上32文字以下" name="email" value ="%{email}"/>
+				<br>
 				<s:submit value="登録情報確認画面へ"/>
 			</s:form>
 		</div>
+		<a href="javascript:void(0)" onclick="javascript:history.back()">戻る</a>
+
 
 
 	</div>

@@ -11,6 +11,11 @@ public class PurchaseHistoryDTO {
 	// ふりがな
 	private String productNameKana;
 
+
+	//商品説明
+	private String productDescription;
+
+
 	// 商品画像の名前（実際にjspにはのせない）
 	private String imageFileName;
 
@@ -61,6 +66,16 @@ public class PurchaseHistoryDTO {
 	public void setProductNameKana(String productNameKana) {
 		this.productNameKana = productNameKana;
 	}
+	//商品説明
+	public String getProductDescription() {
+		return productDescription;
+	}
+
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
+	}
+
+
 
 	//画像名前
 		public String getImageFileName() {

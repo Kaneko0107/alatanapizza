@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="./css/alatanapizza.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -40,6 +41,7 @@
 				<s:submit value="履歴をすべて削除" />
 			</s:form>
 		</div>
+		<s:submit value="個別削除 " name="checkFlg" fieldValue="%{id}" />
 		<!-- --------------------- -->
 
 
@@ -53,30 +55,29 @@
 			<s:checkbox name="checkFlg" value="2" fieldValue="%{id}" />
 
 			<!-- 選択したものだけを削除 -->
-			<div class="date">
-				<p>注文日</p>
 
-			</div>
+
+
 			<!-- 画像 -->
 			<div class="main_content">
 				<div class="pizagazou">
 					<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
-						<img class="image" src="<s:property value='image_file_path'/>"
+						<img class="image" src="<s:property value='imageFilePath'/>"
 						alt="Photo" width="200" height="170"></a><br>
 				</div>
 
 
 				<!-- 商品名 -->
-				<s:property value="product_name" />
+				商品名:<s:property value="productName" />
 				<br>
 
 				<!-- 商品かな -->
-				<s:property value="product_name_kana" />
+				商品名 かな:<s:property value="productNameKana" />
 				<br>
 
 				<!-- 商品詳細 -->
 				商品詳細:
-				<s:property value="product_description" />
+				<s:property value="productDescription" />
 				<br>
 
 			</div>
@@ -94,7 +95,7 @@
 	<a href='<s:url action="MyPageAction" />'>マイページに戻る</a>
 	<br>
 	<p id="pageTop">
-		<a href="#"><i class="fa fa-chevron-up"></i>ページトップに戻る</a>
+		<a href="#"><i class="fa fa-chevron-up">ページトップに戻る</i></a>
 	</p>
 
 	<jsp:include page="include_footer.jsp" />

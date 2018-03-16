@@ -29,56 +29,56 @@
       <table>
 
       <tr id="box">
-        <td>ユーザーID :</td>
+        <td>ユーザーＩＤ</td>
         <td> <s:property value="loginUserId"/> </td>
       </tr>
 
       <tr id="box">
-        <td>ログインPASS :</td>
+        <td>パスワード</td>
         <td> <s:property value="loginPassword" /> </td>
       </tr>
 
       <tr id="box">
-        <td>姓 :</td>
+        <td>お名前（姓）</td>
         <td> <s:property value="familyName" /> </td>
       </tr>
 
       <tr id="box">
-        <td>名 :</td>
+        <td>お名前（名）</td>
         <td> <s:property value="firstName" /> </td>
       </tr>
 
       <tr id="box">
-        <td>姓（かな） :</td>
+        <td>ふりがな（姓）</td>
         <td> <s:property value="familyNameKana"/> </td>
       </tr>
 
       <tr id="box">
-        <td>名（かな） :</td>
+        <td>ふりがな（名）</td>
         <td> <s:property value="firstNameKana"/> </td>
       </tr>
 
       <tr id="box">
-        <td>性別 :</td>
+        <td>性別</td>
           <td> <s:if test="sex==0">男</s:if>
 	 		   <s:if test="sex==1">女</s:if>
 	 	  </td>
       </tr>
 
       <tr id="box">
-        <td>メールアドレス :</td>
+        <td>メールアドレス</td>
         <td> <s:property value="mail"/> </td>
       </tr>
 
       <tr id="box">
-        <td>秘密の質問 :</td>
+        <td>秘密の質問</td>
           <td> <s:if test="secretQuestion==1">好きな食べ物</s:if>
 	 		   <s:if test="secretQuestion==2">嫌いな食べ物</s:if>
 	 	  </td>
       </tr>
 
       <tr id="box">
-        <td>答え :</td>
+        <td>答え</td>
         <td> <s:property value="secretAnswer"/> </td>
       </tr>
 

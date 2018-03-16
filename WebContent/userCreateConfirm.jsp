@@ -186,6 +186,8 @@ hr {
     </s:form>
 
     </div>
+<br>
+<br><br>
 
 
    <jsp:include page="include_footer.jsp" />

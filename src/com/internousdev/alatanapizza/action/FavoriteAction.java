@@ -71,7 +71,7 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 				}
 				return result;
 
-				if (deleteFlg.equals("1")) { //削除ボタン押した後
+			}else if (deleteFlg.equals("1")) { //削除ボタン押した後
 				// checkListがnullじゃないとき
 				if (checkList != null) {
 

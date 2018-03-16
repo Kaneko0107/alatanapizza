@@ -54,11 +54,11 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 		String result= SUCCESS;
 
 		//ログイン判定
-//		if(!(session.containsKey("userId"))){
-//			System.out.println("ログアウトしています");
-//			result="login";
-//			return result;
-//		}
+		if(!(session.containsKey("userId"))){
+			System.out.println("ログアウトしています");
+			result="login";
+			return result;
+		}
 
 		/**
 		 * すべての欄が埋まっている場合

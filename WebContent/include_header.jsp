@@ -51,7 +51,7 @@ a {
 <div class="up">
 
 
-<div class="logo">ロゴ</div>
+<div class="logo"><a href='<s:url action="HomeAction"/>'>ロゴ(ホームにいく)</a></div>
 
 
 

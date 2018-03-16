@@ -13,6 +13,82 @@
 
   <title>確認画面</title>
 
+  <style>
+
+
+header{
+	    position:absolute;
+	    top:0;
+	    width:100%;
+	    height:100px;
+	    background:linear-gradient(to bottom,black,rgba(0,0,0,0.1));
+	    }
+
+.tab {
+	    width: 50%;
+	    background: rgba(0, 0, 0, 0.5);
+	    margin:0 auto;
+	    padding-top:20px;
+	    margin-bottom:100px;
+	    }
+
+
+table {
+	    text-align: left;
+	    padding-top: 10%;
+	    }
+
+
+/* .form {
+	    background-color: rgba(200, 200, 200, 0.5);
+	    width: 200px;
+	    height: 30px;
+	    border-radius: 5px;
+	    } */
+
+.title {
+	    font-size: 20px;
+	    }
+
+tr td {
+	    padding:5px 5px 5px 20px;
+	    }
+
+footer {
+	    width:100%;
+	    height:30px;
+	    position: fixed;
+	    bottom: 0;
+	    text-align: center;
+	    margin: 0 auto;
+	    }
+
+hr {
+	    border: none;
+	    border-top: dashed 1px #ccc;
+	    height: 1px;
+	    color: #ffffff;
+	    margin: 0 8 0 8;
+	    }
+
+.moji {
+	    text-align: center;
+	    font-size: 12px;
+	    color: #FFCC33;
+	    }
+
+.gazou {
+	    text-align:right;
+	    margin-top: 5px;
+	    }
+
+.gazou:hover{
+	    background-image:url("modoru.png")
+	    }
+
+
+</style>
+
 </head>
 
 <body>
@@ -24,7 +100,9 @@
     </div>
 
 
-    <div>登録する内容は以下でよろしいですか？</div>
+    <div class=moji>登録する内容は以下でよろしいですか？</div>
+
+    <div class="tab">
 
       <table>
 
@@ -82,7 +160,10 @@
         <td> <s:property value="secretAnswer"/> </td>
       </tr>
 
-</table>
+     </table>
+     </div>
+     </div>
+
 
           <s:form action="UserCreateCompleteAction">
             <s:submit value="登録する"/>

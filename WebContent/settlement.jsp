@@ -103,7 +103,7 @@
 	<br>
 
 	<!-- --------------------■宛先情報■--------------------- -->
-	<s:iterator value="DestinationDTO">
+	<s:iterator value="destinationListDTO">
 		<div class="box">
 			<div class="destination_title">
 				<label> <input type="radio" name="id" checked="checked" />

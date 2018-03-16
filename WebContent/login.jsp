@@ -31,7 +31,7 @@
 				<s:textfield type="text" placeholder="1文字以上8文字以下" name="userId" value ="%{#session.saveId}"/>
 				<br>
 				<label><s:checkbox name ="saveLogin"/>
-				次回からIDの入力を省略</label>
+				ID保存</label>
 				<div>パスワード</div>
 				<s:password placeholder="1文字以上8文字以下" name="password"/>
 

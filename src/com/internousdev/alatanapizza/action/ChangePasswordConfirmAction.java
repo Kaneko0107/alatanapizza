@@ -1,4 +1,5 @@
 package com.internousdev.alatanapizza.action;
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -14,14 +15,12 @@ public class ChangePasswordConfirmAction extends ActionSupport implements Sessio
 	private String	secret_answer;
 	private int secret_question;
 	private String newpass;
-	private String errorUserid;
-	private String errorpassword;
-	private String errorpassword1;
-	private String nullError;
 	private String userid;
 	private String checkpass;
 	private String hideNewPassword;
 	private String hideUserId;
+	private String errorMessage;
+	private ArrayList<String> errMsgList = new ArrayList<>();
 	private ChangePasswordConfirmDAO CPCdao=new ChangePasswordConfirmDAO();
 	//DTOいらんかも
 	private ChangePasswordDTO CPDTO=new ChangePasswordDTO();
@@ -54,47 +53,48 @@ public class ChangePasswordConfirmAction extends ActionSupport implements Sessio
 
 
 public String execute(){
-	System.out.println("-----------");
-	System.out.println(newpass);
-	System.out.println(checkpass);
+	String result=ERROR;
 
-
-	if(newpass.equals("") || checkpass.equals("") || userid.equals("") || secret_answer.equals("")){
-		result=ERROR;
-		setNullError("*未入力の項目があります");
+	if(newpass.equals("") || userid.equals("")){
+		setErrorMessage("未入力の項目があります。");
+		errMsgList.add(errorMessage);
 	}
 
+	if(!(userid.equals(""))){
+		if(!(userid.equals(CPCdao.getUserid()))){
+			setErrorMessage("ユーザーIDが間違っています。");
+			errMsgList.add(errorMessage);
+		}
+		if(userid.length()<1 || userid.length()>8){
+			setErrorMessage("ユーザーIDは1～8文字以内で入力してください。");
+			errMsgList.add(errorMessage);
+		}
+		if(!(userid.matches("^[a-zA-Z0-9]+$"))){
+			setErrorMessage("ユーザーIDは半角英数字で入力してください。");
+			errMsgList.add(errorMessage);
+		}
+		}
 
-	if(CPCdao.CheckAnswer(userid,secret_question,secret_answer)){
-		result=SUCCESS;
-		session.put("newpass",newpass);
-		session.put("userid",userid);
-		session.put("answer", secret_answer);
-	}else{
-		result=ERROR;
-		errorUserid="*ユーザーIDと答えが一致していません";
-		session.put("errorUserid",errorUserid);
+
+
+	if(!(userid.equals(""))){
+	if(newpass.length()<1 || newpass.length()>16){
+		setErrorMessage("新しいパスワードは1～16文字の範囲内で入力してください。");
+		errMsgList.add(errorMessage);
 	}
-	//値の確認出力
-	System.out.println("-----------");
-		System.out.println(userid);
-		System.out.println(result);
-		System.out.println(CPCdao.getPassword());
-
-
-
-
-
-
-
-
-	if(!(newpass.equals(checkpass))){
-		result=ERROR;
-		setErrorpassword("*新しいパスワードと確認用パスワードが合致しません");
+	if(!(newpass.matches("^[a-zA-Z0-9]+$"))){
+		setErrorMessage("新しいパスワードは半角英数字で入力してください。");
+		errMsgList.add(errorMessage);
 	}
 	if(newpass.equals(CPCdao.getPassword())){
-		result=ERROR;
-		setErrorpassword1("*新しいパスワードは以前のパスワードと同様の値に設定できません");}
+		setErrorMessage("以前と同じパスワードは使用できません。");
+		errMsgList.add(errorMessage);
+	}
+	if(!(newpass.equals(checkpass))){
+		setErrorMessage("新しいパスワードと確認用パスワードの値が一致していません。");
+		errMsgList.add(errorMessage);
+	}
+	}
 
 if(!(newpass.equals("")) && !(checkpass.equals(""))){
 		if(newpass.length()<=1){
@@ -112,6 +112,14 @@ if(!(newpass.equals("")) && !(checkpass.equals(""))){
 			session.put("hideNewPassword",hideNewPassword);
 		}
 }
+if(CPCdao.CheckAnswer(userid,secret_question,secret_answer)){
+	if(errorMessage==null){
+	result=SUCCESS;
+	}
+	session.put("newpass",newpass);
+	session.put("userid",userid);
+	session.put("answer", secret_answer);
+	}
 
 
 
@@ -138,16 +146,6 @@ public void setResult(String result) {
 }
 
 
-
-public String getErrorUserid() {
-	return errorUserid;
-}
-
-
-
-public void setErrorUserid(String errorUserid) {
-	this.errorUserid = errorUserid;
-}
 
 
 
@@ -198,17 +196,6 @@ public void setCheckpass(String checkpass) {
 	this.checkpass = checkpass;
 }
 
-
-
-public String getErrorpassword() {
-	return errorpassword;
-}
-
-
-
-public void setErrorpassword(String errorpassword) {
-	this.errorpassword = errorpassword;
-}
 
 
 
@@ -316,32 +303,36 @@ public void setHideUserId(String hideUserId) {
 
 
 
-public String getErrorpassword1() {
-	return errorpassword1;
+
+
+
+
+public String getErrorMessage() {
+	return errorMessage;
 }
 
 
 
 
 
-public void setErrorpassword1(String errorpassword1) {
-	this.errorpassword1 = errorpassword1;
+public void setErrorMessage(String errorMessage) {
+	this.errorMessage = errorMessage;
 }
 
 
 
 
 
-public String getNullError() {
-	return nullError;
+public ArrayList<String> getErrMsgList() {
+	return errMsgList;
 }
 
 
 
 
 
-public void setNullError(String nullError) {
-	this.nullError = nullError;
+public void setErrMsgList(ArrayList<String> errMsgList) {
+	this.errMsgList = errMsgList;
 }
 
 

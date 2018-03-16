@@ -12,7 +12,7 @@
 <title>商品詳細画面</title>
 <style type="text/css">
 	#sP{
-		margin:0 27% 0 27%;
+		margin:0 25% 0 25%;
 	}
 </style>
 
@@ -172,7 +172,7 @@
 		Quantity:
 			<s:select name="productCount" id="product_count" list="stockList"
 				onchange="outputSelectedValueAndText(this);" />&nbsp;
-		TotalAmount:￥
+		Total:￥
 			<s:hidden name="total_price" id="total_price" />
 				<span id="total_price_text"></span>
 					<s:hidden name="productId" value="%{session.d_product_id}" ></s:hidden>
@@ -223,7 +223,9 @@
 					</s:iterator>
 		</div><br>
 
-	<!-- フッター --><br><br>
+	<!-- フッター
 	<jsp:include page="include_footer.jsp" />
+	-->
+
 </body>
 </html>

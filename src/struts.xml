@@ -147,14 +147,17 @@
  		<result name = "error">home.jsp</result>
 	</action>
 
+<!-- 荒木担当  MasterAdd struts文 -->
+
 	<action name = "GoMasterAddAction" class ="com.internousdev.alatanapizza.action.GoMasterAddAction" method = "execute">
 		<result name = "success">MasterAdd.jsp</result>
 	</action>
-<!--
+
 	<action name = "MasterAddConfirmAction" class ="com.internousdev.alatanapizza.action.MasterAddConfirmAction" method = "execute">
 		<result name = "success">MasterAddConfirm.jsp</result>
 	</action>
 
+<!--
 	<action name = "MasterAddCompleteAction" class ="com.internousdev.alatanapizza.action.MasterAddCompletemAction" method = "execute">
 		<result name = "success">MasterAddComplete.jsp</result>
 	</action>

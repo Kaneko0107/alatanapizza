@@ -65,17 +65,14 @@
 					<s:hidden name="imageFileName" value='<s:property value="imageFileName"/>' />
 					商品名:<span><s:property value="productName" /></span><br>
 
+					<s:hidden name="productNameKana" value='<s:property value="produceNameKana"/>' />
+					商品名(かな):<span><s:property value="productNameKana" /></span><br>
+
+
 					金額:<span><s:property value="price" /></span><br>
 					<s:hidden name="price" value="%{price}" />
 
-					発売会社名:<span><s:property value="releaseCompany" /></span><br>
-					<s:hidden name="releaseCompany" value="%{releaseCompany}" />
 
-					発売年月日:<span><s:property value="releaseDate" /></span><br>
-					<s:hidden name="id" value="%{id}"/>
-
-					<s:hidden name="releaseDate" value="%{releaseDate}" />
-					<s:hidden name="productId" value="%{productId}" />
 
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
@@ -87,7 +84,7 @@
 
 
 
-			<div class="delete23">
+			<div class="delete">
 				<s:submit value="削除"/>
 						<s:hidden name="deleteFlg" value="1" />
 					</div>

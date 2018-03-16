@@ -121,6 +121,14 @@
 						</div>
 					</div>
 
+			<!-- ホームに遷移 -->
+					<div class="buttonBox4">
+						<div class="btnn4">
+							<a href='<s:url action="HomeAction"/>'>ホームへ</a>
+						</div>
+					</div>
+
+
 
 			</div>
 		</div>

@@ -56,7 +56,7 @@
 			</table>
 		</div>
 
- <s:form action="DestAction">
+<%--  <s:form action="DestAction">
 
      <input type=hidden name="familyName" value='<s:property value="familyName"/>' />
 	<input type=hidden name="firstName" value='<s:property value="firstName"/>' />
@@ -67,7 +67,8 @@
       <input type=hidden name="email" value='<s:property value="email"/>' />
 
       <s:submit value="戻る" class="DestButton"/>
-    </s:form>
+    </s:form> --%>
+    	<a href="javascript:void(0)" onclick="javascript:history.back()">戻る</a>
 <br>
 <br>
 

@@ -48,8 +48,8 @@
 			</s:form>
 
 		</div>
-
 		<a href="javascript:void(0)" onclick="javascript:history.back()">戻る</a>
+
 <br>
 <br>
 

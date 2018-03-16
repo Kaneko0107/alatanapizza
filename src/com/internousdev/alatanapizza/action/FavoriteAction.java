@@ -47,7 +47,6 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 			//ログイン後お気に入り登録したら
 			if(favoriteInsertFlg !="0") {
 				userId =session.get("userId").toString();
-
 				count2 = dao.insertFavorite(userId, product_id);
 				favoriteInsertFlg = null;
 

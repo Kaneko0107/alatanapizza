@@ -20,7 +20,7 @@
 <s:else>
 <div>再設定が完了しました。</div>
  <div>
-        <input type="button" onclick="location.href='<s:url action="HomeAction"/>'" value="ログインへ" >
+        <input type="button" onclick="location.href='<s:url action="LoginAction"/>'" value="ログインへ" >
       </div>
 
 

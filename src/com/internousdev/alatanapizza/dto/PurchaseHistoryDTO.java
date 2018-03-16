@@ -11,8 +11,11 @@ public class PurchaseHistoryDTO {
 	// ふりがな
 	private String productNameKana;
 
-	// 商品画像
+	// 商品画像の名前（実際にjspにはのせない）
 	private String imageFileName;
+
+	//商品画像のパス
+	private String imageFilePath;
 
 	// 値段
 	private int price;
@@ -59,8 +62,23 @@ public class PurchaseHistoryDTO {
 		this.productNameKana = productNameKana;
 	}
 
-	// 商品画像
+	//画像名前
+		public String getImageFileName() {
+			return imageFileName;
+		}
 
+		public void setImageFileName(String imageFileName) {
+			this.imageFileName = imageFileName;
+		}
+
+	// 商品画像のパス
+	public String getImageFilePath() {
+		return imageFilePath;
+	}
+
+	public void setImageFilePath(String imageFilePath) {
+		this.imageFilePath = imageFilePath;
+	}
 
 
 
@@ -73,14 +91,7 @@ public class PurchaseHistoryDTO {
 		this.price = price;
 	}
 
-	//画像
-	public String getImageFileName() {
-		return imageFileName;
-	}
 
-	public void setImageFileName(String imageFileName) {
-		this.imageFileName = imageFileName;
-	}
 
 
 	// 個数

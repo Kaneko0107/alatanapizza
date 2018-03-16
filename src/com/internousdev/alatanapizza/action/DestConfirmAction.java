@@ -42,7 +42,6 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
-	private String sex;
 	private String userAddress;
 	private String telNumber;
 	private String email;
@@ -82,10 +81,6 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 			errorMessageList.add(i.firstNameKanaChk(firstNameKana));
 			result =ERROR;
 		}
-		//if(!i.sexChk(sex).equals("OK")){
-		//	errorMessageList.add(i.sexChk(sex));
-		//	result =ERROR;
-		//}
 		if(!i.userAddressChk(userAddress).equals("OK")){
 			errorMessageList.add(i.userAddressChk(userAddress));
 			result =ERROR;
@@ -151,12 +146,6 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	}
 	public void setFirstNameKana(String firstNameKana){
 		this.firstNameKana=firstNameKana;
-	}
-	public String getSex(){
-		return sex;
-	}
-	public void setSex(String sex){
-		this.sex=sex;
 	}
 	public String getUserAddress(){
 		return userAddress;

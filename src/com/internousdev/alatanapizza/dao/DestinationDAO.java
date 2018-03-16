@@ -46,13 +46,13 @@ public class DestinationDAO {
 			+ ",first_name"
 			+ ",family_name_kana"
 			+ ",first_name_kana"
-			+ ",sex"
 			+ ",user_address"
 			+ ",tel_number"
 			+ ",email"
 			+ ",regist_date"
-			+ ")VALUES(?,?,?,?,?,?,?,?,?,NOW())";
+			+ ")VALUES(?,?,?,?,?,?,?,?,NOW())";
 	try{
+		System.out.println("INSERTsql文実行");
 		con =db.getConnection();
 		PreparedStatement ps =con.prepareStatement(sql);
 		ps.setString(1, destinationDTO.getUserId());
@@ -60,10 +60,11 @@ public class DestinationDAO {
 		ps.setString(3, destinationDTO.getFirstName());
 		ps.setString(4, destinationDTO.getFamilyNameKana());
 		ps.setString(5, destinationDTO.getFirstNameKana());
-		ps.setString(6, destinationDTO.getSex());
-		ps.setString(7, destinationDTO.getUserAddress());
-		ps.setString(8, destinationDTO.getTelNumber());
-		ps.setString(9, destinationDTO.getEmail());
+		ps.setString(6, destinationDTO.getUserAddress());
+		ps.setString(7, destinationDTO.getTelNumber());
+		ps.setString(8, destinationDTO.getEmail());
+//		System.out.println(ps);
+		updateCount = ps.executeUpdate();
 
 	}catch(SQLException e){
 		//エラーになったらエラー文
@@ -77,6 +78,7 @@ public class DestinationDAO {
 	if(updateCount==1){
 		result =true;
 	}
+	System.out.println(result);
 	return result;
 }
 
@@ -84,14 +86,17 @@ public class DestinationDAO {
 	public ArrayList<DestinationDTO> obtainingDestinationInfo(String userId)throws SQLException{
 		ArrayList<DestinationDTO> destinationList =new ArrayList<DestinationDTO>();
 
+
 		String sql ="SELECT id,family_name,first_name,family_name_kana,first_name_kana,"
 				+ "user_address,tel_number,email FROM destination_info WHERE user_id =?";
 
 		try{
+
 			con =db.getConnection();
 			PreparedStatement ps =con.prepareStatement(sql);
 			ps.setString(1, userId);
 			ResultSet rs =ps.executeQuery();
+			System.out.println("SELECTsql文実行");
 
 			while(rs.next()){
 				DestinationDTO destinationDTO =new DestinationDTO();
@@ -100,7 +105,6 @@ public class DestinationDAO {
 				destinationDTO.setFirstName(rs.getString("first_name"));
 				destinationDTO.setFamilyNameKana(rs.getString("family_name_kana"));
 				destinationDTO.setFirstNameKana(rs.getString("first_name_kana"));
-				destinationDTO.setSex(rs.getString("sex"));
 				destinationDTO.setEmail(rs.getString("email"));
 				destinationDTO.setTelNumber(rs.getString("tel_number"));
 				destinationDTO.setUserAddress(rs.getString("user_address"));

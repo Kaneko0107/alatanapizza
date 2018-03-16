@@ -36,9 +36,9 @@
 				<s:textfield name="familyNameKana" value ="%{familyNameKana}"/>
 				<span>名ふりがな</span>
 				<s:textfield name="firstNameKana" value ="%{firstNameKana}"/>
-				<span>性別</span>
+<!--				<span>性別</span>
 				<label><input type="radio" name="sex" value="男" checked />男</label>
-				<label><input type="radio" name="sex" value="女"  />女</label>
+				<label><input type="radio" name="sex" value="女"  />女</label>-->
 				<span>住所</span>
 				<s:textfield name="userAddress" value ="%{userAddress}"/>
 				<span>電話番号</span>

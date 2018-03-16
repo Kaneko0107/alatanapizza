@@ -30,7 +30,7 @@
 		</div>
 
 		<span></span>
-		<a href='<s:url action="settlement.jsp"/>'>購入画面へ</a>
+		<a href='<s:url action="BuyItemCompleteAction"/>'>購入画面へ</a>
 
 
 	</div>

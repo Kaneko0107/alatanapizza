@@ -17,7 +17,6 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
-	private String sex;
 	private String userAddress;
 	private String telNumber;
 	private String email;
@@ -35,7 +34,6 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 		destinationDTO.setFirstName(firstName);
 		destinationDTO.setFamilyNameKana(familyNameKana);
 		destinationDTO.setFirstNameKana(firstNameKana);
-		destinationDTO.setSex(sex);
 		destinationDTO.setUserAddress(userAddress);
 		destinationDTO.setTelNumber(telNumber);
 		destinationDTO.setEmail(email);
@@ -94,12 +92,6 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 	}
 	public void setFirstNameKana(String firstNameKana){
 		this.firstNameKana=firstNameKana;
-	}
-	public String getSex(){
-		return sex;
-	}
-	public void setSex(String sex){
-		this.sex=sex;
 	}
 	public String getUserAddress(){
 		return userAddress;

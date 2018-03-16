@@ -30,20 +30,25 @@
 			<s:form action="DestCompleteAction">
 				<span>姓</span>
 				<s:property value="familyName" escape="false"/>
+				<input type=hidden name="familyName" value='<s:property value="familyName"/>' />
 				<span>名</span>
 				<s:property value="firstName" escape="false"/>
+				<input type=hidden name="firstName" value='<s:property value="firstName"/>' />
 				<span>姓ふりがな</span>
 				<s:property value="familyNameKana" escape="false"/>
+				<input type=hidden name="familyNameKana" value='<s:property value="familyNameKana"/>' />
 				<span>名ふりがな</span>
-				<s:property value="filstNameKana" escape="false"/>
-				<span>性別</span>
-				<s:property value="sex" escape="false"/>
+				<s:property value="firstNameKana" escape="false"/>
+				<input type=hidden name="firstNameKana" value='<s:property value="firstNameKana"/>' />
 				<span>住所</span>
 				<s:property value="userAddress" escape="false"/>
+				<input type=hidden name="userAddress" value='<s:property value="userAddress"/>' />
 				<span>電話番号</span>
 				<s:property value="telNumber" escape="false"/>
+				<input type=hidden name="telNumber" value='<s:property value="telNumber"/>' />
 				<span>メールアドレス</span>
-				<s:property value="mail" escape="false"/>
+				<s:property value="email" escape="false"/>
+				<input type=hidden name="email" value='<s:property value="email"/>' />
 
 				<s:submit value="登録情報確定画面へ"/>
 			</s:form>

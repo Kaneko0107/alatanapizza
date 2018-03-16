@@ -107,17 +107,12 @@
         });
     </script>
 
-
-
-
 </head>
 <body>
 	<!-- ヘッダー -->
 	<jsp:include page="include_header.jsp" />
 
-
 	<s:form action="CartProductAction" name="select">
-
 
 	<table class="detailsTable">
 			<tr>
@@ -154,14 +149,6 @@
 								<!-- 商品名かな -->
 								<s:property value="session.d_product_name_kana" /></span>
 								<br>
-									<%--お気に入りボタン,非ログイン時は非表示 --%>
-									<s:if test="#session.containsKey('userId')">
-										<span class="favlist">
-										<s:submit value=" ★" onclick="FavoriteAction();">
-											<s:hidden name="favoriteInsertFlg" value="1" />
-										</s:submit>
-										</span>
-									</s:if>
 
 						<!-- カテゴリーによって値段表示変更 -->
 						<span class="form-product">
@@ -220,9 +207,15 @@
 			<s:hidden name="gocart" value="1" />
 			<s:submit value="カートに入れる" />
 	</p>
-
-	</s:form><br><br>
-
+	</s:form>
+		<%--お気に入りボタン,非ログイン時は非表示 --%>
+			<s:if test="#session.containsKey('userId')">
+				<s:form action="FavoriteAction" name="favoriteInsertFlg" value="1">
+					<span class="favlist">
+						<s:submit value=" ★" onclick="FavoriteAction();" />
+					</span>
+				</s:form>
+			</s:if><br><br>
 
 
 	<hr class="line"><br>

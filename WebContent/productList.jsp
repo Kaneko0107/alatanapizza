@@ -10,6 +10,37 @@
 <link rel="stylesheet" href="./css/alatanapizza.css">
 
 <title>商品一覧</title>
+<style>
+
+.itemListBox{
+	width:19%;
+	height:350px;
+	float:left;
+	margin-bottom:2%;
+	border:1px solid white;
+	margin-right:5%;
+	margin-left:5%;
+	margin:top:2px;
+	padding:15px;
+	border-radius:15px;
+	background-color:rgba(0,0,0,0.5)
+
+}
+
+.center{
+.page-deciding-system{
+	clear:both;
+	width:100%;
+	text-align:center;
+}}
+
+
+
+
+
+
+</style>
+
 </head>
 <body>
 
@@ -18,47 +49,55 @@
 
 <!------------------------------------------ 商品一覧ボタンを押した場合  --------------------------------------------------------->
 	<!-- 表示件数1ページ目 -->
-<table class="productList">
-	<tr>
-	<td>
-	<s:iterator value="displayList">
-		<div class="itemList">
-
-					<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
-						<img class="image" src="<s:property value='image_file_path'/>" alt="Photo" width="200" height="170"><br>
-					</a>
-				<!-- 商品名 -->
-					<s:property value="product_name" /><br>
-
-				<!-- 商品かな -->
-					<s:property value="product_name_kana" /><br>
-
-				<!-- カテゴリーが2(ピザ)の場合の価格 -->
-					<s:if test="category_id==2">
-					<img class="image" src="./images/icon/m.png" alt="Photo" >￥<s:property value="msize_price" /> &nbsp<img class="image" src="./images/icon/l.png" alt="Photo" >￥<s:property value="lsize_price" /><br>
-					</s:if>
-
-				<!-- カテゴリーが3(サイド)の場合の価格 -->
-					<s:if test="category_id==3"><br>
-					￥<s:property value="price"/><br>
-					</s:if>
-
-				<!-- カテゴリーが4(ドリンク)の場合の価格 -->
-					<s:if test="category_id==4"><br>
-					￥<s:property value="price"/><br>
-					</s:if>
 
 
+		<s:iterator value="displayList">
+			<div class="itemListBox">
+				<div class="alltogether">
 
-					<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
-						<img class="image" src=./images/icon/modoru2.png><br>
-					</a>
+					<table>
+						<tr>
+							<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+								<img class="image" src="<s:property value='image_file_path'/>" alt="Photo" width="200" height="170"><br>
+							</a>
+						</tr>
+							<!-- 商品名 -->
+								<s:property value="product_name" /><br>
+						<tr>
+						<!-- 商品かな -->
+							<s:property value="product_name_kana" /><br>
+						</tr>
+						<tr>
+							<!-- カテゴリーが2(ピザ)の場合の価格 -->
+								<s:if test="category_id==2">
+								<img class="image" src="./images/icon/m.png" alt="Photo" >￥<s:property value="msize_price" /><br>
+								<img class="image" src="./images/icon/l.png" alt="Photo" >￥<s:property value="lsize_price" /><br>
+								</s:if>
+						</tr>
+						<tr>
+							<!-- カテゴリーが3(サイド)の場合の価格 -->
+								<s:if test="category_id==3"><br>
+								￥<s:property value="price"/><br>
+								</s:if>
+						</tr>
+						<tr>
+							<!-- カテゴリーが4(ドリンク)の場合の価格 -->
+								<s:if test="category_id==4"><br>
+								￥<s:property value="price"/><br>
+								</s:if>
+						</tr>
 
-		</div>
-	</s:iterator>
-	</td>
-	</tr>
-</table>
+
+							<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+								<img class="image" src=./images/icon/modoru2.png><br>
+							</a>
+					</table>
+				</div>
+			</div>
+		</s:iterator>
+
+
+
 
 <!-- リストにデータが入っている時-->
 <s:if test="number > 8">

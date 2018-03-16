@@ -230,4 +230,7 @@
 	-->
 
 </body>
+
+					<a href='<s:url action="ProductListAction"/>'>ホーム画面</a>
+
 </html>

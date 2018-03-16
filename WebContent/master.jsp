@@ -58,7 +58,7 @@
 	</tr>
 		<div>
 		<span>商品追加は
-					<a href='<s:url action="MasterAddAction"/>'>こちら</a>
+					<a href='<s:url action="GoMasterAddAction"/>'>こちら</a>
 			</span>
 		</div>
 </table>

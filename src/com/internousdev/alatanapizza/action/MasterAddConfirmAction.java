@@ -12,7 +12,7 @@ import com.internousdev.alatanapizza.util.ErrorMessageConstants;
 import com.opensymphony.xwork2.ActionSupport;
 
 
-public class MasterAddConfirm extends ActionSupport implements SessionAware,ErrorMessageConstants{
+public class MasterAddConfirmAction extends ActionSupport implements SessionAware,ErrorMessageConstants{
 
 	MasterAddConfirmDAO dao=new MasterAddConfirmDAO();
 	ProductDTO2 dto=new ProductDTO2();

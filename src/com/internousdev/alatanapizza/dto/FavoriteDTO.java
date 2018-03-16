@@ -7,6 +7,8 @@ public class FavoriteDTO {
 	private String productNameKana;
 	private String imageFilePath;
 	private String imageFileName;
+	private String msizePrice;
+	private String lsizePrice;
 	private String price;
 	private String productId;
 
@@ -45,6 +47,18 @@ public class FavoriteDTO {
 		this.imageFileName = imageFileName;
 	}
 
+	public String getMsizePrice() {
+		return msizePrice;
+	}
+	public void setMsizePrice(String msizePrice) {
+		this.msizePrice = msizePrice;
+	}
+	public String getLsizePrice() {
+		return lsizePrice;
+	}
+	public void setLsizePrice(String lsizePrice) {
+		this.lsizePrice = lsizePrice;
+	}
 	public String getPrice(){
 		return price;
 	}

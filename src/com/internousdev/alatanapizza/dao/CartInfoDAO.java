@@ -321,7 +321,7 @@ public class CartInfoDAO extends ActionSupport{
 	}
 
 	// カート更新(同じ商品をカートに入れた時、購入個数を変更する）
-	public void changeProductStock(int productStock, int productId)throws SQLException{
+	public void changeProductStock(int productStock, int productId,String userId)throws SQLException{
 		String sql = "UPDATE cart_info SET product_count=product_count+? WHERE product_id=? AND user_id=?";
 
 		try{
@@ -329,6 +329,7 @@ public class CartInfoDAO extends ActionSupport{
 			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
 			ps.setInt(1, productStock);
 			ps.setInt(2, productId);
+			ps.setString(3, userId);
 
 			ps.executeUpdate();
 		}catch(SQLException e){

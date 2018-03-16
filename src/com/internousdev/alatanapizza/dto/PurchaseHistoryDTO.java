@@ -66,7 +66,7 @@ public class PurchaseHistoryDTO {
 	public void setProductNameKana(String productNameKana) {
 		this.productNameKana = productNameKana;
 	}
-
+	//商品説明
 	public String getProductDescription() {
 		return productDescription;
 	}

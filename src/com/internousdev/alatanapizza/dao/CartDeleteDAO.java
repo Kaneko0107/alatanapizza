@@ -30,7 +30,7 @@ import com.internousdev.alatanapizza.util.DBConnector;
 		//①－(1)　ログインしているときに、全削除　＆　決済後のカート情報削除------------------------------
 		public int AlldeleteCart(String userId){
 
-			String sql="DELETE FROM cart_info WHERE userId=?";
+			String sql="DELETE FROM cart_info WHERE user_id=?";
 			int res =0;
 			try{
 				PreparedStatement ps=con.prepareStatement(sql);
@@ -47,7 +47,7 @@ import com.internousdev.alatanapizza.util.DBConnector;
 		//①－(2)　ログインしているときに、チェックしたものだけを削除--------------------------------------
 		public int PartDeleteCart(String userId,String productid){
 
-			String sql="DELETE FROM cart_info WHERE userId=? AND id=?";
+			String sql="DELETE FROM cart_info WHERE user_id=? AND id=?";
 			int res=0;
 			try{
 				PreparedStatement ps=con.prepareStatement(sql);
@@ -65,7 +65,7 @@ import com.internousdev.alatanapizza.util.DBConnector;
 		//②－(1)　ログインしていない時、全削除----------------------------------------------------------
 		public int AlldeleteCartGest(String tempUserId){
 
-			String sql="DELETE FROM cart_info WHERE temp_user?_id";
+			String sql="DELETE FROM cart_info WHERE user_id = ?";
 			int res=0;
 
 			try{
@@ -83,7 +83,7 @@ import com.internousdev.alatanapizza.util.DBConnector;
 		//②－(2)　ログインしていない時に、チェックしたものだけを削除---------------------------------------
 			public int PartDeleteCartGest(String tempUserId,String productid){
 
-				String sql="DELETE FROM cart_info WHERE userId=? AND id=?";
+				String sql="DELETE FROM cart_info WHERE user_id=? AND id=?";
 				int res=0;
 
 				try{

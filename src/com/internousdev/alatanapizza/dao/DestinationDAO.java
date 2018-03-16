@@ -32,7 +32,14 @@ public class DestinationDAO {
 	boolean result =false;
 	/**
 	 * sql文生成
+	 *
+	 *
 	 */
+
+
+	//■高木君へ　性別情報を全てコメントにしているので、ＳＱＬ文の「？」の数もひとつ減らしています。
+	//実行する際に？を足してください！！　3/15　上原
+
 	String sql="INSERT INTO destination_info("
 			+ "user_id"
 			+ ",family_name"
@@ -53,7 +60,7 @@ public class DestinationDAO {
 		ps.setString(3, destinationDTO.getFirstName());
 		ps.setString(4, destinationDTO.getFamilyNameKana());
 		ps.setString(5, destinationDTO.getFirstNameKana());
-		ps.setBoolean(6, destinationDTO.isSex());
+		ps.setString(6, destinationDTO.getSex());
 		ps.setString(7, destinationDTO.getUserAddress());
 		ps.setString(8, destinationDTO.getTelNumber());
 		ps.setString(9, destinationDTO.getEmail());
@@ -93,7 +100,7 @@ public class DestinationDAO {
 				destinationDTO.setFirstName(rs.getString("first_name"));
 				destinationDTO.setFamilyNameKana(rs.getString("family_name_kana"));
 				destinationDTO.setFirstNameKana(rs.getString("first_name_kana"));
-				destinationDTO.setSex(rs.getBoolean("sex"));
+				destinationDTO.setSex(rs.getString("sex"));
 				destinationDTO.setEmail(rs.getString("email"));
 				destinationDTO.setTelNumber(rs.getString("tel_number"));
 				destinationDTO.setUserAddress(rs.getString("user_address"));

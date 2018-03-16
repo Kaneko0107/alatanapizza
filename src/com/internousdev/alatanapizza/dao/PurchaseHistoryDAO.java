@@ -34,7 +34,7 @@ public class PurchaseHistoryDAO {
 		//phiはpurchase_history_infoの略
 
 		//★ ORDER BY regist_date DESC ★デフォルトの日付順！sort == 1
-		String sql = "SELECT phi.id, pi.product_name, pi.product_name_kana, pi.image_file_name,  phi.price, phi.product_count, pi.release_company, pi.release_date, phi.regist_date  FROM purchase_history_info phi LEFT JOIN product_info pi ON phi.product_id = pi.product_id  WHERE phi.user_id = ? ORDER BY regist_date DESC";
+		String sql = "SELECT phi.id, pi.product_name, pi.product_name_kana, pi.image_file_name, pi.image_file_path, phi.price, phi.product_count, pi.release_company, pi.release_date, phi.regist_date  FROM purchase_history_info phi LEFT JOIN product_info pi ON phi.product_id = pi.product_id  WHERE phi.user_id = ? ORDER BY regist_date DESC";
 
 
 		try{
@@ -54,6 +54,7 @@ public class PurchaseHistoryDAO {
 				dto.setReleaseDate(rs.getString("release_date"));
 				dto.setRegistDate(rs.getString("regist_date"));
 				dto.setImageFileName(rs.getString("image_file_name"));
+				dto.setImageFilePath(rs.getString("pi.image_file_path"));
 
 				purchaseHistoryDTOList.add(dto);
 			}

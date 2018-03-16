@@ -78,7 +78,7 @@ public class CartInfoDAO extends ActionSupport{
 	public ArrayList<CartInfoDTO>showUserCartList(String userId)throws SQLException{
 		ArrayList<CartInfoDTO>cartList = new ArrayList<>();
 
-		String sql = "SELECT cart_info.id, cart_info.product_id, pi.product_name, pi.product_name_kana, pi.image_file_path, pi.price, pi.release_company, pi.release_date, product_count"
+		String sql = "SELECT cart_info.id, cart_info.product_id, pi.product_name, pi.product_name_kana, pi.image_file_path, cart_info.price, pi.release_company, pi.release_date, product_count"
 				+ " FROM cart_info LEFT JOIN product_info as pi ON cart_info.product_id = pi.product_id"
 				+ " WHERE user_id = ?";
 
@@ -93,8 +93,10 @@ public class CartInfoDAO extends ActionSupport{
 				dto.setProductName(rs.getString("pi.product_name"));
 				dto.setImageFilePath(rs.getString("pi.image_file_path"));
 				dto.setProductId(rs.getInt("product_id"));
-				dto.setPrice(rs.getInt("price"));
+				dto.setPrice(rs.getInt("cart_info.price"));
 				dto.setProductCount(rs.getInt("product_count"));
+				dto.setReleaseCompany(rs.getString("pi.release_company"));
+				dto.setReleaseDate(rs.getString("pi.release_date"));
 				ArrayList<String> toppings = new ArrayList<String>();
 				int cartId = rs.getInt("cart_info.id");
 				String toppingSql = "SELECT m_topping.topping_name FROM cart_topping_info " +
@@ -264,16 +266,17 @@ public class CartInfoDAO extends ActionSupport{
 		}
 		return count;
 	}
-	public int UpdateProductCount(String userId, int productId, int productCount, int price)throws SQLException{
+	public int UpdateProductCount(String userId, int productId, int productCount)throws SQLException{
 		int count = 0;
-		String sql = "UPDATE cart_info SET product_count = product_count + ? WHERE user_id = ? AND product_id = ?";
+		String sql = "UPDATE cart_info SET price = (product_count + ?) * (price / product_count), product_count = product_count + ? WHERE user_id = ? AND product_id = ?";
 
 		try{
 			con = db.getConnection();
 			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
 			ps.setInt(1, productCount);
-			ps.setString(2, userId);
-			ps.setInt(3, productId);
+			ps.setInt(2, productCount);
+			ps.setString(3, userId);
+			ps.setInt(4, productId);
 			count = ps.executeUpdate();
 		}catch(SQLException e){
 			throw new RuntimeException(e);
@@ -301,6 +304,25 @@ public class CartInfoDAO extends ActionSupport{
 	}
 
 	//在庫更新
+	public void changeStockCount(int productStock, int productId) throws SQLException {
+		System.out.println("Stockを変更");
+		String sql = "UPDATE product_info SET stock=stock-? WHERE product_id=?";
+
+		try {
+			con = db.getConnection();
+			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
+			ps.setInt(1, productStock);
+			ps.setInt(2, productId);
+
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			con.close();
+		}
+	}
+
+	// カート更新(同じ商品をカートに入れた時、購入個数を変更する）
 	public void changeProductStock(int productStock, int productId)throws SQLException{
 		String sql = "UPDATE cart_info SET product_count=product_count+? WHERE product_id=? AND user_id=?";
 
@@ -316,14 +338,14 @@ public class CartInfoDAO extends ActionSupport{
 		}
 	}
 	//カート内の商品を1件ずつ削除
-	public void deleteSeparate(String userId,Integer integer){
+	public void deleteSeparate(String userId,Integer productId){
 		String sql = "DELETE FROM cart_info WHERE user_id = ? AND product_id=?";
 
 		try{
 			con = db.getConnection();
 			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
 			ps.setString(1, userId);
-			ps.setLong(2, integer);
+			ps.setLong(2, productId);
 			ps.executeUpdate();
 
 		}catch(SQLException e){

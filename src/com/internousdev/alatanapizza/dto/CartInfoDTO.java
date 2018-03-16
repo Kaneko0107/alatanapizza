@@ -10,6 +10,8 @@ public class CartInfoDTO {
 	private String tempUserId;
 	private String productName;
 	private String imageFilePath;
+	private String releaseCompany;
+	private String releaseDate;
 	private int productId;
 	private int productCount;
 	private int price;
@@ -91,5 +93,21 @@ public class CartInfoDTO {
 
 	public void setToppings(ArrayList<String> toppings) {
 		this.toppings = toppings;
+	}
+
+	public String getReleaseCompany() {
+		return releaseCompany;
+	}
+
+	public void setReleaseCompany(String releaseCompany) {
+		this.releaseCompany = releaseCompany;
+	}
+
+	public String getReleaseDate() {
+		return releaseDate;
+	}
+
+	public void setReleaseDate(String releaseDate) {
+		this.releaseDate = releaseDate;
 	}
 }

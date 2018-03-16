@@ -4,14 +4,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
 <link rel="stylesheet" href="./css/alatanapizza.css">
-<link rel="stylesheet" href="./css/product.css">
+
 
 <title>商品一覧</title>
 </head>
 <body>
+
+<!-- ヘッダーをインクルード  -->
+<jsp:include page="include_header.jsp" />
+
 <!------------------------------------------ 商品一覧ボタンを押した場合  --------------------------------------------------------->
 	<!-- 表示件数1ページ目 -->
 <table class="productList">
@@ -46,9 +51,9 @@
 
 			商品詳細:<s:property value="product_description" /><br>
 
-				<s:form action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" />
-				<s:submit value="注文に進む"/>
-				</s:form>
+				<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+					<img class="image" src=./images/icon/modoru2.png><br>
+				</a>
 
 	</div>
 	</s:iterator>
@@ -159,9 +164,9 @@
 
 			商品詳細:<s:property value="product_description" /><br>
 
-				<s:form action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" />
-				<s:submit value="注文に進む"/>
-				</s:form>
+			<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+					<img class="image" src=./images/icon/modoru2.png><br>
+				</a>
 
 		</div>
 	</s:iterator>
@@ -217,6 +222,9 @@
 
 </s:if>
 </s:if>
+
+<!-- フッターをインクルード -->
+<jsp:include page="include_footer.jsp" />
 
 </body>
 </html>

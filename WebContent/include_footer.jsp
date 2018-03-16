@@ -6,7 +6,7 @@
 footer{
 width:100%;
 height:30px;
-position:fixed;
+position:static;
 bottom:0;
 text-align:center;
 line-height:30px;

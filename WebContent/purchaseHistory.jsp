@@ -13,7 +13,8 @@
 	<h2>注文履歴</h2>
 	<s:if test="historyList.size() == 0">
 		<p>購入履歴はありません</p>
-	</s:if> <s:elseif test="historyList != null && historyList.size() != 0">
+	</s:if>
+	<s:elseif test="historyList != null && historyList.size() != 0">
 
 		<p>購入情報は以下になります。</p>
 
@@ -47,21 +48,18 @@
 
 			<!-- チェックボックス -->
 			<s:checkbox name="checkFlg" value="2" fieldValue="%{id}" />
+
 			<!-- 選択したものだけを削除 -->
 			<div class="date">
 				<p>注文日</p>
-				<p>
 
-				</p>
 			</div>
 			<!-- 画像 -->
 			<div class="main_content">
 				<div class="pizagazou">
-					<a
-						href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+					<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
 						<img class="image" src="<s:property value='image_file_path'/>"
-						alt="Photo" width="200" height="170">
-					</a><br>
+						alt="Photo" width="200" height="170"></a><br>
 				</div>
 
 
@@ -72,32 +70,28 @@
 				<!-- 商品かな -->
 				<s:property value="product_name_kana" />
 				<br>
+
 				<!-- 商品詳細 -->
-				商品詳細:<s:property value="product_description" />
+				商品詳細:
+				<s:property value="product_description" />
 				<br>
 
 			</div>
 
 			<!-- 金額 -->
 			<div class="price_count">
-				<div class="price">
-					<span>金額:\</span>
-					<s:property value="price"/>
-
-				</div>
-				<div class="count">
-					(購入数:
-					<s:property value="count" />
-					点)
-				</div>
+				<div class="price"><span>金額:\</span><s:property value="price" /></div>
+				<br>
+				<div class="count">(購入数:<s:property value="count" />点)</div>
 			</div>
-
-
 
 		</s:iterator>
 
-	</s:elseif> <a href='<s:url action="MyPageAction" />'>マイページに戻る</a> <br>
-	<p id="pageTop"><a href="#"><i class="fa fa-chevron-up"></i>ページトップに戻る</a>
+	</s:elseif>
+	<a href='<s:url action="MyPageAction" />'>マイページに戻る</a>
+	<br>
+	<p id="pageTop">
+		<a href="#"><i class="fa fa-chevron-up"></i>ページトップに戻る</a>
 	</p>
 
 	<jsp:include page="include_footer.jsp" />

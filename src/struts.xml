@@ -94,11 +94,13 @@
  	<action name ="DestConfirmAction" class ="com.internousdev.alatanapizza.action.DestConfirmAction" method ="execute">
 		<result name ="success">destinationConfirm.jsp</result>
 		<result name ="error">destinationInfo.jsp</result>
+		<result name ="login">destinationInfo.jsp</result>
 	</action>
 
 
 	 <action name ="DestCompleteAction" class ="com.internousdev.alatanapizza.action.DestCompleteAction" method ="execute">
 		<result name ="success">destinationComplete.jsp</result>
+		<result name ="error">home.jsp</result>
 	</action>
 
 

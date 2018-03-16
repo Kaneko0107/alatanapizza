@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<link rel="stylesheet" href="./css/alatanapizza.css">
 <title>変更完了	</title>
 </head>
 <body>

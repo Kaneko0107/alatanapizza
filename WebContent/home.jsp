@@ -20,9 +20,8 @@
 </head>
 <body>
 
-<!-- ヘッダーをインクルード -->
+<!-- ヘッダーをインクルード  -->
 <jsp:include page="include_header.jsp" />
-<jsp:include page="headerSearch.jsp" />
 
 	<div id="main">
 		<div id="top">

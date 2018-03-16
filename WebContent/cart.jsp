@@ -4,21 +4,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>カート画面</title>
-
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>カート画面</title>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/reset.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mt_style.css">
 	<link rel="shortcut icon" href="${pageContext.request.contextPath}/img/favicon.ico">
-
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cart_style.css">
-
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 </head>
 <body>
 
-<div class="main">
+
+	<div class="main">
 
 	<h1>カート</h1>
 	<s:property value="errMsg"/>
@@ -34,13 +32,11 @@
 			<div class="border"></div>
 <!-- 画像を表示させる -->
 			<div class="main_content clearfix_bon">
-			<div class="pro_img">
 			<s:url id="url" action="ProductDetailsAction"><s:param name="product_id" value="productId" /></s:url>
 
 			<s:a href="%{url}">
-			  <img src='<s:property value="imageFilePath"/>' alt="画像なし"/>
+			  <img src='<s:property value="imageFilePath"/>' width="200" height="170" alt="画像なし"/>
 			</s:a>
-			</div>
 
 <!-- テキストデータを表示させる -->
 			<div class="pro_text">
@@ -63,7 +59,8 @@
 <!-- 値段表示 -->
 			<div class="price_count"></div>
 			<div class="price">
-			価格:¥<fmt:formatNumber value="${price}" />
+			<%-- 価格:¥<fmt:formatNumber value="${price}" /> --%>
+			価格:¥<s:property value="price" />
 			</div>
 
 <!-- 個数表示 -->
@@ -73,13 +70,12 @@
 
 <!-- 発売会社 -->
 			<div class="company">
-			発売会社：<s:property value="release_company" />
+			発売会社：<s:property value="releaseCompany" />
 			</div>
 
 <!-- 年月日 -->
 			<div class="release_date">
-			発売日：<fmt:parseDate var="date2" value="${release_date}" pattern="yyyy-MM-dd HH:mm:ss.SS" />
-					<fmt:formatDate value="${date2}" pattern="yyyy年M月d日" />
+			発売日：<s:property value="releaseDate"/>
 			</div>
 		</div>
 
@@ -93,21 +89,32 @@
 
 		</s:iterator>
 		<div class="border"></div>
+<!-- 合計金額の表示 -->
+			<div class="totalprice">
+			合計金額:¥
+			<s:property value="total_price" />
+			</div>
 		</s:else>
 		</div>
 
-<!-- 合計金額の表示 -->
-			<div class="totalprice">
-			合計金額:\
-			<fmt;formatNumber value="${totalPrice}" />
-			</div>
 
 <!-- 決済に移行する -->
 			<s:if test="! cartList.isEmpty()">
 			<div class="settlement_btn">
-			 <a href='<s:url action ="PurchaseInfoAction" />'>決済画面へ</a>
+			 <a href='<s:url action ="BuyItemCompleteAction" />'>決済画面へ</a>
 			</div>
 			</s:if>
+
+<!-- 商品一覧ページに移行する -->
+			<div class="settlement_btn">
+			 <a href='<s:url action ="ProductListAction" />'>商品一覧画面へ</a>
+			</div>
+
+<!-- ホーム画面に移行する -->
+			<div class="settlement_btn">
+			 <a href='<s:url action ="HomeAction" />'>ホーム画面へ</a>
+			</div>
+
 <!-- F5キー（画面の更新）とBackspaceとDeleteの無効化 -->
 			<script>
 			$(function(){

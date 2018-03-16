@@ -16,7 +16,7 @@
 
 <a href='<s:url action="MyPageAction" />'>マイページに戻る</a>
 	<br>
-
+<a href='<s:url action="HomeAction" />'>ホームに戻る</a>
 
 	<jsp:include page="include_footer.jsp" />
 </body>

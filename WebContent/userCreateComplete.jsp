@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Style-Type" content="text/css"/>
   <meta http-equiv="Content-Script-Type" content="text/javascript"/>
 
-  <link href="css/craftdenki.css" rel="stylesheet">
+<link rel="stylesheet" href="./css/alatanapizza.css">
 
   <title>登録完了画面</title>
 </head>

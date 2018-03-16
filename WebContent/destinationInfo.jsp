@@ -24,6 +24,7 @@
 		<div id="top">
 		</div>
 		<div>
+			<span style="color: red;" ><s:property value="errorMessageList"/></span>
 			<h3>新規宛先情報入力</h3>
 			<h3>下記に必要事項を記入してください</h3>
 			<s:form action="DestConfirmAction">
@@ -36,8 +37,8 @@
 				<span>名ふりがな</span>
 				<s:textfield name="firstNameKana" value ="%{firstNameKana}"/>
 				<span>性別</span>
-				<label><input type="radio" name="sex" value="0" checked />男</label>
-				<label><input type="radio" name="sex" value="1"  />女</label>
+				<label><input type="radio" name="sex" value="男" checked />男</label>
+				<label><input type="radio" name="sex" value="女"  />女</label>
 				<span>住所</span>
 				<s:textfield name="userAddress" value ="%{userAddress}"/>
 				<span>電話番号</span>

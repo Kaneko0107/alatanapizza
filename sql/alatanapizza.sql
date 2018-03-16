@@ -540,7 +540,7 @@ INSERT INTO m_category(-- --------カテゴリーマスタテーブルへ-------
     100,-- 価格
 	50,-- 在庫
 	"./images/drink/OolongTea.jpg",-- 画像ファイルパス
-	" OolongTea.jpg",-- 画像ファイル名
+	"OolongTea.jpg",-- 画像ファイル名
 	now(),-- 発売年月
 	"ALATANAPIZZA",-- 発売会社
 	1,-- ステータス(0:無効、1:有効)

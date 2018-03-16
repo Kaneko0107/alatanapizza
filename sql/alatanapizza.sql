@@ -22,7 +22,7 @@ status tinyint NOT NULL DEFAULT 1,-- ステータス (0:無効、1:有効)
 logined tinyint NOT NULL DEFAULT 0,-- ログインフラグ (0:未ログイン、1:ログイン済み)
 regist_date datetime NOT NULL,-- 登録日
 update_date datetime,-- 更新日
-master tinyint NOT NULL DEFAULT 0,-- 管理者情報
+master tinyint NOT NULL DEFAULT 0-- 管理者情報
 );
 
 

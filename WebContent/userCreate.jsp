@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <div id="header"> </div>
+  <jsp:include page="include_header.jsp" />
 
   <div id="main">
     <div id="top">
@@ -27,37 +27,37 @@
     <!-- エラーメッセージ-->
     <div>
       <s:if test="errMsgList !=null && !(errMsgList.isEmpty())">
-        <td><s:iterator value="errMsgList"><s:property value="errMsgList"/></s:iterator><br></td>
+        <td><s:iterator value="errMsgList"><s:property /></s:iterator><br></td>
       </s:if>
       <s:if test="errMsgListId != null && !(errMsgListId.isEmpty())">
-	    <td><s:iterator value="errMsgListId"><s:property value="errMsgListId"/></s:iterator></td>
+	    <td><s:iterator value="errMsgListId"><s:property /></s:iterator></td>
       </s:if>
       <s:if test="errMsgListPass != null && !(errMsgListPass.isEmpty())">
-        <td><s:iterator value="errMsgListPass"><br><s:property value="errMsgListPass"/></s:iterator></td>
+        <td><s:iterator value="errMsgListPass"><br><s:property /></s:iterator></td>
       </s:if>
       <s:if test="errMsgListFamilyName !=null && !(errMsgListFamilyName.isEmpty())">
-        <td><s:iterator value="errMsgListFamilyName"><br><s:property value="errMsgListFamilyName"/></s:iterator></td>
+        <td><s:iterator value="errMsgListFamilyName"><br><s:property /></s:iterator></td>
       </s:if>
       <s:if test="errMsgListFirstName != null && !(errMsgListFirstName.isEmpty())">
-        <td><s:iterator value="errMsgListFirstName"><br><s:property value="errMsgListFirstName"/></s:iterator></td>
+        <td><s:iterator value="errMsgListFirstName"><br><s:property /></s:iterator></td>
       </s:if>
       <s:if test="errMsgListFamilyNameKana != null && !(errMsgListFamilyNameKana.isEmpty())">
-        <td><s:iterator value="errMsgListFamilyNameKana"><br><s:property value="errMsgListFamilyNameKana"/></s:iterator></td>
+        <td><s:iterator value="errMsgListFamilyNameKana"><br><s:property /></s:iterator></td>
       </s:if>
       <s:if test="errMsgListFirstNameKana != null && !(errMsgListFirstNameKana.isEmpty())">
-        <td><s:iterator value="errMsgListFirstNameKana"><br><s:property value="errMsgListFirstNameKana"/></s:iterator></td>
+        <td><s:iterator value="errMsgListFirstNameKana"><br><s:property /></s:iterator></td>
       </s:if>
       <s:if test="errMsgListSex != null && !(errMsgListSex.isEmpty())">
-        <td><s:iterator value="errMsgListSex"><s:property value="errMsgListSex"/></s:iterator></td>
+        <td><s:iterator value="errMsgListSex"><s:property /></s:iterator></td>
       </s:if>
       <s:if test="errMsgListMail != null && !(errMsgListMail.isEmpty())">
-        <td><s:iterator value="errMsgListMail"><br><s:property value="errMsgListMail"/></s:iterator></td><br>
+        <td><s:iterator value="errMsgListMail"><br><s:property /></s:iterator></td><br>
       </s:if>
       <s:if test="errMsgListQuestion != null && !(errMsgListQuestion.isEmpty())">
-        <td><s:iterator value="errMsgListQuestion"><s:property value="errMsgListQuestion"/></s:iterator></td>
+        <td><s:iterator value="errMsgListQuestion"><s:property /></s:iterator></td><br>
       </s:if>
       <s:if test="errMsgListAnswer != null && !(errMsgListAnswer.isEmpty())">
-        <td><s:iterator value="errMsgListAnswer"><s:property value="errMsgListAnswer"/></s:iterator></td>
+        <td><s:iterator value="errMsgListAnswer"><s:property /></s:iterator></td>
       </s:if>
     </div>
 
@@ -187,8 +187,7 @@
     </div>
    </div>
 
-  <div id="footer"> </div>
-
+    <jsp:include page="include_footer.jsp" />
 
 </body>
 </html>

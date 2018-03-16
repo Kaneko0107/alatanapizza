@@ -67,14 +67,14 @@ a {
 		<li><s:form action="CartProductAction">
 				<s:submit value="カート" class="submit" />
 			</s:form></li>
-			<li><!-- 検索ボックスをインクルード -->
-	<br>
-	<jsp:include page="headerSearch.jsp" /></li>
+
 
 	</ul>
 
 	</div>
-
+<!-- 検索ボックスをインクルード -->
+	<br>
+	<jsp:include page="headerSearch.jsp" />
 
 	<div class="down">
 

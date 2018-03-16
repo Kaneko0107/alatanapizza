@@ -55,8 +55,7 @@
 			</table>
 		</div>
 
-		<span>修正する場合は</span>
-		<a href='<s:url action="DestAction"/>'>こちら</a>
+<a href="javascript:void(0)" onclick="javascript:history.back()">戻る</a>
 
 
 	</div>

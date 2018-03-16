@@ -24,26 +24,26 @@
 		<div id="top">
 		</div>
 		<div>
-			<span style="color: red;" ><s:property value="errorMessageList"/></span>
+			<div style="color: red;" ><s:property value="errorMessageList"/></div>
 			<h3>新規宛先情報入力</h3>
 			<h3>下記に必要事項を記入してください</h3>
 			<s:form action="DestConfirmAction">
-				<span>姓</span>
+				<div>姓</div>
 				<s:textfield name="familyName" value ="%{familyName}" />
-				<span>名</span>
+				<div>名</div>
 				<s:textfield name="firstName" value ="%{firstName}"/>
-				<span>姓ふりがな</span>
+				<div>姓ふりがな</div>
 				<s:textfield name="familyNameKana" value ="%{familyNameKana}"/>
-				<span>名ふりがな</span>
+				<div>名ふりがな</div>
 				<s:textfield name="firstNameKana" value ="%{firstNameKana}"/>
-<!--				<span>性別</span>
+<!--				<div>性別</div>
 				<label><input type="radio" name="sex" value="男" checked />男</label>
 				<label><input type="radio" name="sex" value="女"  />女</label>-->
-				<span>住所</span>
+				<div>住所</div>
 				<s:textfield name="userAddress" value ="%{userAddress}"/>
-				<span>電話番号</span>
+				<div>電話番号</div>
 				<s:textfield name="telNumber" value ="%{telNumber}"/>
-				<span>メールアドレス</span>
+				<div>メールアドレス</div>
 				<s:textfield name="email" value ="%{email}"/>
 				<s:submit value="登録情報確認画面へ"/>
 			</s:form>

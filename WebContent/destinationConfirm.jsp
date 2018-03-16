@@ -28,25 +28,25 @@
 			<h3>以下の内容で登録します</h3>
 			<table>
 			<s:form action="DestCompleteAction">
-				<span>姓</span>
+				<div>姓</div>
 				<s:property value="familyName" escape="false"/>
 				<input type=hidden name="familyName" value='<s:property value="familyName"/>' />
-				<span>名</span>
+				<div>名</div>
 				<s:property value="firstName" escape="false"/>
 				<input type=hidden name="firstName" value='<s:property value="firstName"/>' />
-				<span>姓ふりがな</span>
+				<div>姓ふりがな</div>
 				<s:property value="familyNameKana" escape="false"/>
 				<input type=hidden name="familyNameKana" value='<s:property value="familyNameKana"/>' />
-				<span>名ふりがな</span>
+				<div>名ふりがな</div>
 				<s:property value="firstNameKana" escape="false"/>
 				<input type=hidden name="firstNameKana" value='<s:property value="firstNameKana"/>' />
-				<span>住所</span>
+				<div>住所</div>
 				<s:property value="userAddress" escape="false"/>
 				<input type=hidden name="userAddress" value='<s:property value="userAddress"/>' />
-				<span>電話番号</span>
+				<div>電話番号</div>
 				<s:property value="telNumber" escape="false"/>
 				<input type=hidden name="telNumber" value='<s:property value="telNumber"/>' />
-				<span>メールアドレス</span>
+				<div>メールアドレス</div>
 				<s:property value="email" escape="false"/>
 				<input type=hidden name="email" value='<s:property value="email"/>' />
 

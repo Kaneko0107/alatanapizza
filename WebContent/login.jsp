@@ -25,7 +25,7 @@
 		</div>
 		<div>
 			<!-- <span style="color: red;" ><s:property value="loginFlgMessageList"/></span> -->
-			<span style="color: red;" ><s:property value="errorMessageList"/></span>
+			<div style="color: red;" ><s:property value="errorMessageList"/></div>
 			<h3>会員の方のログイン</h3>
 			<s:form action="LoginAction">
 				<s:textfield type="text" name="userId" value ="%{#session.saveId}"/>

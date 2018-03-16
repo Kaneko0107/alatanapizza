@@ -12,7 +12,7 @@
 <title>商品詳細画面</title>
 <style type="text/css">
 	#sP{
-		margin:0 27% 0 27%;
+		margin:0 25% 0 25%;
 	}
 </style>
 
@@ -172,7 +172,7 @@
 		Quantity:
 			<s:select name="productCount" id="product_count" list="stockList"
 				onchange="outputSelectedValueAndText(this);" />&nbsp;
-		TotalAmount:￥
+		Total:￥
 			<s:hidden name="total_price" id="total_price" />
 				<span id="total_price_text"></span>
 					<s:hidden name="productId" value="%{session.d_product_id}" ></s:hidden>
@@ -182,8 +182,10 @@
 	</s:form>
 		<%--お気に入りボタン,非ログイン時は非表示 --%>
 			<s:if test="#session.containsKey('userId')">
-				<s:form action="FavoriteAction" name="favoriteInsertFlg" value="1">
+				<s:form action="FavoriteAction">
 					<span class="favlist">
+						<input type=hidden name=favoriteInsertFlg value="1" />
+						<input type=hidden name=product_id value='<s:property value="product_id"/>' />
 						<s:submit value=" ★お気に入り登録" onclick="FavoriteAction();" />
 					</span>
 				</s:form>
@@ -223,7 +225,12 @@
 					</s:iterator>
 		</div><br>
 
-	<!-- フッター --><br><br>
+	<!-- フッター
 	<jsp:include page="include_footer.jsp" />
+	-->
+
 </body>
+
+					<a href='<s:url action="ProductListAction"/>'>商品一覧画面に戻る</a>
+
 </html>

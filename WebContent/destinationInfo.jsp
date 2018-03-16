@@ -29,15 +29,15 @@
 			<h3>下記に必要事項を記入してください</h3>
 			<s:form action="DestConfirmAction">
 				<div>姓</div>
-				<s:textfield placeholder="1文字以上16文字以下、半角英語、漢字、ひらがな" name="familyName" value ="%{familyName}" />
+				<s:textfield placeholder="1文字以上16文字以下" name="familyName" value ="%{familyName}" />
 				<div>名</div>
-				<s:textfield placeholder="1文字以上16文字以下、半角英語、漢字、ひらがな" name="firstName" value ="%{firstName}"/>
+				<s:textfield placeholder="1文字以上16文字以下" name="firstName" value ="%{firstName}"/>
 				<div>姓(かな)</div>
-				<s:textfield placeholder="1文字以上16文字以下、ひらがな" name="familyNameKana" value ="%{familyNameKana}"/>
+				<s:textfield placeholder="1文字以上16文字以下" name="familyNameKana" value ="%{familyNameKana}"/>
 				<div>名(かな)</div>
-				<s:textfield placeholder="1文字以上16文字以下、ひらがな" name="firstNameKana" value ="%{firstNameKana}"/>
+				<s:textfield placeholder="1文字以上16文字以下" name="firstNameKana" value ="%{firstNameKana}"/>
 				<div>住所</div>
-				<s:textfield placeholder="15文字以上50文字以下、半角英数字、漢字、カタカナ、半角記号" name="userAddress" value ="%{userAddress}"/>
+				<s:textfield placeholder="15文字以上50文字以下" name="userAddress" value ="%{userAddress}"/>
 				<div>電話番号</div>
 				<s:textfield placeholder="11文字以上13文字以下" name="telNumber" value ="%{telNumber}"/>
 				<div>メールアドレス</div>
@@ -46,7 +46,7 @@
 				<s:submit value="登録情報確認画面へ"/>
 			</s:form>
 		</div>
-		<a href="javascript:void(0)" onclick="javascript:history.back()">戻る</a>
+		<a href='<s:url action="BuyItemCompleteAction" />'>戻る</a>
 
 
 

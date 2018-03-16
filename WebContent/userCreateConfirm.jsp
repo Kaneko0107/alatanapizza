@@ -13,6 +13,82 @@
 
   <title>確認画面</title>
 
+  <style>
+
+
+header{
+	    position:absolute;
+	    top:0;
+	    width:100%;
+	    height:100px;
+	    background:linear-gradient(to bottom,black,rgba(0,0,0,0.1));
+	    }
+
+.tab {
+	    width: 50%;
+	    background: rgba(0, 0, 0, 0.5);
+	    margin:0 auto;
+	    padding-top:20px;
+	    margin-bottom:100px;
+	    }
+
+
+table {
+	    text-align: left;
+	    padding-top: 10%;
+	    }
+
+
+/* .form {
+	    background-color: rgba(200, 200, 200, 0.5);
+	    width: 200px;
+	    height: 30px;
+	    border-radius: 5px;
+	    } */
+
+.title {
+	    font-size: 20px;
+	    }
+
+tr td {
+	    padding:5px 5px 5px 20px;
+	    }
+
+footer {
+	    width:100%;
+	    height:30px;
+	    position: fixed;
+	    bottom: 0;
+	    text-align: center;
+	    margin: 0 auto;
+	    }
+
+hr {
+	    border: none;
+	    border-top: dashed 1px #ccc;
+	    height: 1px;
+	    color: #ffffff;
+	    margin: 0 8 0 8;
+	    }
+
+.moji {
+	    text-align: center;
+	    font-size: 12px;
+	    color: #FFCC33;
+	    }
+
+.gazou {
+	    text-align:right;
+	    margin-top: 5px;
+	    }
+
+.gazou:hover{
+	    background-image:url("modoru.png")
+	    }
+
+
+</style>
+
 </head>
 
 <body>
@@ -24,65 +100,70 @@
     </div>
 
 
-    <div>登録する内容は以下でよろしいですか？</div>
+    <div class=moji>登録する内容は以下でよろしいですか？</div>
+
+    <div class="tab">
 
       <table>
 
       <tr id="box">
-        <td>ユーザーID :</td>
+        <td>ユーザーＩＤ</td>
         <td> <s:property value="loginUserId"/> </td>
       </tr>
 
       <tr id="box">
-        <td>ログインPASS :</td>
+        <td>パスワード</td>
         <td> <s:property value="loginPassword" /> </td>
       </tr>
 
       <tr id="box">
-        <td>姓 :</td>
+        <td>お名前（姓）</td>
         <td> <s:property value="familyName" /> </td>
       </tr>
 
       <tr id="box">
-        <td>名 :</td>
+        <td>お名前（名）</td>
         <td> <s:property value="firstName" /> </td>
       </tr>
 
       <tr id="box">
-        <td>姓（かな） :</td>
+        <td>ふりがな（姓）</td>
         <td> <s:property value="familyNameKana"/> </td>
       </tr>
 
       <tr id="box">
-        <td>名（かな） :</td>
+        <td>ふりがな（名）</td>
         <td> <s:property value="firstNameKana"/> </td>
       </tr>
 
       <tr id="box">
-        <td>性別 :</td>
+        <td>性別</td>
           <td> <s:if test="sex==0">男</s:if>
 	 		   <s:if test="sex==1">女</s:if>
 	 	  </td>
       </tr>
 
       <tr id="box">
-        <td>メールアドレス :</td>
+        <td>メールアドレス</td>
         <td> <s:property value="mail"/> </td>
       </tr>
 
       <tr id="box">
-        <td>秘密の質問 :</td>
+        <td>秘密の質問</td>
           <td> <s:if test="secretQuestion==1">好きな食べ物</s:if>
 	 		   <s:if test="secretQuestion==2">嫌いな食べ物</s:if>
 	 	  </td>
       </tr>
 
       <tr id="box">
-        <td>答え :</td>
+        <td>答え</td>
         <td> <s:property value="secretAnswer"/> </td>
       </tr>
 
-</table>
+     </table>
+     </div>
+     </div>
+
 
           <s:form action="UserCreateCompleteAction">
             <s:submit value="登録する"/>
@@ -105,6 +186,8 @@
     </s:form>
 
     </div>
+<br>
+<br><br>
 
 
    <jsp:include page="include_footer.jsp" />

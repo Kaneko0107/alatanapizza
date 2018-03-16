@@ -25,7 +25,7 @@
       <h3>登録が完了しました</h3>
 
       <div>
-        <input type="button" onclick="location.href='<s:url action="HomeAction"/>'" value="ログインへ" >
+        <input type="button" onclick="location.href='<s:url action="LoginAction"/>'" value="ログインへ" >
       </div>
     </div>
 

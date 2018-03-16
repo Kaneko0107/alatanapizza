@@ -28,12 +28,12 @@
 			<h3>会員の方のログイン</h3>
 			<s:form action="LoginAction">
 				<div>ID</div><!-- アラート化できたらしたい -->
-				<s:textfield type="text" placeholder="1文字以上8文字以下、半角英数字" name="userId" value ="%{#session.saveId}"/>
+				<s:textfield type="text" placeholder="1文字以上8文字以下" name="userId" value ="%{#session.saveId}"/>
 				<br>
 				<label><s:checkbox name ="saveLogin"/>
 				次回からIDの入力を省略</label>
 				<div>パスワード</div>
-				<s:password placeholder="1文字以上8文字以下、半角英数字" name="password"/>
+				<s:password placeholder="1文字以上8文字以下" name="password"/>
 
 				<br>
 				<s:hidden name ="kessai" value ="%{kessai}"/>

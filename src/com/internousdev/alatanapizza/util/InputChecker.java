@@ -104,10 +104,10 @@ public class InputChecker {
 
 		if(userAddress.equals("")){
 			result ="住所を入力してください。";
-		}else if(userAddress.length() <15 || userAddress.length() >50){
-			result ="住所は15文字以上50文字以下で入力してください。";
-		}else if(!userAddress.matches("^[a-zA-Z0-9ァ-ヾ一-龠々!-~]+$")){
-			result ="住所は半角英数字、漢字、カタカナおよび半角記号で入力してください。";
+		}else if(userAddress.length() <14 || userAddress.length() >50){
+			result ="住所は14文字以上50文字以下で入力してください。";
+		}else if(!userAddress.matches("^[a-zA-Z0-9ぁ-ゞァ-ヾ一-龠々!-~]+$")){
+			result ="住所は半角英数字、漢字、ひらがな、カタカナおよび半角記号で入力してください。";
 		}
 		return result;
 
@@ -148,7 +148,7 @@ public class InputChecker {
 		if(keywords.length() <1 || keywords.length() >16){
 			result ="検索は、1文字以上16文字以下で入力してください。";
 		}else if(!keywords.matches("^[a-zA-Z0-9ぁ-ゞ一-龠々ァ-ヾ]+$")){
-			result ="検索は半角英数字、漢字、カタカナ、ひらがなで入力してください。";
+			result ="検索は半角英数字、漢字、ひらがな、カタカナで入力してください。";
 		}
 		return result;
 	}

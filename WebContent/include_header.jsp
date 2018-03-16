@@ -44,11 +44,6 @@ a {
 	text-decoration: none;
 }
 
-img {
-	margin-top: 5px;
-	width: 20px;
-	height: 20px;
-}
 </style>
 
 <header>

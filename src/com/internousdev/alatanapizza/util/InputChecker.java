@@ -36,11 +36,11 @@ public class InputChecker {
 		String result ="OK";
 
 		if(familyNameKana.equals("")){
-			result ="姓ふりがなを入力してください。";
+			result ="姓のふりがなを入力してください。";
 		}else if(familyNameKana.length() <1 || familyNameKana.length() >16){
-			result ="姓ふりがなは1文字以上16文字以下で入力してください。";
+			result ="姓のふりがなは1文字以上16文字以下で入力してください。";
 		}else if(!familyNameKana.matches("^[ぁ-ゞ]+$")){
-			result ="姓ふりがなはひらがなで入力してください。";
+			result ="姓のふりがなはひらがなで入力してください。";
 		}
 		return result;
 	}
@@ -49,11 +49,11 @@ public class InputChecker {
 		String result ="OK";
 
 		if(firstNameKana.equals("")){
-			result ="名ふりがなを入力してください。";
+			result ="名のふりがなを入力してください。";
 		}else if(firstNameKana.length() <1 || firstNameKana.length() >16){
-			result ="名ふりがなは1文字以上16文字以下で入力してください。";
+			result ="名のふりがなは1文字以上16文字以下で入力してください。";
 		}else if(!firstNameKana.matches("^[ぁ-ゞ]+$")){
-			result ="名ふりがなはひらがなで入力してください。";
+			result ="名のふりがなはひらがなで入力してください。";
 		}
 		return result;
 	}

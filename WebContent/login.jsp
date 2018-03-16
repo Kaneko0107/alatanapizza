@@ -59,6 +59,8 @@
 				<a href='<s:url action="UserCreateAction"/>'>こちら</a>
 			</span>
 		</div>
+
+		<a href="javascript:void(0)" onclick="javascript:history.back()">戻る</a>
 	</div>
 <jsp:include page="include_footer.jsp" />
 </body>

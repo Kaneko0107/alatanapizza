@@ -29,22 +29,19 @@
 			<h3>下記に必要事項を記入してください</h3>
 			<s:form action="DestConfirmAction">
 				<div>姓</div>
-				<s:textfield name="familyName" value ="%{familyName}" />
+				<s:textfield placeholder="1文字以上16文字以下、半角英語、漢字、ひらがな" name="familyName" value ="%{familyName}" />
 				<div>名</div>
-				<s:textfield name="firstName" value ="%{firstName}"/>
+				<s:textfield placeholder="1文字以上16文字以下、半角英語、漢字、ひらがな" name="firstName" value ="%{firstName}"/>
 				<div>姓ふりがな</div>
-				<s:textfield name="familyNameKana" value ="%{familyNameKana}"/>
+				<s:textfield placeholder="1文字以上16文字以下、ひらがな" name="familyNameKana" value ="%{familyNameKana}"/>
 				<div>名ふりがな</div>
-				<s:textfield name="firstNameKana" value ="%{firstNameKana}"/>
-<!--				<div>性別</div>
-				<label><input type="radio" name="sex" value="男" checked />男</label>
-				<label><input type="radio" name="sex" value="女"  />女</label>-->
+				<s:textfield placeholder="1文字以上16文字以下、ひらがな" name="firstNameKana" value ="%{firstNameKana}"/>
 				<div>住所</div>
-				<s:textfield name="userAddress" value ="%{userAddress}"/>
+				<s:textfield placeholder="15文字以上50文字以下、半角英数字、漢字、カタカナ、半角記号" name="userAddress" value ="%{userAddress}"/>
 				<div>電話番号</div>
-				<s:textfield name="telNumber" value ="%{telNumber}"/>
+				<s:textfield placeholder="11文字以上13文字以下" name="telNumber" value ="%{telNumber}"/>
 				<div>メールアドレス</div>
-				<s:textfield name="email" value ="%{email}"/>
+				<s:textfield placeholder="18文字以上32文字以下" name="email" value ="%{email}"/>
 				<s:submit value="登録情報確認画面へ"/>
 			</s:form>
 		</div>

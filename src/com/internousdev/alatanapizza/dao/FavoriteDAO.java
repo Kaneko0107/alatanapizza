@@ -20,7 +20,7 @@ public class FavoriteDAO {
 		ArrayList<FavoriteDTO> favoriteDTO =new ArrayList<FavoriteDTO>();
 		String sql = "SELECT " + "pi.id as id,"+ "pi.product_id as product_id," + "pi.product_name as product_name,"
 				+ "pi.product_name_kana as product_name_kana," + "pi.image_file_path as image_file_path,"
-				+ "pi.price as price" + " FROM "
+				+ "pi.image_file_name as image_file_name,"+ "pi.price as price" + " FROM "
 				+ "product_info as pi " + "JOIN favorite_info as fi " + "ON fi.product_id = pi.product_id "
 				+ "WHERE fi.user_id = ?";
 

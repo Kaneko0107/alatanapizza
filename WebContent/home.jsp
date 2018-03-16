@@ -24,10 +24,24 @@
 <jsp:include page="include_header.jsp" />
 
 	<div id="main">
-
+		<div id="top">
+		</div>
+		<div>
+			<h3>ログインフォームへ</h3>
+			<s:form action="LoginAction">
+				<s:submit value="ログインフォームへ"/>
+			</s:form>
+		</div>
+		<div>
+			<h3>商品フォームへ</h3>
+			<s:form action="ProductListAction">
+				<s:submit value="商品フォームへ"/>
+			</s:form>
+		</div>
 
 
 	</div>
+
 <jsp:include page="include_footer.jsp" />
 </body>
 </html>

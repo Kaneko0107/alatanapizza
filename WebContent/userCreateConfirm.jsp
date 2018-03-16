@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <div id="header"> </div>
+  <jsp:include page="include_header.jsp" />
 
   <div id="main">
     <div id="top">
@@ -106,7 +106,8 @@
 
     </div>
 
-  <div id="footer"> </div>
+
+   <jsp:include page="include_footer.jsp" />
 
 </body>
 </html>

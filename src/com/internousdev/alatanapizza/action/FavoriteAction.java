@@ -38,38 +38,12 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 				userId = session.get("userId").toString();
 				favoriteList = dao.getFavoriteInfo(userId);
 
+			} else {
+
+
+				/*userId = session.get("temp_user_id").toString();*/
 			}
 		}
-		else if (deleteFlg.equals("1")) { //削除ボタン押した後
-			// checkListがnullじゃないとき
-			if (checkList != null) {
-
-				for (String deleteId : checkList) {
-					count += dao.deleteFavoriteInfo(deleteId, session.get("userId").toString());
-
-					deleteFlg = null;
-					userId = session.get("userId").toString();
-					favoriteList = dao.getFavoriteInfo(userId);
-					result = SUCCESS;
-
-				}
-			}
-
-
-			//checkListがnullのとき
-			else {
-
-				userId = session.get("userId").toString();
-				favoriteList = dao.getFavoriteInfo(userId);
-
-				result = SUCCESS;
-				return result;
-			}
-
-		}
-
-
-
 
 		if (session.containsKey("userId")) {
 
@@ -106,6 +80,33 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 			}
 
 
+			else if (deleteFlg.equals("1")) { //削除ボタン押した後
+				// checkListがnullじゃないとき
+				if (checkList != null) {
+
+					for (String deleteId : checkList) {
+						count += dao.deleteFavoriteInfo(deleteId, session.get("userId").toString());
+
+						deleteFlg = null;
+						userId = session.get("userId").toString();
+						favoriteList = dao.getFavoriteInfo(userId);
+						result = SUCCESS;
+
+					}
+				}
+
+
+				//checkListがnullのとき
+				else {
+
+					userId = session.get("userId").toString();
+					favoriteList = dao.getFavoriteInfo(userId);
+
+					result = SUCCESS;
+					return result;
+				}
+
+			}
 				//ログイン後お気に入り登録していなければ
 			else {
 
@@ -119,9 +120,7 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 			result = ERROR;
 		}
 		return result;
-
 	}
-
 
 	public List<FavoriteDTO> getFavoriteList() {
 		return favoriteList;

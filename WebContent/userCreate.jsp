@@ -14,28 +14,7 @@
   <title>ユーザー情報入力画面</title>
 
   <style>
-  body{
-		margin:0;
-		padding:0;
-		line-height:2.0;
-		letter-spacing:1.5px;
-		font-family:arial black, Helvetica, sans-serif;
-		font-size:15px;
-		color:white;
-		text-align:center;
 
-	    background-image:url("background2.jpg");
-	    background-position: center center;
-
-  /* 画像をタイル状に繰り返し表示しない */
-	    background-repeat: no-repeat;
-
-  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
-	    background-attachment: fixed;
-
-  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
-	    background-size: cover;
-		}
 
 header{
 	    position:absolute;

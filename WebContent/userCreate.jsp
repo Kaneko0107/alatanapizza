@@ -35,7 +35,7 @@
       <s:if test="errMsgListPass != null && !(errMsgListPass.isEmpty())">
         <td><s:iterator value="errMsgListPass"><br><s:property value="errMsgListPass"/></s:iterator></td>
       </s:if>
-      <s:if test="errMsgListFamilyName != null && !(errMsgListFamilyName.isEmpty())">
+      <s:if test="errMsgListFamilyName !=null && !(errMsgListFamilyName.isEmpty())">
         <td><s:iterator value="errMsgListFamilyName"><br><s:property value="errMsgListFamilyName"/></s:iterator></td>
       </s:if>
       <s:if test="errMsgListFirstName != null && !(errMsgListFirstName.isEmpty())">
@@ -51,7 +51,7 @@
         <td><s:iterator value="errMsgListSex"><s:property value="errMsgListSex"/></s:iterator></td>
       </s:if>
       <s:if test="errMsgListMail != null && !(errMsgListMail.isEmpty())">
-        <td><s:iterator value="errMsgListMail"><br><s:property value="errMsgListMail"/></s:iterator></td>
+        <td><s:iterator value="errMsgListMail"><br><s:property value="errMsgListMail"/></s:iterator></td><br>
       </s:if>
       <s:if test="errMsgListQuestion != null && !(errMsgListQuestion.isEmpty())">
         <td><s:iterator value="errMsgListQuestion"><s:property value="errMsgListQuestion"/></s:iterator></td>

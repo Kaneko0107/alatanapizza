@@ -45,8 +45,8 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 		        Integer.parseInt(session.get("secretQuestion").toString()),
 		        session.get("secretAnswer").toString());
 
+		  String result=SUCCESS;
 
-		String result=SUCCESS;
 
 		return result;
 	}

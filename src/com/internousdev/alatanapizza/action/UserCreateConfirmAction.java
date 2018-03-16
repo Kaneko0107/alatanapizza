@@ -24,8 +24,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 	private Map<String, Object> session;
 
-
-	//private String result;
+	private String result;
 
 
 
@@ -66,19 +65,22 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 		public String execute() {
 
-		String result=ERROR;
+		    result=ERROR;
 
 		//もしuserCreate.jspでの入力が空欄ではなかったら(jspで"required"設定しているけど完全ではない為)
 		if(!(loginUserId.equals(""))&& !(loginPassword.equals(""))&& !(familyName.equals(""))&& !(firstName.equals(""))
             && !(familyNameKana.equals(""))&& !(firstNameKana.equals(""))&& !(sex.equals(""))&& !(mail.equals(""))
-			&& !(secretQuestion.equals("選択してください"))&& !(secretAnswer.equals("")) ){
+			&& !(secretQuestion.equals("選択してください"))&& !(secretAnswer.equals("")) ) {
+
 			//データーベース情報取得
 			UserCreateConfirmDAO dao = new UserCreateConfirmDAO();
+
 			//UserCreateConfirmDAOの"getUserInfo"メソッドの結果を"checkId"に代入
 			boolean checkId = dao.getUserInfo(loginUserId, loginPassword);
+
 			//userCreateConfirm.jspで使うのでsessionしておく
 			if(checkId){
-				session.put("loginUserId", loginUserId);
+				 session.put("loginUserId", loginUserId);
 				 session.put("loginPassword", loginPassword);
 				 session.put("familyName", familyName);
 				 session.put("firstName", firstName);
@@ -124,22 +126,22 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 	// 名前
 	if (familyName.length() > 16) {
-		errName1="姓は16文字以内で入力してください";
+		errName1="姓は1文字以上16文字以下で入力してください";
 		errMsgListFamilyName.add(errName1);
 	}
 
 	if (firstName.length() > 16) {
-		errName2="名は16文字以内で入力してください";
+		errName2="名は1文字以上16文字以下で入力してください";
 		errMsgListFirstName.add(errName2);
 	}
 
 	if (familyNameKana.length() > 16) {
-		errKana1="(せい)は16文字以内で入力してください";
+		errKana1="(せい)は1文字以上16文字以下で入力してください";
 		errMsgListFamilyNameKana.add(errKana1);
 	}
 
 	if (firstNameKana.length() > 16) {
-		errKana2="(めい)は16文字以内で入力してください";
+		errKana2="(めい)は1文字以上16文字以下で入力してください";
 		errMsgListFirstNameKana.add(errKana2);
 	}
 
@@ -184,12 +186,12 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 	// 答え
 	if (secretAnswer.length()>16) {
-		errAnswer="答えは16文字以内で入力してください";
+		errAnswer="答えは1文字以上16文字以下で入力してください";
 		errMsgListAnswer.add(errAnswer);
 	}
 
 
-	if ( errMsgList.isEmpty()
+	if (errMsgList.isEmpty()
 		 && errMsgListId.isEmpty()
 		 && errMsgListPass.isEmpty()
 		 && errMsgListFamilyName.isEmpty()
@@ -199,11 +201,11 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		 && errMsgListSex.isEmpty()
 		 && errMsgListMail.isEmpty()
 		 && errMsgListQuestion.isEmpty()
-		 && errMsgListAnswer.isEmpty() )
+		 && errMsgListAnswer.isEmpty()) {
 
 		 result=SUCCESS;
 
-
+	}
 
 	return result;
 
@@ -315,7 +317,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		return errMsgList;
 	}
 
-	public void setErroMsgList(ArrayList<String> errMsgList) {
+	public void setErrMsgList(ArrayList<String> errMsgList) {
 		this.errMsgList=errMsgList;
 	}
 

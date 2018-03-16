@@ -27,11 +27,14 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 	public String execute() throws SQLException{
 
 		String result =ERROR;
-		System.out.println("エラーです。ホームへ");
+
 
 		DestinationDTO destinationDTO=new DestinationDTO();
 		destinationDTO.setUserId(session.get("userId").toString());
-		destinationDTO.setFullName(familyName,firstName,familyNameKana,firstNameKana);
+		destinationDTO.setFamilyName(familyName);
+		destinationDTO.setFirstName(firstName);
+		destinationDTO.setFamilyNameKana(familyNameKana);
+		destinationDTO.setFirstNameKana(firstNameKana);
 		destinationDTO.setSex(sex);
 		destinationDTO.setUserAddress(userAddress);
 		destinationDTO.setTelNumber(telNumber);
@@ -39,9 +42,11 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 		System.out.println("宛先情報セット完了");
 
 		DestinationDAO destinationDAO=new DestinationDAO();
-		if(destinationDAO.registerDestination(destinationDTO)){
+		if(destinationDAO.registerDestination(destinationDTO)){ //update成功時にtrueが返される
 			System.out.println("宛先DBに登録完了");
 			result =SUCCESS;
+		}else{ //falseの時
+			System.out.println("エラーです。ホームへ");
 		}
 		return result;
 

@@ -121,7 +121,7 @@ public class InputChecker {
 			result ="電話番号を入力してください。";
 		}else if(telNumber.length() <11 || telNumber.length() >13){
 			result ="電話番号は11文字以上13文字以下で入力してください。";
-		}else if(!telNumber.matches("^[0-9]+$")){
+		}else if(!telNumber.matches("^[0-9-]+$")){
 			result ="電話番号は半角英数字で入力してください。";
 		}
 		return result;
@@ -134,7 +134,7 @@ public class InputChecker {
 			result ="メールアドレスを入力してください。";
 		}else if(email.length() <18 || email.length() >32){
 			result ="メールアドレスは18文字以上32文字以下で入力してください。";
-		}else if(!email.matches("^[0-9@;:!#$%&'*+-/=?^_`{|}~]+$")){
+		}else if(!email.matches("^[a-zA-Z0-9@;:!#$%&'*+-/=?^_`{|}~]+$")){
 			result ="メールアドレスは半角英数字、半角記号で入力してください。";
 		}
 		return result;

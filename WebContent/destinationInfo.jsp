@@ -29,7 +29,7 @@
 			<h3>下記に必要事項を記入してください</h3>
 			<s:form action="DestConfirmAction">
 				<span>姓</span>
-				<s:textfield name="familyName" value ="%{familyName}"/>
+				<s:textfield name="familyName" value ="%{familyName}" />
 				<span>名</span>
 				<s:textfield name="firstName" value ="%{firstName}"/>
 				<span>姓ふりがな</span>

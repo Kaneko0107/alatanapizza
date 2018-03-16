@@ -11,7 +11,7 @@ public class HomeAction extends ActionSupport {
 	public String execute(){
 
 		if(!"saveId".equals("")){
-			session.get("userId");
+			session.get("saveId");
 		}
 		return SUCCESS;
 	}

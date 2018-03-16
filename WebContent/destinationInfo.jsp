@@ -48,7 +48,8 @@
 			</s:form>
 
 		</div>
-		<a href='<s:url action="BuyItemCompleteAction" />'>戻る</a>
+
+		<a href="javascript:void(0)" onclick="javascript:history.back()">戻る</a>
 <br>
 <br>
 

@@ -71,7 +71,7 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 				}
 				return result;
 
-			} else if (deleteFlg.equals("1")) { //削除ボタン押した後
+				if (deleteFlg.equals("1")) { //削除ボタン押した後
 				// checkListがnullじゃないとき
 				if (checkList != null) {
 
@@ -84,7 +84,10 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 						result = SUCCESS;
 
 					}
-				} //checkListがnullのとき
+				}
+
+
+				//checkListがnullのとき
 				else {
 
 					userId = session.get("userId").toString();
@@ -94,7 +97,8 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 					return result;
 				}
 
-			} //ログイン後お気に入り登録していなければ
+			}
+				//ログイン後お気に入り登録していなければ
 			else {
 
 				result = SUCCESS;

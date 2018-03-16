@@ -46,12 +46,12 @@ public class DestinationDAO {
 			+ ",first_name"
 			+ ",family_name_kana"
 			+ ",first_name_kana"
-//			+ ",sex"
+			+ ",sex"
 			+ ",user_address"
 			+ ",tel_number"
 			+ ",email"
 			+ ",regist_date"
-			+ ")VALUES(?,?,?,?,?,?,?,?,NOW())";
+			+ ")VALUES(?,?,?,?,?,?,?,?,?,NOW())";
 	try{
 		con =db.getConnection();
 		PreparedStatement ps =con.prepareStatement(sql);
@@ -60,7 +60,7 @@ public class DestinationDAO {
 		ps.setString(3, destinationDTO.getFirstName());
 		ps.setString(4, destinationDTO.getFamilyNameKana());
 		ps.setString(5, destinationDTO.getFirstNameKana());
-//		ps.setBoolean(6, destinationDTO.isSex());
+		ps.setString(6, destinationDTO.getSex());
 		ps.setString(7, destinationDTO.getUserAddress());
 		ps.setString(8, destinationDTO.getTelNumber());
 		ps.setString(9, destinationDTO.getEmail());
@@ -100,7 +100,7 @@ public class DestinationDAO {
 				destinationDTO.setFirstName(rs.getString("first_name"));
 				destinationDTO.setFamilyNameKana(rs.getString("family_name_kana"));
 				destinationDTO.setFirstNameKana(rs.getString("first_name_kana"));
-//				destinationDTO.setSex(rs.getBoolean("sex"));
+				destinationDTO.setSex(rs.getString("sex"));
 				destinationDTO.setEmail(rs.getString("email"));
 				destinationDTO.setTelNumber(rs.getString("tel_number"));
 				destinationDTO.setUserAddress(rs.getString("user_address"));

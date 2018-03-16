@@ -65,6 +65,7 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 		 * データ格納
 		 */
 		InputChecker i=new InputChecker();
+
 		if(!i.familyNameChk(familyName).equals("OK")){
 			errorMessageList.add(i.familyNameChk(familyName));
 			result =ERROR;

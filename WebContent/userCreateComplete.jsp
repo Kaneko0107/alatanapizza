@@ -15,10 +15,7 @@
 </head>
 
 <body>
-  <div id="header">
-    <div id="top">
-    </div>
-  </div>
+  <jsp:include page="include_header.jsp" />
 
   <div id="main">
       <p>UserCreateComplete</p>
@@ -32,7 +29,7 @@
       </div>
     </div>
 
-  <div id="footer"> </div>
+   <jsp:include page="include_footer.jsp" />
 
 </body>
 </html>

@@ -58,7 +58,8 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 
 		if((boolean)session.get("loginFlg")) {
 			DestinationDAO destinationInfoDAO = new DestinationDAO();
-			destinationListDTO = destinationInfoDAO.obtainingDestinationInfo(userId);
+			destinationListDTO.addAll(destinationInfoDAO
+					.obtainingDestinationInfo(session.get("userId").toString()));
 		}
 
 		// もしログインしてなければログインに飛ばす

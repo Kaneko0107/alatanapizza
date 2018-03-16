@@ -24,14 +24,17 @@
 		<div id="top">
 		</div>
 		<div>
-			<!-- <span style="color: red;" ><s:property value="loginFlgMessageList"/></span> -->
 			<div style="color: red;" ><s:property value="errorMessageList"/></div>
 			<h3>会員の方のログイン</h3>
 			<s:form action="LoginAction">
-				<s:textfield type="text" name="userId" value ="%{#session.saveId}"/>
-				<s:password name="password"/>
+				<div>ID</div><!-- アラート化できたらしたい -->
+				<s:textfield type="text" placeholder="1文字以上8文字以下、半角英数字" name="userId" value ="%{#session.saveId}"/>
+				<br>
 				<label><s:checkbox name ="saveLogin"/>
-				次回からIDの入力を省略</label><!-- アラート化できたらしたい -->
+				次回からIDの入力を省略</label>
+				<div>パスワード</div>
+				<s:password placeholder="1文字以上8文字以下、半角英数字" name="password"/>
+
 				<br>
 				<s:hidden name ="kessai" value ="%{kessai}"/>
 				<s:submit value="ログイン"/>

@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <div id="header"> </div>
+  <jsp:include page="include_header.jsp" />
 
   <div id="main">
     <div id="top">
@@ -84,13 +84,10 @@
 
 </table>
 
- <!--   <tr>
-        <td>  -->
           <s:form action="UserCreateCompleteAction">
             <s:submit value="登録する"/>
           </s:form>
- <!--       </td>
-      </tr>     -->
+
 
       <s:form action="UserCreateAction">
 
@@ -107,10 +104,10 @@
       <s:submit value="戻る" class="userCreateButton"/>
     </s:form>
 
-
     </div>
 
-  <div id="footer"> </div>
+
+   <jsp:include page="include_footer.jsp" />
 
 </body>
 </html>

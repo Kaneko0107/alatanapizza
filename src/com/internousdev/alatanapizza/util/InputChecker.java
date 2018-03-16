@@ -24,7 +24,7 @@ public class InputChecker {
 		if(firstName.equals("")){
 			result ="名を入力してください。";
 		}else if(firstName.length() <1 || firstName.length() >16){
-			result ="名は一文字以上16文字以下で入力してください。";
+			result ="名は1文字以上16文字以下で入力してください。";
 		}else if(!firstName.matches("^[a-zA-Zぁ-ゞ一-龠々]+$")){
 			result ="名は半角英語、漢字、ひらがなで入力してください。";
 		}

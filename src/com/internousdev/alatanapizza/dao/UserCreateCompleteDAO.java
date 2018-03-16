@@ -14,8 +14,7 @@ public class UserCreateCompleteDAO {
 	private Connection con=db.getConnection();
 	private DateUtil dateUtil=new DateUtil();
 
-	private String sql="INSERT INTO user_info(user_id, password, family_name,first_name,family_name_kana,first_name_kana,sex,email,secret_question,secret_answer,regist_date)"
-			+ "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+	private String sql="INSERT INTO user_info(user_id,password,family_name,first_name,family_name_kana,first_name_kana,sex,email,secret_question,secret_answer,regist_date) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 
 
 
@@ -34,12 +33,13 @@ public class UserCreateCompleteDAO {
 			ps.setInt(9, secretquestion);
 			ps.setString(10, secretanswer);
 			ps.setString(11, dateUtil.getDate());
-			ps.execute();
+            ps.execute();
 
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
 		    con.close();
-	    }
+		}
         }
 }
+

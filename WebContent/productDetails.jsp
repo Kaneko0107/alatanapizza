@@ -12,32 +12,9 @@
 
 <title>商品詳細画面</title>
 <style type="text/css">
-#total1{
-			font-size:25px;
-			width:50%;
-			background:rgba(0,0,0,0.5);
-			padding:2.5%;
-			margin-left:25%;
-		}
-		#product_count{
-			-moz-appearance: none;
-			-webkit-appearance: none;
-			appearance: none;
-			background-color: rgb(255, 152, 0, 0.1);
-			border: 1px solid #dddddd;
-			border-radius: 10px;
-			padding: 5px 20px;
-			color: black;
-			font-weight:bold;
-		}
-		#total_price{
-			text-align:right;
-			border-radius: 10px;
-			width: 10%;
-			padding:8px 0.1px;
-			font-size:20px;
-			font-weight:bold;
-		}
+#sP{
+		margin:0 27% 0 27%;
+	}
 
 </style>
 
@@ -200,7 +177,7 @@
 			Quantity:
 			<s:select name="productCount" id="product_count" list="stockList"
 				onchange="outputSelectedValueAndText(this);" />&nbsp;
-			TotalAmount:
+			TotalAmount:￥
 			<s:hidden name="total_price" id="total_price" />
 			<span id="total_price_text"></span>
 			<s:hidden name="productId" value="%{session.d_product_id}" ></s:hidden>
@@ -212,7 +189,7 @@
 			<s:if test="#session.containsKey('userId')">
 				<s:form action="FavoriteAction" name="favoriteInsertFlg" value="1">
 					<span class="favlist">
-						<s:submit value=" ★" onclick="FavoriteAction();" />
+						<s:submit value=" ★お気に入り登録" onclick="FavoriteAction();" />
 					</span>
 				</s:form>
 			</s:if><br><br>
@@ -222,35 +199,23 @@
 	<hr class="line"><br>
 
 
-	<table class="suggestProduct">
-		<tr>
-		<th>
-			<span id="suggestProduct">
-				その他おすすめ商品</span>
-		</th>
-		</tr>
 
-			<s:iterator value="suggestList">
-		<div id="suggest">
-		<tr>
-		<td>
+		<div id="sP">
+			<h3 id="suggestProduct">
+				その他おすすめ商品</h3>
+					<s:iterator value="suggestList">
+						<div id="suggest" style="width:250px; display:inline-block; float:left;">
+							<div>
+								<a href="<s:url action="ProductDetailsAction">
+									 <s:param name="product_id" value="%{product_id}" /></s:url>">
+										<img class="image" src="<s:property value='image_file_path'/>
+											" alt="Photo" width="250" height="200">
+								</a>
+							</div>
+							<div>
+								<s:property value="product_name" /><br>
+								<s:property value="product_name_kana" /><br>
 
-				<a href="<s:url action="ProductDetailsAction">
-				 <s:param name="product_id" value="%{product_id}" /></s:url>">
-						<img class="image" src="<s:property value='image_file_path'/>
-						" alt="Photo" width="250" height="200">
-				</a>
-
-		</td>
-		</tr>
-		<tr>
-		<td>
-								<s:property value="product_name" />
-								<s:property value="product_name_kana" />
-		</td>
-		</tr>
-		<tr>
-		<td>
 							<s:if test="category_id==2">
 								M￥<s:property value="msize_price" />
 								L￥<s:property value="lsize_price" />
@@ -259,12 +224,10 @@
 								￥<s:property value="price" />
 							</s:if>
 						<s:hidden name="product_id" value="%{product_id}" />
-		</td>
-		</tr>
-		</div>
+							</div>
+						</div>
 		</s:iterator>
-
-	</table>
+	</div><br>
 
 	<!-- フッター -->
 	<jsp:include page="include_footer.jsp" />

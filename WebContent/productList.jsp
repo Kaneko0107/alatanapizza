@@ -48,7 +48,7 @@
 					￥<s:property value="price"/><br>
 					</s:if>
 
-				商品詳細:<s:property value="product_description" /><br>
+				<%-- 商品詳細:<s:property value="product_description" /><br> --%>
 
 					<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
 						<img class="image" src=./images/icon/modoru2.png><br>
@@ -161,7 +161,7 @@
 				￥<s:property value="price"/><br>
 				</s:if>
 
-			商品詳細:<s:property value="product_description" /><br>
+			<%-- 商品詳細:<s:property value="product_description" /><br> --%>
 
 			<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
 					<img class="image" src=./images/icon/modoru2.png><br>

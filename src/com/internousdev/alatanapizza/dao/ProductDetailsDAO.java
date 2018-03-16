@@ -104,7 +104,7 @@ public class ProductDetailsDAO {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
-		//商品をランダムに3件取得
+		//商品を3件取得
 		String sql = "SELECT * FROM product_info WHERE status = 1 AND product_id NOT IN(?) ORDER BY RAND() LIMIT 3";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);

@@ -231,6 +231,6 @@
 
 </body>
 
-					<a href='<s:url action="ProductListAction"/>'>ホーム画面</a>
+					<a href='<s:url action="ProductListAction"/>'>商品一覧画面に戻る</a>
 
 </html>

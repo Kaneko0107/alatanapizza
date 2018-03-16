@@ -4,21 +4,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>カート画面</title>
-
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>カート画面</title>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/reset.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mt_style.css">
 	<link rel="shortcut icon" href="${pageContext.request.contextPath}/img/favicon.ico">
-
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cart_style.css">
-
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 </head>
 <body>
 
-<div class="main">
+
+	<div class="main">
 
 	<h1>カート</h1>
 	<s:property value="errMsg"/>
@@ -106,6 +104,17 @@
 			 <a href='<s:url action ="BuyItemCompleteAction" />'>決済画面へ</a>
 			</div>
 			</s:if>
+
+<!-- 商品一覧ページに移行する -->
+			<div class="settlement_btn">
+			 <a href='<s:url action ="ProductListAction" />'>商品一覧画面へ</a>
+			</div>
+
+<!-- ホーム画面に移行する -->
+			<div class="settlement_btn">
+			 <a href='<s:url action ="HomeAction" />'>ホーム画面へ</a>
+			</div>
+
 <!-- F5キー（画面の更新）とBackspaceとDeleteの無効化 -->
 			<script>
 			$(function(){

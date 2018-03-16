@@ -122,6 +122,7 @@ if(!(newpass.equals("")) && !(checkpass.equals(""))){
 	session.put("newpass",newpass);
 	session.put("userid",userid);
 	session.put("answer", secret_answer);
+	session.put("secret_question", secret_question);
 }
 
 

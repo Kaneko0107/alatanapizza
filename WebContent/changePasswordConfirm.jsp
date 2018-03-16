@@ -27,6 +27,7 @@ color:white;}
 		 	<td><s:hidden name="newpass" value="%{newpass}" />
 			<s:hidden name="userid" value="%{userid}" />
 			<s:hidden name="secret_answer" value="%{secret_answer}"/>
+			<s:hidden name="secret_question" value="%{secret_question}"/>
 		</td>
 </tr><br>
 
@@ -34,6 +35,17 @@ color:white;}
 				<td><s:submit value="完了" /></td>
 				</tr>
 			</s:form>
+
+			<s:form action="ChangePasswordAction">
+			<tr>
+			<s:hidden name="newpass" value="%{newpass}" />
+			<s:hidden name="userid" value="%{userid}" />
+			<s:hidden name="secret_answer" value="%{secret_answer}"/>
+			<s:hidden name="secret_question" value="%{secret_question}"/>
+			<td><s:submit value="前の画面に戻る" /></td>
+		</tr>
+			</s:form>
+
 
 <jsp:include page="include_footer.jsp"/>
 

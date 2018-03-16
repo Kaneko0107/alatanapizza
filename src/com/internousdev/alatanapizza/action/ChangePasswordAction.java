@@ -7,8 +7,16 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ChangePasswordAction extends ActionSupport implements SessionAware{
 	private Map<String,Object>session;
+	private String userid;
+	private String secret_answer;
+	private int secret_question;
+
+
+
+
 
 	public String execute(){
+
 		return SUCCESS;
 	}
 	public Map<String, Object> getSession(){
@@ -19,6 +27,24 @@ public class ChangePasswordAction extends ActionSupport implements SessionAware{
 	public void setSession(Map<String, Object>session) {
 		// TODO 自動生成されたメソッド・スタブ
 
+	}
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+	public String getSecret_answer() {
+		return secret_answer;
+	}
+	public void setSecret_answer(String secret_answer) {
+		this.secret_answer = secret_answer;
+	}
+	public int getSecret_question() {
+		return secret_question;
+	}
+	public void setSecret_question(int secret_question) {
+		this.secret_question = secret_question;
 	}
 
 

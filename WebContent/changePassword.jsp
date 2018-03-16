@@ -40,11 +40,29 @@ coror:white;}
 </tr>
 <tr>
 <td>秘密の質問:</td>
-<td><select name="secret_question">
-<option value="0">選択してください</option>
-<option value="1">好きな食べ物</option>
-<option value="2">嫌いな食べ物</option>
-</select>
+<td> <s:if test="secret_question==1">
+            <select name="secret_question">
+              <option value="">選択してください</option>
+              <option value="1" selected>好きな食べ物</option>
+              <option value="2">嫌いな食べ物</option>
+            </select>
+          </s:if>
+
+          <s:elseif test="secret_question==2">
+            <select name="secret_question">
+              <option value="">選択してください</option>
+              <option value="1">好きな食べ物</option>
+              <option value="2" selected>嫌いな食べ物</option>
+            </select>
+          </s:elseif>
+
+          <s:else>
+            <select name="secret_question">
+              <option value="">選択してください</option>
+              <option value="1">好きな食べ物</option>
+              <option value="2">嫌いな食べ物</option>
+            </select>
+          </s:else>
 </td>
 </tr>
 <tr>

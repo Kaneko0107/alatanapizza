@@ -18,8 +18,10 @@
 <a href='<s:url action="ChangePasswordAction"/>'>再設定画面へ</a>
 </s:if>
 <s:else>
-<span id="success">再設定が完了しました。</span>
-<a href="http://localhost:8080/alatanapizza/">ホーム</a>
+<div>再設定が完了しました。</div>
+ <div>
+        <input type="button" onclick="location.href='<s:url action="HomeAction"/>'" value="ログインへ" >
+      </div>
 
 
 </s:else>

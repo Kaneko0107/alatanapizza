@@ -85,6 +85,8 @@ coror:white;}
 
 </s:form>
 
+<a href='<s:url action="LoginAction"/>'>ログインページへ戻る</a>
+
 <jsp:include page="include_footer.jsp"/>
 
 

@@ -24,6 +24,7 @@
 		<div id="top">
 		</div>
 		<div>
+			<span style="color: red;" ><s:property value="errorMessageList"/></span>
 			<h3>新規宛先情報入力</h3>
 			<h3>下記に必要事項を記入してください</h3>
 			<s:form action="DestConfirmAction">

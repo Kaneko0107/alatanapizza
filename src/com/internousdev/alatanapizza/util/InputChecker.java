@@ -53,7 +53,7 @@ public class InputChecker {
 		}else if(firstNameKana.length() <1 || firstNameKana.length() >16){
 			result ="名ふりがなは1文字以上16文字以下で入力してください。";
 		}else if(!firstNameKana.matches("^[ぁ-ゞ]+$")){
-			result ="名ぶりがなはひらがなで入力してください。";
+			result ="名ふりがなはひらがなで入力してください。";
 		}
 		return result;
 	}

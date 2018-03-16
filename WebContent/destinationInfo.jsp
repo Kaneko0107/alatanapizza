@@ -24,30 +24,33 @@
 		<div id="top">
 		</div>
 		<div>
+
 			<div style="color: red;" ><s:property value="errorMessageList"/></div>
 			<h3>新規宛先情報入力</h3>
 			<h3>下記に必要事項を記入してください</h3>
 			<s:form action="DestConfirmAction">
 				<div>姓</div>
-				<s:textfield placeholder="1文字以上16文字以下" name="familyName" value ="%{familyName}" />
+				<s:textfield placeholder="1文字以上16文字以下" name="familyName" value="%{familyName}" />
 				<div>名</div>
-				<s:textfield placeholder="1文字以上16文字以下" name="firstName" value ="%{firstName}"/>
+				<s:textfield placeholder="1文字以上16文字以下" name="firstName" value="%{firstName}" />
 				<div>姓(かな)</div>
-				<s:textfield placeholder="1文字以上16文字以下" name="familyNameKana" value ="%{familyNameKana}"/>
+				<s:textfield placeholder="1文字以上16文字以下" name="familyNameKana" value="%{familyNameKana}" />
 				<div>名(かな)</div>
-				<s:textfield placeholder="1文字以上16文字以下" name="firstNameKana" value ="%{firstNameKana}"/>
+				<s:textfield placeholder="1文字以上16文字以下" name="firstNameKana" value="%{firstNameKana}" />
 				<div>住所</div>
-				<s:textfield placeholder="15文字以上50文字以下" name="userAddress" value ="%{userAddress}"/>
+				<s:textfield placeholder="15文字以上50文字以下" name="userAddress" value="%{userAddress}" />
 				<div>電話番号</div>
-				<s:textfield placeholder="11文字以上13文字以下" name="telNumber" value ="%{telNumber}"/>
+				<s:textfield placeholder="11文字以上13文字以下" name="telNumber" value="%{telNumber}" />
 				<div>メールアドレス</div>
-				<s:textfield placeholder="18文字以上32文字以下" name="email" value ="%{email}"/>
+				<s:textfield placeholder="18文字以上32文字以下" name="email" value="%{email}" />
 				<br>
 				<s:submit value="登録情報確認画面へ"/>
 			</s:form>
+
 		</div>
 		<a href='<s:url action="BuyItemCompleteAction" />'>戻る</a>
-
+<br>
+<br>
 
 
 	</div>

@@ -50,6 +50,7 @@
 				<s:property value="email" escape="false"/>
 				<input type=hidden name="email" value='<s:property value="email"/>' />
 
+				<br>
 				<s:submit value="登録情報確定画面へ"/>
 			</s:form>
 			</table>
@@ -67,7 +68,8 @@
 
       <s:submit value="戻る" class="DestButton"/>
     </s:form>
-
+<br>
+<br>
 
 	</div>
 <jsp:include page="include_footer.jsp" />

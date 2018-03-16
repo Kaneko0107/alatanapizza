@@ -46,6 +46,7 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	private String telNumber;
 	private String email;
 	private ArrayList<String> errorMessageList=new ArrayList<>();
+//	private ArrayList<DestinationDTO> destinationInfoList=new ArrayList<>();
 
 	public Map<String,Object> session;
 
@@ -93,12 +94,11 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 			errorMessageList.add(i.emailChk(email));
 			result =ERROR;
 		}
-		return result;
-	}
 
 
 
-		/*if(!(familyName.equals(""))
+
+		if(!(familyName.equals(""))
 				&&!(firstName.equals(""))
 				&&!(familyNameKana.equals(""))
 				&&!(firstNameKana.equals(""))
@@ -112,16 +112,20 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 			session.put("email", email);
 			session.put("telNumber", telNumber);
 			session.put("userAddress", userAddress);
-
-		}else{
-			**
-			 * 空欄がある場合のエラーメッセージ
-			 *
-			setErrorMessage("未入力の項目があります。");
-			result=ERROR;
 		}
+
+//		}else{
+//
+//			 // 空欄がある場合のエラーメッセージ
+//
+//			setErrorMessage("未入力の項目があります。");
+//			result=ERROR;
+//		}
+//		return result;
+//
+
 		return result;
-*/
+	}
 
 	public String getFamilyName(){
 		return familyName;
@@ -175,5 +179,13 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	public void setErrorMessageList(ArrayList<String> errorMessageList){
 		this.errorMessageList=errorMessageList;
 	}
+
+//	public ArrayList<DestinationDTO> getDestinationInfoList() {
+//		return destinationInfoList;
+//	}
+//	public void setDestinationInfoList(ArrayList<DestinationDTO> destinationInfoList) {
+//		this.destinationInfoList = destinationInfoList;
+//	}
+
 
 }

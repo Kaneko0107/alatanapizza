@@ -34,7 +34,7 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 
 		//削除ボタン押してない時点
 		if (deleteFlg == "0") {
-			if (session.containsKey("userIｄ")) {
+			if (session.containsKey("userId")) {
 				userId = session.get("userId").toString();
 				favoriteList = dao.getFavoriteInfo(userId);
 

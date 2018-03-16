@@ -18,7 +18,7 @@
 </head>
 <body>
 
-
+<jsp:include page="include_header.jsp" />
 
 <div class="main">
 
@@ -102,13 +102,7 @@
 </div>
 
 
-
-
-
-
-
-
-
+<jsp:include page="include_footer.jsp" />
 
 
 

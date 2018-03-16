@@ -20,6 +20,8 @@
 
 <body>
 
+<jsp:include page="include_header.jsp" />
+
 
 
 	<div class="titleName">
@@ -95,7 +97,7 @@
 			</table>
 		</div>
 
-
+<jsp:include page="include_footer.jsp" />
 
 
 </body>

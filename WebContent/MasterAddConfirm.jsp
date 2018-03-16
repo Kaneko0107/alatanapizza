@@ -18,6 +18,8 @@
 </style>
 <body>
 
+<jsp:include page="include_header.jsp" />
+
 
 	<div class="titleName">
 		<h2>新商品追加確認画面</h2>
@@ -53,6 +55,7 @@
 
 
 
+<jsp:include page="include_footer.jsp" />
 
 </body>
 </html>

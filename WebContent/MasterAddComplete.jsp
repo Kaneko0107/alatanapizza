@@ -21,7 +21,11 @@
 
 <body>
 
+<jsp:include page="include_header.jsp" />
+
+
 商品の追加が完了しました。
+
 
 	<div id="main">
 		<div id="top">
@@ -36,7 +40,7 @@
 
 <a href='<s:url action="MasterProductChangeAction"/>'>管理者HOME画面へ戻る</a>
 
-
+<jsp:include page="include_footer.jsp" />
 
 </body>
 </html>

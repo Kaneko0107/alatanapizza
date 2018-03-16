@@ -18,6 +18,10 @@
 </head>
 <body>
 
+<jsp:include page="include_header.jsp" />
+
+
+
 
 	<div class="header"></div>
 
@@ -122,7 +126,7 @@
 		</div>
 	</div>
 
-
+<jsp:include page="include_footer.jsp" />
 
 </body>
 </html>

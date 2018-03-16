@@ -148,13 +148,14 @@
 
 			</div>
 		</s:form>
+		<div class="back">
+		<a href='<s:url action="CartProductAction" />'>カートに戻る</a>
+	</div>
 	</div>
 	<br>
 	<br>
 
-	<div class="back">
-		<a href='<s:url action="CartProductAction" />'>カートに戻る</a>
-	</div>
+
 	<div>
 		<jsp:include page="include_footer.jsp" /></div>
 

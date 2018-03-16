@@ -10,10 +10,20 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="include_header.jsp" />
 <div id="title"><p>ユーザー情報変更<p></div>
 <div>ユーザー情報を変更してください</div>
 <div>現在のパスワードは必ず入力してください</div>
 <div>以前の情報を保持したい箇所は空欄のまま先へ進んでください</div>
+ <s:if test="errorMessage!=''">
+   <s:iterator value="errMsgList">
+		<h5>
+			<s:div align="center">
+				<s:property />
+			</s:div>
+		</h5>
+		</s:iterator>
+		</s:if>
 <s:form action="UserUpdateConfirmAction">
 <table>
 
@@ -47,16 +57,9 @@
 	 class="button">登録</s:a>
    </div>
    <br>
-   <s:if test="errorMessage!=''">
-   <s:iterator value="errMsgList">
-		<h5>
-			<s:div align="center">
-				<s:property />
-			</s:div>
-		</h5>
-		</s:iterator>
-		</s:if>
+
    </s:form>
+   <jsp:include page="include_footer.jsp"/>
 
 </body>
 </html>

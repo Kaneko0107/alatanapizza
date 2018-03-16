@@ -54,17 +54,16 @@ public class ChangePasswordConfirmAction extends ActionSupport implements Sessio
 
 public String execute(){
 	String result=ERROR;
+	CPCdao.CheckAnswer(userid,secret_question,secret_answer);
 
-	if(newpass.equals("") || userid.equals("")){
+	if(newpass.equals("") || userid.equals("") || secret_answer.equals("")){
 		setErrorMessage("未入力の項目があります。");
 		errMsgList.add(errorMessage);
 	}
 
-	if(!(userid.equals(""))){
-		if(!(userid.equals(CPCdao.getUserid()))){
-			setErrorMessage("ユーザーIDが間違っています。");
-			errMsgList.add(errorMessage);
-		}
+	if(!(userid.equals("")) && !(newpass.equals("")) && !(checkpass.equals(""))){
+
+
 		if(userid.length()<1 || userid.length()>8){
 			setErrorMessage("ユーザーIDは1～8文字以内で入力してください。");
 			errMsgList.add(errorMessage);
@@ -73,11 +72,15 @@ public String execute(){
 			setErrorMessage("ユーザーIDは半角英数字で入力してください。");
 			errMsgList.add(errorMessage);
 		}
+		else if(!(userid.equals(CPCdao.getUserid()))){
+			setErrorMessage("ユーザーIDと答えが一致しません。");
+			errMsgList.add(errorMessage);
 		}
 
 
 
-	if(!(userid.equals(""))){
+
+
 	if(newpass.length()<1 || newpass.length()>16){
 		setErrorMessage("新しいパスワードは1～16文字の範囲内で入力してください。");
 		errMsgList.add(errorMessage);
@@ -112,14 +115,14 @@ if(!(newpass.equals("")) && !(checkpass.equals(""))){
 			session.put("hideNewPassword",hideNewPassword);
 		}
 }
-if(CPCdao.CheckAnswer(userid,secret_question,secret_answer)){
+
 	if(errorMessage==null){
 	result=SUCCESS;
-	}
+
 	session.put("newpass",newpass);
 	session.put("userid",userid);
 	session.put("answer", secret_answer);
-	}
+}
 
 
 

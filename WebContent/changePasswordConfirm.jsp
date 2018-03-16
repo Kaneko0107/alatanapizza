@@ -14,6 +14,7 @@ color:white;}
 </style>
 </head>
 <body>
+<jsp:include page="include_header.jsp" />
 <h3>変更内容確認画面</h3><br>
 <p>変更内容が正しければ下記の完了ボタンで再設定を完了します。</p>
 
@@ -34,7 +35,7 @@ color:white;}
 				</tr>
 			</s:form>
 
-
+<jsp:include page="include_footer.jsp"/>
 
 </body>
 </html>

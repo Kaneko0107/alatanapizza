@@ -18,6 +18,11 @@ coror:white;}
 </style>
 </head>
 <body>
+<jsp:include page="include_header.jsp" />
+<p>パスワード変更画面</p>
+<p>お客様が以前登録されたユーザーIDと秘密の質問からパスワードを変更します。</p>
+<p>指定に従って以下の項目を入力し、下記の確認ボタンを押してください。</p>
+
 <s:if test="errorMessage!=''">
    <s:iterator value="errMsgList">
 		<h5>
@@ -62,7 +67,7 @@ coror:white;}
 
 </s:form>
 
-
+<jsp:include page="include_footer.jsp"/>
 
 
 </body>

@@ -11,6 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="include_header.jsp" />
 <s:form action="UserUpdateCompleteAction">
 <table>
   <tr>
@@ -18,7 +19,7 @@
    <td><s:property value="%{session.userId}"/>
    <s:hidden name="user_id" value="%{session.userId}" /></td>
    </tr>
-   <s:if test="session.newPassword != null" >
+   <s:if test="session.newPassword != ''" >
    <tr>
    <th>新規パスワード</th>
    <td><s:property value="%{session.newPassword}"/>
@@ -41,6 +42,6 @@
   </s:form>
 
 
-
+<jsp:include page="include_footer.jsp"/>
 </body>
 </html>

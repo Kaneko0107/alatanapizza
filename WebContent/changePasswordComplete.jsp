@@ -10,6 +10,7 @@
 <title>Complete</title>
 </head>
 <body>
+<jsp:include page="include_header.jsp" />
 <s:if test="#session.newpass == null">
 <span id="error">パスワードの変更に失敗しました。<br>
 お手数ですが最初からやり直してください。
@@ -22,7 +23,7 @@
 
 
 </s:else>
-
+<jsp:include page="include_footer.jsp"/>
 
 
 </body>

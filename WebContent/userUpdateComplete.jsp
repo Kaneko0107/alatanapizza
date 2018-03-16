@@ -10,6 +10,7 @@
 <title>変更完了	</title>
 </head>
 <body>
+<jsp:include page="include_header.jsp" />
 <div id="main">
 <div id="title"><p>ユーザー情報変更完了<p></div>
 <div>
@@ -18,6 +19,6 @@
 <a href="<s:url action='MyPageAction'></s:url>"  class="button">マイページ</a>
 </div>
 </div>
-
+<jsp:include page="include_footer.jsp"/>
 </body>
 </html>

@@ -11,5 +11,8 @@
 <s:form action="MyPageAction">
 <s:submit value="マイページ"   class="submit"/><br>
 </s:form>
+<s:form action="CartProductAction">
+<s:submit value="カート" class="submit" />
+</s:form>
 
 </header>

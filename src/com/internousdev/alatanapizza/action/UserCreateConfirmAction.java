@@ -94,7 +94,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 				errMsgList.add("そのIDは使われています。");
 			}
 		}else{
-			errMsgList.add("※ 未入力の項目があります ※");
+			errMsgList.add("未入力の項目があります");
 		}
 
 

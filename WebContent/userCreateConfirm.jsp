@@ -84,13 +84,10 @@
 
 </table>
 
- <!--   <tr>
-        <td>  -->
           <s:form action="UserCreateCompleteAction">
             <s:submit value="登録する"/>
           </s:form>
- <!--       </td>
-      </tr>     -->
+
 
       <s:form action="UserCreateAction">
 
@@ -106,7 +103,6 @@
       <input type="hidden" name="secretAnswer" value="<s:property value="secretAnswer"/>">
       <s:submit value="戻る" class="userCreateButton"/>
     </s:form>
-
 
     </div>
 

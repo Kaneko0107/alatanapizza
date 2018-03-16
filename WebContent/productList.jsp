@@ -4,10 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" type="text/css" href="./css/style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
 <link rel="stylesheet" href="./css/alatanapizza.css">
+
 
 <title>商品一覧</title>
 </head>
@@ -221,6 +222,9 @@
 
 </s:if>
 </s:if>
+
+<!-- フッターをインクルード -->
+<jsp:include page="include_footer.jsp" />
 
 </body>
 </html>

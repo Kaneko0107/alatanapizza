@@ -38,9 +38,20 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 				userId = session.get("userId").toString();
 				favoriteList = dao.getFavoriteInfo(userId);
 
-			} else {
-				/*userId = session.get("temp_user_id").toString();*/
-			}
+			} else if (deleteFlg.equals("1")) { //削除ボタン押した後
+				// checkListがnullじゃないとき
+				if (checkList != null) {
+
+					for (String deleteId : checkList) {
+						count += dao.deleteFavoriteInfo(deleteId, session.get("userId").toString());
+
+						deleteFlg = null;
+						userId = session.get("userId").toString();
+						favoriteList = dao.getFavoriteInfo(userId);
+						result = SUCCESS;
+
+					}
+				}
 		}
 
 		if (session.containsKey("userId")) {
@@ -63,28 +74,22 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 					favoriteList = dao.getFavoriteInfo(userId);
 					result = SUCCESS;
 				}
+
 				if (count2 > 0) {
 					result = SUCCESS;
 
-				} else {
+				}
+
+				else {
 					result = ERROR;
 				}
+
 				return result;
 
-			}else if (deleteFlg.equals("1")) { //削除ボタン押した後
-				// checkListがnullじゃないとき
-				if (checkList != null) {
+			}
 
-					for (String deleteId : checkList) {
-						count += dao.deleteFavoriteInfo(deleteId, session.get("userId").toString());
 
-						deleteFlg = null;
-						userId = session.get("userId").toString();
-						favoriteList = dao.getFavoriteInfo(userId);
-						result = SUCCESS;
 
-					}
-				}
 
 
 				//checkListがnullのとき

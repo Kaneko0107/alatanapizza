@@ -24,7 +24,7 @@
 			<p class="message">購入情報は以下になります</p>
 			<br>
 
-			<!-- ここからまわすよー！ -->
+			<!-- CartListをイテレーター！ -->
 			<s:iterator value="cartList">
 
 				<!-- 画像 -->
@@ -40,89 +40,105 @@
 						</s:a>
 					</div>
 
+
+					<!-- テキストデータを表示させる -->
 					<div class="pro_text">
 						<div class="name">
-							<s:url id="url" action="ProductDetailsAction">
-								<s:param name="product_id" value="productId" />
-							</s:url>
 							<s:a href="%{url}">
-								<!-- 商品名 -->
-								<s:property value="productName" />
-								<br>
 
-								<!-- 商品かな -->
-								<s:property value="productNameKana" />
-								<br>
+								<!-- ふりがな表示 -->
+								<div class="kana">
+									<s:property value="product_name_kana" />
+								</div>
+
+								<!-- 商品名表示 -->
+								<div class="pro_name">
+									商品名：
+									<s:property value="productName" />
+								</div>
 							</s:a>
-							<s:property value="toppings"/>
+						</div>
+						<s:property value="toppings" />
+
+						<!-- 値段表示 -->
+						<div class="price_count"></div>
+						<div class="price">
+							<%-- 価格:¥<fmt:formatNumber value="${price}" /> --%>
+							価格:¥
+							<s:property value="total_price" />
 						</div>
 
-
-						<div class="price_count">
-							<!-- 値段 -->
-							<div class="price">
-								価格:¥<s:property value="price"/>
-
-							</div>
-
-							<!-- 個数 -->
-							<div class="count">
-								(購入数:
-								<s:property value="productCount" />
-								点)
-							</div>
+						<!-- 個数表示 -->
+						<div class="count">
+							（購入数：
+							<s:property value="productCount" />
+							点）
 						</div>
 
+						<!-- 発売会社 -->
+						<div class="company">
+							発売会社：
+							<s:property value="releaseCompany" />
+						</div>
 
+						<!-- 年月日 -->
+						<div class="release_date">
+							発売日：
+							<s:property value="releaseDate" />
+						</div>
 					</div>
+
+
 				</div>
-			</s:iterator>
+	</div>
+	</s:iterator>
 
-			<br>
-			<br>
-			<div class="totalprice">
-				合計金額:¥<s:property value="totalPrice"/>
+	<br>
+	<br>
+	<div class="totalprice">
+		合計金額:¥
+		<s:property value="totalPrice" />
 
+	</div>
+	<br>
+
+	<!-- --------------------■宛先情報■--------------------- -->
+	<s:iterator value="DestinationDTO">
+		<div class="box">
+			<div class="destination_title">
+				<label> <input type="radio" name="id" checked="checked" />
+					お届け先住所
+				</label>
 			</div>
-			<br>
-
-			<!-- --------------------■宛先情報■--------------------- -->
-			<s:iterator value="DestinationDTO">
-				<div class="box">
-					<div class="destination_title">
-						<label> <input type="radio" name="id" checked="checked" />
-							お届け先住所
-						</label>
-					</div>
-					<div class="destination">
-						ふりがな:
-						<s:property value="familyNameKana" />
-						<s:property value="firstNameKana" />
-						<br> 名前:
-						<s:property value="familyName" />
-						<s:property value="firstName" />
-						<br> 住所:
-						<s:property value="userAddress" />
-						<br> 電話番号:
-						<s:property value="telNumber" />
-						<br> メールアドレス:
-						<s:property value="email" />
-						<br>
-					</div>
-				</div>
-			</s:iterator>
-
-
-			<div class="btn">
-				<input type="button" value="宛先情報の新規登録"
-					onclick="location.href='<s:url action="DestAction" />'">
+			<div class="destination">
+				ふりがな:
+				<s:property value="familyNameKana" />
+				<s:property value="firstNameKana" />
+				<br> 名前:
+				<s:property value="familyName" />
+				<s:property value="firstName" />
+				<br> 住所:
+				<s:property value="userAddress" />
+				<br> 電話番号:
+				<s:property value="telNumber" />
+				<br> メールアドレス:
+				<s:property value="email" />
+				<br>
 			</div>
-			<div class="btn_2">
-				<s:submit value="購入" class="submit " />
+		</div>
+	</s:iterator>
 
 
-			</div>
-		</s:form>
+	<div class="btn">
+		<input type="button" value="宛先情報の新規登録"
+			onclick="location.href='<s:url action="DestAction" />'">
+	</div>
+	<div class="btn_2">
+		<s:submit value="購入" class="submit " />
+
+
+	</div>
+	</s:form>
 	</div>
 	<br>
 	<br>

@@ -16,25 +16,28 @@
   <style>
 
 
+header{
+	    position:absolute;
+	    top:0;
+	    width:100%;
+	    height:100px;
+	    background:linear-gradient(to bottom,black,rgba(0,0,0,0.1));
+	    }
 
-#main {
-	    width: 70%;
+.tab {
+	    width: 50%;
 	    background: rgba(0, 0, 0, 0.5);
 	    margin:0 auto;
-	    margin-top:80px;
+	    padding-top:20px;
 	    margin-bottom:100px;
 	    }
 
+
 table {
-		width:70%;
-		margin:0 auto;
 	    text-align: left;
+	    padding-top: 10%;
 	    }
 
-
-h3{
-border-left:10px solid red;
-}
 
 .form {
 	    background-color: rgba(200, 200, 200, 0.5);
@@ -47,16 +50,20 @@ border-left:10px solid red;
 	    font-size: 20px;
 	    }
 
-
 tr td {
-	    padding-right:60px;
-	    padding-left:20px;
-	    padding-top:5px;
+	    padding:5px 5px 5px 20px;
 	    }
 
+footer {
+	    width:100%;
+	    height:30px;
+	    position: fixed;
+	    bottom: 0;
+	    text-align: center;
+	    margin: 0 auto;
+	    }
 
 hr {
-text-align:left;
 	    border: none;
 	    border-top: dashed 1px #ccc;
 	    height: 1px;
@@ -64,22 +71,21 @@ text-align:left;
 	    margin: 0 8 0 8;
 	    }
 
-.moji2{
-	    font-size: 12px;
-	    color: #FFCC33;
-}
-
 .moji {
 	    text-align: center;
 	    font-size: 12px;
 	    color: #FFCC33;
 	    }
 
-
-.image2 {
+.gazou {
 	    text-align:right;
 	    margin-top: 5px;
 	    }
+
+.gazou:hover{
+	    background-image:url("modoru.png")
+	    }
+
 
 </style>
 
@@ -91,16 +97,14 @@ text-align:left;
 
 
   <div id="main">
-    <table class="up">
- 		<tr><td colspan="2"><h3>　お客様情報 登録画面</h3></td></tr>
-
-<!--  白い点線 -->
-			<tr><td colspan="2"><hr></td></tr>
- 		<tr><td colspan="2"><div class="moji2">下記の情報を入力してください。</div><br><br></td></tr>
-
+    <div id="top">
+      <h3>お客様情報 登録画面</h3>
+      <br>
+      <div class="moji">下記の情報を入力してください。</div>
+    </div>
 
     <!-- エラーメッセージ-->
-    <tr><td>
+    <div>
       <s:if test="errMsgList !=null && !(errMsgList.isEmpty())">
         <td><s:iterator value="errMsgList"><s:property /></s:iterator><br></td>
       </s:if>
@@ -133,22 +137,27 @@ text-align:left;
       </s:if>
       <s:if test="errMsgListAnswer != null && !(errMsgListAnswer.isEmpty())">
         <td><s:iterator value="errMsgListAnswer"><s:property /></s:iterator></td>
-      </s:if></td></tr>
+      </s:if>
+    </div>
 
+    <div>
 
+      <s:form action="UserCreateConfirmAction">
 
+      <div class="tab">
 
- <s:form action="UserCreateConfirmAction">
+      <table>
 
-
-        <tr> <td>ユーザーＩＤ</td>
+        <tr>
+          <td>ユーザーＩＤ</td>
 
           <td>
             <input type="text" name="loginUserId" value='<s:property value="loginUserId"/>' placeholder="半角英数字 8文字以下" class="form"/>
           </td>
         </tr>
 
-        <tr><td>パスワード</td>
+        <tr>
+          <td>パスワード</td>
 
           <td>
             <input type="password" name="loginPassword" placeholder="半角英数字 16文字以下" class="form"/>
@@ -250,41 +259,42 @@ text-align:left;
             <input type="text" name="secretAnswer" value='<s:property value="secretAnswer"/>' class="form"/>
           </td>
         </tr>
-<tr><td><br><br></td></tr>
 
-<!--  白い点線 -->
-			<tr><td colspan="2"><hr></td></tr>
+
         <tr>
-          <td><div class="image1">
-            <img  src="./images/icon/modoru2.png"></div>
+          <td>
+            <img class="modoru" src="modoru2.png">
           </td>
 
           <td>
-            <div class="image2">
-            <img  src="./images/icon/kakuninn.png">
+            <div class="gazou">
+            <img src="kakuninn.png">
             </div>
           </td>
         </tr>
 
 
 
+        </table>
 
 
-
-     <tr><td>
-
-       確認画面へ進む      <s:submit value="→"/>
-
+      <br>
+      <div>
+        <span>確認画面へ進む</span>
+      <s:submit value="→"/>
+      </div>
        </s:form>
-</td>
-<td>
-
-       前画面に戻る<a href='<s:url action="HomeAction"/>'> ← </a>
-
-</td></tr>
 
 
- </table></div>
+      <br>
+      <div>
+        <span>前画面に戻る</span>
+        <a href='<s:url action="HomeAction"/>'> ← </a>
+      </div>
+
+    </div>
+   </div>
+
     <jsp:include page="include_footer.jsp" />
 
 </body>

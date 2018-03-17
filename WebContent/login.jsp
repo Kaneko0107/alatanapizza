@@ -26,12 +26,10 @@ margin-bottom:30px;
 }
 
 table{
-margin:0 auto;
-
+	margin:0 auto;
 	text-align: left;
 	padding-left: 20%;
 	padding-right: 20%;
-
 }
 
 
@@ -49,10 +47,9 @@ margin:0 auto;
 tr td .memo{text-align:center;
 }
 
-
 img{text-align:center;
-
 }
+
 hr{border: none;
 	border-top: dashed 1px #ccc;
 	height: f1px;
@@ -62,8 +59,6 @@ hr{border: none;
 h3{
 border-left:10px solid red;
 }
-
-
 
 
 </style>
@@ -96,10 +91,12 @@ border-left:10px solid red;
 			<tr><td>パスワード</td></tr>
 			<tr><td><s:password class="form" placeholder="1文字以上8文字以下" name="password"/></td></tr>
 
-
+<img src="./images/icon/m.png">
+<img src="./images/icon/l.png" >
 			<tr><td><s:hidden name ="kessai" value ="%{kessai}"/><s:submit value="ログイン"/></s:form></td></tr>
 
-
+<!-- ログインボタン -->
+<!-- マウスオーバーの設定と、真ん中に配置してください -->
 				<tr><td><div class="memo"><img src="./images/icon/ログイン.png"></div></td></tr>
 			<!--  白い点線 -->
 			<tr><td><hr></td></tr>

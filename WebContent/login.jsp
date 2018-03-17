@@ -91,8 +91,6 @@ border-left:10px solid red;
 			<tr><td>パスワード</td></tr>
 			<tr><td><s:password class="form" placeholder="1文字以上8文字以下" name="password"/></td></tr>
 
-<img src="./images/icon/m.png">
-<img src="./images/icon/l.png" >
 			<tr><td><s:hidden name ="kessai" value ="%{kessai}"/><s:submit value="ログイン"/></s:form></td></tr>
 
 <!-- ログインボタン -->

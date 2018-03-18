@@ -346,7 +346,7 @@ public class CartInfoDTOTest {
 	}
 
 
-
+	@Test
 	public void testGetProductNameKana1() {
 		CartInfoDTO dto = new CartInfoDTO();
 		String expected = "0";
@@ -417,9 +417,80 @@ public class CartInfoDTOTest {
 		assertEquals(expected, dto.getProductNameKana());
 	}
 
+	@Test
+	public void testGetProductDescription1() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "0";
+
+		dto.setProductDescription(expected);
+
+		assertEquals(expected, dto.getProductDescription());
+	}
+
+	@Test
+	public void testGetProductDescription2() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = null;
+
+		dto.setProductDescription(expected);
+
+		assertEquals(expected, dto.getProductDescription());
+	}
+
+	@Test
+	public void testGetProductDescription3() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "";
+
+		dto.setProductDescription(expected);
+
+		assertEquals(expected, dto.getProductDescription());
+	}
+
+	@Test
+	public void testGetProductDescription4() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = " 　";
+
+		dto.setProductDescription(expected);
+
+		assertEquals(expected, dto.getProductDescription());
+
+	}
+
+	@Test
+	public void testGetProductDescription5() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "aaaa";
+
+		dto.setProductDescription(expected);
+
+		assertEquals(expected, dto.getProductDescription());
+	}
+
+	@Test
+	public void testGetProductDescription6() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "AAAA";
+
+		dto.setProductDescription(expected);
+
+		assertEquals(expected, dto.getProductDescription());
+	}
+
+	@Test
+	public void testGetProductDescription7() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "ああああ";
+
+		dto.setProductDescription(expected);
+
+		assertEquals(expected, dto.getProductDescription());
+	}
 
 
 
+	@Test
 	public void testGetReleaseCompany1() {
 		CartInfoDTO dto = new CartInfoDTO();
 		String expected = "0";
@@ -489,7 +560,7 @@ public class CartInfoDTOTest {
 		assertEquals(expected, dto.getReleaseCompany());
 	}
 
-
+	@Test
 	public void testGetReleaseDate1() {
 		CartInfoDTO dto = new CartInfoDTO();
 		String expected = "0";

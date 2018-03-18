@@ -12,6 +12,7 @@
 	<jsp:include page="include_header.jsp" />
 
 	<h2>注文履歴</h2>
+	<span style="color: red;"><s:property value="message"/></span>
 	<s:if test="historyList.size() == 0">
 		<p>購入履歴はありません</p>
 	</s:if>
@@ -41,7 +42,6 @@
 				<s:submit value="履歴をすべて削除" />
 			</s:form>
 		</div>
-		<s:submit value="個別削除 " name="checkFlg" fieldValue="%{id}" />
 		<!-- --------------------- -->
 
 
@@ -49,10 +49,15 @@
 
 
 		<!-- ■購入履歴一覧表示■ -->
+		<s:form action="PurchaseHistoryAction">
+		<div>
+			<input type="hidden" name="deleteFlg" value="2"/>
+			<s:submit value="個別削除" />
+		</div>
 		<s:iterator value="historyList">
 
 			<!-- チェックボックス -->
-			<s:checkbox name="checkFlg" value="2" fieldValue="%{id}" />
+			<s:checkbox name="checkList" value="2" fieldValue="%{id}" />
 
 			<!-- 選択したものだけを削除 -->
 
@@ -84,12 +89,13 @@
 
 			<!-- 金額 -->
 			<div class="price_count">
-				<div class="price"><span>金額:\</span><s:property value="price" /></div>
+				<div class="price"><span>金額:¥</span><s:property value="price" /></div>
 				<br>
 				<div class="count">(購入数:<s:property value="count" />点)</div>
 			</div>
 
 		</s:iterator>
+		</s:form>
 
 	</s:elseif>
 	<a href='<s:url action="MyPageAction" />'>マイページに戻る</a>

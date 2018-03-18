@@ -28,9 +28,8 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 	// 1 = 全件削除
 	// 2 = 個別ボタン削除
 	// 3 = チェックボックス削除
-
 	private String deleteFlg; // 削除フラグ
-	private String checkFlg; // チェックリストの削除フラグ
+
 	private String message; // 削除メッセージ
 	private int id; // 個別削除id取得 DAOメソッドの戻り値
 	private List<String> checkList;// checkBoxの値
@@ -66,11 +65,9 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 		} else if (deleteFlg.equals("1")) { // 全件削除メソッド（下にあるよお） //deleteFlg="1"
 			delete(); // ★
 			historyList = purchaseHistoryDAO.getPurchaseHistory(userId);
-
 			// 3
-		} else if (checkFlg.equals("2")) { // 選択した項目を削除 //checkFlg="2"
-
-			deleteChoose(checkList);// ★
+		} else if (deleteFlg.equals("2")) { // 選択した項目を削除 //checkFlg="2"
+			deleteChoose();// ★
 			historyList = purchaseHistoryDAO.getPurchaseHistory(userId);
 		}
 
@@ -114,11 +111,14 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 
 	}
 
-	public void deleteChoose(List<String> checkList) throws SQLException {
-		// jspからもってきたchooseList <s:checkbox name="checkList,,,,,>
-		checkList = this.checkList;
+	public void deleteChoose() throws SQLException {
+		if (checkList == null) {
+			setMessage("削除できませんでした。");
+			return;
+		}
 
 		// 何件削除したかもらう
+		// checkListはjspからもってきたchooseList <s:checkbox name="checkList,,,,,>
 		int res = purchaseHistoryDAO.deleteChoose(checkList);
 
 		// 削除したときのメッセージ

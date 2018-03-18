@@ -45,7 +45,7 @@ public class PurchaseHistoryDAO {
 
 			while(rs.next()){
 				PurchaseHistoryDTO dto = new PurchaseHistoryDTO();
-				dto.setId(rs.getString("id"));
+				dto.setId(rs.getString("phi.id"));
 				dto.setProductId(rs.getString("product_id"));
 				dto.setProductName(rs.getString("product_name"));
 				dto.setProductNameKana(rs.getString("product_name_kana"));
@@ -96,7 +96,7 @@ public class PurchaseHistoryDAO {
 
 			while(rs.next()){
 				PurchaseHistoryDTO dto = new PurchaseHistoryDTO();
-				dto.setId(rs.getString("id"));
+				dto.setId(rs.getString("phi.id"));
 				dto.setProductId(rs.getString("product_id"));
 				dto.setProductName(rs.getString("product_name"));
 				dto.setProductNameKana(rs.getString("product_name_kana"));
@@ -141,7 +141,7 @@ public class PurchaseHistoryDAO {
 
 			while(rs.next()){
 				PurchaseHistoryDTO dto = new PurchaseHistoryDTO();
-				dto.setId(rs.getString("id"));
+				dto.setId(rs.getString("phi.id"));
 				dto.setProductId(rs.getString("product_id"));
 				dto.setProductName(rs.getString("product_name"));
 				dto.setProductNameKana(rs.getString("product_name_kana"));
@@ -170,7 +170,7 @@ public class PurchaseHistoryDAO {
 		Connection con = db.getConnection();
 
 		//(deleteFlg.equals("1"))
-		String sql = "DELETE FROM purchase_history_info where user_id = ? ";
+		String sql = "DELETE FROM purchase_history_info where user_id = ?";
 
 
 		//★result★
@@ -197,7 +197,7 @@ public class PurchaseHistoryDAO {
 	public int deletePart(int id) throws SQLException{
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
-		String sql = "DELETE  FROM purchase_history_info where id = ?";
+		String sql = "DELETE FROM purchase_history_info where id = ?";
 		PreparedStatement ps;
 		int result2 = 0;
 		try{
@@ -223,7 +223,7 @@ public class PurchaseHistoryDAO {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 		//(checkFlg.equals("2"))
-		String sql = "DELETE  FROM purchase_history_info where id = ?";
+		String sql = "DELETE FROM purchase_history_info where id = ?";
 
 		PreparedStatement ps;
 		int result3 = 0;
@@ -242,9 +242,4 @@ public class PurchaseHistoryDAO {
 		}
 		return result3;
 	}
-
-
 }
-
-
-

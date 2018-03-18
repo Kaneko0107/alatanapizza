@@ -170,6 +170,7 @@
 
 
 	<p id="total1">
+		<s:if test="stockList.size() != 0">
 		Quantity:
 			<s:select name="productCount" id="product_count" list="stockList"
 				onchange="outputSelectedValueAndText(this);" />&nbsp;
@@ -179,6 +180,10 @@
 					<s:hidden name="productId" value="%{session.d_product_id}" ></s:hidden>
 					<s:hidden name="gocart" value="1" />
 				<s:submit value="カートに入れる" />
+		</s:if>
+		<s:if test="stockList.size() == 0">
+			申し訳ありません。ただいま売り切れ中で購入できません。
+		</s:if>
 	</p>
 	</s:form>
 		<%--お気に入りボタン,非ログイン時は非表示 --%>

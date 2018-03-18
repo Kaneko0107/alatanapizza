@@ -81,7 +81,7 @@ public class PurchaseHistoryDAO {
 
 
 		//★ORDER BY price DESC　値段の高い順 sort == 2
-		String sql = "SELECT phi.id, pi.product_name, pi.product_name_kana, pi.image_file_name,  phi.price, phi.product_count, pi.release_company, pi.release_date, phi.regist_date  "
+		String sql = "SELECT phi.id, pi.product_name, pi.product_name_kana, pi.image_file_path,  phi.price, phi.product_count, pi.release_company, pi.release_date, phi.regist_date  "
 				+ "FROM purchase_history_info phi "
 				+ "LEFT JOIN product_info pi "
 				+ "ON phi.product_id = pi.product_id  "
@@ -104,7 +104,7 @@ public class PurchaseHistoryDAO {
 				dto.setReleaseCompany(rs.getString("release_company"));
 				dto.setReleaseDate(rs.getString("release_date"));
 				dto.setRegistDate(rs.getString("regist_date"));
-				dto.setImageFileName(rs.getString("image_file_name"));
+				dto.setImageFilePath(rs.getString("image_file_path"));
 
 				purchaseHistoryDTOList.add(dto);
 			}
@@ -129,7 +129,7 @@ public class PurchaseHistoryDAO {
 		 //phiはpurchase_history_infoの略
 
 		//★ORDER BY price ASC 値段の安い順　sort == 3
-		String sql = "SELECT phi.id, pi.product_name, pi.product_name_kana, pi.image_file_name,  phi.price, phi.product_count, pi.release_company, pi.release_date, phi.regist_date  FROM purchase_history_info phi LEFT JOIN product_info pi ON phi.product_id = pi.product_id  WHERE phi.user_id = ? ORDER BY price ASC";
+		String sql = "SELECT phi.id, pi.product_name, pi.product_name_kana, pi.image_file_path,  phi.price, phi.product_count, pi.release_company, pi.release_date, phi.regist_date  FROM purchase_history_info phi LEFT JOIN product_info pi ON phi.product_id = pi.product_id  WHERE phi.user_id = ? ORDER BY price ASC";
 
 
 		try{
@@ -148,7 +148,7 @@ public class PurchaseHistoryDAO {
 				dto.setReleaseCompany(rs.getString("release_company"));
 				dto.setReleaseDate(rs.getString("release_date"));
 				dto.setRegistDate(rs.getString("regist_date"));
-				dto.setImageFileName(rs.getString("image_file_name"));
+				dto.setImageFilePath(rs.getString("image_file_path"));
 
 				purchaseHistoryDTOList.add(dto);
 			}

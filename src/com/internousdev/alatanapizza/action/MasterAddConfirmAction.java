@@ -48,11 +48,11 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 	//---------------------------------------------------
 
-	public String getItemNameKana() {
+	public String getItemKanaName() {
 		return itemKanaName;
 	}
 
-	public void setItemNameKana(String itemKanaName) {
+	public void setItemKanaName(String itemKanaName) {
 		this.itemKanaName=itemKanaName;
 	}
 
@@ -91,7 +91,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	public String execute() throws SQLException{
 
 		String result = ERROR;
-		if (itemName == null && itemPrice == null && itemStock == null && itemKanaName==null) {
+		if (itemName == null || itemPrice == null || itemStock == null || itemKanaName==null) {
 			return "form";
 		}
 		//文字列が空白でなければsuccessを返す。何か空白が入っている場合は、errorを返す。

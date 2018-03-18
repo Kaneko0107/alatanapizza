@@ -11,7 +11,7 @@ import com.internousdev.alatanapizza.dto.ProductDTO;
 import com.internousdev.alatanapizza.util.DateUtil;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class MasterAddAction extends ActionSupport implements SessionAware {
+public class MasterAddCompleteAction extends ActionSupport implements SessionAware {
 
 	public void setImage(File image) {
 		this.image = image;
@@ -38,13 +38,12 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 
 	private DateUtil dateUtil = new DateUtil();
 
-	private MasterProductDAO dao = new  MasterProductDAO();
+	private MasterProductDAO dao = new MasterProductDAO();
 	private ProductDTO dto = new ProductDTO();
 
 	public String execute() throws SQLException {
-
 		String result = ERROR;
-		if (itemName == null && itemPrice == null && itemStock == null && itemKanaName==null) {
+		if (itemName == null || itemPrice == null || itemStock == null || itemKanaName==null) {
 			return "form";
 		}
 		//文字列が空白でなければsuccessを返す。何か空白が入っている場合は、errorを返す。
@@ -72,11 +71,11 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 	}
 
 	public String getItemKanaName() {
-		return itemName;
+		return itemKanaName;
 	}
 
-	public void setItemKanaName(String itemName) {
-		this.itemName = itemName;
+	public void setItemKanaName(String itemKanaName) {
+		this.itemKanaName = itemKanaName;
 	}
 
 	public String getItemPrice() {

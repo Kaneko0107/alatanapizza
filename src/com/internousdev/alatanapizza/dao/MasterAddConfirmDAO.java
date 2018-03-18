@@ -22,7 +22,7 @@ public class MasterAddConfirmDAO {
 
 
 
-	private String sql="SELECT* from product_info where itemName=?\"";
+	private String sql="SELECT * from product_info where product_name= ? or product_name_kana = ?";
 
 
 
@@ -37,8 +37,7 @@ public ProductDTO2 checkItemInfo(String itemName,String itemKanaName) throws SQL
 
 
 		ResultSet resultSet=preparedStatement.executeQuery();
-
-			if(!(resultSet.getString("product_name").equals(itemName))) {
+			if(resultSet.next() && !(resultSet.getString("product_name").equals(itemName))) {
 				dto.setItemName(itemName);
 				dto.setItemKanaName(itemKanaName);
 

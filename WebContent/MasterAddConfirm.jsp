@@ -45,13 +45,17 @@
 							<br>価格:
 							<s:property value="itemPrice"/>
 							<br>
+							<s:submit value="登録する"/>
+							<input type="hidden" name="itemName" value="<s:property value="itemName"/>"/>
+							<input type="hidden" name="itemKanaName" value="<s:property value="itemKanaName"/>">
+							<input type="hidden" name="itemStock" value="<s:property value="itemStock"/>">
+							<input type="hidden" name="itemPrice" value="<s:property value="itemPrice"/>">
 						</s:form>
 
 						<div class="back">
 							<a href="MasterAdd.jsp">戻 る</a>
 						</div>
-
-	</div>>
+	</div>
 
 
 

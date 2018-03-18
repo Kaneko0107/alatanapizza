@@ -34,7 +34,7 @@ public class PurchaseHistoryDAO {
 		//phiはpurchase_history_infoの略
 
 		//★ ORDER BY regist_date DESC ★デフォルトの日付順！sort == 1
-		String sql = "SELECT phi.id as id, pi.product_name as product_name, pi.product_name_kana as product_name_kana , pi.product_description as product_description,pi.image_file_name as image_file_name, pi.image_file_path as image_file_path, phi.price, phi.product_count, pi.release_company, pi.release_date, phi.regist_date  FROM purchase_history_info phi LEFT JOIN product_info pi ON phi.product_id = pi.product_id  WHERE phi.user_id = ? ORDER BY regist_date DESC";
+		String sql = "SELECT phi.id as id, pi.product_id as product_id, pi.product_name as product_name, pi.product_name_kana as product_name_kana , pi.product_description as product_description,pi.image_file_name as image_file_name, pi.image_file_path as image_file_path, phi.price, phi.product_count, pi.release_company, pi.release_date, phi.regist_date  FROM purchase_history_info phi LEFT JOIN product_info pi ON phi.product_id = pi.product_id  WHERE phi.user_id = ? ORDER BY regist_date DESC";
 
 
 		try{
@@ -46,6 +46,7 @@ public class PurchaseHistoryDAO {
 			while(rs.next()){
 				PurchaseHistoryDTO dto = new PurchaseHistoryDTO();
 				dto.setId(rs.getString("id"));
+				dto.setProductId(rs.getString("product_id"));
 				dto.setProductName(rs.getString("product_name"));
 				dto.setProductNameKana(rs.getString("product_name_kana"));
 				dto.setPrice(rs.getInt("price"));

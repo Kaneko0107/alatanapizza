@@ -61,7 +61,7 @@
 			<!-- 画像 -->
 			<div class="main_content">
 				<div class="pizagazou">
-					<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+					<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{productId}" /></s:url>">
 						<img class="image" src="<s:property value='imageFilePath'/>"
 						alt="Photo" width="200" height="170"></a><br>
 				</div>

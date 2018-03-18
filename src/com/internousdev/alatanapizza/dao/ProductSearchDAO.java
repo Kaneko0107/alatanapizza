@@ -77,9 +77,12 @@ public class ProductSearchDAO {
 		ArrayList<ProductDTO> searchDTOList = new ArrayList<ProductDTO>();
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
-		  String sql = "SELECT * FROM product_info WHERE product_name LIKE \'%" + searchWord + "%\'"
-		  		+ " OR product_name_kana LIKE \'%" + searchWordHiragana + "%\'"
-		  				+ " OR product_description LIKE \'%" + searchWord + "%\'";
+		String searchWordLike = "%" + searchWord + "%";
+		String searchWordHiraganaLike = "%" + searchWordHiragana + "%";
+
+		  String sql = "SELECT * FROM product_info WHERE product_name LIKE ?"
+		  		+ " OR product_name_kana LIKE ?"
+		  		+ " OR product_description LIKE ?";
 
 //	       String sql = "SELECT * FROM product_info WHERE product_name LIKE \'%" + searchWord + "%\'"
 //					+ " OR product_name_kana LIKE \'%" + searchWordHiragana + "%\'"
@@ -91,16 +94,15 @@ public class ProductSearchDAO {
 //			String sql = "SELECT * FROM product_info WHERE product_name LIKE \'%" + searchWord + "%\' OR product_name_kana LIKE \'%"
 //					+ searchWordHiragana + "%\' OR product_description LIKE \'%" + searchWord + "%\'";
 
-			System.out.println(sql);
 			PreparedStatement ps = con.prepareStatement(sql);
-//			ps.setString(1, searchWord);
-//			ps.setString(2, searchWordHiragana);
-//			ps.setString(3, searchWord);
+			ps.setString(1, searchWordLike);
+			ps.setString(2, searchWordHiraganaLike);
+			ps.setString(3, searchWordLike);
 //			if (categoryId != 1) {
 //				ps.setInt(4, categoryId);
 //			}
 			ResultSet rs = ps.executeQuery();
-
+			System.out.println(ps);
 			while (rs.next()) {
 				ProductDTO dto = new ProductDTO();
 				dto.setId(rs.getInt("id"));
@@ -124,9 +126,9 @@ public class ProductSearchDAO {
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		return searchDTOList;
 

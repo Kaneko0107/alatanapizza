@@ -2,6 +2,7 @@ package com.internousdev.alatanapizza.dto.test;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.junit.Test;
@@ -488,7 +489,76 @@ public class CartInfoDTOTest {
 		assertEquals(expected, dto.getProductDescription());
 	}
 
+	@Test
+	public void testGetImageFilePath1() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "0";
 
+		dto.setImageFilePath(expected);
+
+		assertEquals(expected, dto.getImageFilePath());
+	}
+
+	@Test
+	public void testGetImageFilePath2() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = null;
+
+		dto.setImageFilePath(expected);
+
+		assertEquals(expected, dto.getImageFilePath());
+	}
+
+	@Test
+	public void testGetImageFilePath3() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "";
+
+		dto.setImageFilePath(expected);
+
+		assertEquals(expected, dto.getImageFilePath());
+	}
+
+	@Test
+	public void testGetImageFilePath4() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = " 　";
+
+		dto.setImageFilePath(expected);
+
+		assertEquals(expected, dto.getImageFilePath());
+
+	}
+
+	@Test
+	public void testGetImageFilePath5() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "aaaa";
+
+		dto.setImageFilePath(expected);
+
+		assertEquals(expected, dto.getImageFilePath());
+	}
+
+	@Test
+	public void testGetImageFilePath6() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "AAAA";
+
+		dto.setImageFilePath(expected);
+
+		assertEquals(expected, dto.getImageFilePath());
+	}
+
+	@Test
+	public void testGetImageFilePath7() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "ああああ";
+
+		dto.setImageFilePath(expected);
+
+		assertEquals(expected, dto.getImageFilePath());
+	}
 
 	@Test
 	public void testGetReleaseCompany1() {
@@ -712,4 +782,15 @@ public class CartInfoDTOTest {
 		assertEquals(expected,actual);
 	}
 
+	// トッピング
+	@Test
+	public void testGetToppings() {
+		CartInfoDTO dto = new CartInfoDTO();
+		ArrayList<String> expected = new ArrayList<String>();
+
+		dto.setToppings(expected);
+		ArrayList<String> actual = dto.getToppings();
+
+		assertEquals(expected,actual);
+	}
 }

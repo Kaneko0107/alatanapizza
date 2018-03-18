@@ -11,6 +11,7 @@ public class FavoriteDTO {
 	private String lsizePrice;
 	private String price;
 	private String productId;
+	private int categoryId;
 
 	public String getId(){
 		return id;
@@ -71,6 +72,12 @@ public class FavoriteDTO {
 	}
 	public void setProductId(String productId) {
 		this.productId = productId;
+	}
+	public int getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
 	}
 
 

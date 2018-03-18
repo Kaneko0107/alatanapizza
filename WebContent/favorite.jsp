@@ -71,9 +71,16 @@
 					商品名(かな):<span><s:property value="productNameKana" /></span><br>
 
 
-					金額:<span><s:property value="price" /></span><br>
-					<s:hidden name="price" value="%{price}" />
+					<s:if test="categoryId==2">
+					金額(Mサイズ):<span>¥<s:property value="msizePrice" /></span><br>
 
+					金額(Lサイズ):<span>¥<s:property value="lsizePrice" /></span><br>
+					</s:if>
+					<s:if test="categoryId==3 || categoryId==4">
+
+					金額:<span>¥<s:property value="price" /></span><br>
+					<s:hidden name="price" value="%{price}" />
+					</s:if>
 
 
 	<p>&nbsp;</p>

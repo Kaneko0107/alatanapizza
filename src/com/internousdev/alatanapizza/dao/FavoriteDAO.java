@@ -18,16 +18,17 @@ public class FavoriteDAO {
 
 	public ArrayList<FavoriteDTO> getFavoriteInfo(String loginId) throws SQLException {
 		ArrayList<FavoriteDTO> favoriteDTO =new ArrayList<FavoriteDTO>();
-		String sql = "SELECT " + "pi.id as id,"+ "pi.product_id as product_id," + "pi.product_name as product_name,"
-				+ "pi.product_name_kana as product_name_kana," + "pi.image_file_path as image_file_path,"
-				+ "pi.image_file_name as image_file_name,"+ "pi.price as price" + " FROM "
-				+ "product_info as pi " + "JOIN favorite_info as fi " + "ON fi.product_id = pi.product_id "
+		String sql = "SELECT pi.id as id, pi.product_id as product_id, pi.product_name as product_name,"
+				+ "pi.product_name_kana as product_name_kana, pi.image_file_path as image_file_path,"
+				+ "pi.image_file_name as image_file_name, pi.msize_price as msize_price, pi.lsize_price as lsize_price, pi.price as price,"
+				+ "pi.category_id as category_id "
+				+ "FROM product_info as pi  JOIN favorite_info as fi ON fi.product_id = pi.product_id "
 				+ "WHERE fi.user_id = ?";
 
-		try{
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1,loginId);
 			ResultSet rs = ps.executeQuery();
+			System.out.println(ps);
 
 			while (rs.next()) {
 				FavoriteDTO dto = new FavoriteDTO();
@@ -38,11 +39,12 @@ public class FavoriteDAO {
 			dto.setImageFilePath(rs.getString("image_file_path"));
 			dto.setImageFileName(rs.getString("image_file_name"));
 			dto.setPrice(rs.getString("price"));
+			dto.setMsizePrice(rs.getString("lsize_price"));
+			dto.setLsizePrice(rs.getString("msize_price"));
+			dto.setCategoryId(rs.getInt("category_id"));
 			favoriteDTO.add(dto);
 		}
-	}catch (Exception e) {
-		e.printStackTrace();
-	}
+
 	return favoriteDTO;
 }
 	public int deleteFavoriteInfo(String product_id, String userid) {

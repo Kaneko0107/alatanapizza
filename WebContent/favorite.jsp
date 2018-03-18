@@ -93,7 +93,7 @@
 
 
 
-			<div class="delete">
+			<div class="delete" style="padding-bottom: 50px;">
 				<s:submit value="削除"/>
 						<s:hidden name="deleteFlg" value="1" />
 					</div>

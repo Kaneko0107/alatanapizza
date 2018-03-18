@@ -237,6 +237,6 @@
 
 </body>
 
-					<a href='<s:url action="ProductListAction"/>'>商品一覧画面に戻る</a>
+					<a href='<s:url action="ProductListAction?listFlg=1"/>'>商品一覧画面に戻る</a>
 
 </html>

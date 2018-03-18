@@ -112,7 +112,7 @@
 
 <!-- 商品一覧ページに移行する -->
 			<div class="settlement_btn">
-			 <a href='<s:url action ="ProductListAction" />'>商品一覧画面へ</a>
+			 <a href='<s:url action ="ProductListAction?listFlg=1" />'>商品一覧画面へ</a>
 			</div>
 
 <!-- ホーム画面に移行する -->

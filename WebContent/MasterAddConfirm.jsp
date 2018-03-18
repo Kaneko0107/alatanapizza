@@ -50,6 +50,7 @@
 							<input type="hidden" name="itemKanaName" value="<s:property value="itemKanaName"/>">
 							<input type="hidden" name="itemStock" value="<s:property value="itemStock"/>">
 							<input type="hidden" name="itemPrice" value="<s:property value="itemPrice"/>">
+							<input type="hidden" name="imageName" value="<s:property value="imageName"/>">
 						</s:form>
 
 						<div class="back">

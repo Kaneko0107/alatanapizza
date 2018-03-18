@@ -85,7 +85,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td width="78%"><input type="file" name="image"/></td>
+						<td width="78%"><input type="text" name="imageName"/></td>
 					</tr>
 
 					<!-- 登録ボタン -->

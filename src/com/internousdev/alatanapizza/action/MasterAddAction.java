@@ -13,8 +13,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class MasterAddAction extends ActionSupport implements SessionAware {
 
-	public void setImage(File image) {
-		this.image = image;
+	public void setImage(String imageName) {
+		this.imageName = imageName;
 	}
 
 	private String imageContentType;
@@ -28,10 +28,10 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 
 	private String itemStock;
 
-	private File image;
+	private String imageName;
 
-	public File getImage() {
-		return image;
+	public String getImage() {
+		return imageName;
 	}
 
 	public Map<String, Object> session;
@@ -50,7 +50,7 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 		//文字列が空白でなければsuccessを返す。何か空白が入っている場合は、errorを返す。
 
 		if (itemName.length() != 0 && itemKanaName.length() !=0 && itemPrice.length() != 0 && itemStock.length() != 0) {
-			dto = dao.productDTO(itemName, itemKanaName, itemPrice, itemStock);
+			dto = dao.productDTO(itemName, itemKanaName, itemPrice, itemStock, imageName);
 			session.put("ItemInsert", dto);
 			session.put("itemName", itemName);
 			session.put("itemPrice", itemPrice);

@@ -13,8 +13,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class MasterAddCompleteAction extends ActionSupport implements SessionAware {
 
-	public void setImage(File image) {
-		this.image = image;
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}
 
 	private String imageContentType;
@@ -28,10 +28,10 @@ public class MasterAddCompleteAction extends ActionSupport implements SessionAwa
 
 	private String itemStock;
 
-	private File image;
+	private String imageName;
 
-	public File getImage() {
-		return image;
+	public String getImageName() {
+		return imageName;
 	}
 
 	public Map<String, Object> session;
@@ -43,17 +43,18 @@ public class MasterAddCompleteAction extends ActionSupport implements SessionAwa
 
 	public String execute() throws SQLException {
 		String result = ERROR;
-		if (itemName == null || itemPrice == null || itemStock == null || itemKanaName==null) {
+		if (itemName == null || itemPrice == null || itemStock == null || itemKanaName==null || imageName == null) {
 			return "form";
 		}
 		//文字列が空白でなければsuccessを返す。何か空白が入っている場合は、errorを返す。
 
-		if (itemName.length() != 0 && itemKanaName.length() !=0 && itemPrice.length() != 0 && itemStock.length() != 0) {
-			dto = dao.productDTO(itemName, itemKanaName, itemPrice, itemStock);
+		if (itemName.length() != 0 && itemKanaName.length() !=0 && itemPrice.length() != 0 && itemStock.length() != 0 && imageName.length() != 0) {
+			dto = dao.productDTO(itemName, itemKanaName, itemPrice, itemStock, imageName);
 			session.put("ItemInsert", dto);
 			session.put("itemName", itemName);
 			session.put("itemPrice", itemPrice);
 			session.put("itemStock", itemStock);
+			session.put("imageName", imageName);
 			session.put("insertDate", dateUtil.getDate());
 
 			result = SUCCESS;

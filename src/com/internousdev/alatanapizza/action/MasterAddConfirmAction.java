@@ -25,7 +25,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	private String itemStock;
 
 
-	private File image;
+	private String imageName;
 	private String imageContentType;
 	private String imageFileName;
 
@@ -77,13 +77,13 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	}
 
 	//---------------------------------------------------
-	public void setImage(File image) {
-		this.image = image;
+	public void setImageName(String image) {
+		this.imageName = image;
 	}
 
 
-	public File getImage() {
-		return image;
+	public String getImageName() {
+		return imageName;
 	}
 
 	//---------------------------------------------------
@@ -91,19 +91,18 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	public String execute() throws SQLException{
 
 		String result = ERROR;
-		if (itemName == null || itemPrice == null || itemStock == null || itemKanaName==null) {
+		if (itemName == null || itemPrice == null || itemStock == null || itemKanaName == null || imageName == null) {
 			return "form";
 		}
 		//文字列が空白でなければsuccessを返す。何か空白が入っている場合は、errorを返す。
 
-		if (itemName.length() != 0 && itemKanaName.length() !=0 && itemPrice.length() != 0 && itemStock.length() != 0) {
+		if (itemName.length() != 0 && itemKanaName.length() !=0 && itemPrice.length() != 0 && itemStock.length() != 0 && imageName.length() != 0) {
 			dto = dao.checkItemInfo(itemName,itemKanaName);
 			session.put("itemKanaName", itemKanaName);
 			session.put("itemName", itemName);
 			session.put("itemPrice", itemPrice);
 			session.put("itemStock", itemStock);
-
-
+			session.put("imageName", imageName);
 
 			result = SUCCESS;
 			return result;

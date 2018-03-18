@@ -9,7 +9,6 @@ import org.junit.Test;
 
 import com.internousdev.alatanapizza.dto.CartInfoDTO;
 
-
 public class CartInfoDTOTest {
 	//商品価格に関するテスト
 	@Test
@@ -276,6 +275,7 @@ public class CartInfoDTOTest {
 		}
 	}
 
+	@Test
 	public void testGetProductName1() {
 		CartInfoDTO dto = new CartInfoDTO();
 		String expected = "0";

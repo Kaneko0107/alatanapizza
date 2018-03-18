@@ -223,28 +223,6 @@ public class CartInfoDAO extends ActionSupport{
 		return result;
 	}
 
-	//ログインユーザーのカート内商品の購入予定個数を変更
-	public int updateUsersCount(int productCount,String userId, String productId)throws SQLException{
-		int count = 0;
-		String sql="UPDATE cart_info SET product_count = product_count +" + productCount + "WHERE user_id = ? AND product_id=?";
-
-		try{
-			con = db.getConnection();
-			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
-			ps.setInt(1, productCount);
-			ps.setString(2, userId);
-			ps.setString(3, productId);
-
-			count = ps.executeUpdate();
-		}catch (SQLException e){
-			throw new RuntimeException(e);
-		}finally{
-			con.close();
-		}
-
-		return count;
-	}
-
 	//ゲストユーザーのカート内商品の購入予定個数を変更
 	public int UpdateProductCount(int productCount,String tempUserId)throws SQLException{
 		int count = 0;

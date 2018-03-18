@@ -113,7 +113,7 @@
 		<tr>
 		<td>
 			<span id="img">
-				<img class="image" src="<s:property value='session.d_image_file_path'/>" alt="Photo" width="400" height="300">
+				<img class="image" src="<s:property value='session.d_image_file_path'/>" alt="Photo" style="max-width: 400px; max-height: 300px;">
 			</span>
 		</td>
 		<td>
@@ -211,7 +211,7 @@
 							<div>
 								<a href="<s:url action="ProductDetailsAction">
 									 <s:param name="product_id" value="%{product_id}" /></s:url>">
-										<img class="image" src="<s:property value='image_file_path'/> " alt="Photo" width="250" height="200">
+										<img class="image" src="<s:property value='image_file_path'/> " alt="Photo" style="max-width: 250px; max-height: 200px;">
 								</a>
 							</div>
 							<div>

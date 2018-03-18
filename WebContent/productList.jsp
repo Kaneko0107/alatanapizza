@@ -58,7 +58,7 @@
 					<table>
 						<tr>
 							<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
-								<img class="image" src="<s:property value='image_file_path'/>" alt="Photo" width="200" height="170"><br>
+								<img class="image" src="<s:property value='image_file_path'/>" alt="Photo" style="max-width: 200px; max-height: 170px;"><br>
 							</a>
 						</tr>
 							<!-- 商品名 -->

@@ -28,6 +28,8 @@
 
 	<h3>お気に入りリスト</h3>
 
+	<span style="color: red;"><s:property value="message" /></span>
+
 	<s:if test="favoriteList.size()==0">
 		<h4>お気に入りはありません。</h4>
 	</s:if>

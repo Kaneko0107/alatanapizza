@@ -54,7 +54,9 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 					if (favoriteList.get(i).getProductId().equals(product_id)) {
 						canInsertFlg = false;
 						setMessage("すでにリストにある商品です");
-						result = ERROR;
+						System.out.println("すでにリストにある商品です");
+						result = SUCCESS;
+						return result;
 					}
 				}
 				if (canInsertFlg) {
@@ -117,7 +119,7 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 		else
 
 		{
-			result = ERROR;
+			result = "login";
 		}
 		return result;
 	}

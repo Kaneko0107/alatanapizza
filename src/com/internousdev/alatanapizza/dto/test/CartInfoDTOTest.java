@@ -419,6 +419,148 @@ public class CartInfoDTOTest {
 
 
 
+
+	public void testGetReleaseCompany1() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "0";
+
+		dto.setReleaseCompany(expected);
+
+		assertEquals(expected, dto.getReleaseCompany());
+	}
+
+	@Test
+	public void testGetReleaseCompany2() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = null;
+
+		dto.setReleaseCompany(expected);
+
+		assertEquals(expected, dto.getReleaseCompany());
+	}
+
+	@Test
+	public void testGetReleaseCompany3() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "";
+
+		dto.setReleaseCompany(expected);
+
+		assertEquals(expected, dto.getReleaseCompany());
+	}
+
+	@Test
+	public void testGetReleaseCompany4() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = " 　";
+
+		dto.setReleaseCompany(expected);
+
+		assertEquals(expected, dto.getReleaseCompany());
+	}
+
+	@Test
+	public void testGetReleaseCompany5() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "aaaa";
+
+		dto.setReleaseCompany(expected);
+
+		assertEquals(expected, dto.getReleaseCompany());
+	}
+
+	@Test
+	public void testGetReleaseCompany6() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "AAAA";
+
+		dto.setReleaseCompany(expected);
+
+		assertEquals(expected, dto.getReleaseCompany());
+	}
+
+	@Test
+	public void testGetReleaseCompany7() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "ああああ";
+
+		dto.setReleaseCompany(expected);
+
+		assertEquals(expected, dto.getReleaseCompany());
+	}
+
+
+	public void testGetReleaseDate1() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "0";
+
+		dto.setReleaseDate(expected);
+
+		assertEquals(expected, dto.getReleaseDate());
+	}
+
+	@Test
+	public void testGetReleaseDate2() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = null;
+
+		dto.setReleaseDate(expected);
+
+		assertEquals(expected, dto.getReleaseDate());
+	}
+
+	@Test
+	public void testGetReleaseDate3() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "";
+
+		dto.setReleaseDate(expected);
+
+		assertEquals(expected, dto.getReleaseDate());
+	}
+
+	@Test
+	public void testGetReleaseDate4() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = " 　";
+
+		dto.setReleaseDate(expected);
+
+		assertEquals(expected, dto.getReleaseDate());
+
+	}
+
+	@Test
+	public void testGetReleaseDate5() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "aaaa";
+
+		dto.setReleaseDate(expected);
+
+		assertEquals(expected, dto.getReleaseDate());
+	}
+
+	@Test
+	public void testGetReleaseDate6() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "AAAA";
+
+		dto.setReleaseDate(expected);
+
+		assertEquals(expected, dto.getReleaseDate());
+	}
+
+	@Test
+	public void testGetReleaseDate7() {
+		CartInfoDTO dto = new CartInfoDTO();
+		String expected = "ああああ";
+
+		dto.setReleaseDate(expected);
+
+		assertEquals(expected, dto.getReleaseDate());
+	}
+
+
 	//商品在庫に関するテスト
 	@Test
 	public void testGetProductCount1() {

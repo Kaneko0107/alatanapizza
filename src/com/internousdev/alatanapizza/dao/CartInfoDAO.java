@@ -304,7 +304,7 @@ public class CartInfoDAO extends ActionSupport{
 	//在庫更新
 	public void changeStockCount(int productStock, int productId) throws SQLException {
 		System.out.println("Stockを変更");
-		String sql = "UPDATE product_info SET stock=stock-? WHERE product_id=?";
+		String sql = "UPDATE product_info SET stock=stock - ? WHERE product_id = ?";
 
 		try {
 			con = db.getConnection();
@@ -313,6 +313,7 @@ public class CartInfoDAO extends ActionSupport{
 			ps.setInt(2, productId);
 
 			ps.executeUpdate();
+			System.out.println(ps);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		} finally {

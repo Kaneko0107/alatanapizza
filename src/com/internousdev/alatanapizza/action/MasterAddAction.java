@@ -1,6 +1,5 @@
 package com.internousdev.alatanapizza.action;
 
-import java.io.File;
 import java.sql.SQLException;
 import java.util.Map;
 
@@ -95,8 +94,26 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 		this.itemStock = itemStock;
 	}
 
+	public String getImageFileName() {
+		return imageFileName;
+	}
+
+	public void setImageFileName(String imageFileName) {
+		this.imageFileName = imageFileName;
+	}
+
+	public String getImageContentType() {
+		return imageContentType;
+	}
+
+	public void setImageContentType(String imageContentType) {
+		this.imageContentType = imageContentType;
+	}
+
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+
+
 }

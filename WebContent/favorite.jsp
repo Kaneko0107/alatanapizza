@@ -68,6 +68,7 @@
 								  <img src='<s:property value="imageFilePath"/>' width="200" height="170" alt="Photo"/>
 								</s:a>
 
+								<br>
 
 								<s:hidden name="imageFileName" value='<s:property value="imageFileName"/>' />
 								商品名:<span><s:property value="productName" /></span><br>

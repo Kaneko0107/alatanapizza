@@ -114,7 +114,7 @@ $(function() {
 
 
 							<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
-								<img class="image" src=./images/icon/modoru2.png><br>
+								<img class="image" src=./images/icon/gocart.png><br>
 							</a>
 			</div>
 			</div>

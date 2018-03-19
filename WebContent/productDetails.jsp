@@ -12,9 +12,7 @@
 
 <title>商品詳細画面</title>
 <style type="text/css">
-	#sP{
-		margin:0 25% 0 25%;
-	}
+
 </style>
 
 
@@ -22,6 +20,7 @@
  <script src="./js/jquery-3.3.1.min.js"></script>
   <script src="./js/jquery-1.8.2.min.js"></script>
     <script>
+    	//合計金額計算式
         $(function() {
             $('input[name="product"]:radio').change(function() {
                 var product_val = $('input[name="product"]:checked').val();
@@ -35,7 +34,6 @@
                 $('input[name="total_price"]').val(total_price);
                 $('#total_price_text').text(total_price);
             });
-
             $('.topping_menu').change(function() {
                 var product_val = $('input[name="product"]:checked').val();
                 if(product_val == window.undefined){
@@ -48,7 +46,6 @@
                 $('input[name="total_price"]').val(total_price);
                 $('#total_price_text').text(total_price);
             });
-
             $('#product_count').change(function() {
                 var product_val = $('input[name="product"]:checked').val();
                 if(product_val == window.undefined){
@@ -73,7 +70,6 @@
                 $('input[name="total_price"]').val(total_price);
                 $('#total_price_text').text(total_price);
             });
-
             $('#sAndDPrice').change(function() {
             	var sAndDPrice = sAndDPrice_val();
             	var product_menu_count = $('[name="productCount"]').val();
@@ -134,7 +130,7 @@
 					</s:if>
 					<s:if test="session.d_category_id==3 || session.d_category_id==4">
 						<!-- サイド・ドリンク -->
-						<p id="sAndDPrice" name="sAndDPrice" value='<s:property value="session.d_product_price" />'>￥<s:property value="session.d_product_price" /></p>
+						￥<s:property value="session.d_product_price" />
 					</s:if></span>
 
 					<div class="productDescription">
@@ -176,7 +172,7 @@
 				onchange="outputSelectedValueAndText(this);" />&nbsp;
 		Total:￥
 			<s:hidden name="total_price" id="total_price" />
-				<span id="total_price_text"></span>
+				<span id="total_price_text"></span>&nbsp;
 					<s:hidden name="productId" value="%{session.d_product_id}" ></s:hidden>
 					<s:hidden name="gocart" value="1" />
 				<s:submit value="カートに入れる" />
@@ -186,6 +182,9 @@
 		</s:if>
 	</p>
 	</s:form>
+
+		<a href='<s:url action="ProductListAction?listFlg=1"/>'>商品一覧画面に戻る</a>
+
 		<%--お気に入りボタン,非ログイン時は非表示 --%>
 			<s:if test="#session.containsKey('userId')">
 				<s:form action="FavoriteAction">
@@ -231,12 +230,10 @@
 					</s:iterator>
 		</div><br>
 
+
 	<!-- フッター
 	<jsp:include page="include_footer.jsp" />
 	-->
 
 </body>
-
-					<a href='<s:url action="ProductListAction?listFlg=1"/>'>商品一覧画面に戻る</a>
-
 </html>

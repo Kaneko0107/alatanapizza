@@ -160,21 +160,10 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 				this.price = price;
 			}
 
-			/**
-			 * insertFlgを取得します。
-			 *
-			 * @return insertFlg
-			 */
 			public int getInsertFlg() {
 				return insertFlg;
 			}
 
-			/**
-			 * insertFlgを設定します。
-			 *
-			 * @param insertFlg
-			 *            insertFlg
-			 */
 			public void setInsertFlg(int insertFlg) {
 				this.insertFlg = insertFlg;
 			}
@@ -235,37 +224,25 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 				this.error = error;
 			}
 
-
-
 			public ProductDTO getDetail() {
 				return detail;
 			}
-
-
 
 			public ArrayList<ProductDTO> getToppingList() {
 				return toppingList;
 			}
 
-
-
 			public List<ProductDTO> getSuggestList() {
 				return suggestList;
 			}
-
-
 
 			public void setDetail(ProductDTO detail) {
 				this.detail = detail;
 			}
 
-
-
 			public void setToppingList(ArrayList<ProductDTO> toppingList) {
 				this.toppingList = toppingList;
 			}
-
-
 
 			public void setSuggestList(List<ProductDTO> suggestList) {
 				this.suggestList = suggestList;

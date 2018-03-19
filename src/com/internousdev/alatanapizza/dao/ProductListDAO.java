@@ -12,15 +12,13 @@ import com.internousdev.alatanapizza.util.DateUtil;
 
 
 public class ProductListDAO {
-    private DBConnector db = new DBConnector();
-    private Connection con = db.getConnection();
-
-
 
     // 商品リスト情報の取得
  	// ユーザーに表示するリスト
     public ArrayList<ProductDTO> getProductInfo() throws SQLException {
        ArrayList<ProductDTO> productList = new ArrayList<>();
+       DBConnector db = new DBConnector();
+       Connection con = db.getConnection();
        con = db.getConnection();
 
 
@@ -66,6 +64,8 @@ public class ProductListDAO {
  	// ユーザーに非表示のリスト
     public ArrayList<ProductDTO> getProductHideInfo() throws SQLException {
        ArrayList<ProductDTO> productList = new ArrayList<>();
+       DBConnector db = new DBConnector();
+       Connection con = db.getConnection();
        con = db.getConnection();
 
        String sql = "SELECT * FROM product_info WHERE status = 1 ORDER BY Product_id ASC";
@@ -109,7 +109,8 @@ public class ProductListDAO {
     // 商品IDが既に存在しているかチェック
     public boolean existsProductId(String productId) throws SQLException {
        boolean result = false;
-
+       DBConnector db = new DBConnector();
+       Connection con = db.getConnection();
        con = db.getConnection();
 
        String sql = "SELECT * FROM product_info WHERE product_id = ?";
@@ -133,6 +134,8 @@ public class ProductListDAO {
     //管理者の在庫追加用
     public boolean updateStock(Integer productId, Integer stock) throws SQLException {
         boolean result = false;
+        DBConnector db = new DBConnector();
+        Connection con = db.getConnection();
         con = db.getConnection();
         String sql = "UPDATE product_info SET stock = ? WHERE product_id = ?";
 
@@ -152,7 +155,8 @@ public class ProductListDAO {
     // 新商品を登録
     public int productRegist(String product_id, String product_name, String product_name_kana, String product_description, Integer category_id,Integer msize_price,Integer lsize_price, Integer price, String image_file_path, String image_file_name, String release_date, String release_company) throws SQLException {
        DateUtil dateUtil = new DateUtil();
-
+       DBConnector db = new DBConnector();
+       Connection con = db.getConnection();
        con = db.getConnection();
 
        String sql = "INSERT INTO product_info (" + "product_id," + "product_name," + "product_name_kana,"
@@ -189,7 +193,8 @@ public class ProductListDAO {
     //トッピング情報の取得
     public ArrayList<ProductDTO> getToppingInfo() throws SQLException {
         ArrayList<ProductDTO> toppingList = new ArrayList<>();
-
+        DBConnector db = new DBConnector();
+        Connection con = db.getConnection();
         con = db.getConnection();
 
         //昇順でidを表示

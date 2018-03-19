@@ -65,9 +65,11 @@ border-left:10px solid red;
 </head>
 <body>
 <jsp:include page="include_header.jsp" />
-		<div id="main">
 		<div id="top">
 		</div>
+
+		<div id="main">
+
 		<br>
 
 
@@ -80,13 +82,8 @@ border-left:10px solid red;
 			<tr><td><hr></td></tr>
 
 			<s:form action="LoginAction">
-					<div style="color: red;" >
-						<s:iterator value="errorMessageList">
-							<s:div align="center">
-								<s:property/>
-							</s:div>
-						</s:iterator>
-					</div>
+			<table>
+			<tr><td><div style="color: red;" ><s:iterator value="errorMessageList"><s:div align="center"><s:property/></s:div></s:iterator></div></td></tr>
 
 <!-- ID -->
 			<tr><td>ID</td></tr>
@@ -98,7 +95,10 @@ border-left:10px solid red;
 			<tr><td>パスワード</td></tr>
 			<tr><td><s:password class="form" placeholder="1文字以上8文字以下" name="password"/></td></tr>
 
-			<tr><td><s:hidden name ="kessai" value ="%{kessai}"/><s:submit value="ログイン"/></s:form></td></tr>
+			<tr><td><s:hidden name ="kessai" value ="%{kessai}"/><s:submit value="ログイン"/></td></tr>
+			</table>
+			</s:form>
+
 
 <!-- ログインボタン -->
 <!-- マウスオーバーの設定と、真ん中に配置してください -->
@@ -115,8 +115,8 @@ border-left:10px solid red;
 			<tr><td><div class="memo">新規ユーザー登録は<a href='<s:url action="UserCreateAction"/>'>こちら</a>
 				</div></td></tr>
 
-			<tr><td><div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()">◀ 戻る</a></td></tr>
-				</div></table></div>
+			<tr><td><div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()">◀ 戻る</a></div></td></tr>
+				</table></div>
 
 </body>
 <jsp:include page="include_footer.jsp" />

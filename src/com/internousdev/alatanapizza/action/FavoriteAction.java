@@ -25,15 +25,15 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 	private String result;
 	int count;
 	int count2;
-	boolean canInsertFlg;
+	boolean canInsertFlg = true;
 
 	public String execute() throws SQLException {
 		FavoriteDAO dao = new FavoriteDAO();
-		deleteFlg = "0";
-		favoriteInsertFlg = "0";
-		test = "test";
-		canInsertFlg = true;
-		count = 0;
+//		deleteFlg = "0";
+//		favoriteInsertFlg = "0";
+//		test = "test";
+//		canInsertFlg = true;
+//		count = 0;
 		session.put("none", null);
 
 		//削除ボタン押してない時点
@@ -41,8 +41,7 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 			if (session.containsKey("userId")) {
 				userId = session.get("userId").toString();
 				favoriteList = dao.getFavoriteInfo(userId);
-
-			}
+		  }
 		}
 
 		if (session.containsKey("userId")) {
@@ -109,9 +108,10 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 		} //セッション鍵	("userId")が存在しない場合エラーページに移動させる
 		else	{
 			result = "login";
+
 		}
 		return result;
-	}
+		}
 
 	//ゲッター・セッター
 	//-----------------------------------------------------------

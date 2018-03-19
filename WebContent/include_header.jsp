@@ -65,11 +65,11 @@ a:hover{
 
 
 	<ul class="ul"><% if( userId == null){ %>
-		<li class="li"><a href='<s:url action="LoginAction"/>'>ログイン<img src="./images/icon/kagi.png" width="20" hegiht="20"></a></li>
+		<li class="li"><a href='<s:url action="LoginAction"/>'>ログイン<img src="./images/icon/kagi.png" width="20" height="20"></a></li>
 <% }else{ %>
 <li class="li"><a href='<s:url action="LogoutAction"/>'>ログアウト</a></li><li>|</li>
 
-		<li class="li"><a href='<s:url action="MyPageAction"/>'>マイページ<img src="./images/icon/kagi.png" width="20" hegiht="20"></a></li><% } %>
+		<li class="li"><a href='<s:url action="MyPageAction"/>'>マイページ<img src="./images/icon/kagi.png" width="20" height="20"></a></li><% } %>
 	<li>|</li>
 
 <li>

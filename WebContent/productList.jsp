@@ -13,33 +13,62 @@
 <style>
 
 .itemListBox{
-	width:19%;
-	height:350px;
+	width:20%;
+	height:360px;
 	float:left;
-	margin-bottom:2%;
+	margin-bottom:5%;
 	border:1px solid white;
 	margin-right:5%;
 	margin-left:5%;
 	margin:top:2px;
 	padding:15px;
 	border-radius:15px;
-	background-color:rgba(0,0,0,0.5)
+	background-color:rgba(0,0,0,0.5);
+
+
 
 }
 
+.imageHover{
+ clear:both;
+ width: 250px;
+  height: 200px;
+  overflow: hidden;
+  image-align:center;
+
+}
+
+.productInfo{
+margint-top:200px;
+margin-bottom:50px;
+padding-bottom:10px;
+}
+
 .center{
-.page-deciding-system{
 	clear:both;
 	width:100%;
 	text-align:center;
-}}
-
+}
 
 
 
 
 
 </style>
+
+<script src="./js/jquery-1.8.2.min.js"></script>
+<script>
+$(function() {
+	$(".imageHover image").hover(
+	function(){
+	$(this).animate({'width':"230px",'height':"200px"});
+	},
+	function () {
+	$(this).animate({width:"200px",'height':"170px"});
+	});
+	});
+</script>
+
 
 </head>
 <body>
@@ -53,46 +82,41 @@
 
 		<s:iterator value="displayList">
 			<div class="itemListBox">
-				<div class="alltogether">
 
-					<table>
-						<tr>
+						<div class="imageHover">
 							<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
-								<img class="image" src="<s:property value='image_file_path'/>" alt="Photo" style="max-width: 200px; max-height: 170px;"><br>
+								<img class="image" src="<s:property value='image_file_path'/>" alt="Photo" width="200" height="170"><br>
 							</a>
-						</tr>
+						</div>
+
+						<div class="productInfo">
 							<!-- 商品名 -->
 								<s:property value="product_name" /><br>
-						<tr>
-						<!-- 商品かな -->
-							<s:property value="product_name_kana" /><br>
-						</tr>
-						<tr>
+
+							<!-- 商品かな -->
+								<s:property value="product_name_kana" /><br>
+
 							<!-- カテゴリーが2(ピザ)の場合の価格 -->
 								<s:if test="category_id==2">
 								<img class="image" src="./images/icon/m.png" alt="Photo" >￥<s:property value="msize_price" /><br>
 								<img class="image" src="./images/icon/l.png" alt="Photo" >￥<s:property value="lsize_price" /><br>
 								</s:if>
-						</tr>
-						<tr>
+
 							<!-- カテゴリーが3(サイド)の場合の価格 -->
 								<s:if test="category_id==3"><br>
 								￥<s:property value="price"/><br>
 								</s:if>
-						</tr>
-						<tr>
+
 							<!-- カテゴリーが4(ドリンク)の場合の価格 -->
 								<s:if test="category_id==4"><br>
 								￥<s:property value="price"/><br>
 								</s:if>
-						</tr>
 
 
 							<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
 								<img class="image" src=./images/icon/modoru2.png><br>
 							</a>
-					</table>
-				</div>
+			</div>
 			</div>
 		</s:iterator>
 
@@ -175,6 +199,7 @@
 	<td>
 	<s:iterator value="displaySearchList">
 	<div class="itemList">
+		<div class="itemListBox">
 
 				<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
 					<img class="image" src="<s:property value='image_file_path'/>" alt="Photo" width="200" height="170"><br>
@@ -206,6 +231,7 @@
 					<img class="image" src=./images/icon/modoru2.png><br>
 				</a>
 
+		</div>
 		</div>
 	</s:iterator>
 	</td>

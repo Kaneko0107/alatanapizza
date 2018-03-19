@@ -81,6 +81,8 @@
 									<s:hidden name="price" value="%{price}" />
 								</s:if>
 
+								<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">商品詳細ページへ</a>
+
 
 								<p>&nbsp;</p>
 								<p>&nbsp;</p>
@@ -94,7 +96,7 @@
 							<s:hidden name="deleteFlg" value="1" />
 						</div>
 
-						<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">商品詳細ページへ</a>
+
 
 						</s:form>
 					</s:if>

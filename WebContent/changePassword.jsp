@@ -13,15 +13,74 @@
 color:white;}
 .error1{
 coror:white;}
+#main{
+width:50%;
+background:rgba(0,0,0,0.5);
+margin-top:70px;
+margin-left:25%;
+margin-bottom:30px;
+}
+table {
+	width: 80%;
+	margin: 0 auto;
+	text-align: left;
+}
+
+h3 {
+	border-left: 10px solid red;
+}
+
+
+.moji {
+	    text-align: center;
+	    font-size: 12px;
+	    color: #FFCC33;
+	    }
+
+.form {
+	background-color: rgba(200, 200, 200, 0.5);
+	width: 200px;
+	height: 30px;
+	border-radius: 5px;
+}
+
+tr td {
+	padding-right: 30px;
+	padding-left: 20px;
+	padding-top: 5px;
+}
+
+hr {
+	text-align: left;
+	border: none;
+	border-top: dashed 1px #ccc;
+	height: 1px;
+	color: #ffffff;
+	margin: 0 8 0 8;
+}
+
+
+.image2 {
+
+	    text-align:right;
+	    margin-top: 5px;
+	    }
+.inner {
+display:inline;
+}
+
 
 
 </style>
 </head>
 <body>
 <jsp:include page="include_header.jsp" />
-<p>パスワード変更画面</p>
-<p>お客様が以前登録されたユーザーIDと秘密の質問からパスワードを変更します。</p>
-<p>指定に従って以下の項目を入力し、下記の確認ボタンを押してください。</p>
+<div class="main">
+<table>
+<tr><td colspan="2"><h3>パスワード変更画面</h3></td></tr>
+<tr><td colspan="2"><hr></td></tr>
+<tr><td colspan="2"><div class="moji">お客様が以前登録されたユーザーIDと秘密の質問からパスワードを変更します</div></td></tr>
+<tr><td colspan="2"><div class="moji">指定に従って以下の項目を入力し、下記の確認ボタンを押してください</div><br></td></tr>
 
 <s:if test="errorMessage!=''">
    <s:iterator value="errMsgList">
@@ -33,15 +92,15 @@ coror:white;}
 		</s:iterator>
 		</s:if>
 <s:form action="ChangePasswordConfirmAction" >
-<table>
+
 <tr>
 <td>ユーザーID;</td>
-<td><input type="text" value='<s:property value="userid"/>' name="userid" placeholder="1～8文字以内半角英数字"/></td>
+<td><input type="text" value='<s:property value="userid"/>' name="userid" placeholder="1～8文字以内半角英数字" class="form"/></td>
 </tr>
 <tr>
 <td>秘密の質問:</td>
 <td> <s:if test="secret_question==1">
-            <select name="secret_question">
+            <select name="secret_question" class="form">
               <option value="">選択してください</option>
               <option value="1" selected>好きな食べ物</option>
               <option value="2">嫌いな食べ物</option>
@@ -49,7 +108,7 @@ coror:white;}
           </s:if>
 
           <s:elseif test="secret_question==2">
-            <select name="secret_question">
+            <select name="secret_question" class="form">
               <option value="">選択してください</option>
               <option value="1">好きな食べ物</option>
               <option value="2" selected>嫌いな食べ物</option>
@@ -57,7 +116,7 @@ coror:white;}
           </s:elseif>
 
           <s:else>
-            <select name="secret_question">
+            <select name="secret_question" class="form">
               <option value="">選択してください</option>
               <option value="1">好きな食べ物</option>
               <option value="2">嫌いな食べ物</option>
@@ -67,26 +126,26 @@ coror:white;}
 </tr>
 <tr>
 <td>答え:</td>
-<td><input type="text" name="secret_answer" value='<s:property value="secret_answer"/>'  /></td>
+<td><input type="text" name="secret_answer" value='<s:property value="secret_answer"/>'  class="form"/></td>
 </tr>
 <tr>
 <td>新しいパスワード:</td>
-<td><input type="password" name="newpass" placeholder="1～16文字以内の半角英数字"/></td>
+<td><input type="password" name="newpass" placeholder="1～16文字以内の半角英数字" class="form"/></td>
 </tr>
 <tr>
 <td>確認:</td>
-<td><input type="password" name="checkpass" placeholder="1～16文字以内の半角英数字"/></td>
+<td><input type="password" name="checkpass" placeholder="1～16文字以内の半角英数字" class="form"/></td>
 </tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr>
-<td><s:submit value="確認"/></td>
+<td><div class="image2"><div class="inner"><input type="image" src="./images/icon/kakuninn.png" alt=""></div></div></td>
 </tr>
-</table>
-
 
 </s:form>
 
-<a href='<s:url action="LoginAction"/>'>ログインページへ戻る</a>
-
+<tr><td><a href='<s:url action="LoginAction"/>'><img  src="./images/icon/modoru2.png"></a></td></tr>
+</table>
+</div>
 <jsp:include page="include_footer.jsp"/>
 
 

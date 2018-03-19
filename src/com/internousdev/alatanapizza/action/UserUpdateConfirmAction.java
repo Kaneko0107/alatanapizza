@@ -70,8 +70,8 @@ public class UserUpdateConfirmAction extends ActionSupport implements SessionAwa
 					setErrorMessage("現在のパスワードが間違っています。");
 					errMsgList.add(errorMessage);
 				}
-				if(newEmail.length()<10 || newEmail.length()>32){
-					setErrorMessage("メールアドレスは10～32文字の範囲内で入力してください。");
+				if(newEmail.length()<14 || newEmail.length()>32){
+					setErrorMessage("メールアドレスは14～32文字の範囲内で入力してください。");
 					errMsgList.add(errorMessage);
 				}
 				if((!newEmail.matches("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$"))){

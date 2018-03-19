@@ -48,7 +48,7 @@
    </tr>
    <tr>
    <th>メールアドレス</th>
-   <td><s:textfield name="newEmail" placeholder="10文字以上32文字以下"/></td>
+   <td><s:textfield name="newEmail" placeholder="14文字以上32文字以下"/></td>
    </tr>
    </table>
    <div>

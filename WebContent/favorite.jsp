@@ -66,7 +66,7 @@
 								商品名:<span><s:property value="productName" /></span><br>
 
 
-								<s:hidden name="productNameKana" value='<s:property value="produceNameKana"/>' />
+								<s:hidden name="productNameKana" value='<s:property value="productNameKana"/>' />
 								商品名(かな):<span><s:property value="productNameKana" /></span><br>
 
 
@@ -94,6 +94,7 @@
 							<s:hidden name="deleteFlg" value="1" />
 						</div>
 
+						<a href='<s:url action="ProductDetailsAction"/>'>商品詳細ページへ</a>
 
 						</s:form>
 					</s:if>

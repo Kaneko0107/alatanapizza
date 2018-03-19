@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/alatanapizza.css">
-<title>Insert title here</title>
+<title>購入履歴</title>
 </head>
 <body>
 	<jsp:include page="include_header.jsp" />

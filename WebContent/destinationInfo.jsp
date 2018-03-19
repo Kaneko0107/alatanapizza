@@ -27,6 +27,13 @@ hr{border: none;
 	margin: 0 8 0 8;
 }
 
+table{
+	margin:0 auto;
+	text-align: left;
+	padding-left: 20%;
+	padding-right: 20%;
+}
+
 /*========ID LAYOUT========*/
 
 #main{
@@ -35,13 +42,6 @@ hr{border: none;
 	margin-top:70px;
 	margin-left:25%;
 	margin-bottom:30px;
-}
-
-table{
-	margin:0 auto;
-	text-align: left;
-	padding-left: 20%;
-	padding-right: 20%;
 }
 
 /*========CLASS LAYOUT========*/
@@ -92,9 +92,9 @@ tr td .memo{text-align:center;
 				<tr><td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="familyName" value="%{familyName}" /></td></tr>
 				<tr><td>名</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="firstName" value="%{firstName}" /></td></tr>
-				<tr><td>姓(かな)</td></tr>
+				<tr><td>姓（かな）</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="familyNameKana" value="%{familyNameKana}" /></td></tr>
-				<tr><td>名(かな)</td></tr>
+				<tr><td>名（かな）</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="firstNameKana" value="%{firstNameKana}" /></td></tr>
 				<tr><td>住所</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="15文字以上50文字以下" name="userAddress" value="%{userAddress}" /></td></tr>

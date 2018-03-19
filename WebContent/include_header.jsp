@@ -17,7 +17,7 @@ header {
 	margin: 20px;
 }
 
-ul {
+.ul {
 	float: right;
 	margin: 10px;
 	list-style-type: none;
@@ -44,6 +44,11 @@ a {
 	text-decoration: none;
 }
 
+
+a:hover{
+    color: #ff9900;
+}
+
 </style>
 
 <header>
@@ -55,16 +60,16 @@ a {
 
 
 
-	<ul><% if( userId == null){ %>
-		<li><a href='<s:url action="LoginAction"/>'>ログイン</a></li>
+	<ul class="ul"><% if( userId == null){ %>
+		<li class="li"><a href='<s:url action="LoginAction"/>'>ログイン<img src="./images/icon/kagi.png" width="20" hegiht="20"></a></li>
 <% }else{ %>
-<li><a href='<s:url action="LogoutAction"/>'>ログアウト</a></li>
-		<li><s:form action="MyPageAction">
+<li class="li"><a href='<s:url action="LogoutAction"/>'>ログアウト</a></li>
+		<li class="li"><s:form action="MyPageAction">
 
 				<s:submit value="マイページ" class="submit" />
 				<br>
 			</s:form></li><% } %>
-		<li><s:form action="CartProductAction">
+		<li class="li"><s:form action="CartProductAction">
 				<s:submit value="カート" class="submit" />
 			</s:form></li>
 

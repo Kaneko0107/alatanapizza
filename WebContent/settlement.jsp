@@ -134,7 +134,14 @@
 	<br>
 	<br>
 
+おすすめ商品
+<s:iterator value="notSameCategoryList">
+<s:property value="session.notSameCategoryList.productName" />
 
+<s:property value="a_product_name" />
+<s:property value="product_name" />
+<s:property value="product_name_kana" />
+</s:iterator>
 	<div>
 		<jsp:include page="include_footer.jsp" /></div>
 

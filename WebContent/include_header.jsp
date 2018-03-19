@@ -7,9 +7,12 @@
 <style>
 header {
 	width:100%;
-	height:80px;
+	height:100px;
 	color: white;
 	font-size: 15px;
+
+	background:linear-gradient(to bottom,black,rgba(0,0,0,0.1));
+
 }
 
 .logo {

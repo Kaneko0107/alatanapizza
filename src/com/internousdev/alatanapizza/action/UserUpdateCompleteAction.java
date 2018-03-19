@@ -13,9 +13,10 @@ public class UserUpdateCompleteAction extends ActionSupport implements SessionAw
 	private String newPassword;
 	private String newEmail;
 	public Map<String,Object>session;
-	UserUpdateCompleteDAO dao=new UserUpdateCompleteDAO();
+
 
 	public String execute() throws SQLException{
+		UserUpdateCompleteDAO dao=new UserUpdateCompleteDAO();
 		String result=ERROR;
 
 		if(newEmail==null){

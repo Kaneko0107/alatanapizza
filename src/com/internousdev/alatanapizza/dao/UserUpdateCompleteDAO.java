@@ -7,11 +7,12 @@ import com.internousdev.alatanapizza.util.DBConnector;
 import com.internousdev.alatanapizza.util.DateUtil;
 
 public class UserUpdateCompleteDAO {
-	private DateUtil dateUtil = new DateUtil();
+
 
 	public int userUpdatePassword(String newPassword,String user_id) throws SQLException{
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
+		DateUtil dateUtil = new DateUtil();
 		String sql="update user_info set password=?,update_date=? where user_id=?";
 		int count=0;
 
@@ -33,6 +34,7 @@ public class UserUpdateCompleteDAO {
 	public int userUpdateEmail(String newEmail,String user_id) throws SQLException{
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
+		DateUtil dateUtil = new DateUtil();
 		String sql="update user_info set email=?,update_date=? where user_id=?";
 		int count=0;
 
@@ -53,6 +55,7 @@ public class UserUpdateCompleteDAO {
 	public int userUpdateDouble(String newPassword,String newEmail,String user_id)throws SQLException{
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
+		DateUtil dateUtil = new DateUtil();
 		String sql="update user_info set password=?,email=?,update_date=? where user_id=?";
 		int count=0;
 

@@ -26,18 +26,14 @@ public class UserUpdateConfirmAction extends ActionSupport implements SessionAwa
 
 	private String errorMessage;
 
-	 UserUpdateConfirmDAO dao=new  UserUpdateConfirmDAO();
-	 UserUpdateDTO dto=new UserUpdateDTO();
+
 
 
 	public String execute(){
+		UserUpdateConfirmDAO dao=new  UserUpdateConfirmDAO();
+		 UserUpdateDTO dto=new UserUpdateDTO();
 		String result=ERROR;
 
-		System.out.println(user_id);
-		System.out.println(password);
-		System.out.println(newPassword);
-		System.out.println(conPassword);
-		System.out.println(newEmail);
 
 
 		dto=dao.getUserInfo(password,user_id);
@@ -90,8 +86,7 @@ public class UserUpdateConfirmAction extends ActionSupport implements SessionAwa
 			}
 
 			if(errorMessage==null){
-				session.put("newPassword", newPassword);
-				session.put("newEmail", newEmail);
+
 				result=SUCCESS;
 			}
 

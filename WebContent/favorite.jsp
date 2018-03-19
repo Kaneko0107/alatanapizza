@@ -58,8 +58,15 @@
 
 									<br><br>
 
-								<div class="iFP"><img src="<s:property value='imageFilePath'/>" width="auto" height="200px"></div>
-								<s:hidden name="imageFilePath" value='<s:property value="imageFilePath"/>' />
+
+
+								<!-- 画像を表示させる -->
+								<div class="main_content clearfix_bon">
+								<s:url id="url" action="ProductDetailsAction"><s:param name="product_id" value="productId" /></s:url>
+
+								<s:a href="%{url}">
+								  <img src='<s:property value="imageFilePath"/>' width="200" height="170" alt="Photo"/>
+								</s:a>
 
 
 								<s:hidden name="imageFileName" value='<s:property value="imageFileName"/>' />

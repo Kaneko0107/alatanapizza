@@ -156,7 +156,7 @@
 
 
 	<action name = "MasterAddConfirmAction" class ="com.internousdev.alatanapizza.action.MasterAddConfirmAction" method = "execute">
-		<result name = "success">MasterAddConfirm.jsp</result>
+		<result name = "success">masterAddConfirm.jsp</result>
 		<result name = "form">masterAdd.jsp</result>
 	</action>
 

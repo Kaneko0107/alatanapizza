@@ -41,7 +41,7 @@
 			<!-- テキストデータを表示させる -->
 			<div class="pro_text">
 			<div class="name">
-			トッピング:<s:property value="toppings"/>
+
 			<!-- 商品名表示 -->
 			<div class="pro_name">
 			<s:property value="productName" />
@@ -51,6 +51,7 @@
 			<div class="kana">
 			<s:property value="productNameKana"/>
 			</div>
+			トッピング:<s:property value="toppings"/>
 
 			<!-- 値段表示 -->
 			<div class="price_count"></div>

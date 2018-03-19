@@ -108,15 +108,16 @@ hr {
 
 
   <div id="main">
-    <div class="top">
-      <h3>お客様情報の登録</h3>
-      <br>
-      <div class="moji2">下記の情報を入力してください。</div>
-      <br>
-    </div>
+   <table>
+    <tr><td colspan="2">
+      <h3>お客様情報の登録</h3></td></tr>
+      <tr><td colspan="2">
+      <div class="moji2">下記の情報を入力してください。</div></td></tr>
+<tr><td colspan="2"><hr></td></tr>
+   <tr>
 
     <!-- エラーメッセージ-->
-    <div>
+
       <s:if test="errMsgList !=null && !(errMsgList.isEmpty())">
         <td><s:iterator value="errMsgList"><s:property /></s:iterator><br></td>
       </s:if>
@@ -150,11 +151,11 @@ hr {
       <s:if test="errMsgListAnswer != null && !(errMsgListAnswer.isEmpty())">
         <td><s:iterator value="errMsgListAnswer"><s:property /></s:iterator></td>
       </s:if>
-    </div>
 
-    <div>
 
-	  <table>
+    </tr>
+
+
 	  <s:form action="UserCreateConfirmAction">
 
         <tr>
@@ -268,7 +269,7 @@ hr {
             <input type="text" name="secretAnswer" value='<s:property value="secretAnswer"/>' class="form"/>
           </td>
         </tr>
-
+<tr><td colspan="2"><hr></td></tr>
 
 		<tr>
 		  <td>
@@ -290,7 +291,7 @@ hr {
        </table>
 
     </div>
-   </div>
+
 
     <jsp:include page="include_footer.jsp" />
 

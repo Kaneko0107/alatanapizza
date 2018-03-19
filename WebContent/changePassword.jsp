@@ -13,17 +13,20 @@
 color:white;}
 .error1{
 coror:white;}
-#main{
-width:50%;
+.main{
+width:70%;
 background:rgba(0,0,0,0.5);
 margin-top:70px;
-margin-left:25%;
+margin-left:15%;
 margin-bottom:30px;
 }
+
+
 table {
 	width: 80%;
 	margin: 0 auto;
 	text-align: left;
+	padding-left:20px;
 }
 
 h3 {
@@ -65,9 +68,7 @@ hr {
 	    text-align:right;
 	    margin-top: 5px;
 	    }
-.inner {
-display:inline;
-}
+
 
 
 
@@ -138,12 +139,15 @@ display:inline;
 </tr>
 <tr><td colspan="2"><hr></td></tr>
 <tr>
-<td><div class="image2"><div class="inner"><input type="image" src="./images/icon/kakuninn.png" alt=""></div></div></td>
+<td>
+<div class="image1"><a href='<s:url action="LoginAction"/>'><img  src="./images/icon/modoru2.png"></a></div>
+</td><td>
+<div class="image2"><input type="image" src="./images/icon/kakuninn.png" alt=""></div></td>
 </tr>
 
 </s:form>
 
-<tr><td><a href='<s:url action="LoginAction"/>'><img  src="./images/icon/modoru2.png"></a></td></tr>
+
 </table>
 </div>
 <jsp:include page="include_footer.jsp"/>

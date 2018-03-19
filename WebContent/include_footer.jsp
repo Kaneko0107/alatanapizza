@@ -10,6 +10,9 @@
 	text-align:center;
 	line-height:70px;
 	clear:both;
+	position:fixed;
+	bottom:0;
+
 }
 
 </style>

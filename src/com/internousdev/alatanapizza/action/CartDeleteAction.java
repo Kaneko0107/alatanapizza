@@ -26,7 +26,7 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 		private ArrayList<CartInfoDTO>cartList = new ArrayList<CartInfoDTO>();
 
 		//カート内の金額
-		public int total_price = 0;
+		public int total_price;
 
 		private CartInfoDAO dao = new CartInfoDAO();
 

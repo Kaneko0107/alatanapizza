@@ -16,8 +16,14 @@
 <style type="text/css">
 /*========TAG LAYOUT========*/
 
-h3{
-border-left:10px solid red;
+table{
+	margin:0 auto;
+	text-align: left;
+	padding-left: 20%;
+	padding-right: 20%;
+}
+
+img{text-align:center;
 }
 
 hr{border: none;
@@ -27,11 +33,8 @@ hr{border: none;
 	margin: 0 8 0 8;
 }
 
-table{
-	margin:0 auto;
-	text-align: left;
-	padding-left: 20%;
-	padding-right: 20%;
+h3{
+border-left:10px solid red;
 }
 
 /*========ID LAYOUT========*/
@@ -54,10 +57,40 @@ table{
 	color:black;
 }
 
+tr td .image{text-align:center;
+	margin-top:40px;
+}
+
 tr td .memo{text-align:center;
 }
 
+.imagehover{
+	clear:both;
+	width: 300px;
+	height: 140px;
+	overflow: hidden;
+}
+
 </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./js/jquery-1.8.2.min.js"></script>
+<script>
+	$(function(){
+		$(".imagehover .image").hover(
+		function(){
+			$(this).animate({
+				width:"200px"
+			});
+		},
+		function(){
+			$(this).animate({
+				width:"132px"
+			});
+		});
+	});
+</script>
+
 </head>
 
 <body>
@@ -102,7 +135,7 @@ tr td .memo{text-align:center;
 				<tr><td><s:textfield class ="form" placeholder="11文字以上13文字以下" name="telNumber" value="%{telNumber}" /></td></tr>
 				<tr><td>メールアドレス</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="18文字以上32文字以下" name="email" value="%{email}" /></td></tr>
-				<tr><td><s:submit value="登録情報確認画面へ"/></td></tr>
+				<tr><td><div class="imagehover"><s:submit class="image" type="image" value="" src="./images/icon/kakuninn.png"/></div></td></tr>
 			</table>
 			</s:form>
 
@@ -111,7 +144,7 @@ tr td .memo{text-align:center;
 			<tr><td><hr></td></tr>
 
 
-			<tr><td><div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()">◀ 戻る</a></div></td></tr>
+			<tr><td><div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()"><img src="./images/icon/modoru2.png"></a></div></td></tr>
 
 		</table>
 

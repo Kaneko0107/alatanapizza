@@ -25,7 +25,7 @@ public class ChangePasswordAction extends ActionSupport implements SessionAware{
 
 
 	public void setSession(Map<String, Object>session) {
-		// TODO 自動生成されたメソッド・スタブ
+		this.session=session;
 
 	}
 	public String getUserid() {

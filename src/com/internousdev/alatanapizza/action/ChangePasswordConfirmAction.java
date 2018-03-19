@@ -11,7 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ChangePasswordConfirmAction extends ActionSupport implements SessionAware{
 	private Map<String,Object>session;
-	private String result;
+	public String result;
 	private String	secret_answer;
 	private int secret_question;
 	private String newpass;
@@ -21,24 +21,18 @@ public class ChangePasswordConfirmAction extends ActionSupport implements Sessio
 	private String hideUserId;
 	private String errorMessage;
 	private ArrayList<String> errMsgList = new ArrayList<>();
-	private ChangePasswordConfirmDAO CPCdao=new ChangePasswordConfirmDAO();
-	//DTOいらんかも
-	private ChangePasswordDTO CPDTO=new ChangePasswordDTO();
 
 	public String hideString(String word,int a,int b){
 
-		//加工した文字を入れる型定義
 		String hideWord;
 
-		//文字の長さをセット
+
 		int wordLength;
 		wordLength = word.length();
 
-		//aからbまでの文字列を抽出
+
 		hideWord=word.substring(a,b);
 
-		//抽出した文字列以外は*に差し替える
-		//aの位置まで*に差し替え
 
 		int i=0;
 		while(i < wordLength - b){
@@ -53,6 +47,8 @@ public class ChangePasswordConfirmAction extends ActionSupport implements Sessio
 
 
 public String execute(){
+	ChangePasswordConfirmDAO CPCdao=new ChangePasswordConfirmDAO();
+	ChangePasswordDTO CPDTO=new ChangePasswordDTO();
 	String result=ERROR;
 	CPCdao.CheckAnswer(userid,secret_question,secret_answer);
 
@@ -72,7 +68,7 @@ public String execute(){
 			setErrorMessage("ユーザーIDは半角英数字で入力してください。");
 			errMsgList.add(errorMessage);
 		}
-		else if(!(userid.equals(CPCdao.getUserid()))){
+		else if(!(userid.equals(CPDTO.getUserid()))){
 			setErrorMessage("ユーザーIDと答えが一致しません。");
 			errMsgList.add(errorMessage);
 		}
@@ -89,7 +85,7 @@ public String execute(){
 		setErrorMessage("新しいパスワードは半角英数字で入力してください。");
 		errMsgList.add(errorMessage);
 	}
-	if(newpass.equals(CPCdao.getPassword())){
+	if(newpass.equals(CPDTO.getPassword())){
 		setErrorMessage("以前と同じパスワードは使用できません。");
 		errMsgList.add(errorMessage);
 	}
@@ -137,131 +133,17 @@ if(!(newpass.equals("")) && !(checkpass.equals(""))){
 
 
 
-
-
-public String getResult() {
-	return result;
-}
-
-
-
-public void setResult(String result) {
-	this.result = result;
+public Map<String, Object> getSession() {
+	return session;
 }
 
 
 
 
 
-
-
-public String getNewpass() {
-	return newpass;
+public void setSession(Map<String, Object> session) {
+	this.session = session;
 }
-
-
-
-
-
-
-
-public void setNewpass(String newpass) {
-	this.newpass = newpass;
-}
-
-
-
-
-
-
-
-public String getUserid() {
-	return userid;
-}
-
-
-
-public void setUserid(String userid) {
-	this.userid = userid;
-}
-
-
-
-
-
-
-public String getCheckpass() {
-	return checkpass;
-}
-
-
-
-public void setCheckpass(String checkpass) {
-	this.checkpass = checkpass;
-}
-
-
-
-
-
-
-@Override
-public void setSession(Map<String, Object>session) {
-	this.session=session;
-
-}
-
-
-
-
-
-
-
-public ChangePasswordDTO getCPDTO() {
-	return CPDTO;
-}
-
-
-
-
-
-
-
-public void setCPDTO(ChangePasswordDTO cPDTO) {
-	CPDTO = cPDTO;
-}
-
-
-
-
-
-
-
-public String getHideNewPassword() {
-	return hideNewPassword;
-}
-
-
-
-
-
-
-
-public void setHideNewPassword(String hideNewPassword) {
-	this.hideNewPassword = hideNewPassword;
-}
-
-
-
-
-
-
-
-public String getHideUserId() {
-	return hideUserId;
-}
-
-
 
 
 
@@ -299,13 +181,81 @@ public void setSecret_question(int secret_question) {
 
 
 
-public void setHideUserId(String hideUserId) {
-	this.hideUserId = hideUserId;
+public String getNewpass() {
+	return newpass;
 }
 
 
 
 
+
+public void setNewpass(String newpass) {
+	this.newpass = newpass;
+}
+
+
+
+
+
+public String getUserid() {
+	return userid;
+}
+
+
+
+
+
+public void setUserid(String userid) {
+	this.userid = userid;
+}
+
+
+
+
+
+public String getCheckpass() {
+	return checkpass;
+}
+
+
+
+
+
+public void setCheckpass(String checkpass) {
+	this.checkpass = checkpass;
+}
+
+
+
+
+
+public String getHideNewPassword() {
+	return hideNewPassword;
+}
+
+
+
+
+
+public void setHideNewPassword(String hideNewPassword) {
+	this.hideNewPassword = hideNewPassword;
+}
+
+
+
+
+
+public String getHideUserId() {
+	return hideUserId;
+}
+
+
+
+
+
+public void setHideUserId(String hideUserId) {
+	this.hideUserId = hideUserId;
+}
 
 
 
@@ -338,6 +288,13 @@ public ArrayList<String> getErrMsgList() {
 public void setErrMsgList(ArrayList<String> errMsgList) {
 	this.errMsgList = errMsgList;
 }
+
+
+
+
+
+
+
 
 
 

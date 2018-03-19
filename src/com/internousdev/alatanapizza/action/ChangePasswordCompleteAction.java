@@ -14,11 +14,6 @@ public class ChangePasswordCompleteAction extends ActionSupport implements Sessi
 	private Map<String,Object>session;
 	private ChangePasswordCompleteDAO dao=new ChangePasswordCompleteDAO();
 	public String execute() throws SQLException{
-		System.out.println("----------");
-		System.out.println(newpass);
-		System.out.println(userid);
-		System.out.println(secret_answer);
-		System.out.println("---------");
 
 
 		int result=dao.changeComplete(newpass,userid,secret_answer);

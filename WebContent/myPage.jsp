@@ -10,8 +10,52 @@
 	<meta http-equiv="imagetoolbar" content="no"/>
 	<meta name="description" content=""/>
 	<meta name="keywords" content=""/>
+	<link rel="stylesheet" href="./css/alatanapizza.css">
 <title>マイページ画面</title>
 <style type="text/css">
+#main{
+width:70%;
+background:rgba(0,0,0,0.5);
+margin-top:60px;
+margin-left:15%;
+margin-bottom:30px;
+}
+
+table{
+width:80%;
+	margin:0 auto;
+	text-align: left;
+
+}
+
+
+.id {text-align:right;
+	}
+
+hr{border: none;
+	border-top: dashed 1px #ccc;
+	height: f1px;
+	color: #ffffff;
+	margin: 0 8 0 8;}
+tr td{
+padding:10px;
+}
+h3{
+border-left:10px solid red;
+}
+
+.line{
+font-weight:900;
+background-color: rgba(150, 150, 150, 0.5);
+}
+
+
+.line1{
+
+background-color: rgba(150, 150, 150, 0.5);
+
+}
+
 
 </style>
 
@@ -23,76 +67,69 @@
 
 
 
-	<div class="header"></div>
+
+	<div id="main">
 
 
 
-	<div class="main">
+			<table>
 
-		<div class="Registration">
+				<tr><td colspan="2">	<h3>会員登録情報</h3></td></tr>
 
-			<div class="sectionInner">
-
-				<div class="sectionHeader">
-					<h3>会員登録情報</h3>
-					<!-- sectionHeader -->
-				</div>
-
-				<div class="contBody">
-					<table>
-						<tbody>
+<tr><td colspan="2"><hr></td></tr>
 							<s:iterator value="myPageList">
 								<tr>
-									<th>氏名</th>
-									<td>
-										<p>
+									<td class="line">氏名</td>
+									<td class="line1">
+
 				<!-- s:propertyを用いてMyPageActionのmyPageListから情報を参照 -->
 											<s:property value="familyName" />
 											<s:property value="firstName" />
-										<p>
+
 									</td>
 								</tr>
 
 								<tr>
-									<th>ふりがな</th>
-									<td><p>
+									<td class="line">ふりがな</td>
+									<td class="line1">
 											<s:property value="familyNameKana" />
 											<s:property value="firstNameKana" />
-										<p></td>
+									</td>
 								</tr>
 
 								<tr>
-									<th>性別</th>
-									<td><p>
+									<td class="line">性別</td>
+									<td class="line1">
 				<!-- DBにTinyInt型でデータが入っており、getBooleanで値を取得-->
 											<s:if test="sex==0">男性</s:if>
 											<s:else>女性</s:else>
-										<p></td>
+										</td>
 								</tr>
 
 								<tr>
-									<th>メールアドレス</th>
-									<td><s:property value="email" /></td>
+									<td class="line">メールアドレス</td>
+									<td class="line1"><s:property value="email" /></td>
 								</tr>
 
 								<tr>
-									<th>alatanapizza ID</th>
-									<td><p>
+									<td class="line">alatanapizza ID</td>
+									<td class="line1">
 											<s:property value="userId" />
-										</p></td>
+										</td>
 								</tr>
 
 								<tr>
-									<th>パスワード</th>
-									<td><p>
+									<td class="line">パスワード</td>
+									<td class="line1">
 											<s:property value="password" />
-										</p></td>
+											<a href="ChangePasswordAction"
+										class="btn">変更</a>
+										</td>
 			<!-- パスワード変更画面へ遷移 -->
-									<td class="change"><a href="ChangePasswordAction"
-										class="btn">変更</a></td>
+
 								</tr>
 							</s:iterator>
-						</tbody>
+<tr><td colspan="2"><hr></td></tr>
 					</table>
 
 
@@ -100,32 +137,32 @@
 
 
 			<!-- 購入履歴ページに遷移 -->
-					<div class="buttonBox">
+
 						<div class="btnn">
 							<a href="PurchaseHistoryAction" class="button">購入履歴へ</a>
 						</div>
-					</div>
-				</div>
+
+
 
 			<!-- お気に入りページに遷移 -->
-					<div class="buttonBox2">
+
 						<div class="btnn2">
 							<a href='<s:url action="FavoriteAction"/>'>お気に入り一覧へ</a>
 						</div>
-					</div>
+
 
 			<!-- ユーザー情報変更ページに遷移 -->
-					<div class="buttonBox3">
+
 						<div class="btnn3">
 							<a href='<s:url action="UserUpdateAction"/>'>ユーザー情報を変更する</a>
 						</div>
-					</div>
+
 
 			<!-- ホームに遷移 -->
-					<div class="buttonBox4">
+
 						<div class="btnn4">
 							<a href='<s:url action="HomeAction"/>'>ホームへ</a>
-						</div>
+
 					</div>
 
 

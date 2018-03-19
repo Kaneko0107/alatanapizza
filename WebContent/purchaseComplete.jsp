@@ -5,19 +5,42 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>決済完了しました</title>
+<link rel="stylesheet" href="./css/alatanapizza.css">
+<title>決済完了画面</title>
+
+<style>
+
+.main{
+width:50%;
+height:70%;
+background:rgba(0,0,0,0.5);
+margin-top:80px;
+margin-left:25%;
+margin-bottom:30px;
+}
+
+h3{
+text-align:center;
+}
+</style>
+
+
+
+
 </head>
 <body>
 <jsp:include page="include_header.jsp" />
 
-決済が完了しました。
+<div class="main">
 
+<h3>
+決済が完了しました。</h3>
 
-
-<a href='<s:url action="MyPageAction" />'>マイページに戻る</a>
+<br><a><br></a>
+<a href='<s:url action="MyPageAction" />'>マイページ</a>
 	<br>
 <a href='<s:url action="HomeAction" />'>ホームに戻る</a>
-
+</div>
 	<jsp:include page="include_footer.jsp" />
 </body>
 </html>

@@ -42,6 +42,7 @@ li {
 a {
 	color: #FFD700;
 	text-decoration: none;
+	font-size:15px;
 }
 
 
@@ -63,17 +64,17 @@ a:hover{
 	<ul class="ul"><% if( userId == null){ %>
 		<li class="li"><a href='<s:url action="LoginAction"/>'>ログイン<img src="./images/icon/kagi.png" width="20" hegiht="20"></a></li>
 <% }else{ %>
-<li class="li"><a href='<s:url action="LogoutAction"/>'>ログアウト</a></li>
-		<li class="li"><s:form action="MyPageAction">
+<li class="li"><a href='<s:url action="LogoutAction"/>'>ログアウト</a></li><li>|</li>
 
-				<s:submit value="マイページ" class="submit" />
-				<br>
-			</s:form></li><% } %>
-		<li class="li"><s:form action="CartProductAction">
-				<s:submit value="カート" class="submit" />
-			</s:form></li>
+		<li class="li"><a href='<s:url action="MyPageAction"/>'>マイページ<img src="./images/icon/kagi.png" width="20" hegiht="20"></a></li><% } %>
+	<li>|</li>
 
-
+<li>
+<s:if test="cartList.isEmpty()">
+			<a href='<s:url action="CartProductAction"/>'>カート</a>
+		</s:if></li>
+		<li><s:else>
+			<a href='<s:url action="CartProductAction"/>'>カート<img src="./images/icon/kagi.png" width="20" height="20"></a></s:else></li>
 	</ul>
 
 	</div>

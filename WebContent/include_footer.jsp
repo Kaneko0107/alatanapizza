@@ -5,14 +5,10 @@
 
 #footer{
 	width: 100%;
-	height: 70px;
-	background:rgba(0,0,0,0.5);
+	height: 50px;
 	text-align:center;
-	line-height:70px;
+	line-height:50px;
 	clear:both;
-	position:fixed;
-	bottom:0;
-
 }
 
 </style>

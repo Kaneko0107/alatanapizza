@@ -28,6 +28,31 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	private String imageContentType;
 	private String imageFileName;
 
+
+
+	public String execute() throws SQLException{
+
+		String result = ERROR;
+		if (itemName == null || itemPrice == null || itemStock == null || itemKanaName == null || imageName == null) {
+			return "form";
+		}
+		//文字列が空白でなければsuccessを返す。何か空白が入っている場合は、errorを返す。
+
+		if (itemName.length() != 0 && itemKanaName.length() !=0 && itemPrice.length() != 0 && itemStock.length() != 0 && imageName.length() != 0) {
+			dto = dao.checkItemInfo(itemName,itemKanaName);
+			session.put("itemKanaName", itemKanaName);
+			session.put("itemName", itemName);
+			session.put("itemPrice", itemPrice);
+			session.put("itemStock", itemStock);
+			session.put("imageName", imageName);
+
+			result = SUCCESS;
+			return result;
+		}
+		return result;
+	}
+
+
 	//ゲッター、セッター
 	//---------------------------------------------------
 
@@ -86,27 +111,22 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	}
 
 	//---------------------------------------------------
+	public String getImageContentType() {
+		return imageContentType;
+	}
 
-	public String execute() throws SQLException{
+	public void setImageContentType(String imageContentType) {
+		this.imageContentType = imageContentType;
+	}
 
-		String result = ERROR;
-		if (itemName == null || itemPrice == null || itemStock == null || itemKanaName == null || imageName == null) {
-			return "form";
-		}
-		//文字列が空白でなければsuccessを返す。何か空白が入っている場合は、errorを返す。
+	//---------------------------------------------------
+	public String getImageFileName() {
+		return imageFileName;
+	}
 
-		if (itemName.length() != 0 && itemKanaName.length() !=0 && itemPrice.length() != 0 && itemStock.length() != 0 && imageName.length() != 0) {
-			dto = dao.checkItemInfo(itemName,itemKanaName);
-			session.put("itemKanaName", itemKanaName);
-			session.put("itemName", itemName);
-			session.put("itemPrice", itemPrice);
-			session.put("itemStock", itemStock);
-			session.put("imageName", imageName);
 
-			result = SUCCESS;
-			return result;
-		}
-		return result;
+	public void setImageFileName(String imageFileName) {
+		this.imageFileName = imageFileName;
 	}
 
 }

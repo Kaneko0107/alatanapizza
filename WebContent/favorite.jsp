@@ -94,7 +94,7 @@
 							<s:hidden name="deleteFlg" value="1" />
 						</div>
 
-						<a href='<s:url action="ProductDetailsAction"/>'>商品詳細ページへ</a>
+						<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">商品詳細ページへ</a>
 
 						</s:form>
 					</s:if>

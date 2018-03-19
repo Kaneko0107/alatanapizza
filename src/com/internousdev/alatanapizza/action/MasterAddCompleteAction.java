@@ -1,6 +1,5 @@
 package com.internousdev.alatanapizza.action;
 
-import java.io.File;
 import java.sql.SQLException;
 import java.util.Map;
 
@@ -98,5 +97,21 @@ public class MasterAddCompleteAction extends ActionSupport implements SessionAwa
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+	public String getImageContentType() {
+		return imageContentType;
+	}
+
+	public void setImageContentType(String imageContentType) {
+		this.imageContentType = imageContentType;
+	}
+
+	public String getImageFileName() {
+		return imageFileName;
+	}
+
+	public void setImageFileName(String imageFileName) {
+		this.imageFileName = imageFileName;
 	}
 }

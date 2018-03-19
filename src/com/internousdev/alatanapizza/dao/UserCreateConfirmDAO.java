@@ -8,20 +8,27 @@ import java.util.Map;
 import com.internousdev.alatanapizza.util.DBConnector;
 
 public class UserCreateConfirmDAO {
-	//ユーザー情報取得元データベース"db"
-		private DBConnector db = new DBConnector();
-	//"db"に接続する"con"
-		private Connection con = db.getConnection();
-	//resultに初期値falseを代入
+
+	    //resultに初期値falseを代入
 		private boolean result =false;
 	//ユーザー登録情報を格納しておくMap
 		public Map<String, Object> session;
 
 
+
+
 		//UserCreate.jspで入力した"loginUserId"と"loginPassword"を当てはめる
 		public boolean getUserInfo(String loginUserId, String loginPassword){
+
+			//ユーザー情報取得元データベース"db"
+			DBConnector db = new DBConnector();
+		    //"db"に接続する"con"
+			Connection con = db.getConnection();
+
+
 			//sqlにある"login_user_transaction"テーブルを"sql"に代入
 			String sql="SELECT * FROM user_info";
+
 			try{
 				//上の"sql"に接続することを"ps"に代入
 				PreparedStatement ps = con.prepareStatement(sql);
@@ -59,7 +66,7 @@ public class UserCreateConfirmDAO {
 		public void setSession(Map<String, Object> session){
 			this.session=session;
 		}
-
 }
+
 
 

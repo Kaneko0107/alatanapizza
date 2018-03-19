@@ -128,7 +128,7 @@
 					</s:if>
 					<s:if test="session.d_category_id==3 || session.d_category_id==4">
 						<!-- サイド・ドリンク -->
-						￥<s:property value="session.d_product_price" />
+						<p id="sAndDPrice" name="sAndDPrice" value="<s:property value="session.d_product_price" />">￥<s:property value="session.d_product_price" />
 					</s:if></span>
 
 					<div class="productDescription">

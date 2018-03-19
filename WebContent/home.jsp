@@ -1,49 +1,49 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<meta http-equiv="Content-Style-Type" content="text/css"/>
-<link rel="stylesheet" href="./css/alatanapizza.css">
-<meta http-equiv="Content-Script-Type" content="text/javascript"/>
-<meta http-equiv="imagetoolbar" content="no"/>
-<meta name="description" content="">
-<meta name="keywords" content=""/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+
 <title>alatanapizza HOME画面</title>
 <style type="text/css">
-/*========TAG LAYOUT========*/
-/*========ID LAYOUT========*/
+body {
+	margin: 0;
+	padding: 0;
+	line-height: 2.0;
+	letter-spacing: 1.5px;
+	font-family: arial black, Helvetica, sans-serif;
+	font-size: 15px;
+	color: white;
+	text-align: center;
+	background-color: black;
+	background-image:url("./images/icon/HomeBackground.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="./js/jquery-3.3.1.min.js"></script>
+<script src="./js/jquery-1.8.2.min.js"></script>
+	<script>
+
+	</script>
+
 </head>
 <body>
-
-<!-- ヘッダーをインクルード  -->
-<jsp:include page="include_header.jsp" />
-
-	<div id="main">
-		<div id="top">
-		</div>
-		<div>
-<!--
-			<h3>ログインフォームへ</h3>
-			<s:form action="LoginAction">
-				<s:submit value="ログインフォームへ"/>
-			</s:form>
-		</div>
-		<div>
-			<h3>商品フォームへ</h3>
-			<s:form action="ProductListAction">
-				<s:submit value="商品フォームへ"/>
-			</s:form>
--->
-		</div>
+	<!-- ヘッダー -->
+	<jsp:include page="include_header.jsp" />
 
 
-	</div>
 
-<jsp:include page="include_footer.jsp" />
+
+
+
+	<!-- フッター -->
+	<jsp:include page="include_footer.jsp" />
 </body>
 </html>

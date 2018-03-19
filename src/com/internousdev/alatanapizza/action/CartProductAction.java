@@ -28,7 +28,6 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 	private String price;
 	private int count;
 	private CartInfoDAO dao = new CartInfoDAO();
-	private ProductDetailsDAO productDAO = new ProductDetailsDAO();
 
 	//カート内の金額
 	public int total_price = 0;
@@ -69,7 +68,6 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 			return "success";
 		}
 
-		productDAO.getProductDetailsInfo(Integer.valueOf(productId).toString());
 		if (topping_id_1 != null) toppings.add(1);
 		if (topping_id_2 != null) toppings.add(2);
 		if (topping_id_3 != null) toppings.add(3);

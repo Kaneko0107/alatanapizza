@@ -82,11 +82,11 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 
 		// ソート機能↓------------------------------------------------------
 		if (sort == 1) { // デフォルトの注文日順
-			System.out.println("注文日");
+			historyList = purchaseHistoryDAO.getPurchaseHistory(userId);
+
 		} else if (sort == 2) {// 値段の高い順
-			System.out.println("高い順");
 			historyList = purchaseHistoryDAO.sortPriceDesc(userId);
-			System.out.println("安い順");
+
 		} else if (sort == 3) {// 値段の安い順
 			historyList = purchaseHistoryDAO.sortPriceAsc(userId);
 		}
@@ -99,13 +99,12 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 		String user_id = session.get("userId").toString();
 
 		int res = purchaseHistoryDAO.deleteHistory(user_id);
-		System.out.println("削除しようとする件数：" + res);
+
+
 		if (res > 0) {
-			// System.out.println("削除した");
 			historyList = null;
 			setMessage("注文履歴をすべて削除しました");
 		} else if (res == 0) {
-			// System.out.println("削除失敗");
 			setMessage("履歴の削除に失敗しました。");
 		}
 

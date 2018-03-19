@@ -3,14 +3,16 @@
 <style>
 
 
-footer{
-width:100%;
-height:30px;
-position:fixed;
-bottom:0;
-text-align:center;
-line-height:30px;
+#footer{
+	width: 100%;
+	height: 70px;
+	background:rgba(0,0,0,0.5);
+	text-align:center;
+	line-height:70px;
+	clear:both;
 }
 
 </style>
-    <footer>A L A T A N A P I Z Z A</footer>
+
+
+    <footer id="footer">A L A T A N A P I Z Z A</footer>

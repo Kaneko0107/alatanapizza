@@ -183,8 +183,6 @@
 	</p>
 	</s:form>
 
-		<a href='<s:url action="ProductListAction?listFlg=1"/>'>商品一覧画面に戻る</a>
-
 		<%--お気に入りボタン,非ログイン時は非表示 --%>
 			<s:if test="#session.containsKey('userId')">
 				<s:form action="FavoriteAction">
@@ -194,6 +192,9 @@
 						<s:submit value=" ★お気に入り登録" onclick="FavoriteAction();" />
 					</span>
 				</s:form>
+
+				<a href='<s:url action="ProductListAction?listFlg=1"/>'>商品一覧画面に戻る</a>
+
 			</s:if><br><br>
 
 
@@ -231,9 +232,9 @@
 		</div><br>
 
 
-	<!-- フッター
+	<!-- フッター-->
 	<jsp:include page="include_footer.jsp" />
-	-->
+
 
 </body>
 </html>

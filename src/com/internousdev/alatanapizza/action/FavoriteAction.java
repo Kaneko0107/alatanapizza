@@ -16,20 +16,24 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 	private List<FavoriteDTO> favoriteList = new ArrayList<FavoriteDTO>();
 	private Map<String, Object> session;
 	private List<String> checkList;
-	private String deleteFlg = "0";
-	private String favoriteInsertFlg = "0";
-	private String test = "test";
+	private String deleteFlg;
+	private String favoriteInsertFlg;
+	private String test;
 	private String message;
 	private String product_id;
 	private String userId;
 	private String result;
-	int count = 0;
+	int count;
 	int count2;
-	boolean canInsertFlg = true;
+	boolean canInsertFlg;
 
 	public String execute() throws SQLException {
 		FavoriteDAO dao = new FavoriteDAO();
-
+		deleteFlg = "0";
+		favoriteInsertFlg = "0";
+		test = "test";
+		canInsertFlg = true;
+		count = 0;
 		session.put("none", null);
 
 		//削除ボタン押してない時点
@@ -38,10 +42,6 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 				userId = session.get("userId").toString();
 				favoriteList = dao.getFavoriteInfo(userId);
 
-			} else {
-
-
-				/*userId = session.get("temp_user_id").toString();*/
 			}
 		}
 
@@ -70,15 +70,11 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 
 				if (count2 > 0) {
 					result = SUCCESS;
-
 				}
-
 				else {
 					result = ERROR;
 				}
-
 				return result;
-
 			}
 
 
@@ -93,37 +89,32 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 						userId = session.get("userId").toString();
 						favoriteList = dao.getFavoriteInfo(userId);
 						result = SUCCESS;
-
 					}
 				}
 
-
 				//checkListがnullのとき
 				else {
-
 					userId = session.get("userId").toString();
 					favoriteList = dao.getFavoriteInfo(userId);
 
 					result = SUCCESS;
 					return result;
 				}
-
 			}
 				//ログイン後お気に入り登録していなければ
 			else {
-
 				result = SUCCESS;
 				return result;
 			}
-		} //セッション鍵	("trueID")が存在しない場合エラーページに移動させる
-		else
-
-		{
+		} //セッション鍵	("userId")が存在しない場合エラーページに移動させる
+		else	{
 			result = "login";
 		}
 		return result;
 	}
 
+	//ゲッター・セッター
+	//-----------------------------------------------------------
 	public List<FavoriteDTO> getFavoriteList() {
 		return favoriteList;
 	}
@@ -131,6 +122,7 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 	public void setFavoriteList(List<FavoriteDTO> favoriteList) {
 		this.favoriteList = favoriteList;
 	}
+	//-----------------------------------------------------------
 
 	public Map<String, Object> getSession() {
 		return session;
@@ -139,6 +131,7 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+	//-----------------------------------------------------------
 
 	public List<String> getCheckList() {
 		return checkList;
@@ -147,6 +140,7 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 	public void setCheckList(List<String> checkList) {
 		this.checkList = checkList;
 	}
+	//-----------------------------------------------------------
 
 	public String getDeleteFlg() {
 		return deleteFlg;
@@ -155,6 +149,7 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 	public void setDeleteFlg(String deleteFlg) {
 		this.deleteFlg = deleteFlg;
 	}
+	//-----------------------------------------------------------
 
 	public String getFavoriteInsertFlg() {
 		return favoriteInsertFlg;
@@ -163,6 +158,7 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 	public void setFavoriteInsertFlg(String favoriteInsertFlg) {
 		this.favoriteInsertFlg = favoriteInsertFlg;
 	}
+	//-----------------------------------------------------------
 
 	public String getTest() {
 		return test;
@@ -171,6 +167,7 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 	public void setTest(String test) {
 		this.test = test;
 	}
+	//-----------------------------------------------------------
 
 	public String getMessage() {
 		return message;
@@ -179,6 +176,7 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+	//-----------------------------------------------------------
 
 	public String getProduct_id() {
 		return product_id;
@@ -187,6 +185,7 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 	public void setProduct_id(String product_id) {
 		this.product_id = product_id;
 	}
+	//-----------------------------------------------------------
 
 	public String getUserId() {
 		return userId;
@@ -195,5 +194,6 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 	public void setResult(String result) {
 		this.result = result;
 	}
+	//-----------------------------------------------------------
 
 }

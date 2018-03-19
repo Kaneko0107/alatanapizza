@@ -11,8 +11,6 @@ import com.internousdev.alatanapizza.util.DBConnector;
 
 public class MyPageDAO {
 
-	DBConnector db = new DBConnector();
-	Connection con = db.getConnection();
 
 	/**
 	 * ユーザー情報を取得
@@ -22,6 +20,8 @@ public class MyPageDAO {
 	public ArrayList<MyPageDTO> getMyPageUserInfo(String userId) {
 		MyPageDTO myPageDTO = new MyPageDTO();
 		ArrayList<MyPageDTO> myPageList = new ArrayList<MyPageDTO>();
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 
 		String sql = "SELECT * FROM user_info where user_id = ? ";
 
@@ -47,13 +47,6 @@ public class MyPageDAO {
 				myPageDTO.setEmail(rs.getString("email"));
 
 				myPageDTO.setPassword(rs.getString("password"));
-
-
-
-
-				System.out.println("---myPageDTO-----");
-				System.out.println(myPageDTO.getPassword());
-				System.out.println("--------");
 
 				myPageList.add(myPageDTO);
 

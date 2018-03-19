@@ -19,28 +19,25 @@
 </head>
 
 
-<body>
+	<body>
 
-<jsp:include page="include_header.jsp" />
-
-
-商品の追加が完了しました。
+	<jsp:include page="include_header.jsp" />
 
 
-	<div id="main">
-		<div id="top">
+	商品の追加が完了しました。
+
+
+		<div id="main">
+			<div id="top"></div>
+
+			<div>
+				<h3>新商品の追加が完了しました</h3>
+			</div>
 		</div>
 
-		<div>
+	<a href='<s:url action="MasterProductChangeAction"/>'>管理者HOME画面へ戻る</a>
 
-			<h3>新商品の追加が完了しました</h3>
+	<jsp:include page="include_footer.jsp" />
 
-		</div>
-	</div>
-
-<a href='<s:url action="MasterProductChangeAction"/>'>管理者HOME画面へ戻る</a>
-
-<jsp:include page="include_footer.jsp" />
-
-</body>
+	</body>
 </html>

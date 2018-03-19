@@ -14,7 +14,7 @@ public class MyPageAction extends ActionSupport implements SessionAware, ErrorMe
 
 	/**
 	 * 1.ログイン状態か確認(sessionにuserIdがあればログイン状態)
-	 * 2.未ログインならerrorとし、ログイン画面に返す
+	 * 2.未ログインならerrorとし、ホーム画面に返す
 	 * 3.ログイン状態ならユーザー登録情報を取得し、successマイページへ遷移
 	 * @param userId
 	 */
@@ -63,90 +63,55 @@ public class MyPageAction extends ActionSupport implements SessionAware, ErrorMe
 			myPageList = dao.getMyPageUserInfo(userId);
 			if (myPageList.size() > 0) {
 				result = SUCCESS;
-
-
 			}
 		}
 		return result;
 	}
 
-	/**
-	 * セッション情報を取得するメソッド
-	 *
-	 * @return session
-	 */
+
+	//ゲッター・セッター
+	//----------------------------------------------
+
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
-	/**
-	 * セッション情報を格納するメソッド
-	 *
-	 * @param session
-	 */
-	public void setSession1(Map<String, Object> session) {
-		this.session = session;
+	public void setSession(Map<String, Object> session) {
+		this.session=session;
 	}
 
-	/**
-	 * 配列化されたユーザー情報を取得するメソッド
-	 *
-	 * @return UserList
-	 */
+	//----------------------------------------------
+
 	public ArrayList<MyPageDTO> getMyPageList() {
 		return myPageList;
 	}
 
-	/**
-	 * DTOに格納された情報をmyPageListに格納するメソッド
-	 *
-	 * @param userList
-	 */
+
 	public void setMyPageList(ArrayList<MyPageDTO> myPageList) {
 		this.myPageList = myPageList;
 	}
 
-	/**
-	 * ユーザーIDを取得するメソッド
-	 *
-	 * @return userId
-	 */
+	//----------------------------------------------
+
 	public String getUserId() {
 		return userId;
 	}
 
-	/**
-	 * ユーザーIDを格納するメソッド
-	 *
-	 * @param userId
-	 */
+
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+	//----------------------------------------------
 
-	/**
-	 * セッション情報を格納するメソッド
-	 *
-	 * @param arg0
-	 */
-	public void setSession(Map<String, Object> arg0) {
-		this.session = arg0;
-	}
 
-	/**
-	 * エラーメッセージを格納するメソッド
-	 */
 	public String getMessage() {
 		return message;
 	}
 
-	/**
-	 * エラーメッセージを格納するメソッド
-	 *
-	 * @param message
-	 */
+
 	public void setMessage(String message) {
 		this.message = message;
 	}
+	//----------------------------------------------
 
 }

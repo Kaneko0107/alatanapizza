@@ -12,12 +12,14 @@ import com.internousdev.alatanapizza.util.DateUtil;
 
 public class FavoriteDAO {
 
-	private DBConnector dbConnector = new DBConnector();
-	private Connection connection = dbConnector.getConnection();
 	private DateUtil dateUtil =new DateUtil();
 
 	public ArrayList<FavoriteDTO> getFavoriteInfo(String loginId) throws SQLException {
 		ArrayList<FavoriteDTO> favoriteDTO =new ArrayList<FavoriteDTO>();
+		DBConnector dbConnector = new DBConnector();
+		Connection connection = dbConnector.getConnection();
+
+
 		String sql = "SELECT pi.id as id, pi.product_id as product_id, pi.product_name as product_name,"
 				+ "pi.product_name_kana as product_name_kana, pi.image_file_path as image_file_path,"
 				+ "pi.image_file_name as image_file_name, pi.msize_price as msize_price, pi.lsize_price as lsize_price, pi.price as price,"
@@ -80,8 +82,6 @@ public class FavoriteDAO {
 			ps.setString(2,product_id);
 			ps.setString(3,dateUtil.getDate());
 
-			//ps.execute();
-			System.out.println(ps);
 
 			count =ps.executeUpdate();
 

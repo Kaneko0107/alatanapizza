@@ -13,12 +13,16 @@ public class FavoriteDTO {
 	private String productId;
 	private int categoryId;
 
+	//ゲッター・セッター
+	//--------------------------------------
+
 	public String getId(){
 		return id;
 	}
 	public void setId(String id){
 		this.id=id;
 	}
+	//--------------------------------------
 
 	public String getProductName() {
 		return productName;
@@ -26,6 +30,7 @@ public class FavoriteDTO {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
+	//--------------------------------------
 
 	public String getProductNameKana(){
 		return productNameKana;
@@ -33,6 +38,7 @@ public class FavoriteDTO {
 	public void setProductNameKana(String productNameKana){
 		this.productNameKana= productNameKana;
 	}
+	//--------------------------------------
 
 	public String getImageFilePath(){
 		return imageFilePath;
@@ -40,6 +46,7 @@ public class FavoriteDTO {
 	public void setImageFilePath(String imageFilePath){
 		this.imageFilePath = imageFilePath;
 	}
+	//--------------------------------------
 
 	public String getImageFileName() {
 		return imageFileName;
@@ -47,6 +54,7 @@ public class FavoriteDTO {
 	public void setImageFileName(String imageFileName) {
 		this.imageFileName = imageFileName;
 	}
+	//--------------------------------------
 
 	public String getMsizePrice() {
 		return msizePrice;
@@ -54,18 +62,23 @@ public class FavoriteDTO {
 	public void setMsizePrice(String msizePrice) {
 		this.msizePrice = msizePrice;
 	}
+	//--------------------------------------
+
 	public String getLsizePrice() {
 		return lsizePrice;
 	}
 	public void setLsizePrice(String lsizePrice) {
 		this.lsizePrice = lsizePrice;
 	}
+	//--------------------------------------
+
 	public String getPrice(){
 		return price;
 	}
 	public void setPrice(String price){
 		this.price= price;
 	}
+	//--------------------------------------
 
 	public String getProductId() {
 		return productId;
@@ -73,12 +86,15 @@ public class FavoriteDTO {
 	public void setProductId(String productId) {
 		this.productId = productId;
 	}
+	//--------------------------------------
+
 	public int getCategoryId() {
 		return categoryId;
 	}
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
+	//--------------------------------------
 
 
 

@@ -22,14 +22,14 @@ import com.internousdev.alatanapizza.util.DBConnector;
 
 	public class CartDeleteDAO {
 
-		private DBConnector db=new DBConnector();
-		private Connection con=db.getConnection();
+
 
 
 
 		//①－(1)　ログインしているときに、全削除　＆　決済後のカート情報削除------------------------------
 		public int AlldeleteCart(String userId){
-
+			DBConnector db=new DBConnector();
+			 Connection con=db.getConnection();
 			String sql="DELETE FROM cart_info WHERE user_id=?";
 			int res =0;
 			try{
@@ -46,7 +46,8 @@ import com.internousdev.alatanapizza.util.DBConnector;
 
 		//①－(2)　ログインしているときに、チェックしたものだけを削除--------------------------------------
 		public int PartDeleteCart(String userId,String productid){
-
+			DBConnector db=new DBConnector();
+			 Connection con=db.getConnection();
 			String sql="DELETE FROM cart_info WHERE user_id=? AND id=?";
 			int res=0;
 			try{
@@ -64,7 +65,8 @@ import com.internousdev.alatanapizza.util.DBConnector;
 
 		//②－(1)　ログインしていない時、全削除----------------------------------------------------------
 		public int AlldeleteCartGest(String tempUserId){
-
+			DBConnector db=new DBConnector();
+			 Connection con=db.getConnection();
 			String sql="DELETE FROM cart_info WHERE user_id = ?";
 			int res=0;
 
@@ -82,7 +84,8 @@ import com.internousdev.alatanapizza.util.DBConnector;
 
 		//②－(2)　ログインしていない時に、チェックしたものだけを削除---------------------------------------
 			public int PartDeleteCartGest(String tempUserId,String productid){
-
+				 DBConnector db=new DBConnector();
+				 Connection con=db.getConnection();
 				String sql="DELETE FROM cart_info WHERE user_id=? AND id=?";
 				int res=0;
 

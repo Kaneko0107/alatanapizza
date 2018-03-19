@@ -25,10 +25,17 @@
 		</div>
 		<div>
 
-			<div style="color: red;" ><s:property value="errorMessageList"/></div>
+
 			<h3>新規宛先情報入力</h3>
 			<h3>下記に必要事項を記入してください</h3>
 			<s:form action="DestConfirmAction">
+						<div style="color: red;" >
+							<s:iterator value="errorMessageList">
+								<s:div align="center">
+									<s:property/>
+								</s:div>
+							</s:iterator>
+						</div>
 				<div>姓</div>
 				<s:textfield placeholder="1文字以上16文字以下" name="familyName" value="%{familyName}" />
 				<div>名</div>

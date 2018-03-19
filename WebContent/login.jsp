@@ -68,7 +68,8 @@ border-left:10px solid red;
 		<div id="main">
 		<div id="top">
 		</div>
-			<div style="color: red;" ><s:property value="errorMessageList"/></div>
+		<br>
+
 
 
 			<!-- テーブルはじまり -->
@@ -79,10 +80,16 @@ border-left:10px solid red;
 			<tr><td><hr></td></tr>
 
 			<s:form action="LoginAction">
-
+					<div style="color: red;" >
+						<s:iterator value="errorMessageList">
+							<s:div align="center">
+								<s:property/>
+							</s:div>
+						</s:iterator>
+					</div>
 
 <!-- ID -->
-			<tr><td>ID</td><!-- アラート化できたらしたい --></tr>
+			<tr><td>ID</td></tr>
 			<tr><td><s:textfield type="text" class="form" placeholder="1文字以上8文字以下" name="userId" value ="%{#session.saveId}"/></td></tr>
 
 <!-- パスワード -->

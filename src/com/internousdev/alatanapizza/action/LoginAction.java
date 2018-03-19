@@ -25,40 +25,32 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport implements SessionAware,ErrorMessageConstants {
 
-	/**
-	 * ログインに必要な情報
-	 * 登録した内容
-	 * →ID,PASSWORD
-	 *
-	 * カート内容を引継ぎするために仮IDを本IDで上書きするにはどうするか
-	 *× →LoginDAOのほうでPreparedStatementにてSQL文でtemp_user_idをuser_idでUpdateしたので解決？
-	 *→id書き換えだけだとログインしていたときにカートに入れていた情報が引き継がれない
-	 *→条件によってsql文を使い分ける？
-	 *
-	 * エラーメッセージ
-	 *
-	 * くらい？
-	 */
-
 	private static final String KESSAI="kessai";
+
 	//ユーザーID
 	private String userId;
+
 	//パスワード
 	private String password;
+
 	//ID保持
 	//private String saveLogin;
 	private boolean saveLogin;
+
 	//セッション
 	private Map<String,Object>session;
+
 	//jsp側で表示するエラーメッセージを格納するリスト
-	private ArrayList<String> errorMessageList=new ArrayList<>();//errorMessageConstants?
+	private ArrayList<String> errorMessageList=new ArrayList<>();
+
 	//決済ページへ
 	private int kessai;
+
 	//合計金額
 	private int totalPrice;
+
 	//宛先情報一覧
 	private ArrayList<DestinationDTO> destinationInfoListDTO= new ArrayList<DestinationDTO>();
-	//カートリスト→担当にArrayListを作成してもらう？
 	private ArrayList<CartInfoDTO> cartList=new ArrayList<CartInfoDTO>();
 
 	private String familyName;
@@ -68,7 +60,6 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 	private String email;
 	private String telNumber;
 	private String userAddress;
-	//private ArrayList<String> loginFlgMessageList=new ArrayList<>();
 
 	public String execute() throws SQLException{
 
@@ -78,7 +69,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		//	loginFlgMessageList.add("未ログイン");
 		//}
 		String result=ERROR;
-		LoginDTO loginDTO=new LoginDTO(); //元のコードはUserInfoDTO、改変の必要出たので以下改変する予定
+		LoginDTO loginDTO=new LoginDTO();
 		LoginDAO loginDAO=new LoginDAO();
 
 		System.out.println(userId);

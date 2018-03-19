@@ -26,6 +26,12 @@ public class ProductDTO {
     private Date update_date; //更新日
     private Date insert_date; //トッピング登録日
 
+    //下記管理者ページで使用
+    private String itemName; //商品名
+    private String itemKanaName; //商品かな
+    private String itemPrice; //商品価格
+    private String itemStock; //商品在庫
+
 
 
 
@@ -163,6 +169,40 @@ public class ProductDTO {
 		this.insert_date = insert_date;
 	}
 
+	//商品名
+	public String getItemName() {
+		return itemName;
+	}
 
+	public void setItemName(String itemName) {
+		this.itemName=itemName;
+	}
+
+	//商品かな
+	public String getItemKanaName() {
+		return itemKanaName;
+	}
+
+	public void setItemKanaName(String itemKanaName) {
+		this.itemKanaName=itemKanaName;
+	}
+
+	//商品価格
+	public String getItemPrice() {
+		return itemPrice;
+	}
+
+	public void setItemPrice(String itemPrice) {
+		this.itemPrice=itemPrice;
+	}
+
+	//商品在庫
+	public String getItemStock() {
+		return itemStock;
+	}
+
+	public void setItemStock(String itemStock) {
+		this.itemStock=itemStock;
+	}
 
  }

@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.internousdev.alatanapizza.dto.ProductDTO2;
+import com.internousdev.alatanapizza.dto.ProductDTO;
 import com.internousdev.alatanapizza.util.DBConnector;
 
 
@@ -18,7 +18,7 @@ public class MasterAddConfirmDAO {
 
 	private Connection connection=dbConnector.getConnection();
 
-	ProductDTO2 dto=new ProductDTO2();
+	ProductDTO dto=new ProductDTO();
 
 
 
@@ -27,7 +27,7 @@ public class MasterAddConfirmDAO {
 
 
 
-public ProductDTO2 checkItemInfo(String itemName,String itemKanaName) throws SQLException{
+public ProductDTO checkItemInfo(String itemName,String itemKanaName) throws SQLException{
 
 	try{
 		PreparedStatement preparedStatement=connection.prepareStatement(sql);

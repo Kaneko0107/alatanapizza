@@ -1,13 +1,12 @@
 package com.internousdev.alatanapizza.action;
 
-import java.io.File;
 import java.sql.SQLException;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.MasterAddConfirmDAO;
-import com.internousdev.alatanapizza.dto.ProductDTO2;
+import com.internousdev.alatanapizza.dto.ProductDTO;
 import com.internousdev.alatanapizza.util.ErrorMessageConstants;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -15,7 +14,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class MasterAddConfirmAction extends ActionSupport implements SessionAware,ErrorMessageConstants{
 
 	MasterAddConfirmDAO dao=new MasterAddConfirmDAO();
-	ProductDTO2 dto=new ProductDTO2();
+	ProductDTO dto=new ProductDTO();
 
 	Map<String,Object>session;
 

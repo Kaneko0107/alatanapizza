@@ -15,7 +15,18 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ProductInfoCategoryAction extends ActionSupport implements SessionAware {
 
 	// セッション情報取得
-	public Map<String, Object> session;
+
+	private String id;
+	private String product_id;
+	private String category_name;
+	private String stock;
+	private int insertFlg;
+	private int msize_price;
+	private int lsize_price;
+	private int price;
+	private int category_id;
+	private Map<String,Object> session;
+
 
 	// こちらの商品もどうですか？情報リスト
 	public List<ProductDTO> notSameCategoryList = new ArrayList<ProductDTO>();
@@ -27,7 +38,7 @@ public class ProductInfoCategoryAction extends ActionSupport implements SessionA
 	public String execute() throws SQLException {
 
 		try {
-			notSameCategoryList = dao.notSameCategoryList(session.get("userId").toString());
+			notSameCategoryList = dao.notSameCategoryList(category_id);
 			if (notSameCategoryList != null) {
 				session.put("notSameCategoryList", notSameCategoryList);
 				session.put("product_name", dto.getProduct_name());
@@ -54,6 +65,87 @@ public class ProductInfoCategoryAction extends ActionSupport implements SessionA
 
 	public Map<String, Object> getSession() {
 		return session;
+	}
+
+	public void setNotSameCategoryList(List<ProductDTO> notSameCategoryList ){
+
+		this.notSameCategoryList=notSameCategoryList;
+	}
+
+	public List<ProductDTO> getNotSameCategoryList(){
+		return notSameCategoryList;
+	}
+
+	public int getCategory_id() {
+		return category_id;
+	}
+
+	public void setCategory_id(int category_id) {
+		this.category_id = category_id;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getProduct_id() {
+		return product_id;
+	}
+
+	public void setProduct_id(String product_id) {
+		this.product_id = product_id;
+	}
+
+	public String getCategory_name() {
+		return category_name;
+	}
+
+	public void setCategory_name(String category_name) {
+		this.category_name = category_name;
+	}
+
+	public String getStock() {
+		return stock;
+	}
+
+	public void setStock(String stock) {
+		this.stock = stock;
+	}
+
+	public int getInsertFlg() {
+		return insertFlg;
+	}
+
+	public void setInsertFlg(int insertFlg) {
+		this.insertFlg = insertFlg;
+	}
+
+	public int getMsize_price() {
+		return msize_price;
+	}
+
+	public void setMsize_price(int msize_price) {
+		this.msize_price = msize_price;
+	}
+
+	public int getLsize_price() {
+		return lsize_price;
+	}
+
+	public void setLsize_price(int lsize_price) {
+		this.lsize_price = lsize_price;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 }

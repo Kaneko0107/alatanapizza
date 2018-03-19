@@ -1,12 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="./css/alatanapizza.css">
-<title>Insert title here</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="./css/alatanapizza.css">
+	<link rel="stylesheet" href="./css/cart.css">
+
+<title>購入履歴</title>
+
 </head>
 <body>
 	<jsp:include page="include_header.jsp" />
@@ -34,34 +37,20 @@
 		<!-- ---------------------------------- -->
 
 
-		<!--  ■全て削除のボタン■ -->
 
-		<div class="all_delete">
+
+
 			<s:form action="PurchaseHistoryAction">
-				<input type="hidden" name="deleteFlg" value="1">
-				<s:submit value="履歴をすべて削除" />
-			</s:form>
-		</div>
-		<!-- --------------------- -->
+				<input type="hidden" name="deleteFlg" value="2"/>
 
-
-
-
-
-		<!-- ■購入履歴一覧表示■ -->
-		<s:form action="PurchaseHistoryAction">
-		<div>
-			<input type="hidden" name="deleteFlg" value="2"/>
-			<s:submit value="個別削除" />
-		</div>
 		<s:iterator value="historyList">
+		<div id="boxList">
 
-			<!-- チェックボックス -->
+			<!-- チェックボックス,選択したものだけを削除 -->
 			<s:checkbox name="checkList" value="2" fieldValue="%{id}" />
 
-			<!-- 選択したものだけを削除 -->
-
-
+			<!-- 購入日時 -->
+			<s:property value="registDate" />
 
 			<!-- 画像 -->
 			<div class="main_content">
@@ -73,16 +62,10 @@
 
 
 				<!-- 商品名 -->
-				商品名:<s:property value="productName" />
+				<s:property value="productName" />
 				<br>
-
 				<!-- 商品かな -->
-				商品名 かな:<s:property value="productNameKana" />
-				<br>
-
-				<!-- 商品詳細 -->
-				商品詳細:
-				<s:property value="productDescription" />
+				<s:property value="productNameKana" />
 				<br>
 
 			</div>
@@ -94,15 +77,28 @@
 				<div class="count">(購入数:<s:property value="count" />点)</div>
 			</div>
 
+		</div>
 		</s:iterator>
+
+		<!--  ■削除ボタン■ -->
+		<p id="delete">
+			<s:submit value="チェックした項目を削除" /></p>
 		</s:form>
 
+		<span class="all_delete">
+			<s:form action="PurchaseHistoryAction">
+				<input type="hidden" name="deleteFlg" value="1">
+				<s:submit value="履歴をすべて削除" />
+			</s:form>
+		</span>
+
 	</s:elseif>
+
 	<a href='<s:url action="MyPageAction" />'>マイページに戻る</a>
 	<br>
 	<p id="pageTop">
 		<a href="#"><i class="fa fa-chevron-up">ページトップに戻る</i></a>
-	</p>
+
 
 	<jsp:include page="include_footer.jsp" />
 </body>

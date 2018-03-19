@@ -26,7 +26,7 @@ public class MasterProductDAO {
 			int i = 1;
 			ps.setInt(i++, Integer.valueOf((int) (Math.random() * 1000000)));
 			ps.setString(i++, itemName);
-			ps.setString(i++, "./images/side/" + imageName + ".jpg"); // ここもサイドメニュー前提です。。
+			ps.setString(i++, "./images/side/" + imageName + ".jpg"); // サイドメニューのみ
 			ps.setString(i++, imageName + ".jpg");
 			ps.setString(i++, itemPrice);
 			ps.setInt(i++, 0); // ピザのMサイズ用の値段。今はサイドメニューしか対応しないので固定で0
@@ -35,8 +35,8 @@ public class MasterProductDAO {
 			ps.setString(i++, dateUtil.getDate());
 			ps.setString(i++, dateUtil.getDate());
 			ps.setString(i++, itemKanaName);
-			ps.setString(i++, "商品説明。まだ変更できません。。");
-			ps.setString(i++, "3"); // 今はサイドメニューのみの対応とします。
+			ps.setString(i++, "新商品！");//今はコメント変更付加
+			ps.setString(i++, "3"); // 今はサイドメニューのみ対応
 
 			System.out.println(ps);
 			ps.executeUpdate();

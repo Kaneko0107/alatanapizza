@@ -26,44 +26,39 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 	private String result;
 
+	private ArrayList<String> errMsgList=new ArrayList<>();
+	private ArrayList<String> errMsgListId=new ArrayList<>();
+	private ArrayList<String> errMsgListPass=new ArrayList<>();
+	private ArrayList<String> errMsgListFamilyName=new ArrayList<>();
+	private ArrayList<String> errMsgListFirstName=new ArrayList<>();
+	private ArrayList<String> errMsgListFamilyNameKana=new ArrayList<>();
+	private ArrayList<String> errMsgListFirstNameKana=new ArrayList<>();
+	private ArrayList<String> errMsgListSex=new ArrayList<>();
+	private ArrayList<String> errMsgListMail=new ArrayList<>();
+	private ArrayList<String> errMsgListQuestion=new ArrayList<>();
+	private ArrayList<String> errMsgListAnswer=new ArrayList<>();
+
+    //エラーメッセージの種類
+	private String errId1;
+	private String errId2;
+	private String errPass1;
+	private String errPass2;
+	private String errName1;
+	private String errName2;
+	private String errKana1;
+	private String errKana2;
+	private String errKana3;
+	private String errKana4;
+	private String errSex;
+	private String errMail1;
+	private String errMail2;
+	private String errQuestion;
+	private String errAnswer;
 
 
-		private ArrayList<String> errMsgList=new ArrayList<>();
-
-		private ArrayList<String> errMsgListId=new ArrayList<>();
-		private ArrayList<String> errMsgListPass=new ArrayList<>();
-		private ArrayList<String> errMsgListFamilyName=new ArrayList<>();
-		private ArrayList<String> errMsgListFirstName=new ArrayList<>();
-		private ArrayList<String> errMsgListFamilyNameKana=new ArrayList<>();
-		private ArrayList<String> errMsgListFirstNameKana=new ArrayList<>();
-		private ArrayList<String> errMsgListSex=new ArrayList<>();
-		private ArrayList<String> errMsgListMail=new ArrayList<>();
-		private ArrayList<String> errMsgListQuestion=new ArrayList<>();
-		private ArrayList<String> errMsgListAnswer=new ArrayList<>();
 
 
-		//private String errId1;
-		private String errId2;
-		private String errId3;
-		private String errPass1;
-		private String errPass2;
-		private String errName1;
-		private String errName2;
-		private String errKana1;
-		private String errKana2;
-		private String errKana3;
-		private String errKana4;
-		private String errSex;
-		private String errMail1;
-		private String errMail2;
-		private String errQuestion;
-		private String errAnswer;
-
-
-		//private UserCreateConfirmDAO userCreateConfirmDAO = new UserCreateConfirmDAO();
-
-
-		public String execute() {
+	public String execute() {
 
 		    result=ERROR;
 
@@ -98,18 +93,14 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		}
 
 
-
-
-
-
 	if (loginUserId.length() > 8) {
-		errId2="ユーザーIDは8文字以内で入力してください";
-		errMsgListId.add(errId2);
+		errId1="ユーザーIDは8文字以内で入力してください";
+		errMsgListId.add(errId1);
 	}
 
 	if (!loginUserId.matches("^[0-9a-zA-Z]+$")) {
-		errId3="ユーザーIDは半角英数字で入力してください";
-		errMsgListId.add(errId3);
+		errId2="ユーザーIDは半角英数字で入力してください";
+		errMsgListId.add(errId2);
 	}
 
 
@@ -311,7 +302,6 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	public Map<String, Object> getSession() {
 		return session;
 	}
-
 
 	public ArrayList<String> getErrMsgList() {
 		return errMsgList;

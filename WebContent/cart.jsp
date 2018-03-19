@@ -1,98 +1,83 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-        <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<title>カート画面</title>
 	<link rel="stylesheet" href="./css/alatanapizza.css">
+	<link rel="stylesheet" href="./css/cart.css">
 
+	<title>カート画面</title>
 
 
 </head>
 <body>
 <jsp:include page="include_header.jsp" />
 
+
 	<div class="main">
 
 	<h1>カート</h1>
+
 	<s:property value="errMsg"/>
 		<s:if test="cartList.isEmpty()">
-			<p class="message">カートの中は空です</p>
+			<p class="eMessage">カートの中は空です</p>
 		</s:if>
-
 		<s:else>
 			<p class="message">カートには以下の商品が入っています</p>
 
 		<s:iterator value="cartList">
 
-			<div class="border"></div>
-<!-- 画像を表示させる -->
+			<div id="boxList">
+			<!-- 画像を表示させる -->
 			<div class="main_content clearfix_bon">
 			<s:url id="url" action="ProductDetailsAction"><s:param name="product_id" value="productId" /></s:url>
 
 			<s:a href="%{url}">
-			  <img src='<s:property value="imageFilePath"/>' width="200" height="170" alt="画像なし"/>
+			  <img src='<s:property value="imageFilePath"/>' width="200" height="170" alt="Photo"/>
 			</s:a>
 
-<!-- テキストデータを表示させる -->
+			<!-- テキストデータを表示させる -->
 			<div class="pro_text">
 			<div class="name">
- 			<s:a href="%{url}">
 
-<!-- ふりがな表示 -->
-			<div class="kana">
-			商品かな：<s:property value="productNameKana"/>
-			</div>
-
-<!-- 商品名表示 -->
+			<!-- 商品名表示 -->
 			<div class="pro_name">
-			商品名：<s:property value="productName" />
+			<s:property value="productName" />
 			</div>
-			</s:a>
 			</div>
-			<s:property value="toppings"/>
+			<!-- ふりがな表示 -->
+			<div class="kana">
+			<s:property value="productNameKana"/>
+			</div>
+			トッピング:<s:property value="toppings"/>
 
-
-<!-- 商品説明 -->
-<div class="pro_namesetumei">
-			<!-- 商品詳細 -->
-				商品詳細:<s:property value="productDescription" />
-				<br>
-
-<!-- 値段表示 -->
+			<!-- 値段表示 -->
 			<div class="price_count"></div>
 			<div class="price">
 			<%-- 価格:¥<fmt:formatNumber value="${price}" /> --%>
-			価格:¥<s:property value="price" />
+			価格¥<s:property value="price" />
 			</div>
 
-<!-- 個数表示 -->
+			<!-- 個数表示 -->
 			<div class="count">
 			（購入数：<s:property value="productCount" />点）
 			</div>
 
-<!-- 発売会社 -->
-			<div class="company">
-			発売会社：<s:property value="releaseCompany" />
-			</div>
-
-<!-- 年月日 -->
-			<div class="release_date">
-			発売日：<s:property value="releaseDate"/>
-			</div>
-		</div>
-
-<!-- 削除ボタン -->
+			<!-- 削除ボタン -->
 			<div class="deletebutton">
 			<s:form action="CartDeleteAction">
 				<a href='<s:url action="CartDeleteAction">
 				<s:param name="productId" value="productId"></s:param></s:url>'>削除</a>
 				</s:form>
 			</div>
-
+			</div>
+			</div>
+			</div>
 		</s:iterator>
+
+
 		<div class="border"></div>
 <!-- 合計金額の表示 -->
 			<div class="totalprice">

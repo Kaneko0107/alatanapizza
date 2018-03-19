@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +13,6 @@
 <style type="text/css">
 
 </style>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
  <script src="./js/jquery-3.3.1.min.js"></script>
@@ -130,7 +128,7 @@
 					</s:if>
 					<s:if test="session.d_category_id==3 || session.d_category_id==4">
 						<!-- サイド・ドリンク -->
-						￥<s:property value="session.d_product_price" />
+						<p id="sAndDPrice" name="sAndDPrice" value="<s:property value="session.d_product_price" />">￥<s:property value="session.d_product_price" />
 					</s:if></span>
 
 					<div class="productDescription">

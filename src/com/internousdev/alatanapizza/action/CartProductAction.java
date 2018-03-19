@@ -9,7 +9,6 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.alatanapizza.dao.CartInfoDAO;
 import com.internousdev.alatanapizza.dao.ProductDetailsDAO;
 import com.internousdev.alatanapizza.dto.CartInfoDTO;
-import com.internousdev.alatanapizza.dto.ProductDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CartProductAction extends ActionSupport implements SessionAware{
@@ -70,7 +69,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 			return "success";
 		}
 
-		ProductDTO product = productDAO.getProductDetailsInfo(Integer.valueOf(productId).toString());
+		productDAO.getProductDetailsInfo(Integer.valueOf(productId).toString());
 		if (topping_id_1 != null) toppings.add(1);
 		if (topping_id_2 != null) toppings.add(2);
 		if (topping_id_3 != null) toppings.add(3);
@@ -98,78 +97,66 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 
 		//検索画面で購入個数をマイナスにした場合は"CountError"を返して別のページに飛ぶ
 		if(productCount < 0){
-		   return "CountError";
+			return "CountError";
 		}
 		total_price = calcTotalPrice(cartList);
 		return SUCCESS;
-	}
+		}
 
 	//合計金額計算
 	public int calcTotalPrice(ArrayList<CartInfoDTO>cartList){
 		int totalPrice = 0;
 		for(CartInfoDTO dto : cartList){
-		totalPrice += dto.getPrice();
-		System.out.println("合計" + totalPrice + "円");
-	}
+			totalPrice += dto.getPrice();
+			System.out.println("合計" + totalPrice + "円");
+		}
 		return totalPrice;
 	}
 
-	//セッションを【取得する】メソッド
+	//セッション
 	public Map<String,Object>getSession(){
 		return session;
 	}
-
-	//セッションを【格納する】メソッド
 	public void setSession(Map<String,Object> session){
 		this.session = session;
 	}
 
-	//商品IDを【取得する】メソッド
+	//商品ID
 	public String getProductId(){
 		return Integer.valueOf(productId).toString();
 	}
-
-	//商品IDを【格納する】メソッド
 	public void setProductId(String productId){
 		this.productId = Integer.parseInt(productId);
 	}
 
-	//商品価格を【取得する】メソッド
+	//商品価格
 	public String getPrice(){
 		return price;
 	}
-
-	////商品価格を【格納する】メソッド
 	public void setPrice(String price){
 		this.price = price;
 	}
 
-	//カート情報を【取得する】メソッド
+	//カート情報
 	public ArrayList<CartInfoDTO>getCartList(){
 		return cartList;
 	}
-
-	//カート情報を【格納する】メソッド
 	public void setCartList(ArrayList<CartInfoDTO>cartList){
 		this.cartList = cartList;
 	}
 
-	//カートの商品個数を【取得する】メソッド
+	//カート内の商品個数
 	public int getProductCount(){
 		return productCount;
 	}
-
-	//カートの商品個数を【格納する】メソッド
 	public void setProductCount(int productCount){
 		this.productCount = productCount;
 	}
 
-	//カート個数を【取得する】メソッド
+	//カート個数
 	public int setCount(){
 		return count;
 	}
-
-	//カートの個数を【格納する】メソッド
 	public void setCount(int count){
 		this.count = count;
 	}

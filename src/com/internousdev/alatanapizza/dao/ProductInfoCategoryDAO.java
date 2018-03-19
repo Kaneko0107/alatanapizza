@@ -14,7 +14,7 @@ import com.internousdev.alatanapizza.util.DBConnector;
 //
 public class ProductInfoCategoryDAO {
 
-	public ArrayList<ProductDTO> notSameCategoryList(String user_id) throws SQLException {
+	public ArrayList<ProductDTO> notSameCategoryList(int category_id) throws SQLException {
 		ArrayList<ProductDTO> categoryList = new ArrayList<ProductDTO>();
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -23,21 +23,19 @@ public class ProductInfoCategoryDAO {
 		// そのカテゴリーを除外した商品をランダムに３件表示
 		// 例）ピザ（ｶﾃｺﾞﾘｰ１）がカートに入っていたら、
 		// サイドメニュー（ｶﾃｺﾞﾘｰ２）と飲み物（ｶﾃｺﾞﾘｰ３）を表示させる。
-		String sql = "SELECT product_name producy_name_kana product image_file_path image_file_name"
-				+ "FROM product_info" + "WHERE category_id"
-				+ "NOT IN (SELECT category_id FROM cart_info WHERE user_id = ?)" + "ORDER BY RAND() LIMIT 3";
+		String sql = "SELECT * FROM product_info WHERE category_id NOT IN (SELECT category_id FROM cart_info WHERE product_info.category_id = ?) ORDER BY RAND() LIMIT 3";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, user_id);
+			ps.setInt(1, category_id);
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
 				ProductDTO dto = new ProductDTO();
-				dto.setProduct_name(rs.getString("product_name"));
-				dto.setProduct_name_kana(rs.getString("product_name_kana"));
-				dto.setImage_file_name(rs.getString("image_file_name"));
-				dto.setImage_file_path(rs.getString("image_file_path"));
+				dto.setProduct_name(rs.getString("product_info.product_name"));
+				dto.setProduct_name_kana(rs.getString("product_info.product_name_kana"));
+				dto.setImage_file_name(rs.getString("product_info.image_file_name"));
+				dto.setImage_file_path(rs.getString("product_info.image_file_path"));
 
 				categoryList.add(dto);
 			}

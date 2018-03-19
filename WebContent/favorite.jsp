@@ -58,9 +58,17 @@
 
 									<br><br>
 
-								<div class="iFP"><img src="<s:property value='imageFilePath'/>" width="auto" height="200px"></div>
-								<s:hidden name="imageFilePath" value='<s:property value="imageFilePath"/>' />
 
+
+								<!-- 画像を表示させる -->
+								<div class="main_content clearfix_bon">
+								<s:url id="url" action="ProductDetailsAction"><s:param name="product_id" value="productId" /></s:url>
+
+								<s:a href="%{url}">
+								  <img src='<s:property value="imageFilePath"/>' width="200" height="170" alt="Photo"/>
+								</s:a>
+
+								<br>
 
 								<s:hidden name="imageFileName" value='<s:property value="imageFileName"/>' />
 								商品名:<span><s:property value="productName" /></span><br>
@@ -82,6 +90,7 @@
 								</s:if>
 
 
+
 								<p>&nbsp;</p>
 								<p>&nbsp;</p>
 								<p>&nbsp;</p>
@@ -94,7 +103,7 @@
 							<s:hidden name="deleteFlg" value="1" />
 						</div>
 
-						<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">商品詳細ページへ</a>
+
 
 						</s:form>
 					</s:if>

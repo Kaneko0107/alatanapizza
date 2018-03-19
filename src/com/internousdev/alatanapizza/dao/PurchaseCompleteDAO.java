@@ -18,13 +18,13 @@ import com.internousdev.alatanapizza.util.DBConnector;
 
 
 public class PurchaseCompleteDAO {
-	private DBConnector db = new DBConnector();
 
-	private Connection con = db.getConnection();
 
 
 	 //①カートテーブルを購入履歴に登録するメソッド
 	public ArrayList<CartInfoDTO> getCartInfo(String userId) throws SQLException {
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 		ArrayList<CartInfoDTO> cartList = new ArrayList<CartInfoDTO>();
 
 		String sql = "SELECT * from cart_info where user_id=?";

@@ -5,20 +5,11 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
+
 import com.internousdev.alatanapizza.dao.CartInfoDAO;
 import com.internousdev.alatanapizza.dto.CartInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-//カート内削除アクション　担当：上原→かねごんにバトンタッチします！ごめん→実装完了しました！（金子）
-//①ログインしている場合
-//		（１）全削除メソッド
-//		（２）チェックしたものだけを削除するメソッド
-//②ログインしていない場合（ゲストユーザー）
-//		（３）全削除メソッド
-//		（４）チェックしたものだけを削除するメソッド
-
-//※４つのメソッドを作るのがめんどいと思ったが、これしか方法はない。
-//なお、ここでもログインしているか否かは、しっかりと判別する必要あり。
 
 
 //カート内の商品を削除するクラス
@@ -35,7 +26,7 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 		private ArrayList<CartInfoDTO>cartList = new ArrayList<CartInfoDTO>();
 
 		//カート内の金額
-		public int total_price = 0;
+		public int total_price;
 
 		private CartInfoDAO dao = new CartInfoDAO();
 
@@ -63,7 +54,7 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 			}
 		}
 		dao.deleteSeparate(userId, productId);
-		// 在庫を増やしたいから符号を反転させる。
+		// 在庫を増やす為に、符号を反転させる
 		dao.changeStockCount(-deletedProductCount, productId);
 
 		cartList = dao.showUserCartList(userId);
@@ -81,60 +72,35 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 		return totalPrice;
 		}
 
-//
-//		if (!(session.containsKey("userId"))) {
-//			deletedao.deleteSeparate(session.get("tempUserId").toString(), productId);
-//			cartList = dao.showUserCartList(session.get("tempUserId").toString());
-//		}
-//		else {
-//			userId = session.get("userId").toString();// ログインしているuserId
-//			deletedao.deleteSeparate(userId, productId);
-//			cartList = dao.showUserCartList(session.get("userId").toString());
-//		}
-//
-//		totalPrice = calcTotalPrice(cartList);
-//
-//		result = SUCCESS;
-//
-//		return result;
-//	}
 
-	//セッションを【取得する】メソッド
+	//セッション
 	public Map<String, Object> getSession() {
 		return session;
 	}
-
-	//セッションを【格納する】メソッド
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
-	//商品IDを【取得する】メソッド
+	//商品ID
 	public String getProductId() {
 		return Integer.valueOf(productId).toString();
 	}
-
-	//商品IDを【格納する】メソッド
 	public void setProductId(String productId) {
 		this.productId = Integer.parseInt(productId);
 	}
 
-	//カート情報を【取得する】メソッド
+	//カート情報
 	public ArrayList<CartInfoDTO> getCartList() {
 		return cartList;
 	}
-
-	//カート情報を【格納する】メソッド
 	public void setCartList(ArrayList<CartInfoDTO>cartList){
 		this.cartList = cartList;
 	}
 
-	//合計金額を【取得する】メソッド
+	//合計金額
 	public int getTotalPrice() {
 		return total_price;
 	}
-
-	//合計金額を【格納する】メソッド
 	public void setTotalPrice(int total_price) {
 		this.total_price = total_price;
 	}

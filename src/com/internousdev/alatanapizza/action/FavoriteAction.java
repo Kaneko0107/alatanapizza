@@ -16,9 +16,8 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 	private List<FavoriteDTO> favoriteList = new ArrayList<FavoriteDTO>();
 	private Map<String, Object> session;
 	private List<String> checkList;
-	private String deleteFlg;
-	private String favoriteInsertFlg;
-	private String test;
+	private int deleteFlg;
+	private int favoriteInsertFlg;
 	private String message;
 	private String product_id;
 	private String userId;
@@ -29,26 +28,23 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 
 	public String execute() throws SQLException {
 		FavoriteDAO dao = new FavoriteDAO();
-		deleteFlg = "0";
-		favoriteInsertFlg = "0";
-		test = "test";
+
 		canInsertFlg = true;
 		count = 0;
-		session.put("none", null);
+
 
 		//削除ボタン押してない時点
-		if (deleteFlg == "0") {
+		if (deleteFlg == 0) {
 			if (session.containsKey("userId")) {
 				userId = session.get("userId").toString();
 				favoriteList = dao.getFavoriteInfo(userId);
-
-			}
+		  }
 		}
 
 		if (session.containsKey("userId")) {
 
 			//ログイン後お気に入り登録したら
-			if (favoriteInsertFlg != "0") {
+			if (favoriteInsertFlg == 1) {
 				favoriteList = dao.getFavoriteInfo(userId);
 				for (int i = 0; favoriteList.size() > i; i++) {
 					if (favoriteList.get(i).getProductId().equals(product_id)) {
@@ -62,7 +58,7 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 				if (canInsertFlg) {
 					userId = session.get("userId").toString();
 					count2 = dao.insertFavorite(userId, product_id);
-					favoriteInsertFlg = null;
+					favoriteInsertFlg = 0;
 
 					favoriteList = dao.getFavoriteInfo(userId);
 					result = SUCCESS;
@@ -76,16 +72,14 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 				}
 				return result;
 			}
-
-
-			else if (deleteFlg.equals("1")) { //削除ボタン押した後
+			else if (deleteFlg == 1) { //削除ボタン押した後
 				// checkListがnullじゃないとき
 				if (checkList != null) {
 
 					for (String deleteId : checkList) {
 						count += dao.deleteFavoriteInfo(deleteId, session.get("userId").toString());
 
-						deleteFlg = null;
+						deleteFlg = 0;
 						userId = session.get("userId").toString();
 						favoriteList = dao.getFavoriteInfo(userId);
 						result = SUCCESS;
@@ -109,9 +103,10 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 		} //セッション鍵	("userId")が存在しない場合エラーページに移動させる
 		else	{
 			result = "login";
+
 		}
 		return result;
-	}
+		}
 
 	//ゲッター・セッター
 	//-----------------------------------------------------------
@@ -142,30 +137,21 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 	}
 	//-----------------------------------------------------------
 
-	public String getDeleteFlg() {
+	public int getDeleteFlg() {
 		return deleteFlg;
 	}
 
-	public void setDeleteFlg(String deleteFlg) {
+	public void setDeleteFlg(int deleteFlg) {
 		this.deleteFlg = deleteFlg;
 	}
 	//-----------------------------------------------------------
 
-	public String getFavoriteInsertFlg() {
+	public int getFavoriteInsertFlg() {
 		return favoriteInsertFlg;
 	}
 
-	public void setFavoriteInsertFlg(String favoriteInsertFlg) {
+	public void setFavoriteInsertFlg(int favoriteInsertFlg) {
 		this.favoriteInsertFlg = favoriteInsertFlg;
-	}
-	//-----------------------------------------------------------
-
-	public String getTest() {
-		return test;
-	}
-
-	public void setTest(String test) {
-		this.test = test;
 	}
 	//-----------------------------------------------------------
 

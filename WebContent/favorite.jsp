@@ -88,7 +88,6 @@
 									<s:hidden name="price" value="%{price}" />
 								</s:if>
 
-								<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">商品詳細ページへ</a>
 
 
 								<p>&nbsp;</p>

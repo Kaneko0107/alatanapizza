@@ -25,7 +25,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport implements SessionAware,ErrorMessageConstants {
 
-	private static final String KESSAI="kessai";
+//	private static final String KESSAI="kessai";
 
 	//ユーザーID
 	private String userId;
@@ -147,15 +147,13 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 						ArrayList<Integer> productIdList=new ArrayList<Integer>(); //整数型　製品リスト
 						ArrayList<Integer> tempProductIdList=new ArrayList<Integer>(); //整数型　ゲスト用製品リスト
 
-						//Mapのsessionから取得するのでString型として取得した
-						//userIdのカート情報をすべて引き出すメソッドを代入
+						//Mapのsessionから取得するのでString型として取得したuserIdのカート情報をすべて引き出すメソッドを代入
 						cartList=cartInfoDAO.showUserCartList(session.get("userId").toString());
 						//tempUserIdのカート情報をすべて引き出すメソッドを代入
 						tempCartList=cartInfoDAO.showUserCartList(session.get("tempUserId").toString());
-						int i=0;
-
 
 						//ログイン後のカートの中身を生成
+						int i=0;
 						for(i=0;i<cartList.size();i++){
 							productIdList.add(cartList.get(i).getProductId());
 						}
@@ -170,11 +168,11 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 						if(cartList.size()<tempCartList.size()){ //ログイン時のカートリスト < ゲスト用のカートリスト
 							i=0;
 							for(i=0;i<productIdList.size();i++){
+
 								boolean exist=tempProductIdList.contains(productIdList.get(i));
 								if(exist){
 									cartInfoDAO.changeProductStock(Integer.valueOf(cartList.get(i).getProductCount()),
 											Integer.valueOf(productIdList.get(i)),session.get("userId").toString());
-									//cartInfoDAOにString userIdが入力されていないからエラーを吐いている　要修正
 									//BuyItemCompleteActionにて合計金額の算出コードの記載あるのでこちらではいらない？
 									cartInfoDAO.deleteSeparate(session.get("tempUserId").toString(),
 											Integer.valueOf(productIdList.get(i)));
@@ -188,6 +186,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 						}else{ //ログインカートリスト < ゲスト用カートリスト　以外のケース
 							i=0;
 							for(i=0;i<tempProductIdList.size();i++){
+
 								boolean exist=productIdList.contains(tempProductIdList.get(i));
 								if(exist){
 									cartInfoDAO.changeProductStock(Integer.valueOf(cartList.get(i).getProductCount()),
@@ -210,35 +209,35 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 						destinationInfoListDTO=destinationDAO
 								.obtainingDestinationInfo(session.get("userId").toString());
 
-						//合計金額の計算
-						totalPrice=calcTotalPrice(cartList); //calc==計算　の意味
-
-						//カート、宛先情報を引き継ぐ
-						System.out.println("kessai:"+kessai);
-
-						if(kessai==1){
-							if((boolean) session.get("loginFlg")){
-								destinationInfoListDTO=destinationDAO
-										.obtainingDestinationInfo(session.get("userId").toString());
-							}
-
-							if(destinationInfoListDTO.size()>0){
-								result=SUCCESS;
-							}else if(!(boolean) session.get("loginFlg")){
-								result=ERROR;
-								kessai=1;
-								return result;
-							}else{
-								result="destination";
-								return result;
-							}
-
-							System.out.println("LoginAction:kessaiは1");
-
-							//合計金額の計算
-							totalPrice=calcTotalPrice(cartList);
-							return KESSAI;
-						}
+//						//合計金額の計算
+//						totalPrice=calcTotalPrice(cartList); //calc==計算　の意味
+//
+//						//カート、宛先情報を引き継ぐ
+//						System.out.println("kessai:"+kessai);
+//
+//						if(kessai==1){
+//							if((boolean) session.get("loginFlg")){
+//								destinationInfoListDTO=destinationDAO
+//										.obtainingDestinationInfo(session.get("userId").toString());
+//							}
+//
+//							if(destinationInfoListDTO.size()>0){
+//								result=SUCCESS;
+//							}else if(!(boolean) session.get("loginFlg")){
+//								result=ERROR;
+//								kessai=1;
+//								return result;
+//							}else{
+//								result="destination";
+//								return result;
+//							}
+//
+//							System.out.println("LoginAction:kessaiは1");
+//
+//							//合計金額の計算
+//							totalPrice=calcTotalPrice(cartList);
+//							return KESSAI;
+//						}
 
 					}else{
 						errorMessageList.add("入力されたパスワードが異なります。");
@@ -275,13 +274,6 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 	public void setPassword(String password){
 		this.password=password;
 	}
-
-//	public String getSaveLogin(){
-//		return saveLogin;
-//	}
-//	public void setSaveLogin(String saveLogin){
-//		this.saveLogin=saveLogin;
-//	}
 
 	public boolean isSaveLogin(){ //booleanだからis
 		return saveLogin;

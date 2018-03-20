@@ -14,7 +14,7 @@ public class LoginDTO {
 	//private String sex;
 	private boolean sex; //0:男性 1:女性
 	private String email;
-	private boolean status;
+//	private boolean status;
 	private boolean logined;
 	private boolean master;
 	private Date register_date;

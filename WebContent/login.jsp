@@ -151,7 +151,7 @@ tr td .memo{text-align:center;
 				</div></td></tr>
 
 <!-- 戻る画像アイコン -->
-			<tr><td><div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()">◀ 戻る</a></div></td></tr>
+			<tr><td><div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()"><img src="./images/icon/modoru2.png"></a></div></td></tr>
 				</table></div>
 
 

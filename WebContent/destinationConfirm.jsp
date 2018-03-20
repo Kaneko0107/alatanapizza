@@ -12,7 +12,7 @@
 <meta http-equiv="imagetoolbar" content="no"/>
 <meta name="description" content="">
 <meta name="keywords" content=""/>
-<title>alatanapizza 宛先情報確認画面</title>
+<title>宛先情報 確認</title>
 <style type="text/css">
 /*========TAG LAYOUT========*/
 
@@ -23,7 +23,7 @@ table{
 	padding-right: 20%;
 }
 
-img{text-align:center;
+image{text-align:center;
 }
 
 hr{border: none;
@@ -108,30 +108,36 @@ tr td .memo{text-align:center;
 			<tr><td><hr></td></tr>
 
 			<s:form action="DestCompleteAction">
-
+<!-- 姓 -->
 				<tr><td>姓</td></tr>
 				<tr><td><s:property value="familyName" escape="false"/>
 				<input type=hidden name="familyName" value='<s:property value="familyName"/>' /></td></tr>
+<!-- 名 -->
 				<tr><td>名</td></tr>
 				<tr><td><s:property value="firstName" escape="false"/>
 				<input type=hidden name="firstName" value='<s:property value="firstName"/>' /></td></tr>
-				<tr><td>姓ふりがな</td></tr>
+<!-- 姓かな -->
+				<tr><td>姓（かな）</td></tr>
 				<tr><td><s:property value="familyNameKana" escape="false"/>
 				<input type=hidden name="familyNameKana" value='<s:property value="familyNameKana"/>' /></td></tr>
-				<tr><td>名ふりがな</td></tr>
+<!-- 名かな -->
+				<tr><td>名（かな）</td></tr>
 				<tr><td><s:property value="firstNameKana" escape="false"/>
 				<input type=hidden name="firstNameKana" value='<s:property value="firstNameKana"/>' /></td></tr>
+<!-- 住所 -->
 				<tr><td>住所</td></tr>
 				<tr><td><s:property value="userAddress" escape="false"/>
 				<input type=hidden name="userAddress" value='<s:property value="userAddress"/>' /></td></tr>
+<!-- 電話番号 -->
 				<tr><td>電話番号</td></tr>
 				<tr><td><s:property value="telNumber" escape="false"/>
 				<input type=hidden name="telNumber" value='<s:property value="telNumber"/>' /></td></tr>
+<!-- メールアドレス -->
 				<tr><td>メールアドレス</td></tr>
 				<tr><td><s:property value="email" escape="false"/>
 				<input type=hidden name="email" value='<s:property value="email"/>' /></td></tr>
 
-
+<!-- 送信画像アイコン -->
 				<tr><td><div class="imagehover"><s:submit class="image" type="image" value="" src="./images/icon/登録する.png"/></div></td></tr>
 			</s:form>
 
@@ -151,6 +157,7 @@ tr td .memo{text-align:center;
 
       <s:submit value="戻る" class="DestButton"/>
     </s:form> --%>
+    <!-- 戻る画像アイコン -->
     	<tr><td><div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()"><img src="./images/icon/modoru2.png"></a></div></td></tr>
 
 		</table>

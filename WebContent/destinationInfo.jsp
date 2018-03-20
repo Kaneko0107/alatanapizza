@@ -12,7 +12,7 @@
 <meta http-equiv="imagetoolbar" content="no"/>
 <meta name="description" content="">
 <meta name="keywords" content=""/>
-<title>alatanapizza 宛先情報登録画面</title>
+<title>宛先情報 登録</title>
 <style type="text/css">
 /*========TAG LAYOUT========*/
 
@@ -23,7 +23,7 @@ table{
 	padding-right: 20%;
 }
 
-img{text-align:center;
+image{text-align:center;
 }
 
 hr{border: none;
@@ -118,32 +118,41 @@ tr td .memo{text-align:center;
 
 
 			<s:form action="DestConfirmAction">
-			<table>
+
 				<tr><td><div style="color: red;" ><s:iterator value="errorMessageList"><s:div align="center"><s:property/></s:div></s:iterator></div></td></tr>
 
+<!-- 姓 -->
 				<tr><td>姓</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="familyName" value="%{familyName}" /></td></tr>
+<!-- 名 -->
 				<tr><td>名</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="firstName" value="%{firstName}" /></td></tr>
+<!-- 姓かな -->
 				<tr><td>姓（かな）</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="familyNameKana" value="%{familyNameKana}" /></td></tr>
+<!-- 名かな -->
 				<tr><td>名（かな）</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="firstNameKana" value="%{firstNameKana}" /></td></tr>
+<!-- 住所 -->
 				<tr><td>住所</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="15文字以上50文字以下" name="userAddress" value="%{userAddress}" /></td></tr>
+<!-- 電話番号 -->
 				<tr><td>電話番号</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="11文字以上13文字以下" name="telNumber" value="%{telNumber}" /></td></tr>
+<!-- メールアドレス -->
 				<tr><td>メールアドレス</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="18文字以上32文字以下" name="email" value="%{email}" /></td></tr>
+
+<!-- 送信画像アイコン -->
 				<tr><td><div class="imagehover"><s:submit class="image" type="image" value="" src="./images/icon/kakuninn.png"/></div></td></tr>
-			</table>
+
 			</s:form>
 
 
 <!--  白い点線 -->
 			<tr><td><hr></td></tr>
 
-
+<!-- 戻る画像アイコン -->
 			<tr><td><div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()"><img src="./images/icon/modoru2.png"></a></div></td></tr>
 
 		</table>

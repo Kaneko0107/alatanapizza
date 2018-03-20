@@ -6,15 +6,15 @@
 
 <head>
 
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <meta http-equiv="Content-Style-Type" content="text/css"/>
-  <meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
 
-  <link rel="stylesheet" href="./css/alatanapizza.css">
+	<link rel="stylesheet" href="./css/alatanapizza.css">
 
-  <title>登録完了</title>
+	<title>ユーザー登録 完了</title>
 
-  <style>
+	<style>
 
 #main {
 	    width: 70%;
@@ -30,6 +30,14 @@ table {
 	    text-align: left;
 	    }
 
+h3 {
+	    border-left:10px solid red;
+	    }
+
+.title {
+	    font-size: 20px;
+	    }
+
 tr td {
 	    padding-right:60px;
 	    padding-left:20px;
@@ -42,6 +50,11 @@ tr td {
 	    color: #FFCC33;
 	    }
 
+.moji2 {
+	    font-size: 12px;
+	    color: #FFCC33;
+	    }
+
 hr {
 	    text-align:left;
 	    border: none;
@@ -51,46 +64,31 @@ hr {
 	    margin: 0 8 0 8;
 	    }
 
-h3 {
-	    border-left:10px solid red;
-	    }
-
-.title {
-	    text-align: center;
-	    font-size: 20px;
-	    }
-
+	</style>
 </head>
-
-  </style>
 
 
 <body>
 
-  <jsp:include page="include_header.jsp" />
+	<jsp:include page="include_header.jsp" />
 
-  <div id="main">
-      <h3>登録完了</h3>
+	<div id="main">
 
+	<table>
 
-  <table>
+	<tr><td colspan="2"><h3>ユーザー登録 完了</h3></td></tr>
+	<tr><td colspan="2"><div class="moji2">ありがとうございます</div></td></tr>
+	<tr><td colspan="2"><hr></td></tr>
 
-    <tr>
-      <td>
-      <h1 class="moji">ありがとうございます</h1>
-      </td>
-    </tr>
+	<tr>
+		<td><a href='<s:url action="LoginAction"/>'><img src="./images/icon/ログイン.png"></a></td>
+	</tr>
 
-    <tr>
-      <td>
-        <a href='<s:url action="LoginAction"/>'><img src="./images/icon/ログイン.png"></a>
-      </td>
-    </tr>
+	</table>
 
-  </table>
-</div>
+	</div>
 
-   <jsp:include page="include_footer.jsp" />
+	<jsp:include page="include_footer.jsp" />
 
 </body>
 </html>

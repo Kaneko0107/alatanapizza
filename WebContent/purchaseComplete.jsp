@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/alatanapizza.css">
-<title>決済完了画面</title>
+<title>決済完了</title>
 
 <style>
 

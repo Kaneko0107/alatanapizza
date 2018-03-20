@@ -11,7 +11,7 @@
 	<meta http-equiv="imagetoolbar" content="no"/>
 	<meta name="description" content=""/>
 	<meta name="keywords" content=""/>
-	<title>新商品追加確認画面</title>
+	<title>追加商品確認</title>
 </head>
 <style type="text/css">
 

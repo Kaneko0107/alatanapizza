@@ -8,24 +8,70 @@
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <link rel="stylesheet" href="./css/alatanapizza.css">
 <title>Insert title here</title>
+<style>
+table {
+	width: 80%;
+	margin: 0 auto;
+	text-align: left;
+}
+
+h3 {
+	border-left: 10px solid red;
+}
+
+
+.moji {
+	    text-align: center;
+	    font-size: 12px;
+	    color: #FFCC33;
+	    }
+
+
+.form {
+	background-color: rgba(200, 200, 200, 0.5);
+	color:black;
+	width: 200px;
+	height: 30px;
+	border-radius: 5px;
+}
+
+tr td {
+	padding-right: 30px;
+	padding-left: 20px;
+	padding-top: 5px;
+}
+
+hr {
+	text-align: left;
+	border: none;
+	border-top: dashed 1px #ccc;
+	height: 1px;
+	color: #ffffff;
+	margin: 0 8 0 8;
+}
+.touroku{
+margin-top:20px;}
+</style>
 </head>
 <body>
 <jsp:include page="include_header.jsp" />
-<div id="title"><p>ユーザー情報変更<p></div>
-<div>ユーザー情報を変更してください</div>
-<div>現在のパスワードは必ず入力してください</div>
-<div>以前の情報を保持したい箇所は空欄のまま先へ進んでください</div>
- <s:if test="errorMessage!=''">
-   <s:iterator value="errMsgList">
-		<h5>
-			<s:div align="center">
+<table>
+<tr><td colspan="2"><h3>パスワード変更画面</h3></td></tr>
+<tr><td colspan="2"><hr></td></tr>
+<tr><td colspan="2"><div class="moji">お客様が以前登録されたユーザーIDと秘密の質問からパスワードを変更します</div></td></tr>
+<tr><td colspan="2"><div class="moji">指定に従って以下の項目を入力し、下記の確認ボタンを押してください</div><br></td></tr>
+
+<s:if test="errorMessage!=''">
+   <tr><td colspan="2"><div class="moji"><s:iterator value="errMsgList">
+
+
 				<s:property />
-			</s:div>
-		</h5>
-		</s:iterator>
+
+
+		</s:iterator></div></td></tr>
 		</s:if>
 <s:form action="UserUpdateConfirmAction">
-<table>
+
 
 
    <tr>
@@ -36,29 +82,31 @@
    </tr>
    <tr>
    <th>現在のパスワード</th>
-   <td><s:password name="password" placeholder="1～16文字の半角英数字" required="true"/></td>
+   <td><s:password name="password" placeholder="1～16文字の半角英数字" class="form"/></td>
    </tr>
    <tr>
    <th>新規パスワード</th>
-   <td><s:password name="newPassword" placeholder="1～16文字の半角英数字"/></td>
+   <td><s:password name="newPassword" placeholder="1～16文字の半角英数字" class="form"/></td>
    </tr>
    <tr>
    <th>確認用パスワード</th>
-   <td><s:password name="conPassword" placeholder="確認のため再入力"/></td>
+   <td><s:password name="conPassword" placeholder="確認のため再入力" class="form"/></td>
    </tr>
    <tr>
    <th>メールアドレス</th>
-   <td><s:textfield name="newEmail" placeholder="14文字以上32文字以下"/></td>
+   <td><s:textfield name="newEmail" placeholder="14文字以上32文字以下" class="form"/></td>
    </tr>
-   </table>
-   <div>
+
+   <tr><td></td><td><div>
    <s:a href="javascrrpt:void(0)"
 	onclick="document.UserUpdateConfirmAction.submit();return false;"
-	 class="button">登録</s:a>
-   </div>
+	 class="button"><input class="touroku" type="image" src="./images/icon/kakunin.png" alt="touroku"></s:a>
+   </div></td></tr>
    <br>
-
    </s:form>
+   </table>
+
+
    <jsp:include page="include_footer.jsp"/>
 
 </body>

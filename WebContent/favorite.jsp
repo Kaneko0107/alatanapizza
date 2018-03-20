@@ -26,7 +26,7 @@
 				<!-- お気に入りリストが空の場合 -->
 				<div class="empty">
 
-					<h3>お気に入りリスト</h3>
+					<h3>お気に入り</h3>
 
 					<span style="color: red;"><s:property value="message" /></span>
 

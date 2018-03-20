@@ -70,8 +70,10 @@
 		#productNameKana{
 			 font-size:20px;
 		}
-		form-product{
-			font-size:27px;
+		legend{
+			color:white;
+			font-size:16px;
+			font-weight: bold;
 		}
 		.productDescription{
 			position: relative;
@@ -79,14 +81,6 @@
  			padding: 1.5em;
  			border: 1px solid white;
  			width: 80%;
-		}
-		.productDescription .productDescription1 {
-			 position: absolute;
- 			padding: 0 .5em;
- 			left: 1em;
-			 top: -1em;
- 			content: "";
- 			font-weight: bold;
 		}
 		#toppingtitle{
 			text-align:left;
@@ -131,7 +125,7 @@
 	width:21%;
 	height:350px;
 	float:left;
-	border:0.5px solid white;
+	border:0.3px solid white;
 	margin:2px 5% 2% 5%;
 	padding:12px;
 	border-radius:20px;

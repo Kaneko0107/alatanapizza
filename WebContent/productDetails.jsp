@@ -123,19 +123,18 @@
 			</span>
 		</td>
 		<td>
-			<span id="productName">
 			<!-- 商品名 -->
+			<span id="productName">
 				<s:property value="session.d_product_name" /></span><br>
-					<span id="productNameKana">
 			<!-- 商品名かな -->
-				<s:property value="session.d_product_name_kana" /></span>
-					<br>
+			<span id="productNameKana">
+				<s:property value="session.d_product_name_kana" /></span><br>
 
 			<!-- カテゴリーによって値段表示変更 -->
-				<span class="form-product">
+				<span class="formProduct">
 					<s:if test="session.d_category_id==2">
 						<p class="product_menu_size">
-							<input type="radio" name="product" checked="checked" value='<s:property value="session.d_product_msize_price" />'><img class="image" src="./images/icon/m.png" alt="Photo" >￥<s:property value="session.d_product_msize_price" />
+							<input type="radio" name="product" checked="checked" value='<s:property value="session.d_product_msize_price" />'><img class="image" src="./images/icon/m.png" alt="Photo" >￥<s:property value="session.d_product_msize_price" />&nbsp;
 							<input type="radio" name="product" value='<s:property value="session.d_product_lsize_price" />'><img class="image" src="./images/icon/l.png" alt="Photo" >￥<s:property value="session.d_product_lsize_price" />
 					</s:if>
 					<s:if test="session.d_category_id==3 || session.d_category_id==4">
@@ -143,9 +142,9 @@
 						<p id="sAndDPrice" name="sAndDPrice" value="<s:property value="session.d_product_price" />">￥<s:property value="session.d_product_price" />
 					</s:if></span>
 
-					<div class="productDescription">
-						<div class="productDescription1">商品詳細</div>
-							<s:property value="session.d_product_description" /></div>
+					<fieldset>
+						<legend>商品詳細</legend>
+							<s:property value="session.d_product_description" /></fieldset>
 		</td>
 		</tr>
 	</table><br>
@@ -172,7 +171,7 @@
 			</td>
 			</tr>
 		</table>
-	</s:if><br><br>
+	</s:if><br>
 
 
 	<p id="total1">
@@ -218,7 +217,7 @@
 								<s:property value="product_name_kana" /><br>
 
 								<s:if test="category_id==2">
-									M￥<s:property value="msize_price" />
+									M￥<s:property value="msize_price" />&nbsp;
 									L￥<s:property value="lsize_price" />
 								</s:if>
 								<s:if test="category_id==3 || category_id==4">

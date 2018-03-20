@@ -86,7 +86,8 @@ public class UserUpdateConfirmAction extends ActionSupport implements SessionAwa
 			}
 
 			if(errorMessage==null){
-
+				session.put("newPassword", newPassword);
+				session.put("newEmail", newEmail);
 				result=SUCCESS;
 			}
 

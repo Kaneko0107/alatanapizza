@@ -12,7 +12,7 @@
 <meta http-equiv="imagetoolbar" content="no"/>
 <meta name="description" content="">
 <meta name="keywords" content=""/>
-<title>alatanapizza 宛先情報確認画面</title>
+<title>宛先情報 確認</title>
 <style type="text/css">
 /*========TAG LAYOUT========*/
 

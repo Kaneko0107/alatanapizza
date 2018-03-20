@@ -12,7 +12,7 @@
 <meta http-equiv="imagetoolbar" content="no"/>
 <meta name="description" content="">
 <meta name="keywords" content=""/>
-<title>alatanapizza Login画面</title>
+<title>ログイン</title>
 <style type="text/css">
 /*========TAG LAYOUT========*/
 

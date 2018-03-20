@@ -128,7 +128,7 @@
 					</s:if>
 					<s:if test="session.d_category_id==3 || session.d_category_id==4">
 						<!-- サイド・ドリンク -->
-						￥<s:property value="session.d_product_price" />
+						<p id="sAndDPrice" name="sAndDPrice" value="<s:property value="session.d_product_price" />">￥<s:property value="session.d_product_price" />
 					</s:if></span>
 
 					<div class="productDescription">
@@ -174,6 +174,8 @@
 					<s:hidden name="productId" value="%{session.d_product_id}" ></s:hidden>
 					<s:hidden name="gocart" value="1" />
 				<s:submit value="カートに入れる" />
+				<img class="image" src=./images/icon/gocart2.png>
+				<img class="image" src=./images/icon/hart.png>
 		</s:if>
 		<s:if test="stockList.size() == 0">
 			申し訳ありません。ただいま売り切れ中で購入できません。

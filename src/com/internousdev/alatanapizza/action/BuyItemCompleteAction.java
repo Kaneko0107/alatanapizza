@@ -74,7 +74,7 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 			return "other";// ■cart.jspへ。
 		}
 		for (CartInfoDTO dto : cartList) {
-			totalPrice += dto.getPrice() * dto.getProductCount();
+			totalPrice += dto.getPrice();
 		}
 
 		// もし宛先情報が入っていれば、

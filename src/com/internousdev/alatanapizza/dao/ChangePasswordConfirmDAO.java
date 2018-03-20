@@ -8,8 +8,9 @@ import com.internousdev.alatanapizza.util.DBConnector;
 
 public class ChangePasswordConfirmDAO{
 
-	private boolean result=false;
-	public boolean CheckAnswer(String userid,int question,String answer){
+
+	public  ChangePasswordDTO CheckAnswer(String userid,int question,String answer){
+		ChangePasswordDTO result = null;
 		DBConnector db=new DBConnector();
 		Connection con=db.getConnection();
 
@@ -23,12 +24,11 @@ public class ChangePasswordConfirmDAO{
 			ps.setString(3,answer);
 			ResultSet rs=ps.executeQuery();
 			if(rs.next()){
-					result=true;
 					ChangePasswordDTO CPDTO=new ChangePasswordDTO();
 				CPDTO.setPassword(rs.getString("password"));
 				CPDTO.setUserid(rs.getString("user_id"));
 				CPDTO.setAnswer(rs.getString("secret_answer"));
-
+				result=CPDTO;
 
 				}
 

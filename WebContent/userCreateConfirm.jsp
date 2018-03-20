@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -11,50 +11,37 @@
 
   <link rel="stylesheet" href="./css/alatanapizza.css">
 
-  <title>確認画面</title>
+  <title>登録内容の確認</title>
 
   <style>
 
 
-header{
-	    position:absolute;
-	    top:0;
-	    width:100%;
-	    height:100px;
-	    background:linear-gradient(to bottom,black,rgba(0,0,0,0.1));
-	    }
-
-.tab {
-	    width: 50%;
+#main {
+	    width: 70%;
 	    background: rgba(0, 0, 0, 0.5);
 	    margin:0 auto;
-	    padding-top:20px;
+	    margin-top:80px;
 	    margin-bottom:100px;
 	    }
 
-
 table {
+		width:70%;
+		margin:0 auto;
 	    text-align: left;
-	    padding-top: 10%;
 	    }
-
-
-/* .form {
-	    background-color: rgba(200, 200, 200, 0.5);
-	    width: 200px;
-	    height: 30px;
-	    border-radius: 5px;
-	    } */
 
 .title {
 	    font-size: 20px;
 	    }
 
 tr td {
-	    padding:5px 5px 5px 20px;
+	    padding-right:60px;
+	    padding-left:20px;
+	    padding-top:5px;
 	    }
 
 footer {
+
 	    width:100%;
 	    height:30px;
 	    position: fixed;
@@ -64,12 +51,23 @@ footer {
 	    }
 
 hr {
+	    text-align:left;
 	    border: none;
 	    border-top: dashed 1px #ccc;
 	    height: 1px;
 	    color: #ffffff;
 	    margin: 0 8 0 8;
 	    }
+
+h3 {
+	    border-left:10px solid red;
+	    }
+
+.icon {
+		text-align:center;
+		display:flex;
+		flex-direction:row-reverse;
+		}
 
 .moji {
 	    text-align: center;
@@ -87,8 +85,7 @@ hr {
 	    }
 
 
-</style>
-
+ </style>
 </head>
 
 <body>
@@ -96,13 +93,11 @@ hr {
 
   <div id="main">
     <div id="top">
-      <p>ユーザー登録</p>
+      <h3>登録内容の確認</h3>
     </div>
 
 
     <div class=moji>登録する内容は以下でよろしいですか？</div>
-
-    <div class="tab">
 
       <table>
 
@@ -160,17 +155,24 @@ hr {
         <td> <s:property value="secretAnswer"/> </td>
       </tr>
 
-     </table>
-     </div>
-     </div>
 
+	  <s:form action="UserCreateAction">
 
-          <s:form action="UserCreateCompleteAction">
-            <s:submit value="登録する"/>
-          </s:form>
+	  <tr>
+	    <td>
+	    <br>
+          <div class="icon">
+            <input type="image" src="./images/icon/modoru2.png">
+          </div>
+        </td>
 
-
-      <s:form action="UserCreateAction">
+	    <td>
+	    <br>
+          <div class="icon">
+            <a href='<s:url action="UserCreateCompleteAction"/>'><img src="./images/icon/登録する .png"></a>
+          </div>
+         </td>
+      </tr>
 
       <input type="hidden" name="loginUserId" value="<s:property value="loginUserId"/>"/>
       <input type="hidden" name="loginPassword" value="<s:property value="loginPassword"/>">
@@ -182,13 +184,11 @@ hr {
       <input type="hidden" name="mail" value="<s:property value="mail"/>">
       <input type="hidden" name="secretQuestion" value="<s:property value="secretQuestion"/>">
       <input type="hidden" name="secretAnswer" value="<s:property value="secretAnswer"/>">
-      <s:submit value="戻る" class="userCreateButton"/>
-    </s:form>
 
-    </div>
-<br>
-<br><br>
+     </s:form>
 
+   </table>
+  </div>
 
    <jsp:include page="include_footer.jsp" />
 

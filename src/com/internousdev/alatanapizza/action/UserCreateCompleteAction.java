@@ -26,8 +26,6 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 
 	private UserCreateCompleteDAO userCreateCompleteDAO=new UserCreateCompleteDAO();
 
-	/*private LoginDAO dao=new LoginDAO();  保留中*/
-
 
 
 

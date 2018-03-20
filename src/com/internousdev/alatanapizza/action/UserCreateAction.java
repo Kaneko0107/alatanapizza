@@ -12,23 +12,16 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 
 	private String loginUserId;
 	private String loginPassword;
-
 	private String familyName;
 	private String firstName;
-
 	private String familyNameKana;
 	private String firstNameKana;
-
 	private String sex;
-
 	private String mail;
-
 	private String secretQuestion;
 	private String secretAnswer;
 
 	private Map<String, Object> session;
-
-
 
 
 

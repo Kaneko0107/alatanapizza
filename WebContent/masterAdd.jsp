@@ -32,6 +32,10 @@
 		<h3>追加したい商品情報を入力してください。</h3>
 	</div>
 
+	<s:iterator value="errorMessageList">
+		<span style="color:red"><s:property/></span>
+	</s:iterator>
+
 	<div class="main">
 			<table>
 				<s:form action="MasterAddConfirmAction"  method="post" enctype="multipart/form-data">

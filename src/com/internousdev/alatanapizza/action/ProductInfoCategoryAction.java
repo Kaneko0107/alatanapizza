@@ -19,10 +19,6 @@ public class ProductInfoCategoryAction extends ActionSupport implements SessionA
 	private String id;
 	private String product_id;
 	private String category_name;
-	private String stock;
-	private int insertFlg;
-	private int msize_price;
-	private int lsize_price;
 	private int price;
 	private int category_id;
 	private Map<String,Object> session;
@@ -41,7 +37,7 @@ public class ProductInfoCategoryAction extends ActionSupport implements SessionA
 			notSameCategoryList = dao.notSameCategoryList(category_id);
 			if (notSameCategoryList != null) {
 				session.put("notSameCategoryList", notSameCategoryList);
-				session.put("product_name", dto.getProduct_name());
+				session.put("a_product_name", dto.getProduct_name());
 				session.put("product_name_kana", dto.getProduct_name_kana());
 				session.put("image_file_name", dto.getImage_file_name());
 				session.put("image_file_path", dto.getImage_file_path());
@@ -108,37 +104,7 @@ public class ProductInfoCategoryAction extends ActionSupport implements SessionA
 		this.category_name = category_name;
 	}
 
-	public String getStock() {
-		return stock;
-	}
 
-	public void setStock(String stock) {
-		this.stock = stock;
-	}
-
-	public int getInsertFlg() {
-		return insertFlg;
-	}
-
-	public void setInsertFlg(int insertFlg) {
-		this.insertFlg = insertFlg;
-	}
-
-	public int getMsize_price() {
-		return msize_price;
-	}
-
-	public void setMsize_price(int msize_price) {
-		this.msize_price = msize_price;
-	}
-
-	public int getLsize_price() {
-		return lsize_price;
-	}
-
-	public void setLsize_price(int lsize_price) {
-		this.lsize_price = lsize_price;
-	}
 
 	public int getPrice() {
 		return price;

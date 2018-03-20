@@ -5,7 +5,6 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.ChangePasswordConfirmDAO;
-import com.internousdev.alatanapizza.dto.ChangePasswordDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -48,9 +47,8 @@ public class ChangePasswordConfirmAction extends ActionSupport implements Sessio
 
 public String execute(){
 	ChangePasswordConfirmDAO CPCdao=new ChangePasswordConfirmDAO();
-	ChangePasswordDTO CPDTO=new ChangePasswordDTO();
 	String result=ERROR;
-	CPCdao.CheckAnswer(userid,secret_question,secret_answer);
+
 
 	if(newpass.equals("") || userid.equals("") || secret_answer.equals("")){
 		setErrorMessage("未入力の項目があります。");
@@ -68,7 +66,7 @@ public String execute(){
 			setErrorMessage("ユーザーIDは半角英数字で入力してください。");
 			errMsgList.add(errorMessage);
 		}
-		else if(!(userid.equals(CPDTO.getUserid()))){
+		else if(!(userid.equals(CPCdao.CheckAnswer(userid,secret_question,secret_answer).getUserid()))){
 			setErrorMessage("ユーザーIDと答えが一致しません。");
 			errMsgList.add(errorMessage);
 		}
@@ -85,7 +83,7 @@ public String execute(){
 		setErrorMessage("新しいパスワードは半角英数字で入力してください。");
 		errMsgList.add(errorMessage);
 	}
-	if(newpass.equals(CPDTO.getPassword())){
+	if(newpass.equals(CPCdao.CheckAnswer(userid,secret_question,secret_answer).getPassword())){
 		setErrorMessage("以前と同じパスワードは使用できません。");
 		errMsgList.add(errorMessage);
 	}

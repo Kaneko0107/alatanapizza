@@ -10,12 +10,14 @@ import com.internousdev.alatanapizza.util.DBConnector;
 
 public class UserUpdateConfirmDAO {
 
-	private DBConnector db = new DBConnector();
-	private Connection con = db.getConnection();
-	UserUpdateDTO userUpdateDTO = new UserUpdateDTO();
+
+
 	public Map<String,Object> session;
 
 	public UserUpdateDTO getUserInfo(String password,String user_id){
+		UserUpdateDTO result=null;
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 		String sql="select * from user_info where password=? and user_id=?";
 		try{
 			PreparedStatement ps=con.prepareStatement(sql);
@@ -24,6 +26,7 @@ public class UserUpdateConfirmDAO {
 			ResultSet rs=ps.executeQuery();
 
 			if(rs.next()){
+				UserUpdateDTO userUpdateDTO = new UserUpdateDTO();
 				userUpdateDTO.setUser_id(rs.getString("user_id"));
 				userUpdateDTO.setPassword(rs.getString("password"));
 				userUpdateDTO.setEmail(rs.getString("email"));
@@ -32,7 +35,7 @@ public class UserUpdateConfirmDAO {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		return userUpdateDTO;
+		return result;
 	}
 
 

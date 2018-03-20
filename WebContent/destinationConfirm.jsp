@@ -15,46 +15,129 @@
 <title>alatanapizza 宛先情報確認画面</title>
 <style type="text/css">
 /*========TAG LAYOUT========*/
+
+table{
+	margin:0 auto;
+	text-align: left;
+	padding-left: 20%;
+	padding-right: 20%;
+}
+
+img{text-align:center;
+}
+
+hr{border: none;
+	border-top: dashed 1px #ccc;
+	height: f1px;
+	color: #ffffff;
+	margin: 0 8 0 8;}
+
+h3{
+border-left:10px solid red;
+}
+
 /*========ID LAYOUT========*/
+
+#main{
+width:50%;
+background:rgba(0,0,0,0.5);
+margin-top:70px;
+margin-left:25%;
+margin-bottom:30px;
+}
+
+/*========CLASS LAYOUT========*/
+
+.id {text-align:right;
+	}
+
+.form {
+	background-color: rgba(200, 200, 200, 0.5);
+	width: 270px;
+	height: 30px;
+	border-radius: 5px;
+	color:black;
+}
+
+tr td .imagehover{text-align:center;
+margin-top:40px;
+}
+
+tr td .memo{text-align:center;
+}
+
+.imagehover {
+	clear:both;
+	width: 250px;
+	height: 140px;
+	overflow: hidden;
+}
+
 </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./js/jquery-1.8.2.min.js"></script>
+<script>
+	$(function(){
+		$(".imagehover .image").hover(
+		function(){
+			$(this).animate({
+				width:"250px"
+			});
+		},
+		function(){
+			$(this).animate({
+				width:"180px"
+			});
+		});
+	});
+</script>
+
 </head>
 <body>
 <jsp:include page="include_header.jsp" />
-	<div id="main">
-		<div id="top">
-		</div>
-		<div>
-			<h3></h3>
-			<h3>以下の内容で登録します</h3>
-			<table>
-			<s:form action="DestCompleteAction">
-				<div>姓</div>
-				<s:property value="familyName" escape="false"/>
-				<input type=hidden name="familyName" value='<s:property value="familyName"/>' />
-				<div>名</div>
-				<s:property value="firstName" escape="false"/>
-				<input type=hidden name="firstName" value='<s:property value="firstName"/>' />
-				<div>姓ふりがな</div>
-				<s:property value="familyNameKana" escape="false"/>
-				<input type=hidden name="familyNameKana" value='<s:property value="familyNameKana"/>' />
-				<div>名ふりがな</div>
-				<s:property value="firstNameKana" escape="false"/>
-				<input type=hidden name="firstNameKana" value='<s:property value="firstNameKana"/>' />
-				<div>住所</div>
-				<s:property value="userAddress" escape="false"/>
-				<input type=hidden name="userAddress" value='<s:property value="userAddress"/>' />
-				<div>電話番号</div>
-				<s:property value="telNumber" escape="false"/>
-				<input type=hidden name="telNumber" value='<s:property value="telNumber"/>' />
-				<div>メールアドレス</div>
-				<s:property value="email" escape="false"/>
-				<input type=hidden name="email" value='<s:property value="email"/>' />
+	<div id="top">
+	</div>
 
-				<br>
-				<s:submit value="登録情報確定画面へ"/>
+	<div id="main">
+		<table>
+
+			<tr><td><h3>以下の内容で登録します</h3></td></tr>
+
+<!--  白い点線 -->
+			<tr><td><hr></td></tr>
+
+			<s:form action="DestCompleteAction">
+
+				<tr><td>姓</td></tr>
+				<tr><td><s:property value="familyName" escape="false"/>
+				<input type=hidden name="familyName" value='<s:property value="familyName"/>' /></td></tr>
+				<tr><td>名</td></tr>
+				<tr><td><s:property value="firstName" escape="false"/>
+				<input type=hidden name="firstName" value='<s:property value="firstName"/>' /></td></tr>
+				<tr><td>姓ふりがな</td></tr>
+				<tr><td><s:property value="familyNameKana" escape="false"/>
+				<input type=hidden name="familyNameKana" value='<s:property value="familyNameKana"/>' /></td></tr>
+				<tr><td>名ふりがな</td></tr>
+				<tr><td><s:property value="firstNameKana" escape="false"/>
+				<input type=hidden name="firstNameKana" value='<s:property value="firstNameKana"/>' /></td></tr>
+				<tr><td>住所</td></tr>
+				<tr><td><s:property value="userAddress" escape="false"/>
+				<input type=hidden name="userAddress" value='<s:property value="userAddress"/>' /></td></tr>
+				<tr><td>電話番号</td></tr>
+				<tr><td><s:property value="telNumber" escape="false"/>
+				<input type=hidden name="telNumber" value='<s:property value="telNumber"/>' /></td></tr>
+				<tr><td>メールアドレス</td></tr>
+				<tr><td><s:property value="email" escape="false"/>
+				<input type=hidden name="email" value='<s:property value="email"/>' /></td></tr>
+
+
+				<tr><td><div class="imagehover"><s:submit class="image" type="image" value="" src="./images/icon/登録する.png"/></div></td></tr>
 			</s:form>
-			</table>
-		</div>
+
+<!--  白い点線 -->
+			<tr><td><hr></td></tr>
+
 
 <%--  <s:form action="DestAction">
 
@@ -68,11 +151,15 @@
 
       <s:submit value="戻る" class="DestButton"/>
     </s:form> --%>
-    	<a href="javascript:void(0)" onclick="javascript:history.back()">戻る</a>
-<br>
-<br>
+    	<tr><td><div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()"><img src="./images/icon/modoru2.png"></a></div></td></tr>
 
-	</div>
+		</table>
+
+		</div>
+
+<div class="footer">
 <jsp:include page="include_footer.jsp" />
+</div>
+
 </body>
 </html>

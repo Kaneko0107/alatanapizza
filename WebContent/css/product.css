@@ -16,6 +16,44 @@
 /*-------------------------------------------------------------------------
 	商品詳細.jsp用
 -------------------------------------------------------------------------*/
+		.f{
+			padding: 0;
+			margin: 0;
+		}
+		.favlist{
+			position: absolute;
+			top:430px;
+			right:420px;
+		}
+		.favcomment{
+			display: none;
+			width: 180px;
+			position: absolute;
+			top: 360px;
+			right:255px;
+			padding: 10px;
+			border-radius: 10px;
+			background: rgba(255,0,0,0.7);
+			color: #fff;
+			font-weight: bold;
+		}
+		.favcomment:after {
+			position: absolute;
+			width: 0;
+			height: 0;
+			left: 0;
+			bottom: -19px;
+			margin-left: 10px;
+			border: solid transparent;
+			border-color: rgba(51, 204, 153, 0);
+			border-top-color: rgba(255,0,0,0.7);
+			border-width: 10px;
+			pointer-events: none;
+			content: " ";
+		}
+		.favlist:hover+.favcomment{
+			display: block;
+		}
 		table {
 			margin:0 27% 0 27%;
 		}
@@ -88,10 +126,18 @@
  			 margin:0 20% 0 20%;
 		}
 	#sP{
-		margin:0 25% 25％ 25%;
+		margin:0 12.5% 20％ 12.5%;
 	}
 	#suggest{
-		float:left;
+	width:19%;
+	height:350px;
+	float:left;
+	border:0.5px solid white;
+	margin:2px 5% 2% 5%;
+	padding:12px;
+	border-radius:10px;
+	background-color:rgba(0,0,0,0.5)
+}
 	}
 	#suggest:hover {
 		background-color:black;

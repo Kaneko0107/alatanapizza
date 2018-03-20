@@ -84,15 +84,16 @@
 	<jsp:include page="include_header.jsp" />
 
 		<%--お気に入りボタン,非ログイン時は非表示 --%>
+		<div class="f">
 		<s:if test="#session.containsKey('userId')">
 			<s:form action="FavoriteAction">
-				<span class="favlist">
+				<span class="favlist" >
 					<input type=hidden name=favoriteInsertFlg value="1" />
 					<input type=hidden name=product_id value='<s:property value="product_id"/>' />
-					<input type="image" src=./images/icon/hart.png alt="お気に入り登録">
-				</span>
+					<input type="image"  src=./images/icon/hart.png alt="お気に入り登録">
+				</span><span class="favcomment">お気に入りに登録</span>
 			</s:form>
-		</s:if>
+		</s:if></div>
 
 	<s:form action="CartProductAction" name="select">
 

@@ -156,11 +156,15 @@ background-color: rgba(150, 150, 150, 0.5);
 						<div class="btnn3">
 							<a href='<s:url action="UserUpdateAction"/>'>ユーザー情報を変更する</a>
 						</div>
+			<!-- 退会 -->
+						<div class="btnn4">
+							<a href='<s:url action="ClearUserAction.java"/>'>退会処理へ</a>
+						</div>
 
 
 			<!-- ホームに遷移 -->
 
-						<div class="btnn4">
+						<div class="btnn5">
 							<a href='<s:url action="HomeAction"/>'>ホームへ</a>
 
 					</div>

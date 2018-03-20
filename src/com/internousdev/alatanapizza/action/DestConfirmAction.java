@@ -8,34 +8,6 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.alatanapizza.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
-/**
- * 打ち込んだ情報をMapに格納したい
- * @author internousdev
- *
- *			<s:form action="CompleteDestAction">
-				<span>姓</span>
-				<s:textfield name="familyName"/>
-				<span>名</span>
-				<s:textfield name="firstName"/>
-				<span>姓ふりがな</span>
-				<s:textfield name="familyNameKana"/>
-				<span>名ふりがな</span>
-				<s:textfield name="filstNameKana"/>
-				<span>メールアドレス</span>
-				<s:textfield name="Email"/>
-				<span>電話番号</span>
-				<s:textfield name="TelNumber"/>
-				<span>郵便番号</span>
-				<s:textfield name="PostalCode"/>
-				<span>住所</span>
-				<s:textfield name="UserAddress"/>
-				<s:submit value="登録情報確認画面へ"/>
- *
- *
- * 適切でない文字が入力された際の対応をどうするか？
- *
- */
-
 public class DestConfirmAction extends ActionSupport implements SessionAware {
 
 	private String familyName;
@@ -46,7 +18,6 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	private String telNumber;
 	private String email;
 	private ArrayList<String> errorMessageList=new ArrayList<>();
-//	private ArrayList<DestinationDTO> destinationInfoList=new ArrayList<>();
 
 	public Map<String,Object> session;
 
@@ -55,7 +26,6 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 
 		//ログイン判定
 		if(!(session.containsKey("userId"))){
-			System.out.println("ログアウトしています");
 			result="login";
 			return result;
 		}
@@ -95,9 +65,7 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 			result =ERROR;
 		}
 
-
-
-
+		//入力情報保持
 		if(!(familyName.equals(""))
 				&&!(firstName.equals(""))
 				&&!(familyNameKana.equals(""))
@@ -114,16 +82,6 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 			session.put("userAddress", userAddress);
 		}
 
-//		}else{
-//
-//			 // 空欄がある場合のエラーメッセージ
-//
-//			setErrorMessage("未入力の項目があります。");
-//			result=ERROR;
-//		}
-//		return result;
-//
-
 		return result;
 	}
 
@@ -133,59 +91,59 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	public void setFamilyName(String familyName){
 		this.familyName=familyName;
 	}
+
 	public String getFirstName(){
 		return firstName;
 	}
 	public void setFirstName(String firstName){
 		this.firstName=firstName;
 	}
+
 	public String getFamilyNameKana(){
 		return familyNameKana;
 	}
 	public void setFamilyNameKana(String familyNameKana){
 		this.familyNameKana=familyNameKana;
 	}
+
 	public String getFirstNameKana(){
 		return firstNameKana;
 	}
 	public void setFirstNameKana(String firstNameKana){
 		this.firstNameKana=firstNameKana;
 	}
+
 	public String getUserAddress(){
 		return userAddress;
 	}
 	public void setUserAddress(String userAddress){
 		this.userAddress=userAddress;
 	}
+
 	public String getTelNumber(){
 		return telNumber;
 	}
 	public void setTelNumber(String telNumber){
 		this.telNumber=telNumber;
 	}
+
 	public String getEmail(){
 		return email;
 	}
 	public void setEmail(String email){
 		this.email=email;
 	}
+
 	//@Override
 	public void setSession(Map<String,Object> session){
 		this.session=session;
 	}
+
 	public ArrayList<String> getErrorMessageList(){
 		return errorMessageList;
 	}
 	public void setErrorMessageList(ArrayList<String> errorMessageList){
 		this.errorMessageList=errorMessageList;
 	}
-
-//	public ArrayList<DestinationDTO> getDestinationInfoList() {
-//		return destinationInfoList;
-//	}
-//	public void setDestinationInfoList(ArrayList<DestinationDTO> destinationInfoList) {
-//		this.destinationInfoList = destinationInfoList;
-//	}
-
 
 }

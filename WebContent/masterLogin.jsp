@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="refresh" content="0;URL='MasterProductChangeAction'" />
-<title>管理者画面に飛ぶ</title>
+<title>管理者ページに遷移する</title>
 </head>
 <body>
 <!-- マスターページを初期遷移するためのjsp -->

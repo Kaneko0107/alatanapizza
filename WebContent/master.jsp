@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>管理者画面です</title>
+<title>管理者ページ</title>
 </head>
 <body>
 
-<h1>管理者画面です</h1>
+<h1>管理者ページ</h1>
 
 	<span style="color: red;"><s:property value="errorMessage"/></span>
 

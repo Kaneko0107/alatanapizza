@@ -53,7 +53,7 @@
 			</div>
 
 			<s:if test="toppings.isEmpty()">
-			<span style="color:red">トッピングなし</span>
+			<span> </span>
 			</s:if>
 			<s:else>
 			トッピング:<s:iterator value="toppings"><s:property/> </s:iterator>

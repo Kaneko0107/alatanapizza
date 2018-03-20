@@ -206,7 +206,7 @@
 			<h3 id="suggestProduct">
 				その他おすすめ商品</h3>
 					<s:iterator value="suggestList">
-						<div id="suggest" style="width:250px; display:inline-block; float:left;">
+						<div id="suggest">
 							<div>
 								<a href="<s:url action="ProductDetailsAction">
 									 <s:param name="product_id" value="%{product_id}" /></s:url>">
@@ -225,6 +225,10 @@
 									￥<s:property value="price" />
 								</s:if>
 								<s:hidden name="product_id" value="%{product_id}" />
+
+								<br><br><a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+									<img class="image" src=./images/icon/gocart.png><br>
+								</a>
 							</div>
 						</div>
 					</s:iterator>

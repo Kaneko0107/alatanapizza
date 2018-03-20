@@ -1,7 +1,7 @@
 /build/
-.classpath
+
 /bin/
 .DS_Store
 .class
 .jar
-/.settings/
+

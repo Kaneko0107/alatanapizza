@@ -9,14 +9,6 @@ import java.util.ArrayList;
 import com.internousdev.alatanapizza.dto.DestinationDTO;
 import com.internousdev.alatanapizza.util.DBConnector;
 
-
-/**
- * ログインフラグ？
- * ログインした状態であるかの判定が必要かどうか不安
- * とりあえずデータ格納できるようには書いた
- * @author internousdev
- *
- */
 public class DestinationDAO {
 	/**
 	 * DBにコネクトするため
@@ -32,13 +24,7 @@ public class DestinationDAO {
 	boolean result =false;
 	/**
 	 * sql文生成
-	 *
-	 *
 	 */
-
-
-	//■高木君へ　性別情報を全てコメントにしているので、ＳＱＬ文の「？」の数もひとつ減らしています。
-	//実行する際に？を足してください！！　3/15　上原
 
 	String sql="INSERT INTO destination_info("
 			+ "user_id"
@@ -63,12 +49,12 @@ public class DestinationDAO {
 		ps.setString(6, destinationDTO.getUserAddress());
 		ps.setString(7, destinationDTO.getTelNumber());
 		ps.setString(8, destinationDTO.getEmail());
-//		System.out.println(ps);
+		//System.out.println(ps);
 		updateCount = ps.executeUpdate();
 
 	}catch(SQLException e){
-		//エラーになったらエラー文
-		System.out.println("例外が発生しました");
+		//例外時
+		//System.out.println("例外が発生しました");
 		e.printStackTrace();
 	}finally{
 		//接続を切る
@@ -78,7 +64,7 @@ public class DestinationDAO {
 	if(updateCount==1){
 		result =true;
 	}
-	System.out.println(result);
+	//System.out.println(result);
 	return result;
 }
 
@@ -96,7 +82,7 @@ public class DestinationDAO {
 			PreparedStatement ps =con.prepareStatement(sql);
 			ps.setString(1, userId);
 			ResultSet rs =ps.executeQuery();
-			System.out.println("SELECTsql文実行");
+			//System.out.println("SELECTsql文実行");
 
 			while(rs.next()){
 				DestinationDTO destinationDTO =new DestinationDTO();
@@ -111,7 +97,7 @@ public class DestinationDAO {
 				destinationList.add(destinationDTO);
 			}
 		}catch(SQLException e){
-			System.out.println("例外が発生しました");
+			//System.out.println("例外が発生しました");
 			e.printStackTrace();
 		}finally{
 			con.close();
@@ -120,59 +106,3 @@ public class DestinationDAO {
 	}
 }
 
-	/*	/**
-	 * 値定義
-	 * @param userId
-	 * @param familyName
-	 * @param firstName
-	 * @param familyNameKana
-	 * @param firstNameKana
-	 * @param email
-	 * @param telNumber
-	 * @param userAddress
-	 * @throws SQLException
-	 */
-
-	/*
-	public void createDestination(
-			String userId,
-			String familyName,
-			String firstName,
-			String familyNameKana,
-			String firstNameKana,
-			String email,
-			String telNumber,
-			String userAddress)throws SQLException{
-		/**
-		 * IDはSQLファイルのほうでAUTO_INCREMENTがされているので
-		 * その他の項目をpreparedStatementでセットさせてる
-		 *
-
-		try{
-			PreparedStatement preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setString(1, userId);
-			preparedStatement.setString(2, familyName);
-			preparedStatement.setString(3, firstName);
-			preparedStatement.setString(4, familyNameKana);
-			preparedStatement.setString(5, firstNameKana);
-			preparedStatement.setString(6, email);
-			preparedStatement.setString(7, telNumber);
-			preparedStatement.setString(8, userAddress);
-			preparedStatement.setString(9, dateUtil.getDate());
-
-			preparedStatement.execute();
-
-		}catch(Exception e){
-			/**
-			 * エラーなったらエラー文出す
-			 *
-			e.printStackTrace();
-		}finally{
-			/**
-			 * 切断
-			 *
-			con.close();
-		}
-	}
-
-*/

@@ -23,48 +23,56 @@ public class DestinationDTO {
 	public void setId(int id){
 		this.id =id;
 	}
+
 	public String getUserId(){
 		return userId;
 	}
 	public void setUserId(String userId){
 		this.userId =userId;
 	}
+
 	public String getFamilyName(){
 		return familyName;
 	}
 	public void setFamilyName(String familyName){
 		this.familyName =familyName;
 	}
+
 	public String getFirstName(){
 		return firstName;
 	}
 	public void setFirstName(String firstName){
 		this.firstName=firstName;
 	}
+
 	public String getFamilyNameKana(){
 		return familyNameKana;
 	}
 	public void setFamilyNameKana(String familyNameKana){
 		this.familyNameKana =familyNameKana;
 	}
+
 	public String getFirstNameKana(){
 		return firstNameKana;
 	}
 	public void setFirstNameKana(String firstNameKana){
 		this.firstNameKana =firstNameKana;
 	}
+
 	public String getUserAddress(){
 		return userAddress;
 	}
 	public void setUserAddress(String userAddress){
 		this.userAddress =userAddress;
 	}
+
 	public String getTelNumber(){
 		return telNumber;
 	}
 	public void setTelNumber(String telNumber){
 		this.telNumber =telNumber;
 	}
+
 	public String getEmail(){
 		return email;
 	}
@@ -72,21 +80,11 @@ public class DestinationDTO {
 		this.email =email;
 	}
 
-
 	public Date getUpdateDate(){
 		return updateDate;
 	}
 	public void setUpdateDate(Date updateDate){
 		this.updateDate =updateDate;
-	}
-
-
-	//姓名とそのふりがなをセット
-	public void setFullName(String familyName,String firstName,String familyNameKana,String firstNameKana){
-		this.familyName =familyName;
-		this.firstName =firstName;
-		this.familyNameKana =familyNameKana;
-		this.firstNameKana =firstNameKana;
 	}
 
 	public Date getRegistDate(){

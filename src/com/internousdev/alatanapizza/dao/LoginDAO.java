@@ -8,30 +8,15 @@ import java.sql.SQLException;
 import com.internousdev.alatanapizza.dto.LoginDTO;
 import com.internousdev.alatanapizza.util.DBConnector;
 
-
-/*
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
-import com.internousdev.alatanapizza.dto.LoginDTO;
-import com.internousdev.alatanapizza.util.DBConnector;
-	*/
-
-
-
 public class LoginDAO  {
-
 
 	private LoginDTO loginDTO=new LoginDTO();
 	private DBConnector db=new DBConnector();
 	private Connection con=db.getConnection();
-	//private int exUp;
-
 	public LoginDTO select(String userId,String password){
 
-		System.out.println(userId);
-		System.out.println(password);
+		//System.out.println(userId);
+		//System.out.println(password);
 
 		String sql="select * from user_info where user_id = ? and password = ?";
 
@@ -44,8 +29,8 @@ public class LoginDAO  {
 			ResultSet rs=ps.executeQuery();
 
 			if(rs.next()){
-				System.out.println(rs.getString("user_id"));
-				System.out.println(rs.getString("password"));
+				//System.out.println(rs.getString("user_id"));
+				//System.out.println(rs.getString("password"));
 
 				loginDTO.setUserId(rs.getString("user_id"));
 				loginDTO.setPassword(rs.getString("password"));
@@ -55,15 +40,13 @@ public class LoginDAO  {
 				loginDTO.setFirstNameKana(rs.getString("first_name_kana"));
 				loginDTO.setEmail(rs.getString("email"));
 				loginDTO.setMaster(rs.getBoolean("master"));
-				//sql文のmasterの型名をtinyint→tinyint(1)orbooleanに変更する必要あり？
 				}else{
 				loginDTO.setUserId("noID");
 				loginDTO.setPassword("noPASS");
 			}
 		}catch(SQLException e){
-			System.out.println("例外が発生しました");
+
 			e.printStackTrace();
-			//throw new RuntimeException(e);
 		}
 		return loginDTO;
 
@@ -82,15 +65,15 @@ public class LoginDAO  {
 			PreparedStatement ps=con.prepareStatement(sql);
 			ps.setString(1, loginDTO.getUserId());
 			updateCount=ps.executeUpdate();
-			//カウントが1以上ならトゥルー
+			//カウントが1以上ならtrue
 			if(updateCount>0){
-				System.out.println("ログイン済み");
+				//System.out.println("ログイン済み");
 				result =true;
 			}
 		}catch(SQLException e){ //例外が発生した場合の処理(例外が発生しなければ行われない処理)
-			System.out.println("例外が発生しました");
+
 			e.printStackTrace();
-			//throw new RuntimeException(e);
+
 		}finally{ //例外の有無に関わらず、最後に必ず実行される処理
 			con.close();
 		}
@@ -112,84 +95,12 @@ public class LoginDAO  {
 				result = true;
 			}
 		}catch(SQLException e){
-			System.out.println("例外が発生しました");
 			e.printStackTrace();
-			//throw new RuntimeException(e);
+
 		}finally{
 			con.close();
 		}
 		return result;
 	}
 }
-	/**
-	 * カート情報引継ぎ
-	 * tempUserIdをloginIdで上書き
-	 * →いまここ　tempUserIdのカート内容をloginIdに引継ぎ
-	 * これだと仮にloginIdに商品があった場合にはその商品は追加されない
-	 *
-	 * なので、tempUserIdのカート内容をloginIdのカート内に追加してやる形をとる
-	 * その後でtempUserIdのカート内容を削除する
-	 */
-/**public int cartInfo(String tempUserId,String userId){
-		String sql="INSERT INTO cart_info(product_id,product_count,price)"
-				+ "SELECT cart_info=?,product_count=?,price=?)"
-				+ "FROM temp_cart_info";
-	//	String sql="update cart_info set user_id=? where user_id=?";
-
-		try{
-			PreparedStatement ps=con.prepareStatement(sql);
-
-			ps.setString(1, userId);
-			ps.setString(2, tempUserId);
-
-			exUp=ps.executeUpdate();
-
-		}catch (SQLException e){
-			e.printStackTrace();
-		}
-
-		return exUp;
-	}
-
-	public int getExUp(){
-		return exUp;
-	}
-
-	public void setExUp(int exUp){
-		this.exUp=exUp;
-	}
-	/*試しのコード
-	private DBConnector dbConnector=new DBConnector();
-	private Connection connection=dbConnector.getConnection();
-	private LoginDTO loginDTO=new LoginDTO();
-
-	public LoginDTO getLoginUserInfo(String loginUserId,String loginPassword){
-		String sql="SELECT * FROM login_user_transaction where login_id = ? AND login_pass = ?";
-		try{
-			PreparedStatement preparedStatement=connection.prepareStatement(sql);
-
-			preparedStatement.setString(1, loginUserId);
-			preparedStatement.setString(2, loginPassword);
-
-			ResultSet resultSet=preparedStatement.executeQuery();
-
-			if(resultSet.next()){l
-				loginDTO.setLoginId(resultSet.getString("login_id"));
-				loginDTO.setLoginPassword(resultSet.getString("login_pass"));
-				loginDTO.setUserName(resultSet.getString("user_name"));
-
-				if(!(resultSet.getString("login_id").equals(null))){
-					loginDTO.setLoginFlg(true);
-				}
-			}
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		return loginDTO;
-	}
-	public LoginDTO getLoginDTO(){
-		return loginDTO;
-	}
-	*/
-
 

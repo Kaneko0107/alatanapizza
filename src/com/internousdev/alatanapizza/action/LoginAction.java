@@ -27,31 +27,17 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 
 //	private static final String KESSAI="kessai";
 
-	//ユーザーID
-	private String userId;
-
-	//パスワード
-	private String password;
-
-	//ID保持
-	//private String saveLogin;
-	private boolean saveLogin;
-
-	//セッション
-	private Map<String,Object>session;
-
-	//jsp側で表示するエラーメッセージを格納するリスト
-	private ArrayList<String> errorMessageList=new ArrayList<>();
-
+	private String userId;//ユーザーID
+	private String password;//パスワード
+	private boolean saveLogin;//ID保持
+	private Map<String,Object>session;//セッション
+	private ArrayList<String> errorMessageList=new ArrayList<>();//jsp側で表示するエラーメッセージを格納するリスト
 	//決済ページへ
-	private int kessai;
+//	private int kessai;
+	private int totalPrice;//合計金額
 
-	//合計金額
-	private int totalPrice;
-
-	//宛先情報一覧
-	private ArrayList<DestinationDTO> destinationInfoListDTO= new ArrayList<DestinationDTO>();
-	private ArrayList<CartInfoDTO> cartList=new ArrayList<CartInfoDTO>();
+	private ArrayList<DestinationDTO> destinationInfoListDTO= new ArrayList<DestinationDTO>();//宛先情報一覧
+	private ArrayList<CartInfoDTO> cartList=new ArrayList<CartInfoDTO>();//ログインカートリスト
 
 	private String familyName;
 	private String firstName;
@@ -71,8 +57,6 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		String result=ERROR;
 		LoginDTO loginDTO=new LoginDTO();
 		LoginDAO loginDAO=new LoginDAO();
-
-		System.out.println(userId);
 
 		//ユーザーID入力チェック
 		if(userId==null){
@@ -95,16 +79,15 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 			errorMessageList.add("パスワードは半角英数字で入力してください");
 		}
 
-//		ID保持
-//		jsp側でvalue指定で呼び出す
-//
+		//ID保持
+		//jsp側でvalue指定で呼び出す
 		if(saveLogin){ //boolean型を使ったif文
 			//trueの時の処理
-			System.out.println("ID保持=="+userId);
+			//System.out.println("ID保持=="+userId);
 			session.put("saveId", userId);
 		}else{
 			//falseの時の処理
-			System.out.println("ID保持は希望しない");
+			//System.out.println("ID保持は希望しない");
 			session.remove("saveId");
 		}
 
@@ -121,8 +104,8 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 				}else if(loginDTO.isMaster()){ //管理者ログイン判定
 
 					session.put("masterFlg", true);//管理者フラグをたてる
-					System.out.println("管理者フラグ=true");
-					System.out.println("管理者ログイン");
+					//System.out.println("管理者フラグ=true");
+					//System.out.println("管理者ログイン");
 					result = "master";
 
 				}else{
@@ -130,19 +113,18 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 					//ログイン判定
 					if(userId.equals(loginDTO.getUserId()) && password.equals(loginDTO.getPassword())){ //二つとも一致した場合
 						loginDAO.login(loginDTO);
-						System.out.println("ログイン成功");
+						//System.out.println("ログイン成功");
 						result=SUCCESS;
 
 						//Mapセッション情報の更新をする
 						session.put("userId", loginDTO.getUserId()); //
 						session.put("loginFlg", true); //ログインフラグ立て
-						System.out.println("ログインフラグ=true");
+						//System.out.println("ログインフラグ=true");
 						session.put("masterFlg", false);//管理者フラグ立て
-						System.out.println("管理者フラグ=false");
+						//System.out.println("管理者フラグ=false");
 
 						CartInfoDAO cartInfoDAO=new CartInfoDAO(); //newカートリスト
 						DestinationDAO destinationDAO=new DestinationDAO(); //new宛先
-						ArrayList<CartInfoDTO> cartList=new ArrayList<CartInfoDTO>(); //会員用カートリスト
 						ArrayList<CartInfoDTO> tempCartList=new ArrayList<CartInfoDTO>(); //ゲスト用カートリスト
 						ArrayList<Integer> productIdList=new ArrayList<Integer>(); //整数型　製品リスト
 						ArrayList<Integer> tempProductIdList=new ArrayList<Integer>(); //整数型　ゲスト用製品リスト
@@ -180,7 +162,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 									cartInfoDAO.changeUserId(session.get("tempUserId").toString(),
 											session.get("userId").toString());
 								}
-								System.out.println("TEST1"+exist);
+								//System.out.println("TEST1"+exist);
 							}
 
 						}else{ //ログインカートリスト < ゲスト用カートリスト　以外のケース
@@ -197,7 +179,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 									cartInfoDAO.changeUserId(session.get("tempUserId").toString(),
 											session.get("userId").toString());
 								}
-								System.out.println("TEST2"+ exist);
+								//System.out.println("TEST2"+ exist);
 							}
 						}
 
@@ -240,19 +222,19 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 //						}
 
 					}else{
-						errorMessageList.add("入力されたパスワードが異なります。");
+						//errorMessageList.add("入力されたパスワードが異なります。");
 						result=ERROR;
 					}
 
 				}
 
 			}else{
-				System.out.println("Passwordが入力されていません");
+				//System.out.println("Passwordが入力されていません");
 				result =ERROR;
 			}
 
 		}else{
-			System.out.println("IDが入力されていません");
+			//System.out.println("IDが入力されていません");
 			result =ERROR;
 		}
 
@@ -260,7 +242,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 
 	}
 
-	//get set
+
 	public String getUserId(){
 		return userId;
 	}
@@ -296,12 +278,12 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		this.errorMessageList=errorMessageList;
 	}
 
-	public int getKessai(){
-		return kessai;
-	}
-	public void setKessai(int kessai){
-		this.kessai=kessai;
-	}
+//	public int getKessai(){
+//		return kessai;
+//	}
+//	public void setKessai(int kessai){
+//		this.kessai=kessai;
+//	}
 
 	public String getFamilyName(){
 		return familyName;
@@ -366,7 +348,6 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		this.cartList=cartList;
 	}
 
-
 	//合計金額を計算するメソッド
 	public int calcTotalPrice(ArrayList<CartInfoDTO> cartList){
 		int totalPrice = 0; //初期合計金額0
@@ -385,247 +366,4 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		this.totalPrice=totalPrice;
 	}
 }
-
-
-/*
-	//ログインID
-	private String loginId;
-	//ログインPASSWORD
-	private String loginPassword;
-	//処理結果を格納
-	private String result;
-	//ログイン情報を格納
-	public Map<String,Object> session;
-	//ログイン情報を取得するDAO
-	private LoginDAO loginDAO=new LoginDAO();
-	//取得したログイン情報を格納するDTO
-	private LoginDTO loginDTO=new LoginDTO();
-	//以下エラー時用
-	public String idErrorMsg;
-	public String passwordErrorMsg;
-	//i
-	public int i;
-
-	//public ArrayList<UserCreateCompleteDTO>
-	//private ArrayList<String> errorMessageList=new ArrayList<>();
-
-
-//手直し中
-	public String execute() throws SQLException{
-		result =ERROR;
-
-		//ここで一旦情報を解除？
-		session.put("unknown", "");
-		session.put("idError", "");
-		session.put("passwordError", "");
-
-		//IDについて
-//		Pattern p1 =Pattern.compile("^[0-9a-zA-Z]*$");
-//		Matcher m1= p1.matcher(loginId);
-
-		//エラー対応
-		//ここからの注釈部分はとりあえず写経しただけ　後で改変します
-//ここから↓
-		//ID
-		if(m1.find()==false){
-			String idErrorMsg="IDは半角英数字で入力してください";
-			this.idErrorMsg=idErrorMsg;
-		}
-
-		int length1=loginId.getBytes().length;
-		if(length1<1/*最小文字数よりも少なかった場合*){
-			String idErrorMsg="IDは半角1文字以上8文字以内で入力してください";
-			this.idErrorMsg=idErrorMsg;
-		}else if(length1>8/*最大文字数よりも多かった場合*){
-			String idErrorMsg="IDは半角1文字以上8文字以内で入力してください";
-			this.idErrorMsg=idErrorMsg;
-		}else if(length1==0/*文字数が0だった場合*){
-			String idErrorMsg="IDを入力してください";
-			this.idErrorMsg=idErrorMsg;
-
-
-		}
-
-		//Pass
-		Pattern p2=Pattern.compile("^[0-9a-zA-Z]*$");
-		Matcher m2=p2.matcher(loginPassword);
-
-		if(m2.find()==false/*最小文字数よりも少なかった場合*){
-			String passwordErrorMsg="パスワードは半角英数字で入力してください";
-			this.passwordErrorMsg=passwordErrorMsg;
-		}
-
-		int length2=loginPassword.getBytes().length;
-		if(length2 < 1/*最小文字数よりも少なかった場合*){
-			String passwordErrorMsg="パスワードは半角1文字以上16文字以内で入力してください";
-			this.passwordErrorMsg=passwordErrorMsg;
-		}else if(length2 > 16/*最大文字数よりも多かった場合*){
-			String passwordErrorMsg="パスワードは半角1文字以上16文字以内で入力してください";
-			this.passwordErrorMsg=passwordErrorMsg;
-		}else if(length2 == 0/*文字数が0だった場合*){
-			String passwordErrorMsg="パスワードを入力してください";
-			this.passwordErrorMsg=passwordErrorMsg;
-		}
-
-
-		loginDTO=loginDAO.loginUserInfo(loginId,loginPassword);
-
-		System.out.println(loginDTO.getLoginId());
-		System.out.println(loginDTO.getLoginPassword());
-
-		if(session.containsKey("status")){
-		}else{
-			session.put("status", "");
-		}
-
-		if(!(session.containsKey("temp_user_id"))){
-			Random rnd=new Random();
-			session.put("temp_user_id", rnd);
-		}
-
-		System.out.println(loginDTO.getLoginId());
-		System.out.println(loginDTO.getLoginPassword());
-//ここまで↑確認しておこう！
-		/**
-		 * 管理者画面へのログイン機能
-		 *
-			if(idErrorMsg==null && passwordErrorMsg==null){
-				if(loginDTO.getLoginId().equals(""/*ここに管理者用のIDを入れて*)){
-					if(loginDTO.getLoginPassword().equals(""/*ここに管理者用のPASSを入れて*)){
-						session.put("master_flg", "1");
-						session.put("idError", "");
-						session.put("passwordError", "");
-						result ="master";
-						return result;
-					}
-					/**
-					 * 通常ログイン機能
-					 * どこからログインしてるかの判定、どこへ戻るのかのコード
-					 *
-				}else if(loginDTO.getLoginId().equals(loginId)){
-					if(loginDTO.getLoginPassword().equals(loginPassword)){
-						session.put("trueId", loginId);
-						session.put("loginId", loginDTO.getLoginId());//使ってない？
-						session.put("loginPass", loginDTO.getLoginPassword());
-						session.put("firstName", loginDTO.getFirstName());
-						session.put("familyName",loginDTO.getFamilyName());
-						session.put("firstNameKana",loginDTO.getFirstNameKana());
-						session.put("familyName",loginDTO.getFamilyNameKana());
-						session.put("sex",loginDTO.getSex());
-						session.put("email", loginDTO.getEmail());
-
-						if(session.get("status")==("settlement"/*決済*)){
-							session.put("idError","");
-							session.put("passwordError", "");
-							session.put("status","");
-
-							i=loginDAO.cartInfo(session.get("temp_user_id").toString(),loginDTO.getLoginId());
-
-							if(i>=0){
-								result ="settlement";
-								return result;
-							}
-
-						}else if(session.get("status")==("cart"/*カート*)){
-							session.put("idError", "");
-							session.put("passwordError", "");
-							session.put("status", "");
-
-							i=loginDAO.cartInfo(session.get("temp_user_id").toString(),loginDTO.getLoginId());
-
-							if(i>=0){
-								result ="cart";
-								return result;
-							}
-
-						}else{
-							session.put("idError", "");
-							session.put("passwordError", "");
-							session.put("status", "");
-
-							i=loginDAO.cartInfo(session.get("temp_user_id").toString(),loginDTO.getLoginId());
-
-							if(i>=0){
-								result ="myPage";
-								return result;
-							}
-
-						}
-
-					}else if(loginDTO.getLoginId().equals("noID") || loginDTO.getLoginPassword().equals("noPASS")){
-						session.put("unknown","入力されたIDもしくはパスワードが異なります");
-						result = ERROR;
-						return result;
-					}
-
-				}
-					session.put("idError",this.idErrorMsg);
-					session.put("passwordError", this.passwordErrorMsg);
-					return result;
-			}
-	}
-		@Override
-		public void setSession(Map<String,Object> session){
-			this.session=session;
-		}
-
-		public String getLoginId(){
-			return loginId;
-		}
-		public void setLoginId(String loginId){
-			this.loginId=loginId;
-		}
-		public String getLoginPassword(){
-			return loginPassword;
-		}
-		public void setLoginPassword(String loginPassword){
-			this.loginPassword=loginPassword;
-		}
-		public int getI(){
-			return i;
-		}
-		public void setI(int i){
-			this.i=i;
-		}
-
-	}
-*/
-/*		String result = ERROR;
-		loginDTO=loginDAO.getLoginUserInfo(loginId,loginPassword);
-		session.put("loginUser", loginDTO);
-
-		if(((LoginDTO) session.get("loginUser")).getLoginFlg()){
-			result = SUCCESS;
-			session.put("login_user_id",loginDTO.getLoginId());
-		→これをあとで追加	session.put("loginUser",loginFlg);
-			return result;
-
-		}
-		return result;
-	}
-/**
- * カート内容の引継ぎ、仮IDと登録済みIDとのリンク機能、それに関するDBとの通信機能、
- * 未入力欄がある場合のエラーメッセージを追加したい
- * @return
- */
-/*
-	public String getLoginUserId(){
-		return loginUserId;
-	}
-	public void setLoginUserId(String loginUserId){
-		this.loginUserId=loginUserId;
-	}
-	public String getLoginPassword(){
-		return loginPassword;
-	}
-	public void setLoginPassword(String loginPassword){
-		this.loginPassword=loginPassword;
-	}
-
-	@Override
-	public void setSession(Map<String,Object> session){
-		this.session=session;
-	}
-*/
-
 

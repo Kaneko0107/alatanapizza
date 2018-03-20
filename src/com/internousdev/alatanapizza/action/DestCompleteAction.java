@@ -37,74 +37,60 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 		destinationDTO.setUserAddress(userAddress);
 		destinationDTO.setTelNumber(telNumber);
 		destinationDTO.setEmail(email);
-		System.out.println("宛先情報セット完了");
 
 		DestinationDAO destinationDAO=new DestinationDAO();
 		if(destinationDAO.registerDestination(destinationDTO)){ //update成功時にtrueが返される
-			System.out.println("宛先DBに登録完了");
 			result =SUCCESS;
 		}else{ //falseの時
-			System.out.println("エラーです。ホームへ");
+//			System.out.println("エラーです。ホームへ");
 		}
 		return result;
 
 	}
 
-	/*
-		destinationDAO.createDestination(
-				session.get("userId").toString(),
-				session.get("familyName").toString(),
-				session.get("firstName").toString(),
-				session.get("familyNameKana").toString(),
-				session.get("firstNameKana").toString(),
-				session.get("email").toString(),
-				session.get("telNumber").toString(),
-				session.get("userAddress").toString());
 
-		String result = SUCCESS;
-
-		return result;
-	*/
-	/**
-	 * ゲッターセッター
-	 * @return
-	 */
 	public String getFamilyName(){
 		return familyName;
 	}
 	public void setFamilyName(String familyName){
 		this.familyName=familyName;
 	}
+
 	public String getFirstName(){
 		return firstName;
 	}
 	public void setFirstName(String firstName){
 		this.firstName=firstName;
 	}
+
 	public String getFamilyNameKana(){
 		return familyNameKana;
 	}
 	public void setFamilyNameKana(String familyNameKana){
 		this.familyNameKana=familyNameKana;
 	}
+
 	public String getFirstNameKana(){
 		return firstNameKana;
 	}
 	public void setFirstNameKana(String firstNameKana){
 		this.firstNameKana=firstNameKana;
 	}
+
 	public String getUserAddress(){
 		return userAddress;
 	}
 	public void setUserAddress(String userAddress){
 		this.userAddress=userAddress;
 	}
+
 	public String getTelNumber(){
 		return telNumber;
 	}
 	public void setTelNumber(String telNumber){
 		this.telNumber=telNumber;
 	}
+
 	public String getEmail(){
 		return email;
 	}

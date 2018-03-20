@@ -6,11 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link rel="stylesheet" type="text/css" href="./css/product.css">
 <link rel="stylesheet" href="./css/alatanapizza.css">
 
 <title>商品一覧</title>
 <style>
+
+
 
 .itemListBox{
 	width:20%;
@@ -26,20 +28,18 @@
 	background-color:rgba(0,0,0,0.5);
 
 
-
 }
 
 .imageHover{
- clear:both;
- width: 250px;
+ width: 100%;
   height: 200px;
   overflow: hidden;
-  image-align:center;
+  text-align:center;
 
 }
 
 .productInfo{
-margint-top:200px;
+margint-top:50px;
 margin-bottom:50px;
 padding-bottom:10px;
 }
@@ -50,21 +50,18 @@ padding-bottom:10px;
 	text-align:center;
 }
 
-
-
-
-
 </style>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="./js/jquery-1.8.2.min.js"></script>
 <script>
 $(function() {
-	$(".imageHover image").hover(
+	$(".imageHover .image").hover(
 	function(){
-	$(this).animate({'width':"230px",'height':"200px"});
+	$(this).animate({width:"240px",height:"210px"});
 	},
 	function () {
-	$(this).animate({width:"200px",'height':"170px"});
+	$(this).animate({width:"200px",height:"170px"});
 	});
 	});
 </script>
@@ -79,44 +76,44 @@ $(function() {
 <!------------------------------------------ 商品一覧ボタンを押した場合  --------------------------------------------------------->
 	<!-- 表示件数1ページ目 -->
 
-
 		<s:iterator value="displayList">
 			<div class="itemListBox">
 
 						<div class="imageHover">
-							<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
-								<img class="image" src="<s:property value='image_file_path'/>" alt="Photo" width="200" height="170"><br>
-							</a>
+								<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+									<img class="image" src="<s:property value='image_file_path'/>" alt="Photo" width="200" height="170"><br>
+								</a>
 						</div>
-
 						<div class="productInfo">
-							<!-- 商品名 -->
-								<s:property value="product_name" /><br>
+								<!-- 商品名 -->
+									<s:property value="product_name" /><br>
 
-							<!-- 商品かな -->
-								<s:property value="product_name_kana" /><br>
-
-							<!-- カテゴリーが2(ピザ)の場合の価格 -->
-								<s:if test="category_id==2">
-								<img class="image" src="./images/icon/m.png" alt="Photo" >￥<s:property value="msize_price" /><br>
-								<img class="image" src="./images/icon/l.png" alt="Photo" >￥<s:property value="lsize_price" /><br>
-								</s:if>
-
-							<!-- カテゴリーが3(サイド)の場合の価格 -->
-								<s:if test="category_id==3"><br>
-								￥<s:property value="price"/><br>
-								</s:if>
-
-							<!-- カテゴリーが4(ドリンク)の場合の価格 -->
-								<s:if test="category_id==4"><br>
-								￥<s:property value="price"/><br>
-								</s:if>
+								<!-- 商品かな -->
+									<s:property value="product_name_kana" /><br>
 
 
-							<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
-								<img class="image" src=./images/icon/gocart.png><br>
-							</a>
-			</div>
+								<!-- カテゴリーが2(ピザ)の場合の価格 -->
+									<s:if test="category_id==2">
+									<img class="image" src="./images/icon/m.png" alt="Photo" >￥<s:property value="msize_price" /><br>
+									<img class="image" src="./images/icon/l.png" alt="Photo" >￥<s:property value="lsize_price" /><br>
+									</s:if>
+
+								<!-- カテゴリーが3(サイド)の場合の価格 -->
+									<s:if test="category_id==3"><br>
+									￥<s:property value="price"/><br>
+									</s:if>
+
+								<!-- カテゴリーが4(ドリンク)の場合の価格 -->
+									<s:if test="category_id==4"><br>
+									￥<s:property value="price"/><br>
+									</s:if>
+
+
+								<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+									<img class="image" src=./images/icon/gocart.png><br>
+								</a>
+					</div>
+
 			</div>
 		</s:iterator>
 
@@ -194,16 +191,16 @@ $(function() {
 			<h1>検索結果がありません。</h1>
 	</s:if>
 
-<table class="searchDTOList">
-	<tr>
-	<td>
+
 	<s:iterator value="displaySearchList">
 	<div class="itemList">
 		<div class="itemListBox">
 
+			<div class="imageHover">
 				<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
 					<img class="image" src="<s:property value='image_file_path'/>" alt="Photo" width="200" height="170"><br>
 				</a>
+			</div>
 			<!-- 商品名 -->
 				<s:property value="product_name" /><br>
 
@@ -212,7 +209,8 @@ $(function() {
 
 			<!-- カテゴリーが2(ピザ)の場合の価格 -->
 				<s:if test="category_id==2">
-				<img class="image" src="./images/icon/m.png" alt="Photo" >￥<s:property value="msize_price" /> &nbsp<img class="image" src="./images/icon/l.png" alt="Photo" >￥<s:property value="lsize_price" /><br>
+				<img class="image" src="./images/icon/m.png" alt="Photo" >￥<s:property value="msize_price" /><br>
+				<img class="image" src="./images/icon/l.png" alt="Photo" >￥<s:property value="lsize_price" /><br>
 				</s:if>
 
 			<!-- カテゴリーが3(サイド)の場合の価格 -->
@@ -234,9 +232,6 @@ $(function() {
 		</div>
 		</div>
 	</s:iterator>
-	</td>
-	</tr>
-</table>
 
 
 

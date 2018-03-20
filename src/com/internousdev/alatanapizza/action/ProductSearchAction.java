@@ -102,46 +102,44 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
          -------------------------------------------------------------------*/
 
         if (categoryId == 1) {
-
+        	//全てのカテゴリーを選択した場合
         	if (!(searchWord.isEmpty())) {
-
+        		//検索ワードを入力した場合
         		if (kuuhakunobasho > 0) {
-
-        			searchDTOList = searchDAO.byWordsAllCategory(searchWords, keywords);
+        			//検索ワードが複数あった場合
+        			searchDTOList = searchDAO.byWords(searchWords, keywords, categoryId);
         		} else {
-        			searchDTOList = searchDAO.bySearchWordAllCategory(searchWordHiragana, searchWord);
+        			//検索ワードが一つだった場合
+        			searchDTOList = searchDAO.bySearchWord(searchWordHiragana, searchWord, categoryId);
         		}
-
         	} else {
-
-        		searchDTOList = searchDAO.allProductInfo();
+        		//検索ワードを入力しなかった場合
+        		searchDTOList = searchDAO.byProductCategory(categoryId);
         	}
         }
 
         else {
-
+        	//「全てのカテゴリー」以外を選択した場合
         	if (!(searchWord.isEmpty())) {
-
+        		//検索ワードを入力した場合
         		if (kuuhakunobasho > 0) {
+        			//検索ワードが複数あった場合
         			searchDTOList = searchDAO.byWords(searchWords, keywords, categoryId);
         		} else {
+        			//検索ワードが一つだった場合
         			searchDTOList = searchDAO.bySearchWord(searchWordHiragana, searchWord, categoryId);
-        			System.out.println("bySearchWord");
         		}
-
         	} else {
-
+        		//検索ワードを入力しなかった場合
         		searchDTOList = searchDAO.byProductCategory(categoryId);
-        		System.out.println("byProductCategory");
 
         	}
 
         }
 
+        //商品の数をnumberに格納
         number = searchDTOList.size();
         System.out.println("number = " + number);
-
-
 
         Iterator<ProductDTO> iterator = searchDTOList.iterator();
         if(!iterator.hasNext()) {
@@ -159,35 +157,6 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		}
 
         ret = SUCCESS;
-
-
-		/*-----------------------------------------------------------
-	      全てのカテゴリーから商品を検索
-	 -------------------------------------------------------------
-
-  else if (categoryId == 1 && !(searchWordHiragana.isEmpty())) {
-  	searchDTOList = searchDAO.byAllProductCategory(searchWord, searchWordHiragana);
-  }
-
-		/*---------------------------------------------------------
-		             サイドメニューまたはドリンクを検索
-        -----------------------------------------------------------
-        else if (categoryId > 2 && !(searchWordHiragana.isEmpty())) {
-	    searchDTOList = searchDAO.ByProductCategory(categoryId);
-	    ret = SUCCESS;
-        }
-        */
-
-		/*---------------------------------------------------------
-				サイドメニューまたはドリンクを全件検索(検索値なし)
-		-----------------------------------------------------------
-		else if (categoryId > 2 && searchWordHiragana.isEmpty()) {
-			searchDTOList = searchDAO.ByProductCategory(categoryId);
-			ret = SUCCESS;
-		}
-		*/
-
-
 
 
 

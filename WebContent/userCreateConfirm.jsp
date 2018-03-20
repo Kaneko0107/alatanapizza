@@ -17,51 +17,41 @@
 
 
 #main {
-	    width: 70%;
-	    background: rgba(0, 0, 0, 0.5);
-	    margin:0 auto;
-	    margin-top:80px;
-	    margin-bottom:100px;
-	    }
+		width:70%;
+		background:rgba(0, 0, 0, 0.5);
+		margin:0 auto;
+		margin-top:80px;
+		margin-bottom:100px;
+		}
 
 table {
 		width:70%;
 		margin:0 auto;
-	    text-align: left;
-	    }
+		text-align:left;
+		}
 
 h3 {
-	    border-left:10px solid red;
-	    }
+		border-left:10px solid red;
+		}
 
 .title {
-	    font-size: 20px;
-	    }
+		font-size:20px;
+		}
 
 tr td {
-	    padding-right:60px;
-	    padding-left:20px;
-	    padding-top:5px;
-	    }
-
-footer {
-
-	    width:100%;
-	    height:30px;
-	    position: fixed;
-	    bottom: 0;
-	    text-align: center;
-	    margin: 0 auto;
-	    }
+		padding-right:60px;
+		padding-left:20px;
+		padding-top:5px;
+		}
 
 hr {
-	    text-align:left;
-	    border: none;
-	    border-top: dashed 1px #ccc;
-	    height: 1px;
-	    color: #ffffff;
-	    margin: 0 8 0 8;
-	    }
+		text-align:left;
+		border:none;
+		border-top:dashed 1px #ccc;
+		height:1px;
+		color:#ffffff;
+		margin:0 8 0 8;
+		}
 
 .icon {
 		text-align:center;
@@ -70,24 +60,15 @@ hr {
 		}
 
 .moji {
-	    text-align: center;
-	    font-size: 12px;
-	    color: #FFCC33;
-	    }
+		text-align: center;
+		font-size: 12px;
+		color: #FFCC33;
+		}
 
 .moji2{
-	    font-size: 12px;
-	    color: #FFCC33;
-	    }
-
-.gazou {
-	    text-align:right;
-	    margin-top: 5px;
-	    }
-
-.gazou:hover{
-	    background-image:url("modoru.png")
-	    }
+		font-size: 12px;
+		color: #FFCC33;
+		}
 
 	</style>
 </head>

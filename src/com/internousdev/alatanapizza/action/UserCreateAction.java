@@ -30,6 +30,7 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 	}
 
 
+	//ゲッターセッター
 	public String getLoginUserId() {
 		return loginUserId;
 	}
@@ -118,7 +119,6 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 	public void setSecretAnswer(String secretAnswer) {
 		this.secretAnswer=secretAnswer;
 	}
-
 
 	public Map<String, Object> getSession() {
 		return session;

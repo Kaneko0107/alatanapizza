@@ -14,7 +14,7 @@ public class UserCreateCompleteDAO {
 	private String sql="INSERT INTO user_info(user_id,password,family_name,first_name,family_name_kana,first_name_kana,sex,email,secret_question,secret_answer,regist_date) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 
 
-
+	// UserCreateCompleteActionで受け取ったユーザー情報をsqlに流す
 	public void createUser(String userid, String password, String familyname, String firstname, String familynamekana,String firstnamekana, int sex, String email, int secretquestion, String secretanswer) throws SQLException {
 
 		DBConnector db=new DBConnector();

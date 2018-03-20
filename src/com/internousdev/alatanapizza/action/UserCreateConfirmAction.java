@@ -38,7 +38,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	private ArrayList<String> errMsgListQuestion=new ArrayList<>();
 	private ArrayList<String> errMsgListAnswer=new ArrayList<>();
 
-    //エラーメッセージの種類
+	// エラーメッセージの種類
 	private String errId1;
 	private String errId2;
 	private String errPass1;
@@ -62,37 +62,49 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 		    result=ERROR;
 
-		//もしuserCreate.jspでの入力が空欄ではなかったら(jspで"required"設定しているけど完全ではない為)
-		if(!(loginUserId.equals(""))&& !(loginPassword.equals(""))&& !(familyName.equals(""))&& !(firstName.equals(""))
-            && !(familyNameKana.equals(""))&& !(firstNameKana.equals(""))&& !(sex.equals(""))&& !(mail.equals(""))
-			&& !(secretQuestion.equals("選択してください"))&& !(secretAnswer.equals("")) ) {
+		// ※ID重複確認※  userCreate.jspでの入力欄が全て入力されていれば、(jspでも設定しているけど完全ではない為）
+		if(!(loginUserId.equals(""))
+				&& !(loginPassword.equals(""))
+				&& !(familyName.equals(""))
+				&& !(firstName.equals(""))
+				&& !(familyNameKana.equals(""))
+				&& !(firstNameKana.equals(""))
+				&& !(sex.equals(""))
+				&& !(mail.equals(""))
+				&& !(secretQuestion.equals("選択してください"))
+				&& !(secretAnswer.equals("")) ) {
 
-			//データーベース情報取得
-			UserCreateConfirmDAO dao = new UserCreateConfirmDAO();
+			// データーベース情報取得し、
+			UserCreateConfirmDAO dao=new UserCreateConfirmDAO();
 
-			//UserCreateConfirmDAOの"getUserInfo"メソッドの結果を"checkId"に代入
-			boolean checkId = dao.getUserInfo(loginUserId, loginPassword);
+			// UserCreateConfirmDAOの"getUserInfo"メソッドの結果true/falseを"checkId"に代入
+			boolean checkId=dao.getUserInfo(loginUserId, loginPassword);
 
-			//userCreateConfirm.jspで使うのでsessionしておく
+			// userCreateConfirm.jspで使うので、trueならsessionに。
 			if(checkId){
-				 session.put("loginUserId", loginUserId);
-				 session.put("loginPassword", loginPassword);
-				 session.put("familyName", familyName);
-				 session.put("firstName", firstName);
-				 session.put("familyNameKana", familyNameKana);
-				 session.put("firstNameKana", firstNameKana);
-				 session.put("sex", sex);
-				 session.put("mail", mail);
-				 session.put("secretQuestion", secretQuestion);
-				 session.put("secretAnswer", secretAnswer) ;
+				session.put("loginUserId", loginUserId);
+				session.put("loginPassword", loginPassword);
+				session.put("familyName", familyName);
+				session.put("firstName", firstName);
+				session.put("familyNameKana", familyNameKana);
+				session.put("firstNameKana", firstNameKana);
+				session.put("sex", sex);
+				session.put("mail", mail);
+				session.put("secretQuestion", secretQuestion);
+				session.put("secretAnswer", secretAnswer) ;
 			}else{
-				errMsgList.add("そのIDは使われています。");
+			errMsgList.add("そのIDは使われています。");
 			}
+
+		 // userCreate.jspでの入力欄が全て入力されていないなら、"未入力の項目があります"
 		}else{
 			errMsgList.add("未入力の項目があります");
 		}
 
 
+	// エラーメッセージの種類
+
+	// ユーザーID
 	if (loginUserId.length() > 8) {
 		errId1="ユーザーIDは8文字以内で入力してください";
 		errMsgListId.add(errId1);
@@ -181,7 +193,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		errMsgListAnswer.add(errAnswer);
 	}
 
-
+	// エラーメッセージリストが全て何もなかったら、成功
 	if (errMsgList.isEmpty()
 		 && errMsgListId.isEmpty()
 		 && errMsgListPass.isEmpty()
@@ -203,7 +215,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
    }
 
 
-
+	// ゲッターセッター
     public String getLoginUserId() {
 		return loginUserId;
 	}
@@ -303,6 +315,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		return session;
 	}
 
+	// ArrayList
 	public ArrayList<String> getErrMsgList() {
 		return errMsgList;
 	}

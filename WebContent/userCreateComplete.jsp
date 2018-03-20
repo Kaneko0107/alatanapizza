@@ -17,8 +17,8 @@
 	<style>
 
 #main {
-	    width: 70%;
-	    background: rgba(0, 0, 0, 0.5);
+	    width:70%;
+	    background:rgba(0, 0, 0, 0.5);
 	    margin:0 auto;
 	    margin-top:80px;
 	    margin-bottom:100px;
@@ -27,7 +27,7 @@
 table {
 		width:70%;
 		margin:0 auto;
-	    text-align: left;
+	    text-align:left;
 	    }
 
 h3 {
@@ -35,7 +35,7 @@ h3 {
 	    }
 
 .title {
-	    font-size: 20px;
+	    font-size:20px;
 	    }
 
 tr td {
@@ -45,23 +45,23 @@ tr td {
 	    }
 
 .moji {
-	    text-align: center;
-	    font-size: 20px;
-	    color: #FFCC33;
+	    text-align:center;
+	    font-size:20px;
+	    color:#FFCC33;
 	    }
 
 .moji2 {
-	    font-size: 12px;
-	    color: #FFCC33;
+	    font-size:12px;
+	    color:#FFCC33;
 	    }
 
 hr {
 	    text-align:left;
-	    border: none;
-	    border-top: dashed 1px #ccc;
-	    height: 1px;
-	    color: #ffffff;
-	    margin: 0 8 0 8;
+	    border:none;
+	    border-top:dashed 1px #ccc;
+	    height:1px;
+	    color:#ffffff;
+	    margin:0 8 0 8;
 	    }
 
 	</style>

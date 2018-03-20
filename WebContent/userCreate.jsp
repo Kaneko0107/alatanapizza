@@ -16,8 +16,8 @@
 	<style>
 
 #main {
-	    width: 70%;
-	    background: rgba(0, 0, 0, 0.5);
+	    width:70%;
+	    background:rgba(0, 0, 0, 0.5);
 	    margin:0 auto;
 	    margin-top:80px;
 	    margin-bottom:100px;
@@ -26,22 +26,22 @@
 table {
 		width:70%;
 		margin:0 auto;
-	    text-align: left;
+	    text-align:left;
 	    }
 
-h3{
+h3 {
 	    border-left:10px solid red;
 	    }
 
 .form {
-	    background-color: rgba(200, 200, 200, 0.5);
-	    width: 200px;
-	    height: 30px;
-	    border-radius: 5px;
+	    background-color:rgba(200, 200, 200, 0.5);
+	    width:200px;
+	    height:30px;
+	    border-radius:5px;
 	    }
 
 .title {
-	    font-size: 20px;
+	    font-size:20px;
 	    }
 
 tr td {
@@ -50,22 +50,13 @@ tr td {
 	    padding-top:5px;
 	    }
 
-footer {
-	    width:100%;
-	    height:30px;
-	    position: fixed;
-	    bottom: 0;
-	    text-align: center;
-	    margin: 0 auto;
-	    }
-
 hr {
 	    text-align:left;
-	    border: none;
-	    border-top: dashed 1px #ccc;
-	    height: 1px;
-	    color: #ffffff;
-	    margin: 0 8 0 8;
+	    border:none;
+	    border-top:dashed 1px #ccc;
+	    height:1px;
+	    color:#ffffff;
+	    margin:0 8 0 8;
 	    }
 
 .icon {
@@ -75,28 +66,14 @@ hr {
 		}
 
 .moji {
-	    text-align: center;
-	    font-size: 12px;
-	    color: #FFCC33;
+	    text-align:center;
+	    font-size:12px;
+	    color:#FFCC33;
 	    }
 
 .moji2 {
-	    font-size: 12px;
-	    color: #FFCC33;
-	    }
-
-.gazou {
-	    text-align:right;
-	    margin-top: 5px;
-	    }
-
-.gazou:hover {
-	    background-image:url("modoru.png")
-	    }
-
-.image2 {
-	    text-align:right;
-	    margin-top: 5px;
+	    font-size:12px;
+	    color:#FFCC33;
 	    }
 
 	</style>
@@ -105,66 +82,68 @@ hr {
 <body>
 
 	<jsp:include page="include_header.jsp" />
-
 	<div id="main">
 
 	<table>
 
 	<tr><td colspan="2"><h3>ユーザー登録</h3></td></tr>
 	<tr><td colspan="2"><div class="moji2">下記の情報を入力してください。</div></td></tr>
-	<tr><td colspan="2"><hr></td></tr>
 
-	<!-- エラーメッセージ-->
+
+	<!-- エラーメッセージ -->
 	<tr>
 
 	<s:if test="errMsgList !=null && !(errMsgList.isEmpty())">
-		<td><s:iterator value="errMsgList"><s:property /></s:iterator><br></td>
+		<tr><td colspan="2"><s:iterator value="errMsgList"><s:property /></s:iterator></td></tr>
 	</s:if>
 
-	<s:if test="errMsgListId != null && !(errMsgListId.isEmpty())">
-		<td><s:iterator value="errMsgListId"><s:property /></s:iterator></td>
+	<s:if test="errMsgListId !=null && !(errMsgListId.isEmpty())">
+		<tr><td colspan="2"><s:iterator value="errMsgListId"><s:property /></s:iterator></td></tr>
 	</s:if>
 
-	<s:if test="errMsgListPass != null && !(errMsgListPass.isEmpty())">
-		<td><s:iterator value="errMsgListPass"><br><s:property /></s:iterator></td>
+	<s:if test="errMsgListPass !=null && !(errMsgListPass.isEmpty())">
+		<tr><td colspan="2"><s:iterator value="errMsgListPass"><s:property /></s:iterator></td></tr>
 	</s:if>
 
 	<s:if test="errMsgListFamilyName !=null && !(errMsgListFamilyName.isEmpty())">
-		<td><s:iterator value="errMsgListFamilyName"><br><s:property /></s:iterator></td>
+		<tr><td colspan="2"><s:iterator value="errMsgListFamilyName"><s:property /></s:iterator></td></tr>
 	</s:if>
 
-	<s:if test="errMsgListFirstName != null && !(errMsgListFirstName.isEmpty())">
-		<td><s:iterator value="errMsgListFirstName"><br><s:property /></s:iterator></td>
+	<s:if test="errMsgListFirstName !=null && !(errMsgListFirstName.isEmpty())">
+		<tr><td colspan="2"><s:iterator value="errMsgListFirstName"><s:property /></s:iterator></td></tr>
 	</s:if>
 
-	<s:if test="errMsgListFamilyNameKana != null && !(errMsgListFamilyNameKana.isEmpty())">
-		<td><s:iterator value="errMsgListFamilyNameKana"><br><s:property /></s:iterator></td>
+	<s:if test="errMsgListFamilyNameKana !=null && !(errMsgListFamilyNameKana.isEmpty())">
+		<tr><td colspan="2"><s:iterator value="errMsgListFamilyNameKana"><s:property /></s:iterator></td></tr>
 	</s:if>
 
-	<s:if test="errMsgListFirstNameKana != null && !(errMsgListFirstNameKana.isEmpty())">
-		<td><s:iterator value="errMsgListFirstNameKana"><br><s:property /></s:iterator></td>
+	<s:if test="errMsgListFirstNameKana !=null && !(errMsgListFirstNameKana.isEmpty())">
+		<tr><td colspan="2"><s:iterator value="errMsgListFirstNameKana"><s:property /></s:iterator></td></tr>
 	</s:if>
 
-	<s:if test="errMsgListSex != null && !(errMsgListSex.isEmpty())">
-		<td><s:iterator value="errMsgListSex"><s:property /></s:iterator></td>
+	<s:if test="errMsgListSex !=null && !(errMsgListSex.isEmpty())">
+		<tr><td colspan="2"><s:iterator value="errMsgListSex"><s:property /></s:iterator></td></tr>
 	</s:if>
 
-	<s:if test="errMsgListMail != null && !(errMsgListMail.isEmpty())">
-		<td><s:iterator value="errMsgListMail"><br><s:property /></s:iterator></td><br>
+	<s:if test="errMsgListMail !=null && !(errMsgListMail.isEmpty())">
+		<tr><td colspan="2"><s:iterator value="errMsgListMail"><s:property /><br></s:iterator></td></tr>
 	</s:if>
 
-	<s:if test="errMsgListQuestion != null && !(errMsgListQuestion.isEmpty())">
-		<td><s:iterator value="errMsgListQuestion"><s:property /></s:iterator></td><br>
+	<s:if test="errMsgListQuestion !=null && !(errMsgListQuestion.isEmpty())">
+		<tr><td colspan="2"><s:iterator value="errMsgListQuestion"><s:property /></s:iterator></td></tr>
 	</s:if>
 
-	<s:if test="errMsgListAnswer != null && !(errMsgListAnswer.isEmpty())">
-		<td><s:iterator value="errMsgListAnswer"><s:property /></s:iterator></td>
+	<s:if test="errMsgListAnswer !=null && !(errMsgListAnswer.isEmpty())">
+		<tr><td colspan="2"><s:iterator value="errMsgListAnswer"><s:property /></s:iterator></td></tr>
 	</s:if>
 
 	</tr>
 
+	<tr><td colspan="2"><hr></td></tr>
+
 
 	<s:form action="UserCreateConfirmAction">
+
 
 	<tr>
 		<td>ユーザーＩＤ</td>
@@ -260,7 +239,6 @@ hr {
 		<br><div class="icon">
 			<a href='<s:url action="HomeAction"/>'><img src="./images/icon/modoru2.png"></a>
 		</div>
-		</td>
 
 		<td>
 		<br><div class="icon">
@@ -270,7 +248,9 @@ hr {
 	<tr>
 
 	</s:form>
+
 	</table>
+
 	</div>
 
 	<jsp:include page="include_footer.jsp" />

@@ -11,7 +11,7 @@
 	<meta name="description" content=""/>
 	<meta name="keywords" content=""/>
 	<link rel="stylesheet" href="./css/alatanapizza.css">
-<title>マイページ画面</title>
+<title>マイページ</title>
 <style type="text/css">
 #main{
 width:70%;

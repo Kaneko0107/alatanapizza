@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="./css/alatanapizza.css">
 	<link rel="stylesheet" href="./css/cart.css">
 
-<title>決済確認画面</title>
+<title>決済確認</title>
 </head>
 <body>
 	<jsp:include page="include_header.jsp" />

@@ -14,16 +14,21 @@ public class ChangePasswordCompleteAction extends ActionSupport implements Sessi
 	private Map<String,Object>session;
 	private ChangePasswordCompleteDAO dao=new ChangePasswordCompleteDAO();
 	public String execute() throws SQLException{
+		String result=ERROR;
+		String passerror="passerror";
 
+		int count=dao.changeComplete(newpass,userid,secret_answer);
+		if(session.containsKey("errorchangepass")){
+			result=ERROR;
 
-		int result=dao.changeComplete(newpass,userid,secret_answer);
-		if(result>0){
-			return SUCCESS;
-		}else{
-			return ERROR;
 
 		}
+		else if(count>0){
+			session.put("errorchangepass",passerror);
+			result=SUCCESS;
+		}
 
+return result;
 
 
 	}

@@ -16,21 +16,29 @@ public class UserUpdateCompleteAction extends ActionSupport implements SessionAw
 
 
 	public String execute() throws SQLException{
+		String errorUpdate="errorupdate";
 		UserUpdateCompleteDAO dao=new UserUpdateCompleteDAO();
 		String result=ERROR;
+		if(session.containsKey("errorUpdate")){
+			result=ERROR;
+		}
 
-		if(newEmail==null){
+
+		else if(newEmail==null){
 			dao.userUpdatePassword(newPassword,user_id);
 			session.remove("newPassword");
+			session.put("errorUpdate",errorUpdate);
 			result=SUCCESS;
 			}else if(newPassword==null){
 				dao.userUpdateEmail(newEmail, user_id);
 				session.remove("newEmail");
+				session.put("errorUpdate",errorUpdate);
 				result=SUCCESS;
 		}else{
 			dao.userUpdateDouble(newPassword, newEmail, user_id);
 			session.remove(newPassword);
 			session.remove(newEmail);
+			session.put("errorUpdate",errorUpdate);
 			result=SUCCESS;
 		}
 		return result;

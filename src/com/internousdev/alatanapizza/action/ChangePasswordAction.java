@@ -16,7 +16,8 @@ public class ChangePasswordAction extends ActionSupport implements SessionAware{
 
 
 	public String execute(){
-
+		String passerror="";
+		session.remove("errorchangepass",passerror);
 		return SUCCESS;
 	}
 	public Map<String, Object> getSession(){

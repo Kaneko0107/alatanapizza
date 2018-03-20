@@ -86,6 +86,16 @@
 		<result name="success">userUpdateComplete.jsp</result>
 	</action>
 
+	<!-- 日本 退会画面 -->
+	<action name="ClearUserAction" class="com.internousdev.alatanapizza.action.ClearUserAction" method="execute">
+		<result name="success">clearUser.jsp</result>
+	</action>
+
+	<action name ="ClearUserCompleteAction" class ="com.internousdev.alatanapizza.action.ClearUserCompleteAction" method ="execute">
+		<result name ="success">clearUserComplete.jsp</result>
+		<result name ="error">error.jsp</result>
+	</action>
+
 <!-- 高木 宛先情報登録画面 -->
 	<action name ="DestAction" class ="com.internousdev.alatanapizza.action.DestAction" method ="execute">
 	<result name ="success">destinationInfo.jsp</result>

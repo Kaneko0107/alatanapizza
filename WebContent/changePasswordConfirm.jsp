@@ -6,8 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css"/>
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
 <link rel="stylesheet" href="./css/alatanapizza.css">
 <title>パスワード変更確認画面</title>
+<script>
+window.onunload=function(){};
+history.forward();
+</script>
 <style>
 #main{
 width:50%;

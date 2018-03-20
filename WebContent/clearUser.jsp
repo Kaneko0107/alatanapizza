@@ -10,6 +10,10 @@
 <meta http-equiv="imagetoolbar" content="text/javascript"/>
 <link rel="stylesheet" href="./css/alatanapizza.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+window.onunload=function(){};
+history.forward();
+</script>
 <title>退会画面</title>
 <style>
 table {

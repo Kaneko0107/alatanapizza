@@ -9,6 +9,10 @@
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <link rel="stylesheet" href="./css/alatanapizza.css">
 <title>ユーザー情報変更確認画面</title>
+<script type="text/javascript">
+window.onunload=function(){};
+history.forward();
+</script>
 <style>
 table {
 	width: 80%;

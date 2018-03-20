@@ -83,6 +83,17 @@
 	<!-- ヘッダー -->
 	<jsp:include page="include_header.jsp" />
 
+		<%--お気に入りボタン,非ログイン時は非表示 --%>
+		<s:if test="#session.containsKey('userId')">
+			<s:form action="FavoriteAction">
+				<span class="favlist">
+					<input type=hidden name=favoriteInsertFlg value="1" />
+					<input type=hidden name=product_id value='<s:property value="product_id"/>' />
+					<input type="image" src=./images/icon/hart.png alt="お気に入り登録">
+				</span>
+			</s:form>
+		</s:if>
+
 	<s:form action="CartProductAction" name="select">
 
 	<table class="detailsTable">
@@ -173,9 +184,8 @@
 				<span id="total_price_text"></span>&nbsp;
 					<s:hidden name="productId" value="%{session.d_product_id}" ></s:hidden>
 					<s:hidden name="gocart" value="1" />
-				<s:submit value="カートに入れる" />
-				<img class="image" src=./images/icon/gocart2.png>
-				<img class="image" src=./images/icon/hart.png>
+					<input type="image" src=./images/icon/gocart2.png alt="カートに入れる">
+
 		</s:if>
 		<s:if test="stockList.size() == 0">
 			申し訳ありません。ただいま売り切れ中で購入できません。
@@ -183,19 +193,7 @@
 	</p>
 	</s:form>
 
-		<%--お気に入りボタン,非ログイン時は非表示 --%>
-			<s:if test="#session.containsKey('userId')">
-				<s:form action="FavoriteAction">
-					<span class="favlist">
-						<input type=hidden name=favoriteInsertFlg value="1" />
-						<input type=hidden name=product_id value='<s:property value="product_id"/>' />
-						<s:submit value=" ★お気に入り登録" onclick="FavoriteAction();" />
-					</span>
-				</s:form>
-
-				<a href='<s:url action="ProductListAction?listFlg=1"/>'>商品一覧画面に戻る</a>
-
-			</s:if><br><br>
+		<a href='<s:url action="ProductListAction?listFlg=1"/>'>商品一覧画面に戻る</a><br><br>
 
 
 

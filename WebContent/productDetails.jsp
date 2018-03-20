@@ -74,7 +74,6 @@
             	var total_price = parseInt(sAndDPrice_val) * parseInt(product_menu_count);
           	  $('input:text[name="total_price"]').val(sAndDPrice);
         	});
-
         });
     </script>
 
@@ -139,7 +138,7 @@
 					</s:if>
 					<s:if test="session.d_category_id==3 || session.d_category_id==4">
 						<!-- サイド・ドリンク -->
-						<p id="sAndDPrice" name="sAndDPrice" value="<s:property value="session.d_product_price" />">￥<s:property value="session.d_product_price" />
+						<input type="hidden" id="sAndDPrice" name="sAndDPrice" value="<s:property value="session.d_product_price" />">￥<s:property value="session.d_product_price" />
 					</s:if></span>
 
 					<fieldset>
@@ -171,7 +170,7 @@
 			</td>
 			</tr>
 		</table>
-	</s:if><br>
+	</s:if>
 
 
 	<p id="total1">

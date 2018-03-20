@@ -80,7 +80,7 @@
 			 margin: 2em auto;
  			padding: 1.5em;
  			border: 1px solid white;
- 			width: 80%;
+ 			width: 90%;
 		}
 		#toppingtitle{
 			text-align:left;
@@ -121,6 +121,9 @@
 	#sP{
 		margin:0 12.5% 30％ 12.5%;
 	}
+	#suggest:hover{
+		background-color:black;
+	}
 	#suggest{
 	width:21%;
 	height:350px;
@@ -132,6 +135,4 @@
 	background-color:rgba(0,0,0,0.5);
 }
 	}
-	#suggest:hover{
-		background-color:black;
-	}
+

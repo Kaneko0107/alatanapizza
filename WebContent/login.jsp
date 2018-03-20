@@ -140,6 +140,7 @@ tr td .memo{text-align:center;
 			<!--  白い点線 -->
 			<tr><td><hr></td></tr>
 
+<!-- リンク -->
 			<tr><td><div class="memo">ホーム画面は<a href='<s:url action="HomeAction"/>'>こちら</a>
 				</div></td></tr>
 
@@ -149,6 +150,7 @@ tr td .memo{text-align:center;
 			<tr><td><div class="memo">新規ユーザー登録は<a href='<s:url action="UserCreateAction"/>'>こちら</a>
 				</div></td></tr>
 
+<!-- 戻る画像アイコン -->
 			<tr><td><div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()">◀ 戻る</a></div></td></tr>
 				</table></div>
 

@@ -8,12 +8,27 @@
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <link rel="stylesheet" href="./css/alatanapizza.css">
-<title>Insert title here</title>
+<title>ユーザー情報変更確認画面</title>
 <style>
 table {
 	width: 80%;
 	margin: 0 auto;
 	text-align: left;
+}
+tr td {
+	padding-right: 30px;
+	padding-left: 20px;
+	padding-top: 5px;
+}
+table {
+	width: 80%;
+	margin: 0 auto;
+	text-align: left;
+	padding-left:20px;
+}.moji{
+text-align:center;
+	    font-size: 20px;
+	    color: #FFCC33;
 }
 </style>
 </head>
@@ -23,22 +38,22 @@ table {
 <table>
 <s:form action="UserUpdateCompleteAction">
   <tr>
-   <td>ユーザーID</td>
+   <td><div class="moji">ユーザーID</div></td>
    <td><s:property value="%{session.userId}"/>
    <s:hidden name="user_id" value="%{session.userId}" /></td>
    </tr>
    <s:if test="newPassword != ''" >
    <tr>
-   <td>新規パスワード</td>
+   <td><div class="moji">新規パスワード</div></td>
    <td><s:property value="newPassword"/>
-   <s:hidden name="newPassword" value="newPassword" /></td>
+   <s:hidden name="newPassword" value="%{newPassword}" /></td>
    </tr>
    </s:if>
    <s:if test="newEmail != ''" >
    <tr>
-   <td>メールアドレス</td>
+   <td><div class="moji">メールアドレス</div></td>
    <td><s:property value="newEmail"/>
-   <s:hidden name="newEmail" value="newEmail" /></td>
+   <s:hidden name="newEmail" value="%{newEmail}" /></td>
    </tr>
    </s:if>
    <tr>

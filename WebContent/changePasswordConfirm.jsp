@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <link rel="stylesheet" href="./css/alatanapizza.css">
-<title>Insert title here</title>
+<title>パスワード変更確認画面</title>
 <style>
 #main{
 width:50%;

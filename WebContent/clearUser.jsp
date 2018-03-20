@@ -7,14 +7,41 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <meta http-equiv="Content-Style-Type" content="text/css"/>
+<meta http-equiv="imagetoolbar" content="text/javascript"/>
 <link rel="stylesheet" href="./css/alatanapizza.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <title>退会画面</title>
 <style>
+table {
+	width: 80%;
+	margin: 0 auto;
+	text-align: left;
+}
+
+h3 {
+	border-left: 10px solid red;
+}
+
+
 .moji {
 	    text-align: center;
-	    font-size: 12px;
+	    font-size: 17px;
 	    color: #FFCC33;
 	    }
+
+
+
+
+tr td {
+	padding-right: 30px;
+	padding-left: 20px;
+	padding-top: 5px;
+}
+
+
+.btn1{
+ text-align:center;
+	    margin-top: 5px;}
 </style>
 
 </head>
@@ -35,24 +62,37 @@
 		});
 	});
 	</script>
-<s:form action="ClearUserCompleteAction">
-<h2>退会処理画面</h2>
-<div class="moji">退会の処理を行います。</div>
-<div class="moji">ー注意事項ー</div>
-<ul>
-<li>ご登録して頂いたお客様のユーザー情報は全て削除されます。</li>
-<li>ユーザー情報の復元は承りかねますのであらかじめご了承ください。</li>
-<li>あらためてご利用いただく場合は、はじめからご設定となりますのでご注意ください。</li>
-<li>ご注文中の商品のキャンセルに関しましては退会処理の前に行っていただくようお願いいたします。</li>
-</ul>
-<div class="moji">以上の注意点をご了承頂いた上で下記の同意欄にチェックをして頂きまして、退会ボタンで退会処理を行ってください。</div>
+<table>
+<s:form action="ClearUserCompleteAction" cssClass="form">
+<tr><td colspan="2"><h3>退会処理画面</h3></td></tr>
+<tr><td colspan="2"><hr></td></tr>
+<tr><td colspan="2"><div class="moji">退会の処理を行います。</div></td></tr>
+<tr><td colspan="2"><div class="moji">ー注意事項ー</div><br></td></tr>
 
-<div class="btn1">
+<tr>
+<td>・ご登録して頂いたお客様のユーザー情報は全て削除されます。</td>
+</tr>
+<tr>
+<td>・ユーザー情報の復元は承りかねますのであらかじめご了承ください。</td>
+</tr>
+<tr>
+<td>・あらためてご利用いただく場合は、はじめからご設定となりますのでご注意ください。</td>
+</tr>
+<tr>
+<td>・ご注文中の商品のキャンセルに関しましては退会処理の前に行っていただくようお願いいたします。</td>
+</tr>
+
+
+<tr><td><div class="moji">以上の注意点をご了承頂いた上で下記の同意欄にチェックをして頂きまして、退会ボタンで退会処理を行ってください。</div></td></tr>
+
+
+<tr><td><div class="btn1">
 		<input id="checkBtn" type="checkbox">
 		<input id="submitBtn" class="button" disabled="disabled" type="submit" value="退会する">
-	</div>
-</s:form>
+	</div></td></tr>
 
+</s:form>
+</table>
 
 
 

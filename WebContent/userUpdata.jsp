@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <link rel="stylesheet" href="./css/alatanapizza.css">
-<title>Insert title here</title>
+<title>ユーザー情報変更画面</title>
 <style>
 table {
 	width: 80%;
@@ -25,7 +25,6 @@ h3 {
 	    font-size: 12px;
 	    color: #FFCC33;
 	    }
-
 
 .form {
 	background-color: rgba(200, 200, 200, 0.5);
@@ -62,13 +61,13 @@ margin-top:20px;}
 <tr><td colspan="2"><div class="moji">指定に従って以下の項目を入力し、下記の確認ボタンを押してください</div><br></td></tr>
 
 <s:if test="errorMessage!=''">
-   <tr><td colspan="2"><div class="moji"><s:iterator value="errMsgList">
+   <tr><td colspan="2"><s:iterator value="errMsgList">
 
+<div class="moji">
+			<s:property />
+</div>
 
-				<s:property />
-
-
-		</s:iterator></div></td></tr>
+		</s:iterator></td></tr>
 		</s:if>
 <s:form action="UserUpdateConfirmAction">
 

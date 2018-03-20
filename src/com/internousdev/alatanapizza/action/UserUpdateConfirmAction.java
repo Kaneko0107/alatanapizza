@@ -36,7 +36,7 @@ public class UserUpdateConfirmAction extends ActionSupport implements SessionAwa
 
 
 
-		dto=dao.getUserInfo(password,user_id);
+		dto=dao.getUserInfo(user_id);
 
 		if(!(newPassword.equals("") || conPassword.equals(""))){
 			if(!(password.equals(dto.getPassword()))){

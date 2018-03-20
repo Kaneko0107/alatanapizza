@@ -66,7 +66,7 @@ public String execute(){
 			setErrorMessage("ユーザーIDは半角英数字で入力してください。");
 			errMsgList.add(errorMessage);
 		}
-		else if(!(userid.equals(CPCdao.CheckAnswer(userid,secret_question,secret_answer).getUserid()))){
+		else if(!(userid==(CPCdao.CheckAnswer(userid,secret_question,secret_answer).getUserid()))){
 			setErrorMessage("ユーザーIDと答えが一致しません。");
 			errMsgList.add(errorMessage);
 		}
@@ -83,7 +83,7 @@ public String execute(){
 		setErrorMessage("新しいパスワードは半角英数字で入力してください。");
 		errMsgList.add(errorMessage);
 	}
-	if(newpass.equals(CPCdao.CheckAnswer(userid,secret_question,secret_answer).getPassword())){
+	if(newpass==(CPCdao.CheckAnswer(userid,secret_question,secret_answer).getPassword())){
 		setErrorMessage("以前と同じパスワードは使用できません。");
 		errMsgList.add(errorMessage);
 	}

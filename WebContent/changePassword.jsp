@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <link rel="stylesheet" href="./css/alatanapizza.css">
-<title>Insert title here</title>
+<title>パスワード変更画面</title>
 <style>
 .error{
 color:white;}
@@ -15,6 +15,7 @@ color:white;}
 coror:white;}
 .main{
 width:70%;
+height:80%
 background:rgba(0,0,0,0.5);
 margin-top:70px;
 margin-left:15%;
@@ -85,11 +86,11 @@ hr {
 
 <s:if test="errorMessage!=''">
    <s:iterator value="errMsgList">
-		<h5>
-			<s:div align="center">
+
+			<tr><td colspan="2"><div class="moji">
 				<s:property />
-			</s:div>
-		</h5>
+		</div></td></tr>
+
 		</s:iterator>
 		</s:if>
 <s:form action="ChangePasswordConfirmAction" >

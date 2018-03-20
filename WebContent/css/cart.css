@@ -6,11 +6,8 @@
 	width:19%;
 	height:450px;
 	float:left;
-	margin-bottom:2%;
 	border:1px solid white;
-	margin-right:5%;
-	margin-left:5%;
-	margin:top:2px;
+	margin:2px 5% 2% 5%;
 	padding:15px;
 	border-radius:15px;
 	background-color:rgba(0,0,0,0.5)
@@ -47,7 +44,7 @@ settlement.jsp用
 
 
 /*-------------------------------------------------------------------------
-Cart.jsp用
+cart.jsp用
 -------------------------------------------------------------------------*/
 .eMessage{
 	font-size:17px;
@@ -61,3 +58,4 @@ purchaseHistory.jsp用
 #delete{
 	clear:both;
 }
+

@@ -74,7 +74,6 @@
             	var total_price = parseInt(sAndDPrice_val) * parseInt(product_menu_count);
           	  $('input:text[name="total_price"]').val(sAndDPrice);
         	});
-
         });
     </script>
 
@@ -123,29 +122,28 @@
 			</span>
 		</td>
 		<td>
-			<span id="productName">
 			<!-- 商品名 -->
+			<span id="productName">
 				<s:property value="session.d_product_name" /></span><br>
-					<span id="productNameKana">
 			<!-- 商品名かな -->
-				<s:property value="session.d_product_name_kana" /></span>
-					<br>
+			<span id="productNameKana">
+				<s:property value="session.d_product_name_kana" /></span><br>
 
 			<!-- カテゴリーによって値段表示変更 -->
-				<span class="form-product">
+				<span class="formProduct">
 					<s:if test="session.d_category_id==2">
 						<p class="product_menu_size">
-							<input type="radio" name="product" checked="checked" value='<s:property value="session.d_product_msize_price" />'><img class="image" src="./images/icon/m.png" alt="Photo" >￥<s:property value="session.d_product_msize_price" />
+							<input type="radio" name="product" checked="checked" value='<s:property value="session.d_product_msize_price" />'><img class="image" src="./images/icon/m.png" alt="Photo" >￥<s:property value="session.d_product_msize_price" />&nbsp;
 							<input type="radio" name="product" value='<s:property value="session.d_product_lsize_price" />'><img class="image" src="./images/icon/l.png" alt="Photo" >￥<s:property value="session.d_product_lsize_price" />
 					</s:if>
 					<s:if test="session.d_category_id==3 || session.d_category_id==4">
 						<!-- サイド・ドリンク -->
-						<p id="sAndDPrice" name="sAndDPrice" value="<s:property value="session.d_product_price" />">￥<s:property value="session.d_product_price" />
+						<input type="hidden" id="sAndDPrice" name="sAndDPrice" value="<s:property value="session.d_product_price" />">￥<s:property value="session.d_product_price" />
 					</s:if></span>
 
-					<div class="productDescription">
-						<div class="productDescription1">商品詳細</div>
-							<s:property value="session.d_product_description" /></div>
+					<fieldset>
+						<legend>商品詳細</legend>
+							<s:property value="session.d_product_description" /></fieldset>
 		</td>
 		</tr>
 	</table><br>
@@ -172,7 +170,7 @@
 			</td>
 			</tr>
 		</table>
-	</s:if><br><br>
+	</s:if>
 
 
 	<p id="total1">
@@ -206,7 +204,7 @@
 			<h3 id="suggestProduct">
 				その他おすすめ商品</h3>
 					<s:iterator value="suggestList">
-						<div id="suggest" style="width:250px; display:inline-block; float:left;">
+						<div id="suggest">
 							<div>
 								<a href="<s:url action="ProductDetailsAction">
 									 <s:param name="product_id" value="%{product_id}" /></s:url>">
@@ -218,13 +216,17 @@
 								<s:property value="product_name_kana" /><br>
 
 								<s:if test="category_id==2">
-									M￥<s:property value="msize_price" />
+									M￥<s:property value="msize_price" />&nbsp;
 									L￥<s:property value="lsize_price" />
 								</s:if>
 								<s:if test="category_id==3 || category_id==4">
 									￥<s:property value="price" />
 								</s:if>
 								<s:hidden name="product_id" value="%{product_id}" />
+
+								<br><br><a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+									<img class="image" src=./images/icon/gocart.png><br>
+								</a>
 							</div>
 						</div>
 					</s:iterator>

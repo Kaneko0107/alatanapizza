@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" type="text/css" href="./css/product.css">
+<link rel="stylesheet" href="./css/product.css">
 <link rel="stylesheet" href="./css/alatanapizza.css">
 
 <title>商品一覧</title>
@@ -14,41 +14,7 @@
 
 
 
-.itemListBox{
-	width:20%;
-	height:360px;
-	float:left;
-	margin-bottom:5%;
-	border:1px solid white;
-	margin-right:5%;
-	margin-left:5%;
-	margin:top:2px;
-	padding:15px;
-	border-radius:15px;
-	background-color:rgba(0,0,0,0.5);
 
-
-}
-
-.imageHover{
- width: 100%;
-  height: 200px;
-  overflow: hidden;
-  text-align:center;
-
-}
-
-.productInfo{
-margint-top:50px;
-margin-bottom:50px;
-padding-bottom:10px;
-}
-
-.center{
-	clear:both;
-	width:100%;
-	text-align:center;
-}
 
 </style>
 
@@ -67,7 +33,7 @@ $(function() {
 </script>
 
 
-</head>
+</head>」
 <body>
 
 <!-- ヘッダーをインクルード  -->

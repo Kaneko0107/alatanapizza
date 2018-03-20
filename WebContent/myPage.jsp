@@ -158,7 +158,7 @@ background-color: rgba(150, 150, 150, 0.5);
 						</div>
 			<!-- 退会 -->
 						<div class="btnn4">
-							<a href='<s:url action="ClearUserAction.java"/>'>退会処理へ</a>
+							<a href='<s:url action="ClearUserAction"/>'>退会処理へ</a>
 						</div>
 
 
@@ -172,8 +172,7 @@ background-color: rgba(150, 150, 150, 0.5);
 
 
 			</div>
-		</div>
-	</div>
+
 
 <jsp:include page="include_footer.jsp" />
 

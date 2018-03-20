@@ -16,6 +16,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.CartInfoDAO;
 import com.internousdev.alatanapizza.dao.DestinationDAO;
+import com.internousdev.alatanapizza.dao.DestinationDeleteDAO;
 import com.internousdev.alatanapizza.dto.CartInfoDTO;
 import com.internousdev.alatanapizza.dto.DestinationDTO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -27,6 +28,15 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 	private List<CartInfoDTO> cartList = new ArrayList<CartInfoDTO>(); // カート情報一覧
 	private ArrayList<DestinationDTO> destinationListDTO = new ArrayList<DestinationDTO>();
 	// ↑宛先情報一覧（ログイングループ）
+
+	private String message; // 削除メッセージ
+	private String deleteFlg; // 削除フラグ
+	public ArrayList<DestinationDTO> destinationList = new ArrayList<DestinationDTO>();
+	private DestinationDeleteDAO dao = new DestinationDeleteDAO();
+	private DestinationDAO destinationdao=new DestinationDAO();
+	String userId;
+	private int id; // 個別削除id取得 DAOメソッドの戻り値
+	private List<String> checkList;// checkBoxの値
 
 	public String execute() throws SQLException {
 		String result = ERROR;
@@ -54,12 +64,11 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 		// もしログインしていたら
 		// ↓指定したユーザーの宛先情報取得 obtaining==入手（高木さん担当アクション）
 		//↓"containsKey"はログインフラグの有無を確認しているだけで中身を取り出していないのでgetにする
-		// if (session.containsKey("loginFlg")) {
-
+		// if (session.containsKey("loginFlg"))
 		if((boolean)session.get("loginFlg")) {
 			DestinationDAO destinationInfoDAO = new DestinationDAO();
-			destinationListDTO.addAll(destinationInfoDAO
-					.obtainingDestinationInfo(session.get("userId").toString()));
+			destinationListDTO.addAll(destinationInfoDAO.obtainingDestinationInfo(session.get("userId").toString()));
+
 		}
 
 		// もしログインしてなければログインに飛ばす
@@ -87,8 +96,52 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 			return result;
 		}
 
+
+
+		if(deleteFlg.equals("1")) {
+			delete();
+			destinationListDTO = null;
+
+		}else if(deleteFlg.equals("2")) {
+			 deletePart();
+			 DestinationDAO destinationInfoDAO = new DestinationDAO();
+			 destinationListDTO.addAll(destinationInfoDAO.obtainingDestinationInfo(session.get("userId").toString()));
+		}
+
+
+
 		return result;
 	}
+
+	public void delete() throws SQLException {
+
+		String user_id = session.get("userId").toString();
+
+		int res = dao.deleteAllDestination(user_id);
+
+		if (res > 0) {
+			destinationList = null;
+			setMessage("注文履歴をすべて削除しました");
+		} else if (res == 0) {
+			setMessage("履歴の削除に失敗しました。");
+		}
+
+	}
+	//個別削除メソッド-----------------------------------------
+
+		public void deletePart() throws SQLException {
+			if (checkList == null) {
+				setMessage("削除できませんでした。");
+			}
+		int res=dao.deletePartDestination(checkList);
+
+		if(res>0){
+			setMessage(res + "件削除しました");
+		}else if (res == 0){
+			setMessage("削除できませんでした");
+		}
+		}
+
 
 	/**
 	 * // 宛先情報取得メソッド 上の文に書き換えてみた↑ こっちがもともとの文面 if ((boolean)
@@ -109,20 +162,7 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 	 *
 	 */
 
-	/**
-	 * @return session
-	 */
-	public Map<String, Object> getSession() {
-		return session;
-	}
 
-	/**
-	 * @param session
-	 *            セットする session
-	 */
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
-	}
 
 	/**
 	 * @return cartInfoDTOList
@@ -169,5 +209,50 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 	public void setProductCount(int productCount) {
 		this.productCount = productCount;
 	}
+
+	// deleteFlg
+		public String getDeleteFlg() {
+			return deleteFlg;
+		}
+
+		public void setDeleteFlg(String deleteFlg) {
+			this.deleteFlg = deleteFlg;
+		}
+
+		// jspからIDもってくる
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+		// 削除メッセージ
+		public String getMessage() {
+			return message;
+		}
+
+		public void setMessage(String message) {
+			this.message = message;
+		}
+
+		// session
+		public Map<String, Object> getSession() {
+			return session;
+		}
+
+		public void setSession(Map<String, Object> session) {
+			this.session = session;
+		}
+
+		// checkBoxの値
+		public List<String> getCheckList() {
+			return checkList;
+		}
+
+		public void setCheckList(List<String> checkList) {
+			this.checkList = checkList;
+		}
 
 }

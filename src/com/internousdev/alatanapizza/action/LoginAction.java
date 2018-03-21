@@ -148,42 +148,54 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 							tempProductIdList.add(tempCartList.get(i).getProductId());
 						}
 
-						//カートの中身の重複を確認
-						if(cartList.size()<tempCartList.size()){ //ログイン時のカートリスト < ゲスト用のカートリスト
-							i=0;
-							for(i=0;i<productIdList.size();i++){
-
-								boolean exist=tempProductIdList.contains(productIdList.get(i));
-								if(exist){
-									cartInfoDAO.changeProductStock(Integer.valueOf(cartList.get(i).getProductCount()),
-											Integer.valueOf(productIdList.get(i)),session.get("userId").toString());
-									//BuyItemCompleteActionにて合計金額の算出コードの記載あるのでこちらではいらない？
-									cartInfoDAO.deleteSeparate(session.get("tempUserId").toString(),
-											Integer.valueOf(productIdList.get(i)));
-								}else{
-									cartInfoDAO.changeUserId(session.get("tempUserId").toString(),
-											session.get("userId").toString());
-								}
-								//System.out.println("TEST1"+exist);
-							}
-
-						}else{ //ログインカートリスト < ゲスト用カートリスト　以外のケース
-							i=0;
-							for(i=0;i<tempProductIdList.size();i++){
-
-								boolean exist=productIdList.contains(tempProductIdList.get(i));
-								if(exist){
-									cartInfoDAO.changeProductStock(Integer.valueOf(cartList.get(i).getProductCount()),
-											Integer.valueOf(productIdList.get(i)),session.get("userId").toString());
-									cartInfoDAO.deleteSeparate(session.get("tempUserId").toString(),
-											Integer.valueOf(tempProductIdList.get(i)));
-								}else{
-									cartInfoDAO.changeUserId(session.get("tempUserId").toString(),
-											session.get("userId").toString());
-								}
-								//System.out.println("TEST2"+ exist);
+//						//カートの中身の重複を確認
+//						if(cartList.size()<tempCartList.size()){ //ログイン時のカートリスト < ゲスト用のカートリスト
+//							i=0;
+//							for(i=0;i<productIdList.size();i++){
+//
+//								boolean exist=tempProductIdList.contains(productIdList.get(i));
+//								if(exist){
+//									cartInfoDAO.changeProductStock(Integer.valueOf(cartList.get(i).getProductCount()),
+//											Integer.valueOf(productIdList.get(i)),session.get("userId").toString());
+//									//BuyItemCompleteActionにて合計金額の算出コードの記載あるのでこちらではいらない？
+//									cartInfoDAO.deleteSeparate(session.get("tempUserId").toString(),
+//											Integer.valueOf(productIdList.get(i)));
+//								}else{
+//									cartInfoDAO.changeUserId(session.get("tempUserId").toString(),
+//											session.get("userId").toString());
+//								}
+//								//System.out.println("TEST1"+exist);
+//							}
+//
+//						}else{ //ログインカートリスト < ゲスト用カートリスト　以外のケース
+//							i=0;
+//							for(i=0;i<tempProductIdList.size();i++){
+//
+//								boolean exist=productIdList.contains(tempProductIdList.get(i));
+//								if(exist){
+//									cartInfoDAO.changeProductStock(Integer.valueOf(cartList.get(i).getProductCount()),
+//											Integer.valueOf(productIdList.get(i)),session.get("userId").toString());
+//									cartInfoDAO.deleteSeparate(session.get("tempUserId").toString(),
+//											Integer.valueOf(tempProductIdList.get(i)));
+//								}else{
+//									cartInfoDAO.changeUserId(session.get("tempUserId").toString(),
+//											session.get("userId").toString());
+//								}
+//								//System.out.println("TEST2"+ exist);
+//							}
+//						}
+						String userId = session.get("userId").toString();
+						String tempUserId = session.get("tempUserId").toString();
+						for(i = 0; i < productIdList.size(); i++) {
+							int currentProductId = productIdList.get(i);
+							int j = tempProductIdList.indexOf(currentProductId);
+							if (j >= 0) {
+								int productCountInTempCart = tempCartList.get(j).getProductCount();
+								cartInfoDAO.changeProductStock(productCountInTempCart, currentProductId, userId);
+								cartInfoDAO.deleteSeparate(tempUserId, currentProductId);
 							}
 						}
+
 
 						//cartInfoDAO内のchangeUserIdメソッドを使用、SQLのUPDATE文にてtempUserIdに一致するtemp_user_idを
 						//持つユーザーのuser_idとtemp_user_idをuserIdで上書きしている

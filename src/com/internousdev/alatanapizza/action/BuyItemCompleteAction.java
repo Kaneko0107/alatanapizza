@@ -97,12 +97,12 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 		}
 
 
-
-		if(deleteFlg.equals("1")) {
+		//deleteFlgが初期化されていないことがあるので、nullではないという条件を追加
+		if(deleteFlg != null && deleteFlg.equals("1")) {
 			delete();
 			destinationListDTO = null;
 
-		}else if(deleteFlg.equals("2")) {
+		}else if(deleteFlg != null && deleteFlg.equals("2")) {
 			 deletePart();
 			 DestinationDAO destinationInfoDAO = new DestinationDAO();
 			 destinationListDTO.addAll(destinationInfoDAO.obtainingDestinationInfo(session.get("userId").toString()));

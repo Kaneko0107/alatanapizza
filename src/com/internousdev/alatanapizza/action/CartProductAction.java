@@ -46,7 +46,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 	public String topping_id_12;
 
 
-	public String execute() throws SQLException{
+	public String execute() throws SQLException {
 		ArrayList<Integer> toppings = new ArrayList<Integer>();
 
 		//"userId"を定義し、その中に"登録ユーザー"と"ゲストユーザー"を入れて処理する
@@ -98,7 +98,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 		}
 		total_price = calcTotalPrice(cartList);
 		return SUCCESS;
-		}
+	}
 
 	//合計金額計算
 	public int calcTotalPrice(ArrayList<CartInfoDTO>cartList){

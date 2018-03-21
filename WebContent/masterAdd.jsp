@@ -45,10 +45,11 @@ legend{
 		<h3>追加したい商品情報を入力してください。</h3>
 	</div>
 
+	<ul>
 	<s:iterator value="errorMessageList">
-		<span style="color:red"><s:property/></span>
+		<li><span style="color:red"><s:property/></span></li>
 	</s:iterator>
-
+	</ul>
 	<div class="main">
 			<table>
 				<s:form action="MasterAddConfirmAction"  method="post" enctype="multipart/form-data">

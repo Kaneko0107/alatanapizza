@@ -92,7 +92,7 @@ legend{
 							</s:form>
 
 							<div class="back">
-								<a href="MasterAdd.jsp">戻 る</a>
+								<a href="MasterAddAction.action">戻 る</a>
 							</div>
 
 

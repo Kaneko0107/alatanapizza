@@ -44,17 +44,17 @@
 
 			<!-- カテゴリーが2(ピザ)の場合の価格 -->
 				<s:if test="category_id==2">
-				<span>(M)</span>￥<s:property value="msize_price" />円 &nbsp<span>(L)</span>￥<s:property value="lsize_price" />円<br>
+				<span>(M)</span>￥<s:property value="msize_price" /> &nbsp<span>(L)</span>￥<s:property value="lsize_price" /><br>
 				</s:if>
 
 			<!-- カテゴリーが3(サイド)の場合の価格 -->
 				<s:if test="category_id==3">
-				￥<s:property value="price"/>円<br>
+				￥<s:property value="price"/><br>
 				</s:if>
 
 			<!-- カテゴリーが4(ドリンク)の場合の価格 -->
 				<s:if test="category_id==4">
-				￥<s:property value="price"/>円<br>
+				￥<s:property value="price"/><br>
 				</s:if>
 
 				<s:form action="MasterProductChangeAction">

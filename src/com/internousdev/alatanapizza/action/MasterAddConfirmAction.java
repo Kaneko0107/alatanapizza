@@ -45,13 +45,27 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 		if (itemName.length() != 0 && itemKanaName.length() !=0 && itemPrice.length() != 0 && itemStock.length() != 0 && imageName.length() != 0) {
 			if (dao.checkItemInfo(itemName,itemKanaName)) {
 				errorMessageList.add("すでに登録されています。");
-				return result;
 			}
+			if(itemName.length() > 20){
+				errorMessageList.add("商品名は20文字以下で入力してください");
+			}
+			if(itemKanaName.length() > 20){
+				errorMessageList.add("商品名(ひらがな)は30文字以下で入力してください");
+			}
+			if(!itemPrice.matches("^[1-9][0-9]*$")){ //itemPriceが数字でない時（あるいは0の時も）
+				errorMessageList.add("価格は正しく入力してください");
+			} else if(Integer.parseInt(itemPrice) > 10000) {
+				errorMessageList.add("価格は10000円以内にしてください");
+			}
+
 			session.put("itemKanaName", itemKanaName);
 			session.put("itemName", itemName);
 			session.put("itemPrice", itemPrice);
 			session.put("itemStock", itemStock);
 			session.put("imageName", imageName);
+			if (!errorMessageList.isEmpty()) {
+				return result;
+			}
 
 			result = SUCCESS;
 			return result;

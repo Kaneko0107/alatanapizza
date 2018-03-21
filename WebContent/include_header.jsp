@@ -61,8 +61,13 @@ a:hover{
 
 
 <div class="logo"><a href='<s:url action="HomeAction"/>'>ロゴ(ホームにいく)</a></div>
-
-
+	<s:if test="#session.masterFlg">
+		<span style="color: red;">管理者</span>
+	</s:if><s:elseif test="#session.loginFlg">
+		ようこそ! <s:property value="#session.firstName"/>さん
+	</s:elseif><s:else>
+		ようこそ! ゲストさん
+	</s:else>
 
 	<ul class="ul"><% if( userId == null){ %>
 		<li class="li"><a href='<s:url action="LoginAction"/>'>ログイン　<img src="./images/icon/kagi1.png" width="15" height="20"></a></li>

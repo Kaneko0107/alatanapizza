@@ -104,6 +104,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 				}else if(loginDTO.isMaster()){ //管理者ログイン判定
 
 					session.put("masterFlg", true);//管理者フラグをたてる
+					session.put("loginFlg", true);
 					//System.out.println("管理者フラグ=true");
 					//System.out.println("管理者ログイン");
 					result = "master";
@@ -118,6 +119,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 
 						//Mapセッション情報の更新をする
 						session.put("userId", loginDTO.getUserId()); //
+						session.put("firstName", loginDTO.getFirstName());
 						session.put("loginFlg", true); //ログインフラグ立て
 						//System.out.println("ログインフラグ=true");
 						session.put("masterFlg", false);//管理者フラグ立て

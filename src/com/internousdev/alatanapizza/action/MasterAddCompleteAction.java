@@ -42,6 +42,11 @@ public class MasterAddCompleteAction extends ActionSupport implements SessionAwa
 
 	public String execute() throws SQLException {
 		String result = ERROR;
+		//管理者フラグを確認する
+		if (!session.containsKey("masterFlg") || ((Boolean) session.get("masterFlg")) == false) {
+			return "other";
+		}
+
 		if (itemName == null || itemPrice == null || itemStock == null || itemKanaName==null || imageName == null) {
 			return "form";
 		}

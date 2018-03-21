@@ -40,6 +40,7 @@
 		<result name="form">masterAdd.jsp</result>
 		<result name="success">master.jsp</result>
 		<result name="error">master.jsp</result>
+		<result name="other">home.jsp</result>
 	</action>
 
 <!-- 中島担当 usercreate struts文 -->
@@ -168,10 +169,12 @@
 	<action name = "MasterAddConfirmAction" class ="com.internousdev.alatanapizza.action.MasterAddConfirmAction" method = "execute">
 		<result name = "success">masterAddConfirm.jsp</result>
 		<result name = "error">masterAdd.jsp</result>
+		<result name="other">home.jsp</result>
 	</action>
 
 	<action name = "MasterAddCompleteAction" class ="com.internousdev.alatanapizza.action.MasterAddCompleteAction" method = "execute">
 		<result name = "success">masterAddComplete.jsp</result>
+		<result name="other">home.jsp</result>
 	</action>
 
 	<action name="FavoriteAction" class="com.internousdev.alatanapizza.action.FavoriteAction" method="execute">

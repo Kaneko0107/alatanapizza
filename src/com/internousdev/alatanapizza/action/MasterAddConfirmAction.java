@@ -30,8 +30,12 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 
 	public String execute() throws SQLException{
-
 		String result = ERROR;
+		//管理者フラグを確認する
+		if (!session.containsKey("masterFlg") || ((Boolean) session.get("masterFlg")) == false) {
+			return "other";
+		}
+
 		if (itemName == null || itemPrice == null || itemStock == null || itemKanaName == null || imageName == null) {
 			errorMessageList.add("全ての項目を入力してください");
 			return result;

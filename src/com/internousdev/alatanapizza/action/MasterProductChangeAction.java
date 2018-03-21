@@ -38,9 +38,9 @@ public class MasterProductChangeAction extends ActionSupport implements SessionA
 		this.stock = stock;
 	}
 
-	//管理者フラグを確認する
 	public String execute() throws SQLException {
 		String result;
+		//管理者フラグを確認する
 		if (session.containsKey("masterFlg") && ((Boolean) session.get("masterFlg"))) {
 			result = "master";
 		} else {

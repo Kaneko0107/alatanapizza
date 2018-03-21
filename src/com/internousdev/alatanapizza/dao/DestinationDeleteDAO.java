@@ -44,21 +44,25 @@ public class DestinationDeleteDAO {
 		//(checkFlg.equals("2"))
 		String sql = "DELETE FROM destination_info where id = ?";
 
-		PreparedStatement ps =con.prepareStatement(sql);
-		int result1=0;
+
+		int result=0;
 
 		try{
+			PreparedStatement ps =con.prepareStatement(sql);
 			for(int i=0;i<checkList.size();i++){
 				String checkId =checkList.get(i);
 				ps.setString(1, checkId);
-				result1+=ps.executeUpdate();
+				result+=ps.executeUpdate();
 			}
+
+
+
 		}catch(SQLException e){
 			e.printStackTrace();
 		} finally {
 			con.close();
 		}
-		return result1;
+		return result;
 	}
 
 

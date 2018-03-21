@@ -21,26 +21,35 @@ public class DestinationDeleteAction extends ActionSupport implements SessionAwa
 	private String deleteFlg; // 削除フラグ
 	private DestinationDeleteDAO dao = new DestinationDeleteDAO();
 	private DestinationDAO destinationdao=new DestinationDAO();
+	private int id; // 個別削除id取得 DAOメソッドの戻り値
+	private List<String> checkList;// checkBoxの値
 	String userId;
 
 
-
-	// 1 = 全件削除
-	// 2 = 個別ボタン削除
-	private int id; // 個別削除id取得 DAOメソッドの戻り値
-	private List<String> checkList;// checkBoxの値
 
 	public String execute() throws SQLException{
 
 		userId =(String)session.get("userId");
 		String result=SUCCESS;
 
+
+//
+//		if (deleteFlg == null) {
+//			setMessage("チェックを入れてください");
+//			result=SUCCESS;
+//		}
+
+
 		if(deleteFlg.equals("1")) {
 			delete();
+			result = "DESTINATION";
+
 
 		}else if(deleteFlg.equals("2")) {
 			 deletePart();
 			 destinationList=destinationdao.obtainingDestinationInfo(userId);
+			 result=SUCCESS;
+
 		}
 return result;
 	}

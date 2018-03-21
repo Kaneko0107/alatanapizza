@@ -53,6 +53,7 @@ a:hover{
     color: #ff9900;
 }
 
+
 </style>
 
 <header>
@@ -61,13 +62,16 @@ a:hover{
 
 
 <div class="logo"><a href='<s:url action="HomeAction"/>'>ロゴ(ホームにいく)</a></div>
+
+	<span class="gest">
+	<br>
 	<s:if test="#session.masterFlg">
 		<span style="color: red;"><a href='<s:url action="MasterProductChangeAction" />'>管理者</a></span>
 	</s:if><s:elseif test="#session.loginFlg">
 		ようこそ! <s:property value="#session.firstName"/>さん
 	</s:elseif><s:else>
 		ようこそ! ゲストさん
-	</s:else>
+	</s:else></span>
 
 	<ul class="ul"><s:if test="#session.loginFlg">
 		<li class="li"><a href='<s:url action="LogoutAction"/>'>ログアウト　<img src="./images/icon/kagi2.png" width="15" height="20"></a></li><li>|</li>
@@ -81,7 +85,7 @@ a:hover{
 			<a href='<s:url action="CartProductAction"/>'>カート</a>
 		</s:if></li>
 		<li><s:else>
-			<a href='<s:url action="CartProductAction"/>'>カート<img src="./images/icon/kagi.png" width="20" height="20"></a></s:else></li>
+			<a href='<s:url action="CartProductAction"/>'>カート<img src="./images/icon/cart.png" width="20" height="20"></a></s:else></li>
 	</ul>
 
 	</div>

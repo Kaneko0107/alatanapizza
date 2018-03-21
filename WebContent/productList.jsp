@@ -33,7 +33,7 @@ $(function() {
 </script>
 
 
-</head>」
+</head>
 <body>
 
 <!-- ヘッダーをインクルード  -->
@@ -76,7 +76,7 @@ $(function() {
 
 
 								<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
-									<img class="image" src=./images/icon/gocart.png><br>
+									<img class="image" src=./images/icon/shousai.png><br>
 								</a>
 					</div>
 

@@ -27,7 +27,7 @@ public class MasterAddConfirmDAO {
 
 
 
-public ProductDTO checkItemInfo(String itemName,String itemKanaName) throws SQLException{
+public boolean checkItemInfo(String itemName,String itemKanaName) throws SQLException{
 
 	try{
 		PreparedStatement preparedStatement=connection.prepareStatement(sql);
@@ -37,21 +37,13 @@ public ProductDTO checkItemInfo(String itemName,String itemKanaName) throws SQLE
 
 
 		ResultSet resultSet=preparedStatement.executeQuery();
-			if(resultSet.next() && !(resultSet.getString("product_name").equals(itemName))) {
-				dto.setItemName(itemName);
-				dto.setItemKanaName(itemKanaName);
-
-			}
-
+		return resultSet.next();
 	}catch(Exception e){
 		throw new RuntimeException(e);
 	}finally{
 		connection.close();
 	}
-
-	return dto;
 }
-
 
 
 }

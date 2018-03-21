@@ -43,7 +43,10 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 		//文字列が空白でなければsuccessを返す。何か空白が入っている場合は、errorを返す。
 
 		if (itemName.length() != 0 && itemKanaName.length() !=0 && itemPrice.length() != 0 && itemStock.length() != 0 && imageName.length() != 0) {
-			dto = dao.checkItemInfo(itemName,itemKanaName);
+			if (dao.checkItemInfo(itemName,itemKanaName)) {
+				errorMessageList.add("すでに登録されています。");
+				return result;
+			}
 			session.put("itemKanaName", itemKanaName);
 			session.put("itemName", itemName);
 			session.put("itemPrice", itemPrice);

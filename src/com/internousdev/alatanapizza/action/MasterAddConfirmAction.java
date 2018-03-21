@@ -52,7 +52,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 			if(itemKanaName.length() > 20){
 				errorMessageList.add("商品名(ひらがな)は30文字以下で入力してください");
 			}
-			if(!itemPrice.matches("^[1-9][0-9]*$")){ //itemPriceが数字でない時（あるいは0の時も）
+			if(!itemPrice.matches("^[1-9][0-9]{0,5}$")){ //itemPriceが数字でない時（あるいは0の時も）
 				errorMessageList.add("価格は正しく入力してください");
 			} else if(Integer.parseInt(itemPrice) > 10000) {
 				errorMessageList.add("価格は10000円以内にしてください");

@@ -16,8 +16,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class CartDeleteAction extends ActionSupport implements SessionAware {
 
 
-		//商品ID
-		private int productId;
+		//カートID
+		private int id;
 
 		//セッション情報
 		private Map<String, Object> session;
@@ -48,12 +48,14 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 		//削除する
 		cartList = dao.showUserCartList(userId);
 		int deletedProductCount = 0;
+		Integer productId = null;
 		for (CartInfoDTO dto: cartList) {
-			if (dto.getProductId() == productId) {
+			if (dto.getId() == id) {
+				productId = dto.getProductId();
 				deletedProductCount += dto.getProductCount();
 			}
 		}
-		dao.deleteSeparate(userId, productId);
+		dao.deleteSeparate(id);
 		// 在庫を増やす為に、符号を反転させる
 		dao.changeStockCount(-deletedProductCount, productId);
 
@@ -82,11 +84,11 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 	}
 
 	//商品ID
-	public String getProductId() {
-		return Integer.valueOf(productId).toString();
+	public String getId() {
+		return Integer.valueOf(id).toString();
 	}
-	public void setProductId(String productId) {
-		this.productId = Integer.parseInt(productId);
+	public void setId(String id) {
+		this.id = Integer.parseInt(id);
 	}
 
 	//カート情報

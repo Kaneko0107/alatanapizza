@@ -12,12 +12,14 @@ public class CartInfoDTO {
 	private String imageFilePath;
 	private String releaseCompany;
 	private String releaseDate;
+	private String pizzaSize;
 	private int productId;
 	private int productCount;
 	private int price;
 	private Date registDate;
 	private Date updateDate;
-	private ArrayList<String> toppings;
+	private ArrayList<String> toppings; // トッピングの名前
+	private ArrayList<Integer> toppingIds; // トッピングのID
 
 	private String productDescription;
 	private String productNameKana;
@@ -130,6 +132,22 @@ public class CartInfoDTO {
 
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
+	}
+
+	public String getPizzaSize() {
+		return pizzaSize;
+	}
+
+	public void setPizzaSize(String pizzaSize) {
+		this.pizzaSize = pizzaSize;
+	}
+
+	public ArrayList<Integer> getToppingIds() {
+		return toppingIds;
+	}
+
+	public void setToppingIds(ArrayList<Integer> toppingIds) {
+		this.toppingIds = toppingIds;
 	}
 
 

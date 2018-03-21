@@ -71,12 +71,12 @@
 			<div class="count">
 			（購入数：<s:property value="productCount" />点）
 			</div>
-
+			<s:property value="pizzaSize"/>
 			<!-- 削除ボタン -->
 			<div class="deletebutton">
 			<s:form action="CartDeleteAction">
 				<a href='<s:url action="CartDeleteAction">
-				<s:param name="productId" value="productId"></s:param></s:url>'>削除</a>
+				<s:param name="id" value="id"></s:param></s:url>'>削除</a>
 				</s:form>
 			</div>
 			</div>

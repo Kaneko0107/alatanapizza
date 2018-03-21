@@ -128,8 +128,8 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 						CartInfoDAO cartInfoDAO=new CartInfoDAO(); //newカートリスト
 						DestinationDAO destinationDAO=new DestinationDAO(); //new宛先
 						ArrayList<CartInfoDTO> tempCartList=new ArrayList<CartInfoDTO>(); //ゲスト用カートリスト
-						ArrayList<Integer> productIdList=new ArrayList<Integer>(); //整数型　製品リスト
-						ArrayList<Integer> tempProductIdList=new ArrayList<Integer>(); //整数型　ゲスト用製品リスト
+						//ArrayList<Integer> productIdList=new ArrayList<Integer>(); //整数型　製品リスト
+						//ArrayList<Integer> tempProductIdList=new ArrayList<Integer>(); //整数型　ゲスト用製品リスト
 
 						//Mapのsessionから取得するのでString型として取得したuserIdのカート情報をすべて引き出すメソッドを代入
 						cartList=cartInfoDAO.showUserCartList(session.get("userId").toString());
@@ -137,16 +137,16 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 						tempCartList=cartInfoDAO.showUserCartList(session.get("tempUserId").toString());
 
 						//ログイン後のカートの中身を生成
-						int i=0;
-						for(i=0;i<cartList.size();i++){
-							productIdList.add(cartList.get(i).getProductId());
-						}
+						//int i=0;
+						//for(i=0;i<cartList.size();i++){
+						//	productIdList.add(cartList.get(i).getProductId());
+						//}
 
 						//ゲスト時のカートの中身をリストとして生成
-						i=0;
-						for(i=0;i<tempCartList.size();i++){
-							tempProductIdList.add(tempCartList.get(i).getProductId());
-						}
+						//i=0;
+						//for(i=0;i<tempCartList.size();i++){
+						//	tempProductIdList.add(tempCartList.get(i).getProductId());
+						//}
 
 //						//カートの中身の重複を確認
 //						if(cartList.size()<tempCartList.size()){ //ログイン時のカートリスト < ゲスト用のカートリスト
@@ -184,15 +184,18 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 //								//System.out.println("TEST2"+ exist);
 //							}
 //						}
-						String userId = session.get("userId").toString();
 						String tempUserId = session.get("tempUserId").toString();
-						for(i = 0; i < productIdList.size(); i++) {
-							int currentProductId = productIdList.get(i);
-							int j = tempProductIdList.indexOf(currentProductId);
-							if (j >= 0) {
-								int productCountInTempCart = tempCartList.get(j).getProductCount();
-								cartInfoDAO.changeProductStock(productCountInTempCart, currentProductId, userId);
-								cartInfoDAO.deleteSeparate(tempUserId, currentProductId);
+						for(int i = 0; i < cartList.size(); i++) {
+							CartInfoDTO cart = cartList.get(i);
+							Integer tempCartId = cartInfoDAO.isAlreadyIntoCart(tempUserId, cart.getProductId(), cart.getPizzaSize(), cart.getToppingIds());
+							if (tempCartId != null) {
+								for (int j = 0; j < tempCartList.size(); j++) {
+									CartInfoDTO tempCart = tempCartList.get(j);
+									if (tempCart.getId() == tempCartId) {
+										cartInfoDAO.changeProductStock(tempCart.getProductCount(), cart.getId());
+										cartInfoDAO.deleteSeparate(tempCart.getId());
+									}
+								}
 							}
 						}
 

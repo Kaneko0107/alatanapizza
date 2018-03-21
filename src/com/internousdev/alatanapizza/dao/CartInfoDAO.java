@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import com.internousdev.alatanapizza.dto.CartInfoDTO;
 import com.internousdev.alatanapizza.util.DBConnector;
@@ -15,10 +16,10 @@ public class CartInfoDAO extends ActionSupport{
 	DBConnector db = new DBConnector();
 	Connection con = null;
 
-	//ログインユーザーの商品をカートに入れる
-	public int putProductIntoCart(String userId, int productId, int productCount, int price, ArrayList<Integer> toppings) throws SQLException {
+	//ユーザーの商品をカートに入れる
+	public int putProductIntoCart(String userId, int productId, int productCount, int price, String pizzaSize, ArrayList<Integer> toppings) throws SQLException {
 		int count = 0;
-		String sql = "INSERT INTO cart_info(id, user_id,temp_user_id,product_id,product_count,price,regist_date)" + "VALUES(?, ?,?,?,?,?,NOW())";
+		String sql = "INSERT INTO cart_info(id, user_id,temp_user_id,product_id,product_count,price,pizza_size,regist_date)" + "VALUES(?, ?,?,?,?,?,?,NOW())";
 		int cartId = (int)(Math.random() * 1000000);
 
 		try{
@@ -30,6 +31,8 @@ public class CartInfoDAO extends ActionSupport{
 			ps.setInt(4, productId);
 			ps.setInt(5, productCount);
 			ps.setInt(6, price);
+			ps.setString(7, pizzaSize);
+
 			count = ps.executeUpdate();
 			System.out.println("cart idは" + cartId);
 			for (Integer topping: toppings) {
@@ -49,32 +52,11 @@ public class CartInfoDAO extends ActionSupport{
 		return count;
 	}
 
-	//ゲストユーザーの商品をカートに入れる（temp_user_id）
-	public int putProductIntoCartOfGuestUser(String tempUserId,int productId,int productCount,int price)throws SQLException{
-		int count = 0;
-		String sql = "INSERT INTO cart_info(user_id,temp_user_id,product_id,product_count,price,regist_date)" + "VALUES(?,?,?,?,?,NOW())";
-		try{
-			con = db.getConnection();
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, tempUserId);
-			ps.setString(2, tempUserId);
-			ps.setInt(3,productId);
-			ps.setInt(4, productCount);
-			ps.setInt(5, price);
-			count = ps.executeUpdate();
-		}catch(SQLException e){
-			throw new RuntimeException(e);
-		}finally{
-			con.close();
-		}
-		return count;
-	}
-
-	//ログインユーザーのカート情報を全表示させる
+	//ユーザーのカート情報を全表示させる
 	public ArrayList<CartInfoDTO>showUserCartList(String userId)throws SQLException{
 		ArrayList<CartInfoDTO>cartList = new ArrayList<>();
 
-		String sql = "SELECT cart_info.id, cart_info.product_id, pi.product_name, pi.product_name_kana, pi.image_file_path, cart_info.price,pi.product_description, pi.release_company, pi.release_date, product_count"
+		String sql = "SELECT cart_info.id, cart_info.product_id, cart_info.pizza_size, pi.product_name, pi.product_name_kana, pi.image_file_path, cart_info.price,pi.product_description, pi.release_company, pi.release_date, product_count"
 				+ " FROM cart_info LEFT JOIN product_info as pi ON cart_info.product_id = pi.product_id"
 				+ " WHERE user_id = ?";
 
@@ -86,6 +68,8 @@ public class CartInfoDAO extends ActionSupport{
 
 			while(rs.next()){
 				CartInfoDTO dto = new CartInfoDTO();
+				int cartId = rs.getInt("cart_info.id");
+				dto.setId(cartId);
 				dto.setProductName(rs.getString("pi.product_name"));
 				dto.setProductNameKana(rs.getString("pi.product_name_kana"));
 				dto.setImageFilePath(rs.getString("pi.image_file_path"));
@@ -95,9 +79,11 @@ public class CartInfoDAO extends ActionSupport{
 				dto.setReleaseCompany(rs.getString("pi.release_company"));
 				dto.setReleaseDate(rs.getString("pi.release_date"));
 				dto.setProductDescription(rs.getString("pi.product_description"));
+				dto.setPizzaSize(rs.getString("cart_info.pizza_size"));
+
 				ArrayList<String> toppings = new ArrayList<String>();
-				int cartId = rs.getInt("cart_info.id");
-				String toppingSql = "SELECT m_topping.topping_name FROM cart_topping_info " +
+				ArrayList<Integer> toppingIds = new ArrayList<Integer>();
+				String toppingSql = "SELECT m_topping.topping_id, m_topping.topping_name FROM cart_topping_info " +
 				                     "LEFT JOIN m_topping " +
 						             "ON cart_topping_info.topping_id = m_topping.id WHERE cart_topping_info.cart_id = ?";
 				PreparedStatement toppingPs = con.prepareStatement(toppingSql);
@@ -105,38 +91,10 @@ public class CartInfoDAO extends ActionSupport{
 				ResultSet toppingRs = toppingPs.executeQuery();
 				while (toppingRs.next()) {
 					toppings.add(toppingRs.getString("m_topping.topping_name"));
+					toppingIds.add(toppingRs.getInt("m_topping.topping_id"));
 				}
 				dto.setToppings(toppings);
-				cartList.add(dto);
-			}
-		}catch(SQLException e){
-			throw new RuntimeException(e);
-		}finally{
-			con.close();
-		}
-		return cartList;
-	}
-
-
-	//ゲストユーザーのカート情報を全表示させる
-	public ArrayList<CartInfoDTO>showTempUserCartList(String tempUserId)throws SQLException{
-		ArrayList<CartInfoDTO>cartList = new ArrayList<>();
-
-		String sql = "SELECT cart_info.product_id, cart_info.product_count, pi.product_name, pi.product_name_kana, pi.image_file_name, pi.price, pi.release_company, pi.release_date"
-				+ " FROM cart_info LEFT JOIN product_info as pi ON cart_info.product_id = pi.product_id"
-				+ " WHERE temp_user_id = ?";
-
-		try{
-			con = db.getConnection();
-			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
-			ps.setString(1, tempUserId);
-			ResultSet rs = ps.executeQuery();
-
-			while(rs.next()){
-				CartInfoDTO dto = new CartInfoDTO();
-				dto.setProductId(rs.getInt("product_id"));
-				dto.setProductCount(rs.getInt("product_count"));
-				dto.setPrice(rs.getInt("price"));
+				dto.setToppingIds(toppingIds);
 				cartList.add(dto);
 			}
 		}catch(SQLException e){
@@ -175,55 +133,44 @@ public class CartInfoDAO extends ActionSupport{
 		return cartList;
 	}
 
-	//ログイン時、カートに商品が入っているかどうか確認
-	public boolean isAlreadyIntoCart(String userId,int productId)throws SQLException{
-		boolean result = false;
-		String sql = "SELECT * FROM cart_info WHERE user_id = ? AND product_id = ?";
+	//カートに商品が入っているかどうか確認
+	public Integer isAlreadyIntoCart(String userId,int productId, String pizzaSize, ArrayList<Integer> toppings)throws SQLException{
+		String sql = "SELECT * FROM cart_info WHERE user_id = ? AND product_id = ? AND pizza_size = ?";
 
 		try{
 			con = db.getConnection();
 			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
 			ps.setString(1, userId);
 			ps.setInt(2, productId);
+			ps.setString(3, pizzaSize);
 
 			ResultSet rs = ps.executeQuery();
 
 			if(rs.next()){
-				result = true;
+				int cartId = rs.getInt("id");
+				String toppingSql = "SELECT topping_id FROM cart_topping_info  WHERE cart_topping_info.cart_id = ?";
+				PreparedStatement toppingPs = con.prepareStatement(toppingSql);
+				toppingPs.setInt(1, cartId);
+				ResultSet toppingRs = toppingPs.executeQuery();
+				ArrayList<Integer> cartToppings = new ArrayList<Integer>();
+				while (toppingRs.next()) {
+					cartToppings.add(toppingRs.getInt("topping_id"));
+				}
+				Collections.sort(toppings);
+				Collections.sort(cartToppings);
+				if (toppings.equals(cartToppings)) {
+					return new Integer(cartId);
+				}
 			}
 		}catch(SQLException e){
 			throw new RuntimeException(e);
 		}finally{
 			con.close();
 		}
-		return result;
+		return null;
 	}
 
-	//ゲストユーザー時、カートに商品が入っているかどうか確認
-	public boolean isAlreadyIntoTempCart(String tempUserId, int productId)throws SQLException{
-		boolean result = false;
-		String sql = "SELECT * FROM cart_info WHERE temp_user_id = ? AND product_id = ?";
-
-		try{
-			con = db.getConnection();
-			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
-			ps.setString(1, tempUserId);
-			ps.setInt(2, productId);
-
-			ResultSet rs = ps.executeQuery();
-
-			if(rs.next()){
-				result = true;
-			}
-		}catch(SQLException e){
-			throw new RuntimeException(e);
-		}finally{
-			con.close();
-		}
-		return result;
-	}
-
-	//ゲストユーザーのカート内商品の購入予定個数を変更
+	//ユーザーのカート内商品の購入予定個数を変更
 	public int UpdateProductCount(int productCount,String tempUserId)throws SQLException{
 		int count = 0;
 		String sql = "UPDATE cart_info SET count = ? WHERE temp_user_id = ?";
@@ -243,17 +190,16 @@ public class CartInfoDAO extends ActionSupport{
 		return count;
 	}
 
-	public int changeProductStock(int productCount, int productId,String userId)throws SQLException{
+	public int changeProductStock(int productCount, Integer cartId)throws SQLException{
 		int count = 0;
-		String sql = "UPDATE cart_info SET price = (product_count + ?) * (price / product_count), product_count = product_count + ? WHERE user_id = ? AND product_id = ?";
+		String sql = "UPDATE cart_info SET price = (product_count + ?) * (price / product_count), product_count = product_count + ? WHERE id = ?";
 
 		try{
 			con = db.getConnection();
 			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
 			ps.setInt(1, productCount);
 			ps.setInt(2, productCount);
-			ps.setString(3, userId);
-			ps.setInt(4, productId);
+			ps.setInt(3, cartId);
 			count = ps.executeUpdate();
 		}catch(SQLException e){
 			throw new RuntimeException(e);
@@ -301,14 +247,13 @@ public class CartInfoDAO extends ActionSupport{
 	}
 
 	//カート内の商品を1件ずつ削除
-	public void deleteSeparate(String userId,Integer productId){
-		String sql = "DELETE FROM cart_info WHERE user_id = ? AND product_id=?";
+	public void deleteSeparate(Integer cartId){
+		String sql = "DELETE FROM cart_info WHERE id=?";
 
 		try{
 			con = db.getConnection();
 			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
-			ps.setString(1, userId);
-			ps.setLong(2, productId);
+			ps.setInt(1, cartId);
 			ps.executeUpdate();
 
 		}catch(SQLException e){

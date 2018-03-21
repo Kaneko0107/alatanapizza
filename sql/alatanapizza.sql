@@ -80,6 +80,7 @@ temp_user_id varchar(128),-- 仮ユーザーID
 product_id int NOT NULL ,-- 商品ID
 product_count int NOT NULL,-- 個数
 price int NOT NULL,-- 金額
+pizza_size varchar(10), -- ピザの時だけNULLでない。ピザの時はMまたはL
 regist_date datetime NOT NULL,-- 登録日
 update_date datetime,-- 更新日
 /*FOREIGN KEY(user_id) REFERENCES user_info(user_id) ON UPDATE CASCADE,*/

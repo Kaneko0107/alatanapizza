@@ -7,13 +7,16 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.CartInfoDAO;
+import com.internousdev.alatanapizza.dao.ProductDetailsDAO;
 import com.internousdev.alatanapizza.dto.CartInfoDTO;
+import com.internousdev.alatanapizza.dto.ProductDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CartProductAction extends ActionSupport implements SessionAware{
 
 	//商品ID_商品購入ページから持ってくる
 	private int productId;
+	private int product; // ピザを追加した時のサイズ別の値段
 
 	//セッション情報
 	private Map<String,Object>session;
@@ -44,6 +47,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 	public String topping_id_10;
 	public String topping_id_11;
 	public String topping_id_12;
+	private ProductDetailsDAO productDetailsDAO = new ProductDetailsDAO();
 
 
 	public String execute() throws SQLException {
@@ -82,11 +86,22 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 
 
 
+		ProductDTO detail = productDetailsDAO.getProductDetailsInfo(Integer.valueOf(productId).toString());
+		String pizzaSize = null;
+		if (product != 0) {
+			if (detail.getMsize_price() == product) {
+				pizzaSize = "M";
+			} else if (detail.getLsize_price() == product) {
+				pizzaSize = "L";
+			}
+		}
+
 		//カートが重複しているか確認する
-		if(dao.isAlreadyIntoCart(userId, productId)){
-			count = dao.changeProductStock(productCount,productId,userId);
+		Integer cartId = dao.isAlreadyIntoCart(userId, productId, pizzaSize, toppings);
+		if(cartId != null){
+			count = dao.changeProductStock(productCount,cartId);
 		}else{
-			count = dao.putProductIntoCart(userId,productId,productCount,total_price, toppings);
+			count = dao.putProductIntoCart(userId,productId,productCount,total_price, pizzaSize, toppings);
 		}
 		dao.changeStockCount(productCount, productId);
 		cartList = dao.showUserCartList(userId);
@@ -156,5 +171,13 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 	}
 	public void setCount(int count){
 		this.count = count;
+	}
+
+	public int getProduct() {
+		return product;
+	}
+
+	public void setProduct(int product) {
+		this.product = product;
 	}
 }

@@ -62,7 +62,7 @@ a:hover{
 
 <div class="logo"><a href='<s:url action="HomeAction"/>'>ロゴ(ホームにいく)</a></div>
 	<s:if test="#session.masterFlg">
-		<span style="color: red;">管理者</span>
+		<span style="color: red;"><a href='<s:url action="MasterProductChangeAction" />'>管理者</a></span>
 	</s:if><s:elseif test="#session.loginFlg">
 		ようこそ! <s:property value="#session.firstName"/>さん
 	</s:elseif><s:else>

@@ -183,7 +183,7 @@
 				<span id="total_price_text"></span>&nbsp;
 					<s:hidden name="productId" value="%{session.d_product_id}" ></s:hidden>
 					<s:hidden name="gocart" value="1" />
-					<input type="image" src=./images/icon/gocart2.png alt="カートに入れる">
+					<input type="image" src=./images/icon/gocart.png alt="カートに入れる">
 
 		</s:if>
 		<s:if test="stockList.size() == 0">

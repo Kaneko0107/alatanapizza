@@ -242,7 +242,8 @@ public class CartInfoDAO extends ActionSupport{
 		}
 		return count;
 	}
-	public int UpdateProductCount(String userId, int productId, int productCount)throws SQLException{
+
+	public int changeProductStock(int productCount, int productId,String userId)throws SQLException{
 		int count = 0;
 		String sql = "UPDATE cart_info SET price = (product_count + ?) * (price / product_count), product_count = product_count + ? WHERE user_id = ? AND product_id = ?";
 
@@ -263,7 +264,7 @@ public class CartInfoDAO extends ActionSupport{
 	}
 	//ログインをした際にカート内のユーザー情報を引き継ぐ←メソッド
 	public void changeUserId(String tempUserId,String userId)throws SQLException{
-		String sql = "UPDATE cart_info SET user_id = ?,temp_user_id = ? where temp_user_id = ?";
+		String sql = "UPDATE cart_info SET user_id = ?, temp_user_id = ? where temp_user_id = ?";
 
 		try{
 			con = db.getConnection();
@@ -299,22 +300,6 @@ public class CartInfoDAO extends ActionSupport{
 		}
 	}
 
-	// カート更新(同じ商品をカートに入れた時、購入個数を変更する）
-	public void changeProductStock(int productStock, int productId,String userId)throws SQLException{
-		String sql = "UPDATE cart_info SET product_count=product_count+? WHERE product_id=? AND user_id=?";
-
-		try{
-			con = db.getConnection();
-			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
-			ps.setInt(1, productStock);
-			ps.setInt(2, productId);
-			ps.setString(3, userId);
-
-			ps.executeUpdate();
-		}catch(SQLException e){
-			throw new RuntimeException(e);
-		}
-	}
 	//カート内の商品を1件ずつ削除
 	public void deleteSeparate(String userId,Integer productId){
 		String sql = "DELETE FROM cart_info WHERE user_id = ? AND product_id=?";

@@ -7,7 +7,6 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.CartInfoDAO;
-import com.internousdev.alatanapizza.dao.ProductDetailsDAO;
 import com.internousdev.alatanapizza.dto.CartInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -47,7 +46,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 	public String topping_id_12;
 
 
-	public String execute()throws SQLException{
+	public String execute() throws SQLException{
 		ArrayList<Integer> toppings = new ArrayList<Integer>();
 
 		//"userId"を定義し、その中に"登録ユーザー"と"ゲストユーザー"を入れて処理する
@@ -61,7 +60,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 			userId =(String)session.get("tempUserId");
 		}
 
-		System.out.println("トッピングは" + topping_id_1 + " " + topping_id_2 + " " + topping_id_3);
+		// ブラウザのリロード時はカートを取得してすぐにsuccessにする。
 		if (productId == 0 || productCount == 0) {
 			cartList = dao.showUserCartList(userId);
 			total_price = calcTotalPrice(cartList);
@@ -85,7 +84,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 
 		//カートが重複しているか確認する
 		if(dao.isAlreadyIntoCart(userId, productId)){
-			count = dao.UpdateProductCount(userId,productId,productCount);
+			count = dao.changeProductStock(productCount,productId,userId);
 		}else{
 			count = dao.putProductIntoCart(userId,productId,productCount,total_price, toppings);
 		}

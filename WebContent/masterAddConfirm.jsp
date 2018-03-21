@@ -12,10 +12,14 @@
 </head>
 <style type="text/css">
 table{
-	width:30%;
+	width:80%;
 	margin:0 auto;
 	text-align: left;
 }
+td{
+	width:20%;
+}
+
 fieldset{
 	width: 50%;
 	background: rgba(0, 0, 0, 0.5);
@@ -55,7 +59,7 @@ legend{
 					</tr>
 					<tr>
 						<td>
-							<label>商品名(ひらがな):</label>
+							<label>商品名(ふりがな):</label>
 						</td>
 						<td>
 							<s:property value="itemKanaName"/>
@@ -66,7 +70,7 @@ legend{
 							<label>価格:</label>
 						</td>
 						<td>
-							<s:property value="itemPrice"/>
+							¥ <s:property value="itemPrice"/>
 						</td>
 					</tr>
 					<tr>
@@ -74,7 +78,15 @@ legend{
 							<label>個数:</label>
 						</td>
 						<td>
-							<s:property value="itemStock"/>
+							<s:property value="itemStock"/>個
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>画像:</label>
+						</td>
+						<td>
+							<img class="image" src="<s:property value='imagePath'/>"width="200" height="170">
 						</td>
 					</tr>
 

@@ -25,7 +25,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	private String itemStock;
 	private String imageName;
 	private String imageContentType;
-	private String imageFileName;
+	private String imagePath;
 	private ArrayList<String> errorMessageList=new ArrayList<>();
 
 
@@ -57,7 +57,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 			} else if(Integer.parseInt(itemPrice) > 10000) {
 				errorMessageList.add("価格は10000円以内にしてください");
 			}
-
+			imagePath = "./images/side/" + imageName + ".jpg";
 			session.put("itemKanaName", itemKanaName);
 			session.put("itemName", itemName);
 			session.put("itemPrice", itemPrice);
@@ -116,6 +116,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	public String getImageName() {
 		return imageName;
 	}
+
 	//---------------------------------------------------
 	public String getImageContentType() {
 		return imageContentType;
@@ -123,19 +124,23 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	public void setImageContentType(String imageContentType) {
 		this.imageContentType = imageContentType;
 	}
-	//---------------------------------------------------
-	public String getImageFileName() {
-		return imageFileName;
-	}
-	public void setImageFileName(String imageFileName) {
-		this.imageFileName = imageFileName;
-	}
+
 	//---------------------------------------------------
 	public ArrayList<String> getErrorMessageList() {
 		return errorMessageList;
 	}
 	public void setErrorMessageList(ArrayList<String> errorMessageList) {
 		this.errorMessageList = errorMessageList;
+	}
+
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+
+	public void setImageFilePath(String imageFilePath) {
+		this.imagePath = imageFilePath;
 	}
 
 }

@@ -32,9 +32,6 @@ public class ProductDTO {
     private String itemPrice; //商品価格
     private String itemStock; //商品在庫
 
-
-
-
     public String getCategoryName() {
        return category_name;
     }

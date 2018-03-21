@@ -102,7 +102,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 					errorMessageList.add("IDが正しくありません");
 					result=ERROR;
 				}else if(loginDTO.isMaster()){ //管理者ログイン判定
-
+					session.put("userId", loginDTO.getUserId()); //
 					session.put("masterFlg", true);//管理者フラグをたてる
 					session.put("loginFlg", true);
 					//System.out.println("管理者フラグ=true");

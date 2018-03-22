@@ -138,7 +138,7 @@ tr td .memo{text-align:center;
 				<input type=hidden name="email" value='<s:property value="email"/>' /></td></tr>
 
 <!-- 送信画像アイコン -->
-				<tr><td><div class="imagehover"><s:submit class="image" type="image" value="" src="./images/icon/登録する.png"/></div></td></tr>
+				<tr><td><div class="imagehover"><s:submit class="image" type="image" value="" src="./images/icon/touroku.png"/></div></td></tr>
 			</s:form>
 
 <!--  白い点線 -->

@@ -17,8 +17,10 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.alatanapizza.dao.CartInfoDAO;
 import com.internousdev.alatanapizza.dao.DestinationDAO;
 import com.internousdev.alatanapizza.dao.DestinationDeleteDAO;
+import com.internousdev.alatanapizza.dao.ProductInfoCategoryDAO;
 import com.internousdev.alatanapizza.dto.CartInfoDTO;
 import com.internousdev.alatanapizza.dto.DestinationDTO;
+import com.internousdev.alatanapizza.dto.ProductDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemCompleteAction extends ActionSupport implements SessionAware {
@@ -36,8 +38,11 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 	private DestinationDAO destinationdao=new DestinationDAO();
 	String userId;
 	private int id; // 個別削除id取得 DAOメソッドの戻り値
+	private int category_id;
 	private List<String> checkList;// checkBoxの値
-
+	public List<ProductDTO> notSameCategoryList = new ArrayList<ProductDTO>();
+	public ProductDTO dto = new ProductDTO();
+	public ProductInfoCategoryDAO categorydao = new ProductInfoCategoryDAO();
 	public String execute() throws SQLException {
 		String result = ERROR;
 		System.out.println("-----------BuyItemCompleteAction--------------");
@@ -100,54 +105,85 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 		// 宛先情報が入っていなければ、
 		else {
 			result = "DESTINATION"; // ■宛先新規登録画面へ（destinationinfo.jsp)
-			return result;
+
 		}
 
 
-		//deleteFlgが初期化されていないことがあるので、nullではないという条件を追加
-		if(deleteFlg != null && deleteFlg.equals("1")) {
-			delete();
-			destinationListDTO = null;
 
-		}else if(deleteFlg != null && deleteFlg.equals("2")) {
-			 deletePart();
-			 DestinationDAO destinationInfoDAO = new DestinationDAO();
-			 destinationListDTO.addAll(destinationInfoDAO.obtainingDestinationInfo(session.get("userId").toString()));
+
+
+
+		try {
+			notSameCategoryList = categorydao.notSameCategoryList(category_id);
+			if (notSameCategoryList != null) {
+				session.put("notSameCategoryList", notSameCategoryList);
+				session.put("a_product_name", dto.getProduct_name());
+				session.put("product_name_kana", dto.getProduct_name_kana());
+				session.put("image_file_name", dto.getImage_file_name());
+				session.put("image_file_path", dto.getImage_file_path());
+				session.put("category_id", dto.getCategory_id());
+
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
+
 
 
 
 		return result;
 	}
 
-	public void delete() throws SQLException {
 
-		String user_id = session.get("userId").toString();
 
-		int res = dao.deleteAllDestination(user_id);
 
-		if (res > 0) {
-			destinationList = null;
-			setMessage("注文履歴をすべて削除しました");
-		} else if (res == 0) {
-			setMessage("履歴の削除に失敗しました。");
-		}
 
-	}
-	//個別削除メソッド-----------------------------------------
+//		//deleteFlgが初期化されていないことがあるので、nullではないという条件を追加
+//		if(deleteFlg != null && deleteFlg.equals("1")) {
+//			delete();
+//			destinationListDTO = null;
+//
+//		}else if(deleteFlg != null && deleteFlg.equals("2")) {
+//			 deletePart();
+//			 DestinationDAO destinationInfoDAO = new DestinationDAO();
+//			 destinationListDTO.addAll(destinationInfoDAO.obtainingDestinationInfo(session.get("userId").toString()));
+//		}
+//
+//
+//
+//		return result;
+//	}
 
-		public void deletePart() throws SQLException {
-			if (checkList == null) {
-				setMessage("削除できませんでした。");
-			}
-		int res=dao.deletePartDestination(checkList);
-
-		if(res>0){
-			setMessage(res + "件削除しました");
-		}else if (res == 0){
-			setMessage("削除できませんでした");
-		}
-		}
+//	public void delete() throws SQLException {
+//
+//		String user_id = session.get("userId").toString();
+//
+//		int res = dao.deleteAllDestination(user_id);
+//
+//		if (res > 0) {
+//			destinationList = null;
+//			setMessage("注文履歴をすべて削除しました");
+//		} else if (res == 0) {
+//			setMessage("履歴の削除に失敗しました。");
+//		}
+//
+//	}
+//	//個別削除メソッド-----------------------------------------
+//
+//		public void deletePart() throws SQLException {
+//			if (checkList == null) {
+//				setMessage("削除できませんでした。");
+//			}
+//		int res=dao.deletePartDestination(checkList);
+//
+//		if(res>0){
+//			setMessage(res + "件削除しました");
+//		}else if (res == 0){
+//			setMessage("削除できませんでした");
+//		}
+//		}
 
 
 	/**

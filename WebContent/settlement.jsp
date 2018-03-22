@@ -114,10 +114,13 @@
 		<!-- --------------------■宛先情報■--------------------- -->
 
 
-	<s:form action="DestinationDeleteAction">
+
 
 		<p id="dL">お届け先の選択</p>
 		<s:iterator value="destinationListDTO">
+
+
+
 			<div class="box">
 				<div class="destination_title">
 					<label> <input type="radio" name="id" checked="checked" />
@@ -140,14 +143,25 @@
 					<br>
 				</div>
 			</div>
-			<s:checkbox name="checkList" value="2" fieldValue="%{id}" />
+
+
+
+<s:form action="DestinationDeleteAction">
+	<input type="hidden" name="deleteFlg" value="2" />
+			<s:submit class="submit" value="チェックした項目を削除" />
+		</s:form>
+
+<%-- <s:form action="DestinationDeleteAction"> --%
+<%-- 				<a href='<s:url action="DestinationDeleteAction"> --%>
+<%-- 				<s:param  name="deleteFlg" value="2"></s:param></s:url>'>削除</a> --%>
+<%-- 				</s:form> --%>
+
 		</s:iterator>
+
+
 
 	<!-- 宛先個別削除 -->
 
-			<input type="hidden" name="deleteFlg" value="2" />
-			<s:submit class="submit" value="チェックした項目を削除" />
-		</s:form>
 
 
 
@@ -167,10 +181,15 @@
 	</div>
 	<br>
 	<br> おすすめ商品
+
 	<s:iterator value="notSameCategoryList">
+	<a href="<s:url action="BuyItemCompleteAction">
+									 <s:param name="category_id" value="%{category_id}" /></s:url>">
+	</a>
+
 		<s:property value="session.notSameCategoryList.productName" />
 
-		<s:property value="a_product_name" />
+		<s:property value="productName" />
 		<s:property value="product_name" />
 		<s:property value="product_name_kana" />
 	</s:iterator>

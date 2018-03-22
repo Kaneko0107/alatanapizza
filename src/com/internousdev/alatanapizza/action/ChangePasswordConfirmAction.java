@@ -49,7 +49,7 @@ public class ChangePasswordConfirmAction extends ActionSupport implements Sessio
 public String execute(){
 	ChangePasswordConfirmDAO CPCdao=new ChangePasswordConfirmDAO();
 	ChangePasswordDTO CPCdto=new ChangePasswordDTO();
-	CPCdto=CPCdao.CheckAnswer(userid,secret_question,secret_answer);
+	CPCdto=CPCdao.CheckAnswer(userid);
 
 	String result=ERROR;
 
@@ -70,11 +70,28 @@ public String execute(){
 			setErrorMessage("ユーザーIDは半角英数字で入力してください。");
 			errMsgList.add(errorMessage);
 		}
-		else if(!(userid.equals(CPCdto.getUserid()))){
-			setErrorMessage("ユーザーIDと答えが一致しません。");
-			errMsgList.add(errorMessage);
-		}
 
+if(CPCdto==null){
+
+			setErrorMessage("ユーザーIDが間違っています。");
+			errMsgList.add(errorMessage);
+
+}
+else{
+	if(newpass.equals(CPCdto.getPassword())){
+		setErrorMessage("以前と同じパスワードは使用できません。");
+		errMsgList.add(errorMessage);
+	}
+	if(secret_question!=CPCdto.getQuestion()){
+		setErrorMessage("質問内容が間違っています。");
+		errMsgList.add(errorMessage);
+	}
+	if(!(secret_answer.equals(CPCdto.getAnswer()))){
+		setErrorMessage("質問に対する答えが間違っています。");
+		errMsgList.add(errorMessage);
+	}
+
+}
 
 
 
@@ -87,10 +104,9 @@ public String execute(){
 		setErrorMessage("新しいパスワードは半角英数字で入力してください。");
 		errMsgList.add(errorMessage);
 	}
-	if(newpass.equals(CPCdto.getPassword())){
-		setErrorMessage("以前と同じパスワードは使用できません。");
-		errMsgList.add(errorMessage);
-	}
+
+
+
 	if(!(newpass.equals(checkpass))){
 		setErrorMessage("新しいパスワードと確認用パスワードの値が一致していません。");
 		errMsgList.add(errorMessage);

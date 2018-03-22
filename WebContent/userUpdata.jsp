@@ -60,9 +60,9 @@ margin-top:20px;}
 <body>
 <jsp:include page="include_header.jsp" />
 <table>
-<tr><td colspan="2"><h3>パスワード変更画面</h3></td></tr>
+<tr><td colspan="2"><h3>ユーザー情報変更画面</h3></td></tr>
 <tr><td colspan="2"><hr></td></tr>
-<tr><td colspan="2"><div class="moji">お客様が以前登録されたユーザーIDと秘密の質問からパスワードを変更します</div></td></tr>
+<tr><td colspan="2"><div class="moji">お客様の登録されているパスワードから以下の項目を変更できます。</div></td></tr>
 <tr><td colspan="2"><div class="moji">指定に従って以下の項目を入力し、下記の確認ボタンを押してください</div><br></td></tr>
 
 <s:if test="errorMessage!=''">
@@ -105,7 +105,7 @@ margin-top:20px;}
    <td><div class="image2">
    <s:a href="javascrrpt:void(0)"
 	onclick="document.UserUpdateConfirmAction.submit();return false;"
-	 class="button"><input class="touroku" type="image" src="./images/icon/kakunin.png" alt="touroku"></s:a>
+	 class="button"><input class="touroku" type="image" src="./images/icon/kakuninn.png" alt="touroku"></s:a>
    </div></td></tr>
    <br>
    </s:form>

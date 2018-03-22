@@ -11,6 +11,9 @@
 <link rel="stylesheet" href="./css/alatanapizza.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript">
+function taikai(){
+	window.comfirm("本当に退会しますか？");
+}
 window.onunload=function(){};
 history.forward();
 </script>
@@ -93,7 +96,7 @@ tr td {
 <tr><td><a href='<s:url action="MyPageAction"/>'><img  src="./images/icon/modoru2.png"></a></td>
 <td><div class="btn1">
 		<input id="checkBtn" type="checkbox">
-		<input id="submitBtn" class="button" disabled="disabled" type="submit" value="退会する">
+		<input id="submitBtn" class="button" disabled="disabled" type="submit" value="退会する" onclick="taikai()">
 	</div></td></tr>
 
 </s:form>

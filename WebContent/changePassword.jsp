@@ -98,7 +98,14 @@ hr {
 
 <tr>
 <td>ユーザーID;</td>
-<td><input type="text" value='<s:property value="userid"/>' name="userid" placeholder="1～8文字以内半角英数字" class="form"/></td>
+<td>
+<s:if test="#session.saveId != null">
+<input type="text" value='<s:property value="#session.saveId"/>' name="userid" placeholder="1～8文字以内半角英数字" class="form"/>
+</s:if>
+<s:else>
+<input type="text" value='<s:property value="userid"/>' name="userid" placeholder="1～8文字以内半角英数字" class="form"/>
+</s:else>
+</td>
 </tr>
 <tr>
 <td>秘密の質問:</td>

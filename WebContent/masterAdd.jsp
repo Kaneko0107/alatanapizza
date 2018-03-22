@@ -76,7 +76,7 @@ legend{
 							<label>価格:</label>
 						</td>
 						<td>
-							<input type="text" name="itemPrice" value="" placeholder="上限10,000円まで"/>
+							<input type="text" name="itemPrice" value="" placeholder="上限10,000円 半角数字"/>
 						</td>
 					</tr>
 					<tr>

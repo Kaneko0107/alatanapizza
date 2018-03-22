@@ -4,7 +4,8 @@
 "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 	<constant name="struts.ui.theme" value="simple" />
-	<constant name="struts.devMode" value="true" />
+	<!-- 開発者モード(デバッグしたい時にはコメント外してください。ユーザーのエラーページが無効にできます) -->
+	<!--  <constant name="struts.devMode" value="true" /> -->
 	<package name="com.internousdevwork.alatanapizza.action" extends="struts-default">
 
 <!--  日本 Home画面への遷移(仮ID発行のため) -->

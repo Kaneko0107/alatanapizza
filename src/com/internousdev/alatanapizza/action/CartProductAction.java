@@ -17,6 +17,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 	//商品ID_商品購入ページから持ってくる
 	private int productId;
 	private int product; // ピザを追加した時のサイズ別の値段
+	private String errorMessage;
 
 	//セッション情報
 	private Map<String,Object>session;
@@ -70,6 +71,25 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 			total_price = calcTotalPrice(cartList);
 			return "success";
 		}
+		ProductDTO detail = productDetailsDAO.getProductDetailsInfo(Integer.valueOf(productId).toString());
+		if(productCount < 0){
+			cartList = dao.showUserCartList(userId);
+			total_price = calcTotalPrice(cartList);
+			errorMessage = "購入個数が不正です。";
+			return "success";
+		}
+		if (productCount > detail.getStock()) {
+			cartList = dao.showUserCartList(userId);
+			total_price = calcTotalPrice(cartList);
+			if (detail.getStock() == 0) {
+				errorMessage = "申し訳ありません。すでにその商品は在庫切れになっています。";
+			} else {
+				errorMessage = "申し訳ありません。在庫は" + detail.getStock() + "個しかないので、" + productCount + "個は購入できません。";
+			}
+			return "success";
+		}
+
+		// 以下はカートに商品追加時のための処理
 
 		if (topping_id_1 != null) toppings.add(1);
 		if (topping_id_2 != null) toppings.add(2);
@@ -86,7 +106,6 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 
 
 
-		ProductDTO detail = productDetailsDAO.getProductDetailsInfo(Integer.valueOf(productId).toString());
 		String pizzaSize = null;
 		if (product != 0) {
 			if (detail.getMsize_price() == product) {
@@ -95,6 +114,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 				pizzaSize = "L";
 			}
 		}
+
 
 		//カートが重複しているか確認する
 		Integer cartId = dao.isAlreadyIntoCart(userId, productId, pizzaSize, toppings);
@@ -107,10 +127,6 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 		cartList = dao.showUserCartList(userId);
 
 
-		//検索画面で購入個数をマイナスにした場合は"CountError"を返して別のページに飛ぶ
-		if(productCount < 0){
-			return "CountError";
-		}
 		total_price = calcTotalPrice(cartList);
 		return SUCCESS;
 	}
@@ -179,5 +195,13 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 
 	public void setProduct(int product) {
 		this.product = product;
+	}
+
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
 	}
 }

@@ -19,7 +19,7 @@
 	<div class="main">
 
 	<h1>カート</h1>
-
+	<span style="color: red;"><s:property value="errorMessage"/></span>
 	<s:property value="errMsg"/>
 		<s:if test="cartList.isEmpty()">
 			<p class="eMessage">カートの中は空です</p>

@@ -61,7 +61,7 @@ a:hover{
 <div class="up">
 
 
-<div class="logo"><a href='<s:url action="TopAction"/>'>ロゴ(ホームにいく)</a></div>
+<div class="logo"><a href='<s:url action="TopAction"/>'><img src="./images/icon/logo.png"/></a></div>
 
 	<span class="gest">
 	<br>

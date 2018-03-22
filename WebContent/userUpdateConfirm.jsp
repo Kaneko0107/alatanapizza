@@ -29,11 +29,22 @@ table {
 	margin: 0 auto;
 	text-align: left;
 	padding-left:20px;
-}.moji{
+}
+.moji{
 text-align:center;
 	    font-size: 20px;
 	    color: #FFCC33;
 }
+.moji2{
+text-align:right;
+	    font-size: 20px;
+	    color: #FFCC33;
+}
+.image2 {
+
+	    text-align:right;
+	    margin-top: 5px;
+	    }
 </style>
 </head>
 <body>
@@ -61,10 +72,15 @@ text-align:center;
    </tr>
    </s:if>
    <tr>
-   <td>変更内容が正しければ右のボタンで変更を完了してください。</td>
-   <td><s:a href="javascrrpt:void(0)"
+   <td><div class="moji2">変更内容が正しければ右のボタンで変更を完了してください。</div></td>
+   </tr>
+   <tr>
+   <td><a href='<s:url action="UserUpdateAction"/>'><img  src="./images/icon/modoru2.png"></a></td>
+   <td><div class="image2"><s:a href="javascrrpt:void(0)"
 	onclick="document.UserUpdateCompleteAction.submit();return false;"
-	 class="button"><input type="image" src="./images/icon/登録する .png" alt="touroku"></s:a>
+	 class="button"><input type="image" src="./images/icon/登録する .png" alt="touroku"></s:a></div>
+	 </td>
+	 </tr>
 	 </s:form>
   </table>
 

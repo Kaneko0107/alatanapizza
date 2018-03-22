@@ -48,6 +48,11 @@ hr {
 	color: #ffffff;
 	margin: 0 8 0 8;
 }
+.image2 {
+
+	    text-align:right;
+	    margin-top: 5px;
+	    }
 .touroku{
 margin-top:20px;}
 </style>
@@ -96,7 +101,8 @@ margin-top:20px;}
    <td><s:textfield name="newEmail" placeholder="14文字以上32文字以下" class="form"/></td>
    </tr>
 
-   <tr><td></td><td><div>
+   <tr><td><a href='<s:url action="MyPageAction"/>'><img  src="./images/icon/modoru2.png"></a></td>
+   <td><div class="image2">
    <s:a href="javascrrpt:void(0)"
 	onclick="document.UserUpdateConfirmAction.submit();return false;"
 	 class="button"><input class="touroku" type="image" src="./images/icon/kakunin.png" alt="touroku"></s:a>

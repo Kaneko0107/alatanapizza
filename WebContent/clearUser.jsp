@@ -90,7 +90,8 @@ tr td {
 <tr><td><div class="moji">以上の注意点をご了承頂いた上で下記の同意欄にチェックをして頂きまして、退会ボタンで退会処理を行ってください。</div></td></tr>
 
 
-<tr><td><div class="btn1">
+<tr><td><a href='<s:url action="MyPageAction"/>'><img  src="./images/icon/modoru2.png"></a></td>
+<td><div class="btn1">
 		<input id="checkBtn" type="checkbox">
 		<input id="submitBtn" class="button" disabled="disabled" type="submit" value="退会する">
 	</div></td></tr>

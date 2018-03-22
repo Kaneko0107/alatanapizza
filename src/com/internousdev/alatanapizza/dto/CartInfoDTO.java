@@ -15,6 +15,8 @@ public class CartInfoDTO {
 	private String pizzaSize;
 	private int productId;
 	private int productCount;
+	private int stock; // 追加しました。
+	private String itemStock; // 追加しました。
 	private int price;
 	private Date registDate;
 	private Date updateDate;
@@ -57,6 +59,12 @@ public class CartInfoDTO {
 	}
 	public void setProductCount(int productCount){
 		this.productCount = productCount;
+	}
+	public int getStock() {
+		return stock;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
 	public int getPrice(){
 		return price;
@@ -148,6 +156,14 @@ public class CartInfoDTO {
 
 	public void setToppingIds(ArrayList<Integer> toppingIds) {
 		this.toppingIds = toppingIds;
+	}
+
+	public String getItemStock() {
+		return itemStock;
+	}
+
+	public void setItemStock(String itemStock) {
+		this.itemStock = itemStock;
 	}
 
 

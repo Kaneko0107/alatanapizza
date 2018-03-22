@@ -11,19 +11,10 @@
 <link rel="stylesheet" href="./css/alatanapizza.css">
 <link rel="stylesheet" href="./css/cart.css">
 
-<style>
-
-/* .submit{ */
-/* width:150px; */
-/* height:45px; */
-/* background-color:red; */
-/* color:white; */
-/* font-size:15px; */
-
-/* } */
-
-
-</style>
+<script type="text/javascript">
+window.onunload=function(){};
+history.forward();
+</script>
 
 <title>決済確認</title>
 </head>

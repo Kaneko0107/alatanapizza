@@ -5,7 +5,6 @@ package com.internousdev.alatanapizza.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.List;
 
 import com.internousdev.alatanapizza.util.DBConnector;
 
@@ -37,7 +36,7 @@ public class DestinationDeleteDAO {
 	}
 
 	//選択削除メソッド
-	public int deletePartDestination(List<String>checkList)throws SQLException{
+	public int deletePartDestination(int Id)throws SQLException{
 
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -47,13 +46,21 @@ public class DestinationDeleteDAO {
 
 		int result=0;
 
+
+
 		try{
-			PreparedStatement ps =con.prepareStatement(sql);
-			for(int i=0;i<checkList.size();i++){
-				String checkId =checkList.get(i);
-				ps.setString(1, checkId);
-				result+=ps.executeUpdate();
-			}
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setInt(1,Id);
+			result = ps.executeUpdate();
+
+
+//		try{
+//			PreparedStatement ps =con.prepareStatement(sql);
+//			for(int i=0;i<checkList.size();i++){
+//				String checkId =checkList.get(i);
+//				ps.setString(1, checkId);
+//				result+=ps.executeUpdate();
+//			}
 
 
 

@@ -116,15 +116,12 @@
 
 				<div class="box">
 					<div class="destination_title">
-						<label> <input type="radio" name="idList" value="id"
-							checked="checked" /> <s:param name="id" value="id" /> お届け先住所
+						<label> <input type="radio" name="id" value="<s:property value='id'/>"/> お届け先住所
 						</label>
 					</div>
 					<div class="destination">
 						ふりがな:
 						<s:property value="id" />
-						<input type="hidden" name="id" value="id" />
-
 						<s:property value="familyNameKana" />
 						<s:property value="firstNameKana" />
 						<br> 名前:
@@ -142,10 +139,9 @@
 
 
 				<!-- 宛先個別削除 -->
-
-				<input type="hidden" name="deleteFlg" value="2" />
-				<s:submit class="submit" value="削除" />
 			</s:iterator>
+			<s:submit class="submit" value="削除" />
+			<input type="hidden" name="deleteFlg" value="2" />
 		</s:form>
 
 		<%-- <s:form action="DestinationDeleteAction"> --%
@@ -176,20 +172,25 @@
 		</div>
 	</div>
 	<br>
-	<br> おすすめ商品
+<!-- 	<div style="margin-top: 100px;"> -->
+<!-- 	おすすめ商品 -->
+<!-- 	<ul> -->
+<%-- 	<s:iterator value="notSameCategoryList"> --%>
+<!-- 		<li> -->
+<!-- 		<a -->
+<%-- 			href="<s:url action="BuyItemCompleteAction"> --%>
+<%-- 									 <s:param name="category_id" value="%{category_id}" /></s:url>"> --%>
+<!-- 		</a> -->
 
-	<s:iterator value="notSameCategoryList">
-		<a
-			href="<s:url action="BuyItemCompleteAction">
-									 <s:param name="category_id" value="%{category_id}" /></s:url>">
-		</a>
+<%-- 		<s:property value="session.notSameCategoryList.productName" /> --%>
 
-		<s:property value="session.notSameCategoryList.productName" />
-
-		<s:property value="productName" />
-		<s:property value="product_name" />
-		<s:property value="product_name_kana" />
-	</s:iterator>
+<%-- 		<s:property value="productName" /> --%>
+<%-- 		<s:property value="product_name" /> --%>
+<%-- 		<s:property value="product_name_kana" /> --%>
+<!-- 		</li> -->
+<%-- 	</s:iterator> --%>
+<!-- 	</ul> -->
+<!-- 	</div> -->
 	<div>
 		<jsp:include page="include_footer.jsp" /></div>
 

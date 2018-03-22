@@ -69,12 +69,12 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 			userId =(String)session.get("tempUserId");
 		}
 
-		// ↓ログインユーザーのカート情報を全表示させる（金子さん担当アクション）↓
+		// ↓ログインユーザーのカート情報を全表示させる↓
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 		cartList = cartInfoDAO.showUserCartList(userId);
 
 		// もしログインしていたら
-		// ↓指定したユーザーの宛先情報取得 obtaining==入手（高木さん担当アクション）
+		// ↓指定したユーザーの宛先情報取得 obtaining==入手
 		//↓"containsKey"はログインフラグの有無を確認しているだけで中身を取り出していないのでgetにする
 		// if (session.containsKey("loginFlg"))
 		if((boolean)session.get("loginFlg")) {

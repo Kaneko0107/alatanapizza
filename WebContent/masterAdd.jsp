@@ -107,11 +107,10 @@ legend{
 					</tr>
 
 				</s:form>
-					<!-- 戻るボタン -->
-					<tr>
-						<td><a href='<s:url action="MasterProductChangeAction?listFlg=1"/>'>管理者画面に戻る</a></td>
-					</tr>
 			</table>
+
+			<!-- 戻るボタン -->
+			<a href='<s:url action="MasterProductChangeAction?listFlg=1"/>'>管理者画面に戻る</a>
 		</div>
 	</fieldset>
 

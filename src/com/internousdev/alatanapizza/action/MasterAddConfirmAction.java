@@ -1,9 +1,11 @@
 package com.internousdev.alatanapizza.action;
 
+import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.MasterAddConfirmDAO;
@@ -27,10 +29,20 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	private String imageContentType;
 	private String imagePath;
 	private ArrayList<String> errorMessageList=new ArrayList<>();
+	private ArrayList<String> imageFileNames = new ArrayList<String>();
 
 
 	public String execute() throws SQLException{
 		String result = ERROR;
+
+		String context = ServletActionContext.getServletContext().getRealPath("/images/side");
+		File[] files = new File(context).listFiles();
+		for (File file : files) {
+		    if (file.isFile()) {
+		        imageFileNames.add(file.getName());
+		    }
+		}
+
 		//管理者フラグを確認する
 		if (!session.containsKey("masterFlg") || ((Boolean) session.get("masterFlg")) == false) {
 			return "other";
@@ -144,6 +156,16 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 	public void setImageFilePath(String imageFilePath) {
 		this.imagePath = imageFilePath;
+	}
+
+
+	public ArrayList<String> getImageFileNames() {
+		return imageFileNames;
+	}
+
+
+	public void setImageFileNames(ArrayList<String> imageFileNames) {
+		this.imageFileNames = imageFileNames;
 	}
 
 }

@@ -12,8 +12,6 @@ public class GoMasterAddAction extends ActionSupport {
 
 	public String execute() {
 		String context = ServletActionContext.getServletContext().getRealPath("/images/side");
-		System.out.println(context);
-
 		File[] files = new File(context).listFiles();
 		for (File file : files) {
 		    if (file.isFile()) {

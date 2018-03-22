@@ -47,17 +47,16 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 
 	public String execute() throws SQLException {
 		String result = ERROR;
-		//管理者フラグを確認する
-		String context = ServletActionContext.getServletContext().getRealPath("/images/side");
-		System.out.println(context);
 
+		String context = ServletActionContext.getServletContext().getRealPath("/images/side");
 		File[] files = new File(context).listFiles();
 		for (File file : files) {
 		    if (file.isFile()) {
 		        imageFileNames.add(file.getName());
 		    }
 		}
-		System.out.println(imageFileNames);
+
+		//管理者フラグを確認する
 		if (!session.containsKey("masterFlg") || ((Boolean) session.get("masterFlg")) == false) {
 			return "other";
 		}

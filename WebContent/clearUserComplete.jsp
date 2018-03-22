@@ -31,7 +31,7 @@ margin-bottom:30px;
 <div class="main">
 <span class="moji">退会処理が完了いたしました。</span>
 <div class="moji">またのご利用をお待ちしております。</div>
-<div class="moji">このページは20秒後に自動的にホーム画面に移動します。</div>
+<div class="moji">このページは10秒後に自動的にホーム画面に移動します。</div>
 </div>
 
 

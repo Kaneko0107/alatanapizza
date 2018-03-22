@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="refresh" content="10;URL='TopAction'" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <link rel="stylesheet" href="./css/alatanapizza.css">
@@ -30,6 +31,7 @@ margin-bottom:30px;
 <div class="main">
 <div class="moji">エラーが発生しました。</div>
 <div class="moji">お手数ですが最初からやり直してください。</div>
+<div class="moji">このページは10秒後に自動的にホーム画面へ移動します。</div>
 </div>
 
 <jsp:include page="include_footer.jsp"/>

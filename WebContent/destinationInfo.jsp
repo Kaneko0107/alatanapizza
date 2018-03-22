@@ -90,6 +90,8 @@ tr td .memo{text-align:center;
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="./js/jquery-1.8.2.min.js"></script>
+<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+
 <script>
 
 
@@ -152,11 +154,16 @@ tr td .memo{text-align:center;
 <!-- 名かな -->
 				<tr><td>名（かな）[ひらがな]</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="firstNameKana" maxlength ='16' value="%{firstNameKana}" /></td></tr>
+<%-- <!-- 郵便番号 -->
+				<tr><td>郵便番号 [半角数字]
+				<tr><td><s:textfield class ="form" placeholder="" name="zip11" size ="10" maxlength ='8' value="%{postalCode}" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');" /></td></tr> --%>
 <!-- 住所 -->
-				<tr><td>住所 [半角英数字記号、漢字、ひらがな、カタカナ]</td></tr>
+				<tr><td>住所</td></tr>
+				<tr><td>[半角英数字記号、漢字、ひらがな、カタカナ]</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="15文字以上50文字以下" name="userAddress" maxlength ='50' value="%{userAddress}" /></td></tr>
+				<!-- name ="addr11" -->
 <!-- 電話番号 -->
-				<tr><td>電話番号 [半角数字]</td></tr>
+				<tr><td>電話番号 [半角数字ハイフン]</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="11文字以上13文字以下" name="telNumber" maxlength ='13' value="%{telNumber}"  /></td></tr>
 <!-- メールアドレス -->
 				<tr><td>メールアドレス [半角英数字記号]</td></tr>

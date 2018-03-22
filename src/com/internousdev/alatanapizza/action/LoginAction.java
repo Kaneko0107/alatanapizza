@@ -84,8 +84,8 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		if(loginDTO != null){
 			if(saveLogin){ //boolean型を使ったif文
 				//trueの時の処理
-				//System.out.println("ID保持=="+loginDTO.getUserId());
-				session.put("saveId", loginDTO.getUserId());
+				//System.out.println("ID保持=="+userId);
+				session.put("saveId", userId);
 			}else{
 				//falseの時の処理
 				//System.out.println("ID保持は希望しない");

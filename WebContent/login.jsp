@@ -117,15 +117,15 @@ tr td .memo{text-align:center;
 			<tr><td><div style="color: red;" ><s:iterator value="errorMessageList"><s:div align="center"><s:property/></s:div></s:iterator></div></td></tr>
 
 <!-- ID -->
-			<tr><td>ID</td></tr>
-			<tr><td><s:textfield type="text" class="form" placeholder="1文字以上8文字以下" name="userId" value ="%{#session.saveId}"/></td></tr>
+			<tr><td>ID [1文字以上8文字以下 半角英数字]</td></tr>
+			<tr><td><s:textfield type="text" class="form" placeholder="1文字以上8文字以下" name="userId" maxlength ='8' value ="%{#session.saveId}"/></td></tr>
 <!-- ID保存 -->
 			<tr><td><s:if test ="%{#session.saveId != null}"><div class="id"><label><s:checkbox name ="saveLogin" checdked ="checked"/>ID保存</label></div></s:if>
 			<s:else><div class="id"><label><s:checkbox name ="saveLogin"/>ID保存</label></div></s:else></td></tr>
 
 <!-- パスワード -->
-			<tr><td>パスワード</td></tr>
-			<tr><td><s:password class="form" placeholder="1文字以上8文字以下" name="password"/></td></tr>
+			<tr><td>パスワード [1文字以上8文字以下 半角英数字]</td></tr>
+			<tr><td><s:password class="form" placeholder="1文字以上8文字以下" name="password" maxlength ='8'/></td></tr>
 
 			<tr><td><s:hidden name ="kessai" value ="%{kessai}"/></td></tr>
 <!-- ログインボタン -->

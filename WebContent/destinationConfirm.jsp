@@ -145,7 +145,7 @@ tr td .memo{text-align:center;
 			<tr><td><hr></td></tr>
 
 
-<%--  <s:form action="DestAction">
+ <s:form action="DestAction">
 
      <input type=hidden name="familyName" value='<s:property value="familyName"/>' />
 	<input type=hidden name="firstName" value='<s:property value="firstName"/>' />
@@ -156,7 +156,7 @@ tr td .memo{text-align:center;
       <input type=hidden name="email" value='<s:property value="email"/>' />
 
       <s:submit value="戻る" class="DestButton"/>
-    </s:form> --%>
+    </s:form>
     <!-- 戻る画像アイコン -->
     	<tr><td><div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()"><img src="./images/icon/modoru2.png"></a></div></td></tr>
 

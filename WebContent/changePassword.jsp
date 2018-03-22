@@ -46,6 +46,7 @@ h3 {
 	width: 200px;
 	height: 30px;
 	border-radius: 5px;
+	color:black;
 }
 
 tr td {

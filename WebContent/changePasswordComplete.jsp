@@ -35,7 +35,7 @@ margin-bottom:30px;
 <s:else>
 <div class="moji">再設定が完了しました。</div>
  <div>
-        <input type="image" src="./images/icon/kakuninn.png" onclick="location.href='<s:url action="LoginAction"/>'" value="ログインへ" >
+       <a href="<s:url action='LoginAction'/>">ログイン画面へ</a>
       </div>
 
 

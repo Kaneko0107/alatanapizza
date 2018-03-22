@@ -81,14 +81,16 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 
 		//ID保持
 		//jsp側でvalue指定で呼び出す
-		if(saveLogin){ //boolean型を使ったif文
-			//trueの時の処理
-			//System.out.println("ID保持=="+userId);
-			session.put("saveId", userId);
-		}else{
-			//falseの時の処理
-			//System.out.println("ID保持は希望しない");
-			session.remove("saveId");
+		if(loginDTO != null){
+			if(saveLogin){ //boolean型を使ったif文
+				//trueの時の処理
+				//System.out.println("ID保持=="+loginDTO.getUserId());
+				session.put("saveId", loginDTO.getUserId());
+			}else{
+				//falseの時の処理
+				//System.out.println("ID保持は希望しない");
+				session.remove("saveId");
+			}
 		}
 
 		//ログインチェック
@@ -239,7 +241,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 //						}
 
 					}else{
-						//errorMessageList.add("入力されたパスワードが異なります。");
+						errorMessageList.add("入力されたパスワードが異なります。");
 						result=ERROR;
 					}
 

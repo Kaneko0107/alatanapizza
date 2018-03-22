@@ -119,10 +119,11 @@ tr td .memo{text-align:center;
 <!-- ID -->
 			<tr><td>ID</td></tr>
 			<tr><td><s:textfield type="text" class="form" placeholder="1文字以上8文字以下" name="userId" value ="%{#session.saveId}"/></td></tr>
+<!-- ID保存 -->
+			<tr><td><s:if test ="%{#session.saveId != null}"><div class="id"><label><s:checkbox name ="saveLogin" checdked ="checked"/>ID保存</label></div></s:if>
+			<s:else><div class="id"><label><s:checkbox name ="saveLogin"/>ID保存</label></div></s:else></td></tr>
 
 <!-- パスワード -->
-			<tr><td><div class="id"><label><s:checkbox name ="saveLogin"/>ID保存</label></div></td></tr>
-
 			<tr><td>パスワード</td></tr>
 			<tr><td><s:password class="form" placeholder="1文字以上8文字以下" name="password"/></td></tr>
 

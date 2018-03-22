@@ -50,6 +50,13 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 		//"userId"を定義し、その中に"登録ユーザー"と"ゲストユーザー"を入れて処理する
 		String userId;
 		//"登録ユーザー"と"ゲストユーザー"のどちらでログインしているか確認し、定義した"userId"に代入する
+
+
+		if(!(session.containsKey("loginFlg"))){
+			return ERROR;
+		}
+
+
 		if((boolean)session.get("loginFlg")){
 			userId =(String)session.get("userId");
 		}

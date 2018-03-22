@@ -110,13 +110,18 @@
 
 		<p id="dL">お届け先の選択</p>
 		<s:form action="DestinationDeleteAction">
-			<s:iterator value="destinationListDTO">
-
+			<s:iterator value="destinationListDTO" status="st">
 
 
 				<div class="box">
 					<div class="destination_title">
-						<label> <input type="radio" name="id" value="<s:property value='id'/>"/> お届け先住所
+						<label>
+							<s:if test="#st.index == 0">
+								<input type="radio" name="id" checked="checked" value="<s:property value='id'/>"/>
+							</s:if><s:else>
+								<input type="radio" name="id" value="<s:property value='id'/>"/>
+							</s:else>
+							お届け先住所
 						</label>
 					</div>
 					<div class="destination">

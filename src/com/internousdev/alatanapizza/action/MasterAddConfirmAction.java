@@ -60,7 +60,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 			} else if(Integer.parseInt(itemPrice) > 10000) {
 				errorMessageList.add("価格は10000円以内にしてください");
 			}
-			imagePath = "./images/side/" + imageName + ".jpg";
+			imagePath = "./images/side/" + imageName;
 			session.put("itemKanaName", itemKanaName);
 			session.put("itemName", itemName);
 			session.put("itemPrice", itemPrice);

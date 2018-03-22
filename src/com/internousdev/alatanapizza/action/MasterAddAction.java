@@ -1,8 +1,11 @@
 package com.internousdev.alatanapizza.action;
 
+import java.io.File;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Map;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.MasterProductDAO;
@@ -29,6 +32,8 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 
 	private String imageName;
 
+	private ArrayList<String> imageFileNames = new ArrayList<String>();
+
 	public String getImage() {
 		return imageName;
 	}
@@ -43,6 +48,16 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 	public String execute() throws SQLException {
 		String result = ERROR;
 		//管理者フラグを確認する
+		String context = ServletActionContext.getServletContext().getRealPath("/images/side");
+		System.out.println(context);
+
+		File[] files = new File(context).listFiles();
+		for (File file : files) {
+		    if (file.isFile()) {
+		        imageFileNames.add(file.getName());
+		    }
+		}
+		System.out.println(imageFileNames);
 		if (!session.containsKey("masterFlg") || ((Boolean) session.get("masterFlg")) == false) {
 			return "other";
 		}
@@ -64,6 +79,14 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 			return result;
 		}
 		return result;
+	}
+
+	public ArrayList<String> getImageFileNames() {
+		return imageFileNames;
+	}
+
+	public void setImageFileNames(ArrayList<String> imageFileNames) {
+		this.imageFileNames = imageFileNames;
 	}
 
 	public String getItemName() {

@@ -78,6 +78,29 @@ tr td .memo{text-align:center;
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="./js/jquery-1.8.2.min.js"></script>
 <script>
+
+	//<!--
+	document.getElementById("inputUserId").addEventListener("input", function () {
+	    checkForm(document.getElementById("inputUserId"));
+	}, false);
+
+	function checkForm($this) {
+	    var str = $this.value;
+	    while (str.match(/[^A-Z^a-z\d\-]/)) {
+	        str = str.replace(/[^A-Z^a-z\d\-]/, "");
+	    }
+	    $this.value = str;
+	}
+	//-->
+
+	$(document).on('copy','input[type=text]',function(){
+		return false;
+	});
+
+	$(document).on('paste','input[type=text]',function(){
+		return false;
+	});
+
 	$(function(){
 		$(".login .image").hover(
 		function(){
@@ -117,15 +140,17 @@ tr td .memo{text-align:center;
 			<tr><td><div style="color: red;" ><s:iterator value="errorMessageList"><s:div align="center"><s:property/></s:div></s:iterator></div></td></tr>
 
 <!-- ID -->
-			<tr><td>ID [1文字以上8文字以下 半角英数字]</td></tr>
-			<tr><td><s:textfield type="text" class="form" placeholder="1文字以上8文字以下" name="userId" maxlength ='8' value ="%{#session.saveId}"/></td></tr>
+			<tr><td>ID</td></tr>
+			<tr><td>[1文字以上8文字以下 半角英数字]</td></tr>
+			<tr><td><s:textfield type="text" id="inputUserId" class="form" placeholder="1文字以上8文字以下" name="userId" maxlength ='8' value ="%{#session.saveId}" style="ime-mode:disabled" /></td></tr>
 <!-- ID保存 -->
-			<tr><td><s:if test ="%{#session.saveId != null}"><div class="id"><label><s:checkbox name ="saveLogin" checdked ="checked"/>ID保存</label></div></s:if>
+			<tr><td><s:if test ="%{#session.saveId != null}"><div class="id"><label><s:checkbox name ="saveLogin" checked ="checked"/>ID保存</label></div></s:if>
 			<s:else><div class="id"><label><s:checkbox name ="saveLogin"/>ID保存</label></div></s:else></td></tr>
 
 <!-- パスワード -->
-			<tr><td>パスワード [1文字以上8文字以下 半角英数字]</td></tr>
-			<tr><td><s:password class="form" placeholder="1文字以上8文字以下" name="password" maxlength ='8'/></td></tr>
+			<tr><td>パスワード</tr></td>
+			<tr><td>[1文字以上8文字以下 半角英数字]</td></tr>
+			<tr><td><s:password class="form" placeholder="1文字以上8文字以下" name="password" maxlength ='8' style="ime-mode:disabled" /></td></tr>
 
 			<tr><td><s:hidden name ="kessai" value ="%{kessai}"/></td></tr>
 <!-- ログインボタン -->

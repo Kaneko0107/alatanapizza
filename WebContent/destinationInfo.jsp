@@ -76,6 +76,9 @@ tr td .memo{text-align:center;
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="./js/jquery-1.8.2.min.js"></script>
 <script>
+
+
+
 	$(function(){
 		$(".imagehover .image").hover(
 		function(){
@@ -89,6 +92,7 @@ tr td .memo{text-align:center;
 			});
 		});
 	});
+
 </script>
 
 </head>
@@ -138,10 +142,10 @@ tr td .memo{text-align:center;
 				<tr><td><s:textfield class ="form" placeholder="15文字以上50文字以下" name="userAddress" maxlength ='50' value="%{userAddress}" /></td></tr>
 <!-- 電話番号 -->
 				<tr><td>電話番号 [11文字以上13文字以下(-含め) 半角数字]</td></tr>
-				<tr><td><s:textfield class ="form" placeholder="11文字以上13文字以下" name="telNumber" maxlength ='13' value="%{telNumber}" /></td></tr>
+				<tr><td><s:textfield class ="form" placeholder="11文字以上13文字以下" name="telNumber" maxlength ='13' value="%{telNumber}"  /></td></tr>
 <!-- メールアドレス -->
 				<tr><td>メールアドレス [18文字以上32文字以下 半角英数字記号]</td></tr>
-				<tr><td><s:textfield class ="form" placeholder="18文字以上32文字以下" name="email" maxlength ='32' value="%{email}" /></td></tr>
+				<tr><td><s:textfield class ="form" placeholder="18文字以上32文字以下" name="email" maxlength ='32' value="%{email}"  /></td></tr>
 
 <!-- 送信画像アイコン -->
 				<tr><td><div class="imagehover"><s:submit class="image" type="image" value="" src="./images/icon/kakuninn.png"/></div></td></tr>

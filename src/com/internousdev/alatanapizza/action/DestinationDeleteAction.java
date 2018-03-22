@@ -15,8 +15,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class DestinationDeleteAction extends ActionSupport implements SessionAware {
 
 	// セッション
-	public Map<String, Object> session;
-	public ArrayList<DestinationDTO> destinationList = new ArrayList<DestinationDTO>();
+	private Map<String, Object> session;
+	private ArrayList<DestinationDTO> destinationList = new ArrayList<DestinationDTO>();
 	private String message; // 削除メッセージ
 	private String deleteFlg; // 削除フラグ
 	private DestinationDeleteDAO dao = new DestinationDeleteDAO();
@@ -78,7 +78,8 @@ return result;
 		if (checkList == null) {
 			setMessage("削除できませんでした。");
 		}
-	int res=dao.deletePartDestination(checkList);
+	int a=5;
+	int res=dao.deletePartDestination(a);
 
 	if(res>0){
 		setMessage(res + "件削除しました");
@@ -124,6 +125,7 @@ return result;
 		return session;
 	}
 
+	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
@@ -135,6 +137,22 @@ return result;
 
 	public void setCheckList(List<String> checkList) {
 		this.checkList = checkList;
+	}
+
+	public ArrayList<DestinationDTO> getDestinationList() {
+		return destinationList;
+	}
+
+	public void setDestinationList(ArrayList<DestinationDTO> destinationList) {
+		this.destinationList = destinationList;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 }

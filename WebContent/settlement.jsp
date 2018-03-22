@@ -12,8 +12,9 @@
 <link rel="stylesheet" href="./css/cart.css">
 
 <script type="text/javascript">
-window.onunload=function(){};
-history.forward();
+	window.onunload = function() {
+	};
+	history.forward();
 </script>
 
 <title>決済確認</title>
@@ -108,75 +109,80 @@ history.forward();
 
 
 		<p id="dL">お届け先の選択</p>
-		<s:iterator value="destinationListDTO">
+		<s:form action="DestinationDeleteAction">
+			<s:iterator value="destinationListDTO">
 
 
 
-			<div class="box">
-				<div class="destination_title">
-					<label> <input type="radio" name="id" checked="checked" />
-						お届け先住所
-					</label>
+				<div class="box">
+					<div class="destination_title">
+						<label> <input type="radio" name="idList" value="id"
+							checked="checked" /> <s:param name="id" value="id" /> お届け先住所
+						</label>
+					</div>
+					<div class="destination">
+						ふりがな:
+						<s:property value="id" />
+						<input type="hidden" name="id" value="id" />
+
+						<s:property value="familyNameKana" />
+						<s:property value="firstNameKana" />
+						<br> 名前:
+						<s:property value="familyName" />
+						<s:property value="firstName" />
+						<br> 住所:
+						<s:property value="userAddress" />
+						<br> 電話番号:
+						<s:property value="telNumber" />
+						<br> メールアドレス:
+						<s:property value="email" />
+						<br>
+					</div>
 				</div>
-				<div class="destination">
-					ふりがな:
-					<s:property value="familyNameKana" />
-					<s:property value="firstNameKana" />
-					<br> 名前:
-					<s:property value="familyName" />
-					<s:property value="firstName" />
-					<br> 住所:
-					<s:property value="userAddress" />
-					<br> 電話番号:
-					<s:property value="telNumber" />
-					<br> メールアドレス:
-					<s:property value="email" />
-					<br>
-				</div>
-			</div>
 
 
+				<!-- 宛先個別削除 -->
 
-<s:form action="DestinationDeleteAction">
-	<input type="hidden" name="deleteFlg" value="2" />
-			<s:submit class="submit" value="チェックした項目を削除" />
+				<input type="hidden" name="deleteFlg" value="2" />
+				<s:submit class="submit" value="削除" />
+			</s:iterator>
 		</s:form>
 
-<%-- <s:form action="DestinationDeleteAction"> --%
+		<%-- <s:form action="DestinationDeleteAction"> --%
 <%-- 				<a href='<s:url action="DestinationDeleteAction"> --%>
-<%-- 				<s:param  name="deleteFlg" value="2"></s:param></s:url>'>削除</a> --%>
-<%-- 				</s:form> --%>
-
-		</s:iterator>
-
-
-
-	<!-- 宛先個別削除 -->
+		<%-- 				<s:param  name="deleteFlg" value="2"></s:param></s:url>'>削除</a> --%>
+		<%-- 				</s:form> --%>
 
 
 
 
-	<!-- 宛先全削除 -->
+
+
+
+
+
+		<!-- 宛先全削除 -->
 		<s:form action="DestinationDeleteAction">
-		<input type="hidden" name="deleteFlg" value="1">
+			<input type="hidden" name="deleteFlg" value="1">
 			<s:submit class="submit" value="宛先をすべて削除" />
 		</s:form>
 
-	<!-- 宛先新規登録 -->
-			<input type="button" class="submit" value="宛先情報の新規登録"
-				onclick="location.href='<s:url action="DestAction" />'">
+		<!-- 宛先新規登録 -->
+		<input type="button" class="submit" value="宛先情報の新規登録"
+			onclick="location.href='<s:url action="DestAction" />'">
 		<div class="back">
 
-			<a href='<s:url action="CartProductAction" />'>◀　カートに戻る</a>
+			<a href='<s:url action="CartProductAction" />'>◀ カートに戻る</a>
 		</div>
 	</div>
 	<br>
 	<br> おすすめ商品
 
 	<s:iterator value="notSameCategoryList">
-	<a href="<s:url action="BuyItemCompleteAction">
+		<a
+			href="<s:url action="BuyItemCompleteAction">
 									 <s:param name="category_id" value="%{category_id}" /></s:url>">
-	</a>
+		</a>
 
 		<s:property value="session.notSameCategoryList.productName" />
 

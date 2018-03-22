@@ -56,14 +56,14 @@ padding-bottom:10px;
 		}
 		.favlist{
 			position: absolute;
-			top:430px;
+			top:490px;
 			right:420px;
 		}
 		.favcomment{
 			display: none;
 			width: 180px;
 			position: absolute;
-			top: 360px;
+			top: 420px;
 			right:255px;
 			padding: 10px;
 			border-radius: 10px;

@@ -38,7 +38,7 @@ legend{
 
 <fieldset>
 	<legend>
-		新商品追加画面
+		サイドメニュー追加画面
 	</legend>
 
 	<div class="instruction">
@@ -58,7 +58,7 @@ legend{
 							<label>商品名:</label>
 						</td>
 						<td>
-							<input type="text" name="itemName" value="" />
+							<input type="text" name="itemName" value=""  placeholder="20文字以下で入力"/>
 						</td>
 					</tr>
 
@@ -67,7 +67,7 @@ legend{
 							<label>商品名(ひらがな):</label>
 						</td>
 						<td>
-							<input type="text" name="itemKanaName" value="" />
+							<input type="text" name="itemKanaName" value="" placeholder="30文字以下で入力"/>
 						</td>
 					</tr>
 
@@ -76,7 +76,7 @@ legend{
 							<label>価格:</label>
 						</td>
 						<td>
-							<input type="text" name="itemPrice" value="" />
+							<input type="text" name="itemPrice" value="" placeholder="上限10,000円まで"/>
 						</td>
 					</tr>
 					<tr>
@@ -112,6 +112,10 @@ legend{
 					</tr>
 
 				</s:form>
+					<!-- 戻るボタン -->
+					<tr>
+						<td><a href='<s:url action="MasterProductChangeAction?listFlg=1"/>'>管理者画面に戻る</a></td>
+					</tr>
 			</table>
 		</div>
 	</fieldset>

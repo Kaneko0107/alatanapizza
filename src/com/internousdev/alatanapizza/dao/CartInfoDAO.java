@@ -135,14 +135,21 @@ public class CartInfoDAO extends ActionSupport{
 
 	//カートに商品が入っているかどうか確認
 	public Integer isAlreadyIntoCart(String userId,int productId, String pizzaSize, ArrayList<Integer> toppings)throws SQLException{
-		String sql = "SELECT * FROM cart_info WHERE user_id = ? AND product_id = ? AND pizza_size = ?";
+		String sql;
+		if (pizzaSize != null) {
+			sql = "SELECT * FROM cart_info WHERE user_id = ? AND product_id = ? AND pizza_size = ?";
+		} else {
+			sql = "SELECT * FROM cart_info WHERE user_id = ? AND product_id = ?";
+		}
 
 		try{
 			con = db.getConnection();
 			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
 			ps.setString(1, userId);
 			ps.setInt(2, productId);
-			ps.setString(3, pizzaSize);
+			if (pizzaSize != null) {
+				ps.setString(3, pizzaSize);
+			}
 
 			ResultSet rs = ps.executeQuery();
 

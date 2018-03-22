@@ -45,6 +45,8 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	private String errPass2;
 	private String errName1;
 	private String errName2;
+	private String errName3;
+	private String errName4;
 	private String errKana1;
 	private String errKana2;
 	private String errKana3;
@@ -136,6 +138,16 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	if (firstName.length() > 16) {
 		errName2="名は1文字以上16文字以下で入力してください";
 		errMsgListFirstName.add(errName2);
+	}
+
+	if (familyName.matches("^[0-9.!#$%&@'*+/=?^`{|}~-]*$")) {
+		errName3="姓は半角英語、ひらがな、漢字で入力してください";
+		errMsgListFamilyName.add(errName3);
+	}
+
+	if (firstName.matches("^[0-9.!#$%&@'*+/=?^`{|}~-]*$")) {
+		errName4="名は半角英語、ひらがな、漢字で入力してください";
+		errMsgListFirstName.add(errName4);
 	}
 
 	if (familyNameKana.length() > 16) {

@@ -237,7 +237,7 @@ hr {
 	<tr>
 		<td>
 		<br><div class="icon">
-			<a href='<s:url action="HomeAction"/>'><img src="./images/icon/modoru2.png"></a>
+			<a href='<s:url action="LoginAction"/>'><img src="./images/icon/modoru2.png"></a>
 		</div>
 
 		<td>

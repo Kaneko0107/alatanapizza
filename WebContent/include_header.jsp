@@ -68,7 +68,7 @@ a:hover{
 	<s:if test="#session.masterFlg">
 		<span style="color: red;"><a href='<s:url action="MasterProductChangeAction" />'>管理者ページ</a></span>
 	</s:if><s:elseif test="#session.loginFlg">
-		ようこそ! <s:property value="#session.firstName"/>さん
+		ようこそ! <s:property value="#session.loginFirstName"/>さん
 	</s:elseif><s:else>
 		ようこそ! ゲストさん
 	</s:else></span>

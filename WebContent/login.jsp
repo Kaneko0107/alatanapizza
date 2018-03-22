@@ -36,6 +36,21 @@ h3{
 border-left:10px solid red;
 }
 
+::-webkit-input-placeholder {
+  color:#000000;
+}
+
+::-moz-placeholder {
+ color:#000000;
+ opacity: 1;
+}
+
+/* Internet Explorer 10-11 */
+:-ms-input-placeholder {
+ color:#000000;
+}
+
+
 /*========ID LAYOUT========*/
 
 #main{
@@ -93,14 +108,6 @@ tr td .memo{text-align:center;
 	}
 	//-->
 
-	$(document).on('copy','input[type=text]',function(){
-		return false;
-	});
-
-	$(document).on('paste','input[type=text]',function(){
-		return false;
-	});
-
 	$(function(){
 		$(".login .image").hover(
 		function(){
@@ -140,16 +147,14 @@ tr td .memo{text-align:center;
 			<tr><td><div style="color: red;" ><s:iterator value="errorMessageList"><s:div align="center"><s:property/></s:div></s:iterator></div></td></tr>
 
 <!-- ID -->
-			<tr><td>ID</td></tr>
-			<tr><td>[1文字以上8文字以下 半角英数字]</td></tr>
-			<tr><td><s:textfield type="text" id="inputUserId" class="form" placeholder="1文字以上8文字以下" name="userId" maxlength ='8' value ="%{#session.saveId}" style="ime-mode:disabled" /></td></tr>
+			<tr><td>ID [半角英数字]</td></tr>
+			<tr><td><s:textfield type="text" id="inputUserId" class="form" placeholder="1文字以上8文字以下" name="userId" maxlength ='8' value ="%{#session.saveId}" style="ime-mode:disabled" oncopy="return false" onpaste="return false" oncontextmenu="return false" /></td></tr>
 <!-- ID保存 -->
 			<tr><td><s:if test ="%{#session.saveId != null}"><div class="id"><label><s:checkbox name ="saveLogin" checked ="checked"/>ID保存</label></div></s:if>
 			<s:else><div class="id"><label><s:checkbox name ="saveLogin"/>ID保存</label></div></s:else></td></tr>
 
 <!-- パスワード -->
-			<tr><td>パスワード</tr></td>
-			<tr><td>[1文字以上8文字以下 半角英数字]</td></tr>
+			<tr><td>パスワード [半角英数字]</td></tr>
 			<tr><td><s:password class="form" placeholder="1文字以上8文字以下" name="password" maxlength ='8' style="ime-mode:disabled" /></td></tr>
 
 			<tr><td><s:hidden name ="kessai" value ="%{kessai}"/></td></tr>

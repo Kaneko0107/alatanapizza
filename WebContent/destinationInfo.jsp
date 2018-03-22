@@ -37,6 +37,21 @@ h3{
 border-left:10px solid red;
 }
 
+::-webkit-input-placeholder {
+  color:#000000;
+}
+
+::-moz-placeholder {
+ color:#000000;
+ opacity: 1;
+}
+
+/* Internet Explorer 10-11 */
+:-ms-input-placeholder {
+ color:#000000;
+}
+
+
 /*========ID LAYOUT========*/
 
 #main{
@@ -126,25 +141,25 @@ tr td .memo{text-align:center;
 				<tr><td><div style="color: red;" ><s:iterator value="errorMessageList"><s:div align="center"><s:property/></s:div></s:iterator></div></td></tr>
 
 <!-- 姓 -->
-				<tr><td>姓 [1文字以上16文字以下 半角英語、漢字、ひらがな]</td></tr>
+				<tr><td>姓 [半角英語、漢字、ひらがな]</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="familyName" maxlength ='16' value="%{familyName}" /></td></tr>
 <!-- 名 -->
-				<tr><td>名 [1文字以上16文字以下 半角英語、漢字、ひらがな]</td></tr>
+				<tr><td>名 [半角英語、漢字、ひらがな]</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="firstName" maxlength ='16' value="%{firstName}" /></td></tr>
 <!-- 姓かな -->
-				<tr><td>姓（かな）[1文字以上16文字以下 ひらがな]</td></tr>
+				<tr><td>姓（かな）[ひらがな]</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="familyNameKana" maxlength ='16' value="%{familyNameKana}" /></td></tr>
 <!-- 名かな -->
-				<tr><td>名（かな）[1文字以上16文字以下 ひらがな]</td></tr>
+				<tr><td>名（かな）[ひらがな]</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="firstNameKana" maxlength ='16' value="%{firstNameKana}" /></td></tr>
 <!-- 住所 -->
-				<tr><td>住所 [14文字以上50文字以下 半角英数字記号、漢字、ひらがな、カタカナ]</td></tr>
+				<tr><td>住所 [半角英数字記号、漢字、ひらがな、カタカナ]</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="15文字以上50文字以下" name="userAddress" maxlength ='50' value="%{userAddress}" /></td></tr>
 <!-- 電話番号 -->
-				<tr><td>電話番号 [11文字以上13文字以下(-含め) 半角数字]</td></tr>
+				<tr><td>電話番号 [半角数字]</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="11文字以上13文字以下" name="telNumber" maxlength ='13' value="%{telNumber}"  /></td></tr>
 <!-- メールアドレス -->
-				<tr><td>メールアドレス [18文字以上32文字以下 半角英数字記号]</td></tr>
+				<tr><td>メールアドレス [半角英数字記号]</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="18文字以上32文字以下" name="email" maxlength ='32' value="%{email}"  /></td></tr>
 
 <!-- 送信画像アイコン -->

@@ -114,11 +114,11 @@ hr {
 	</s:if>
 
 	<s:if test="errMsgListFamilyNameKana !=null && !(errMsgListFamilyNameKana.isEmpty())">
-		<tr><td colspan="2"><s:iterator value="errMsgListFamilyNameKana"><s:property /></s:iterator></td></tr>
+		<tr><td colspan="2"><s:iterator value="errMsgListFamilyNameKana"><s:property /><br></s:iterator></td></tr>
 	</s:if>
 
 	<s:if test="errMsgListFirstNameKana !=null && !(errMsgListFirstNameKana.isEmpty())">
-		<tr><td colspan="2"><s:iterator value="errMsgListFirstNameKana"><s:property /></s:iterator></td></tr>
+		<tr><td colspan="2"><s:iterator value="errMsgListFirstNameKana"><s:property /><br></s:iterator></td></tr>
 	</s:if>
 
 	<s:if test="errMsgListSex !=null && !(errMsgListSex.isEmpty())">
@@ -147,7 +147,7 @@ hr {
 
 	<tr>
 		<td>ユーザーＩＤ</td>
-		<td><input type="text" name="loginUserId" value='<s:property value="loginUserId"/>' class="form"/></td>
+		<td><input type="text" name="loginUserId"  value='<s:property value="loginUserId"/>' class="form"/></td>
 	</tr>
 
 	<tr>

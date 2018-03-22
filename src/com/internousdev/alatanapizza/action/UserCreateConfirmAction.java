@@ -140,33 +140,33 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		errMsgListFirstName.add(errName2);
 	}
 
-	if (familyName.matches("^[0-9.!#$%&@'*+/=?^`{|}~-]*$")) {
+	if (!familyName.matches("^[a-zA-Z.ぁ-ん.一-龠]*$")) {
 		errName3="姓は半角英語、ひらがな、漢字で入力してください";
 		errMsgListFamilyName.add(errName3);
 	}
 
-	if (firstName.matches("^[0-9.!#$%&@'*+/=?^`{|}~-]*$")) {
+	if (!firstName.matches("^[a-zA-Z.ぁ-ん.一-龠]*$")) {
 		errName4="名は半角英語、ひらがな、漢字で入力してください";
 		errMsgListFirstName.add(errName4);
 	}
 
 	if (familyNameKana.length() > 16) {
-		errKana1="(せい)は1文字以上16文字以下で入力してください";
+		errKana1="ふりがな(姓)は1文字以上16文字以下で入力してください";
 		errMsgListFamilyNameKana.add(errKana1);
 	}
 
 	if (firstNameKana.length() > 16) {
-		errKana2="(めい)は1文字以上16文字以下で入力してください";
+		errKana2="ふりがな(名)は1文字以上16文字以下で入力してください";
 		errMsgListFirstNameKana.add(errKana2);
 	}
 
 	if (!familyNameKana.matches("^[ぁ-ん]+$")) {
-		errKana3="姓(かな)はひらがなで入力してください";
+		errKana3="ふりがな(姓)はひらがなで入力してください";
 		errMsgListFamilyNameKana.add(errKana3);
 	}
 
 	if (!firstNameKana.matches("^[ぁ-ん]+$")) {
-		errKana4="名(かな)はひらがなで入力してください";
+		errKana4="ふりがな(名)はひらがなで入力してください";
 		errMsgListFirstNameKana.add(errKana4);
 	}
 
@@ -206,6 +206,18 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	}
 
 	// エラーメッセージリストが全て何もなかったら、成功
+	System.out.println("errMsgList"+errMsgList);
+	System.out.println("errMsgListId"+errMsgListId);
+	System.out.println("errMsgListPass"+errMsgListPass);
+	System.out.println("errMsgListFamilyName"+errMsgListFamilyName);
+	System.out.println("errMsgListFirstName"+errMsgListFirstName);
+	System.out.println("errMsgListFamilyNameKana"+errMsgListFamilyNameKana);
+	System.out.println("errMsgListFirstNameKana"+errMsgListFirstNameKana);
+	System.out.println("errMsgListSex"+errMsgListSex);
+	System.out.println("errMsgListMail"+errMsgListMail);
+	System.out.println("errMsgListQuestion"+errMsgListQuestion);
+	System.out.println("errMsgListAnswer"+errMsgListAnswer);
+
 	if (errMsgList.isEmpty()
 		 && errMsgListId.isEmpty()
 		 && errMsgListPass.isEmpty()

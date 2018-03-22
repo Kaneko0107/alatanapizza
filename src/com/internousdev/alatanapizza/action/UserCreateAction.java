@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class UserCreateAction extends ActionSupport implements SessionAware {
 
+	//通信の安全性をあげるため、jsp間でデータを受け渡すのではなく、javaを使ってvaluestackで受け渡し
 
 	private String loginUserId;
 	private String loginPassword;
@@ -129,7 +130,3 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 	}
 
 }
-
-
-
-

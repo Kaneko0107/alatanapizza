@@ -2,123 +2,378 @@ package com.internousdev.alatanapizza.dto.test;
 
 import static org.junit.Assert.*;
 
+import java.util.Date;
+
 import org.junit.Test;
+
+import com.internousdev.alatanapizza.dto.DestinationDTO;
 
 public class DestinationDTOTest {
 
+	//----------------------------------------------
 	@Test
 	public void testGetId() {
-		fail("まだ実装されていません");
+		DestinationDTO dto=new DestinationDTO();
+		int expected=0;
+		dto.setId(expected);
+
+		assertEquals(expected,dto.getId());
 	}
 
 	@Test
-	public void testSetId() {
-		fail("まだ実装されていません");
+	public void testGetId2() {
+		DestinationDTO dto=new DestinationDTO();
+		int expected=-2147483647;
+		dto.setId(expected);
+
+		assertEquals(expected,dto.getId());
 	}
+
+	@Test
+	public void testGetId3() {
+		DestinationDTO dto=new DestinationDTO();
+		int expected=61839402;
+		dto.setId(expected);
+
+		assertEquals(expected,dto.getId());
+	}
+
+	@Test
+	public void testGetId4() {
+		DestinationDTO dto=new DestinationDTO();
+		int expected=1000000000;
+		dto.setId(expected);
+
+		assertEquals(expected,dto.getId());
+	}
+	//----------------------------------------------
 
 	@Test
 	public void testGetUserId() {
-		fail("まだ実装されていません");
+		DestinationDTO dto=new DestinationDTO();
+		String expected=null;
+		dto.setUserId(expected);
+
+		assertEquals(expected,dto.getUserId());
 	}
 
 	@Test
-	public void testSetUserId() {
-		fail("まだ実装されていません");
+	public void testGetUserId2() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="0";
+		dto.setUserId(expected);
+
+		assertEquals(expected,dto.getUserId());
 	}
+
+	@Test
+	public void testGetUserId3() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="737389292";
+		dto.setUserId(expected);
+
+		assertEquals(expected,dto.getUserId());
+	}
+
+	@Test
+	public void testGetUserId4() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="-737389292";
+		dto.setUserId(expected);
+
+		assertEquals(expected,dto.getUserId());
+	}
+	//----------------------------------------------
 
 	@Test
 	public void testGetFamilyName() {
-		fail("まだ実装されていません");
+		DestinationDTO dto=new DestinationDTO();
+		String expected=null;
+		dto.setFamilyName(expected);
+
+		assertEquals(expected,dto.getFamilyName());
+	}
+
+
+	@Test
+	public void testGetFamilyName2() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="0";
+		dto.setFamilyName(expected);
+
+		assertEquals(expected,dto.getFamilyName());
 	}
 
 	@Test
-	public void testSetFamilyName() {
-		fail("まだ実装されていません");
+	public void testGetFamilyName3() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="737389292";
+		dto.setFamilyName(expected);
+
+		assertEquals(expected,dto.getFamilyName());
 	}
+
+	@Test
+	public void testGetFamilyName4() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="-737389292";
+		dto.setFamilyName(expected);
+
+		assertEquals(expected,dto.getFamilyName());
+	}
+	//----------------------------------------------
 
 	@Test
 	public void testGetFirstName() {
-		fail("まだ実装されていません");
+		DestinationDTO dto=new DestinationDTO();
+		String expected=null;
+		dto.setUserId(expected);
+
+		assertEquals(expected,dto.getFirstName());
+	}
+
+
+	@Test
+	public void testGetFirstName2() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="0";
+		dto.setFirstName(expected);
+
+		assertEquals(expected,dto.getFirstName());
 	}
 
 	@Test
-	public void testSetFirstName() {
-		fail("まだ実装されていません");
+	public void testGetFirstName3() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="737389292";
+		dto.setFirstName(expected);
+
+		assertEquals(expected,dto.getFirstName());
 	}
+
+	@Test
+	public void testGetFirstName4() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="-737389292";
+		dto.setFirstName(expected);
+
+		assertEquals(expected,dto.getFirstName());
+	}
+	//----------------------------------------------
 
 	@Test
 	public void testGetFamilyNameKana() {
-		fail("まだ実装されていません");
+		DestinationDTO dto=new DestinationDTO();
+		String expected=null;
+		dto.setFamilyNameKana(expected);
+
+		assertEquals(expected,dto.getFamilyNameKana());
 	}
 
 	@Test
-	public void testSetFamilyNameKana() {
-		fail("まだ実装されていません");
+	public void testGetFamilyNameKana2() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="0";
+		dto.setFamilyNameKana(expected);
+
+		assertEquals(expected,dto.getFamilyNameKana());
 	}
+
+	@Test
+	public void testGetFamilyNameKana3() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="4567890";
+		dto.setFamilyNameKana(expected);
+
+		assertEquals(expected,dto.getFamilyNameKana());
+	}
+
+
+	@Test
+	public void testGetFamilyNameKana4() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="-4567890";
+		dto.setFamilyNameKana(expected);
+
+		assertEquals(expected,dto.getFamilyNameKana());
+	}
+	//----------------------------------------------
 
 	@Test
 	public void testGetFirstNameKana() {
-		fail("まだ実装されていません");
+		DestinationDTO dto=new DestinationDTO();
+		String expected=null;
+		dto.setFirstNameKana(expected);
+
+		assertEquals(expected,dto.getFirstNameKana());
 	}
 
+
 	@Test
-	public void testSetFirstNameKana() {
-		fail("まだ実装されていません");
+	public void testGetFirstNameKana2() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="0";
+		dto.setFirstNameKana(expected);
+
+		assertEquals(expected,dto.getFirstNameKana());
 	}
+
+
+	@Test
+	public void testGetFirstNameKana3() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="34567890";
+		dto.setFirstNameKana(expected);
+
+		assertEquals(expected,dto.getFirstNameKana());
+	}
+
+
+	@Test
+	public void testGetFirstNameKana4() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="-34567890";
+		dto.setFirstNameKana(expected);
+
+		assertEquals(expected,dto.getFirstNameKana());
+	}
+	//----------------------------------------------
 
 	@Test
 	public void testGetUserAddress() {
-		fail("まだ実装されていません");
+		DestinationDTO dto=new DestinationDTO();
+		String expected=null;
+		dto.setUserAddress(expected);
+
+		assertEquals(expected,dto.getUserAddress());
 	}
 
 	@Test
-	public void testSetUserAddress() {
-		fail("まだ実装されていません");
+	public void testGetUserAddress2() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="0";
+		dto.setUserAddress(expected);
+
+		assertEquals(expected,dto.getUserAddress());
+	}
+
+
+	@Test
+	public void testGetUserAddress3() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="5609876";
+		dto.setUserAddress(expected);
+
+		assertEquals(expected,dto.getUserAddress());
 	}
 
 	@Test
-	public void testGetTelNumber() {
-		fail("まだ実装されていません");
+	public void testGetUserAddress4() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="-5609876";
+		dto.setUserAddress(expected);
+
+		assertEquals(expected,dto.getUserAddress());
+	}
+	//----------------------------------------------
+
+	@Test
+	public void testGeTellNumber() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected=null;
+		dto.setTelNumber(expected);
+
+		assertEquals(expected,dto.getTelNumber());
+	}
+
+
+	@Test
+	public void testGeTellNumber2() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="0";
+		dto.setTelNumber(expected);
+
+		assertEquals(expected,dto.getTelNumber());
+	}
+
+
+	@Test
+	public void testGeTellNumber3() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="2345674";
+		dto.setTelNumber(expected);
+
+		assertEquals(expected,dto.getTelNumber());
+	}
+
+
+	@Test
+	public void testGeTellNumber4() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="-2345674";
+		dto.setTelNumber(expected);
+
+		assertEquals(expected,dto.getTelNumber());
+	}
+	//----------------------------------------------
+
+	@Test
+	public void testEmail() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected=null;
+		dto.setEmail(expected);
+
+		assertEquals(expected,dto.getEmail());
 	}
 
 	@Test
-	public void testSetTelNumber() {
-		fail("まだ実装されていません");
+	public void testEmail2() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="0";
+		dto.setEmail(expected);
+
+		assertEquals(expected,dto.getEmail());
+	}
+
+
+	@Test
+	public void testEmail3() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="986589";
+		dto.setEmail(expected);
+
+		assertEquals(expected,dto.getEmail());
 	}
 
 	@Test
-	public void testGetEmail() {
-		fail("まだ実装されていません");
+	public void testEmail4() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="-986589";
+		dto.setEmail(expected);
+
+		assertEquals(expected,dto.getEmail());
 	}
+	//----------------------------------------------
 
 	@Test
-	public void testSetEmail() {
-		fail("まだ実装されていません");
+	public void testRegistDate() {
+		DestinationDTO dto=new DestinationDTO();
+		Date expected=null;
+		dto.setRegistDate(expected);
+
+		assertEquals(expected,dto.getRegistDate());
 	}
 
-	@Test
-	public void testGetUpdateDate() {
-		fail("まだ実装されていません");
-	}
+	//----------------------------------------------
 
 	@Test
-	public void testSetUpdateDate() {
-		fail("まだ実装されていません");
-	}
+	public void testUpdateDate() {
+		DestinationDTO dto=new DestinationDTO();
+		Date expected=null;
+		dto.setUpdateDate(expected);
 
-	@Test
-	public void testSetFullName() {
-		fail("まだ実装されていません");
+		assertEquals(expected,dto.getUpdateDate());
 	}
-
-	@Test
-	public void testGetRegistDate() {
-		fail("まだ実装されていません");
-	}
-
-	@Test
-	public void testSetRegistDate() {
-		fail("まだ実装されていません");
-	}
+	//----------------------------------------------
 
 }

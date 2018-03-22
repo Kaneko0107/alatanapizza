@@ -78,6 +78,10 @@
 				<a href='<s:url action="CartDeleteAction">
 				<s:param name="id" value="id"></s:param></s:url>'>削除</a>
 				</s:form>
+
+				<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+					<img class="image" src=./images/icon/shousai.png><br>
+				</a>
 			</div>
 			</div>
 			</div>

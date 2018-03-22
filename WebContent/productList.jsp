@@ -192,7 +192,7 @@ $(function() {
 			<%-- 商品詳細:<s:property value="product_description" /><br> --%>
 
 			<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
-					<img class="image" src=./images/icon/modoru2.png><br>
+					<img class="image" src=./images/icon/shousai.png><br>
 				</a>
 
 		</div>

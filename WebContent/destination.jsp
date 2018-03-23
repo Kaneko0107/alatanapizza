@@ -35,8 +35,12 @@ margin-top:90px;
 <td>氏名:</td>
 <td><s:property value="familyName"/><s:property value="firstName"/></td>
 <tr>
+<tr>
+<td>郵便番号:</td>
+<td><s:property value="zip11"/><s:property value="zip11"/></td>
+<tr>
 <td>住所:</td>
-<td><s:property value="userAddress"/></td>
+<td><s:property value="addr11"/></td>
 <td><input type=radio name="destination" value="<s:property value='destinationInfoListDTO'/>" checked="checked"/></td>
 </tr>
 <tr>

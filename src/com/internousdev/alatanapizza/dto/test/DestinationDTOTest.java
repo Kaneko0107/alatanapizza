@@ -240,40 +240,78 @@ public class DestinationDTOTest {
 	//----------------------------------------------
 
 	@Test
-	public void testGetUserAddress() {
+	public void testGetAddr111() {
 		DestinationDTO dto=new DestinationDTO();
 		String expected=null;
-		dto.setUserAddress(expected);
+		dto.setAddr11(expected);
 
-		assertEquals(expected,dto.getUserAddress());
+		assertEquals(expected,dto.getAddr11());
 	}
 
 	@Test
-	public void testGetUserAddress2() {
+	public void testGetAddr112() {
 		DestinationDTO dto=new DestinationDTO();
 		String expected="0";
-		dto.setUserAddress(expected);
+		dto.setAddr11(expected);
 
-		assertEquals(expected,dto.getUserAddress());
+		assertEquals(expected,dto.getAddr11());
 	}
 
 
 	@Test
-	public void testGetUserAddress3() {
+	public void testGetAddr113() {
 		DestinationDTO dto=new DestinationDTO();
 		String expected="5609876";
-		dto.setUserAddress(expected);
+		dto.setAddr11(expected);
 
-		assertEquals(expected,dto.getUserAddress());
+		assertEquals(expected,dto.getAddr11());
 	}
 
 	@Test
-	public void testGetUserAddress4() {
+	public void testGetAddr114() {
 		DestinationDTO dto=new DestinationDTO();
 		String expected="-5609876";
-		dto.setUserAddress(expected);
+		dto.setAddr11(expected);
 
-		assertEquals(expected,dto.getUserAddress());
+		assertEquals(expected,dto.getAddr11());
+	}
+	//----------------------------------------------
+
+	@Test
+	public void testGetZip111() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected=null;
+		dto.setZip11(expected);
+
+		assertEquals(expected,dto.getZip11());
+	}
+
+	@Test
+	public void testGetZip112() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="0";
+		dto.setZip11(expected);
+
+		assertEquals(expected,dto.getZip11());
+	}
+
+
+	@Test
+	public void testGetZip113() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="5609876";
+		dto.setZip11(expected);
+
+		assertEquals(expected,dto.getZip11());
+	}
+
+	@Test
+	public void testGetZip114() {
+		DestinationDTO dto=new DestinationDTO();
+		String expected="-5609876";
+		dto.setZip11(expected);
+
+		assertEquals(expected,dto.getAddr11());
 	}
 	//----------------------------------------------
 

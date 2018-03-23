@@ -71,7 +71,10 @@
 			<div class="count">
 			（購入数：<s:property value="productCount" />点）
 			</div>
+
+			<!-- ピザサイズ表示 -->
 			<s:property value="pizzaSize"/>
+
 			<!-- 削除ボタン -->
 			<div class="deletebutton">
 			<s:form action="CartDeleteAction">

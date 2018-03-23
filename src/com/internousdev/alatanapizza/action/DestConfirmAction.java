@@ -14,6 +14,8 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
+//	private String postalCode;
+//	private String addr11;
 	private String userAddress;
 	private String telNumber;
 	private String email;
@@ -112,6 +114,20 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	public void setFirstNameKana(String firstNameKana){
 		this.firstNameKana=firstNameKana;
 	}
+
+//	public String getPostalCode(){
+//		return postalCode;
+//	}
+//	public void setPostalCode(String postalCode){
+//		this.postalCode=postalCode;
+//	}
+//
+//	public String getAddr11(){
+//		return addr11;
+//	}
+//	public void setAddr11(String addr11){
+//		this.addr11=addr11;
+//	}
 
 	public String getUserAddress(){
 		return userAddress;

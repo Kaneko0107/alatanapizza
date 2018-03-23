@@ -141,12 +141,10 @@ tr td .memo{text-align:center;
 				<tr><td><div class="imagehover"><s:submit class="image" type="image" value="" src="./images/icon/touroku.png"/></div></td></tr>
 			</s:form>
 
-<!--  白い点線 -->
-			<tr><td><hr></td></tr>
 
-
- <s:form action="DestAction">
-
+<!-- 戻る画像アイコン -->
+			<s:form action="DestAction">
+<tr><td>
      <input type=hidden name="familyName" value='<s:property value="familyName"/>' />
 	<input type=hidden name="firstName" value='<s:property value="firstName"/>' />
 	<input type=hidden name="familyNameKana" value='<s:property value="familyNameKana"/>' />
@@ -155,10 +153,16 @@ tr td .memo{text-align:center;
       <input type=hidden name="telNumber" value='<s:property value="telNumber"/>' />
       <input type=hidden name="email" value='<s:property value="email"/>' />
 
-      <s:submit value="戻る" class="DestButton"/>
+      <s:submit value="戻る" class="DestButton"/></td></tr>
     </s:form>
-    <!-- 戻る画像アイコン -->
-    	<tr><td><div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()"><img src="./images/icon/modoru2.png"></a></div></td></tr>
+
+<!--  白い点線 -->
+			<tr><td><hr></td></tr>
+
+
+
+
+<!--     	<tr><td><div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()"><img src="./images/icon/modoru2.png"></a></div></td></tr> -->
 
 		</table>
 

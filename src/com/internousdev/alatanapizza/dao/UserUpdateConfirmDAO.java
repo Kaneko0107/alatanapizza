@@ -28,6 +28,10 @@ public class UserUpdateConfirmDAO {
 				userUpdateDTO.setUser_id(rs.getString("user_id"));
 				userUpdateDTO.setPassword(rs.getString("password"));
 				userUpdateDTO.setEmail(rs.getString("email"));
+				userUpdateDTO.setFamilyName(rs.getString("family_name"));
+				userUpdateDTO.setFirstName(rs.getString("first_name"));
+				userUpdateDTO.setFamilyNameKana(rs.getString("family_name_kana"));
+				userUpdateDTO.setFirstNameKana(rs.getString("first_name_kana"));
 			}
 		}catch(Exception e){
 			e.printStackTrace();

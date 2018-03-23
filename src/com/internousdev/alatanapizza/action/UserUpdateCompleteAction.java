@@ -12,32 +12,29 @@ public class UserUpdateCompleteAction extends ActionSupport implements SessionAw
 	private String user_id;
 	private String newPassword;
 	private String newEmail;
+	private String familyName;
+
+	private String firstName;
+
+	private String familyNameKana;
+
+	private String firstNameKana;
 	public Map<String,Object>session;
 
 
 	public String execute() throws SQLException{
+		if (newPassword.equals("")) {
+			newPassword = null;
+		}
 		String errorUpdate="errorupdate";
 		UserUpdateCompleteDAO dao=new UserUpdateCompleteDAO();
 		String result=ERROR;
+
 		if(session.containsKey("errorUpdate")){
 			result=ERROR;
 		}
-
-
-		else if(newEmail==null){
-			dao.userUpdatePassword(newPassword,user_id);
-			session.remove("newPassword");
-			session.put("errorUpdate",errorUpdate);
-			result=SUCCESS;
-			}else if(newPassword==null){
-				dao.userUpdateEmail(newEmail, user_id);
-				session.remove("newEmail");
-				session.put("errorUpdate",errorUpdate);
-				result=SUCCESS;
-		}else{
-			dao.userUpdateDouble(newPassword, newEmail, user_id);
-			session.remove(newPassword);
-			session.remove(newEmail);
+		else{
+			dao.userUpdate(newPassword, newEmail,familyName,firstName,familyNameKana,firstNameKana,user_id);
 			session.put("errorUpdate",errorUpdate);
 			result=SUCCESS;
 		}
@@ -102,6 +99,126 @@ public class UserUpdateCompleteAction extends ActionSupport implements SessionAw
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	public String getFamilyName() {
+		return familyName;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setFamilyName(String familyName) {
+		this.familyName = familyName;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	public String getFamilyNameKana() {
+		return familyNameKana;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setFamilyNameKana(String familyNameKana) {
+		this.familyNameKana = familyNameKana;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	public String getFirstNameKana() {
+		return firstNameKana;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setFirstNameKana(String firstNameKana) {
+		this.firstNameKana = firstNameKana;
 	}
 
 }

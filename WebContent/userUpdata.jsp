@@ -63,7 +63,8 @@ margin-top:20px;}
 <tr><td colspan="2"><h3>ユーザー情報変更画面</h3></td></tr>
 <tr><td colspan="2"><hr></td></tr>
 <tr><td colspan="2"><div class="moji">お客様の登録されているパスワードから以下の項目を変更できます。</div></td></tr>
-<tr><td colspan="2"><div class="moji">指定に従って以下の項目を入力し、下記の確認ボタンを押してください</div><br></td></tr>
+<tr><td colspan="2"><div class="moji">指定に従って以下の項目を入力し、下記の確認ボタンを押してください</div></td></tr>
+<tr><td colspan="2"><div class="moji">変更したくない項目は、空欄または初期状態のまま処理を進めてください。</div></td></tr>
 
 <s:if test="errorMessage!=''">
    <tr><td colspan="2"><s:iterator value="errMsgList">
@@ -75,7 +76,6 @@ margin-top:20px;}
 		</s:iterator></td></tr>
 		</s:if>
 <s:form action="UserUpdateConfirmAction">
-
 
 
    <tr>
@@ -98,32 +98,32 @@ margin-top:20px;}
    </tr>
    <tr>
    <th>メールアドレス</th>
-   <s:if test="#session.newEmail != null">
-   <td><s:textfield name="newEmail" placeholder="14文字以上32文字以下" value="<s:property value='newEmail'/>" class="form"/></td>
+   <s:if test="newEmail != null">
+   <td><s:textfield name="newEmail" placeholder="14文字以上32文字以下" value="%{newEmail}" class="form"/></td>
    </s:if>
    <s:else>
-    <td><s:textfield name="newEmail" placeholder="14文字以上32文字以下"  class="form"/></td>
+    <td><s:textfield name="newEmail" placeholder="14文字以上32文字以下"  value="%{dto.email}" class="form"/></td>
    </s:else>
    </tr>
    <tr>
-   <th>お名前</th>
+  <th>お名前</th>
    </tr>
    <tr>
    <th>姓</th>
-    <s:if test="#session.familyname != null">
-   <td><s:textfield name="newEmail" value="<s:property value='familyname'/>" placeholder="14文字以上32文字以下" class="form"/></td>
+    <s:if test="familyName != null">
+   <td><s:textfield name="familyName" value="%{familyName}" placeholder="1文字以上16文字以下" class="form"/></td>
    </s:if>
    <s:else>
-    <td><s:textfield name="newEmail" placeholder="14文字以上32文字以下" class="form"/></td>
+    <td><s:textfield name="familyName" placeholder="1文字以上16文字以下" value="%{dto.familyName}" class="form"/></td>
    </s:else>
    </tr>
    <tr>
    <th>名</th>
-    <s:if test="#session.familyname != null">
-   <td><s:textfield name="newEmail" value="<s:property value='familyname'/>" placeholder="14文字以上32文字以下" class="form"/></td>
+    <s:if test="firstName != null">
+   <td><s:textfield name="firstName" value="%{firstName}" placeholder="1文字以上16文字以下" class="form"/></td>
    </s:if>
    <s:else>
-    <td><s:textfield name="newEmail" placeholder="14文字以上32文字以下" class="form"/></td>
+    <td><s:textfield name="firstName" placeholder="1文字以上16文字以下" value="%{dto.firstName}" class="form"/></td>
    </s:else>
    </tr>
    <tr>
@@ -131,20 +131,20 @@ margin-top:20px;}
    </tr>
    <tr>
     <th>せい</th>
-   <s:if test="#session.familyname != null">
-   <td><s:textfield name="newEmail" value="<s:property value='familyname'/>" placeholder="14文字以上32文字以下" class="form"/></td>
+   <s:if test="familyNameKana != null">
+   <td><s:textfield name="familyNameKana" value="%{familyNameKana}" placeholder="1文字以上16文字以下" class="form"/></td>
    </s:if>
    <s:else>
-    <td><s:textfield name="newEmail" placeholder="14文字以上32文字以下" class="form"/></td>
+    <td><s:textfield name="familyNameKana" placeholder="1文字以上16文字以下" value="%{dto.familyNameKana}" class="form"/></td>
    </s:else>
    </tr>
    <tr>
    <th>めい</th>
-     <s:if test="#session.familyname != null">
-   <td><s:textfield name="newEmail" value="<s:property value='familyname'/>" placeholder="14文字以上32文字以下" class="form"/></td>
+     <s:if test="firstNameKana != null">
+   <td><s:textfield name="firstNameKana" value="%{firstNameKana}" placeholder="1文字以上16文字以下" class="form"/></td>
    </s:if>
    <s:else>
-    <td><s:textfield name="newEmail" placeholder="14文字以上32文字以下" class="form"/></td>
+    <td><s:textfield name="firstNameKana" placeholder="1文字以上16文字以下" value="%{dto.firstNameKana}" class="form"/></td>
    </s:else>
    </tr>
 

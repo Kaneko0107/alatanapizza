@@ -57,20 +57,41 @@ text-align:right;
    <td><s:property value="%{session.userId}"/>
    <s:hidden name="user_id" value="%{session.userId}" /></td>
    </tr>
-   <s:if test="newPassword != ''" >
    <tr>
-   <td><div class="moji">新規パスワード</div></td>
+   <s:if test='newPasswrod !=""'>
+   <td>
+   <div class="moji">新規パスワード</div></td>
    <td><s:property value="newPassword"/>
    <s:hidden name="newPassword" value="%{newPassword}" /></td>
-   </tr>
    </s:if>
-   <s:if test="newEmail != ''" >
+   </tr>
    <tr>
    <td><div class="moji">メールアドレス</div></td>
    <td><s:property value="newEmail"/>
    <s:hidden name="newEmail" value="%{newEmail}" /></td>
    </tr>
-   </s:if>
+   <tr>
+   <td><div class="moji">姓</div></td>
+   <td><s:property value="familyName"/>
+   <s:hidden name="familyName" value="%{familyName}" /></td>
+   </tr>
+   <tr>
+   <td><div class="moji">名</div></td>
+   <td><s:property value="firstName"/>
+   <s:hidden name="firstName" value="%{firstName}" /></td>
+   </tr>
+   <tr>
+   <td><div class="moji">せい</div></td>
+   <td><s:property value="familyNameKana"/>
+   <s:hidden name="familyNameKana" value="%{familyNameKana}" /></td>
+   </tr>
+   <tr>
+   <td><div class="moji">めい</div></td>
+   <td><s:property value="firstNameKana"/>
+   <s:hidden name="firstNameKana" value="%{firstNameKana}" /></td>
+   </tr>
+
+
    <tr>
    <td><div class="moji2">変更内容が正しければ右のボタンで変更を完了してください。</div></td>
    </tr>

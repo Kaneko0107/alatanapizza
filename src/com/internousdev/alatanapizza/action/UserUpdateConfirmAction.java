@@ -20,6 +20,14 @@ public class UserUpdateConfirmAction extends ActionSupport implements SessionAwa
 
 	private String newEmail;
 
+	private String familyName;
+
+	private String firstName;
+
+	private String familyNameKana;
+
+	private String firstNameKana;
+
 	private Map<String, Object> session;
 
 	private ArrayList<String> errMsgList = new ArrayList<>();
@@ -38,7 +46,7 @@ public class UserUpdateConfirmAction extends ActionSupport implements SessionAwa
 
 		dto=dao.getUserInfo(user_id);
 
-		if(!(newPassword.equals("") || conPassword.equals(""))){
+		if(!(newPassword.equals("") || conPassword.equals("") || familyName.equals("") || firstName.equals("") || familyNameKana.equals("") ||  firstNameKana.equals(""))){
 			if(!(password.equals(dto.getPassword()))){
 				setErrorMessage("現在のパスワードが間違っています。");
 				errMsgList.add(errorMessage);
@@ -49,10 +57,6 @@ public class UserUpdateConfirmAction extends ActionSupport implements SessionAwa
 			}
 			if(!(newPassword.matches("^[a-zA-Z0-9]+$"))){
 				setErrorMessage("新しいパスワードは半角英数字で入力してください。");
-				errMsgList.add(errorMessage);
-			}
-			if(newPassword.equals(dto.getPassword())){
-				setErrorMessage("以前と同じパスワードは使用できません。");
 				errMsgList.add(errorMessage);
 			}
 			if(!(newPassword.equals(conPassword))){
@@ -74,20 +78,55 @@ public class UserUpdateConfirmAction extends ActionSupport implements SessionAwa
 					setErrorMessage("正しいメールアドレスの形式で入力してください。");
 					errMsgList.add(errorMessage);
 				}
-				if(newEmail.equals(dto.getEmail())){
-					setErrorMessage("以前のメールアドレスは使用できません。");
+
+				if(familyName.length()<1 || familyName.length()>16){
+					setErrorMessage("姓は1～16文字の範囲内で入力してください。");
+					errMsgList.add(errorMessage);
+				}
+				if(firstName.length()<1 || firstName.length()>16){
+					setErrorMessage("名は1～16文字の範囲内で入力してください。");
+					errMsgList.add(errorMessage);
+				}
+				if(familyNameKana.length()<1 || familyNameKana.length()>16){
+					setErrorMessage("せいは1～16文字の範囲内で入力してください。");
+					errMsgList.add(errorMessage);
+				}
+				if(firstNameKana.length()<1 || firstNameKana.length()>16){
+					setErrorMessage("めいは1～16文字の範囲内で入力してください。");
+					errMsgList.add(errorMessage);
+				}
+				if (!familyName.matches("^[a-zA-Z.ぁ-ん.一-龠]*$")) {
+					setErrorMessage("姓は半角英語、ひらがな、漢字で入力してください。");
+					errMsgList.add(errorMessage);
+				}
+
+				if (!firstName.matches("^[a-zA-Z.ぁ-ん.一-龠]*$")) {
+					setErrorMessage("名は半角英語、ひらがな、漢字で入力してください。");
+					errMsgList.add(errorMessage);
+				}
+				if (!familyNameKana.matches("^[ぁ-ん]+$")) {
+					setErrorMessage("せいはひらがなで入力してください。");
+					errMsgList.add(errorMessage);
+				}
+
+				if (!firstNameKana.matches("^[ぁ-ん]+$")) {
+					setErrorMessage("めいはひらがなで入力してください。");
 					errMsgList.add(errorMessage);
 				}
 			}
 
-			if(newPassword.equals("")&&newEmail.equals("")){
-				setErrorMessage("パスワードとメールアドレスのどちらかは変更してください。");
+			if(newPassword.equals("")&&newEmail.equals("")&&familyName.equals("")&&firstName.equals("")&&familyNameKana.equals("")&&firstNameKana.equals("")){
+				setErrorMessage("変更内容が選ばれていません。");
 				errMsgList.add(errorMessage);
 			}
 
 			if(errorMessage==null){
 				session.put("newPassword", newPassword);
 				session.put("newEmail", newEmail);
+				session.put("familyName", familyName);
+				session.put("firstName", firstName);
+				session.put("familyNameKana", familyNameKana);
+				session.put("firstNameKana", firstNameKana);
 				result=SUCCESS;
 			}
 
@@ -209,6 +248,94 @@ public class UserUpdateConfirmAction extends ActionSupport implements SessionAwa
 
 	public void setErrorMessage(String errorMessage) {
 		this.errorMessage = errorMessage;
+	}
+
+
+
+
+
+
+
+
+	public String getFamilyName() {
+		return familyName;
+	}
+
+
+
+
+
+
+
+
+	public void setFamilyName(String familyName) {
+		this.familyName = familyName;
+	}
+
+
+
+
+
+
+
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+
+
+
+
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+
+
+
+
+
+
+	public String getFamilyNameKana() {
+		return familyNameKana;
+	}
+
+
+
+
+
+
+
+
+	public void setFamilyNameKana(String familyNameKana) {
+		this.familyNameKana = familyNameKana;
+	}
+
+
+
+
+
+
+
+
+	public String getFirstNameKana() {
+		return firstNameKana;
+	}
+
+
+
+
+
+
+
+
+	public void setFirstNameKana(String firstNameKana) {
+		this.firstNameKana = firstNameKana;
 	}
 
 

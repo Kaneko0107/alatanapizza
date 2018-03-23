@@ -36,9 +36,17 @@ settlement.jsp用
 .box{
 	float:left;
 	background:rgba(0,0,0,0.2);
-	margin-left:10%;
+	margin-left:10px;
 }
 .btn{
+	clear:both;
+}
+#btn_2{
+	position: absolute;
+	top:155%;
+	left:60%;
+}
+#b1{
 	clear:both;
 }
 

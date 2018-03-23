@@ -10,7 +10,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/alatanapizza.css">
 <link rel="stylesheet" href="./css/cart.css">
-
+<style type="text/css">
+.box{
+	float:left;
+	background:rgba(0,0,0,0.2);
+	margin:0 0 0 5%;
+}
+</style>
 <script type="text/javascript">
 	window.onunload = function() {
 	};
@@ -102,11 +108,10 @@
 
 			</div>
 			<br>
+			<div id="btn_2">
 			<div class="btn_2">
 				<s:submit value="購入" class="submit " />
-
-
-			</div>
+			</div></div>
 		</s:form>
 
 		<!-- --------------------■宛先情報■--------------------- -->
@@ -148,37 +153,27 @@
 					</div>
 				</div>
 
-
-				<!-- 宛先個別削除 -->
 			</s:iterator>
-			<s:submit class="submit" value="削除" />
+
+		<!-- 宛先新規登録 -->
+		<div id="b1"><br>
+		<input type="button" class="submit" value="宛先情報の新規登録"
+			onclick="location.href='<s:url action="DestAction" />'"></div><br>
+
+
+			<!-- 宛先個別削除 -->
+			<s:submit class="submit" value="選択している宛先を削除" />
 			<input type="hidden" name="deleteFlg" value="2" />
 		</s:form>
-
-		<%-- <s:form action="DestinationDeleteAction"> --%
-<%-- 				<a href='<s:url action="DestinationDeleteAction"> --%>
-		<%-- 				<s:param  name="deleteFlg" value="2"></s:param></s:url>'>削除</a> --%>
-		<%-- 				</s:form> --%>
-
-
-
-
-
-
-
-
 
 		<!-- 宛先全削除 -->
 		<s:form action="DestinationDeleteAction">
 			<input type="hidden" name="deleteFlg" value="1">
 			<s:submit class="submit" value="宛先をすべて削除" />
-		</s:form>
+		</s:form><br>
 
-		<!-- 宛先新規登録 -->
-		<input type="button" class="submit" value="宛先情報の新規登録"
-			onclick="location.href='<s:url action="DestAction" />'">
-		<div class="back">
-
+		<!-- カートに戻る -->
+			<div class="back">
 			<a href='<s:url action="CartProductAction" />'>◀ カートに戻る</a>
 		</div>
 	</div>

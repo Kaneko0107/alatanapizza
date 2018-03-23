@@ -35,9 +35,9 @@ public class DestinationDAO {
 			+ ",user_address"
 			+ ",tel_number"
 			+ ",email"
-//			+ ",postal_code"
+			+ ",postal_code"
 			+ ",regist_date"
-			+ ")VALUES(?,?,?,?,?,?,?,?,NOW())";
+			+ ")VALUES(?,?,?,?,?,?,?,?,?,NOW())";
 	try{
 		System.out.println("INSERTsql文実行");
 		con =db.getConnection();
@@ -47,11 +47,11 @@ public class DestinationDAO {
 		ps.setString(3, destinationDTO.getFirstName());
 		ps.setString(4, destinationDTO.getFamilyNameKana());
 		ps.setString(5, destinationDTO.getFirstNameKana());
-//		ps.setString(6, destinationDTO.getAddr11());
-		ps.setString(6, destinationDTO.getUserAddress());
+		ps.setString(6, destinationDTO.getAddr11());
+//		ps.setString(6, destinationDTO.getUserAddress());
 		ps.setString(7, destinationDTO.getTelNumber());
 		ps.setString(8, destinationDTO.getEmail());
-//		ps.setString(9, destinationDTO.getZip11());
+		ps.setString(9, destinationDTO.getZip11());
 		//System.out.println(ps);
 		updateCount = ps.executeUpdate();
 
@@ -84,7 +84,7 @@ public class DestinationDAO {
 				+ ",user_address"
 				+ ",tel_number"
 				+ ",email"
-//				+ ",postal_code"
+				+ ",postal_code"
 				+ " FROM destination_info WHERE user_id =?";
 
 		try{
@@ -104,9 +104,9 @@ public class DestinationDAO {
 				destinationDTO.setFirstNameKana(rs.getString("first_name_kana"));
 				destinationDTO.setEmail(rs.getString("email"));
 				destinationDTO.setTelNumber(rs.getString("tel_number"));
-//				destinationDTO.setZip11(rs.getString("postal_code"));
-//				destinationDTO.setAddr11(rs.getString("user_address"));
-				destinationDTO.setUserAddress(rs.getString("user_address"));
+				destinationDTO.setZip11(rs.getString("postal_code"));
+				destinationDTO.setAddr11(rs.getString("user_address"));
+//				destinationDTO.setUserAddress(rs.getString("user_address"));
 				destinationList.add(destinationDTO);
 			}
 		}catch(SQLException e){

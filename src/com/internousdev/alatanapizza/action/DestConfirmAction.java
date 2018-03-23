@@ -14,9 +14,9 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
-//	private String postalCode;
-//	private String addr11;
-	private String userAddress;
+	private String zip11;
+	private String addr11;
+//	private String userAddress;
 	private String telNumber;
 	private String email;
 	private ArrayList<String> errorMessageList=new ArrayList<>();
@@ -54,10 +54,18 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 			errorMessageList.add(i.firstNameKanaChk(firstNameKana));
 			result =ERROR;
 		}
-		if(!i.userAddressChk(userAddress).equals("OK")){
-			errorMessageList.add(i.userAddressChk(userAddress));
+		if(!i.zip11Chk(zip11).equals("OK")){
+			errorMessageList.add(i.zip11Chk(zip11));
 			result =ERROR;
 		}
+		if(!i.addr11Chk(addr11).equals("OK")){
+			errorMessageList.add(i.addr11Chk(addr11));
+			result =ERROR;
+		}
+//		if(!i.userAddressChk(userAddress).equals("OK")){
+//			errorMessageList.add(i.userAddressChk(userAddress));
+//			result =ERROR;
+//		}
 		if(!i.telNumberChk(telNumber).equals("OK")){
 			errorMessageList.add(i.telNumberChk(telNumber));
 			result =ERROR;
@@ -74,14 +82,18 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 				&&!(firstNameKana.equals(""))
 				&&!(email.equals(""))
 				&&!(telNumber.equals(""))
-				&&!(userAddress.equals(""))){
+//				&&!(userAddress.equals(""))
+				&&!(zip11.equals(""))
+				&&!(addr11.equals(""))){
 			session.put("familyName", familyName);
 			session.put("firstName", firstName);
 			session.put("familyNameKana", familyNameKana);
 			session.put("firstNameKana", firstNameKana);
 			session.put("email", email);
 			session.put("telNumber", telNumber);
-			session.put("userAddress", userAddress);
+			session.put("zip11", zip11);
+			session.put("addr11", addr11);
+//			session.put("userAddress", userAddress);
 		}
 
 		return result;
@@ -115,26 +127,26 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 		this.firstNameKana=firstNameKana;
 	}
 
-//	public String getZip11(){
-//		return zip11;
-//	}
-//	public void setZip11(String zip11){
-//		this.zip11=zip11;
-//	}
-//
-//	public String getAddr11(){
-//		return addr11;
-//	}
-//	public void setAddr11(String addr11){
-//		this.addr11=addr11;
-//	}
+	public String getZip11(){
+		return zip11;
+	}
+	public void setZip11(String zip11){
+		this.zip11=zip11;
+	}
 
-	public String getUserAddress(){
-		return userAddress;
+	public String getAddr11(){
+		return addr11;
 	}
-	public void setUserAddress(String userAddress){
-		this.userAddress=userAddress;
+	public void setAddr11(String addr11){
+		this.addr11=addr11;
 	}
+
+//	public String getUserAddress(){
+//		return userAddress;
+//	}
+//	public void setUserAddress(String userAddress){
+//		this.userAddress=userAddress;
+//	}
 
 	public String getTelNumber(){
 		return telNumber;

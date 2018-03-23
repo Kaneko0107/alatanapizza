@@ -189,13 +189,13 @@ font-size:15px;
 					<td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="firstNameKana" maxlength ='16' value="%{firstNameKana}" /></td>
 				</tr>
 
-<%-- <!-- 郵便番号 -->
+<!-- 郵便番号 -->
 				<tr>
 					<td>郵便番号 [半角数字]</td>
 				</tr>
 				<tr>
-					<td><s:textfield class ="form" placeholder="" name="zip11" size ="10" maxlength ='8' value="%{zip11}" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');" /></td>
-				</tr> --%>
+					<td><s:textfield class ="form" placeholder="7文字以上8文字以下" name="zip11" size ="10" maxlength ='8' value="%{zip11}" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');" /></td>
+				</tr>
 
 <!-- 住所 -->
 				<tr>
@@ -205,9 +205,20 @@ font-size:15px;
 					<td>[半角英数字記号、漢字、ひらがな、カタカナ]</td>
 				</tr>
 				<tr>
+					<td><s:textfield class ="form" placeholder="15文字以上50文字以下" name="addr11" maxlength ='50' value="%{addr11}" /></td>
+				</tr>
+
+<%-- <!-- 住所 -->
+				<tr>
+					<td>住所</td>
+				</tr>
+				<tr>
+					<td>[半角英数字記号、漢字、ひらがな、カタカナ]</td>
+				</tr>
+				<tr>
 					<td><s:textfield class ="form" placeholder="15文字以上50文字以下" name="userAddress" maxlength ='50' value="%{userAddress}" /></td>
 				</tr>
-				<!-- name ="addr11" -->
+ --%>
 
 <!-- 電話番号 -->
 				<tr>

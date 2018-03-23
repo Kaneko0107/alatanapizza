@@ -115,7 +115,7 @@ tr td .memo{text-align:center;
 
 <!-- 姓 -->
 				<tr>
-					<td>姓</td>
+					<td>-姓-</td>
 				</tr>
 				<tr>
 					<td><s:property value="familyName" escape="false"/>
@@ -124,7 +124,7 @@ tr td .memo{text-align:center;
 
 <!-- 名 -->
 				<tr>
-					<td>名</td>
+					<td>-名-</td>
 				</tr>
 				<tr>
 					<td><s:property value="firstName" escape="false"/>
@@ -133,7 +133,7 @@ tr td .memo{text-align:center;
 
 <!-- 姓かな -->
 				<tr>
-					<td>姓（かな）</td>
+					<td>-姓（かな）-</td>
 				</tr>
 				<tr>
 					<td><s:property value="familyNameKana" escape="false"/>
@@ -142,7 +142,7 @@ tr td .memo{text-align:center;
 
 <!-- 名かな -->
 				<tr>
-					<td>名（かな）</td>
+					<td>-名（かな）-</td>
 				</tr>
 				<tr>
 					<td><s:property value="firstNameKana" escape="false"/>
@@ -150,27 +150,36 @@ tr td .memo{text-align:center;
 				</tr>
 
 <!-- 郵便番号 -->
-<%-- 				<tr>
-					<td>郵便番号</td>
+				<tr>
+					<td>-郵便番号-</td>
 				</tr>
 				<tr>
 					<td><s:property value ="zip11" escape ="false"/>
 					<input type =hidden name ="zip11" value ='<s:property value ="zip11"/>' /></td>
-				</tr> --%>
+				</tr>
 
 
 <!-- 住所 -->
 				<tr>
-					<td>住所</td>
+					<td>-住所-</td>
+				</tr>
+				<tr>
+					<td><s:property value="addr11" escape="false"/>
+					<input type=hidden name="addr11" value='<s:property value="addr11"/>' /></td>
+				</tr>
+
+<%-- <!-- 住所 -->
+				<tr>
+					<td>-住所-</td>
 				</tr>
 				<tr>
 					<td><s:property value="userAddress" escape="false"/>
 					<input type=hidden name="userAddress" value='<s:property value="userAddress"/>' /></td>
-				</tr>
+				</tr> --%>
 
 <!-- 電話番号 -->
 				<tr>
-					<td>電話番号</td>
+					<td>-電話番号-</td>
 				</tr>
 				<tr>
 					<td><s:property value="telNumber" escape="false"/>
@@ -179,7 +188,7 @@ tr td .memo{text-align:center;
 
 <!-- メールアドレス -->
 				<tr>
-					<td>メールアドレス</td>
+					<td>-メールアドレス-</td>
 				</tr>
 				<tr>
 					<td><s:property value="email" escape="false"/>
@@ -205,7 +214,9 @@ tr td .memo{text-align:center;
 	<input type=hidden name="firstName" value='<s:property value="firstName"/>' />
 	<input type=hidden name="familyNameKana" value='<s:property value="familyNameKana"/>' />
 	<input type=hidden name="firstNameKana" value='<s:property value="firstNameKana"/>' />
-	<input type=hidden name="userAddress" value='<s:property value="userAddress"/>' />
+	<input type=hidden name="zip11" value='<s:property value="zip11"/>' />
+	<input type=hidden name="addr11" value='<s:property value="addr11"/>' />
+<%-- 	<input type=hidden name="userAddress" value='<s:property value="userAddress"/>' /> --%>
 	<input type=hidden name="telNumber" value='<s:property value="telNumber"/>' />
 	<input type=hidden name="email" value='<s:property value="email"/>' />
 

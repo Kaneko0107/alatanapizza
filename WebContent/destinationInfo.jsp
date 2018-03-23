@@ -222,7 +222,7 @@ font-size:15px;
 					<td>メールアドレス [半角英数字記号]</td>
 				</tr>
 				<tr>
-					<td><s:textfield class ="form" placeholder="18文字以上32文字以下" name="email" maxlength ='32' value="%{email}"  /></td>
+					<td><s:textfield class ="form" placeholder="14文字以上32文字以下" name="email" maxlength ='32' value="%{email}"  /></td>
 				</tr>
 
 

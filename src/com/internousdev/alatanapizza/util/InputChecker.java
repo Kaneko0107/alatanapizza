@@ -133,7 +133,7 @@ public class InputChecker {
 		if(email.equals("")){
 			result ="・メールアドレスを入力してください。";
 		}else if(email.length() <18 || email.length() >32){
-			result ="・メールアドレスは18文字以上32文字以下で入力してください。";
+			result ="・メールアドレスは14文字以上32文字以下で入力してください。";
 		}else if(!email.matches("^[a-zA-Z0-9@.,;:!#$%&'*+-/=?^_`{|}~]+@+[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)+.+[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$")){
 			result ="・メールアドレスは半角英数字記号で、正しいものを入力してください。";
 		}

@@ -96,7 +96,7 @@
 
 	<s:form action="CartProductAction" name="select">
 
-	<table class="detailsTable">
+	<table class="detailsTable" >
 		<tr>
 		<th>
 			<span id="category">
@@ -123,7 +123,7 @@
 		</td>
 		<td>
 			<!-- 商品名 -->
-			<span id="productName">
+			<span id="productName" >
 				<s:property value="session.d_product_name" /></span><br>
 			<!-- 商品名かな -->
 			<span id="productNameKana">

@@ -48,6 +48,11 @@ public class MyPageDAO {
 
 				myPageDTO.setPassword(rs.getString("password"));
 
+				myPageDTO.setSecretQuestion(rs.getInt("secret_question"));
+
+				myPageDTO.setSecretAnswer(rs.getString("secret_answer"));
+
+
 				myPageList.add(myPageDTO);
 
 			}

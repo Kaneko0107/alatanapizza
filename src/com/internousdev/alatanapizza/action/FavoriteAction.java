@@ -91,6 +91,8 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 					userId = session.get("userId").toString();
 					favoriteList = dao.getFavoriteInfo(userId);
 
+
+
 					result = SUCCESS;
 					return result;
 				}

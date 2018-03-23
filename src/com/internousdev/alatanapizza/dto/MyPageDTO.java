@@ -10,6 +10,8 @@ public class MyPageDTO {
 	private String firstNameKana;
 	private boolean sex;
 	private String email;
+	private int secretQuestion;
+	private String secretAnswer;
 
 
 	//ゲッター・セッター
@@ -85,6 +87,26 @@ public class MyPageDTO {
 		this.email = email;
 	}
 	//----------------------------------------
+
+	public int getSecretQuestion() {
+		return secretQuestion;
+	}
+
+	public void setSecretQuestion(int secretQuestion) {
+		this.secretQuestion = secretQuestion;
+	}
+
+	//----------------------------------------
+
+		public String getSecretAnswer() {
+			return secretAnswer;
+		}
+
+		public void setSecretAnswer(String secretAnswer) {
+			this.secretAnswer = secretAnswer;
+		}
+		//----------------------------------------
+
 
 
 }

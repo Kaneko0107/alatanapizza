@@ -18,6 +18,12 @@
 .add{
 	clear:both;
 }
+
+h1{
+	margin-top:50px;
+	margin-left:130px;
+}
+
 </style>
 
 </head>

@@ -16,6 +16,8 @@ function taikai(){
 }
 window.onunload=function(){};
 history.forward();
+
+
 </script>
 <title>退会画面</title>
 <style>

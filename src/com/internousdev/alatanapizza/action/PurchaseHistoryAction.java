@@ -103,16 +103,16 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 
 		if (res > 0) {
 			historyList = null;
-			setMessage("注文履歴をすべて削除しました");
+			setMessage("【注文履歴をすべて削除しました】");
 		} else if (res == 0) {
-			setMessage("履歴の削除に失敗しました。");
+			setMessage("【履歴の削除に失敗しました。】");
 		}
 
 	}
 
 	public void deleteChoose() throws SQLException {
 		if (checkList == null) {
-			setMessage("削除できませんでした。");
+			setMessage("【チェックボックスにチェックを入れてください。】");
 			return;
 		}
 

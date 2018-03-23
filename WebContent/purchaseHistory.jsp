@@ -14,6 +14,7 @@
 <body>
 	<jsp:include page="include_header.jsp" />
 
+<br><br><br><br>
 	<h2>注文履歴</h2>
 	<span style="color: red;"><s:property value="message"/></span>
 	<s:if test="historyList.size() == 0">

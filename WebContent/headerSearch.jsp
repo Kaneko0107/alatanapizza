@@ -62,11 +62,11 @@
 		<select name="categoryId" class="h_pulldown">
 			<s:if test="categoryId != 1"><option value="1">全てのカテゴリ</option></s:if>
 			<s:if test="categoryId == 1"><option value="1" selected="selected">全てのカテゴリ</option></s:if>
-			<s:if test="categoryId != 2"><option value="2">ピザ</option></s:if>
+			<s:if test="categoryId != 2"><option value="2">Pizza</option></s:if>
 			<s:if test="categoryId == 2"><option value="2" selected="selected">ピザ</option></s:if>
-			<s:if test="categoryId != 3"><option value="3">サイドメニュー</option></s:if>
+			<s:if test="categoryId != 3"><option value="3">SideMenu</option></s:if>
 			<s:if test="categoryId == 3"><option value="3" selected="selected">サイドメニュー</option></s:if>
-			<s:if test="categoryId != 4"><option value="4">ドリンク</option></s:if>
+			<s:if test="categoryId != 4"><option value="4">DrinkMenu</option></s:if>
 			<s:if test="categoryId == 4"><option value="4" selected="selected">ドリンク</option></s:if>
 	    </select>
 	    <input type=hidden name="pageNum" value="1"/>

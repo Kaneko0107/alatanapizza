@@ -162,8 +162,8 @@
 				<div class="productDescription">
 					<span id="topping">
 						<s:iterator value="session.toppingList" status="topping-number">
-							<input type="checkbox" name="topping_id_<s:property value='topping_id'/>" value="<s:property value='msize_price'/>" class="topping_menu"  />
-							<s:property value="topping_name" />
+							<label><input type="checkbox" name="topping_id_<s:property value='topping_id'/>" value="<s:property value='msize_price'/>" class="topping_menu"  />
+							<s:property value="topping_name" /></label>
 						</s:iterator>
 					</span>
 				</div>

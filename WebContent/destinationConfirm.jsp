@@ -102,51 +102,105 @@ tr td .memo{text-align:center;
 	<div id="main">
 		<table>
 
-			<tr><td><h3>以下の内容で登録します</h3></td></tr>
+			<tr>
+				<td><h3>以下の内容で登録します</h3></td>
+			</tr>
 
 <!--  白い点線 -->
-			<tr><td><hr></td></tr>
+			<tr>
+				<td><hr></td>
+			</tr>
 
 			<s:form action="DestCompleteAction">
+
 <!-- 姓 -->
-				<tr><td>姓</td></tr>
-				<tr><td><s:property value="familyName" escape="false"/>
-				<input type=hidden name="familyName" value='<s:property value="familyName"/>' /></td></tr>
+				<tr>
+					<td>姓</td>
+				</tr>
+				<tr>
+					<td><s:property value="familyName" escape="false"/>
+					<input type=hidden name="familyName" value='<s:property value="familyName"/>' /></td>
+				</tr>
+
 <!-- 名 -->
-				<tr><td>名</td></tr>
-				<tr><td><s:property value="firstName" escape="false"/>
-				<input type=hidden name="firstName" value='<s:property value="firstName"/>' /></td></tr>
+				<tr>
+					<td>名</td>
+				</tr>
+				<tr>
+					<td><s:property value="firstName" escape="false"/>
+					<input type=hidden name="firstName" value='<s:property value="firstName"/>' /></td>
+				</tr>
+
 <!-- 姓かな -->
-				<tr><td>姓（かな）</td></tr>
-				<tr><td><s:property value="familyNameKana" escape="false"/>
-				<input type=hidden name="familyNameKana" value='<s:property value="familyNameKana"/>' /></td></tr>
+				<tr>
+					<td>姓（かな）</td>
+				</tr>
+				<tr>
+					<td><s:property value="familyNameKana" escape="false"/>
+					<input type=hidden name="familyNameKana" value='<s:property value="familyNameKana"/>' /></td>
+				</tr>
+
 <!-- 名かな -->
-				<tr><td>名（かな）</td></tr>
-				<tr><td><s:property value="firstNameKana" escape="false"/>
-				<input type=hidden name="firstNameKana" value='<s:property value="firstNameKana"/>' /></td></tr>
+				<tr>
+					<td>名（かな）</td>
+				</tr>
+				<tr>
+					<td><s:property value="firstNameKana" escape="false"/>
+					<input type=hidden name="firstNameKana" value='<s:property value="firstNameKana"/>' /></td>
+				</tr>
+
+<!-- 郵便番号 -->
+<%-- 				<tr>
+					<td>郵便番号</td>
+				</tr>
+				<tr>
+					<td><s:property value ="zip11" escape ="false"/>
+					<input type =hidden name ="zip11" value ='<s:property value ="zip11"/>' /></td>
+				</tr> --%>
+
+
 <!-- 住所 -->
-				<tr><td>住所</td></tr>
-				<tr><td><s:property value="userAddress" escape="false"/>
-				<input type=hidden name="userAddress" value='<s:property value="userAddress"/>' /></td></tr>
+				<tr>
+					<td>住所</td>
+				</tr>
+				<tr>
+					<td><s:property value="userAddress" escape="false"/>
+					<input type=hidden name="userAddress" value='<s:property value="userAddress"/>' /></td>
+				</tr>
+
 <!-- 電話番号 -->
-				<tr><td>電話番号</td></tr>
-				<tr><td><s:property value="telNumber" escape="false"/>
-				<input type=hidden name="telNumber" value='<s:property value="telNumber"/>' /></td></tr>
+				<tr>
+					<td>電話番号</td>
+				</tr>
+				<tr>
+					<td><s:property value="telNumber" escape="false"/>
+					<input type=hidden name="telNumber" value='<s:property value="telNumber"/>' /></td>
+				</tr>
+
 <!-- メールアドレス -->
-				<tr><td>メールアドレス</td></tr>
-				<tr><td><s:property value="email" escape="false"/>
-				<input type=hidden name="email" value='<s:property value="email"/>' /></td></tr>
+				<tr>
+					<td>メールアドレス</td>
+				</tr>
+				<tr>
+					<td><s:property value="email" escape="false"/>
+					<input type=hidden name="email" value='<s:property value="email"/>' /></td>
+				</tr>
 
 <!-- 送信画像アイコン -->
-				<tr><td><div class="imagehover"><s:submit class="image" type="image" value="" src="./images/icon/touroku.png"/></div></td></tr>
+				<tr>
+					<td><div class="imagehover"><s:submit class="image" type="image" value="" src="./images/icon/touroku.png"/></div></td>
+				</tr>
 			</s:form>
 
 <!--  白い点線 -->
-			<tr><td><hr></td></tr>
+			<tr>
+				<td><hr></td>
+			</tr>
 
 <!-- 戻る画像アイコン -->
 	<s:form action="DestAction">
-<tr><td>
+<tr>
+	<td>
 	<input type=hidden name="familyName" value='<s:property value="familyName"/>' />
 	<input type=hidden name="firstName" value='<s:property value="firstName"/>' />
 	<input type=hidden name="familyNameKana" value='<s:property value="familyNameKana"/>' />
@@ -155,7 +209,8 @@ tr td .memo{text-align:center;
 	<input type=hidden name="telNumber" value='<s:property value="telNumber"/>' />
 	<input type=hidden name="email" value='<s:property value="email"/>' />
 
-	<s:submit class="memo" type="image" value="" src="./images/icon/modoru2.png"/></td></tr>
+	<s:submit class="memo" type="image" value="" src="./images/icon/modoru2.png"/></td>
+</tr>
 	</s:form>
 
 

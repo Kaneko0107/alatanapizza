@@ -169,42 +169,77 @@ font-size:15px;
 				<tr>
 					<td>名 [半角英語、漢字、ひらがな]</td>
 				</tr>
-				<tr><td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="firstName" maxlength ='16' value="%{firstName}" /></td></tr>
+				<tr>
+					<td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="firstName" maxlength ='16' value="%{firstName}" /></td>
+				</tr>
+
 <!-- 姓かな -->
-				<tr><td>姓（かな）[ひらがな]</td></tr>
-				<tr><td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="familyNameKana" maxlength ='16' value="%{familyNameKana}" /></td></tr>
+				<tr>
+					<td>姓（かな）[ひらがな]</td>
+				</tr>
+				<tr>
+					<td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="familyNameKana" maxlength ='16' value="%{familyNameKana}" /></td>
+				</tr>
+
 <!-- 名かな -->
-				<tr><td>名（かな）[ひらがな]</td></tr>
-				<tr><td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="firstNameKana" maxlength ='16' value="%{firstNameKana}" /></td></tr>
+				<tr>
+					<td>名（かな）[ひらがな]</td>
+				</tr>
+				<tr>
+					<td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="firstNameKana" maxlength ='16' value="%{firstNameKana}" /></td>
+				</tr>
+
 <%-- <!-- 郵便番号 -->
-				<tr><td>郵便番号 [半角数字]
-				<tr><td><s:textfield class ="form" placeholder="" name="zip11" size ="10" maxlength ='8' value="%{postalCode}" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');" /></td></tr> --%>
+				<tr>
+					<td>郵便番号 [半角数字]</td>
+				</tr>
+				<tr>
+					<td><s:textfield class ="form" placeholder="" name="zip11" size ="10" maxlength ='8' value="%{zip11}" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');" /></td>
+				</tr> --%>
+
 <!-- 住所 -->
-				<tr><td>住所</td></tr>
-				<tr><td>[半角英数字記号、漢字、ひらがな、カタカナ]</td></tr>
-				<tr><td><s:textfield class ="form" placeholder="15文字以上50文字以下" name="userAddress" maxlength ='50' value="%{userAddress}" /></td></tr>
+				<tr>
+					<td>住所</td>
+				</tr>
+				<tr>
+					<td>[半角英数字記号、漢字、ひらがな、カタカナ]</td>
+				</tr>
+				<tr>
+					<td><s:textfield class ="form" placeholder="15文字以上50文字以下" name="userAddress" maxlength ='50' value="%{userAddress}" /></td>
+				</tr>
 				<!-- name ="addr11" -->
+
 <!-- 電話番号 -->
-				<tr><td>電話番号 [半角数字ハイフン]</td></tr>
-				<tr><td><s:textfield class ="form" placeholder="11文字以上13文字以下" name="telNumber" maxlength ='13' value="%{telNumber}"  /></td></tr>
+				<tr>
+					<td>電話番号 [半角数字ハイフン]</td>
+				</tr>
+				<tr>
+					<td><s:textfield class ="form" placeholder="11文字以上13文字以下" name="telNumber" maxlength ='13' value="%{telNumber}"  /></td>
+				</tr>
+
 <!-- メールアドレス -->
-				<tr><td>メールアドレス [半角英数字記号]</td></tr>
-				<tr><td><s:textfield class ="form" placeholder="18文字以上32文字以下" name="email" maxlength ='32' value="%{email}"  /></td></tr>
+				<tr>
+					<td>メールアドレス [半角英数字記号]</td>
+				</tr>
+				<tr>
+					<td><s:textfield class ="form" placeholder="14文字以上32文字以下" name="email" maxlength ='32' value="%{email}"  /></td>
+				</tr>
 
 
 <!--  白い点線 -->
-			<tr><td><hr></td></tr>
+			<tr>
+				<td><hr></td>
+			</tr>
 
 
 <!-- 戻る画像アイコン -->
-			<tr><td>
-			<s:if test="destinationList != null"><a href='<s:url action="CartProductAction"/>'><span class="imagehover"><img src="./images/icon/modoru2.png"></span></a></s:if>
-			<s:else><a href='<s:url action="BuyItemCompleteAction"/>'><span class="imagehover"><img src="./images/icon/modoru2.png"></span></a></s:else>
-
-
+			<tr>
+				<td><s:if test="destinationList != null"><a href='<s:url action="CartProductAction"/>'><span class="imagehover"><img src="./images/icon/modoru2.png"></span></a></s:if>
+					<s:else><a href='<s:url action="BuyItemCompleteAction"/>'><span class="imagehover"><img src="./images/icon/modoru2.png"></span></a></s:else>
 
 <!-- 送信画像アイコン -->
-				<span class="memo"><span class="imagehover"><s:submit class="image" type="image" value="" src="./images/icon/kakuninn.png"/></span></span></td></tr>
+				<span class="memo"><span class="imagehover"><s:submit class="image" type="image" value="" src="./images/icon/kakuninn.png"/></span></span></td>
+			</tr>
 
 			</s:form>
 

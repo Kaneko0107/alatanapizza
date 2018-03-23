@@ -9,6 +9,7 @@
 <style>
 
 .product{
+  float: left;
   width: 100%;
 }
 

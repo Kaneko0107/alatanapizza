@@ -34,14 +34,6 @@ li {
 	list-style-type: none;
 }
 
-.down {
-	width: 100%;
-	height: 40px;
-	float: right;
-	margin: 20px;
-	line-height: 40px;
-}
-
 a {
 	color: #FFD700;
 	text-decoration: none;
@@ -93,7 +85,4 @@ a:hover{
 	<br>
 	<jsp:include page="headerSearch.jsp" />
 
-	<div class="down">
-
-	</div>
 </header>

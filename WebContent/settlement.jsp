@@ -11,11 +11,7 @@
 <link rel="stylesheet" href="./css/alatanapizza.css">
 <link rel="stylesheet" href="./css/cart.css">
 <style type="text/css">
-.box{
-	float:left;
-	background:rgba(0,0,0,0.2);
-	margin:0 0 0 5%;
-}
+
 </style>
 <script type="text/javascript">
 	window.onunload = function() {
@@ -119,7 +115,7 @@
 
 
 
-		<p id="dL">お届け先の選択</p>
+		<h2>お届け先の選択</h2>
 		<s:form action="DestinationDeleteAction">
 			<s:iterator value="destinationListDTO" status="st">
 
@@ -137,7 +133,7 @@
 					</div>
 					<div class="destination">
 						ふりがな:
-						<s:property value="id" />
+
 						<s:property value="familyNameKana" />
 						<s:property value="firstNameKana" />
 						<br> 名前:
@@ -178,25 +174,41 @@
 		</div>
 	</div>
 	<br>
-<!-- 	<div style="margin-top: 100px;"> -->
-<!-- 	おすすめ商品 -->
-<!-- 	<ul> -->
-<%-- 	<s:iterator value="notSameCategoryList"> --%>
-<!-- 		<li> -->
-<!-- 		<a -->
-<%-- 			href="<s:url action="BuyItemCompleteAction"> --%>
-<%-- 									 <s:param name="category_id" value="%{category_id}" /></s:url>"> --%>
-<!-- 		</a> -->
+	<hr class="line"><br>
+	<h2>こちらの商品も一緒にいかかですか？</h2>
 
-<%-- 		<s:property value="session.notSameCategoryList.productName" /> --%>
+	<s:iterator value="notSameCategoryList">
+	<div id="nscl">
 
-<%-- 		<s:property value="productName" /> --%>
-<%-- 		<s:property value="product_name" /> --%>
-<%-- 		<s:property value="product_name_kana" /> --%>
-<!-- 		</li> -->
-<%-- 	</s:iterator> --%>
-<!-- 	</ul> -->
-<!-- 	</div> -->
+		<a href="<s:url action="BuyItemCompleteAction">
+			 <s:param name="category_id" value="%{category_id}" /></s:url>">
+		</a>
+
+		<img class="image" src="<s:property value='image_file_path'/> " alt="Photo" style="max-width: 250px; max-height: 200px;">
+
+							<div>
+								<s:property value="product_name" /><br>
+								<s:property value="product_name_kana" /><br>
+
+								<s:if test="category_id==2">
+									M￥<s:property value="msize_price" />&nbsp;
+									L￥<s:property value="lsize_price" />
+								</s:if>
+								<s:if test="category_id==3 || category_id==4">
+									￥<s:property value="price" />
+								</s:if>
+								<s:hidden name="product_id" value="%{product_id}" />
+
+								<br><br><a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+									<img class="image" src=./images/icon/shousai.png><br>
+								</a>
+							</div>
+
+
+		</div>
+	</s:iterator>
+
+	</div>
 	<div>
 		<jsp:include page="include_footer.jsp" /></div>
 

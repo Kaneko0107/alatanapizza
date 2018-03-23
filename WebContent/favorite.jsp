@@ -19,7 +19,7 @@
 
 			<div class="main">
 
-
+<br><br><br>
 
 				<div class="empty">
 					<h3>お気に入り</h3>
@@ -93,7 +93,7 @@
 					</s:if>
 				</div>
 			</div>
-
+<a href='<s:url action="MyPageAction" />'>マイページに戻る</a><br>
 
 			<a href='<s:url action="ProductListAction?listFlg=1"/>'>商品一覧画面に戻る</a><br><br>
 

@@ -55,15 +55,15 @@ padding-bottom:10px;
 		}
 		.favlist{
 			position: absolute;
-			top:490px;
-			right:420px;
+			top:370px;
+			right:600px;
 		}
 		.favcomment{
 			display: none;
 			width: 180px;
 			position: absolute;
-			top: 420px;
-			right:255px;
+			top: 300px;
+			right:435px;
 			padding: 10px;
 			border-radius: 10px;
 			background: rgba(255,0,0,0.7);
@@ -87,8 +87,8 @@ padding-bottom:10px;
 		.favlist:hover+.favcomment{
 			display: block;
 		}
-		table {
-			margin:0 27.5% 0 27.5%;
+		Table {
+			margin:0 25% 0 25%;
 		}
 		h2{
 			border-left:solid red 20px;

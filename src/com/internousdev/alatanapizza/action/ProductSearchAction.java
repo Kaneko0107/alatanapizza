@@ -47,6 +47,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		System.out.println("CATEGORYID:"+categoryId);
 		String ret = ERROR;
 
+
 		if (searchWord.length() > 16) {
 			msgList.add("16字以内で検索してください");
 			ret = SUCCESS;

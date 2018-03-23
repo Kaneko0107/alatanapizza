@@ -58,6 +58,13 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		LoginDTO loginDTO=new LoginDTO();
 		LoginDAO loginDAO=new LoginDAO();
 
+
+		//すでにログイン済みの人がブラウザバッグした場合にログインページに跳ばれないように
+		if(session.containsKey("userId")){ //boolean
+			result=SUCCESS;
+
+		}else{
+
 		//ユーザーID入力チェック
 		if(userId==null){
 			return "login";
@@ -256,6 +263,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 			//System.out.println("IDが入力されていません");
 			result =ERROR;
 		}
+	}
 
 	return result;
 

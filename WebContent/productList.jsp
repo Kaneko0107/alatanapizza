@@ -150,9 +150,11 @@ $(function() {
 
 
 	<!-- 検索時のメッセージ -->
+	<s:if test="searchWord.length() != 0" >
 	<s:iterator value="msgList">
-			<h1>検索キーワード "<s:property />"</h1>
+			<h1>検索キーワード： <s:property /></h1>
 	</s:iterator>
+	</s:if>
 	<s:if test="number == 0">
 			<h1>検索結果がありません。</h1>
 	</s:if>

@@ -10,92 +10,12 @@
 	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
 
 	<link rel="stylesheet" href="./css/alatanapizza.css">
+	<link rel="stylesheet" href="./css/userAdd.css">
 
 	<title>ユーザー登録</title>
-
-	<style>
-
-#main {
-	    width:70%;
-	    background:rgba(0, 0, 0, 0.5);
-	    margin:0 auto;
-	    margin-top:80px;
-	    margin-bottom:100px;
-	    }
-
-table {
-		width:70%;
-		margin:0 auto;
-	    text-align:left;
-	    }
-
-h3 {
-	    border-left:10px solid red;
-	    }
-
-.form {
-	    background-color:rgba(200, 200, 200, 0.5);
-	    width:200px;
-	    height:30px;
-	    border-radius:5px;
-	    }
-
-.title {
-	    font-size:20px;
-	    }
-
-tr td {
-	    padding-right:60px;
-	    padding-left:20px;
-	    padding-top:5px;
-	    }
-
-hr {
-	    text-align:left;
-	    border:none;
-	    border-top:dashed 1px #ccc;
-	    height:1px;
-	    color:#ffffff;
-	    margin:0 8 0 8;
-	    }
-
-.icon {
-		text-align:center;
-		display:flex;
-		flex-direction:row-reverse;
-		}
-
-.moji {
-	    text-align:center;
-	    font-size:12px;
-	    color:#FFCC33;
-	    }
-
-.moji2 {
-	    font-size:12px;
-	    color:#FFCC33;
-	    }
-
-::-webkit-input-placeholder {
-		color:#000000;
-		}
-
-::-moz-placeholder {
-		color:#000000;
-		opacity: 1;
-		}
-
-/* Internet Explorer 10-11 */
-:-ms-input-placeholder {
-		color:#000000;
-		}
-
-
-	</style>
 </head>
 
 <body>
-
 	<jsp:include page="include_header.jsp" />
 	<div id="main">
 
@@ -105,7 +25,7 @@ hr {
 	<tr><td colspan="2"><div class="moji2">下記の情報を入力してください。</div></td></tr>
 
 
-	<!-- エラーメッセージ -->
+	<!-- 入力エラーがあった時の、エラーメッセージを表示させる -->
 	<tr>
 
 	<s:if test="errMsgList !=null && !(errMsgList.isEmpty())">
@@ -162,32 +82,32 @@ hr {
 
 	<tr>
 		<td>ユーザーＩＤ</td>
-		<td><input type="text" name="loginUserId" placeholder="半角英数字 1-8文字" value='<s:property value="loginUserId"/>' class="form"/></td>
+		<td><input type="text" name="loginUserId" placeholder="半角英数字 1-8文字" maxlength ='8' value='<s:property value="loginUserId"/>' class="form"/></td>
 	</tr>
 
 	<tr>
 		<td>パスワード</td>
-		<td><input type="password" name="loginPassword" placeholder="半角英数字 1-8文字" class="form"/></td>
+		<td><input type="password" name="loginPassword" placeholder="半角英数字 1-16文字" maxlength ='16' class="form"/></td>
 	</tr>
 
 	<tr>
 		<td>お名前（姓）</td>
-		<td><input type="text" name="familyName" placeholder="1-16文字" value='<s:property value="familyName"/>' class="form"/></td>
+		<td><input type="text" name="familyName" placeholder="1-16文字" maxlength ='16' value='<s:property value="familyName"/>' class="form"/></td>
 	</tr>
 
 	<tr>
 		<td>お名前（名）</td>
-		<td><input type="text" name="firstName" placeholder="1-16文字" value='<s:property value="firstName"/>' class="form"/></td>
+		<td><input type="text" name="firstName" placeholder="1-16文字" maxlength ='16' value='<s:property value="firstName"/>' class="form"/></td>
 	</tr>
 
 	<tr>
 		<td>ふりがな（姓）</td>
-		<td><input type="text" name="familyNameKana" placeholder="ひらがな 1-16文字" value='<s:property value="familyNameKana"/>'  class="form"/></td>
+		<td><input type="text" name="familyNameKana" placeholder="ひらがな 1-16文字" maxlength ='16' value='<s:property value="familyNameKana"/>'  class="form"/></td>
 	</tr>
 
 	<tr>
 		<td>ふりがな（名）</td>
-		<td><input type="text" name="firstNameKana" placeholder="ひらがな 1-16文字" value='<s:property value="firstNameKana"/>' class="form"/></td>
+		<td><input type="text" name="firstNameKana" placeholder="ひらがな 1-16文字" maxlength ='16' value='<s:property value="firstNameKana"/>' class="form"/></td>
 	</tr>
 
 	<tr>
@@ -209,7 +129,7 @@ hr {
 
 	<tr>
 		<td>メールアドレス</td>
-		<td><input type="text" name="mail" placeholder="半角英数字 1-16文字" value='<s:property value="mail"/>'  class="form"/></td>
+		<td><input type="text" name="mail" placeholder="半角英数字 14-32文字" maxlength ='32' value='<s:property value="mail"/>'  class="form"/></td>
 	</tr>
 
 	<tr>
@@ -244,7 +164,7 @@ hr {
 
 	<tr>
 		<td>答え</td>
-		<td><input type="text" name="secretAnswer" placeholder="1-16文字" value='<s:property value="secretAnswer"/>' class="form"/></td>
+		<td><input type="text" name="secretAnswer" placeholder="1-16文字" maxlength ='16' value='<s:property value="secretAnswer"/>' class="form"/></td>
 	</tr>
 
 	<tr><td colspan="2"><hr></td></tr>
@@ -263,12 +183,9 @@ hr {
 	<tr>
 
 	</s:form>
-
 	</table>
-
 	</div>
 
 	<jsp:include page="include_footer.jsp" />
-
 </body>
 </html>

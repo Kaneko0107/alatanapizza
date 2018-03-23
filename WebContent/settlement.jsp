@@ -10,13 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/alatanapizza.css">
 <link rel="stylesheet" href="./css/cart.css">
-<style type="text/css">
-.box{
-	float:left;
-	background:rgba(0,0,0,0.2);
-	margin:0 0 0 5%;
-}
-</style>
+
 <script type="text/javascript">
 	window.onunload = function() {
 	};

@@ -63,8 +63,12 @@
 									<s:property value="productNameKana" />
 								</div>
 							</div>
-							トッピング:
-							<s:property value="toppings" />
+							<s:if test="toppings.isEmpty()">
+							<span> </span>
+							</s:if>
+							<s:else>
+							トッピング:<s:iterator value="toppings"><s:property/> </s:iterator>
+							</s:else>
 
 							<!-- 値段表示 -->
 							<div class="price_count"></div>

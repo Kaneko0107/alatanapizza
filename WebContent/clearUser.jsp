@@ -12,7 +12,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript">
 function taikai(){
-	window.comfirm("本当に退会しますか？");
+	window.confirm("本当に退会しますか？");
 }
 window.onunload=function(){};
 history.forward();

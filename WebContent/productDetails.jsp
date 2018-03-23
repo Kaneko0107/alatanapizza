@@ -133,8 +133,8 @@
 				<span class="formProduct">
 					<s:if test="session.d_category_id==2">
 						<p class="product_menu_size">
-							<input type="radio" name="product" checked="checked" value='<s:property value="session.d_product_msize_price" />'><img class="image" src="./images/icon/m.png" alt="Photo" >￥<s:property value="session.d_product_msize_price" />&nbsp;
-							<input type="radio" name="product" value='<s:property value="session.d_product_lsize_price" />'><img class="image" src="./images/icon/l.png" alt="Photo" >￥<s:property value="session.d_product_lsize_price" />
+							<label><input type="radio" name="product" checked="checked" value='<s:property value="session.d_product_msize_price" />'><img class="image" src="./images/icon/m.png" alt="Photo" >￥<s:property value="session.d_product_msize_price" /></label>&nbsp;
+							<label><input type="radio" name="product" value='<s:property value="session.d_product_lsize_price" />'><img class="image" src="./images/icon/l.png" alt="Photo" >￥<s:property value="session.d_product_lsize_price" /></label>
 					</s:if>
 					<s:if test="session.d_category_id==3 || session.d_category_id==4">
 						<!-- サイド・ドリンク -->

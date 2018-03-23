@@ -29,22 +29,30 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 
 
 	// セッションの情報を、toString()メソッドで文字列とし、DBに格納するためのメソッド
+	// UserCreateを通らないと登録できないようにする
 	public String execute() throws SQLException {
 
-		userCreateCompleteDAO.createUser(
-				session.get("loginUserId").toString(),
-				session.get("loginPassword").toString(),
-				session.get("familyName").toString(),
-				session.get("firstName").toString(),
-				session.get("familyNameKana").toString(),
-				session.get("firstNameKana").toString(),
-				Integer.parseInt((session.get("sex")).toString()),
-				session.get("mail").toString(),
-				Integer.parseInt((session.get("secretQuestion")).toString()),
-				session.get("secretAnswer").toString());
+			String result;
+			String passerror="passerror";
 
-			String result=SUCCESS;
+			if(session.containsKey("errorchangepass")){
+				result=ERROR;
+			}else {
+				userCreateCompleteDAO.createUser(
+						session.get("loginUserId").toString(),
+						session.get("loginPassword").toString(),
+						session.get("familyName").toString(),
+						session.get("firstName").toString(),
+						session.get("familyNameKana").toString(),
+						session.get("firstNameKana").toString(),
+						Integer.parseInt((session.get("sex")).toString()),
+						session.get("mail").toString(),
+						Integer.parseInt((session.get("secretQuestion")).toString()),
+						session.get("secretAnswer").toString());
 
+				session.put("errorchangepass",passerror);
+				result=SUCCESS;
+			}
 		return result;
 	}
 

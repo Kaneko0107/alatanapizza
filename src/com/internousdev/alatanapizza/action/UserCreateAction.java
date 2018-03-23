@@ -28,6 +28,9 @@ public class UserCreateAction extends ActionSupport implements SessionAware {
 
 
 	public String execute() {
+		session.remove("errorchangepass");
+		System.out.println("----");
+		System.out.println(session.get("errorchangepass"));
 		return SUCCESS;
 	}
 

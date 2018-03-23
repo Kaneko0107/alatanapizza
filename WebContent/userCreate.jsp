@@ -18,6 +18,7 @@
 <body>
 	<jsp:include page="include_header.jsp" />
 	<div id="main">
+	<div class="form-user-regist">
 
 	<table>
 
@@ -184,6 +185,7 @@
 
 	</s:form>
 	</table>
+	</div>
 	</div>
 
 	<jsp:include page="include_footer.jsp" />

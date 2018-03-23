@@ -162,32 +162,32 @@ hr {
 
 	<tr>
 		<td>ユーザーＩＤ</td>
-		<td><input type="text" name="loginUserId" placeholder="半角英数字 1-8文字" value='<s:property value="loginUserId"/>' class="form"/></td>
+		<td><input type="text" name="loginUserId" placeholder="半角英数字 1-8文字" maxlength ='8' value='<s:property value="loginUserId"/>' class="form"/></td>
 	</tr>
 
 	<tr>
 		<td>パスワード</td>
-		<td><input type="password" name="loginPassword" placeholder="半角英数字 1-8文字" class="form"/></td>
+		<td><input type="password" name="loginPassword" placeholder="半角英数字 1-16文字" maxlength ='16' class="form"/></td>
 	</tr>
 
 	<tr>
 		<td>お名前（姓）</td>
-		<td><input type="text" name="familyName" placeholder="1-16文字" value='<s:property value="familyName"/>' class="form"/></td>
+		<td><input type="text" name="familyName" placeholder="1-16文字" maxlength ='16' value='<s:property value="familyName"/>' class="form"/></td>
 	</tr>
 
 	<tr>
 		<td>お名前（名）</td>
-		<td><input type="text" name="firstName" placeholder="1-16文字" value='<s:property value="firstName"/>' class="form"/></td>
+		<td><input type="text" name="firstName" placeholder="1-16文字" maxlength ='16' value='<s:property value="firstName"/>' class="form"/></td>
 	</tr>
 
 	<tr>
 		<td>ふりがな（姓）</td>
-		<td><input type="text" name="familyNameKana" placeholder="ひらがな 1-16文字" value='<s:property value="familyNameKana"/>'  class="form"/></td>
+		<td><input type="text" name="familyNameKana" placeholder="ひらがな 1-16文字" maxlength ='16' value='<s:property value="familyNameKana"/>'  class="form"/></td>
 	</tr>
 
 	<tr>
 		<td>ふりがな（名）</td>
-		<td><input type="text" name="firstNameKana" placeholder="ひらがな 1-16文字" value='<s:property value="firstNameKana"/>' class="form"/></td>
+		<td><input type="text" name="firstNameKana" placeholder="ひらがな 1-16文字" maxlength ='16' value='<s:property value="firstNameKana"/>' class="form"/></td>
 	</tr>
 
 	<tr>
@@ -209,7 +209,7 @@ hr {
 
 	<tr>
 		<td>メールアドレス</td>
-		<td><input type="text" name="mail" placeholder="半角英数字 1-16文字" value='<s:property value="mail"/>'  class="form"/></td>
+		<td><input type="text" name="mail" placeholder="半角英数字 14-32文字" maxlength ='32' value='<s:property value="mail"/>'  class="form"/></td>
 	</tr>
 
 	<tr>
@@ -244,7 +244,7 @@ hr {
 
 	<tr>
 		<td>答え</td>
-		<td><input type="text" name="secretAnswer" placeholder="1-16文字" value='<s:property value="secretAnswer"/>' class="form"/></td>
+		<td><input type="text" name="secretAnswer" placeholder="1-16文字" maxlength ='16' value='<s:property value="secretAnswer"/>' class="form"/></td>
 	</tr>
 
 	<tr><td colspan="2"><hr></td></tr>

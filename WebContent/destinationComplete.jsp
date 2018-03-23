@@ -13,6 +13,10 @@
 <meta name="description" content="">
 <meta name="keywords" content=""/>
 <title>宛先情報登録 完了</title>
+<script type="text/javascript">
+window.onunload=function(){};
+history.forward();
+</script>
 <style type="text/css">
 /*========TAG LAYOUT========*/
 /*========ID LAYOUT========*/

@@ -98,7 +98,7 @@
 	<a href='<s:url action="MyPageAction" />'>マイページに戻る</a>
 	<br>
 	<p id="pageTop">
-		<a href="#"><i class="fa fa-chevron-up">ページトップに戻る</i></a>
+		<a href="#"><i class="fa fa-chevron-up">ページの上に戻る</i></a>
 
 
 	<jsp:include page="include_footer.jsp" />

@@ -59,6 +59,12 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		LoginDAO loginDAO=new LoginDAO();
 
 
+
+
+
+
+
+
 		//すでにログイン済みの人がブラウザバッグした場合にログインページに跳ばれないように
 		if(session.containsKey("userId")){ //boolean
 			result=SUCCESS;
@@ -69,6 +75,11 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		if(userId==null){
 			return "login";
 		}
+
+
+
+
+
 		if(userId.equals("")){ //userIdが空欄
 			errorMessageList.add("・ユーザーIDを入力してください");
 		}else if(userId.length()<1 || userId.length()>8){ //userIdの長さが1以下か8以上のとき
@@ -85,6 +96,9 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		}else if(!password.matches("^[a-zA-Z0-9]+$")){ //passwordに英数字以外が含まれているとき
 			errorMessageList.add("・パスワードは半角英数字で入力してください");
 		}
+
+
+
 
 		//ID保持
 		//jsp側でvalue指定で呼び出す
@@ -265,9 +279,19 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		}
 	}
 
+
+
+		String target =(String) session.get("target");
+		if(target != null && session.containsKey("loginFlg")){
+			session.remove("target");
+		result = "target";}
+
+
+
 	return result;
 
 	}
+
 
 
 	public String getUserId(){

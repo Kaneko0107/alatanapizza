@@ -16,7 +16,6 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.alatanapizza.dao.CartInfoDAO;
 import com.internousdev.alatanapizza.dao.DestinationDAO;
-import com.internousdev.alatanapizza.dao.DestinationDeleteDAO;
 import com.internousdev.alatanapizza.dao.ProductInfoCategoryDAO;
 import com.internousdev.alatanapizza.dto.CartInfoDTO;
 import com.internousdev.alatanapizza.dto.DestinationDTO;
@@ -34,8 +33,6 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 	private String message; // 削除メッセージ
 	private String deleteFlg; // 削除フラグ
 	public ArrayList<DestinationDTO> destinationList = new ArrayList<DestinationDTO>();
-	private DestinationDeleteDAO dao = new DestinationDeleteDAO();
-	private DestinationDAO destinationdao=new DestinationDAO();
 	String userId;
 	private int id; // 個別削除id取得 DAOメソッドの戻り値
 	private int category_id;
@@ -57,7 +54,9 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 		//"登録ユーザー"と"ゲストユーザー"のどちらでログインしているか確認し、定義した"userId"に代入する
 
 
+		//ログインしていなければ、セッションプットしてログイン画面へとばす
 		if(!(session.containsKey("loginFlg"))){
+
 			return ERROR;
 		}
 
@@ -87,6 +86,7 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 		// elseで動くので、簡単にする
 		// else if (!session.containsKey("loginFlg")) {
 		else {
+			session.put("target","payment");
 			return ERROR; // ■login.jspへ
 		}
 
@@ -112,7 +112,7 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 
 
 
-
+		//こちらの商品もいかがですか？機能
 		try {
 			notSameCategoryList = categorydao.notSameCategoryList(category_id);
 			if (notSameCategoryList != null) {
@@ -129,8 +129,6 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-
 
 
 		return result;
@@ -186,24 +184,6 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 //		}
 
 
-	/**
-	 * // 宛先情報取得メソッド 上の文に書き換えてみた↑ こっちがもともとの文面 if ((boolean)
-	 * session.get("loginFlg")) { DestinationInfoDAO destinationInfoDAO = new
-	 * DestinationInfoDAO(); destinationInfoListDTO =
-	 * destinationInfoDAO.obtainingDestinationInfo(session.get("userId").
-	 * toString()); }
-	 *
-	 * if (destinationInfoListDTO.size() > 0) { result = SUCCESS;//
-	 * ■settlement.jspへ
-	 *
-	 * } else if (!(boolean) session.get("loginFlg")) { result = ERROR; //
-	 * ■login.jspへ kessai = 1; return result;
-	 *
-	 * } else { result = "DESTINATION";
-	 *
-	 * }
-	 *
-	 */
 
 
 

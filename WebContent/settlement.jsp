@@ -105,12 +105,12 @@
 			<div class="totalprice">
 				カート合計¥
 				<s:property value="totalPrice" />
-
+<s:submit type="image" value="" src="./images/icon/order.png"/>
 			</div>
 			<br>
 			<div id="btn_2">
 			<div class="btn_2">
-				<s:submit value="購入" class="submit " />
+
 			</div></div>
 		</s:form>
 

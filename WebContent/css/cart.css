@@ -49,6 +49,21 @@ settlement.jsp用
 #b1{
 	clear:both;
 }
+.line {
+  			height: 0.5px;
+ 			 border : dashed 0.3px;
+ 			 margin:0 20% 0 20%;
+		}
+#nscl{
+	width:21%;
+	height:350px;
+	float:left;
+	border:0.3px solid white;
+	margin:2px 5% 2% 5%;
+	padding:12px;
+	border-radius:20px;
+	background-color:rgba(0,0,0,0.5);
+}
 
 
 /*-------------------------------------------------------------------------

@@ -10,7 +10,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/alatanapizza.css">
 <link rel="stylesheet" href="./css/cart.css">
+<style type="text/css">
 
+</style>
 <script type="text/javascript">
 	window.onunload = function() {
 	};
@@ -172,17 +174,17 @@
 		</div>
 	</div>
 	<br>
-	<div style="margin-top: 100px;">
+	<hr class="line"><br>
 	<h2>こちらの商品も一緒にいかかですか？</h2>
 
 	<s:iterator value="notSameCategoryList">
+	<div id="nscl">
 
 		<a href="<s:url action="BuyItemCompleteAction">
-									 <s:param name="category_id" value="%{category_id}" /></s:url>">
+			 <s:param name="category_id" value="%{category_id}" /></s:url>">
 		</a>
 
 		<img class="image" src="<s:property value='image_file_path'/> " alt="Photo" style="max-width: 250px; max-height: 200px;">
-
 
 							<div>
 								<s:property value="product_name" /><br>
@@ -203,7 +205,7 @@
 							</div>
 
 
-
+		</div>
 	</s:iterator>
 
 	</div>

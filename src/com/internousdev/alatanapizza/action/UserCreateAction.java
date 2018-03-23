@@ -9,7 +9,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class UserCreateAction extends ActionSupport implements SessionAware {
 
-	//通信の安全性をあげるため、jsp間でデータを受け渡すのではなく、javaを使ってvaluestackで受け渡し
+	//通信時の安全性をあげるため、jsp間でデータを受け渡すのではなく
+	//javaを使い、valuestackで受け渡しする。
 
 	private String loginUserId;
 	private String loginPassword;

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -76,6 +76,21 @@ hr {
 	    color:#FFCC33;
 	    }
 
+::-webkit-input-placeholder {
+		color:#000000;
+		}
+
+::-moz-placeholder {
+		color:#000000;
+		opacity: 1;
+		}
+
+/* Internet Explorer 10-11 */
+:-ms-input-placeholder {
+		color:#000000;
+		}
+
+
 	</style>
 </head>
 
@@ -147,32 +162,32 @@ hr {
 
 	<tr>
 		<td>ユーザーＩＤ</td>
-		<td><input type="text" name="loginUserId"  value='<s:property value="loginUserId"/>' class="form"/></td>
+		<td><input type="text" name="loginUserId" placeholder="半角英数字 1-8文字" value='<s:property value="loginUserId"/>' class="form"/></td>
 	</tr>
 
 	<tr>
 		<td>パスワード</td>
-		<td><input type="password" name="loginPassword" class="form"/></td>
+		<td><input type="password" name="loginPassword" placeholder="半角英数字 1-8文字" class="form"/></td>
 	</tr>
 
 	<tr>
 		<td>お名前（姓）</td>
-		<td><input type="text" name="familyName" value='<s:property value="familyName"/>' class="form"/></td>
+		<td><input type="text" name="familyName" placeholder="1-16文字" value='<s:property value="familyName"/>' class="form"/></td>
 	</tr>
 
 	<tr>
 		<td>お名前（名）</td>
-		<td><input type="text" name="firstName" value='<s:property value="firstName"/>' class="form"/></td>
+		<td><input type="text" name="firstName" placeholder="1-16文字" value='<s:property value="firstName"/>' class="form"/></td>
 	</tr>
 
 	<tr>
 		<td>ふりがな（姓）</td>
-		<td><input type="text" name="familyNameKana" value='<s:property value="familyNameKana"/>'  class="form"/></td>
+		<td><input type="text" name="familyNameKana" placeholder="ひらがな 1-16文字" value='<s:property value="familyNameKana"/>'  class="form"/></td>
 	</tr>
 
 	<tr>
 		<td>ふりがな（名）</td>
-		<td><input type="text" name="firstNameKana" value='<s:property value="firstNameKana"/>' class="form"/></td>
+		<td><input type="text" name="firstNameKana" placeholder="ひらがな 1-16文字" value='<s:property value="firstNameKana"/>' class="form"/></td>
 	</tr>
 
 	<tr>
@@ -194,7 +209,7 @@ hr {
 
 	<tr>
 		<td>メールアドレス</td>
-		<td><input type="text" name="mail" value='<s:property value="mail"/>'  class="form"/></td>
+		<td><input type="text" name="mail" placeholder="半角英数字 1-16文字" value='<s:property value="mail"/>'  class="form"/></td>
 	</tr>
 
 	<tr>
@@ -229,7 +244,7 @@ hr {
 
 	<tr>
 		<td>答え</td>
-		<td><input type="text" name="secretAnswer" value='<s:property value="secretAnswer"/>' class="form"/></td>
+		<td><input type="text" name="secretAnswer" placeholder="1-16文字" value='<s:property value="secretAnswer"/>' class="form"/></td>
 	</tr>
 
 	<tr><td colspan="2"><hr></td></tr>

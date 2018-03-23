@@ -206,18 +206,6 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	}
 
 	// エラーメッセージリストが全て何もなかったら、成功
-	System.out.println("errMsgList"+errMsgList);
-	System.out.println("errMsgListId"+errMsgListId);
-	System.out.println("errMsgListPass"+errMsgListPass);
-	System.out.println("errMsgListFamilyName"+errMsgListFamilyName);
-	System.out.println("errMsgListFirstName"+errMsgListFirstName);
-	System.out.println("errMsgListFamilyNameKana"+errMsgListFamilyNameKana);
-	System.out.println("errMsgListFirstNameKana"+errMsgListFirstNameKana);
-	System.out.println("errMsgListSex"+errMsgListSex);
-	System.out.println("errMsgListMail"+errMsgListMail);
-	System.out.println("errMsgListQuestion"+errMsgListQuestion);
-	System.out.println("errMsgListAnswer"+errMsgListAnswer);
-
 	if (errMsgList.isEmpty()
 		 && errMsgListId.isEmpty()
 		 && errMsgListPass.isEmpty()
@@ -231,11 +219,8 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		 && errMsgListAnswer.isEmpty()) {
 
 		 result=SUCCESS;
-
 	}
-
 	return result;
-
    }
 
 

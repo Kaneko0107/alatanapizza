@@ -10,92 +10,12 @@
 	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
 
 	<link rel="stylesheet" href="./css/alatanapizza.css">
+	<link rel="stylesheet" href="./css/userAdd.css">
 
 	<title>ユーザー登録</title>
-
-	<style>
-
-#main {
-	    width:70%;
-	    background:rgba(0, 0, 0, 0.5);
-	    margin:0 auto;
-	    margin-top:80px;
-	    margin-bottom:100px;
-	    }
-
-table {
-		width:70%;
-		margin:0 auto;
-	    text-align:left;
-	    }
-
-h3 {
-	    border-left:10px solid red;
-	    }
-
-.form {
-	    background-color:rgba(200, 200, 200, 0.5);
-	    width:200px;
-	    height:30px;
-	    border-radius:5px;
-	    }
-
-.title {
-	    font-size:20px;
-	    }
-
-tr td {
-	    padding-right:60px;
-	    padding-left:20px;
-	    padding-top:5px;
-	    }
-
-hr {
-	    text-align:left;
-	    border:none;
-	    border-top:dashed 1px #ccc;
-	    height:1px;
-	    color:#ffffff;
-	    margin:0 8 0 8;
-	    }
-
-.icon {
-		text-align:center;
-		display:flex;
-		flex-direction:row-reverse;
-		}
-
-.moji {
-	    text-align:center;
-	    font-size:12px;
-	    color:#FFCC33;
-	    }
-
-.moji2 {
-	    font-size:12px;
-	    color:#FFCC33;
-	    }
-
-::-webkit-input-placeholder {
-		color:#000000;
-		}
-
-::-moz-placeholder {
-		color:#000000;
-		opacity: 1;
-		}
-
-/* Internet Explorer 10-11 */
-:-ms-input-placeholder {
-		color:#000000;
-		}
-
-
-	</style>
 </head>
 
 <body>
-
 	<jsp:include page="include_header.jsp" />
 	<div id="main">
 
@@ -105,7 +25,7 @@ hr {
 	<tr><td colspan="2"><div class="moji2">下記の情報を入力してください。</div></td></tr>
 
 
-	<!-- エラーメッセージ -->
+	<!-- 入力エラーがあった時の、エラーメッセージを表示させる -->
 	<tr>
 
 	<s:if test="errMsgList !=null && !(errMsgList.isEmpty())">
@@ -263,12 +183,9 @@ hr {
 	<tr>
 
 	</s:form>
-
 	</table>
-
 	</div>
 
 	<jsp:include page="include_footer.jsp" />
-
 </body>
 </html>

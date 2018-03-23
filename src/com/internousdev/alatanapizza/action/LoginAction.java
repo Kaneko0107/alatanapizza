@@ -63,20 +63,20 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 			return "login";
 		}
 		if(userId.equals("")){ //userIdが空欄
-			errorMessageList.add("ユーザーIDを入力してください");
+			errorMessageList.add("・ユーザーIDを入力してください");
 		}else if(userId.length()<1 || userId.length()>8){ //userIdの長さが1以下か8以上のとき
-			errorMessageList.add("ユーザーIDは1文字以上8文字以下で入力してください");
+			errorMessageList.add("・ユーザーIDは1文字以上8文字以下で入力してください");
 		}else if(!userId.matches("^[a-zA-Z0-9]+$")){ //userIdに英数字以外が含まれているとき
-			errorMessageList.add("ユーザーIDは半角英数字で入力してください");
+			errorMessageList.add("・ユーザーIDは半角英数字で入力してください");
 		}
 
 		//パスワード入力チェック
 		if(password.equals("")){ //passwordが空欄
-			errorMessageList.add("パスワードを入力してください");
+			errorMessageList.add("・パスワードを入力してください");
 		}else if(password.length()<1 || password.length()>8){ //passwordの長さが1以下か8以上のとき
-			errorMessageList.add("パスワードは1文字以上8文字以下で入力してください");
+			errorMessageList.add("・パスワードは1文字以上8文字以下で入力してください");
 		}else if(!password.matches("^[a-zA-Z0-9]+$")){ //passwordに英数字以外が含まれているとき
-			errorMessageList.add("パスワードは半角英数字で入力してください");
+			errorMessageList.add("・パスワードは半角英数字で入力してください");
 		}
 
 		//ID保持

@@ -81,6 +81,7 @@ width:70%;
 }
 
 .imagehover{
+	clear:both;
 	width: 150px;
 	height: 150px;
 	overflow: hidden;
@@ -137,23 +138,37 @@ font-size:15px;
 				<td><h3>新規宛先情報入力</h3></td>
 			</tr>
 <!--  白い点線 -->
-			<tr><td><hr></td></tr>
+			<tr>
+				<td><hr></td>
+			</tr>
 
-			<tr><td><span class="test"><s:if test="destinationList != null">宛先が登録されていないため、</s:if></span></td></tr>
-			<tr><td><h4>下記に必要事項を記入してください</h4></td>
+			<tr>
+				<td><span class="test"><s:if test="destinationList != null">宛先が登録されていないため、</s:if></span></td>
+			</tr>
+			<tr>
+				<td><h4>下記に必要事項を記入してください</h4></td>
 			</tr>
 
 
 
 			<s:form action="DestConfirmAction">
 
-				<tr><td><div style="color: red;" ><s:iterator value="errorMessageList"><s:div align="center"><s:property/></s:div></s:iterator></div></td></tr>
+				<tr>
+					<td><div style="color: red;" ><s:iterator value="errorMessageList"><s:div align="center"><s:property/></s:div></s:iterator></div></td>
+				</tr>
 
 <!-- 姓 -->
-				<tr><td>姓 [半角英語、漢字、ひらがな]</td></tr>
-				<tr><td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="familyName" maxlength ='16' value="%{familyName}" /></td></tr>
+				<tr>
+					<td>姓 [半角英語、漢字、ひらがな]</td>
+				</tr>
+				<tr>
+					<td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="familyName" maxlength ='16' value="%{familyName}" /></td>
+				</tr>
+
 <!-- 名 -->
-				<tr><td>名 [半角英語、漢字、ひらがな]</td></tr>
+				<tr>
+					<td>名 [半角英語、漢字、ひらがな]</td>
+				</tr>
 				<tr><td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="firstName" maxlength ='16' value="%{firstName}" /></td></tr>
 <!-- 姓かな -->
 				<tr><td>姓（かな）[ひらがな]</td></tr>

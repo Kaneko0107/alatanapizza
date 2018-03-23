@@ -155,7 +155,7 @@ tr td .memo{text-align:center;
 	<input type=hidden name="telNumber" value='<s:property value="telNumber"/>' />
 	<input type=hidden name="email" value='<s:property value="email"/>' />
 
-	<s:submit class="memo" value="" src="./images/icon/modoru2.png"/></td></tr>
+	<s:submit class="memo" type="image" value="" src="./images/icon/modoru2.png"/></td></tr>
 	</s:form>
 
 

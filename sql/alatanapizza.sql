@@ -373,6 +373,7 @@ INSERT INTO destination_info(-- -----------宛先情報テーブルへ----------
 	first_name_kana,-- 名かな
 	email,-- メールアドレス
 	tel_number,-- 電話番号
+	postal_code,-- 郵便番号
 	user_address,-- 住所
 	regist_date-- 登録日
 )VALUES(
@@ -383,7 +384,8 @@ INSERT INTO destination_info(-- -----------宛先情報テーブルへ----------
 	"こうじ", -- 名かな
 	"ponde@pizza.com",-- メールアドレス
 	"080-0000-0000",-- 電話番号
-	"東京都千代田区",-- 住所
+	"1020075",-- 郵便番号
+	"東京都千代田区三番町",-- 住所
 	NOW()-- 登録日
 );
 

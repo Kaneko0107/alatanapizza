@@ -158,7 +158,9 @@ background-color: rgba(150, 150, 150, 0.5);
 						</div>
 			<!-- 退会 -->
 						<div class="btnn4">
-							<a href='<s:url action="ClearUserAction"/>'>退会処理へ</a>
+						<s:if test="!#session.loginFlg">
+							<a href='<s:url action="ClearUserAction"/>'>退会処理へ</a></s:if>
+
 						</div>
 
 

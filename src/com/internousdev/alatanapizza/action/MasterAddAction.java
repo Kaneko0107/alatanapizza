@@ -61,7 +61,7 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 			return "other";
 		}
 
-		if (itemName == null && itemPrice == null && itemStock == null && itemKanaName==null) {
+		if (itemName == null || itemPrice == null || itemStock == null || itemKanaName==null || imageName == null) {
 			return "form";
 		}
 		//文字列が空白でなければsuccessを返す。何か空白が入っている場合は、errorを返す。

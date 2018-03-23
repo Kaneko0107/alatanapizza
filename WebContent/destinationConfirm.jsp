@@ -149,6 +149,16 @@ tr td .memo{text-align:center;
 					<input type=hidden name="firstNameKana" value='<s:property value="firstNameKana"/>' /></td>
 				</tr>
 
+<!-- 郵便番号 -->
+<%-- 				<tr>
+					<td>郵便番号</td>
+				</tr>
+				<tr>
+					<td><s:property value ="zip11" escape ="false"/>
+					<input type =hidden name ="zip11" value ='<s:property value ="zip11"/>' /></td>
+				</tr> --%>
+
+
 <!-- 住所 -->
 				<tr>
 					<td>住所</td>

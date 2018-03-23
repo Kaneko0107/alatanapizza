@@ -194,7 +194,7 @@ font-size:15px;
 					<td>郵便番号 [半角数字]</td>
 				</tr>
 				<tr>
-					<td><s:textfield class ="form" placeholder="" name="zip11" size ="10" maxlength ='8' value="%{postalCode}" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');" /></td>
+					<td><s:textfield class ="form" placeholder="" name="zip11" size ="10" maxlength ='8' value="%{zip11}" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');" /></td>
 				</tr> --%>
 
 <!-- 住所 -->

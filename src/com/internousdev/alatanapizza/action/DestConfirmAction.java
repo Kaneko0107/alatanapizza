@@ -115,11 +115,11 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 		this.firstNameKana=firstNameKana;
 	}
 
-//	public String getPostalCode(){
-//		return postalCode;
+//	public String getZip11(){
+//		return zip11;
 //	}
-//	public void setPostalCode(String postalCode){
-//		this.postalCode=postalCode;
+//	public void setZip11(String zip11){
+//		this.zip11=zip11;
 //	}
 //
 //	public String getAddr11(){

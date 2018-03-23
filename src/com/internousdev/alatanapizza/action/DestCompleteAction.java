@@ -17,7 +17,7 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
-//	private String postalCode;
+//	private String zip11;
 //	private String addr11;
 	private String userAddress;
 	private String telNumber;
@@ -36,6 +36,8 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 		destinationDTO.setFirstName(firstName);
 		destinationDTO.setFamilyNameKana(familyNameKana);
 		destinationDTO.setFirstNameKana(firstNameKana);
+//		destinationDTO.setZip11(zip11);
+//		destinationDTO.setAddr11(addr11);
 		destinationDTO.setUserAddress(userAddress);
 		destinationDTO.setTelNumber(telNumber);
 		destinationDTO.setEmail(email);
@@ -79,11 +81,11 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 		this.firstNameKana=firstNameKana;
 	}
 
-//	public String getPostalCode(){
-//	return postalCode;
+//	public String getZip11(){
+//	return zip11;
 //}
-//public void setPostalCode(String postalCode){
-//	this.postalCode=postalCode;
+//public void setZip11(String zip11){
+//	this.zip11=zip11;
 //}
 //
 //public String getAddr11(){

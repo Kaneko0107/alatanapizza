@@ -99,6 +99,34 @@ public class InputChecker {
 		return result;
 	}
 
+//	public String zip11Chk(String zip11){
+//		String result ="OK";
+//
+//		if(zip11.equals("")){
+//			result ="・郵便番号を入力してください。";
+//		}else if(zip11.length() <14 || zip11.length() >50){
+//			result ="・郵便番号は7文字以上8文字以下で入力してください。";
+//		}else if(!zip11.matches("^[0-9-]+$")){
+//			result ="・郵便番号は半角数字で入力してください。";
+//		}
+//		return result;
+//
+//	}
+//
+//	public String addr11Chk(String addr11){
+//		String result ="OK";
+//
+//		if(addr11.equals("")){
+//			result ="・住所を入力してください。";
+//		}else if(addr11.length() <14 || addr11.length() >50){
+//			result ="・住所は14文字以上50文字以下で入力してください。";
+//		}else if(!addr11.matches("^[a-zA-Z0-9ぁ-ゞァ-ヾ一-龠々!-~]+$")){
+//			result ="・住所は半角英数字、漢字、ひらがな、カタカナおよび半角記号で入力してください。";
+//		}
+//		return result;
+//
+//	}
+
 	public String userAddressChk(String userAddress){
 		String result ="OK";
 

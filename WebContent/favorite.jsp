@@ -23,12 +23,15 @@
 
 				<div class="empty">
 					<h3>お気に入り</h3>
+
 					<!-- すでにその商品がお気に入りにあった場合のメッセージ -->
 					<span style="color: red;"><s:property value="message" /></span>
+
 					<!-- お気に入りリストが空の場合 -->
 					<s:if test="favoriteList.size()==0">
 						<h4>お気に入りはありません。</h4>
 					</s:if>
+
 					<!-- お気に入りリストがある場合 -->
 					<s:if test="favoriteList.size() > 0">
 						<h4>お気に入り情報は以下になります。</h4>

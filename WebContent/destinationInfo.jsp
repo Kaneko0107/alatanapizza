@@ -81,8 +81,8 @@ width:70%;
 }
 
 .imagehover{
-	width: 300px;
-	height: 140px;
+	width: 150px;
+	height: 150px;
 	overflow: hidden;
 }
 

@@ -98,7 +98,54 @@ margin-top:20px;}
    </tr>
    <tr>
    <th>メールアドレス</th>
-   <td><s:textfield name="newEmail" placeholder="14文字以上32文字以下" class="form"/></td>
+   <s:if test="#session.newEmail != null">
+   <td><s:textfield name="newEmail" placeholder="14文字以上32文字以下" value="<s:property value='newEmail'/>" class="form"/></td>
+   </s:if>
+   <s:else>
+    <td><s:textfield name="newEmail" placeholder="14文字以上32文字以下"  class="form"/></td>
+   </s:else>
+   </tr>
+   <tr>
+   <th>お名前</th>
+   </tr>
+   <tr>
+   <th>姓</th>
+    <s:if test="#session.familyname != null">
+   <td><s:textfield name="newEmail" value="<s:property value='familyname'/>" placeholder="14文字以上32文字以下" class="form"/></td>
+   </s:if>
+   <s:else>
+    <td><s:textfield name="newEmail" placeholder="14文字以上32文字以下" class="form"/></td>
+   </s:else>
+   </tr>
+   <tr>
+   <th>名</th>
+    <s:if test="#session.familyname != null">
+   <td><s:textfield name="newEmail" value="<s:property value='familyname'/>" placeholder="14文字以上32文字以下" class="form"/></td>
+   </s:if>
+   <s:else>
+    <td><s:textfield name="newEmail" placeholder="14文字以上32文字以下" class="form"/></td>
+   </s:else>
+   </tr>
+   <tr>
+   <th>ふりがな</th>
+   </tr>
+   <tr>
+    <th>せい</th>
+   <s:if test="#session.familyname != null">
+   <td><s:textfield name="newEmail" value="<s:property value='familyname'/>" placeholder="14文字以上32文字以下" class="form"/></td>
+   </s:if>
+   <s:else>
+    <td><s:textfield name="newEmail" placeholder="14文字以上32文字以下" class="form"/></td>
+   </s:else>
+   </tr>
+   <tr>
+   <th>めい</th>
+     <s:if test="#session.familyname != null">
+   <td><s:textfield name="newEmail" value="<s:property value='familyname'/>" placeholder="14文字以上32文字以下" class="form"/></td>
+   </s:if>
+   <s:else>
+    <td><s:textfield name="newEmail" placeholder="14文字以上32文字以下" class="form"/></td>
+   </s:else>
    </tr>
 
    <tr><td><a href='<s:url action="MyPageAction"/>'><img  src="./images/icon/modoru2.png"></a></td>

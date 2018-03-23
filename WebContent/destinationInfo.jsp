@@ -179,7 +179,10 @@ tr td .memo{text-align:center;
 			<tr><td><hr></td></tr>
 
 <!-- 戻る画像アイコン -->
-			<tr><td><div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()"><img src="./images/icon/modoru2.png"></a></div></td></tr>
+			<tr>
+			<s:if test="destinationList != null"><td><div class="memo"><a href='<s:url action="CartProductAction"/>'><img src="./images/icon/modoru2.png"></a></div></td></s:if>
+			<s:else><td><div class="memo"><a href='<s:url action="BuyItemCompleteAction"/>'><img src="./images/icon/modoru2.png"></a></div></td></s:else>
+			</tr>
 
 		</table>
 

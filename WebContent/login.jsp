@@ -94,10 +94,23 @@ tr td .memo{text-align:center;
 <script src="./js/jquery-1.8.2.min.js"></script>
 <script>
 
+
+
+$(function(){
+	$(".login .image").hover(
+	function(){
+		$(this).animate({
+			width:"300px"
+		});
+	},
+	function(){
+		$(this).animate({
+			width:"238px"
+		});
+	});
+});
+
 	//<!--
-	document.getElementById("inputUserId").addEventListener("input", function () {
-	    checkForm(document.getElementById("inputUserId"));
-	}, false);
 
 	function checkForm($this) {
 	    var str = $this.value;
@@ -108,19 +121,7 @@ tr td .memo{text-align:center;
 	}
 	//-->
 
-	$(function(){
-		$(".login .image").hover(
-		function(){
-			$(this).animate({
-				width:"300px"
-			});
-		},
-		function(){
-			$(this).animate({
-				width:"238px"
-			});
-		});
-	});
+
 </script>
 </head>
 
@@ -137,30 +138,71 @@ tr td .memo{text-align:center;
 
 			<!-- テーブルはじまり -->
 			<table>
-			<tr><td><h3>会員の方のログイン</h3></td></tr>
+			<tr>
+				<td>
+					<h3>会員の方のログイン</h3>
+				</td>
+			</tr>
 
 <!--  白い点線 -->
-			<tr><td><hr></td></tr>
+			<tr>
+				<td>
+					<hr>
+				</td>
+			</tr>
 
 			<s:form action="LoginAction">
 
-			<tr><td><div style="color: red;" ><s:iterator value="errorMessageList"><s:div align="center"><s:property/></s:div></s:iterator></div></td></tr>
+			<tr>
+				<td>
+					<div style="color: red;" ><s:iterator value="errorMessageList"><s:div align="center"><s:property/></s:div></s:iterator></div>
+				</td>
+			</tr>
 
 <!-- ID -->
-			<tr><td>ID [半角英数字]</td></tr>
-			<tr><td><s:textfield type="text" id="inputUserId" class="form" placeholder="1文字以上8文字以下" name="userId" maxlength ='8' value ="%{#session.saveId}" style="ime-mode:disabled" oncopy="return false" onpaste="return false" oncontextmenu="return false" /></td></tr>
+			<tr>
+				<td>
+					ID [半角英数字]
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<s:textfield type="text" id="inputUserId" class="form" placeholder="1文字以上8文字以下" name="userId" maxlength ='8' value ="%{#session.saveId}" style="ime-mode:disabled" onInput="checkForm(this)" oncopy="return false" onpaste="return false" oncontextmenu="return false" />
+				</td>
+			</tr>
+
 <!-- ID保存 -->
-			<tr><td><s:if test ="%{#session.saveId != null}"><div class="id"><label><s:checkbox name ="saveLogin" checked ="checked"/>ID保存</label></div></s:if>
-			<s:else><div class="id"><label><s:checkbox name ="saveLogin"/>ID保存</label></div></s:else></td></tr>
+			<tr>
+				<td>
+					<s:if test ="%{#session.saveId != null}"><div class="id"><label><s:checkbox name ="saveLogin" checked ="checked"/>ID保存</label></div></s:if>
+					<s:else><div class="id"><label><s:checkbox name ="saveLogin"/>ID保存</label></div></s:else>
+				</td>
+			</tr>
 
 <!-- パスワード -->
-			<tr><td>パスワード [半角英数字]</td></tr>
-			<tr><td><s:password class="form" placeholder="1文字以上8文字以下" name="password" maxlength ='8' style="ime-mode:disabled" /></td></tr>
+			<tr>
+				<td>
+					パスワード [半角英数字]
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<s:password class="form" placeholder="1文字以上8文字以下" name="password" maxlength ='8' style="ime-mode:disabled" />
+				</td>
+			</tr>
 
-			<tr><td><s:hidden name ="kessai" value ="%{kessai}"/></td></tr>
+			<tr>
+				<td>
+					<s:hidden name ="kessai" value ="%{kessai}"/>
+				</td>
+			</tr>
 <!-- ログインボタン -->
 <!-- マウスオーバーの設定と、真ん中に配置してください -->
-			<tr><td><div class="login"><s:submit class="image" type="image" value="" src="./images/icon/ログイン.png"/></div></td></tr>
+			<tr>
+				<td>
+					<div class="login"><s:submit class="image" type="image" value="" src="./images/icon/ログイン.png"/></div>
+				</td>
+			</tr>
 
 
 			</s:form>
@@ -169,20 +211,37 @@ tr td .memo{text-align:center;
 
 
 			<!--  白い点線 -->
-			<tr><td><hr></td></tr>
+			<tr>
+				<td>
+					<hr>
+				</td>
+			</tr>
 
 <!-- リンク -->
-			<tr><td><div class="memo">ホーム画面は<a href='<s:url action="HomeAction"/>'>こちら</a>
-				</div></td></tr>
+			<tr>
+				<td>
+					<div class="memo">ホーム画面は<a href='<s:url action="HomeAction"/>'>こちら</a></div>
+				</td>
+			</tr>
 
-			<tr><td><div class="memo">パスワードを忘れた方は<a href='<s:url action="ChangePasswordAction"/>'>こちら</a>
-				</div></td></tr>
+			<tr>
+				<td>
+					<div class="memo">パスワードを忘れた方は<a href='<s:url action="ChangePasswordAction"/>'>こちら</a></div>
+				</td>
+			</tr>
 
-			<tr><td><div class="memo">新規ユーザー登録は<a href='<s:url action="UserCreateAction"/>'>こちら</a>
-				</div></td></tr>
+			<tr>
+				<td>
+					<div class="memo">新規ユーザー登録は<a href='<s:url action="UserCreateAction"/>'>こちら</a></div>
+				</td>
+			</tr>
 
 <!-- 戻る画像アイコン -->
-			<tr><td><div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()"><img src="./images/icon/modoru2.png"></a></div></td></tr>
+			<tr>
+				<td>
+					<div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()"><img src="./images/icon/modoru2.png"></a></div>
+				</td>
+			</tr>
 				</table></div>
 
 

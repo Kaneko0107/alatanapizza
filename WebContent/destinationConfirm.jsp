@@ -141,23 +141,24 @@ tr td .memo{text-align:center;
 				<tr><td><div class="imagehover"><s:submit class="image" type="image" value="" src="./images/icon/touroku.png"/></div></td></tr>
 			</s:form>
 
+<!--  白い点線 -->
+			<tr><td><hr></td></tr>
 
 <!-- 戻る画像アイコン -->
-			<s:form action="DestAction">
+	<s:form action="DestAction">
 <tr><td>
-     <input type=hidden name="familyName" value='<s:property value="familyName"/>' />
+	<input type=hidden name="familyName" value='<s:property value="familyName"/>' />
 	<input type=hidden name="firstName" value='<s:property value="firstName"/>' />
 	<input type=hidden name="familyNameKana" value='<s:property value="familyNameKana"/>' />
 	<input type=hidden name="firstNameKana" value='<s:property value="firstNameKana"/>' />
-      <input type=hidden name="userAddress" value='<s:property value="userAddress"/>' />
-      <input type=hidden name="telNumber" value='<s:property value="telNumber"/>' />
-      <input type=hidden name="email" value='<s:property value="email"/>' />
+	<input type=hidden name="userAddress" value='<s:property value="userAddress"/>' />
+	<input type=hidden name="telNumber" value='<s:property value="telNumber"/>' />
+	<input type=hidden name="email" value='<s:property value="email"/>' />
 
-      <s:submit value="戻る" class="DestButton"/></td></tr>
-    </s:form>
+	<s:submit class="memo" value="" src="./images/icon/modoru2.png"/></td></tr>
+	</s:form>
 
-<!--  白い点線 -->
-			<tr><td><hr></td></tr>
+
 
 
 

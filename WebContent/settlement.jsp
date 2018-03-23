@@ -84,6 +84,8 @@
 								<s:property value="productCount" />
 								点）
 							</div>
+							<!-- ピザサイズ表示 -->
+							<s:property value="pizzaSize"/>
 
 						</div>
 

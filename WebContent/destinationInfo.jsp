@@ -55,10 +55,10 @@ border-left:10px solid red;
 /*========ID LAYOUT========*/
 
 #main{
-	width:50%;
+	width:70%;
 	background:rgba(0,0,0,0.5);
 	margin-top:70px;
-	margin-left:25%;
+	margin-left:15%;
 	margin-bottom:30px;
 }
 
@@ -66,21 +66,21 @@ border-left:10px solid red;
 
 .form {
 	background-color: rgba(200, 200, 200, 0.5);
-	width: 270px;
+	width: 350px;
 	height: 30px;
 	border-radius: 5px;
 	color:black;
 }
 
-tr td .image{text-align:center;
-	margin-top:40px;
+table{
+width:70%;
 }
 
-tr td .memo{text-align:center;
+
+.memo{float:right;
 }
 
 .imagehover{
-	clear:both;
 	width: 300px;
 	height: 140px;
 	overflow: hidden;
@@ -100,7 +100,7 @@ tr td .memo{text-align:center;
 		$(".imagehover .image").hover(
 		function(){
 			$(this).animate({
-				width:"200px"
+				width:"150px"
 			});
 		},
 		function(){
@@ -111,6 +111,13 @@ tr td .memo{text-align:center;
 	});
 
 </script>
+<style>
+
+.test{
+color:red;
+font-size:15px;
+}
+</style>
 
 </head>
 
@@ -132,8 +139,8 @@ tr td .memo{text-align:center;
 <!--  白い点線 -->
 			<tr><td><hr></td></tr>
 
-			<tr>
-				<td><h4>下記に必要事項を記入してください</h4></td>
+			<tr><td><span class="test"><s:if test="destinationList != null">宛先が登録されていないため、</s:if></span></td></tr>
+			<tr><td><h4>下記に必要事項を記入してください</h4></td>
 			</tr>
 
 
@@ -169,20 +176,24 @@ tr td .memo{text-align:center;
 				<tr><td>メールアドレス [半角英数字記号]</td></tr>
 				<tr><td><s:textfield class ="form" placeholder="18文字以上32文字以下" name="email" maxlength ='32' value="%{email}"  /></td></tr>
 
-<!-- 送信画像アイコン -->
-				<tr><td><div class="imagehover"><s:submit class="image" type="image" value="" src="./images/icon/kakuninn.png"/></div></td></tr>
-
-			</s:form>
-
 
 <!--  白い点線 -->
 			<tr><td><hr></td></tr>
 
+
 <!-- 戻る画像アイコン -->
-			<tr>
-			<s:if test="destinationList != null"><td><div class="memo"><a href='<s:url action="CartProductAction"/>'><img src="./images/icon/modoru2.png"></a></div></td></s:if>
-			<s:else><td><div class="memo"><a href='<s:url action="BuyItemCompleteAction"/>'><img src="./images/icon/modoru2.png"></a></div></td></s:else>
-			</tr>
+			<tr><td>
+			<s:if test="destinationList != null"><a href='<s:url action="CartProductAction"/>'><span class="imagehover"><img src="./images/icon/modoru2.png"></span></a></s:if>
+			<s:else><a href='<s:url action="BuyItemCompleteAction"/>'><span class="imagehover"><img src="./images/icon/modoru2.png"></span></a></s:else>
+
+
+
+<!-- 送信画像アイコン -->
+				<span class="memo"><span class="imagehover"><s:submit class="image" type="image" value="" src="./images/icon/kakuninn.png"/></span></span></td></tr>
+
+			</s:form>
+
+
 
 		</table>
 

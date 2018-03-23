@@ -121,7 +121,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 
 						//Mapセッション情報の更新をする
 						session.put("userId", loginDTO.getUserId()); //
-						session.put("firstName", loginDTO.getFirstName());
+						session.put("loginFirstName", loginDTO.getFirstName());
 						session.put("loginFlg", true); //ログインフラグ立て
 						//System.out.println("ログインフラグ=true");
 						session.put("masterFlg", false);//管理者フラグ立て

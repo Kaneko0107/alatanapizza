@@ -18,7 +18,7 @@ public class MasterProductChangeAction extends ActionSupport implements SessionA
 	private Map<String,Object>session;
     private ProductListDAO productListDAO = new ProductListDAO();
     public ArrayList<ProductDTO> productList = new ArrayList<>();
-    private Integer stock;
+    private String stock;
     private Integer productId;
     public String errorMessage;
 
@@ -30,11 +30,11 @@ public class MasterProductChangeAction extends ActionSupport implements SessionA
 		this.productId = productId;
 	}
 
-	public Integer getStock() {
+	public String getStock() {
 		return stock;
 	}
 
-	public void setStock(Integer stock) {
+	public void setStock(String stock) {
 		this.stock = stock;
 	}
 
@@ -49,10 +49,15 @@ public class MasterProductChangeAction extends ActionSupport implements SessionA
 		}
 		System.out.println("新しい在庫数: " + productId + "    " + stock);
 		productList = productListDAO.getProductInfo();
-
-		if (productId != null && stock != null) {
+		if (productId == null || stock == null) {
+			return result;
+		}
+		if(!stock.matches("^[0-9]{0,5}$")){ //stockが数字でない時（あるいは0の時も）
+			errorMessage = "在庫は正しく入力してください";
+		} else {
+			int stock = Integer.parseInt(this.stock);
 			if (stock < 0 || stock > 100) {
-				errorMessage = "カートの個数は0以上100未満です";
+				errorMessage = "在庫は0以上100未満です";
 				return result;
 			}
 			productListDAO.updateStock(productId, stock);

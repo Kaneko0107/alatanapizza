@@ -19,7 +19,7 @@
 	<div class="main">
 
 	<h1>カート</h1>
-
+	<span style="color: red;"><s:property value="errorMessage"/></span>
 	<s:property value="errMsg"/>
 		<s:if test="cartList.isEmpty()">
 			<p class="eMessage">カートの中は空です</p>
@@ -78,8 +78,8 @@
 				<a href='<s:url action="CartDeleteAction">
 				<s:param name="id" value="id"></s:param></s:url>'>削除</a>
 				</s:form>
-
-				<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+			<!-- 商品詳細ボタン -->
+				<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="productId"/></s:url>">
 					<img class="image" src=./images/icon/shousai.png><br>
 				</a>
 			</div>

@@ -26,8 +26,8 @@ public class MasterProductDAO {
 			int i = 1;
 			ps.setInt(i++, Integer.valueOf((int) (Math.random() * 1000000)));
 			ps.setString(i++, itemName);
-			ps.setString(i++, "./images/side/" + imageName + ".jpg"); // サイドメニューのみ
-			ps.setString(i++, imageName + ".jpg");
+			ps.setString(i++, "./images/side/" + imageName); // サイドメニューのみ
+			ps.setString(i++, imageName);
 			ps.setString(i++, itemPrice);
 			ps.setInt(i++, 0); // ピザのMサイズ用の値段。今はサイドメニューしか対応しないので固定で0
 			ps.setInt(i++, 0); // ピザのLサイズ用の値段。今はサイドメニューしか対応しないので固定で0

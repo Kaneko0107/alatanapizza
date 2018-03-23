@@ -98,12 +98,7 @@ legend{
 					<!-- 商品画像 -->
 					<tr>
 						<td>画像</td>
-						<td width="22%">
-							<div align="right"></div>
-						</td>
-					</tr>
-					<tr>
-						<td width="78%"><input type="text" name="imageName"/></td>
+						<td><s:select name="imageName" id="image_bname" list="imageFileNames"/></td>
 					</tr>
 
 					<!-- 登録ボタン -->
@@ -112,11 +107,10 @@ legend{
 					</tr>
 
 				</s:form>
-					<!-- 戻るボタン -->
-					<tr>
-						<td><a href='<s:url action="MasterProductChangeAction?listFlg=1"/>'>管理者画面に戻る</a></td>
-					</tr>
 			</table>
+
+			<!-- 戻るボタン -->
+			<a href='<s:url action="MasterProductChangeAction?listFlg=1"/>'>管理者画面に戻る</a>
 		</div>
 	</fieldset>
 

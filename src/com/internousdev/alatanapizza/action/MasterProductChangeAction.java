@@ -61,7 +61,7 @@ public class MasterProductChangeAction extends ActionSupport implements SessionA
 			productStockList.put(
 				product.getId(),
 				IntStream.range(
-						Math.max(1, product.getStock() - 20),
+						Math.max(0, product.getStock() - 20),
 						Math.min(product.getStock() + 20, 100) + 1
 				).toArray()
 			);

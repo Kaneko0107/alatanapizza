@@ -3,7 +3,9 @@ package com.internousdev.alatanapizza.action;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -18,6 +20,7 @@ public class MasterProductChangeAction extends ActionSupport implements SessionA
 	private Map<String,Object>session;
     private ProductListDAO productListDAO = new ProductListDAO();
     public ArrayList<ProductDTO> productList = new ArrayList<>();
+    public Map<Integer, int[]> productStockList = new HashMap<Integer, int[]>();
     private String stock;
     private Integer productId;
     public String errorMessage;
@@ -48,22 +51,21 @@ public class MasterProductChangeAction extends ActionSupport implements SessionA
 			return result;
 		}
 		System.out.println("新しい在庫数: " + productId + "    " + stock);
-		productList = productListDAO.getProductInfo();
-		if (productId == null || stock == null) {
-			return result;
-		}
-		if(!stock.matches("^[0-9]{0,5}$")){ //stockが数字でない時（あるいは0の時も）
-			errorMessage = "在庫は正しく入力してください";
-		} else {
-			int stock = Integer.parseInt(this.stock);
-			if (stock < 0 || stock > 100) {
-				errorMessage = "在庫は0以上100未満です";
-				return result;
-			}
-			productListDAO.updateStock(productId, stock);
-			productList = productListDAO.getProductInfo();
-		}
 
+		if (productId != null && stock != null) {
+			int stock = Integer.parseInt(this.stock);
+			productListDAO.updateStock(productId, stock);
+		}
+		productList = productListDAO.getProductInfo();
+		for (ProductDTO product: productList) {
+			productStockList.put(
+				product.getId(),
+				IntStream.range(
+						Math.max(1, product.getStock() - 20),
+						Math.min(product.getStock() + 20, 100) + 1
+				).toArray()
+			);
+		}
 		return result;
 	}
 

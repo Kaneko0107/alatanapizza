@@ -66,7 +66,7 @@ h1{
 				<s:form action="MasterProductChangeAction">
 				<s:hidden name="productId" value="%{product_id}" />
 				在庫:
-				<s:textfield name="stock" value="%{stock}"></s:textfield>
+				<s:select name="stock" list="%{productStockList.get(product_id)}" value="%{stock}" />
 				<s:submit value="在庫を変更する"/>
 				</s:form>
 

@@ -32,6 +32,7 @@ public class ProductInfoCategoryDAO {
 
 			while (rs.next()) {
 				ProductDTO dto = new ProductDTO();
+				dto.setProduct_id(rs.getInt("product_info.product_id"));
 				dto.setProduct_name(rs.getString("product_info.product_name"));
 				dto.setProduct_name_kana(rs.getString("product_info.product_name_kana"));
 				dto.setImage_file_name(rs.getString("product_info.image_file_name"));

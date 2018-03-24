@@ -47,17 +47,7 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 
 		//削除する
 		cartList = dao.showUserCartList(userId);
-		int deletedProductCount = 0;
-		Integer productId = null;
-		for (CartInfoDTO dto: cartList) {
-			if (dto.getId() == id) {
-				productId = dto.getProductId();
-				deletedProductCount += dto.getProductCount();
-			}
-		}
 		dao.deleteSeparate(id);
-		// 在庫を増やす為に、符号を反転させる
-		dao.changeStockCount(-deletedProductCount, productId);
 
 		cartList = dao.showUserCartList(userId);
 		total_price = calcTotalPrice(cartList);

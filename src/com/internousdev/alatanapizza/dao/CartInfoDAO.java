@@ -56,7 +56,7 @@ public class CartInfoDAO extends ActionSupport{
 	public ArrayList<CartInfoDTO>showUserCartList(String userId)throws SQLException{
 		ArrayList<CartInfoDTO>cartList = new ArrayList<>();
 
-		String sql = "SELECT cart_info.id, cart_info.product_id, cart_info.pizza_size, pi.product_name, pi.product_name_kana, pi.image_file_path, cart_info.price,pi.product_description, pi.release_company, pi.release_date, product_count"
+		String sql = "SELECT cart_info.id, cart_info.product_id, cart_info.user_id, cart_info.pizza_size, pi.product_name, pi.product_name_kana, pi.image_file_path, cart_info.price,pi.product_description, pi.release_company, pi.release_date, product_count"
 				+ " FROM cart_info LEFT JOIN product_info as pi ON cart_info.product_id = pi.product_id"
 				+ " WHERE user_id = ?";
 
@@ -70,6 +70,7 @@ public class CartInfoDAO extends ActionSupport{
 				CartInfoDTO dto = new CartInfoDTO();
 				int cartId = rs.getInt("cart_info.id");
 				dto.setId(cartId);
+				dto.setUserId(rs.getString("cart_info.user_id"));
 				dto.setProductName(rs.getString("pi.product_name"));
 				dto.setProductNameKana(rs.getString("pi.product_name_kana"));
 				dto.setImageFilePath(rs.getString("pi.image_file_path"));

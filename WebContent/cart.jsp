@@ -19,8 +19,13 @@
 	<div class="main">
 
 	<h1>カート</h1>
-	<span style="color: red;"><s:property value="errorMessage"/></span>
-	<s:property value="errMsg"/>
+		<s:if test="errorMessageList.size() > 0">
+			<ul>
+				<s:iterator value="errorMessageList">
+					<li style="float: none;"><span style="color: red;"><s:property /></span></li>
+				</s:iterator>
+			</ul>
+		</s:if>
 		<s:if test="cartList.isEmpty()">
 			<p class="eMessage">カートの中は空です</p>
 		</s:if>
@@ -96,7 +101,7 @@
 <!-- 合計金額の表示 -->
 			<div class="totalprice">
 			合計金額:¥
-			<s:property value="total_price" />
+			<s:property value="totalPrice" />
 			</div>
 		</s:else>
 		</div>

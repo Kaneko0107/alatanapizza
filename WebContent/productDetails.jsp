@@ -29,7 +29,7 @@
                 var topping_price = parseInt(count) * 324;
                 var product_menu_count = $('[name="productCount"]').val();
                 var total_price = (parseInt(product_val) + parseInt(topping_price)) * parseInt(product_menu_count);
-                $('input[name="total_price"]').val(total_price);
+                $('input[name="totalPrice"]').val(total_price);
                 $('#total_price_text').text(total_price);
             });
             $('.topping_menu').change(function() {
@@ -41,7 +41,7 @@
                 var topping_price = parseInt(count) * 324;
                 var product_menu_count = $('[name="productCount"]').val();
                 var total_price = (parseInt(product_val) + parseInt(topping_price)) * parseInt(product_menu_count);
-                $('input[name="total_price"]').val(total_price);
+                $('input[name="totalPrice"]').val(total_price);
                 $('#total_price_text').text(total_price);
             });
             $('#product_count').change(function() {
@@ -53,7 +53,7 @@
                 var topping_price = parseInt(count) * 324;
                 var product_menu_count = $('[name="productCount"]').val();
                 var total_price = (parseInt(product_val) + parseInt(topping_price)) * parseInt(product_menu_count);
-                $('input[name="total_price"]').val(total_price);
+                $('input[name="totalPrice"]').val(total_price);
                 $('#total_price_text').text(total_price);
             });
             $(function() {
@@ -65,14 +65,14 @@
                 var topping_price = parseInt(count) * 324;
                 var product_menu_count = $('[name="productCount"]').val();
                 var total_price = (parseInt(product_val) + parseInt(topping_price)) * parseInt(product_menu_count);
-                $('input[name="total_price"]').val(total_price);
+                $('input[name="totalPrice"]').val(total_price);
                 $('#total_price_text').text(total_price);
             });
             $('#sAndDPrice').change(function() {
             	var sAndDPrice = sAndDPrice_val();
             	var product_menu_count = $('[name="productCount"]').val();
             	var total_price = parseInt(sAndDPrice_val) * parseInt(product_menu_count);
-          	  $('input:text[name="total_price"]').val(sAndDPrice);
+          	  $('input:text[name="totalPrice"]').val(sAndDPrice);
         	});
         });
     </script>
@@ -179,7 +179,7 @@
 			<s:select name="productCount" id="product_count" list="stockList"
 				onchange="outputSelectedValueAndText(this);" />&nbsp;
 		Total:￥
-			<s:hidden name="total_price" id="total_price" />
+			<s:hidden name="totalPrice" id="total_price" />
 				<span id="total_price_text"></span>&nbsp;
 					<s:hidden name="productId" value="%{session.d_product_id}" ></s:hidden>
 					<s:hidden name="gocart" value="1" />

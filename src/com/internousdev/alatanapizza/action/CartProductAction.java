@@ -33,7 +33,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 	private CartInfoDAO dao = new CartInfoDAO();
 
 	//カート内の金額
-	public int total_price = 0;
+	public int totalPrice = 0;
 
 	//トッピング情報
 	public String topping_id_1;
@@ -68,24 +68,14 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 		// ブラウザのリロード時はカートを取得してすぐにsuccessにする。
 		if (productId == 0 || productCount == 0) {
 			cartList = dao.showUserCartList(userId);
-			total_price = calcTotalPrice(cartList);
+			totalPrice = calcTotalPrice(cartList);
 			return "success";
 		}
 		ProductDTO detail = productDetailsDAO.getProductDetailsInfo(Integer.valueOf(productId).toString());
 		if(productCount < 0){
 			cartList = dao.showUserCartList(userId);
-			total_price = calcTotalPrice(cartList);
+			totalPrice = calcTotalPrice(cartList);
 			errorMessage = "購入個数が不正です。";
-			return "success";
-		}
-		if (productCount > detail.getStock()) {
-			cartList = dao.showUserCartList(userId);
-			total_price = calcTotalPrice(cartList);
-			if (detail.getStock() == 0) {
-				errorMessage = "申し訳ありません。すでにその商品は在庫切れになっています。";
-			} else {
-				errorMessage = "申し訳ありません。在庫は" + detail.getStock() + "個しかないので、" + productCount + "個は購入できません。";
-			}
 			return "success";
 		}
 
@@ -115,19 +105,17 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 			}
 		}
 
-
 		//カートが重複しているか確認する
 		Integer cartId = dao.isAlreadyIntoCart(userId, productId, pizzaSize, toppings);
 		if(cartId != null){
 			count = dao.changeProductStock(productCount,cartId);
 		}else{
-			count = dao.putProductIntoCart(userId,productId,productCount,total_price, pizzaSize, toppings);
+			count = dao.putProductIntoCart(userId,productId,productCount,totalPrice, pizzaSize, toppings);
 		}
-		dao.changeStockCount(productCount, productId);
 		cartList = dao.showUserCartList(userId);
 
 
-		total_price = calcTotalPrice(cartList);
+		totalPrice = calcTotalPrice(cartList);
 		return SUCCESS;
 	}
 

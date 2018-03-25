@@ -7,22 +7,22 @@
 <style>
 header {
 	width:100%;
-	height:100px;
+	height:200px;
 	color: white;
 	font-size: 15px;
-
+font-family: arial black, Helvetica, sans-serif;
 	background:linear-gradient(to bottom,black,rgba(0,0,0,0.1));
 
 }
 
 .logo {
 	float: left;
-	margin: 20px;
+	padding:10px 10px 0  0;
 }
 
 .ul {
 	float: right;
-	margin: 10px;
+	margin:5px;
 	list-style-type: none;
 }
 
@@ -30,7 +30,7 @@ li {
 	float: left;
 	color: #FFD700;
 	font-weight: bolder;
-	margin: 20px;
+	margin:5px;
 	list-style-type: none;
 }
 
@@ -49,9 +49,6 @@ a:hover{
 </style>
 
 <header>
-
-<div class="up">
-
 
 <div class="logo"><a href='<s:url action="TopAction"/>'><img src="./images/icon/logo.png"/></a></div>
 
@@ -79,10 +76,7 @@ a:hover{
 		<li><s:else>
 			<a href='<s:url action="CartProductAction"/>'>カート<img src="./images/icon/cart.png" width="20" height="20"></a></s:else></li>
 	</ul>
-
-	</div>
 <!-- 検索ボックスをインクルード -->
-	<br>
 	<jsp:include page="headerSearch.jsp" />
 
 </header>

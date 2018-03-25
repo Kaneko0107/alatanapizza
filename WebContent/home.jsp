@@ -9,10 +9,6 @@
 <title>alatanapizza HOME画面</title>
 <style type="text/css">
 body {
-	margin: 0;
-	padding: 0;
-	line-height: 2.0;
-	letter-spacing: 1.5px;
 	font-family: arial black, Helvetica, sans-serif;
 	font-size: 15px;
 	color: white;
@@ -21,9 +17,21 @@ body {
 	background-image:url("./images/icon/HomeBackground.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
+	background-attachment: fixed;
 	background-size: cover;
 }
 
+footer{
+width:100%;
+
+font-family: arial black, Helvetica, sans-serif;
+	font-size: 15px;
+	color: white;
+	position:absolute;
+	bottom:0;
+	text-align:center;
+
+}
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -44,6 +52,12 @@ body {
 
 
 	<!-- フッター -->
-	<jsp:include page="include_footer.jsp" />
+
 </body>
+<footer>
+
+	A L A T A N A P I Z Z A
+
+
+	</footer>
 </html>

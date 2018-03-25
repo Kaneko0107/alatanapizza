@@ -24,6 +24,7 @@ body {
 footer{
 width:100%;
 
+
 font-family: arial black, Helvetica, sans-serif;
 	font-size: 15px;
 	color: white;

@@ -33,6 +33,7 @@
 }
 
 .h_search :hover{
+
 opacity:0.8;}
 
 /* .h_button { */

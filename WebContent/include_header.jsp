@@ -15,6 +15,7 @@ font-family: arial black, Helvetica, sans-serif;
 
 }
 
+
 .logo {
 	float: left;
 	padding:10px 10px 0  0;

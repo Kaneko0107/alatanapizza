@@ -6,6 +6,9 @@
 %>
 <style>
 header {
+position:absolute;
+top:0;
+left:0;
 	width:100%;
 	height:200px;
 	color: white;
@@ -18,7 +21,8 @@ font-family: arial black, Helvetica, sans-serif;
 
 .logo {
 	float: left;
-	padding:10px 10px 0  0;
+	margin-top:10px;
+
 }
 
 .ul {

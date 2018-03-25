@@ -21,7 +21,7 @@ body {
 	background-size: cover;
 }
 
-footer{
+/* footer{
 width:100%;
 
 
@@ -32,33 +32,49 @@ font-family: arial black, Helvetica, sans-serif;
 	bottom:0;
 	text-align:center;
 
+} */
+
+.slide{
+width:80%;
+height:auto;
 }
+
 </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="./js/jquery-3.3.1.min.js"></script>
-<script src="./js/jquery-1.8.2.min.js"></script>
-	<script>
-
-	</script>
-
+  <script>
+    $(document).ready(function(){
+        $('.slide').bxSlider({
+            auto:true,
+            speed:1000,
+            slidewidth:400
+        });
+    });
+  </script>
 </head>
 <body>
 	<!-- ヘッダー -->
 	<jsp:include page="include_header.jsp" />
+<br><br><br><br><br><br>
 
-
+<div class="slide">
+    <div><img src="./images/slide/slide1.jpg"></div>
+    <div><img src="./images/slide/slide2.jpg"></div>
+    <div><img src="./images/slide/slide3.jpg"></div>
+  </div>
 
 
 
 
 	<!-- フッター -->
-
+<jsp:include page="include_footer.jsp" />
 </body>
-<footer>
+<!-- <footer> -->
 
-	A L A T A N A P I Z Z A
+<!-- 	A L A T A N A P I Z Z A -->
 
 
-	</footer>
+<!-- 	</footer> -->
 </html>

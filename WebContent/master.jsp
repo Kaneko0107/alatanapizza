@@ -24,6 +24,22 @@ h1{
 	margin-left:130px;
 }
 
+.select1{
+width:50px;
+height:22px;
+background-color: rgba(0, 0, 0, 0.7);
+color:white;
+}
+
+.submit{
+width:120px;
+height:25px;
+font-size:13px;
+background-color:gray;
+color:white
+
+}
+
 </style>
 
 </head>
@@ -66,8 +82,8 @@ h1{
 				<s:form action="MasterProductChangeAction">
 				<s:hidden name="productId" value="%{product_id}" />
 				在庫:
-				<s:select name="stock" list="%{productStockList.get(product_id)}" value="%{stock}" />
-				<s:submit value="在庫を変更する"/>
+				<s:select name="stock" list="%{productStockList.get(product_id)}" value="%{stock}" class="select1" />
+				<s:submit value="在庫を変更する" class="submit"/>
 				</s:form>
 
 		</div>

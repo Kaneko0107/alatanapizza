@@ -12,7 +12,7 @@
 
 <style type="text/css">
 table{
-	width:30%;
+	width:60%;
 	margin:0 auto;
 	text-align: left;
 }
@@ -27,8 +27,13 @@ legend{
 	color:white;
 	font-size:20px;
 	font-weight: bold;
+
 }
 
+
+.submit{
+text-align:right;
+}
 
 
 </style>
@@ -99,20 +104,20 @@ legend{
 
 					<!-- 商品画像 -->
 					<tr>
-						<td>画像</td>
+						<td>画像:</td>
 						<td><s:select name="imageName" id="image_bname" list="imageFileNames"/></td>
 					</tr>
 
 					<!-- 登録ボタン -->
 					<tr>
-						<td><s:submit value="登録"/></td>
+						<td colspan="2"><s:submit value="登録" /></td>
 					</tr>
 
 				</s:form>
 			</table>
 
 			<!-- 戻るボタン -->
-			<a href='<s:url action="MasterProductChangeAction?listFlg=1"/>'>管理者画面に戻る</a>
+			<a href='<s:url action="MasterProductChangeAction?listFlg=1"/>'>◀　管理者画面に戻る</a>
 		</div>
 	</fieldset>
 

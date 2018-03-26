@@ -169,8 +169,8 @@ background-color: rgba(150, 150, 150, 0.5);
 							<a href='<s:url action="UserUpdateAction"/>'>ユーザー情報を変更する</a>
 						</div>
 			<!-- 退会 -->
-						<div class="btnn4">
-							<a href='<s:url action="ClearUserAction"/>'>退会処理へ</a>
+						<div class="btnn4"><s:if test="!session.masterFlg">
+							<a href='<s:url action="ClearUserAction"/>'>退会処理へ</a></s:if>
 						</div>
 
 

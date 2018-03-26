@@ -29,7 +29,7 @@ public class DestinationKessaiDAO {
 		ArrayList<DestinationDTO> destinationList =new ArrayList<DestinationDTO>();
 
 		String sql ="SELECT id,family_name,first_name,family_name_kana,first_name_kana,"
-				+ "user_address,tel_number,email FROM destination_info WHERE user_id =?";
+				+ "user_address,tel_number,email,postal_code FROM destination_info WHERE user_id =?";
 
 		try{
 
@@ -45,9 +45,10 @@ public class DestinationKessaiDAO {
 				destinationDTO.setFamilyNameKana(rs.getString("family_name_kana"));
 				destinationDTO.setFirstNameKana(rs.getString("first_name_kana"));
 				//destinationDTO.setSex(rs.getString("sex"));
-				destinationDTO.setEmail(rs.getString("email"));
+				destinationDTO.setAddr11(rs.getString("user_address"));
 				destinationDTO.setTelNumber(rs.getString("tel_number"));
-				destinationDTO.setUserAddress(rs.getString("user_address"));
+				destinationDTO.setEmail(rs.getString("email"));
+				destinationDTO.setZip11(rs.getString("postal_code"));
 				destinationList.add(destinationDTO);
 			}
 		}catch(SQLException e){

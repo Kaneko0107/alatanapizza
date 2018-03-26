@@ -23,7 +23,7 @@ public class LoginDTOTest {
 	@Test
 	public void testGetId2() {
 		LoginDTO loginDTO = new LoginDTO();
-		int expected = 1;
+		int expected = Integer.MAX_VALUE;
 
 		loginDTO.setId(expected);
 
@@ -33,7 +33,7 @@ public class LoginDTOTest {
 	@Test
 	public void testGetId3() {
 		LoginDTO loginDTO = new LoginDTO();
-		int expected = 1000;
+		int expected = Integer.MIN_VALUE;
 
 		loginDTO.setId(expected);
 
@@ -63,7 +63,7 @@ public class LoginDTOTest {
 	@Test
 	public void testGetUserId1() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "0";
+		String expected = null;
 
 		loginDTO.setUserId(expected);
 
@@ -73,7 +73,7 @@ public class LoginDTOTest {
 	@Test
 	public void testGetUserId2() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "-1242";
+		String expected = "";
 
 		loginDTO.setUserId(expected);
 
@@ -83,7 +83,7 @@ public class LoginDTOTest {
 	@Test
 	public void testGetUserId3() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "あｇｗぽえい";
+		String expected = " ";
 
 		loginDTO.setUserId(expected);
 
@@ -93,7 +93,7 @@ public class LoginDTOTest {
 	@Test
 	public void testGetUserId4() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "0134513v";
+		String expected = "　";
 
 		loginDTO.setUserId(expected);
 
@@ -101,9 +101,39 @@ public class LoginDTOTest {
 	}
 
 	@Test
-	public void testGetUserId5() {
+	public void testGetUserId6() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "３１７０５９８あｄｇ";
+		String expected = "abc123";
+
+		loginDTO.setUserId(expected);
+
+		assertEquals(expected, loginDTO.getUserId());
+	}
+
+	@Test
+	public void testGetUserId7() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "あいう１２３";
+
+		loginDTO.setUserId(expected);
+
+		assertEquals(expected, loginDTO.getUserId());
+	}
+
+	@Test
+	public void testGetUserId8() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "abc123あいう１２３";
+
+		loginDTO.setUserId(expected);
+
+		assertEquals(expected, loginDTO.getUserId());
+	}
+
+	@Test
+	public void testGetUserId9() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "ａｂｃ１２３あいう漢字";
 
 		loginDTO.setUserId(expected);
 
@@ -116,53 +146,78 @@ public class LoginDTOTest {
 		String expected = null;
 
 		loginDTO.setPassword(expected);
-		String actual = loginDTO.getPassword();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getPassword());
 	}
 
 	@Test
 	public void testGetPassword2() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "obnaaijge";
+		String expected = "";
 
 		loginDTO.setPassword(expected);
-		String actual = loginDTO.getPassword();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getPassword());
 	}
 
 	@Test
 	public void testGetPassword3() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "あえのぱ";
+		String expected = " ";
 
 		loginDTO.setPassword(expected);
-		String actual = loginDTO.getPassword();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getPassword());
 	}
 
 	@Test
 	public void testGetPassword4() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "500000000000000";
+		String expected = "　";
 
 		loginDTO.setPassword(expected);
-		String actual = loginDTO.getPassword();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getPassword());
 	}
 
 	@Test
-	public void testGetPassword5() {
+	public void testGetPassword6() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "んｂそあ；えｒ";
+		String expected = "abc123";
 
 		loginDTO.setPassword(expected);
-		String actual = loginDTO.getPassword();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getPassword());
+	}
+
+	@Test
+	public void testGetPassword7() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "あいう１２３";
+
+		loginDTO.setPassword(expected);
+
+		assertEquals(expected, loginDTO.getPassword());
+	}
+
+	@Test
+	public void testGetPassword8() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "abc123あいう１２３";
+
+		loginDTO.setPassword(expected);
+
+		assertEquals(expected, loginDTO.getPassword());
+	}
+
+	@Test
+	public void testGetPassword9() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "ａｂｃ１２３あいう漢字";
+
+		loginDTO.setPassword(expected);
+
+		assertEquals(expected, loginDTO.getPassword());
 	}
 
 	@Test
@@ -193,53 +248,78 @@ public class LoginDTOTest {
 		String expected = null;
 
 		loginDTO.setFamilyName(expected);
-		String actual = loginDTO.getFamilyName();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFamilyName());
 	}
 
 	@Test
 	public void testGetFamilyName2() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "jpagie";
+		String expected = "";
 
 		loginDTO.setFamilyName(expected);
-		String actual = loginDTO.getFamilyName();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFamilyName());
 	}
 
 	@Test
 	public void testGetFamilyName3() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "亜漢字";
+		String expected = " ";
 
 		loginDTO.setFamilyName(expected);
-		String actual = loginDTO.getFamilyName();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFamilyName());
 	}
 
 	@Test
 	public void testGetFamilyName4() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "けおｗ";
+		String expected = "　";
 
 		loginDTO.setFamilyName(expected);
-		String actual = loginDTO.getFamilyName();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFamilyName());
 	}
 
 	@Test
-	public void testGetFamilyName5() {
+	public void testGetFamilyName6() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "5億";
+		String expected = "abc123";
 
 		loginDTO.setFamilyName(expected);
-		String actual = loginDTO.getFamilyName();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFamilyName());
+	}
+
+	@Test
+	public void testGetFamilyName7() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "あいう１２３";
+
+		loginDTO.setFamilyName(expected);
+
+		assertEquals(expected, loginDTO.getFamilyName());
+	}
+
+	@Test
+	public void testGetFamilyName8() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "abc123あいう１２３";
+
+		loginDTO.setFamilyName(expected);
+
+		assertEquals(expected, loginDTO.getFamilyName());
+	}
+
+	@Test
+	public void testGetFamilyName9() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "ａｂｃ１２３あいう漢字";
+
+		loginDTO.setFamilyName(expected);
+
+		assertEquals(expected, loginDTO.getFamilyName());
 	}
 
 	@Test
@@ -248,53 +328,78 @@ public class LoginDTOTest {
 		String expected = null;
 
 		loginDTO.setFirstName(expected);
-		String actual = loginDTO.getFirstName();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFirstName());
 	}
 
 	@Test
 	public void testGetFirstName2() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "570123496";
+		String expected = "";
 
 		loginDTO.setFirstName(expected);
-		String actual = loginDTO.getFirstName();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFirstName());
 	}
 
 	@Test
 	public void testGetFirstName3() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "けおｗ";
+		String expected = " ";
 
 		loginDTO.setFirstName(expected);
-		String actual = loginDTO.getFirstName();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFirstName());
 	}
 
 	@Test
 	public void testGetFirstName4() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "5追うg区";
+		String expected = "　";
 
 		loginDTO.setFirstName(expected);
-		String actual = loginDTO.getFirstName();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFirstName());
 	}
 
 	@Test
-	public void testGetFirstName5() {
+	public void testGetFirstName6() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "おいあｈげいあ";
+		String expected = "abc123";
 
 		loginDTO.setFirstName(expected);
-		String actual = loginDTO.getFirstName();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFirstName());
+	}
+
+	@Test
+	public void testGetFirstName7() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "あいう１２３";
+
+		loginDTO.setFirstName(expected);
+
+		assertEquals(expected, loginDTO.getFirstName());
+	}
+
+	@Test
+	public void testGetFirstName8() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "abc123あいう１２３";
+
+		loginDTO.setFirstName(expected);
+
+		assertEquals(expected, loginDTO.getFirstName());
+	}
+
+	@Test
+	public void testGetFirstName9() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "ａｂｃ１２３あいう漢字";
+
+		loginDTO.setFirstName(expected);
+
+		assertEquals(expected, loginDTO.getFirstName());
 	}
 
 	@Test
@@ -303,54 +408,80 @@ public class LoginDTOTest {
 		String expected = null;
 
 		loginDTO.setFamilyNameKana(expected);
-		String actual = loginDTO.getFamilyNameKana();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFamilyNameKana());
 	}
 
 	@Test
 	public void testGetFamilyNameKana2() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "6089732156";
+		String expected = "";
 
 		loginDTO.setFamilyNameKana(expected);
-		String actual = loginDTO.getFamilyNameKana();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFamilyNameKana());
 	}
 
 	@Test
 	public void testGetFamilyNameKana3() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "5億お";
+		String expected = " ";
 
 		loginDTO.setFamilyNameKana(expected);
-		String actual = loginDTO.getFamilyNameKana();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFamilyNameKana());
 	}
 
 	@Test
 	public void testGetFamilyNameKana4() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "けおｗo";
+		String expected = "　";
 
 		loginDTO.setFamilyNameKana(expected);
-		String actual = loginDTO.getFamilyNameKana();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFamilyNameKana());
 	}
 
 	@Test
-	public void testGetFamilyNameKana5() {
+	public void testGetFamilyNameKana6() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "ごｑん；あおｂ";
+		String expected = "abc123";
 
 		loginDTO.setFamilyNameKana(expected);
-		String actual = loginDTO.getFamilyNameKana();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFamilyNameKana());
 	}
+
+	@Test
+	public void testGetFamilyNameKana7() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "あいう１２３";
+
+		loginDTO.setFamilyNameKana(expected);
+
+		assertEquals(expected, loginDTO.getFamilyNameKana());
+	}
+
+	@Test
+	public void testGetFamilyNameKana8() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "abc123あいう１２３";
+
+		loginDTO.setFamilyNameKana(expected);
+
+		assertEquals(expected, loginDTO.getFamilyNameKana());
+	}
+
+	@Test
+	public void testGetFamilyNameKana9() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "ａｂｃ１２３あいう漢字";
+
+		loginDTO.setFamilyNameKana(expected);
+
+		assertEquals(expected, loginDTO.getFamilyNameKana());
+	}
+
 
 	@Test
 	public void testGetFirstNameKana1() {
@@ -358,54 +489,80 @@ public class LoginDTOTest {
 		String expected = null;
 
 		loginDTO.setFirstNameKana(expected);
-		String actual = loginDTO.getFirstNameKana();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFirstNameKana());
 	}
 
 	@Test
 	public void testGetFirstNameKana2() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "n@abwnob";
+		String expected = "";
 
 		loginDTO.setFirstNameKana(expected);
-		String actual = loginDTO.getFirstNameKana();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFirstNameKana());
 	}
 
 	@Test
 	public void testGetFirstNameKana3() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "けおｗ億";
+		String expected = " ";
 
 		loginDTO.setFirstNameKana(expected);
-		String actual = loginDTO.getFirstNameKana();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFirstNameKana());
 	}
 
 	@Test
 	public void testGetFirstNameKana4() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "ーｇぱｇn;oiawg";
+		String expected = "　";
 
 		loginDTO.setFirstNameKana(expected);
-		String actual = loginDTO.getFirstNameKana();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFirstNameKana());
 	}
 
 	@Test
-	public void testGetFirstNameKana5() {
+	public void testGetFirstNameKana6() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "oagago７５０３８２１６";
+		String expected = "abc123";
 
 		loginDTO.setFirstNameKana(expected);
-		String actual = loginDTO.getFirstNameKana();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getFirstNameKana());
 	}
+
+	@Test
+	public void testGetFirstNameKana7() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "あいう１２３";
+
+		loginDTO.setFirstNameKana(expected);
+
+		assertEquals(expected, loginDTO.getFirstNameKana());
+	}
+
+	@Test
+	public void testGetFirstNameKana8() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "abc123あいう１２３";
+
+		loginDTO.setFirstNameKana(expected);
+
+		assertEquals(expected, loginDTO.getFirstNameKana());
+	}
+
+	@Test
+	public void testGetFirstNameKana9() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "ａｂｃ１２３あいう漢字";
+
+		loginDTO.setFirstNameKana(expected);
+
+		assertEquals(expected, loginDTO.getFirstNameKana());
+	}
+
 
 	@Test
 	public void testIsSex1() {
@@ -435,54 +592,80 @@ public class LoginDTOTest {
 		String expected = null;
 
 		loginDTO.setEmail(expected);
-		String actual = loginDTO.getEmail();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getEmail());
 	}
 
 	@Test
 	public void testGetEmail2() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "5億けえ";
+		String expected = "";
 
 		loginDTO.setEmail(expected);
-		String actual = loginDTO.getEmail();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getEmail());
 	}
 
 	@Test
 	public void testGetEmail3() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "0652945pu@p65023";
+		String expected = " ";
 
 		loginDTO.setEmail(expected);
-		String actual = loginDTO.getEmail();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getEmail());
 	}
 
 	@Test
 	public void testGetEmail4() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "んぱげいｈな：ｐ";
+		String expected = "　";
 
 		loginDTO.setEmail(expected);
-		String actual = loginDTO.getEmail();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getEmail());
 	}
 
 	@Test
-	public void testGetEmail5() {
+	public void testGetEmail6() {
 		LoginDTO loginDTO = new LoginDTO();
-		String expected = "352125351ｊぽいは";
+		String expected = "abc123";
 
 		loginDTO.setEmail(expected);
-		String actual = loginDTO.getEmail();
 
-		assertEquals(expected,actual);
+		assertEquals(expected, loginDTO.getEmail());
 	}
+
+	@Test
+	public void testGetEmail7() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "あいう１２３";
+
+		loginDTO.setEmail(expected);
+
+		assertEquals(expected, loginDTO.getEmail());
+	}
+
+	@Test
+	public void testGetEmail8() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "abc123あいう１２３";
+
+		loginDTO.setEmail(expected);
+
+		assertEquals(expected, loginDTO.getEmail());
+	}
+
+	@Test
+	public void testGetEmail9() {
+		LoginDTO loginDTO = new LoginDTO();
+		String expected = "ａｂｃ１２３あいう漢字";
+
+		loginDTO.setEmail(expected);
+
+		assertEquals(expected, loginDTO.getEmail());
+	}
+
 
 	@Test
 	public void testIsLogined1() {

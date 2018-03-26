@@ -91,6 +91,11 @@ opacity:0.8;}
 
 		<ul>
 
+		    <li><s:form action="ProductListAction">
+					<input type=hidden name="listFlg" value="1" />
+					<s:submit class="img1" value="メニュー"  />
+				</s:form></li>
+
 			<li><s:form action="ProductSearchAction"
 					id="productSearchAction">
 					<select name="categoryId" class="select">
@@ -124,10 +129,7 @@ opacity:0.8;}
 					<s:textfield name="searchWord" class="h_search" />
 					<s:submit type="image" class="img" value="" src="./images/icon/serch.png" />
 				</s:form></li>
-			<li><s:form action="ProductListAction">
-					<input type=hidden name="listFlg" value="1" />
-					<s:submit class="img1" value="メニュー"  />
-				</s:form></li>
+
 
 		</ul>
 

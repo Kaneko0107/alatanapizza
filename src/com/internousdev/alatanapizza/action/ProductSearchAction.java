@@ -47,7 +47,6 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		System.out.println("CATEGORYID:"+categoryId);
 		String ret = ERROR;
 
-
 		if (searchWord.length() > 16) {
 			msgList.add("16字以内で検索してください");
 			ret = SUCCESS;
@@ -62,13 +61,15 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		-----------------------------------------------------------*/
 	    searchWordHiragana = Normalizer.normalize(searchWord, Normalizer.Form.NFKC);
 		searchWordHiragana = toHiragana.toZenkakuHiragana(searchWordHiragana);
-		System.out.println(searchWordHiragana);
+		System.out.println("searchWordHiragana:" + searchWordHiragana);
 		searchWordHiragana = searchWordHiragana.trim();
 		if (searchWordHiragana.matches("^[\\p{Punct}]+$")) {
 			msgList.add("一般的な検索ワードを使ってください");
 			ret = SUCCESS;
 			return ret;
 		}
+
+
 
 		/*---------------------------------------------------------
 		 *       検索値が複数あった場合

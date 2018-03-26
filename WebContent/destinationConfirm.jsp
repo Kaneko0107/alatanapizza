@@ -78,6 +78,10 @@ tr td .memo{text-align:center;
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="./js/jquery-1.8.2.min.js"></script>
 <script>
+
+
+
+
 	$(function(){
 		$(".imagehover .image").hover(
 		function(){
@@ -220,7 +224,7 @@ tr td .memo{text-align:center;
 	<input type=hidden name="telNumber" value='<s:property value="telNumber"/>' />
 	<input type=hidden name="email" value='<s:property value="email"/>' />
 
-	<s:submit class="memo" class="icon" type="image" value="" src="./images/icon/modoru2.png"/></td>
+	<s:submit class="memo icon" type="image" value="" src="./images/icon/modoru2.png"/></td>
 </tr>
 	</s:form>
 

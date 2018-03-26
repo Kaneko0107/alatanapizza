@@ -48,6 +48,24 @@ hr {
 	color: #ffffff;
 	margin: 0 8 0 8;
 }
+
+
+::-webkit-input-placeholder {
+  color:#000000;
+}
+
+::-moz-placeholder {
+ color:#000000;
+ opacity: 1;
+}
+
+/* Internet Explorer 10-11 */
+:-ms-input-placeholder {
+ color:#000000;
+}
+
+
+
 .image2 {
 
 	    text-align:right;

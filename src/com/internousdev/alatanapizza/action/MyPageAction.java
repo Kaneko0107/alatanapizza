@@ -61,11 +61,54 @@ public class MyPageAction extends ActionSupport implements SessionAware, ErrorMe
 			リストにデータが入っていたらSUCCESSとなりマイページに遷移。
 		---------------------------------------------------------*/
 			myPageList = dao.getMyPageUserInfo(userId);
+
+			String hideNewPassword;
+			hideNewPassword = myPageList.get(0).getPassword();
+
+			if(hideNewPassword.length()<=1){
+
+				hideNewPassword = hideString(hideNewPassword,0,0);
+				myPageList.get(0).setPassword(hideNewPassword);
+			}
+			if(hideNewPassword.length()==2){
+
+				hideNewPassword = hideString(hideNewPassword,0,1);
+				myPageList.get(0).setPassword(hideNewPassword);
+			}
+			if(hideNewPassword.length()>=3){
+
+				hideNewPassword = hideString(hideNewPassword,0,2);
+				myPageList.get(0).setPassword(hideNewPassword);
+			}
+
+
 			if (myPageList.size() > 0) {
 				result = SUCCESS;
 			}
+
 		}
 		return result;
+	}
+
+	//文字列の何文字かを'*'に変える
+	public String hideString(String word,int a,int b){
+
+		String hideWord;
+
+
+		int wordLength;
+		wordLength = word.length();
+
+
+		hideWord=word.substring(a,b);
+
+
+		int i=0;
+		while(i < wordLength - b){
+			hideWord = hideWord + "*";
+			i++;
+		}
+		return hideWord;
 	}
 
 

@@ -51,6 +51,22 @@ tr td {
 .btn1{
  text-align:center;
 	    margin-top: 5px;}
+
+
+	    hr {
+	    text-align:left;
+	    border:none;
+	    border-top:dashed 1px #ccc;
+	    height:1px;
+	    color:#ffffff;
+	    margin:0 8 0 8;
+	    }
+
+.icon{
+position:relative;
+top:30px;
+
+}
 </style>
 
 </head>
@@ -95,10 +111,10 @@ tr td {
 <tr><td><div class="moji">以上の注意点をご了承頂いた上で下記の同意欄にチェックをして頂きまして、退会ボタンで退会処理を行ってください。</div></td></tr>
 
 
-<tr><td><a href='<s:url action="MyPageAction"/>'><img  src="./images/icon/modoru2.png"></a></td>
-<td><div class="btn1">
+<tr><td><a href='<s:url action="MyPageAction"/>'><img class="icon"  src="./images/icon/modoru2.png"></a></td>
+<td><div class="btn1">同意する
 		<input id="checkBtn" type="checkbox">
-		<input id="submitBtn" class="button" disabled="disabled" type="submit" value="退会する" onclick="taikai()">
+		<input id="submitBtn"  disabled="disabled" type="submit" value="退会する" onclick="taikai()">
 	</div></td></tr>
 
 </s:form>

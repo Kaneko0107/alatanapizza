@@ -65,11 +65,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 
 
 
-		//すでにログイン済みの人がブラウザバッグした場合にログインページに跳ばれないように
-		if(session.containsKey("userId")){ //boolean
-			result=SUCCESS;
 
-		}else{
 
 		//ユーザーID入力チェック
 		if(userId==null){
@@ -159,17 +155,17 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 						//tempUserIdのカート情報をすべて引き出すメソッドを代入
 						tempCartList=cartInfoDAO.showUserCartList(session.get("tempUserId").toString());
 
-						//ログイン後のカートの中身を生成
-						//int i=0;
-						//for(i=0;i<cartList.size();i++){
-						//	productIdList.add(cartList.get(i).getProductId());
-						//}
-
-						//ゲスト時のカートの中身をリストとして生成
-						//i=0;
-						//for(i=0;i<tempCartList.size();i++){
-						//	tempProductIdList.add(tempCartList.get(i).getProductId());
-						//}
+//						ログイン後のカートの中身を生成
+//						int i=0;
+//						for(i=0;i<cartList.size();i++){
+//							productIdList.add(cartList.get(i).getProductId());
+//						}
+//
+//						ゲスト時のカートの中身をリストとして生成
+//						i=0;
+//						for(i=0;i<tempCartList.size();i++){
+//							tempProductIdList.add(tempCartList.get(i).getProductId());
+//						}
 
 //						//カートの中身の重複を確認
 //						if(cartList.size()<tempCartList.size()){ //ログイン時のカートリスト < ゲスト用のカートリスト
@@ -277,8 +273,6 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 			//System.out.println("IDが入力されていません");
 			result ="login";
 		}
-	}
-
 
 
 		String target =(String) session.get("target");

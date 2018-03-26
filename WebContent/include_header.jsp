@@ -18,9 +18,9 @@ font-family: arial black, Helvetica, sans-serif;
 
 .logo {
 	float: left;
-	margin-top:10px;
-	width:35px;
-	height:35px;
+	margin:30px;
+	width:45px;
+	height:45px;
 
 
 }

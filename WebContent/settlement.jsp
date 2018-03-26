@@ -12,6 +12,42 @@
 <link rel="stylesheet" href="./css/cart.css">
 <style type="text/css">
 
+
+
+.totalprice{
+font-size:25px;
+width:50%;
+background:rgba(0,0,0,0.5);
+margin-left:25%;
+height:80px;
+line-height:80px;
+}
+
+
+.icon{
+position:relative;
+top:10px;}
+
+.icon1{
+width:180px;
+height:25;
+color:white;
+border-radius: 3px;
+background-color:rgba(0,0,0,0.5);
+float:left;
+
+margin-right:20px;
+text-align:center;
+position:relative;
+left:35%;
+
+
+
+}
+
+
+
+
 </style>
 <script type="text/javascript">
 	window.onunload = function() {
@@ -25,7 +61,7 @@
 	<jsp:include page="include_header.jsp" />
 
 	<!-- ------------------■main■ ----------------------------->
-	<div class="main">
+
 		<br>
 		<h2 class="title">注 文 確 認</h2>
 		<br>
@@ -101,7 +137,7 @@
 			<div class="totalprice">
 				カート合計¥
 				<s:property value="totalPrice" />
-<s:submit type="image" value="" src="./images/icon/order.png"/>
+<s:submit type="image" class="icon" value="" src="./images/icon/order.png"/>
 			</div>
 			<br>
 			<div id="btn_2">
@@ -133,15 +169,14 @@
 					</div>
 					<div class="destination">
 						ふりがな:
+
 						<s:property value="familyNameKana" />
 						<s:property value="firstNameKana" />
 						<br> 名前:
 						<s:property value="familyName" />
 						<s:property value="firstName" />
-						<br> 郵便番号:
-						<s:property value="zip11" />
 						<br> 住所:
-						<s:property value="addr11" />
+						<s:property value="userAddress" />
 						<br> 電話番号:
 						<s:property value="telNumber" />
 						<br> メールアドレス:
@@ -152,28 +187,31 @@
 
 			</s:iterator>
 
+
 		<!-- 宛先新規登録 -->
-		<div id="b1"><br>
-		<input type="button" class="submit" value="宛先情報の新規登録"
-			onclick="location.href='<s:url action="DestAction" />'"></div><br>
+<div class="atesaki">
+		<input type="button" class="icon1" value="宛先情報の新規登録"
+			onclick="location.href='<s:url action="DestAction" />'"></div>
 
 
 			<!-- 宛先個別削除 -->
-			<s:submit class="submit" value="選択している宛先を削除" />
-			<input type="hidden" name="deleteFlg" value="2" />
-		</s:form>
+
+			<s:submit class="icon1" value="選択している宛先を削除" />
+			<input type="hidden" name="deleteFlg" value="2" /></s:form>
+
 
 		<!-- 宛先全削除 -->
+		<div class="atesaki">
 		<s:form action="DestinationDeleteAction">
 			<input type="hidden" name="deleteFlg" value="1">
-			<s:submit class="submit" value="宛先をすべて削除" />
-		</s:form><br>
+			<s:submit class="icon1" value="宛先をすべて削除" />
+		</s:form></div><br>
 
 		<!-- カートに戻る -->
-			<div class="back">
+<br>
 			<a href='<s:url action="CartProductAction" />'>◀ カートに戻る</a>
-		</div>
-	</div>
+
+
 	<br>
 	<hr class="line"><br>
 	<h2>こちらの商品も一緒にいかかですか？</h2>
@@ -208,8 +246,8 @@
 
 		</div>
 	</s:iterator>
-
-	</div>
+<a href="#"><i class="fa fa-chevron-up">ページの上に戻る</i></a>
+	<div class="memo"><a href='<s:url action="HomeAction"/>'>ホーム</a></div>
 	<div>
 		<jsp:include page="include_footer.jsp" /></div>
 

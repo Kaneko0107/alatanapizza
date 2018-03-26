@@ -95,9 +95,8 @@
 
 	</s:elseif>
 
-	<a href='<s:url action="MyPageAction" />'>マイページに戻る</a>
+	<a href='<s:url action="MyPageAction" />'>◀　マイページに戻る</a>
 	<br>
-	<p id="pageTop">
 		<a href="#"><i class="fa fa-chevron-up">ページの上に戻る</i></a>
 
 

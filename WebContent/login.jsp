@@ -188,7 +188,7 @@ tr td .memo{text-align:center;
 			</tr>
 			<tr>
 				<td>
-					<s:password class="form" placeholder="1文字以上8文字以下" name="password" maxlength ='8' style="ime-mode:disabled" />
+					<s:password class="form" placeholder="1文字以上8文字以下" name="password" style="ime-mode:disabled" />
 				</td>
 			</tr>
 

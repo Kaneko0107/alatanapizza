@@ -68,7 +68,7 @@ public class PurchaseCompleteAction extends ActionSupport implements SessionAwar
 			for (CartInfoDTO cart: cartList) {
 				ProductDTO purchasedProduct = null;
 				for (ProductDTO product: productList) {
-					if (product.getId() == cart.getProductId()) {
+					if (product.getProduct_id() == cart.getProductId()) {
 						purchasedProduct = product;
 					}
 				}

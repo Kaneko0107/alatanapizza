@@ -117,8 +117,10 @@ opacity:0.8;}
 
 		    <li><s:form action="ProductListAction">
 					<input type=hidden name="listFlg" value="1" /><div class="img1">
-				<a href='<s:submit class="img1" value="メニュー"  />' class="img1">MENU</a></div>
+					<s:submit style="border:none;background-color:transparent;color:blue;text-decoration:underline;"  value="MENU"  /></div>
 				</s:form></li>
+
+
 
 			<li><s:form action="ProductSearchAction"
 					id="productSearchAction">

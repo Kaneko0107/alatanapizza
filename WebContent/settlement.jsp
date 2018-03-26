@@ -14,6 +14,7 @@
 
 
 
+
 .totalprice{
 font-size:25px;
 width:50%;
@@ -30,21 +31,24 @@ top:10px;}
 
 .icon1{
 width:180px;
-height:25;
+height:40px;
 color:white;
 border-radius: 3px;
 background-color:rgba(0,0,0,0.5);
-float:left;
-
-margin-right:20px;
-text-align:center;
-position:relative;
-left:35%;
-
-
+margin-top:30px;
+margin-right:40px;
+margin-left:20px;
 
 }
 
+.icon1:hover{
+opacity:0.8;
+}
+
+.adress{
+marign-top:20px;
+border:solid white;
+}
 
 
 
@@ -150,7 +154,7 @@ left:35%;
 
 
 
-
+<div class="adress">
 		<h2>お届け先の選択</h2>
 		<s:form action="DestinationDeleteAction">
 			<s:iterator value="destinationListDTO" status="st">
@@ -183,7 +187,7 @@ left:35%;
 						<s:property value="telNumber" />
 						<br> メールアドレス:
 						<s:property value="email" />
-						<br>
+						<br><br><br>
 					</div>
 				</div>
 
@@ -207,15 +211,11 @@ left:35%;
 		<s:form action="DestinationDeleteAction">
 			<input type="hidden" name="deleteFlg" value="1">
 			<s:submit class="icon1" value="宛先をすべて削除" />
-		</s:form></div><br>
-
-		<!-- カートに戻る -->
-<br>
-			<a href='<s:url action="CartProductAction" />'>◀ カートに戻る</a>
+		</s:form></div><br></div>
 
 
-	<br>
-	<hr class="line"><br>
+
+<br><br>
 	<h2>こちらの商品も一緒にいかかですか？</h2>
 
 	<s:iterator value="notSameCategoryList">
@@ -248,6 +248,8 @@ left:35%;
 
 		</div>
 	</s:iterator>
+	<a href='<s:url action="CartProductAction" />'>◀ カートに戻る</a>
+	<br>
 <a href="#"><i class="fa fa-chevron-up">ページの上に戻る</i></a>
 	<div class="memo"><a href='<s:url action="HomeAction"/>'>ホーム</a></div>
 	<div>

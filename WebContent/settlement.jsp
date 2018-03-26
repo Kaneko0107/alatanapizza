@@ -133,14 +133,15 @@
 					</div>
 					<div class="destination">
 						ふりがな:
-
 						<s:property value="familyNameKana" />
 						<s:property value="firstNameKana" />
 						<br> 名前:
 						<s:property value="familyName" />
 						<s:property value="firstName" />
+						<br> 郵便番号:
+						<s:property value="zip11" />
 						<br> 住所:
-						<s:property value="userAddress" />
+						<s:property value="addr11" />
 						<br> 電話番号:
 						<s:property value="telNumber" />
 						<br> メールアドレス:

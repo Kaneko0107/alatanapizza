@@ -197,7 +197,7 @@ tr td .memo{text-align:center;
 
 <!-- 送信画像アイコン -->
 				<tr>
-					<td><div class="imagehover"><s:submit class="image" type="image" value="" src="./images/icon/touroku.png"/></div></td>
+					<td><div class="imagehover"><s:submit class="icon" type="image" value="" src="./images/icon/touroku.png"/></div></td>
 				</tr>
 			</s:form>
 
@@ -220,7 +220,7 @@ tr td .memo{text-align:center;
 	<input type=hidden name="telNumber" value='<s:property value="telNumber"/>' />
 	<input type=hidden name="email" value='<s:property value="email"/>' />
 
-	<s:submit class="memo" type="image" value="" src="./images/icon/modoru2.png"/></td>
+	<s:submit class="memo" class="icon" type="image" value="" src="./images/icon/modoru2.png"/></td>
 </tr>
 	</s:form>
 

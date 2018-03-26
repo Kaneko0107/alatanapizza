@@ -245,11 +245,11 @@ font-size:15px;
 
 <!-- 戻る画像アイコン -->
 			<tr>
-				<td><s:if test="destinationList != null"><a href='<s:url action="CartProductAction"/>'><span class="imagehover"><img src="./images/icon/modoru2.png"></span></a></s:if>
-					<s:else><a href='<s:url action="BuyItemCompleteAction"/>'><span class="imagehover"><img src="./images/icon/modoru2.png"></span></a></s:else>
+				<td><s:if test="destinationList != null"><a href='<s:url action="CartProductAction"/>'><span class="imagehover"><img class="icon" src="./images/icon/modoru2.png"></span></a></s:if>
+					<s:else><a href='<s:url action="BuyItemCompleteAction"/>'><span class="imagehover"><img class="icon" src="./images/icon/modoru2.png"></span></a></s:else>
 
 <!-- 送信画像アイコン -->
-				<span class="memo"><span class="imagehover"><s:submit class="image" type="image" value="" src="./images/icon/kakuninn.png"/></span></span></td>
+				<span class="memo"><span class="imagehover"><s:submit class="icon" type="image" value="" src="./images/icon/kakuninn.png"/></span></span></td>
 			</tr>
 
 			</s:form>

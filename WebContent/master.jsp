@@ -50,6 +50,59 @@ color:white
 	<jsp:include page="include_header.jsp" />
 
 <h1>管理者ページ</h1>
+		<div class="add">
+		<span>商品追加は
+					<a href='<s:url action="GoMasterAddAction"/>'>こちら</a>
+			</span>
+		</div>
+
+		<!-- リストにデータが入っている時-->
+	<s:if test="number > 8">
+		<s:if test="listFlg == 1">
+
+			<div class="center" style="text-align: center;">
+				<!-- ページネーション:1ページ目のみ -->
+				<s:if test="pageNum == 1">
+					<span>&laquo;<s:text name="戻る" /></span>
+				</s:if>
+
+				<!-- ページネーション:1ページ目以外 -->
+				<s:else>
+					<a
+						href='<s:url action="ProductListAction">
+							<s:param name="pageNum" value="pageNum-1"/>
+							<s:param name="listFlg" value="listFlg"/>
+							</s:url>'>&laquo;<s:text
+							name="戻る" /></a>
+
+				</s:else>
+
+
+				<s:property value="pageNum" />
+
+
+				<!-- ページネーション:最終ページ -->
+				<s:if test="pageNum == maxPage">
+					<s:text name="進む" />&raquo;
+						</s:if>
+
+
+				<!-- 最終ページ以外 -->
+				<s:else>
+					<a
+						href='<s:url action="ProductListAction">
+							<s:param name="pageNum" value="pageNum+1"/>
+							<s:param name="listFlg" value="listFlg"/>
+							</s:url>'><s:text
+							name="進む" />&raquo;</a>
+
+				</s:else>
+
+			</div>
+
+		</s:if>
+	</s:if>
+
 
 	<span style="color: red;"><s:property value="errorMessage"/></span>
 
@@ -91,11 +144,52 @@ color:white
 		</div>
 	</s:iterator>
 
-		<div class="add"><br><br>
-		<span>商品追加は
-					<a href='<s:url action="GoMasterAddAction"/>'>こちら</a>
-			</span>
-		</div>
+	<!-- リストにデータが入っている時-->
+	<s:if test="number > 8">
+		<s:if test="listFlg == 1">
+
+			<div class="center" style="text-align: center;">
+				<!-- ページネーション:1ページ目のみ -->
+				<s:if test="pageNum == 1">
+					<span>&laquo;<s:text name="戻る" /></span>
+				</s:if>
+
+				<!-- ページネーション:1ページ目以外 -->
+				<s:else>
+					<a
+						href='<s:url action="ProductListAction">
+							<s:param name="pageNum" value="pageNum-1"/>
+							<s:param name="listFlg" value="listFlg"/>
+							</s:url>'>&laquo;<s:text
+							name="戻る" /></a>
+
+				</s:else>
+
+
+				<s:property value="pageNum" />
+
+
+				<!-- ページネーション:最終ページ -->
+				<s:if test="pageNum == maxPage">
+					<s:text name="進む" />&raquo;
+						</s:if>
+
+
+				<!-- 最終ページ以外 -->
+				<s:else>
+					<a
+						href='<s:url action="ProductListAction">
+							<s:param name="pageNum" value="pageNum+1"/>
+							<s:param name="listFlg" value="listFlg"/>
+							</s:url>'><s:text
+							name="進む" />&raquo;</a>
+
+				</s:else>
+
+			</div>
+
+		</s:if>
+	</s:if>
 
 </body>
 </html>

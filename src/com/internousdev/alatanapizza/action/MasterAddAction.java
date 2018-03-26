@@ -48,7 +48,7 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 	public String execute() throws SQLException {
 		String result = ERROR;
 
-		String context = ServletActionContext.getServletContext().getRealPath("/images/side");
+		String context = ServletActionContext.getServletContext().getRealPath("/images/newSide");
 		File[] files = new File(context).listFiles();
 		for (File file : files) {
 		    if (file.isFile()) {

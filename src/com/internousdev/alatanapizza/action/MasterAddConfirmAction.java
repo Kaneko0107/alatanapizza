@@ -35,7 +35,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	public String execute() throws SQLException{
 		String result = ERROR;
 
-		String context = ServletActionContext.getServletContext().getRealPath("/images/side");
+		String context = ServletActionContext.getServletContext().getRealPath("/images/newSide");
 		File[] files = new File(context).listFiles();
 		for (File file : files) {
 		    if (file.isFile()) {
@@ -72,7 +72,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 			} else if(Integer.parseInt(itemPrice) > 10000) {
 				errorMessageList.add("価格は10000円以内にしてください");
 			}
-			imagePath = "./images/side/" + imageName;
+			imagePath = "./images/newSide/" + imageName;
 			session.put("itemKanaName", itemKanaName);
 			session.put("itemName", itemName);
 			session.put("itemPrice", itemPrice);

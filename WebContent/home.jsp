@@ -68,7 +68,7 @@ height:auto;
 				<a href='<s:url action="ProductListAction"/>'><img src="./images/slide/slide2.jpg"></a>
 			</div>
 			<div>
-				<img src="./images/slide/slide3.jpg">
+				<a href='<s:url action="ProductListAction"/>'><img src="./images/slide/slide4.jpg"></a>
 			</div>
 		</div>
 	</div>

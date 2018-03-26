@@ -5,10 +5,12 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta http-equiv="Content-Style-Type" content="text/css"/>
+<!-- <link rel="stylesheet" href="./css/alatanapizza.css"> -->
+<link rel="stylesheet" href="./css/home.css">
 
 <title>alatanapizza HOME画面</title>
 <style type="text/css">
-body {
+/* body {
 	font-family: arial black, Helvetica, sans-serif;
 	font-size: 15px;
 	color: white;
@@ -18,28 +20,19 @@ body {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	background-size: cover;
-}
+/* 	background-size: cover; */
+} */
 
+
+body{
+background-image:url("./images/icon/HomeBackground.jpg");
+}
 .slide-wrapper {
 width:70%;
-text-aling:center;
-position:center;
-margin-left:15%;
+margin:0 auto;
+	margin-top:150px;
 }
 
-/* footer{
-width:100%;
-
-
-font-family: arial black, Helvetica, sans-serif;
-	font-size: 15px;
-	color: white;
-	position:absolute;
-	bottom:0;
-	text-align:center;
-
-} */
 
 .slide{
 width:80%;
@@ -64,7 +57,7 @@ height:auto;
 <body>
 	<!-- ヘッダー -->
 	<jsp:include page="include_header.jsp" />
-<br><br><br><br>
+
 
 	<div class="slide-wrapper">
 		<div class="slide">

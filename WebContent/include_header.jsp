@@ -6,9 +6,6 @@
 %>
 <style>
 header {
-/* position:absolute; */
-/* top:0; */
-/* left:0; */
 	width:100%;
 	height:200px;
 	color: white;
@@ -22,6 +19,9 @@ font-family: arial black, Helvetica, sans-serif;
 .logo {
 	float: left;
 	margin-top:10px;
+	width:35px;
+	height:35px;
+
 
 }
 

@@ -23,9 +23,11 @@ margin-left:25%;
 height:80px;
 line-height:80px;
 }
+#boxList{
 
+	height:340px;}
 
-.icon{
+.icon2{
 position:relative;
 top:10px;}
 
@@ -47,14 +49,14 @@ opacity:0.8;
 
 .adress{
 marign-top:20px;
-border:solid white;
+
 }
 
 .recomend{
 width:100%;
 }
 
-.memo{
+.memo{both:clear;
 width:100%;
 text-align:center;
 }
@@ -149,7 +151,7 @@ text-align:center;
 			<div class="totalprice">
 				カート合計¥
 				<s:property value="totalPrice" />
-<s:submit type="image" class="icon" value="" src="./images/icon/order.png"/>
+<s:submit type="image" class="icon2" value="" src="./images/icon/order.png"/>
 			</div>
 			<br>
 			<div id="btn_2">
@@ -178,7 +180,7 @@ text-align:center;
 							</s:else>
 							お届け先住所
 						</label>
-					</div>
+					</div><br>
 					<div class="destination">
 						ふりがな:
 
@@ -225,7 +227,9 @@ text-align:center;
 
 <br><br>
 	<h2>こちらの商品も一緒にいかかですか？</h2>
-<div class="recomend">
+	<br>
+	<br>
+<p class="recomend">
 	<s:iterator value="notSameCategoryList">
 	<div id="nscl">
 
@@ -257,11 +261,11 @@ text-align:center;
 		</div>
 	</s:iterator>
 
-	</div>
-	<br>
-<p>
-	<a href='<s:url action="CartProductAction" />'>◀ カートに戻る</a></p>
-	<br>
+	</p>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="memo">
+	<a href='<s:url action="CartProductAction" />'>◀ カートに戻る</a></div>
+
 <a href="#"><i class="fa fa-chevron-up">ページの上に戻る</i></a>
 	<div class="memo"><a href='<s:url action="HomeAction"/>'>ホーム</a></div>
 	<div>

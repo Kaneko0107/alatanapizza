@@ -50,11 +50,11 @@ color:white
 	<jsp:include page="include_header.jsp" />
 
 <h1>管理者ページ</h1>
-		<div class="add">
+		<%-- <div class="add">
 		<span>商品追加は
 					<a href='<s:url action="GoMasterAddAction"/>'>こちら</a>
 			</span>
-		</div>
+		</div> --%>
 
 
 <%-- 	<span style="color: red;"><s:property value="errorMessage"/></span> --%>

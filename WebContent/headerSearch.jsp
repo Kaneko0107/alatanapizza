@@ -30,6 +30,8 @@
 	background-color: rgba(0, 0, 0, 0.7);
 	font-size:18px;
 	color:white;
+	position:relative;
+bottom:7px;
 }
 
 .h_search :hover{
@@ -52,7 +54,9 @@ opacity:0.8;}
 	background-color: rgba(0, 0, 0, 0.7);
 	border-radius: 5px;
 	color:white;
-	font-size:17px;
+	font-size:15px;
+	position:relative;
+bottom:6px;
 }
 
 /* .img{width:65px; */
@@ -71,12 +75,12 @@ opacity:0.8;}
 
 .img1{
 position:relative;
-top:11px;
+top:5px;
 }
 
 .img{
 position:relative;
-top:11px;
+top:5px;
 
 }
 .img1{width:165px;
@@ -93,6 +97,11 @@ font-family: arial black, Helvetica, sans-serif;
 .img1:hover{
 opacity:0.8;}
 
+
+
+.img1:hover{
+    color:white;
+
 </style>
 </head>
 <body>
@@ -100,10 +109,15 @@ opacity:0.8;}
 	<div class="product">
 
 		<ul>
+	<li><s:if test="#session.masterFlg"><div class="img1">
+		<a href='<s:url action="GoMasterAddAction"/>' class="img1">商品追加</a></div>
+	</s:if>
+	</li>
+
 
 		    <li><s:form action="ProductListAction">
-					<input type=hidden name="listFlg" value="1" />
-					<s:submit class="img1" value="メニュー"  />
+					<input type=hidden name="listFlg" value="1" /><div class="img1">
+				<a href='<s:submit class="img1" value="メニュー"  />' class="img1">MENU</a></div>
 				</s:form></li>
 
 			<li><s:form action="ProductSearchAction"

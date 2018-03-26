@@ -54,7 +54,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		//}else if("loginFlg".equals(false)){
 		//	loginFlgMessageList.add("未ログイン");
 		//}
-		String result=ERROR;
+		String result="login";
 		LoginDTO loginDTO=new LoginDTO();
 		LoginDAO loginDAO=new LoginDAO();
 
@@ -122,8 +122,8 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 
 				//ユーザーIDがDBに存在するか確認
 				if(!loginDAO.existsUserId(userId)){ //ユーザーIDがない
-					errorMessageList.add("IDが正しくありません");
-					result=ERROR;
+					errorMessageList.add("・IDが正しくありません");
+					result="login";
 				}else if(loginDTO.isMaster()){ //管理者ログイン判定
 					session.put("userId", loginDTO.getUserId()); //
 					session.put("masterFlg", true);//管理者フラグをたてる
@@ -246,7 +246,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 //							if(destinationInfoListDTO.size()>0){
 //								result=SUCCESS;
 //							}else if(!(boolean) session.get("loginFlg")){
-//								result=ERROR;
+//								result="login";
 //								kessai=1;
 //								return result;
 //							}else{
@@ -263,19 +263,19 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 
 					}else{
 						errorMessageList.add("入力されたパスワードが異なります。");
-						result=ERROR;
+						result="login";
 					}
 
 				}
 
 			}else{
 				//System.out.println("Passwordが入力されていません");
-				result =ERROR;
+				result ="login";
 			}
 
 		}else{
 			//System.out.println("IDが入力されていません");
-			result =ERROR;
+			result ="login";
 		}
 	}
 

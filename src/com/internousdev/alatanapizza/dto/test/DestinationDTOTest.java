@@ -311,7 +311,7 @@ public class DestinationDTOTest {
 		String expected="-5609876";
 		dto.setZip11(expected);
 
-		assertEquals(expected,dto.getAddr11());
+		assertEquals(expected,dto.getZip11());
 	}
 	//----------------------------------------------
 

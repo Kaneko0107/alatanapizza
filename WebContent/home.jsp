@@ -21,6 +21,13 @@ body {
 	background-size: cover;
 }
 
+.slide-wrapper {
+width:70%;
+text-aling:center;
+position:center;
+margin-left:15%;
+}
+
 /* footer{
 width:100%;
 
@@ -57,13 +64,21 @@ height:auto;
 <body>
 	<!-- ヘッダー -->
 	<jsp:include page="include_header.jsp" />
-<br><br><br><br><br><br>
+<br><br><br><br>
 
-<div class="slide">
-    <div><img src="./images/slide/slide1.jpg"></div>
-    <div><img src="./images/slide/slide2.jpg"></div>
-    <div><img src="./images/slide/slide3.jpg"></div>
-  </div>
+	<div class="slide-wrapper">
+		<div class="slide">
+			<div>
+				<img src="./images/slide/slide1.jpg">
+			</div>
+			<div>
+				<img src="./images/slide/slide2.jpg">
+			</div>
+			<div>
+				<img src="./images/slide/slide3.jpg">
+			</div>
+		</div>
+	</div>
 
 
 

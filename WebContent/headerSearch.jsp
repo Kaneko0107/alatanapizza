@@ -69,6 +69,16 @@ opacity:0.8;}
 .img:hover{
 opacity:0.8;}
 
+.img1{
+position:relative;
+top:11px;
+}
+
+.img{
+position:relative;
+top:11px;
+
+}
 .img1{width:165px;
 height:38px;
 font-size:15px;

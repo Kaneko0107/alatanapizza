@@ -94,14 +94,18 @@ legend{
 		</div>
 </fieldset>
 
-								<s:form action="MasterAddCompleteAction">
-								<s:submit value="登録する"/>
-								<input type="hidden" name="itemName" value="<s:property value="itemName"/>"/>
-								<input type="hidden" name="itemKanaName" value="<s:property value="itemKanaName"/>">
-								<input type="hidden" name="itemStock" value="<s:property value="itemStock"/>">
-								<input type="hidden" name="itemPrice" value="<s:property value="itemPrice"/>">
-								<input type="hidden" name="imageName" value="<s:property value="imageName"/>">
-							</s:form>
+		<s:form action="MasterAddCompleteAction">
+			<td>
+			 <div class="image"><s:a href="javascrrpt:void(0)"
+			  onclick="document.MasterAddCompleteAction.submit();return false;"
+			  class="button"><input type="image" class="icon" src="./images/icon/登録する .png" alt="touroku"></s:a></div>
+			</td>
+			  <input type="hidden" name="itemName" value="<s:property value="itemName"/>"/>
+			  <input type="hidden" name="itemKanaName" value="<s:property value="itemKanaName"/>">
+			  <input type="hidden" name="itemStock" value="<s:property value="itemStock"/>">
+			  <input type="hidden" name="itemPrice" value="<s:property value="itemPrice"/>">
+			  <input type="hidden" name="imageName" value="<s:property value="imageName"/>">
+		</s:form>
 
 							<div class="back">
 								<a href="MasterAddAction.action">戻 る</a>

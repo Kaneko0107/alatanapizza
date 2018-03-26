@@ -96,10 +96,10 @@ text-align:right;
    <td><div class="moji2">変更内容が正しければ右のボタンで変更を完了してください。</div></td>
    </tr>
    <tr>
-   <td><a href='<s:url action="UserUpdateAction"/>'><img  src="./images/icon/modoru2.png"></a></td>
+   <td><a href='<s:url action="UserUpdateAction"/>'><img class="icon" src="./images/icon/modoru2.png"></a></td>
    <td><div class="image2"><s:a href="javascrrpt:void(0)"
 	onclick="document.UserUpdateCompleteAction.submit();return false;"
-	 class="button"><input type="image" src="./images/icon/登録する .png" alt="touroku"></s:a></div>
+	 class="button"><input type="image" class="icon" src="./images/icon/登録する .png" alt="touroku"></s:a></div>
 	 </td>
 	 </tr>
 	 </s:form>

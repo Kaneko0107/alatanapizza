@@ -56,6 +56,7 @@ hr {
 .icon{
 margin-top:20px;}
 </style>
+
 </head>
 <body>
 <jsp:include page="include_header.jsp" />

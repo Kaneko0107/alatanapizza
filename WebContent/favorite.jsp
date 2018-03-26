@@ -25,7 +25,13 @@
 					<h3>お気に入り</h3>
 
 					<!-- すでにその商品がお気に入りにあった場合のメッセージ -->
-					<span style="color: red;"><s:property value="message" /></span>
+					<s:if test="checkFlg=false">
+						<span style="color: red;"><s:property value="message" /></span>
+					</s:if>
+
+					<s:if test="checkFlg=true">
+						<span style="color: red;"><s:property value="message" /></span>
+					</s:if>
 
 					<!-- お気に入りリストが空の場合 -->
 					<s:if test="favoriteList.size()==0">
@@ -49,6 +55,8 @@
 								<div class="ph-check">
 									<s:checkbox name="checkList" value="1" fieldValue="%{productId}" />
 								</div>
+
+
 										<!-- value=初期値でチェックされた状態　０にするとunchecked。0,1もしくはtrue,falseが入る。
 										チェックボックス独特の書き方field valueはiteratorの時。どの商品をチェックしたのを情報として送信 -->
 

@@ -56,6 +56,14 @@ h3 {
 	    color: #FFCC33;
 	    }
 
+.error{
+color:red;
+text-align:center;
+font-weight:900;
+
+}
+
+
 .form {
 	background-color: rgba(200, 200, 200, 0.5);
 	width: 200px;
@@ -103,12 +111,13 @@ hr {
 <s:if test="errorMessage!=''">
    <s:iterator value="errMsgList">
 
-			<tr><td colspan="2"><div class="moji">
+			<tr><td colspan="2"><div class="error">
 				<s:property />
 		</div></td></tr>
 
 		</s:iterator>
 		</s:if>
+
 <s:form action="ChangePasswordConfirmAction" >
 
 <tr>
@@ -164,9 +173,9 @@ hr {
 <tr><td colspan="2"><hr></td></tr>
 <tr>
 <td>
-<div class="image1"><a href='<s:url action="LoginAction"/>'><img  src="./images/icon/modoru2.png"></a></div>
+<div class="image1"><a href='<s:url action="LoginAction"/>'><img class="icon" src="./images/icon/modoru2.png"></a></div>
 </td><td>
-<div class="image2"><input type="image" src="./images/icon/kakuninn.png" alt=""></div></td>
+<div class="image2"><input class="icon" type="image" src="./images/icon/kakuninn.png" alt=""></div></td>
 </tr>
 
 </s:form>

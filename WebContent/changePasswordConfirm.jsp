@@ -14,10 +14,10 @@ window.onunload=function(){};
 history.forward();
 </script>
 <style>
-#main{
+.main{
 width:50%;
 background:rgba(0,0,0,0.5);
-margin-top:70px;
+margin-top:30px;
 margin-left:25%;
 margin-bottom:30px;
 }
@@ -52,6 +52,17 @@ color:white;}
 	    text-align:right;
 		margin-bottom:10px;
 	    }
+
+
+hr {
+	    text-align:left;
+	    border:none;
+	    border-top:dashed 1px #ccc;
+	    height:1px;
+	    color:#ffffff;
+	    margin:0 8 0 8;
+	    }
+
 </style>
 </head>
 <body>
@@ -59,7 +70,7 @@ color:white;}
 <div class="main">
 <table>
 <tr><td colspan="2"><h3>変更内容確認画面</h3></td></tr>
-<tr><td colspan="2"><hr/></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><td colspan="2"><div class="moji">変更内容が正しければ下記の完了ボタンで再設定を完了します。</div><br></td></tr>
 
 
@@ -73,14 +84,14 @@ color:white;}
 			<s:hidden name="secret_answer" value="%{secret_answer}"/>
 			<s:hidden name="secret_question" value="%{secret_question}"/>
 		</td>
-</tr><br>
+</tr><br><br><br>
+
+<tr><td colspan="2"><hr></td></tr>
+
+			<td><a class="image3" href="javascript:history.back();"><img  class="icon" src="./images/icon/modoru2.png"></a></td>
 
 
-
-			<td><a class="image3" href="javascript:history.back();"><img  src="./images/icon/modoru2.png"></a></td>
-
-
-<td><div class="image2"><input type="image" src="./images/icon/登録する .png" alt="touroku"></div></td>
+<td><div class="image2"><input type="image" class="icon" src="./images/icon/登録する .png" alt="touroku"></div></td>
 			</s:form>
 <!--<s:form name="for" action="ChangePasswordAction">
 

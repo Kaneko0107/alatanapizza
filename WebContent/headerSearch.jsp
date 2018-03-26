@@ -83,15 +83,7 @@ position:relative;
 top:5px;
 
 }
-.img1{width:165px;
-height:38px;
-font-size:15px;
-color:white;
-font-weight:900;
-background-color:#f3142c;
-border-radius: 8px;
-font-family: arial black, Helvetica, sans-serif;
-}
+ul{margin-right:25px;}
 
 
 .img1:hover{
@@ -110,14 +102,14 @@ opacity:0.8;}
 
 		<ul>
 	<li><s:if test="#session.masterFlg"><div class="img1">
-		<a href='<s:url action="GoMasterAddAction"/>' class="img1">商品追加</a></div>
+		<a href='<s:url action="GoMasterAddAction"/>'class="icon"><img src="./images/icon/商品追加.png"></a></div>
 	</s:if>
 	</li>
 
 
 		    <li><s:form action="ProductListAction">
 					<input type=hidden name="listFlg" value="1" /><div class="img1">
-					<s:submit style="border:none;background-color:transparent;color:blue;text-decoration:underline;"  value="MENU"  /></div>
+					<s:submit class="icon" type="image" value="" src="./images/icon/MENU.png" /></div>
 				</s:form></li>
 
 

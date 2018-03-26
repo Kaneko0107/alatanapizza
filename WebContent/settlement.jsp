@@ -50,6 +50,14 @@ marign-top:20px;
 border:solid white;
 }
 
+.recomend{
+width:100%;
+}
+
+.memo{
+width:100%;
+text-align:center;
+}
 
 
 </style>
@@ -217,7 +225,7 @@ border:solid white;
 
 <br><br>
 	<h2>こちらの商品も一緒にいかかですか？</h2>
-
+<div class="recomend">
 	<s:iterator value="notSameCategoryList">
 	<div id="nscl">
 
@@ -248,7 +256,11 @@ border:solid white;
 
 		</div>
 	</s:iterator>
-	<a href='<s:url action="CartProductAction" />'>◀ カートに戻る</a>
+
+	</div>
+	<br>
+<p>
+	<a href='<s:url action="CartProductAction" />'>◀ カートに戻る</a></p>
 	<br>
 <a href="#"><i class="fa fa-chevron-up">ページの上に戻る</i></a>
 	<div class="memo"><a href='<s:url action="HomeAction"/>'>ホーム</a></div>

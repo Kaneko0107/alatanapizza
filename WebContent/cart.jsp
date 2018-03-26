@@ -10,6 +10,12 @@
 
 	<title>カート画面</title>
 
+<style>
+.icon{
+position:relative;
+top:9px;
+}
+</style>
 
 </head>
 <body>
@@ -102,17 +108,19 @@
 			<div class="totalprice">
 			合計金額:¥
 			<s:property value="totalPrice" />
+			<s:if test="! cartList.isEmpty()">
+
+			 <a href='<s:url action ="BuyItemCompleteAction" />'><img class="icon" src="./images/icon/決済画面.png"></a>
+
+			</s:if>
+
 			</div>
 		</s:else>
 		</div>
 
 
 <!-- 決済に移行する -->
-			<s:if test="! cartList.isEmpty()">
-			<div class="settlement_btn">
-			 <a href='<s:url action ="BuyItemCompleteAction" />'>決済画面へ</a>
-			</div>
-			</s:if>
+
 
 <!-- 商品一覧ページに移行する -->
 			<div class="settlement_btn">

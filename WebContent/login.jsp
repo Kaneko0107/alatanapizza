@@ -88,6 +88,7 @@ tr td .memo{text-align:center;
   overflow: hidden;
 }
 
+
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -96,19 +97,19 @@ tr td .memo{text-align:center;
 
 
 
-$(function(){
-	$(".login .image").hover(
-	function(){
-		$(this).animate({
-			width:"300px"
-		});
-	},
-	function(){
-		$(this).animate({
-			width:"238px"
-		});
-	});
-});
+// $(function(){
+// 	$(".login .image").hover(
+// 	function(){
+// 		$(this).animate({
+// 			width:"300px"
+// 		});
+// 	},
+// 	function(){
+// 		$(this).animate({
+// 			width:"238px"
+// 		});
+// 	});
+// });
 
 	//<!--
 
@@ -200,7 +201,7 @@ $(function(){
 <!-- マウスオーバーの設定と、真ん中に配置してください -->
 			<tr>
 				<td>
-					<div class="login"><s:submit class="image" type="image" value="" src="./images/icon/ログイン.png"/></div>
+					<div class="login"><s:submit class="icon" type="image" value="" src="./images/icon/ログイン.png"/></div>
 				</td>
 			</tr>
 
@@ -239,7 +240,7 @@ $(function(){
 <!-- 戻る画像アイコン -->
 			<tr>
 				<td>
-					<div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()"><img src="./images/icon/modoru2.png"></a></div>
+					<div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()"><img class="icon" src="./images/icon/modoru2.png"></a></div>
 				</td>
 			</tr>
 				</table></div>

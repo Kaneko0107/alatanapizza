@@ -19,3 +19,7 @@ body {
 	background-attachment: fixed;
 	background-size: cover;
 }
+
+.icon:hover{
+opacity:0.8;
+}

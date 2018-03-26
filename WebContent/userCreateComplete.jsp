@@ -28,7 +28,7 @@
 	<tr><td colspan="2"><hr></td></tr>
 
 	<tr>
-		<td><a href='<s:url action="LoginAction"/>'><img src="./images/icon/ログイン.png"></a></td>
+		<td><a href='<s:url action="LoginAction"/>'><img class="icon" src="./images/icon/ログイン.png"></a></td>
 	</tr>
 
 	</table>

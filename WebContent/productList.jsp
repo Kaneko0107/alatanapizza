@@ -11,6 +11,15 @@
 
 <title>商品一覧</title>
 <style>
+.top{
+
+width:100%;
+text-align:center;
+}
+
+.list{
+width:100%;
+}
 </style>
 
 <script
@@ -237,10 +246,12 @@
 
 
 	<!-- リストにデータが入っている時-->
+
+	<div class="center" style="text-align: center;">
 	<s:if test="number > 8">
 		<s:if test="serachFlg == 1">
 
-			<div class="center" style="text-align: center;">
+
 				<!-- ページネーション:1ページ目のみ -->
 				<s:if test="pageNum == 1">
 					<span>&laquo;<s:text name="戻る" /></span>
@@ -281,11 +292,13 @@
 				</s:else>
 
 
-			</div>
 
-		</s:if>
-	</s:if>
-	<a href="#"><i class="fa fa-chevron-up">ページの上に戻る</i></a>
+
+		</s:if><br>
+	</s:if><a href="#"><i class="fa fa-chevron-up">ページの上に戻る</i></a></div><br>
+
+	<p class="top">
+
 	<!-- フッター-->
 	<jsp:include page="include_footer.jsp" />
 

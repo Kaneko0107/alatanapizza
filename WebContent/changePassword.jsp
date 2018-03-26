@@ -34,6 +34,21 @@ h3 {
 	border-left: 10px solid red;
 }
 
+::-webkit-input-placeholder {
+  color:#000000;
+}
+
+::-moz-placeholder {
+ color:#000000;
+ opacity: 1;
+}
+
+/* Internet Explorer 10-11 */
+:-ms-input-placeholder {
+ color:#000000;
+}
+
+
 
 .moji {
 	    text-align: center;

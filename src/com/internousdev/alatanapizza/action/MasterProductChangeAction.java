@@ -59,7 +59,7 @@ public class MasterProductChangeAction extends ActionSupport implements SessionA
 		productList = productListDAO.getProductInfo();
 		for (ProductDTO product: productList) {
 			productStockList.put(
-				product.getId(),
+				product.getProduct_id(),
 				IntStream.range(
 						Math.max(0, product.getStock() - 20),
 						Math.min(product.getStock() + 20, 100) + 1

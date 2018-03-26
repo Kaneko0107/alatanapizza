@@ -64,10 +64,10 @@ height: 65px;
 
 <fieldset>
 <legend>
-<h3>商品追加方法</h3>
+<h3>在庫数 変更方法</h3>
 
 </legend>
-一度に変更できる個数は、現在の在庫数±20個です。<br>
+一度に変更できる個数は、在庫数±20個です。<br>
 個数を選択し
 <img class="image" src="./images/icon/master_stockchange.png" alt="icon"> を押すと確定します。<br>
 0個～100個内で変更できます。

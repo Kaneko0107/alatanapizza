@@ -39,7 +39,19 @@ height:25px;
 font-size:13px;
 background-color:gray;
 color:white
+}
 
+fieldset{
+	width: 30%;
+	background: rgba(0, 0, 0, 0.5);
+	margin:0 auto;
+	margin;top:30px;
+	margin-bottom:30px;
+}
+
+img.example1 {
+width: 96px;
+height: 65px;
 }
 
 </style>
@@ -49,16 +61,18 @@ color:white
 	<!-- ヘッダー -->
 	<jsp:include page="include_header.jsp" />
 
-<h1>管理者ページ</h1>
-		<%-- <div class="add">
-		<span>商品追加は
-					<a href='<s:url action="GoMasterAddAction"/>'>こちら</a>
-			</span>
-		</div> --%>
 
+<fieldset>
+<legend>
+<h3>商品追加方法</h3>
 
-<%-- 	<span style="color: red;"><s:property value="errorMessage"/></span> --%>
-
+</legend>
+一度に変更できる個数は、現在の在庫数±20個です。<br>
+個数を選択し
+<img class="image" src="./images/icon/master_stockchange.png" alt="icon"> を押すと確定します。<br>
+0個～100個内で変更できます。
+<img class="image" src="./images/icon/tomato.png" alt="icon">
+</fieldset>
 
 	<s:iterator value="productList">
 	<div class="itemList">

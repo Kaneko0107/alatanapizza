@@ -96,8 +96,25 @@ width:70%;
 <script type="text/javascript">
 
 
+/* 全角→半角に変換する */
+$(function(){
+    $(".zenkakuTOhankaku").blur(function(){
+        charChange($(this));
+    });
 
-	$(function(){
+
+    charChange = function(e){
+        var val = e.val();
+        var str = val.replace(/[Ａ-Ｚａ-ｚ０-９]/g,function(s){return String.fromCharCode(s.charCodeAt(0)-0xFEE0)});
+
+        if(val.match(/[Ａ-Ｚａ-ｚ０-９]/g)){
+            $(e).val(str);
+        }
+
+    }
+});
+
+/* 	$(function(){
 		$(".imagehover .image").hover(
 		function(){
 			$(this).animate({
@@ -109,7 +126,7 @@ width:70%;
 				width:"132px"
 			});
 		});
-	});
+	}); */
 
 </script>
 <style>
@@ -162,7 +179,7 @@ font-size:15px;
 					<td>姓 [半角英語、漢字、ひらがな]</td>
 				</tr>
 				<tr>
-					<td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="familyName" maxlength ='16' value="%{familyName}" /></td>
+					<td><s:textfield class ="form zenkakuTOhankaku" placeholder="1文字以上16文字以下" name="familyName" maxlength ='16' value="%{familyName}" /></td>
 				</tr>
 
 <!-- 名 -->
@@ -170,7 +187,7 @@ font-size:15px;
 					<td>名 [半角英語、漢字、ひらがな]</td>
 				</tr>
 				<tr>
-					<td><s:textfield class ="form" placeholder="1文字以上16文字以下" name="firstName" maxlength ='16' value="%{firstName}" /></td>
+					<td><s:textfield class ="form zenkakuTOhankaku" placeholder="1文字以上16文字以下" name="firstName" maxlength ='16' value="%{firstName}" /></td>
 				</tr>
 
 <!-- 姓かな -->
@@ -194,7 +211,7 @@ font-size:15px;
 					<td>郵便番号 [半角数字]</td>
 				</tr>
 				<tr>
-					<td><s:textfield class ="form" placeholder="7文字以上8文字以下" name="zip11" size ="10" maxlength ='8' value="%{zip11}" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');" /></td>
+					<td><s:textfield class ="form zenkakuTOhankaku" placeholder="7文字以上8文字以下" name="zip11" size ="10" maxlength ='8' value="%{zip11}" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');" /></td>
 				</tr>
 
 <!-- 住所 -->
@@ -205,7 +222,7 @@ font-size:15px;
 					<td>[半角英数字記号、漢字、ひらがな、カタカナ]</td>
 				</tr>
 				<tr>
-					<td><s:textfield class ="form" placeholder="15文字以上50文字以下" name="addr11" maxlength ='50' value="%{addr11}" /></td>
+					<td><s:textfield class ="form zenkakuTOhankaku" placeholder="15文字以上50文字以下" name="addr11" maxlength ='50' value="%{addr11}" /></td>
 				</tr>
 
 <%-- <!-- 住所 -->
@@ -225,7 +242,7 @@ font-size:15px;
 					<td>電話番号 [半角数字ハイフン]</td>
 				</tr>
 				<tr>
-					<td><s:textfield class ="form" placeholder="11文字以上13文字以下" name="telNumber" maxlength ='13' value="%{telNumber}"  /></td>
+					<td><s:textfield class ="form zenkakuTOhankaku" placeholder="11文字以上13文字以下" name="telNumber" maxlength ='13' value="%{telNumber}"  /></td>
 				</tr>
 
 <!-- メールアドレス -->
@@ -233,7 +250,7 @@ font-size:15px;
 					<td>メールアドレス [半角英数字記号]</td>
 				</tr>
 				<tr>
-					<td><s:textfield class ="form" placeholder="14文字以上32文字以下" name="email" maxlength ='32' value="%{email}"  /></td>
+					<td><s:textfield class ="form zenkakuTOhankaku" placeholder="14文字以上32文字以下" name="email" maxlength ='32' value="%{email}"  /></td>
 				</tr>
 
 

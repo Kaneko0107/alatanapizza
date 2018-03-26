@@ -30,7 +30,6 @@ legend{
 
 }
 
-
 .submit{
 text-align:right;
 }
@@ -110,7 +109,11 @@ text-align:right;
 
 					<!-- 登録ボタン -->
 					<tr>
-						<td colspan="2"><s:submit value="登録" /></td>
+					   <td><div class="image"><s:a href="javascrrpt:void(0)"
+							onclick="document.MasterAddConfirmAction.submit();return false;"
+							 class="button"><input type="image" class="icon" src="./images/icon/登録する .png" alt="touroku"></s:a></div>
+					  </td>
+
 					</tr>
 
 				</s:form>

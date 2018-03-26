@@ -80,10 +80,10 @@ text-align:right;
 
 					<tr>
 						<td>
-							<label>価格:</label>
+							<label>価格(上限1万円):</label>
 						</td>
 						<td>
-							<input type="text" name="itemPrice" value="" placeholder="上限10,000円 半角数字"/>
+							<input type="text" name="itemPrice" value="" placeholder="上限1万円 半角数字"/>
 						</td>
 					</tr>
 					<tr>

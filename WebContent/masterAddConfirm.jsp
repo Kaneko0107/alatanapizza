@@ -67,7 +67,7 @@ legend{
 					</tr>
 					<tr>
 						<td>
-							<label>価格:</label>
+							<label>価格(上限1万円):</label>
 						</td>
 						<td>
 							¥ <s:property value="itemPrice"/>

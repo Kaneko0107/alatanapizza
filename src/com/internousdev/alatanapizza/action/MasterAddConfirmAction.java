@@ -68,9 +68,9 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 				errorMessageList.add("商品名(ひらがな)はひらがなで入力してください");
 			}
 			if(!itemPrice.matches("^[1-9][0-9]{0,5}$")){ //itemPriceが数字でない時（あるいは0の時も）
-				errorMessageList.add("価格は正しく入力してください");
+				errorMessageList.add("価格は半角数字で正しい値（上限1万円)を入力してください");
 			} else if(Integer.parseInt(itemPrice) > 10000) {
-				errorMessageList.add("価格は10000円以内にしてください");
+				errorMessageList.add("価格は1万円以内にしてください");
 			}
 			imagePath = "./images/newSide/" + imageName;
 			session.put("itemKanaName", itemKanaName);

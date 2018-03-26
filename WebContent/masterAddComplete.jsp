@@ -21,9 +21,6 @@
 	<jsp:include page="include_header.jsp" />
 
 
-	商品の追加が完了しました。
-
-
 		<div id="main">
 			<div id="top"></div>
 

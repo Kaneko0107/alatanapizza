@@ -2,6 +2,7 @@ package com.internousdev.alatanapizza.action;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -11,11 +12,12 @@ import com.internousdev.alatanapizza.dao.FavoriteDAO;
 import com.internousdev.alatanapizza.dto.FavoriteDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
+
 public class FavoriteAction extends ActionSupport implements SessionAware {
 
 	private List<FavoriteDTO> favoriteList = new ArrayList<FavoriteDTO>();
 	private Map<String, Object> session;
-	private List<String> checkList;
+	private Collection<String> checkList;
 	private int deleteFlg;
 	private int favoriteInsertFlg;
 	private String message;
@@ -66,37 +68,54 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 
 				if (count2 > 0) {
 					result = SUCCESS;
+
 				}
 				else {
 					result = ERROR;
 				}
 				return result;
 			}
-			else if (deleteFlg == 1) { //削除ボタン押した後
-				// checkListがnullじゃないとき
-				if (checkList != null) {
+			else if (deleteFlg == 1) {
 
-					for (String deleteId : checkList) {
-						count += dao.deleteFavoriteInfo(deleteId, session.get("userId").toString());
+					boolean checkFlg=false;
 
-						deleteFlg = 0;
+					if(checkList==null) {
 						userId = session.get("userId").toString();
 						favoriteList = dao.getFavoriteInfo(userId);
+						setMessage("※チェックされていません");
+						checkFlg=true;
+
 						result = SUCCESS;
+						return result;
+
 					}
+
+
+					for (String deleteId : checkList) {
+						if(deleteId !="false") {
+							count += dao.deleteFavoriteInfo(deleteId, session.get("userId").toString());
+
+							deleteFlg = 0;
+							userId = session.get("userId").toString();
+							favoriteList = dao.getFavoriteInfo(userId);
+							result = SUCCESS;
+							setMessage(count+"件削除しました");
+						}else if(deleteId=="false") {
+							userId = session.get("userId").toString();
+							favoriteList = dao.getFavoriteInfo(userId);
+							setMessage("※チェックされていません");
+
+							result = SUCCESS;
+							return result;
+						}
+
+
+
+						}
 				}
 
-				//checkListがnullのとき
-				else {
-					userId = session.get("userId").toString();
-					favoriteList = dao.getFavoriteInfo(userId);
 
 
-
-					result = SUCCESS;
-					return result;
-				}
-			}
 				//ログイン後お気に入り登録していなければ
 			else {
 				result = SUCCESS;
@@ -130,11 +149,11 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 	}
 	//-----------------------------------------------------------
 
-	public List<String> getCheckList() {
+	public Collection<String> getCheckList() {
 		return checkList;
 	}
 
-	public void setCheckList(List<String> checkList) {
+	public void setCheckList(Collection<String> checkList) {
 		this.checkList = checkList;
 	}
 	//-----------------------------------------------------------

@@ -62,10 +62,10 @@ height:auto;
 	<div class="slide-wrapper">
 		<div class="slide">
 			<div>
-				<img src="./images/slide/slide1.jpg">
+				<a href='<s:url action="LoginAction"/>'><img src="./images/slide/slide1.jpg"></a>
 			</div>
 			<div>
-				<img src="./images/slide/slide2.jpg">
+				<a href='<s:url action="ProductListAction"/>'><img src="./images/slide/slide2.jpg"></a>
 			</div>
 			<div>
 				<img src="./images/slide/slide3.jpg">

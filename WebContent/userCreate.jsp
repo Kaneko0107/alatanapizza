@@ -181,7 +181,7 @@
 			<input type="image" src="./images/icon/kakuninn.png">
 		</div>
 		</td>
-	<tr>
+	</tr>
 
 	</s:form>
 	</table>

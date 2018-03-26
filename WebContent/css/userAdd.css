@@ -108,11 +108,9 @@ hr {
 	    border-radius:5px;
 	    }
 
+/* 戻ると進むボタンを左右入れ替えるため */
 .icon {
 		text-align:center;
 		display:flex;
 		flex-direction:row-reverse;
 		}
-
-
-

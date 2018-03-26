@@ -59,6 +59,8 @@ public class MyPageAction extends ActionSupport implements SessionAware, ErrorMe
 	     	SQLでIDと一致する項目をselectし、ユーザー情報を
 	     	変数MyPageDTOにセットし、mypagelist配列に代入。
 			リストにデータが入っていたらSUCCESSとなりマイページに遷移。
+			+
+			パスワードの暗号化処理
 		---------------------------------------------------------*/
 			myPageList = dao.getMyPageUserInfo(userId);
 
@@ -100,12 +102,12 @@ public class MyPageAction extends ActionSupport implements SessionAware, ErrorMe
 		wordLength = word.length();
 
 
-		hideWord=word.substring(a,b);
+		hideWord=word.substring(a,b);//パスワードが12345の場合1,2まで。
 
 
 		int i=0;
 		while(i < wordLength - b){
-			hideWord = hideWord + "*";
+			hideWord = hideWord + "*";//1,2の跡に繰り返し回数分※を表示
 			i++;
 		}
 		return hideWord;

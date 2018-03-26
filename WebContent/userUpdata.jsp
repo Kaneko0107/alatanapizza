@@ -53,7 +53,7 @@ hr {
 	    text-align:right;
 	    margin-top: 5px;
 	    }
-.touroku{
+.icon{
 margin-top:20px;}
 </style>
 </head>
@@ -147,12 +147,12 @@ margin-top:20px;}
     <td><s:textfield name="firstNameKana" placeholder="1文字以上16文字以下" value="%{dto.firstNameKana}" class="form"/></td>
    </s:else>
    </tr>
-
-   <tr><td><a href='<s:url action="MyPageAction"/>'><img  src="./images/icon/modoru2.png"></a></td>
+<tr><td colspan="2"><hr></td></tr>
+   <tr><td><a href='<s:url action="MyPageAction"/>'><img class="icon" src="./images/icon/modoru2.png"></a></td>
    <td><div class="image2">
    <s:a href="javascrrpt:void(0)"
 	onclick="document.UserUpdateConfirmAction.submit();return false;"
-	 class="button"><input class="touroku" type="image" src="./images/icon/kakuninn.png" alt="touroku"></s:a>
+	 class="button"><input class="icon" type="image" src="./images/icon/kakuninn.png" alt="touroku"></s:a>
    </div></td></tr>
    <br>
    </s:form>

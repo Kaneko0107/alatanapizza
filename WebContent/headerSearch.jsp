@@ -102,7 +102,7 @@ opacity:0.8;}
 
 		<ul>
 	<li><s:if test="#session.masterFlg"><div class="img1">
-		<a href='<s:url action="GoMasterAddAction"/>'class="icon"><img src="./images/icon/商品追加.png"></a></div>
+		<a href='<s:url action="MasterAddAction"/>'class="icon"><img src="./images/icon/商品追加.png"></a></div>
 	</s:if>
 	</li>
 

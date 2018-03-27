@@ -172,11 +172,6 @@
 
 <!-- 荒木担当  MasterAdd struts文 -->
 
-	<action name = "GoMasterAddAction" class ="com.internousdev.alatanapizza.action.GoMasterAddAction" method = "execute">
-		<result name = "success">masterAdd.jsp</result>
-	</action>
-
-
 	<action name = "MasterAddConfirmAction" class ="com.internousdev.alatanapizza.action.MasterAddConfirmAction" method = "execute">
 		<result name = "success">masterAddConfirm.jsp</result>
 		<result name = "error">masterAdd.jsp</result>

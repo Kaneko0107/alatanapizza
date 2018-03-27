@@ -11,7 +11,7 @@
 
 <title>商品詳細画面</title>
 <style type="text/css">
-.icon{
+.icon2{
 position:relative;
 top:8px;}
 
@@ -197,7 +197,7 @@ opacity:0.8;
 				<span id="total_price_text"></span>&nbsp;
 					<s:hidden name="productId" value="%{session.d_product_id}" ></s:hidden>
 					<s:hidden name="gocart" value="1" />
-					<input type="image" class="icon" src=./images/icon/gocart.png alt="カートに入れる">
+					<input type="image" class="icon2" src=./images/icon/gocart.png alt="カートに入れる">
 
 		</s:if>
 		<s:if test="stockList.size() == 0">

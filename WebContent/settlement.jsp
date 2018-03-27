@@ -43,6 +43,9 @@ margin-left:20px;
 
 }
 
+.icon2:hover{
+opacity:0.8;
+}
 .icon1:hover{
 opacity:0.8;
 }

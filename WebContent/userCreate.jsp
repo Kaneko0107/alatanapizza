@@ -30,47 +30,47 @@
 	<tr>
 
 	<s:if test="errMsgList !=null && !(errMsgList.isEmpty())">
-		<tr><td colspan="2"><s:iterator value="errMsgList"><s:property /></s:iterator></td></tr>
+		<tr><td class="errmoji" colspan="2" ><s:iterator value="errMsgList"><s:property /></s:iterator></td></tr>
 	</s:if>
 
 	<s:if test="errMsgListId !=null && !(errMsgListId.isEmpty())">
-		<tr><td colspan="2"><s:iterator value="errMsgListId"><s:property /></s:iterator></td></tr>
+		<tr><td class="errmoji" colspan="2"><s:iterator value="errMsgListId"><s:property /></s:iterator></td></tr>
 	</s:if>
 
 	<s:if test="errMsgListPass !=null && !(errMsgListPass.isEmpty())">
-		<tr><td colspan="2"><s:iterator value="errMsgListPass"><s:property /></s:iterator></td></tr>
+		<tr><td class="errmoji" colspan="2"><s:iterator value="errMsgListPass"><s:property /></s:iterator></td></tr>
 	</s:if>
 
 	<s:if test="errMsgListFamilyName !=null && !(errMsgListFamilyName.isEmpty())">
-		<tr><td colspan="2"><s:iterator value="errMsgListFamilyName"><s:property /></s:iterator></td></tr>
+		<tr><td class="errmoji" colspan="2"><s:iterator value="errMsgListFamilyName"><s:property /></s:iterator></td></tr>
 	</s:if>
 
 	<s:if test="errMsgListFirstName !=null && !(errMsgListFirstName.isEmpty())">
-		<tr><td colspan="2"><s:iterator value="errMsgListFirstName"><s:property /></s:iterator></td></tr>
+		<tr><td class="errmoji" colspan="2"><s:iterator value="errMsgListFirstName"><s:property /></s:iterator></td></tr>
 	</s:if>
 
 	<s:if test="errMsgListFamilyNameKana !=null && !(errMsgListFamilyNameKana.isEmpty())">
-		<tr><td colspan="2"><s:iterator value="errMsgListFamilyNameKana"><s:property /><br></s:iterator></td></tr>
+		<tr><td class="errmoji" colspan="2"><s:iterator value="errMsgListFamilyNameKana"><s:property /><br></s:iterator></td></tr>
 	</s:if>
 
 	<s:if test="errMsgListFirstNameKana !=null && !(errMsgListFirstNameKana.isEmpty())">
-		<tr><td colspan="2"><s:iterator value="errMsgListFirstNameKana"><s:property /><br></s:iterator></td></tr>
+		<tr><td class="errmoji" colspan="2"><s:iterator value="errMsgListFirstNameKana"><s:property /><br></s:iterator></td></tr>
 	</s:if>
 
 	<s:if test="errMsgListSex !=null && !(errMsgListSex.isEmpty())">
-		<tr><td colspan="2"><s:iterator value="errMsgListSex"><s:property /></s:iterator></td></tr>
+		<tr><td class="errmoji" colspan="2"><s:iterator value="errMsgListSex"><s:property /></s:iterator></td></tr>
 	</s:if>
 
 	<s:if test="errMsgListMail !=null && !(errMsgListMail.isEmpty())">
-		<tr><td colspan="2"><s:iterator value="errMsgListMail"><s:property /><br></s:iterator></td></tr>
+		<tr><td class="errmoji" colspan="2"><s:iterator value="errMsgListMail"><s:property /><br></s:iterator></td></tr>
 	</s:if>
 
 	<s:if test="errMsgListQuestion !=null && !(errMsgListQuestion.isEmpty())">
-		<tr><td colspan="2"><s:iterator value="errMsgListQuestion"><s:property /></s:iterator></td></tr>
+		<tr><td class="errmoji" colspan="2"><s:iterator value="errMsgListQuestion"><s:property /></s:iterator></td></tr>
 	</s:if>
 
 	<s:if test="errMsgListAnswer !=null && !(errMsgListAnswer.isEmpty())">
-		<tr><td colspan="2"><s:iterator value="errMsgListAnswer"><s:property /></s:iterator></td></tr>
+		<tr><td class="errmoji" colspan="2"><s:iterator value="errMsgListAnswer"><s:property /></s:iterator></td></tr>
 	</s:if>
 
 	</tr>

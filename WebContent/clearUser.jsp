@@ -10,15 +10,6 @@
 <meta http-equiv="imagetoolbar" content="text/javascript"/>
 <link rel="stylesheet" href="./css/alatanapizza.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript">
-function taikai(){
-	window.confirm("本当に退会しますか？");
-}
-window.onunload=function(){};
-history.forward();
-
-
-</script>
 <title>退会画面</title>
 <style>
 table {
@@ -114,7 +105,7 @@ top:30px;
 <tr><td><a href='<s:url action="MyPageAction"/>'><img class="icon"  src="./images/icon/modoru2.png"></a></td>
 <td><div class="btn1">同意する
 		<input id="checkBtn" type="checkbox">
-		<input id="submitBtn"  disabled="disabled" type="submit" value="退会する" onclick="taikai()">
+		<input id="submitBtn"  disabled="disabled" type="image" src="./images/icon/taikai.png" value="退会する" >
 	</div></td></tr>
 
 </s:form>

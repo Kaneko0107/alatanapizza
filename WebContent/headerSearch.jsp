@@ -83,7 +83,7 @@ position:relative;
 top:5px;
 
 }
-ul{margin-right:25px;}
+ul{margin-right:5px;}
 
 
 .img1:hover{

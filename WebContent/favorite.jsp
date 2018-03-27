@@ -44,7 +44,7 @@
 
 						<s:form id="form" name="form" action="FavoriteAction">
 
-						<s:iterator value="favoriteList">
+						<s:iterator value="favoriteList" status="st">
 							<div id="boxList">
 							<!-- ここにsプロパティの値が詰まっている。
 							元をたどるとfavoriteActionのList favoriteactionの記載のfavoriteDTOの変数名-->
@@ -53,7 +53,12 @@
 
 								<!-- チェックボックス作成 -->
 								<div class="ph-check">
-									<s:checkbox name="checkList" value="1" fieldValue="%{productId}" />
+									<s:if test="#st.index == 0">
+										<s:checkbox name="checkList" value="1" fieldValue="%{productId}" />
+									</s:if><s:else>
+										<s:checkbox name="checkList" value="0" fieldValue="%{productId}" />
+									</s:else>
+
 								</div>
 
 
@@ -96,14 +101,12 @@
 							<s:submit value="選択した項目を削除"/>
 							<s:hidden name="deleteFlg" value="1"/>
 						</div>
-
-						<div id="deleteAll">
-							<s:submit value="全件削除"/>
-							<s:hidden name="deleteAllFlg" value="2" />
-						</div>
-
-
-
+						</s:form>
+						<s:form action="FavoriteAction">
+							<div id="deleteAll">
+								<s:submit value="全件削除"/>
+								<s:hidden name="deleteAllFlg" value="2" />
+							</div>
 						</s:form>
 					</s:if>
 				</div>

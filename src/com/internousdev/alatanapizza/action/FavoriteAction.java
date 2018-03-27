@@ -117,18 +117,19 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 						}
 					}
 				}
-			else {
+			else if (deleteAllFlg==2) {
+				dao.deleteAllFavoriteInfo(userId);
+				favoriteList = dao.getFavoriteInfo(userId);
+				deleteAllFlg=0;
+
+				setMessage("全件削除しました");
+				result = SUCCESS;
+				return result;
+			} else {
 				result = SUCCESS;
 				return result;
 			}
 
-			 if (deleteAllFlg==2) {
-					dao.deleteAllFavoriteInfo(userId);
-					deleteAllFlg=0;
-
-					result=SUCCESS;
-					setMessage("全件削除しました");
-				}
 
 
 		} //ログインしていない場合	("userId")が存在しない場合エラーページに移動させる-------------------------
@@ -212,4 +213,11 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 	}
 	//-----------------------------------------------------------
 
+	public int getDeleteAllFlg() {
+		return deleteAllFlg;
+	}
+
+	public void setDeleteAllFlg(int deleteAllFlg) {
+		this.deleteAllFlg = deleteAllFlg;
+	}
 }

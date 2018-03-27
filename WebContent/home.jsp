@@ -26,11 +26,12 @@
 
 body{
 background-image:url("./images/icon/HomeBackground.jpg");
+margin-bottom:30px;
 }
 .slide-wrapper {
 width:70%;
 margin:0 auto;
-	margin-top:150px;
+
 }
 
 
@@ -58,7 +59,7 @@ height:auto;
 	<!-- ヘッダー -->
 	<jsp:include page="include_header.jsp" />
 
-
+<br>
 	<div class="slide-wrapper">
 		<div class="slide">
 			<div>
@@ -73,7 +74,7 @@ height:auto;
 		</div>
 	</div>
 
-
+<br><br><br>
 
 
 	<!-- フッター -->

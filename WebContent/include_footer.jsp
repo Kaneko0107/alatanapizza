@@ -9,6 +9,9 @@
 	text-align:center;
 	line-height:50px;
 	clear:both;
+	position:fixed;
+	bottom:0px;
+	background:linear-gradient(to top,black 50%,rgba(0,0,0,0.5));
 }
 
 </style>

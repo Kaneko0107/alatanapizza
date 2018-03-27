@@ -55,7 +55,7 @@ public String execute(){
 
 
 	if(userid.equals("") || secret_answer.equals("")){
-		setErrorMessage("【未入力の項目があります。】");
+		setErrorMessage("【未入力の項目があります】");
 		errMsgList.add(errorMessage);
 	}
 
@@ -69,31 +69,31 @@ public String execute(){
 
 
 		if(userid.length()<1 || userid.length()>8){
-			setErrorMessage("【ユーザーIDは1～8文字以内で入力してください。】");
+			setErrorMessage("【ユーザーIDは1～8文字以内で入力してください】");
 			errMsgList.add(errorMessage);
 		}
 		if(!(userid.matches("^[a-zA-Z0-9]+$"))){
-			setErrorMessage("【ユーザーIDは半角英数字で入力してください。】");
+			setErrorMessage("【ユーザーIDは半角英数字で入力してください】");
 			errMsgList.add(errorMessage);
 		}
 
 if(CPCdto==null){
 
-			setErrorMessage("【ユーザーIDが間違っています。】");
+			setErrorMessage("【ユーザーIDが間違っています】");
 			errMsgList.add(errorMessage);
 
 }
 else{
 	if(newpass.equals(CPCdto.getPassword())){
-		setErrorMessage("【以前と同じパスワードは使用できません】。");
+		setErrorMessage("【以前と同じパスワードは使用できません】");
 		errMsgList.add(errorMessage);
 	}
 	if(secret_question!=CPCdto.getQuestion()){
-		setErrorMessage("【質問内容が間違っています。】");
+		setErrorMessage("【質問内容が間違っています】");
 		errMsgList.add(errorMessage);
 	}
 	if(!(secret_answer.equals(CPCdto.getAnswer()))){
-		setErrorMessage("【質問に対する答えが間違っています。】");
+		setErrorMessage("【質問に対する答えが間違っています】");
 		errMsgList.add(errorMessage);
 	}
 
@@ -103,18 +103,18 @@ else{
 
 
 	if(newpass.length()<1 || newpass.length()>16){
-		setErrorMessage("【新しいパスワードは1～16文字の範囲内で入力してください。】");
+		setErrorMessage("【新しいパスワードは1～16文字の範囲内で入力してください】");
 		errMsgList.add(errorMessage);
 	}
 	if(!(newpass.matches("^[a-zA-Z0-9]+$"))){
-		setErrorMessage("【新しいパスワードは半角英数字で入力してください。】");
+		setErrorMessage("【新しいパスワードは半角英数字で入力してください】");
 		errMsgList.add(errorMessage);
 	}
 
 
 
 	if(!(newpass.equals(checkpass))){
-		setErrorMessage("【新しいパスワードと確認用パスワードの値が一致していません。】");
+		setErrorMessage("【新しいパスワードと確認用パスワードの値が一致していません】");
 		errMsgList.add(errorMessage);
 	}
 

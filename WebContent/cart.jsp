@@ -110,7 +110,7 @@ top:9px;
 			<s:property value="totalPrice" />
 			<s:if test="! cartList.isEmpty()">
 
-			 <a href='<s:url action ="BuyItemCompleteAction" />'><img class="icon2" src="./images/icon/決済画面.png"></a>
+			 <a href='<s:url action ="BuyItemCompleteAction" />'><img class="icon" src="./images/icon/決済画面.png"></a>
 
 			</s:if>
 

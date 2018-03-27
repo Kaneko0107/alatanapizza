@@ -172,14 +172,10 @@
 
 	<tr>
 		<td>
-		<br><div class="icon">
-			<a href='<s:url action="LoginAction"/>'><img src="./images/icon/modoru2.png"></a>
-		</div>
-
+			<a href='<s:url action="LoginAction"/>'><img class="icon" src="./images/icon/modoru2.png"></a>
+		</td>
 		<td>
-		<br><div class="icon">
-			<input type="image" src="./images/icon/kakuninn.png">
-		</div>
+			<input type="image"  class="icon2" src="./images/icon/kakuninn.png">
 		</td>
 	</tr>
 

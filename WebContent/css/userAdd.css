@@ -43,7 +43,7 @@ hr {
 
 .form-user-regist {
 		text-align:center;
-}
+		}
 
 
 .moji {
@@ -108,11 +108,17 @@ hr {
 	    border-radius:5px;
 	    }
 
-/* 「進む 戻る」になるため、row-reverseして、「戻る 進む」にしている*/
 .icon {
-		text-align:center;
-		display:flex;
-		flex-direction:row-reverse;
+		text-align:left;
+		}
+
+.icon2 {
+		float:right;
+		text-align:right;
+		}
+
+.icon2:hover{
+		opacity:0.8;
 		}
 
 .errmoji {
@@ -121,3 +127,4 @@ hr {
 	    color:#ff0000;
 	    font-weight:bold;
 	    }
+

@@ -88,17 +88,13 @@
 
 	<tr>
 		<td>
-		<br><div class="icon">
-			<input type="image" src="./images/icon/modoru2.png">
-		</div>
+			<input type="image" class="icon" src="./images/icon/modoru2.png">
 		</td>
-
 		<td>
-		<br><div class="icon">
-			<a href='<s:url action="UserCreateCompleteAction"/>'><img src="./images/icon/登録する .png"></a>
-		</div>
+			<a href='<s:url action="UserCreateCompleteAction"/>'><img class="icon2" src="./images/icon/登録する .png"></a>
 		</td>
 	</tr>
+
 
 	<input type="hidden" name="loginUserId" value="<s:property value="loginUserId"/>"/>
 	<input type="hidden" name="loginPassword" value="<s:property value="loginPassword"/>">

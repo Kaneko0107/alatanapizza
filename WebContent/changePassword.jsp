@@ -7,20 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <link rel="stylesheet" href="./css/alatanapizza.css">
+<link rel="stylesheet" href="./css/userAdd.css">
+
 <title>パスワード変更画面</title>
 <style>
-.error{
-color:white;}
-.error1{
-coror:white;}
-.main{
-width:70%;
-height:80%
-background:rgba(0,0,0,0.5);
-margin-top:70px;
-margin-left:15%;
-margin-bottom:30px;
-}
+
 
 
 table {
@@ -101,7 +92,7 @@ hr {
 </head>
 <body>
 <jsp:include page="include_header.jsp" />
-<div class="main">
+<div id="main">
 <table>
 <tr><td colspan="2"><h3>パスワード変更画面</h3></td></tr>
 <tr><td colspan="2"><hr></td></tr>
@@ -175,7 +166,7 @@ hr {
 <td>
 <div class="image1"><a href='<s:url action="LoginAction"/>'><img class="icon" src="./images/icon/modoru2.png"></a></div>
 </td><td>
-<div class="image2"><input class="icon" type="image" src="./images/icon/kakuninn.png" alt=""></div></td>
+<div class="image2"><input class="image2" type="image" src="./images/icon/kakuninn.png" alt=""></div></td>
 </tr>
 
 </s:form>

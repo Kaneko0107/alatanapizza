@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <link rel="stylesheet" href="./css/alatanapizza.css">
+<link rel="stylesheet" href="./css/userAdd.css">
 <title>ユーザー情報変更確認画面</title>
 <script type="text/javascript">
 window.onunload=function(){};
@@ -31,7 +32,7 @@ text-align:center;
 	    color: #FFCC33;
 }
 .moji2{
-text-align:right;
+text-align:center;
 	    font-size: 20px;
 	    color: #FFCC33;
 }
@@ -44,7 +45,7 @@ text-align:right;
 </head>
 <body>
 <jsp:include page="include_header.jsp" />
-
+<div id="main">
 <table>
 <s:form action="UserUpdateCompleteAction">
   <tr>
@@ -90,18 +91,18 @@ text-align:right;
 
 
    <tr>
-   <td><div class="moji2">変更内容が正しければ右のボタンで変更を完了してください。</div></td>
+   <td colspan="2"><div class="moji2">変更内容が正しければ右のボタンで変更を完了してください。</div></td>
    </tr>
    <tr>
    <td><a href='<s:url action="UserUpdateAction"/>'><img class="icon" src="./images/icon/modoru2.png"></a></td>
    <td><div class="image2"><s:a href="javascrrpt:void(0)"
 	onclick="document.UserUpdateCompleteAction.submit();return false;"
-	 class="button"><input type="image" class="icon" src="./images/icon/登録する .png" alt="touroku"></s:a></div>
+	 class="button"><input type="image" class="image2" src="./images/icon/登録する .png" alt="touroku"></s:a></div>
 	 </td>
 	 </tr>
 	 </s:form>
   </table>
-
+</div>
 
 
 <jsp:include page="include_footer.jsp"/>

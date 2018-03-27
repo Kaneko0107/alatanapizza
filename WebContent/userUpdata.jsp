@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <link rel="stylesheet" href="./css/alatanapizza.css">
+<link rel="stylesheet" href="./css/userAdd.css">
 <title>ユーザー情報変更画面</title>
 <style>
 table {
@@ -77,13 +78,13 @@ hr {
 	    text-align:right;
 	    margin-top: 5px;
 	    }
-.icon{
-margin-top:20px;}
+
 </style>
 
 </head>
 <body>
 <jsp:include page="include_header.jsp" />
+<div id="main">
 <table>
 <tr><td colspan="2"><h3>ユーザー情報変更画面</h3></td></tr>
 <tr><td colspan="2"><hr></td></tr>
@@ -177,11 +178,12 @@ margin-top:20px;}
    <td><div class="image2">
    <s:a href="javascrrpt:void(0)"
 	onclick="document.UserUpdateConfirmAction.submit();return false;"
-	 class="button"><input class="icon" type="image" src="./images/icon/kakuninn.png" alt="touroku"></s:a>
+	 class="button"><input class="image2" type="image" src="./images/icon/kakuninn.png" alt="touroku"></s:a>
    </div></td></tr>
    <br>
    </s:form>
    </table>
+   </div>
 
 
    <jsp:include page="include_footer.jsp"/>

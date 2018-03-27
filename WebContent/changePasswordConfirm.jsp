@@ -30,7 +30,7 @@ text-align:left;
 	    color: #FFCC33;
 }
 .moji3{
-text-align:right;
+text-align:center;
 	    font-size: 20px;
 	    color: #FFCC33;
 }
@@ -51,6 +51,7 @@ color:white;}
 
 	    text-align:right;
 		margin-bottom:10px;
+		margin-left:30px;
 	    }
 
 
@@ -77,29 +78,22 @@ hr {
 <s:form action="ChangePasswordCompleteAction">
 
 		 <tr>
-		 <td><div class="moji3">変更後のパスワード:</div></td>
-		 <td><div class="moji2"><s:property value="%{hideNewPassword}"/></div></td>
+		 <td colspan="2"class="moji3"><span class="moji3">変更後のパスワード:<s:property value="%{hideNewPassword}"/></span></td>
 		 	<td><s:hidden name="newpass" value="%{newpass}" />
 			<s:hidden name="userid" value="%{userid}" />
 			<s:hidden name="secret_answer" value="%{secret_answer}"/>
 			<s:hidden name="secret_question" value="%{secret_question}"/>
 		</td>
-</tr><br><br><br>
+</tr>
 
 <tr><td colspan="2"><hr></td></tr>
 
-			<td><a class="image3" href="javascript:history.back();"><img  class="icon" src="./images/icon/modoru2.png"></a></td>
+			<tr><td><a class="image3" href="javascript:history.back();"><img  class="icon" src="./images/icon/modoru2.png"></a></td>
 
 
-<td><div class="image2"><input type="image" class="icon" src="./images/icon/登録する .png" alt="touroku"></div></td>
+<td class="image2"><input type="image" class="image2" src="./images/icon/登録する .png" alt="touroku"></td></tr>
 			</s:form>
-<!--<s:form name="for" action="ChangePasswordAction">
 
-			<s:hidden name="newpass" value="%{newpass}" />
-			<s:hidden name="userid" value="%{userid}" />
-			<s:hidden name="secret_answer" value="%{secret_answer}"/>
-			<s:hidden name="secret_question" value="%{secret_question}"/>
-			</s:form>-->
 </table>
 </div>
 <jsp:include page="include_footer.jsp"/>

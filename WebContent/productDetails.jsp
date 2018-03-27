@@ -197,7 +197,7 @@ opacity:0.8;
 				<span id="total_price_text"></span>&nbsp;
 					<s:hidden name="productId" value="%{session.d_product_id}" ></s:hidden>
 					<s:hidden name="gocart" value="1" />
-					<input type="image" class="icon2" src=./images/icon/gocart.png alt="カートに入れる">
+					<input type="image" class="icon2 icon" src=./images/icon/gocart.png alt="カートに入れる">
 
 		</s:if>
 		<s:if test="stockList.size() == 0">
@@ -239,7 +239,7 @@ opacity:0.8;
 								<s:hidden name="product_id" value="%{product_id}" />
 
 								<br><br><a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
-									<img class="image" src=./images/icon/shousai.png><br>
+									<img class="icon" src=./images/icon/shousai.png><br>
 								</a>
 							</div>
 						</div>

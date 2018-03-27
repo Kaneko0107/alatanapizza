@@ -25,6 +25,9 @@ h1{
 	margin-left:130px;
 }
 
+h3{
+color:white;}
+
 
 .select1{
 width:50px;

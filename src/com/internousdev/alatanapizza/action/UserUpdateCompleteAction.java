@@ -23,9 +23,8 @@ public class UserUpdateCompleteAction extends ActionSupport implements SessionAw
 
 
 	public String execute() throws SQLException{
-		if (newPassword.equals("")) {
-			newPassword = null;
-		}
+
+
 		String errorUpdate="errorupdate";
 		UserUpdateCompleteDAO dao=new UserUpdateCompleteDAO();
 		String result=ERROR;
@@ -33,8 +32,13 @@ public class UserUpdateCompleteAction extends ActionSupport implements SessionAw
 		if(session.containsKey("errorUpdate")){
 			result=ERROR;
 		}
+		else if(newPassword.equals("")){
+			dao.userUpdate2(newEmail,familyName,firstName,familyNameKana,firstNameKana,user_id);
+			session.put("errorUpdate",errorUpdate);
+			result=SUCCESS;
+		}
 		else{
-			dao.userUpdate(newPassword, newEmail,familyName,firstName,familyNameKana,firstNameKana,user_id);
+			dao.userUpdate(newPassword, newEmail, familyName, firstName, familyNameKana, firstNameKana, user_id);
 			session.put("errorUpdate",errorUpdate);
 			result=SUCCESS;
 		}

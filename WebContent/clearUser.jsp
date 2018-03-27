@@ -105,7 +105,7 @@ top:30px;
 <tr><td><a href='<s:url action="MyPageAction"/>'><img class="icon"  src="./images/icon/modoru2.png"></a></td>
 <td><div class="btn1">同意する
 		<input id="checkBtn" type="checkbox">
-		<input id="submitBtn"  disabled="disabled" type="image" src="./images/icon/taikai.png" value="退会する" >
+		<input id="submitBtn"  disabled="disabled" type="image" src="./images/icon/taikai.png" value="退会する"  class="icon">
 	</div></td></tr>
 
 </s:form>

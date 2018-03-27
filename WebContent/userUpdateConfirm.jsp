@@ -54,8 +54,8 @@ text-align:right;
 <s:form action="UserUpdateCompleteAction">
   <tr>
    <td><div class="moji">ユーザーID</div></td>
-   <td><s:property value="%{session.userId}"/>
-   <s:hidden name="user_id" value="%{session.userId}" /></td>
+   <td><s:property value="%{user_id}"/>
+   <s:hidden name="user_id" value="%{user_id}" /></td>
    </tr>
    <tr>
    <s:if test='newPasswrod !=""'>

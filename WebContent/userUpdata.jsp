@@ -25,6 +25,11 @@ h3 {
 	    font-size: 12px;
 	    color: #FFCC33;
 	    }
+	    .moji1 {
+	    text-align: center;
+	    font-size: 12px;
+	    color: red;
+	    }
 
 .form {
 	background-color: rgba(200, 200, 200, 0.5);
@@ -88,7 +93,7 @@ margin-top:20px;}
 <s:if test="errorMessage!=''">
    <tr><td colspan="2"><s:iterator value="errMsgList">
 
-<div class="moji">
+<div class="moji1">
 			<s:property />
 </div>
 

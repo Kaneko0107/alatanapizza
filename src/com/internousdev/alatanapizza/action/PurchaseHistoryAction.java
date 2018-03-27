@@ -112,7 +112,7 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 
 	public void deleteChoose() throws SQLException {
 		if (checkList == null) {
-			setMessage("【チェックボックスにチェックを入れてください。】");
+			setMessage("チェックボックスにチェックを入れてください。");
 			return;
 		}
 

@@ -53,11 +53,18 @@ tr td {
 	    margin:0 8 0 8;
 	    }
 
-.icon{
+.icon1{
 position:relative;
-top:30px;
+top:20px;
 
 }
+.icon2{
+position:relative;
+top:45px;
+
+}
+
+
 </style>
 
 </head>
@@ -83,29 +90,29 @@ top:30px;
 <tr><td colspan="2"><h3>退会処理画面</h3></td></tr>
 <tr><td colspan="2"><hr></td></tr>
 <tr><td colspan="2"><div class="moji">退会の処理を行います。</div></td></tr>
-<tr><td colspan="2"><div class="moji">ー注意事項ー</div><br></td></tr>
+<tr><td colspan="2"><div class="moji">ー注意事項ー</div></td></tr>
 
 <tr>
-<td>・ご登録して頂いたお客様のユーザー情報は全て削除されます。</td>
+<td colspan="2">・ご登録して頂いたお客様のユーザー情報は全て削除されます。</td>
 </tr>
 <tr>
-<td>・ユーザー情報の復元は承りかねますのであらかじめご了承ください。</td>
+<td colspan="2">・ユーザー情報の復元は承りかねますのであらかじめご了承ください。</td>
 </tr>
 <tr>
-<td>・あらためてご利用いただく場合は、はじめからご設定となりますのでご注意ください。</td>
+<td colspan="2">・あらためてご利用いただく場合は、はじめからご設定となりますのでご注意ください。</td>
 </tr>
 <tr>
-<td>・ご注文中の商品のキャンセルに関しましては退会処理の前に行っていただくようお願いいたします。</td>
+<td colspan="2">・ご注文中の商品のキャンセルに関しましては退会処理の前に行っていただくようお願いいたします。</td>
 </tr>
 
 
-<tr><td><div class="moji">以上の注意点をご了承頂いた上で下記の同意欄にチェックをして頂きまして、退会ボタンで退会処理を行ってください。</div></td></tr>
+<tr><td colspan="2"><div class="moji">以上の注意点をご了承頂いた上で下記の同意欄にチェックをして頂きまして、退会ボタンで退会処理を行ってください。</div></td></tr>
 
 
-<tr><td><a href='<s:url action="MyPageAction"/>'><img class="icon"  src="./images/icon/modoru2.png"></a></td>
+<tr><td><a href='<s:url action="MyPageAction"/>'><img class="icon2"  src="./images/icon/modoru2.png"></a></td>
 <td><div class="btn1">同意する
-		<input id="checkBtn" type="checkbox">
-		<input id="submitBtn"  disabled="disabled" type="image" src="./images/icon/taikai.png" value="退会する"  class="icon">
+		<input id="checkBtn" type="checkbox"><br>
+		<input id="submitBtn"  disabled="disabled" type="image" src="./images/icon/taikai.png" value="退会する"  class="icon1">
 	</div></td></tr>
 
 </s:form>

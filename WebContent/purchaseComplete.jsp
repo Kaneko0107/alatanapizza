@@ -35,6 +35,10 @@ text-align:center;
 
 <h3>
 決済が完了しました。</h3>
+<br>
+お買い上げありがとうございます。
+<br>
+お届けまでしばらくお待ちください。
 
 <br><a><br></a>
 <a href='<s:url action="MyPageAction" />'>マイページ</a>

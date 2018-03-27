@@ -96,7 +96,7 @@ tr td .memo{text-align:center;
 <script>
 
 
-
+/* マウス乗せるとでかくなる */
 // $(function(){
 // 	$(".login .image").hover(
 // 	function(){
@@ -111,16 +111,16 @@ tr td .memo{text-align:center;
 // 	});
 // });
 
-	//<!--
-
+/* 全角では入力できないように */
 	function checkForm($this) {
 	    var str = $this.value;
 	    while (str.match(/[^A-Z^a-z\d\-]/)) {
 	        str = str.replace(/[^A-Z^a-z\d\-]/, "");
+	        alert('IDは半角英数字で入力してください。');//案内用
 	    }
 	    $this.value = str;
 	}
-	//-->
+
 
 
 </script>

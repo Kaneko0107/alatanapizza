@@ -96,7 +96,7 @@ width:70%;
 <script type="text/javascript">
 
 
-/* 全角→半角に変換する */
+/* 全角→半角に自動変換する */
 $(function(){
     $(".zenkakuTOhankaku").blur(function(){
         charChange($(this));
@@ -105,15 +105,16 @@ $(function(){
 
     charChange = function(e){
         var val = e.val();
-        var str = val.replace(/[Ａ-Ｚａ-ｚ０-９]/g,function(s){return String.fromCharCode(s.charCodeAt(0)-0xFEE0)});
+        var str = val.replace(/[Ａ-Ｚａ-ｚ０-９]/g,function(s){return String.fromCharCode(s.charCodeAt(0)-0xFEE0)}).replace(/[‐－―]/g, '-').replace(/[＠]/g, '@').replace(/[．]/g, '.');
 
-        if(val.match(/[Ａ-Ｚａ-ｚ０-９]/g)){
+        if(val.match(/[Ａ-Ｚａ-ｚ０-９‐－―＠．]/g)){
             $(e).val(str);
         }
 
     }
 });
 
+/* マウス乗せるとでかくなる */
 /* 	$(function(){
 		$(".imagehover .image").hover(
 		function(){

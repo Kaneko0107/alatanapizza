@@ -31,12 +31,13 @@ font-family: arial black, Helvetica, sans-serif;
 	list-style-type: none;
 }
 
-li {
+ul li {
 	float: left;
 	color: #FFD700;
 	font-weight: bolder;
-	margin:5px;
+	margin-left:15px;
 	list-style-type: none;
+	margin-right:25px;
 }
 
 a {
@@ -74,12 +75,9 @@ a:hover{
 		<li class="li"><a href='<s:url action="LoginAction"/>'>ログイン　<img src="./images/icon/kagi1.png" width="15" height="20"></a></li>
 	</s:else>
 	<li>|</li>
-<li>
-<s:if test="cartList.isEmpty()">
-			<a href='<s:url action="CartProductAction"/>'>カート</a>
-		</s:if></li>
-		<li><s:else>
-			<a href='<s:url action="CartProductAction"/>'>カート<img src="./images/icon/cart.png" width="20" height="20"></a></s:else></li>
+
+		<li>
+			<a href='<s:url action="CartProductAction"/>'>カート　<img src="./images/icon/cart.png" width="20" height="20"></a></li>
 	</ul>
 <!-- 検索ボックスをインクルード -->
 	<jsp:include page="headerSearch.jsp" />

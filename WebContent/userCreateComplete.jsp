@@ -12,8 +12,34 @@
 	<link rel="stylesheet" href="./css/alatanapizza.css">
 	<link rel="stylesheet" href="./css/userAdd.css">
 
+<style>
+
+
+#main{width:50%;
+}
+
+.icon{
+
+}
+
+tr td {
+	    padding-right:30px;
+	    padding-left:20px;
+	    padding-top:5px;
+	    }
+
+
+.icon5{
+text-align:center;
+}
+</style>
+
+
 	<title>ユーザー登録 完了</title>
+
+
 </head>
+
 
 
 <body>
@@ -23,12 +49,14 @@
 
 	<table>
 
-	<tr><td colspan="2"><h3>ユーザー登録 完了</h3></td></tr>
-	<tr><td colspan="2"><div class="moji2">ありがとうございます</div></td></tr>
-	<tr><td colspan="2"><hr></td></tr>
-
+	<tr><td><h3>ユーザー登録 完了</h3></td>
 	<tr>
-		<td><a href='<s:url action="LoginAction"/>'><img class="icon" src="./images/icon/ログイン.png"></a></td>
+	<td colspan="2"><div class="moji2">ありがとうございます</div></td></tr>
+	<tr>
+	<td colspan="2"><hr></td></tr>
+<tr>
+
+		<td><div class="icon5"><a href='<s:url action="LoginAction"/>'><img class="icon5" src="./images/icon/ログイン.png"></a></div></td>
 	</tr>
 
 	</table>

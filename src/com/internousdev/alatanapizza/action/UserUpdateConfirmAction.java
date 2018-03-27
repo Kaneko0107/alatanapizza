@@ -34,10 +34,13 @@ public class UserUpdateConfirmAction extends ActionSupport implements SessionAwa
 
 	private String errorMessage;
 
+	private String hideNewPassword;
+
 
 
 
 	public String execute(){
+		ChangePasswordConfirmAction Action=new ChangePasswordConfirmAction();
 		UserUpdateConfirmDAO dao=new  UserUpdateConfirmDAO();
 		 UserUpdateDTO dto=new UserUpdateDTO();
 		String result=ERROR;
@@ -46,79 +49,93 @@ public class UserUpdateConfirmAction extends ActionSupport implements SessionAwa
 
 		dto=dao.getUserInfo(user_id);
 
-		if(!(newPassword.equals("") || conPassword.equals("") || familyName.equals("") || firstName.equals("") || familyNameKana.equals("") ||  firstNameKana.equals(""))){
+		if(!(newPassword.equals("")) || !(conPassword.equals(""))){
 			if(!(password.equals(dto.getPassword()))){
-				setErrorMessage("現在のパスワードが間違っています。");
+				setErrorMessage("【現在のパスワードが間違っています。】");
 				errMsgList.add(errorMessage);
 			}
 			if(newPassword.length()<1 || newPassword.length()>16){
-				setErrorMessage("新しいパスワードは1～16文字の範囲内で入力してください。");
+				setErrorMessage("【新しいパスワードは1～16文字の範囲内で入力してください。】");
 				errMsgList.add(errorMessage);
 			}
 			if(!(newPassword.matches("^[a-zA-Z0-9]+$"))){
-				setErrorMessage("新しいパスワードは半角英数字で入力してください。");
+				setErrorMessage("【新しいパスワードは半角英数字で入力してください。】");
 				errMsgList.add(errorMessage);
 			}
 			if(!(newPassword.equals(conPassword))){
-				setErrorMessage("新しいパスワードと確認用パスワードの値が一致していません。");
+				setErrorMessage("【新しいパスワードと確認用パスワードの値が一致していません。】");
 				errMsgList.add(errorMessage);
 			}
-			}
+		}
+
 
 			if(!(newEmail.equals(""))){
 				if(!(password.equals(dto.getPassword()))){
-					setErrorMessage("現在のパスワードが間違っています。");
+					setErrorMessage("【現在のパスワードが間違っています。】");
 					errMsgList.add(errorMessage);
 				}
 				if(newEmail.length()<14 || newEmail.length()>32){
-					setErrorMessage("メールアドレスは14～32文字の範囲内で入力してください。");
+					setErrorMessage("【メールアドレスは14～32文字の範囲内で入力してください。】");
 					errMsgList.add(errorMessage);
 				}
 				if((!newEmail.matches("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$"))){
-					setErrorMessage("正しいメールアドレスの形式で入力してください。");
+					setErrorMessage("【正しいメールアドレスの形式で入力してください。】");
 					errMsgList.add(errorMessage);
 				}
 
 				if(familyName.length()<1 || familyName.length()>16){
-					setErrorMessage("姓は1～16文字の範囲内で入力してください。");
+					setErrorMessage("【姓は1～16文字の範囲内で入力してください。】");
 					errMsgList.add(errorMessage);
 				}
 				if(firstName.length()<1 || firstName.length()>16){
-					setErrorMessage("名は1～16文字の範囲内で入力してください。");
+					setErrorMessage("【名は1～16文字の範囲内で入力してください。】");
 					errMsgList.add(errorMessage);
 				}
 				if(familyNameKana.length()<1 || familyNameKana.length()>16){
-					setErrorMessage("せいは1～16文字の範囲内で入力してください。");
+					setErrorMessage("【せいは1～16文字の範囲内で入力してください。】");
 					errMsgList.add(errorMessage);
 				}
 				if(firstNameKana.length()<1 || firstNameKana.length()>16){
-					setErrorMessage("めいは1～16文字の範囲内で入力してください。");
+					setErrorMessage("【めいは1～16文字の範囲内で入力してください。】");
 					errMsgList.add(errorMessage);
 				}
 				if (!familyName.matches("^[a-zA-Z.ぁ-ん.一-龠]*$")) {
-					setErrorMessage("姓は半角英語、ひらがな、漢字で入力してください。");
+					setErrorMessage("【姓は半角英語、ひらがな、漢字で入力してください。】");
 					errMsgList.add(errorMessage);
 				}
 
 				if (!firstName.matches("^[a-zA-Z.ぁ-ん.一-龠]*$")) {
-					setErrorMessage("名は半角英語、ひらがな、漢字で入力してください。");
+					setErrorMessage("【名は半角英語、ひらがな、漢字で入力してください。】");
 					errMsgList.add(errorMessage);
 				}
 				if (!familyNameKana.matches("^[ぁ-ん]+$")) {
-					setErrorMessage("せいはひらがなで入力してください。");
+					setErrorMessage("【せいはひらがなで入力してください。】");
 					errMsgList.add(errorMessage);
 				}
 
 				if (!firstNameKana.matches("^[ぁ-ん]+$")) {
-					setErrorMessage("めいはひらがなで入力してください。");
+					setErrorMessage("【めいはひらがなで入力してください。】");
 					errMsgList.add(errorMessage);
 				}
 			}
 
 			if(newPassword.equals("")&&newEmail.equals("")&&familyName.equals("")&&firstName.equals("")&&familyNameKana.equals("")&&firstNameKana.equals("")){
-				setErrorMessage("変更内容が選ばれていません。");
+				setErrorMessage("【変更内容が選ばれていません。】");
 				errMsgList.add(errorMessage);
 			}
+
+			if(!(newPassword.equals("")) && !(conPassword.equals(""))){
+				if(newPassword.length()<=1){
+					hideNewPassword = Action.hideString(newPassword,0,0);
+				}
+				if(newPassword.length()==2){
+					hideNewPassword = Action.hideString(newPassword,0,1);
+				}
+				if(newPassword.length()>=3){
+					hideNewPassword = Action.hideString(newPassword,0,2);
+				}
+		}
+
 
 			if(errorMessage==null){
 				session.put("newPassword", newPassword);
@@ -336,6 +353,28 @@ public class UserUpdateConfirmAction extends ActionSupport implements SessionAwa
 
 	public void setFirstNameKana(String firstNameKana) {
 		this.firstNameKana = firstNameKana;
+	}
+
+
+
+
+
+
+
+
+	public String getHideNewPassword() {
+		return hideNewPassword;
+	}
+
+
+
+
+
+
+
+
+	public void setHideNewPassword(String hideNewPassword) {
+		this.hideNewPassword = hideNewPassword;
 	}
 
 

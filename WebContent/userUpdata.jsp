@@ -29,6 +29,7 @@ h3 {
 	    text-align: center;
 	    font-size: 12px;
 	    color: red;
+	    font-weight:900;
 	    }
 
 .form {

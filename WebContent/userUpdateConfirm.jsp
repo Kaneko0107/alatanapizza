@@ -58,13 +58,15 @@ text-align:right;
    <s:hidden name="user_id" value="%{user_id}" /></td>
    </tr>
    <tr>
-   <s:if test='newPasswrod !=""'>
+   <s:if test='newPassword !=""'>
    <td>
    <div class="moji">新規パスワード</div></td>
-   <td><s:property value="newPassword"/>
-   <s:hidden name="newPassword" value="%{newPassword}" /></td>
+   <td>
+   <s:property value="hideNewPassword"/>
+   </td>
    </s:if>
    </tr>
+   <s:hidden name="newPassword" value="%{newPassword}" />
    <tr>
    <td><div class="moji">メールアドレス</div></td>
    <td><s:property value="newEmail"/>

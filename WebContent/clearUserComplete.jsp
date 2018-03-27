@@ -4,39 +4,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="refresh" content="10;URL='TopAction'"/>
+<meta http-equiv="refresh" content="5;URL='TopAction'" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css"/>
-<meta http-equiv="Content-Script-Type" content="text/javascript"/>
 <link rel="stylesheet" href="./css/alatanapizza.css">
-<title>退会完了</title>
+<title>エラーページ</title>
 <style>
-.main{
-width:70%;
-height:80%
-background:rgba(0,0,0,0.5);
-margin-top:70px;
-margin-left:15%;
-margin-bottom:30px;
-}
-.moji {
-	    text-align: center;
-	    font-size: 15px;
-	    color: #FFCC33;
-	    }
+
+/* body{ */
+/* background-image:url("./images/icon/backgroundError.png"); */
+/* background-repeat: no-repeat; */
+/* width:100%; */
+/* height:100%; */
+
+
+/* } */
+
+/* .main{ */
+/* width:70%; */
+/* height:80%; */
+/* margin-top:70px; */
+/* margin-left:15%; */
+/* margin-bottom:30px; */
+/* } */
+/* .moji { */
+/* 	    text-align: center; */
+/* 	    font-size: 15px; */
+/* 	    color: #FFCC33; */
+/* 	    } */
+
+/* footer{ */
+/* font-family: arial black, Helvetica, sans-serif; */
+/* 	font-size: 15px; */
+/* 	color: white; */
+/* 	text-align: center; */
+/* 	width:100%; */
+/* 	position:fixed; */
+/* 	bottom:0; */
+/* } */
+
 </style>
 </head>
 <body>
 <jsp:include page="include_header.jsp" />
+
+<!-- <div class="background"> -->
+
+
+
 <div class="main">
-<span class="moji">退会処理が完了いたしました。</span>
-<div class="moji">またのご利用をお待ちしております。</div>
-<div class="moji">このページは10秒後に自動的にホーム画面に移動します。</div>
+<div class="moji">エラーが発生しました。</div>
+<div class="moji">お手数ですが最初からやり直してください。</div>
+<div class="moji">このページは5秒後に自動的にホーム画面へ移動します。</div>
 </div>
+<!-- </div> -->
 
 
-
-<jsp:include page="include_footer.jsp" />
 
 </body>
+<!-- <footer> -->
+<!-- A L A T A N A P I Z Z A -->
+<!-- </footer> -->
 </html>

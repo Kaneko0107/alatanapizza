@@ -23,7 +23,7 @@ public class MasterProductChangeAction extends ActionSupport implements SessionA
     public Map<Integer, int[]> productStockList = new HashMap<Integer, int[]>();
     private String stock;
     private Integer productId;
-    public String errorMessage;
+    public String message;
 
 	public Integer getProductId() {
 		return productId;
@@ -54,6 +54,7 @@ public class MasterProductChangeAction extends ActionSupport implements SessionA
 
 		if (productId != null && stock != null) {
 			int stock = Integer.parseInt(this.stock);
+			message = "在庫を変更しました。";
 			productListDAO.updateStock(productId, stock);
 		}
 		productList = productListDAO.getProductInfo();

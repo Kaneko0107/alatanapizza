@@ -71,11 +71,16 @@ height: 65px;
 <h3>在庫数 変更方法</h3>
 
 </legend>
+<p>
 一度に変更できる個数は、在庫数±20個です。<br>
 個数を選択し
 <img class="image" src="./images/icon/master_stockchange.png" alt="icon"> を押すと確定します。<br>
 最大在庫数は100個です。
 <img class="image" src="./images/icon/tomato.png" alt="icon">
+</p>
+<p>
+<span style="color: yellow;"><s:property value="message"/></span>
+</p>
 </fieldset>
 
 	<s:iterator value="productList">

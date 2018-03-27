@@ -74,7 +74,7 @@ height: 65px;
 一度に変更できる個数は、在庫数±20個です。<br>
 個数を選択し
 <img class="image" src="./images/icon/master_stockchange.png" alt="icon"> を押すと確定します。<br>
-0個～100個内で変更できます。
+最大在庫数は100個です。
 <img class="image" src="./images/icon/tomato.png" alt="icon">
 </fieldset>
 

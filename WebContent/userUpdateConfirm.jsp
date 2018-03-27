@@ -14,11 +14,6 @@ window.onunload=function(){};
 history.forward();
 </script>
 <style>
-table {
-	width: 80%;
-	margin: 0 auto;
-	text-align: left;
-}
 tr td {
 	padding-right: 30px;
 	padding-left: 20px;

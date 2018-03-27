@@ -31,7 +31,7 @@ opacity:0.8;
 
 
 .icon2{
-width:150px;
+width:180px;
 height:26px;
 background-color: rgba(0, 0, 0, 0.7);
 color:white;

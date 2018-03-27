@@ -72,10 +72,10 @@
 								  <img src='<s:property value="imageFilePath"/>' width="200" height="170" alt="Photo"/>
 								</s:a><br>
 
-								<s:hidden name="imageFileName" value='<s:property value="imageFileName"/>' />
+								<%-- <s:hidden name="imageFileName" value='<s:property value="imageFileName"/>' /> --%>
 								<span><s:property value="productName" /></span><br>
 
-								<s:hidden name="productNameKana" value='<s:property value="productNameKana"/>' />
+								<%-- <s:hidden name="productNameKana" value='<s:property value="productNameKana"/>' /> --%>
 								<span><s:property value="productNameKana" /></span><br>
 
 								<s:if test="categoryId==2">
@@ -85,7 +85,7 @@
 
 								<s:if test="categoryId==3 || categoryId==4">
 									<span>¥<s:property value="price" /></span><br>
-									<s:hidden name="price" value="%{price}" />
+									<%-- <s:hidden name="price" value="%{price}" /> --%>
 								</s:if>
 
 								<br><br><a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">

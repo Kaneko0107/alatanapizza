@@ -62,13 +62,13 @@ height:auto;
 	<div class="slide-wrapper">
 		<div class="slide">
 			<div>
-				<a href='<s:url action="LoginAction"/>'><img src="./images/slide/slide1.jpg"></a>
+				<a href='<s:url action="ProductListAction?listFlg=1"/>'><img src="./images/slide/slide1.jpg"></a>
 			</div>
 			<div>
-				<a href='<s:url action="ProductListAction"/>'><img src="./images/slide/slide2.jpg"></a>
+				<a href='<s:url action="ProductListAction?listFlg=1"/>'><img src="./images/slide/slide2.jpg"></a>
 			</div>
 			<div>
-				<a href='<s:url action="ProductListAction"/>'><img src="./images/slide/slide4.jpg"></a>
+				<a href='<s:url action="ProductListAction?listFlg=1"/>'><img src="./images/slide/slide4.jpg"></a>
 			</div>
 		</div>
 	</div>

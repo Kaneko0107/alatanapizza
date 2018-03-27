@@ -92,10 +92,12 @@ opacity:0.8;
 		<div id="boxList">
 
 			<!-- チェックボックス,選択したものだけを削除 -->
+			<label>
 			<s:checkbox name="checkList" value="2" fieldValue="%{id}" />
 
 			<!-- 購入日時 -->
 			<s:property value="registDate" />
+			</label>
 
 			<!-- 画像 -->
 			<div class="main_content">

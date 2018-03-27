@@ -294,8 +294,8 @@ width:100%;
 
 
 
-		</s:if><br>
-	</s:if><a href="#"><i class="fa fa-chevron-up">ページの上に戻る</i></a></div><br>
+		</s:if>
+	</s:if><a href="#"><i class="fa fa-chevron-up">ページの上に戻る</i></a></div>
 
 	<p class="top">
 

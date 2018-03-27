@@ -16,6 +16,7 @@
 
 
 #main{width:50%;
+height:50%;
 }
 
 .icon{
@@ -51,7 +52,7 @@ text-align:center;
 
 	<tr><td><h3>ユーザー登録 完了</h3></td>
 	<tr>
-	<td colspan="2"><div class="moji2">ありがとうございます</div></td></tr>
+	<td colspan="2"><div class="moji2">ご登録ありがとうございます</div></td></tr>
 	<tr>
 	<td colspan="2"><hr></td></tr>
 <tr>

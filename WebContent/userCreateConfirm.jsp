@@ -35,7 +35,7 @@
 
 	<tr id="box">
 		<td>パスワード</td>
-		<td> <s:property value="loginPassword" /> </td>
+		<td> <s:property value="hidePassword" /> </td>
 	</tr>
 
 	<tr id="box">

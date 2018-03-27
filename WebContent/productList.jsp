@@ -98,7 +98,7 @@ width:100%;
 
 				<a
 					href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
-					<img class="image" src=./images/icon/shousai.png><br>
+					<img class="icon" src=./images/icon/shousai.png><br>
 				</a>
 			</div>
 
@@ -235,7 +235,7 @@ width:100%;
 
 				<a
 					href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
-					<img class="image" src=./images/icon/shousai.png><br>
+					<img class="icon" src=./images/icon/shousai.png><br>
 				</a>
 
 			</div>

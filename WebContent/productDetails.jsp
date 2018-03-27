@@ -14,6 +14,18 @@
 .icon{
 position:relative;
 top:8px;}
+
+.icon1{
+position:relative;
+right:100px;
+bottom:50px;
+
+}
+
+.icon1:hover{
+opacity:0.8;
+}
+
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -91,7 +103,7 @@ top:8px;}
 				<span class="favlist" >
 					<input type=hidden name=favoriteInsertFlg value="1" />
 					<input type=hidden name=product_id value='<s:property value="product_id"/>' />
-					<input type="image"  src=./images/icon/hart.png alt="お気に入り登録">
+					<input type="image" class="icon1" src=./images/icon/hart.png alt="お気に入り登録">
 				</span><span class="favcomment">お気に入りに登録</span>
 			</s:form>
 		</s:if></div>

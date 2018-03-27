@@ -8,7 +8,51 @@
 	<link rel="stylesheet" href="./css/alatanapizza.css">
 	<link rel="stylesheet" href="./css/cart.css">
 
+
+<style>
+.sort{
+width:150px;
+height:26px;
+background-color: rgba(0, 0, 0, 0.7);
+color:white;
+
+}
+.icon1{
+width:100px;
+height:26px;
+background-color:red;
+color:white;
+border-radius:5px;
+}
+
+.icon1:hover{
+opacity:0.8;
+}
+
+
+.icon2{
+width:150px;
+height:26px;
+background-color: rgba(0, 0, 0, 0.7);
+color:white;
+border-radius:5px;
+
+}
+
+.icon2:hover{
+opacity:0.8;
+}
+
+</style>
+
+
+
 <title>購入履歴</title>
+
+
+
+
+
 
 </head>
 <body>
@@ -32,13 +76,13 @@
 					<option value="2">値段 高い順</option>
 					<option value="3">値段 安い順</option>
 				</select>
-				<s:submit value="並び替え" />
+				<s:submit class="icon1" value="並び替え" />
 			</s:form>
 		</div>
 		<!-- ---------------------------------- -->
 
 
-
+<br><br>
 
 
 			<s:form action="PurchaseHistoryAction">
@@ -83,13 +127,13 @@
 
 		<!--  ■削除ボタン■ -->
 		<p id="delete">
-			<s:submit value="チェックした項目を削除" /></p>
+			<s:submit class="icon2" value="チェックした項目を削除" /></p>
 		</s:form>
 
 		<span class="all_delete">
 			<s:form action="PurchaseHistoryAction">
 				<input type="hidden" name="deleteFlg" value="1">
-				<s:submit value="履歴をすべて削除" />
+				<s:submit class="icon2" value="履歴をすべて削除" />
 			</s:form>
 		</span>
 

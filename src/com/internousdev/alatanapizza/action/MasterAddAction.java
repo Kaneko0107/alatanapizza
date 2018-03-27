@@ -75,6 +75,7 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 			session.put("insertDate", dateUtil.getDate());
 
 			result = SUCCESS;
+			
 			return result;
 		}
 		return result;

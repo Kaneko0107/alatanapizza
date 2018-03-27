@@ -76,7 +76,23 @@ hr {
 /*-------------------------------------------------------------------------
 	パスワード再設定
 -------------------------------------------------------------------------*/
+.error{
+color:red;
+text-align:center;
+font-weight:900;
+ font-size: 12px;
+}
+.image2 {
 
+	    text-align:right;
+	    margin-top: 5px;
+}
+.iconpass{
+	text-align:center;
+}
+.iconpass:hover{
+		opacity:0.8;
+		}
 
 
 

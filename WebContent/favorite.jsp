@@ -93,9 +93,16 @@
 				</s:iterator>
 
 						<div id="delete">
-							<s:submit value="削除"/>
-							<s:hidden name="deleteFlg" value="1" />
+							<s:submit value="選択した項目を削除"/>
+							<s:hidden name="deleteFlg" value="1"/>
 						</div>
+
+						<div id="deleteAll">
+							<s:submit value="全件削除"/>
+							<s:hidden name="deleteAllFlg" value="2" />
+						</div>
+
+
 
 						</s:form>
 					</s:if>

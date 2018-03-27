@@ -49,6 +49,8 @@ public class FavoriteDAO {
 
 	return favoriteDTO;
 }
+
+	//選択お気に入り削除
 	public int deleteFavoriteInfo(String product_id, String userid) {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -67,6 +69,43 @@ public class FavoriteDAO {
 		}
 		return count;
 	}
+
+	//全件お気に入り削除
+	public int deleteAllFavoriteInfo(String userId) {
+
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+
+		int result = 0;
+
+		//当該ユーザーのお気に入り全てを削除
+		String sql = "delete from favorite_info where user_id = ?";
+
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, userId);
+
+			result = ps.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			//connectionを閉じる
+			try {
+				con.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return result;
+	}
+
+
+
+
+
+
+
 
 	//カートテーブルにInsertメソッド
 	public int insertFavorite(String user_id, String product_id) throws SQLException {

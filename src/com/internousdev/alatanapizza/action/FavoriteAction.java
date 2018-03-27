@@ -19,6 +19,7 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> session;
 	private Collection<String> checkList;
 	private int deleteFlg;
+	private int deleteAllFlg;
 	private int favoriteInsertFlg;
 	private String message;
 	private String product_id;
@@ -43,16 +44,18 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 		  }
 		}
 
+//ログイン後お気に入り登録した場合-------------------------------------------------------------------
+
 		if (session.containsKey("userId")) {
 
-			//ログイン後お気に入り登録したら
+
 			if (favoriteInsertFlg == 1) {
 				favoriteList = dao.getFavoriteInfo(userId);
 				for (int i = 0; favoriteList.size() > i; i++) {
 					if (favoriteList.get(i).getProductId().equals(product_id)) {
 						canInsertFlg = false;
-						setMessage("すでにリストにある商品です");
-						System.out.println("すでにリストにある商品です");
+						setMessage("【すでにリストにある商品です】");
+						System.out.println("【すでにリストにある商品です】");
 						result = SUCCESS;
 						return result;
 					}
@@ -75,14 +78,17 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 				}
 				return result;
 			}
-			else if (deleteFlg == 1) {
+
+//選択削除ボタンが押された場合--------------------------------------------------------------------------------
+
+			 if (deleteFlg == 1) {
 
 					boolean checkFlg=false;
 
 					if(checkList==null) {
 						userId = session.get("userId").toString();
 						favoriteList = dao.getFavoriteInfo(userId);
-						setMessage("※チェックされていません");
+						setMessage("【チェックボックスにチェックを入れてください】");
 						checkFlg=true;
 
 						result = SUCCESS;
@@ -90,9 +96,9 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 
 					}
 
-
 					for (String deleteId : checkList) {
 						if(deleteId !="false") {
+
 							count += dao.deleteFavoriteInfo(deleteId, session.get("userId").toString());
 
 							deleteFlg = 0;
@@ -100,31 +106,34 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 							favoriteList = dao.getFavoriteInfo(userId);
 							result = SUCCESS;
 							setMessage(count+"件削除しました");
+
 						}else if(deleteId=="false") {
 							userId = session.get("userId").toString();
 							favoriteList = dao.getFavoriteInfo(userId);
-							setMessage("※チェックされていません");
+							setMessage("【チェックボックスにチェックを入れてください】");
 
 							result = SUCCESS;
 							return result;
 						}
-
-
-
-						}
+					}
 				}
-
-
-
-				//ログイン後お気に入り登録していなければ
 			else {
 				result = SUCCESS;
 				return result;
 			}
-		} //セッション鍵	("userId")が存在しない場合エラーページに移動させる
+
+			 if (deleteAllFlg==2) {
+					dao.deleteAllFavoriteInfo(userId);
+					deleteAllFlg=0;
+
+					result=SUCCESS;
+					setMessage("全件削除しました");
+				}
+
+
+		} //ログインしていない場合	("userId")が存在しない場合エラーページに移動させる-------------------------
 		else	{
 			result = "login";
-
 		}
 		return result;
 		}

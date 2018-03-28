@@ -15,13 +15,11 @@
 	var chooseList = document.getElementsByName('checkList');
 	function alertFunction() {
 		for (var i = 0; i < chooseList.length; i++) {
-			if (chooseList[i].checked) {
+			if (chooseList[i].checked)
 				return true;
-			} else {
-				alert('チェックボックスにチェックがついていません');
-				return false;
-			}
 		}
+		alert('チェックボックスにチェックがついていません');
+		return false;
 	}
 </script>
 
@@ -55,9 +53,7 @@
 
 	<div class="main">
 
-		<br>
-		<br>
-		<br>
+		<br> <br> <br>
 
 		<div class="empty">
 			<h3>お気に入り</h3>
@@ -130,9 +126,7 @@
 										<%-- <s:hidden name="price" value="%{price}" /> --%>
 									</s:if>
 
-									<br>
-									<br>
-									<a
+									<br> <br> <a
 										href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
 										<img class="image" src=./images/icon/shousai.png><br>
 									</a>

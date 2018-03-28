@@ -16,11 +16,12 @@ public class TopAction extends ActionSupport implements SessionAware{
 			session.put("loginFlg", false);
 			Integer tempUserId = Integer.valueOf((int) (Math.random() * 1000000));
 			session.put("tempUserId",tempUserId.toString());
-			System.out.println("--------");
-			System.out.println(tempUserId);
-			System.out.println(session.get("loginFlg"));
-	}
 
+		}else if(session == null){
+			session.put("loginFlg", false);
+			Integer tempUserId = Integer.valueOf((int) (Math.random() * 1000000));
+			session.put("tempUserId",tempUserId.toString());
+	}
 
 		}catch(Exception e){
 			throw new RuntimeException(e);

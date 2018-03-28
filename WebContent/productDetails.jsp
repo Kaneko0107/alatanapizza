@@ -222,7 +222,7 @@
 								<s:hidden name="product_id" value="%{product_id}" />
 
 								<br><br><a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
-									<img class="icon" src=./images/icon/shousai.png><br>
+									<img class="icon shousaiB" src=./images/icon/shousai.png><br>
 								</a>
 							</div>
 						</div>

@@ -14,34 +14,7 @@
 window.onunload=function(){};
 history.forward();
 </script>
-<style>
-tr td {
-	padding-right: 30px;
-	padding-left: 20px;
-	padding-top: 5px;
-}
-table {
-	width: 80%;
-	margin: 0 auto;
-	text-align: left;
-	padding-left:20px;
-}
-.moji{
-text-align:center;
-	    font-size: 20px;
-	    color: #FFCC33;
-}
-.moji2{
-text-align:center;
-	    font-size: 20px;
-	    color: #FFCC33;
-}
-.image2 {
 
-	    text-align:right;
-	    margin-top: 5px;
-	    }
-</style>
 </head>
 <body>
 <jsp:include page="include_header.jsp" />
@@ -94,7 +67,7 @@ text-align:center;
    <td colspan="2"><div class="moji2">変更内容が正しければ右のボタンで変更を完了してください。</div></td>
    </tr>
    <tr>
-   <td><a href='<s:url action="UserUpdateAction"/>'><img class="icon" src="./images/icon/modoru2.png"></a></td>
+   <td><a href='<s:url action="UserUpdateAction"/>'><img class="iconpass" src="./images/icon/modoru2.png"></a></td>
    <td><div class="image2"><s:a href="javascrrpt:void(0)"
 	onclick="document.UserUpdateCompleteAction.submit();return false;"
 	 class="button"><input type="image" class="image2" src="./images/icon/登録する .png" alt="touroku"></s:a></div>

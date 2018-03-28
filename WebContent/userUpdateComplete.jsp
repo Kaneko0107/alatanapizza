@@ -8,28 +8,16 @@
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <link rel="stylesheet" href="./css/alatanapizza.css">
+<link rel="stylesheet" href="./css/userAdd.css">
 <title>変更完了	</title>
-<style>
-.main{
-width:50%;
-margin-top:70px;
-margin-left:25%;
-margin-bottom:30px;
-}
-.moji {
-	    text-align: center;
-	    font-size: 18px;
-	    color: #FFCC33;
-	    margin-bottom:30px;
-	    }
-</style>
+
 </head>
 <body>
 <jsp:include page="include_header.jsp" />
 <div class="main">
-<div class="moji"><h3>ユーザー情報変更完了</h3></div>
+<div class="moji"><h2>ユーザー情報変更完了</h2></div>
 <div class="moji">
-<h3>ユーザー情報の変更が完了しました。</h3>
+<h2>ユーザー情報の変更が完了しました。</h2>
 <br>
 <a href="<s:url action='MyPageAction'></s:url>"  class="button">マイページ</a>
 </div>

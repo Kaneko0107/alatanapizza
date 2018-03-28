@@ -31,6 +31,8 @@ public class ClearUserCompleteAction extends ActionSupport implements SessionAwa
 			Integer tempUserId = Integer.valueOf((int) (Math.random() * 1000000));
 			session.put("tempUserId",tempUserId.toString());
 			session.put("loginFlg", false);
+			System.out.println("====");
+			System.out.println(session.get("tempUserId"));
 			result=SUCCESS;
 		}
 

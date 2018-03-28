@@ -40,7 +40,7 @@ tr td {
 
 
 .btn1{
- text-align:center;
+ text-align:right;
 	    margin-top: 5px;}
 
 
@@ -60,7 +60,7 @@ top:20px;
 }
 .icon2{
 position:relative;
-top:45px;
+top:42px;
 
 }
 

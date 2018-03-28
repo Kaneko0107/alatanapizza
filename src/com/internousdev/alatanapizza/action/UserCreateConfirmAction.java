@@ -111,12 +111,12 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 
 			}else{
-			errMsgList.add("そのIDは使われています。");
+			errMsgList.add("【そのIDは使われています】");
 			}
 
 		 // userCreate.jspでの入力欄が全て入力されていないなら、"未入力の項目があります"
 		}else{
-			errMsgList.add("未入力の項目があります");
+			errMsgList.add("【未入力の項目があります】");
 		}
 
 
@@ -124,65 +124,65 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 	// ユーザーID
 	if (loginUserId.length() > 8) {
-		errId1="ユーザーIDは8文字以内で入力してください";
+		errId1="【ユーザーIDは8文字以内で入力してください】";
 		errMsgListId.add(errId1);
 	}
 
 	if (!loginUserId.matches("^[0-9a-zA-Z]+$")) {
-		errId2="ユーザーIDは半角英数字で入力してください";
+		errId2="【ユーザーIDは半角英数字で入力してください】";
 		errMsgListId.add(errId2);
 	}
 
 
 	// パスワード
 	if (loginPassword.length() > 16) {
-		errPass1="パスワードは16文字以内で入力してください";
+		errPass1="【パスワードは16文字以内で入力してください】";
 		errMsgListPass.add(errPass1);
 	}
 	if (!loginPassword.matches("^[0-9a-zA-Z]+$")) {
-		errPass2="パスワードは半角英数字で入力してください";
+		errPass2="【パスワードは半角英数字で入力してください】";
 		errMsgListPass.add(errPass2);
 	}
 
 
 	// 名前
 	if (familyName.length() > 16) {
-		errName1="姓は1文字以上16文字以下で入力してください";
+		errName1="【姓は1文字以上16文字以下で入力してください】";
 		errMsgListFamilyName.add(errName1);
 	}
 
 	if (firstName.length() > 16) {
-		errName2="名は1文字以上16文字以下で入力してください";
+		errName2="【名は1文字以上16文字以下で入力してください】";
 		errMsgListFirstName.add(errName2);
 	}
 
 	if (!familyName.matches("^[a-zA-Z.ぁ-ん.一-龠]*$")) {
-		errName3="姓は半角英語、ひらがな、漢字で入力してください";
+		errName3="【姓は半角英語、ひらがな、漢字で入力してください】";
 		errMsgListFamilyName.add(errName3);
 	}
 
 	if (!firstName.matches("^[a-zA-Z.ぁ-ん.一-龠]*$")) {
-		errName4="名は半角英語、ひらがな、漢字で入力してください";
+		errName4="【名は半角英語、ひらがな、漢字で入力してください】";
 		errMsgListFirstName.add(errName4);
 	}
 
 	if (familyNameKana.length() > 16) {
-		errKana1="ふりがな(姓)は1文字以上16文字以下で入力してください";
+		errKana1="【ふりがな(姓)は1文字以上16文字以下で入力してください】";
 		errMsgListFamilyNameKana.add(errKana1);
 	}
 
 	if (firstNameKana.length() > 16) {
-		errKana2="ふりがな(名)は1文字以上16文字以下で入力してください";
+		errKana2="【ふりがな(名)は1文字以上16文字以下で入力してください】";
 		errMsgListFirstNameKana.add(errKana2);
 	}
 
 	if (!familyNameKana.matches("^[ぁ-ん]+$")) {
-		errKana3="ふりがな(姓)はひらがなで入力してください";
+		errKana3="【ふりがな(姓)はひらがなで入力してください】";
 		errMsgListFamilyNameKana.add(errKana3);
 	}
 
 	if (!firstNameKana.matches("^[ぁ-ん]+$")) {
-		errKana4="ふりがな(名)はひらがなで入力してください";
+		errKana4="【ふりがな(名)はひらがなで入力してください】";
 		errMsgListFirstNameKana.add(errKana4);
 	}
 
@@ -190,7 +190,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	// 性別
 	if (sex!=null) {
 		if (!sex.matches("^[0-1]+$")) {
-			errSex="性別を選択してください";
+			errSex="【性別を選択してください】";
 			errMsgListSex.add(errSex);
 		}
 	}
@@ -198,26 +198,26 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 	// メールアドレス
 	if (mail.length()<14 || mail.length()>32) {
-		errMail1="メールアドレスは14文字以上32文字以下で入力してください";
+		errMail1="【メールアドレスは14文字以上32文字以下で入力してください】";
 		errMsgListMail.add(errMail1);
 	}
 
 	if (!mail.matches("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$")) {
-		errMail2="メールアドレスは半角英数字と半角記号で入力してください";
+		errMail2="【メールアドレスは半角英数字と半角記号で入力してください】";
 		errMsgListMail.add(errMail2);
 	}
 
 
 	// 質問
 	if (!secretQuestion.matches("^[1-3]+$")) {
-		errQuestion="質問を選択してください";
+		errQuestion="【質問を選択してください】";
 		errMsgListQuestion.add(errQuestion);
 	}
 
 
 	// 答え
 	if (secretAnswer.length()>16) {
-		errAnswer="答えは1文字以上16文字以下で入力してください";
+		errAnswer="【答えは1文字以上16文字以下で入力してください】";
 		errMsgListAnswer.add(errAnswer);
 	}
 

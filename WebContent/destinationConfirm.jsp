@@ -32,6 +32,8 @@ hr{border: none;
 	color: #ffffff;
 	margin: 0 8 0 8;}
 
+
+
 h3{
 border-left:10px solid red;
 }
@@ -39,10 +41,10 @@ border-left:10px solid red;
 /*========ID LAYOUT========*/
 
 #main{
-width:50%;
+width:70%;
 background:rgba(0,0,0,0.5);
 margin-top:70px;
-margin-left:25%;
+margin-left:15%;
 margin-bottom:30px;
 }
 
@@ -72,6 +74,10 @@ tr td .memo{text-align:center;
 	height: 140px;
 	overflow: hidden;
 }
+
+.icon1{
+position:relative;
+left:20px;}
 
 </style>
 
@@ -119,12 +125,12 @@ function goDestAction(){
 
 
 			<tr>
-				<td><h3>以下の内容で登録します</h3></td>
+				<td colspan="2"><h3>以下の内容で登録します</h3></td>
 			</tr>
 
 <!--  白い点線 -->
 			<tr>
-				<td><hr></td>
+				<td colspan="2"><hr></td>
 			</tr>
 
 
@@ -213,7 +219,7 @@ function goDestAction(){
 
 <!--  白い点線 -->
 			<tr>
-				<td><hr></td>
+				<td colspan="2"><hr></td>
 			</tr>
 
 
@@ -223,11 +229,11 @@ function goDestAction(){
 <tr>
 	<td>
 	<s:submit class="memo icon" type="image" value="" src="./images/icon/modoru2.png" onclick="goDestAction();" />
-	<td>
+	</td>
 <!-- 送信画像アイコン -->
 	<td>
-	<s:submit class="icon" type="image" value="" src="./images/icon/touroku.png" onclick="goDestCompleteAction();" />
-	<td>
+	<s:submit class="icon1" type="image" value="" src="./images/icon/touroku.png" onclick="goDestCompleteAction();" />
+	</td>
 </tr>
 
 <!--     	<tr><td><div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()"><img src="./images/icon/modoru2.png"></a></div></td></tr> -->

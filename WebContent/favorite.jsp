@@ -11,34 +11,16 @@
 	<link rel="stylesheet" href="./css/cart.css">
 
 	<script type="text/javascript">
-	function alertFunction(){
-
-		var flag = 0;
-
-
-		if(!document.form.checkList.checked){
-
-			flag = 1;
-
+		var chooseList = document.getElementsByName('checkList');
+		function alertFunction(){
+			for(var i = 0; i<chooseList.length; i++){
+				if(chooseList[i].checked)
+					return true;
+			}
+			alert('チェックを入れてください');
+			return false;
 		}
-
-
-		if(flag){
-
-			window.alert('チェックされていません'); // チェックされていない場合は警告ダイアログを表示
-			return false; // 送信を中止
-
-		}
-		else{
-
-			return true; // 送信を実行
-
-		}
-
-	}
-
 	</script>
-
 
 
 <style>

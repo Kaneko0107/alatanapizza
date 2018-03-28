@@ -202,16 +202,22 @@
 				その他おすすめ商品</h3>
 					<s:iterator value="suggestList">
 						<div id="suggest">
-							<div>
-								<a href="<s:url action="ProductDetailsAction">
-									 <s:param name="product_id" value="%{product_id}" /></s:url>">
-										<img class="image" src="<s:property value='image_file_path'/> " alt="Photo" style="max-width: 250px; max-height: 200px;">
+							<div class="imageHover">
+								<a
+									href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+									<img class="image" src="<s:property value='image_file_path'/>"
+									alt="Photo" width="200" height="170"><br>
 								</a>
 							</div>
 							<div class="productInfo">
+							<div class="proName">
 								<s:property value="product_name" /><br>
+							</div>
+							<div class="proName2">
 								<s:property value="product_name_kana" /><br>
+							</div>
 
+							<div class="proName">
 								<s:if test="category_id==2">
 									M￥<s:property value="msize_price" />&nbsp;
 									L￥<s:property value="lsize_price" />
@@ -219,11 +225,12 @@
 								<s:if test="category_id==3 || category_id==4">
 									￥<s:property value="price" />
 								</s:if>
-								<s:hidden name="product_id" value="%{product_id}" />
+<%-- 								<s:hidden name="product_id" value="%{product_id}" /> --%>
 
-								<br><br><a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+								<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
 									<img class="icon shousaiB" src=./images/icon/shousai.png><br>
 								</a>
+							</div>
 							</div>
 						</div>
 					</s:iterator>

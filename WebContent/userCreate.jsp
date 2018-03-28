@@ -12,15 +12,16 @@
 	<link rel="stylesheet" href="./css/alatanapizza.css">
 	<link rel="stylesheet" href="./css/userAdd.css">
 
+
 <style>
+
 table {
 		width:60%;
 		margin:0 auto;
 		text-align:left;
 		}
 
-tr td {
-<<<<<<< HEAD
+ tr td {
 		padding-right:20px;
 		padding-left:20px;
 		padding-top:5px;
@@ -32,24 +33,6 @@ hr {
 		position:relative;
 		right:15px;
 		}
-=======
-	    padding-right:20px;
-	    padding-left:20px;
-	    padding-top:5px;
-	    width:50%;
-	    }
-hr{
-width:92%;
-position:relative;
-right:15px;
-}
->>>>>>> refs/remotes/origin/master
-
-.icon2{
-position:relative;
-right:25px;
-
-}
 
 .form {
 		background-color:rgba(200, 200, 200, 0.5);
@@ -58,9 +41,11 @@ right:25px;
 		border-radius:5px;
 		text-align:left;
 		}
+
 </style>
 
 	<title>ユーザー登録</title>
+
 </head>
 
 <body>

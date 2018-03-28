@@ -34,7 +34,7 @@
 <s:form action="ChangePasswordConfirmAction" >
 
 <tr>
-<td>ユーザーID;</td>
+<td>ユーザーID</td>
 <td>
 <s:if test="#session.saveId != null">
 <input type="text" value='<s:property value="#session.saveId"/>' name="userid" placeholder="1～8文字以内半角英数字" class="form"/>
@@ -45,7 +45,7 @@
 </td>
 </tr>
 <tr>
-<td>秘密の質問:</td>
+<td>秘密の質問</td>
 <td> <s:if test="secret_question==1">
             <select name="secret_question" class="form">
               <option value="">選択してください</option>
@@ -72,15 +72,15 @@
 </td>
 </tr>
 <tr>
-<td>答え:</td>
+<td>答え</td>
 <td><input type="text" name="secret_answer" value='<s:property value="secret_answer"/>'  class="form"/></td>
 </tr>
 <tr>
-<td>新しいパスワード:</td>
+<td>新しいパスワード</td>
 <td><input type="password" name="newpass" placeholder="1～16文字以内の半角英数字" class="form"/></td>
 </tr>
 <tr>
-<td>確認:</td>
+<td>確認</td>
 <td><input type="password" name="checkpass" placeholder="1～16文字以内の半角英数字" class="form"/></td>
 </tr>
 <tr><td colspan="2"><hr></td></tr>
@@ -88,7 +88,7 @@
 <td>
 <div class="image1"><a href='<s:url action="LoginAction"/>'><img class="icon" src="./images/icon/modoru2.png"></a></div>
 </td><td>
-<div class="image2"><input class="image2" type="image" src="./images/icon/kakuninn.png" alt=""></div></td>
+<div class="image2"><input class="icon2" type="image" src="./images/icon/kakuninn.png" alt=""></div></td>
 </tr>
 
 </s:form>

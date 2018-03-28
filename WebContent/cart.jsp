@@ -15,6 +15,10 @@
 position:relative;
 top:9px;
 }
+.icon3:hover{
+opacity:0.8;
+}
+
 </style>
 
 </head>
@@ -94,7 +98,7 @@ top:9px;
 				</s:form>
 			<!-- 商品詳細ボタン -->
 				<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="productId"/></s:url>">
-					<img class="image" src=./images/icon/shousai.png><br>
+					<img class="icon" src=./images/icon/shousai.png><br>
 				</a>
 			</div>
 			</div>

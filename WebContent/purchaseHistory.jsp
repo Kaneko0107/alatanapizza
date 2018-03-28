@@ -43,6 +43,10 @@ border-radius:5px;
 opacity:0.8;
 }
 
+#boxList{
+	height:40%;
+}
+
 </style>
 
 

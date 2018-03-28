@@ -15,7 +15,7 @@
 
 .product ul {
 	float: right;
-	width: 90%;
+	width: 80%;
 }
 
 .product ul li {
@@ -99,13 +99,10 @@ opacity:0.8;}
 }
 
 #productSearchAction{
-width: 70%;
+width: 50%;
 }
 
-#menu_and_search{
-width: 70%;
-hight: 52px;
-}
+
 
 </style>
 </head>
@@ -113,7 +110,7 @@ hight: 52px;
 
 	<div class="product">
 
-	<ul id="menu_and_search">
+	<ul>
 	<li><s:if test="#session.masterFlg"><div class="img1">
 		<a href='<s:url action="MasterAddAction"/>'class="icon"><img src="./images/icon/商品追加.png"></a></div>
 	</s:if>

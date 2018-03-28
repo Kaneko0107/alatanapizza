@@ -17,7 +17,7 @@
 				if(chooseList[i].checked)
 					return true;
 			}
-			alert('チェックを入れてください');
+			alert('チェックボックスにチェックがついていません');
 			return false;
 		}
 	</script>
@@ -57,14 +57,9 @@ font-size:12px;
 				<div class="empty">
 					<h3>お気に入り</h3>
 
-					<!-- すでにその商品がお気に入りにあった場合のメッセージ -->
-					<s:if test="checkFlg=false">
-						<span style="color: red;"><s:property value="message" /></span>
-					</s:if>
 
-					<s:if test="checkFlg=true">
 						<span style="color: red;"><s:property value="message" /></span>
-					</s:if>
+
 
 					<!-- お気に入りリストが空の場合 -->
 					<s:if test="favoriteList.size()==0">

@@ -10,23 +10,6 @@
 	<link rel="stylesheet" href="./css/product.css">
 
 <title>商品詳細画面</title>
-<style type="text/css">
-.icon2{
-position:relative;
-top:8px;}
-
-.icon1{
-position:relative;
-right:100px;
-bottom:50px;
-
-}
-
-.icon1:hover{
-opacity:0.8;
-}
-
-</style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
  <script src="./js/jquery-3.3.1.min.js"></script>

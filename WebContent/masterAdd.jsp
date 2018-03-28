@@ -35,7 +35,7 @@ text-align:right;
 }
 
 div.image{
-	text-align:right;
+	text-align:center;
 }
 
 
@@ -113,7 +113,6 @@ div.image{
 
 					<!-- 登録ボタン -->
 					<tr>
-					   <td>
 					   <td colspan="2">
 					   <div class="image"><s:a href="javascrrpt:void(0)"
 							onclick="document.MasterAddConfirmAction.submit();return false;"

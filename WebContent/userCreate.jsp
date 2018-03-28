@@ -32,9 +32,15 @@ tr td {
 	    width:50%;
 	    }
 hr{
-width:90%;
+width:92%;
 position:relative;
 right:15px;
+}
+
+.icon2{
+position:relative;
+right:25px;
+
 }
 
 .form {

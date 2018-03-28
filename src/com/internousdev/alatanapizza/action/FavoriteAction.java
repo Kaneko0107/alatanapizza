@@ -110,7 +110,7 @@ public class FavoriteAction extends ActionSupport implements SessionAware {
 						}else if(deleteId=="false") {
 							userId = session.get("userId").toString();
 							favoriteList = dao.getFavoriteInfo(userId);
-							setMessage("【チェックボックスにチェックを入れてください】");
+
 
 							result = SUCCESS;
 							return result;

@@ -5,11 +5,62 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
 	<meta http-equiv="Content-Style-Type" content="text/css" />
 	<link rel="stylesheet" href="./css/alatanapizza.css">
 	<link rel="stylesheet" href="./css/cart.css">
 
+	<script type="text/javascript">
+	function alertFunction(){
+
+		var flag = 0;
+
+
+		if(!document.form.checkList.checked){
+
+			flag = 1;
+
+		}
+
+
+		if(flag){
+
+			window.alert('チェックされていません'); // チェックされていない場合は警告ダイアログを表示
+			return false; // 送信を中止
+
+		}
+		else{
+
+			return true; // 送信を実行
+
+		}
+
+	}
+
+	</script>
+
+
+
+<style>
+
+.icon{
+width:180px;
+height:26px;
+background-color: rgba(0, 0, 0, 0.7);
+color:white;
+border-radius:5px;
+padding-bottom:2px;
+font-size:12px;
+}
+#boxList{
+	height:400px;
+
+</style>
+
 <title>お気に入りページ</title>
+
+
+
 
 
 </head>
@@ -98,13 +149,14 @@
 				</s:iterator>
 
 						<div id="delete">
-							<s:submit value="選択した項目を削除"/>
+							<p><button class="icon" onclick="alertFunction()">選択した項目を削除</button></p>
 							<s:hidden name="deleteFlg" value="1"/>
 						</div>
 						</s:form>
+
 						<s:form action="FavoriteAction">
 							<div id="deleteAll">
-								<s:submit value="全件削除"/>
+								<p><button class="icon" >全件削除</button></p>
 								<s:hidden name="deleteAllFlg" value="2" />
 							</div>
 						</s:form>

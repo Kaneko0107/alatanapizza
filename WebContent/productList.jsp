@@ -11,14 +11,13 @@
 
 <title>商品一覧</title>
 <style>
-.top{
-
-width:100%;
-text-align:center;
+.top {
+	width: 100%;
+	text-align: center;
 }
 
-.list{
-width:100%;
+.list {
+	width: 100%;
 }
 </style>
 
@@ -63,43 +62,49 @@ width:100%;
 			</div>
 			<div class="productInfo">
 				<!-- 商品名 -->
-				<s:property value="product_name" />
-				<br>
+				<div class="proName">
+					<s:property value="product_name" />
+					<br>
+				</div>
 
 				<!-- 商品かな -->
-				<s:property value="product_name_kana" />
-				<br>
 
+				<div class="proName2">
+					<s:property value="product_name_kana" />
+					<br>
+				</div>
 
 				<!-- カテゴリーが2(ピザ)の場合の価格 -->
-				<s:if test="category_id==2">
-					<img class="image" src="./images/icon/m.png" alt="Photo">￥<s:property
-						value="msize_price" />
-					<br>
-					<img class="image" src="./images/icon/l.png" alt="Photo">￥<s:property
-						value="lsize_price" />
-					<br>
-				</s:if>
+				<div class="">
+					<s:if test="category_id==2">
+						<img class="image" src="./images/icon/m.png" alt="Photo">￥<s:property
+							value="msize_price" />
+						<br>
+						<img class="image" src="./images/icon/l.png" alt="Photo">￥<s:property
+							value="lsize_price" />
+						<br>
+					</s:if>
 
-				<!-- カテゴリーが3(サイド)の場合の価格 -->
-				<s:if test="category_id==3">
-					<br>
-									￥<s:property value="price" />
-					<br>
-				</s:if>
+					<!-- カテゴリーが3(サイド)の場合の価格 -->
+					<s:if test="category_id==3">
+						<br>
+				￥<s:property value="price" />
+						<br>
+					</s:if>
 
-				<!-- カテゴリーが4(ドリンク)の場合の価格 -->
-				<s:if test="category_id==4">
-					<br>
-									￥<s:property value="price" />
-					<br>
-				</s:if>
+					<!-- カテゴリーが4(ドリンク)の場合の価格 -->
+					<s:if test="category_id==4">
+						<br>
+				￥<s:property value="price" />
+						<br>
+					</s:if>
 
+					<a
+						href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+						<img class="icon shousaiB" src=./images/icon/shousai.png><br>
+					</a>
 
-				<a
-					href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
-					<img class="icon" src=./images/icon/shousai.png><br>
-				</a>
+				</div>
 			</div>
 
 		</div>
@@ -200,44 +205,49 @@ width:100%;
 					</a>
 				</div>
 				<!-- 商品名 -->
-				<s:property value="product_name" />
-				<br>
+				<div class="proName">
+					<s:property value="product_name" />
+					<br>
+				</div>
 
 				<!-- 商品かな -->
-				<s:property value="product_name_kana" />
-				<br>
+
+				<div class="proName2">
+					<s:property value="product_name_kana" />
+					<br>
+				</div>
 
 				<!-- カテゴリーが2(ピザ)の場合の価格 -->
-				<s:if test="category_id==2">
-					<img class="image" src="./images/icon/m.png" alt="Photo">￥<s:property
-						value="msize_price" />
-					<br>
-					<img class="image" src="./images/icon/l.png" alt="Photo">￥<s:property
-						value="lsize_price" />
-					<br>
-				</s:if>
+				<div class="">
+					<s:if test="category_id==2">
+						<img class="image" src="./images/icon/m.png" alt="Photo">￥<s:property
+							value="msize_price" />
+						<br>
+						<img class="image" src="./images/icon/l.png" alt="Photo">￥<s:property
+							value="lsize_price" />
+						<br>
+					</s:if>
 
-				<!-- カテゴリーが3(サイド)の場合の価格 -->
-				<s:if test="category_id==3">
-					<br>
+					<!-- カテゴリーが3(サイド)の場合の価格 -->
+					<s:if test="category_id==3">
+						<br>
 				￥<s:property value="price" />
-					<br>
-				</s:if>
+						<br>
+					</s:if>
 
-				<!-- カテゴリーが4(ドリンク)の場合の価格 -->
-				<s:if test="category_id==4">
-					<br>
+					<!-- カテゴリーが4(ドリンク)の場合の価格 -->
+					<s:if test="category_id==4">
+						<br>
 				￥<s:property value="price" />
-					<br>
-				</s:if>
+						<br>
+					</s:if>
 
-				<%-- 商品詳細:<s:property value="product_description" /><br> --%>
+					<a
+						href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+						<img class="icon shousaiB" src=./images/icon/shousai.png><br>
+					</a>
 
-				<a
-					href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
-					<img class="icon" src=./images/icon/shousai.png><br>
-				</a>
-
+				</div>
 			</div>
 		</div>
 	</s:iterator>
@@ -248,8 +258,8 @@ width:100%;
 	<!-- リストにデータが入っている時-->
 
 	<div class="center" style="text-align: center;">
-	<s:if test="number > 8">
-		<s:if test="serachFlg == 1">
+		<s:if test="number > 8">
+			<s:if test="serachFlg == 1">
 
 
 				<!-- ページネーション:1ページ目のみ -->
@@ -294,14 +304,14 @@ width:100%;
 
 
 
+			</s:if>
 		</s:if>
-	</s:if><a href="#"><i class="fa fa-chevron-up">ページの上に戻る</i></a></div>
+		<a href="#"><i class="fa fa-chevron-up">ページの上に戻る</i></a>
+	</div>
 
 	<p class="top">
 
-	<!-- フッター-->
-	<jsp:include page="include_footer.jsp" />
-
-
+		<!-- フッター-->
+		<jsp:include page="include_footer.jsp" />
 </body>
 </html>

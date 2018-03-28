@@ -40,7 +40,7 @@ tr td {
 
 
 .btn1{
- text-align:center;
+ text-align:right;
 	    margin-top: 5px;}
 
 
@@ -60,7 +60,7 @@ top:20px;
 }
 .icon2{
 position:relative;
-top:45px;
+top:42px;
 
 }
 
@@ -84,7 +84,28 @@ top:45px;
 			}
 		});
 	});
+
+
 	</script>
+
+<script>
+
+	function deleteCheck(){if(window.confirm('退会いたします。よろしいですか？')){
+
+		return true
+		}else{
+		return false;
+
+	}
+
+	}
+
+
+	</script>
+
+
+
+
 <table>
 <s:form action="ClearUserCompleteAction" cssClass="form">
 <tr><td colspan="2"><h3>退会処理画面</h3></td></tr>
@@ -112,7 +133,7 @@ top:45px;
 <tr><td><a href='<s:url action="MyPageAction"/>'><img class="icon2"  src="./images/icon/modoru2.png"></a></td>
 <td><div class="btn1">同意する
 		<input id="checkBtn" type="checkbox"><br>
-		<input id="submitBtn"  disabled="disabled" type="image" src="./images/icon/taikai.png" value="退会する"  class="icon1">
+		<input id="submitBtn"  disabled="disabled" type="image" src="./images/icon/taikai.png" value="退会する"  class="icon1" onclick="return deleteCheck();">
 	</div></td></tr>
 
 </s:form>

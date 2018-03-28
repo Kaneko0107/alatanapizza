@@ -15,6 +15,7 @@
 
 .product ul {
 	float: right;
+	width: 90%;
 }
 
 .product ul li {
@@ -24,7 +25,7 @@
 
 .h_search {
 	background: #DDDDDD;
-	width: 350px;
+	width: 60%;
 	height: 38px;
 	border-radius: 5px;
 	background-color: rgba(0, 0, 0, 0.7);
@@ -83,7 +84,9 @@ position:relative;
 top:5px;
 
 }
-ul{margin-right:5px;}
+ul{
+margin-right:5px;
+}
 
 
 .img1:hover{
@@ -93,6 +96,16 @@ opacity:0.8;}
 
 .img1:hover{
     color:white;
+}
+
+#productSearchAction{
+width: 70%;
+}
+
+#menu_and_search{
+width: 70%;
+hight: 52px;
+}
 
 </style>
 </head>
@@ -100,7 +113,7 @@ opacity:0.8;}
 
 	<div class="product">
 
-		<ul>
+	<ul id="menu_and_search">
 	<li><s:if test="#session.masterFlg"><div class="img1">
 		<a href='<s:url action="MasterAddAction"/>'class="icon"><img src="./images/icon/商品追加.png"></a></div>
 	</s:if>
@@ -114,8 +127,7 @@ opacity:0.8;}
 
 
 
-			<li><s:form action="ProductSearchAction"
-					id="productSearchAction">
+			<li id="productSearchAction"><s:form action="ProductSearchAction">
 					<select name="categoryId" class="select">
 						<s:if test="categoryId != 1">
 							<option value="1">全てのカテゴリ</option>
@@ -146,7 +158,8 @@ opacity:0.8;}
 					<input type=hidden name="serachFlg" value="1" />
 					<s:textfield name="searchWord" class="h_search" />
 					<s:submit type="image" class="img" value="" src="./images/icon/serch.png" />
-				</s:form></li>
+				</s:form>
+			</li>
 
 
 		</ul>

@@ -65,11 +65,11 @@ div.image{
 		<p>追加したい商品情報を入力してください。</p>
 	</div>
 
-	<ul>
+	<tr>
 	<s:iterator value="errorMessageList">
-		<li><span style="color:red"><s:property/></span></li>
+		<td><span style="color:red"><s:property/><br></span></td>
 	</s:iterator>
-	</ul>
+	</tr>
 	<div class="main">
 			<table>
 				<s:form action="MasterAddConfirmAction"  method="post" enctype="multipart/form-data">

@@ -84,7 +84,7 @@ top:9px;
 			</div>
 
 			<!-- ピザサイズ表示 -->
-			<s:property value="pizzaSize"/>
+			<s:property value="pizzaSize"/>サイズ
 
 			<!-- 削除ボタン -->
 			<div class="deletebutton">

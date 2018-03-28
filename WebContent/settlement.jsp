@@ -23,9 +23,9 @@ margin-left:25%;
 height:80px;
 line-height:80px;
 }
-#boxList{
+/* #boxList{ */
 
-	height:340px;}
+/* 	height:340px;} */
 
 .icon2{
 position:relative;

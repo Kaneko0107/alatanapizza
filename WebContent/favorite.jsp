@@ -13,13 +13,29 @@
 	<script type="text/javascript">
 	function alertFunction(){
 
-		if(!document.form.checkList.unchecked){
+		var flag = 0;
 
-		alert("チェックボックスにチェックがついていません。");
+
+		if(!document.form.checkList.checked){
+
+			flag = 1;
 
 		}
-	}
 
+
+		if(flag){
+
+			window.alert('チェックされていません'); // チェックされていない場合は警告ダイアログを表示
+			return false; // 送信を中止
+
+		}
+		else{
+
+			return true; // 送信を実行
+
+		}
+
+	}
 
 
 

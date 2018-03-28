@@ -11,7 +11,7 @@ public class ClearUserCompleteAction extends ActionSupport implements SessionAwa
 	public Map<String,Object> session;
 
 	public String execute() throws SQLException{
-		String result=ERROR;
+		String result;
 
 		if(!(session.containsKey("userId"))){
 			result=ERROR;

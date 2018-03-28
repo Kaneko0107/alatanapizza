@@ -43,7 +43,7 @@
 
 <style>
 
-.icon{
+.icon2{
 width:180px;
 height:26px;
 background-color: rgba(0, 0, 0, 0.7);
@@ -149,14 +149,14 @@ font-size:12px;
 				</s:iterator>
 
 						<div id="delete">
-							<p><button class="icon" onclick="alertFunction()">選択した項目を削除</button></p>
+							<p><button class="icon2" onclick="alertFunction()">選択した項目を削除</button></p>
 							<s:hidden name="deleteFlg" value="1"/>
 						</div>
 						</s:form>
 
 						<s:form action="FavoriteAction">
 							<div id="deleteAll">
-								<p><button class="icon" >全件削除</button></p>
+								<p><button class="icon2" >全件削除</button></p>
 								<s:hidden name="deleteAllFlg" value="2" />
 							</div>
 						</s:form>

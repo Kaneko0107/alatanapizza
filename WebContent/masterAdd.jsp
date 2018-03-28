@@ -34,6 +34,10 @@ legend{
 text-align:right;
 }
 
+div.image{
+	text-align:right;
+}
+
 
 </style>
 
@@ -109,7 +113,9 @@ text-align:right;
 
 					<!-- 登録ボタン -->
 					<tr>
-					   <td><div class="image"><s:a href="javascrrpt:void(0)"
+					   <td>
+					   <td colspan="2">
+					   <div class="image"><s:a href="javascrrpt:void(0)"
 							onclick="document.MasterAddConfirmAction.submit();return false;"
 							 class="button"><input type="image" class="icon" src="./images/icon/登録する .png" alt="touroku"></s:a></div>
 					  </td>

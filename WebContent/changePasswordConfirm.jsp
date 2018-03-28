@@ -38,10 +38,10 @@ history.forward();
 
 <tr><td colspan="2"><hr></td></tr>
 
-			<tr><td><a class="image3" href="javascript:history.back();"><img  class="icon" src="./images/icon/modoru2.png"></a></td>
+			<tr><td><div class="image1"><a href="javascript:history.back();"><img  class="icon2" src="./images/icon/modoru2.png"></a></div></td>
 
 
-<td class="image2"><input type="image" class="image2" src="./images/icon/登録する .png" alt="touroku"></td></tr>
+<td class="image2"><input type="image" class="icon2" src="./images/icon/登録する .png" alt="touroku"></td></tr>
 			</s:form>
 
 </table>

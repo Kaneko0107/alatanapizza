@@ -150,10 +150,10 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 						//ArrayList<Integer> productIdList=new ArrayList<Integer>(); //整数型　製品リスト
 						//ArrayList<Integer> tempProductIdList=new ArrayList<Integer>(); //整数型　ゲスト用製品リスト
 
-						//Mapのsessionから取得するのでString型として取得したuserIdのカート情報をすべて引き出すメソッドを代入
-						cartList=cartInfoDAO.showUserCartList(session.get("userId").toString());
-						//tempUserIdのカート情報をすべて引き出すメソッドを代入
-						tempCartList=cartInfoDAO.showUserCartList(session.get("tempUserId").toString());
+//						//Mapのsessionから取得するのでString型として取得したuserIdのカート情報をすべて引き出すメソッドを代入
+//						cartList=cartInfoDAO.showUserCartList(session.get("userId").toString());
+//						//tempUserIdのカート情報をすべて引き出すメソッドを代入
+//						tempCartList=cartInfoDAO.showUserCartList(session.get("tempUserId").toString());
 
 //						ログイン後のカートの中身を生成
 //						int i=0;

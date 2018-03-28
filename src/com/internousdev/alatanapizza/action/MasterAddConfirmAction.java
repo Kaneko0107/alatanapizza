@@ -56,7 +56,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 		if (itemName.length() != 0 && itemKanaName.length() !=0 && itemPrice.length() != 0 && itemStock.length() != 0 && imageName.length() != 0) {
 			if (dao.checkItemInfo(itemName,itemKanaName)) {
-				errorMessageList.add("すでに登録されています。");
+				errorMessageList.add("すでに登録されています");
 			}
 			if(itemName.length() > 20){
 				errorMessageList.add("商品名は20文字以下で入力してください");

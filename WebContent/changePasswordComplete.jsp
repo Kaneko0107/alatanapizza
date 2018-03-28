@@ -23,7 +23,7 @@
 <s:else>
 <br>
 <table>
-<tr><td><div class="moji">再設定が完了しました。</div><br>
+<tr><td><h2>再設定が完了しました。</h2></td></tr>
 
 <tr>
 	<td colspan="2"><hr></td></tr>

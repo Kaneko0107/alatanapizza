@@ -140,7 +140,7 @@ text-align:center;
 								点）
 							</div>
 							<!-- ピザサイズ表示 -->
-							<s:property value="pizzaSize"/>
+							<s:property value="pizzaSize"/>サイズ
 
 						</div>
 

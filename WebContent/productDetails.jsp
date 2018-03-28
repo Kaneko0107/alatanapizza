@@ -96,17 +96,6 @@ opacity:0.8;
 	<!-- ヘッダー -->
 	<jsp:include page="include_header.jsp" />
 
-		<%--お気に入りボタン,非ログイン時は非表示 --%>
-		<div class="f">
-		<s:if test="#session.containsKey('userId')">
-			<s:form action="FavoriteAction">
-				<span class="favlist" >
-					<input type=hidden name=favoriteInsertFlg value="1" />
-					<input type=hidden name=product_id value='<s:property value="product_id"/>' />
-					<input type="image" class="icon1" src=./images/icon/hart.png alt="お気に入り登録">
-				</span><span class="favcomment">お気に入りに登録</span>
-			</s:form>
-		</s:if></div>
 
 	<s:form action="CartProductAction" name="select">
 
@@ -206,6 +195,17 @@ opacity:0.8;
 	</p>
 	</s:form>
 
+
+	<%--お気に入り登録,非ログイン時は非表示 --%>
+		<s:if test="#session.containsKey('userId')">
+			<s:form action="FavoriteAction">
+					<input type=hidden name=favoriteInsertFlg value="1" />
+					<input type=hidden name=product_id value='<s:property value="product_id"/>' />
+					<input type="submit" class="square_btn" value="お気に入り登録">
+			</s:form>
+		</s:if>
+
+
 		<a href='<s:url action="ProductListAction?listFlg=1"/>'>商品一覧画面に戻る</a><br><br>
 
 
@@ -225,7 +225,7 @@ opacity:0.8;
 										<img class="image" src="<s:property value='image_file_path'/> " alt="Photo" style="max-width: 250px; max-height: 200px;">
 								</a>
 							</div>
-							<div>
+							<div class="productInfo">
 								<s:property value="product_name" /><br>
 								<s:property value="product_name_kana" /><br>
 

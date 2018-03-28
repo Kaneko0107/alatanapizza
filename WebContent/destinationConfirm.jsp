@@ -32,6 +32,8 @@ hr{border: none;
 	color: #ffffff;
 	margin: 0 8 0 8;}
 
+
+
 h3{
 border-left:10px solid red;
 }
@@ -39,10 +41,10 @@ border-left:10px solid red;
 /*========ID LAYOUT========*/
 
 #main{
-width:50%;
+width:70%;
 background:rgba(0,0,0,0.5);
 margin-top:70px;
-margin-left:25%;
+margin-left:15%;
 margin-bottom:30px;
 }
 
@@ -73,6 +75,10 @@ tr td .memo{text-align:center;
 	overflow: hidden;
 }
 
+.icon1{
+position:relative;
+left:20px;}
+
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -80,7 +86,7 @@ tr td .memo{text-align:center;
 <script type="text/javascript">
 
 
-	$(function(){
+/* 	$(function(){
 		$(".imagehover .image").hover(
 		function(){
 			$(this).animate({
@@ -92,28 +98,42 @@ tr td .memo{text-align:center;
 				width:"180px"
 			});
 		});
-	});
+	}); */
+</script>
+
+<script>
+function goDestCompleteAction(){
+	document.getElementById("form").action = "DestCompleteAction";
+}
+function goDestAction(){
+
+	document.getElementById("form").action = "DestAction";
+}
 </script>
 
 </head>
 <body>
+
 <jsp:include page="include_header.jsp" />
 	<div id="top">
 	</div>
 
 	<div id="main">
-		<table>
+			<table>
+<s:form id="form" class="form">
+
+
 
 			<tr>
-				<td><h3>以下の内容で登録します</h3></td>
+				<td colspan="2"><h3>以下の内容で登録します</h3></td>
 			</tr>
 
 <!--  白い点線 -->
 			<tr>
-				<td><hr></td>
+				<td colspan="2"><hr></td>
 			</tr>
 
-			<s:form action="DestCompleteAction">
+
 
 <!-- 姓 -->
 				<tr>
@@ -197,44 +217,30 @@ tr td .memo{text-align:center;
 					<input type=hidden name="email" value='<s:property value="email"/>' /></td>
 				</tr>
 
-<!-- 送信画像アイコン -->
-				<tr>
-					<td><div class="imagehover"><s:submit class="icon" type="image" value="" src="./images/icon/touroku.png"/></div></td>
-				</tr>
-			</s:form>
-
 <!--  白い点線 -->
 			<tr>
-				<td><hr></td>
+				<td colspan="2"><hr></td>
 			</tr>
 
+
+
 <!-- 戻る画像アイコン -->
-	<s:form action="DestAction">
+
 <tr>
 	<td>
-	<input type=hidden name="familyName" value='<s:property value="familyName"/>' />
-	<input type=hidden name="firstName" value='<s:property value="firstName"/>' />
-	<input type=hidden name="familyNameKana" value='<s:property value="familyNameKana"/>' />
-	<input type=hidden name="firstNameKana" value='<s:property value="firstNameKana"/>' />
-	<input type=hidden name="zip11" value='<s:property value="zip11"/>' />
-	<input type=hidden name="addr11" value='<s:property value="addr11"/>' />
-<%-- 	<input type=hidden name="userAddress" value='<s:property value="userAddress"/>' /> --%>
-	<input type=hidden name="telNumber" value='<s:property value="telNumber"/>' />
-	<input type=hidden name="email" value='<s:property value="email"/>' />
-
-	<s:submit class="memo icon" type="image" value="" src="./images/icon/modoru2.png"/></td>
+	<s:submit class="memo icon" type="image" value="" src="./images/icon/modoru2.png" onclick="goDestAction();" />
+	</td>
+<!-- 送信画像アイコン -->
+	<td>
+	<s:submit class="icon1" type="image" value="" src="./images/icon/touroku.png" onclick="goDestCompleteAction();" />
+	</td>
 </tr>
-	</s:form>
-
-
-
-
-
 
 <!--     	<tr><td><div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()"><img src="./images/icon/modoru2.png"></a></div></td></tr> -->
 
-		</table>
 
+</s:form>
+		</table>
 		</div>
 
 <div class="footer">

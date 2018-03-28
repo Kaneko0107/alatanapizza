@@ -12,7 +12,7 @@
 </head>
 <style type="text/css">
 table{
-	width:80%;
+	width:60%;
 	margin:0 auto;
 	text-align: left;
 }
@@ -21,7 +21,7 @@ td{
 }
 
 fieldset{
-	width: 50%;
+	width: 45%;
 	background: rgba(0, 0, 0, 0.5);
 	margin:0 auto;
 	margin-top:80px;
@@ -39,7 +39,7 @@ legend{
 
 <fieldset>
 	<legend>
-		新商品追加確認画
+		追加確認画面
 	</legend>
 
 		<div class="confirm">
@@ -92,7 +92,7 @@ legend{
 
 			</table>
 		</div>
-</fieldset>
+
 
 		<s:form action="MasterAddCompleteAction">
 			<td>
@@ -110,7 +110,7 @@ legend{
 							<div class="back">
 								<a href="MasterAddAction.action">戻 る</a>
 							</div>
-
+</fieldset>
 
 
 	<jsp:include page="include_footer.jsp" />

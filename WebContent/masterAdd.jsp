@@ -17,7 +17,7 @@ table{
 	text-align: left;
 }
 fieldset{
-	width: 50%;
+	width: 45%;
 	background: rgba(0, 0, 0, 0.5);
 	margin:0 auto;
 	margin-top:80px;
@@ -38,6 +38,14 @@ div.image{
 	text-align:center;
 }
 
+.image{
+	margin-top:10%;
+	}
+
+.message{
+	margin-top:0;
+	}
+
 
 </style>
 
@@ -48,11 +56,13 @@ div.image{
 
 <fieldset>
 	<legend>
-		サイドメニュー追加画面
+		<img class="image" src="./images/icon/SIDE2.png" alt="icon">
+
 	</legend>
+	<h3 class="message">メニュー追加画面</h3>
 
 	<div class="instruction">
-		<h3>追加したい商品情報を入力してください。</h3>
+		<p>追加したい商品情報を入力してください。</p>
 	</div>
 
 	<ul>

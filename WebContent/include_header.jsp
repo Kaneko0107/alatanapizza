@@ -51,6 +51,10 @@ a:hover{
     color: #ff9900;
 }
 
+.gest{
+	font-weight: bold;
+	}
+
 
 </style>
 

@@ -12,42 +12,34 @@
 	<link rel="stylesheet" href="./css/alatanapizza.css">
 	<link rel="stylesheet" href="./css/userAdd.css">
 
-
 <style>
-
-
-
 table {
 		width:60%;
 		margin:0 auto;
-	    text-align:left;
-
-	    }
-
+		text-align:left;
+		}
 
 tr td {
-	    padding-right:20px;
-	    padding-left:20px;
-	    padding-top:5px;
-	    width:50%;
-	    }
-hr{
-width:90%;
-position:relative;
-right:15px;
-}
+		padding-right:20px;
+		padding-left:20px;
+		padding-top:5px;
+		width:50%;
+		}
+
+hr {
+		width:90%;
+		position:relative;
+		right:15px;
+		}
 
 .form {
-	    background-color:rgba(200, 200, 200, 0.5);
-	    width:250px;
-	    height:30px;
-	    border-radius:5px;
-	       text-align:left;
-	    }
-
+		background-color:rgba(200, 200, 200, 0.5);
+		width:250px;
+		height:30px;
+		border-radius:5px;
+		text-align:left;
+		}
 </style>
-
-
 
 	<title>ユーザー登録</title>
 </head>

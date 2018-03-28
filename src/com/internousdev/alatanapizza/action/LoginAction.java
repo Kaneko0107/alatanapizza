@@ -117,7 +117,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 
 				//ユーザーIDがDBに存在するか確認
 				if(!loginDAO.existsUserId(userId)){ //ユーザーIDがない
-					errorMessageList.add("・IDが正しくありません");
+					errorMessageList.add("【IDが正しくありません】");
 					result="login";
 				}else if(loginDTO.isMaster()){ //管理者ログイン判定
 					session.put("userId", loginDTO.getUserId()); //
@@ -257,7 +257,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 //						}
 
 					}else{
-						errorMessageList.add("入力されたパスワードが異なります。");
+						errorMessageList.add("【入力されたパスワードが異なります】");
 						result="login";
 					}
 

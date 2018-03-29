@@ -13,10 +13,6 @@
 <style type="text/css">
 
 
-#boxList{
-	width:19%;
-	height:auto;}
-
 .totalprice{
 font-size:25px;
 width:50%;

@@ -9,13 +9,19 @@
 <link rel="stylesheet" href="./css/alatanapizza.css">
 <link rel="stylesheet" href="./css/userAdd.css">
 
+<style>
+
+</style>
+
+
+
 <title>パスワード変更画面</title>
 
 </head>
 <body>
 <jsp:include page="include_header.jsp" />
 <div id="main">
-<table>
+<table class="table">
 <tr><td colspan="2"><h3>パスワード変更画面</h3></td></tr>
 <tr><td colspan="2"><hr></td></tr>
 <tr><td colspan="2"><div class="moji">お客様が以前登録されたユーザーIDと秘密の質問からパスワードを変更します</div></td></tr>

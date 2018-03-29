@@ -19,6 +19,7 @@ history.forward();
 <body>
 <jsp:include page="include_header.jsp" />
 <div id="main">
+<div class="center">
 <table>
 <tr><td colspan="2"><h3>変更内容確認画面</h3></td></tr>
 <tr><td colspan="2"><hr></td></tr>
@@ -28,12 +29,12 @@ history.forward();
 <s:form action="ChangePasswordCompleteAction">
 
 		 <tr>
-		 <td colspan="2"class="moji2"><span class="moji3">変更後のパスワード:<s:property value="%{hideNewPassword}"/></span></td>
-		 	<td><s:hidden name="newpass" value="%{newpass}" />
+		 <td colspan="2"class="moji2"><span class="moji3">変更後のパスワード:<s:property value="%{hideNewPassword}"/></span>
+		 <s:hidden name="newpass" value="%{newpass}" />
 			<s:hidden name="userid" value="%{userid}" />
 			<s:hidden name="secret_answer" value="%{secret_answer}"/>
-			<s:hidden name="secret_question" value="%{secret_question}"/>
-		</td>
+			<s:hidden name="secret_question" value="%{secret_question}"/></td>
+
 </tr>
 
 <tr><td colspan="2"><hr></td></tr>
@@ -45,6 +46,7 @@ history.forward();
 			</s:form>
 
 </table>
+</div>
 </div>
 <jsp:include page="include_footer.jsp"/>
 

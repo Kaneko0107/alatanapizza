@@ -29,7 +29,10 @@
 	<td colspan="2"><hr></td></tr>
 <tr>
 
-		<td><div class="iconpass"><a href='<s:url action="LoginAction"/>'><img class="iconpass" src="./images/icon/ログイン.png"></a></div></td>
+		<td><div class="iconpass"><a href='<s:url action="MyPageAction"/>'>マイページへ</a></div></td>
+		<td><div class="iconpass"><a href='<s:url action="HomeAction"/>'>ホームへ</a></div></td>
+
+
 	</tr>
 
 	</table>

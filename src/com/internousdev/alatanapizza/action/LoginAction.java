@@ -49,11 +49,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 
 	public String execute() throws SQLException{
 
-		//if("loginFlg".equals(true)){
-		//	loginFlgMessageList.add("すでにログイン済みです");
-		//}else if("loginFlg".equals(false)){
-		//	loginFlgMessageList.add("未ログイン");
-		//}
+
 		String result="login";
 		LoginDTO loginDTO=new LoginDTO();
 		LoginDAO loginDAO=new LoginDAO();
@@ -135,62 +131,8 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 						CartInfoDAO cartInfoDAO=new CartInfoDAO(); //newカートリスト
 						DestinationDAO destinationDAO=new DestinationDAO(); //new宛先
 						ArrayList<CartInfoDTO> tempCartList=new ArrayList<CartInfoDTO>(); //ゲスト用カートリスト
-						//ArrayList<Integer> productIdList=new ArrayList<Integer>(); //整数型　製品リスト
-						//ArrayList<Integer> tempProductIdList=new ArrayList<Integer>(); //整数型　ゲスト用製品リスト
 
-//						//Mapのsessionから取得するのでString型として取得したuserIdのカート情報をすべて引き出すメソッドを代入
-//						cartList=cartInfoDAO.showUserCartList(session.get("userId").toString());
-//						//tempUserIdのカート情報をすべて引き出すメソッドを代入
-//						tempCartList=cartInfoDAO.showUserCartList(session.get("tempUserId").toString());
 
-//						ログイン後のカートの中身を生成
-//						int i=0;
-//						for(i=0;i<cartList.size();i++){
-//							productIdList.add(cartList.get(i).getProductId());
-//						}
-//
-//						ゲスト時のカートの中身をリストとして生成
-//						i=0;
-//						for(i=0;i<tempCartList.size();i++){
-//							tempProductIdList.add(tempCartList.get(i).getProductId());
-//						}
-
-//						//カートの中身の重複を確認
-//						if(cartList.size()<tempCartList.size()){ //ログイン時のカートリスト < ゲスト用のカートリスト
-//							i=0;
-//							for(i=0;i<productIdList.size();i++){
-//
-//								boolean exist=tempProductIdList.contains(productIdList.get(i));
-//								if(exist){
-//									cartInfoDAO.changeProductStock(Integer.valueOf(cartList.get(i).getProductCount()),
-//											Integer.valueOf(productIdList.get(i)),session.get("userId").toString());
-//									//BuyItemCompleteActionにて合計金額の算出コードの記載あるのでこちらではいらない？
-//									cartInfoDAO.deleteSeparate(session.get("tempUserId").toString(),
-//											Integer.valueOf(productIdList.get(i)));
-//								}else{
-//									cartInfoDAO.changeUserId(session.get("tempUserId").toString(),
-//											session.get("userId").toString());
-//								}
-//								//System.out.println("TEST1"+exist);
-//							}
-//
-//						}else{ //ログインカートリスト < ゲスト用カートリスト　以外のケース
-//							i=0;
-//							for(i=0;i<tempProductIdList.size();i++){
-//
-//								boolean exist=productIdList.contains(tempProductIdList.get(i));
-//								if(exist){
-//									cartInfoDAO.changeProductStock(Integer.valueOf(cartList.get(i).getProductCount()),
-//											Integer.valueOf(productIdList.get(i)),session.get("userId").toString());
-//									cartInfoDAO.deleteSeparate(session.get("tempUserId").toString(),
-//											Integer.valueOf(tempProductIdList.get(i)));
-//								}else{
-//									cartInfoDAO.changeUserId(session.get("tempUserId").toString(),
-//											session.get("userId").toString());
-//								}
-//								//System.out.println("TEST2"+ exist);
-//							}
-//						}
 						String tempUserId = session.get("tempUserId").toString();
 						for(int i = 0; i < cartList.size(); i++) {
 							CartInfoDTO cart = cartList.get(i);
@@ -215,35 +157,6 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 						destinationInfoListDTO=destinationDAO
 								.obtainingDestinationInfo(session.get("userId").toString());
 
-//						//合計金額の計算
-//						totalPrice=calcTotalPrice(cartList); //calc==計算　の意味
-//
-//						//カート、宛先情報を引き継ぐ
-//						System.out.println("kessai:"+kessai);
-//
-//						if(kessai==1){
-//							if((boolean) session.get("loginFlg")){
-//								destinationInfoListDTO=destinationDAO
-//										.obtainingDestinationInfo(session.get("userId").toString());
-//							}
-//
-//							if(destinationInfoListDTO.size()>0){
-//								result=SUCCESS;
-//							}else if(!(boolean) session.get("loginFlg")){
-//								result="login";
-//								kessai=1;
-//								return result;
-//							}else{
-//								result="destination";
-//								return result;
-//							}
-//
-//							System.out.println("LoginAction:kessaiは1");
-//
-//							//合計金額の計算
-//							totalPrice=calcTotalPrice(cartList);
-//							return KESSAI;
-//						}
 
 						//カートページから跳んできた場合の判定
 						String target =(String) session.get("target");
@@ -312,13 +225,6 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		this.errorMessageList=errorMessageList;
 	}
 
-//	public int getKessai(){
-//		return kessai;
-//	}
-//	public void setKessai(int kessai){
-//		this.kessai=kessai;
-//	}
-
 	public String getFamilyName(){
 		return familyName;
 	}
@@ -380,17 +286,6 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 	}
 	public void setCartList(ArrayList<CartInfoDTO> cartList){
 		this.cartList=cartList;
-	}
-
-	//合計金額を計算するメソッド
-	public int calcTotalPrice(ArrayList<CartInfoDTO> cartList){
-		int totalPrice = 0; //初期合計金額0
-		for(CartInfoDTO cartInfoDTO : cartList){ //拡張for文　for(型 変数名 : 式){文}
-			//cartInfoDTOにcartListの値を代入して配列の数だけcartInfoDTOの表示を繰り返す
-			totalPrice += cartInfoDTO.getPrice() * cartInfoDTO.getProductCount();
-			System.out.println("合計" + totalPrice + "円");
-		}
-		return totalPrice;
 	}
 
 	public int getTotalPrice(){

@@ -61,7 +61,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 			if(itemName.length() > 20){
 				errorMessageList.add("商品名は20文字以下で入力してください");
 			}
-			if(itemKanaName.length() > 20){
+			if(itemKanaName.length() > 30){
 				errorMessageList.add("商品名(ひらがな)は30文字以下で入力してください");
 			}
 			if (!itemKanaName.matches("^[ぁ-んー]+$")) {

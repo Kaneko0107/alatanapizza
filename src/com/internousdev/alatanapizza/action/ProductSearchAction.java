@@ -22,12 +22,12 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 
 public class ProductSearchAction extends ActionSupport implements SessionAware {
-	private String searchWord;
+	private String searchWord = null;
 	private String searchWordHiragana;
 	private int categoryId;
 	private int pageNum;
 	private int number;
-	private int serachFlg;
+	private int searchFlg;
 	private ProductSearchDAO searchDAO = new ProductSearchDAO();
 	private ArrayList<ProductDTO> searchDTOList = new ArrayList<ProductDTO>();
 
@@ -44,13 +44,19 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 
 	public String execute() throws SQLException {
+
+		if (categoryId == 0){
+			return "target";
+		}
+
 		System.out.println("CATEGORYID:"+categoryId);
-		String ret = ERROR;
+		String result = ERROR;
+
 
 		if (searchWord.length() > 16) {
 			msgList.add("16字以内で検索してください");
-			ret = SUCCESS;
-			return ret;
+			result = SUCCESS;
+			return result;
 		} else {
 			msgList.add(searchWord);
 		}
@@ -65,8 +71,8 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		searchWordHiragana = searchWordHiragana.trim();
 		if (searchWordHiragana.matches("^[\\p{Punct}]+$")) {
 			msgList.add("一般的な検索ワードを使ってください");
-			ret = SUCCESS;
-			return ret;
+			result = SUCCESS;
+			return result;
 		}
 
 
@@ -103,9 +109,11 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
          *            検索機能
          -------------------------------------------------------------------*/
 
+
         if (categoryId == 1) {
         	//全てのカテゴリーを選択した場合
-        	if (!(searchWord.isEmpty())) {
+//        	if (!(searchWord.isEmpty())) {
+        	if (searchWord != null) {
         		//検索ワードを入力した場合
         		if (kuuhakunobasho > 0) {
         			//検索ワードが複数あった場合
@@ -118,9 +126,11 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
         		//検索ワードを入力しなかった場合
         		searchDTOList = searchDAO.byProductCategory(categoryId);
         	}
-        }
 
-        else {
+        	pageNation(number);
+        	result = SUCCESS;
+
+        } else if (categoryId > 1 && categoryId < 5){
         	//「全てのカテゴリー」以外を選択した場合
         	if (!(searchWord.isEmpty())) {
         		//検索ワードを入力した場合
@@ -137,18 +147,33 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
         	}
 
+        	pageNation(number);
+        	result = SUCCESS;
+
+        } else {
+        	categoryId = 1;
+        	searchDTOList = searchDAO.byProductCategory(categoryId);
+        	pageNation(number);
         }
 
-        //商品の数をnumberに格納
-        number = searchDTOList.size();
+//		searchWordHiragana = searchWord;
+		return result;
+	}
+
+
+
+	public void pageNation(int number) {
+
+		//商品の数をnumberに格納
+        this.number = searchDTOList.size();
         System.out.println("number = " + number);
 
         Iterator<ProductDTO> iterator = searchDTOList.iterator();
         if(!iterator.hasNext()) {
-            this.searchDTOList = null;
+            searchDTOList = null;
         }
 
-        if(number > 0) {
+        if(this.number > 0) {
 			//ページネーション処理
 			ArrayList<PageObject> allPages = new ArrayList<PageObject>();
 			AllPages allp = new AllPages();
@@ -157,13 +182,6 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 			setDisplaySearchList(allPages.get(pageNum-1).getPaginatedList());
 
 		}
-
-        ret = SUCCESS;
-
-
-
-		searchWordHiragana = searchWord;
-		return ret;
 	}
 
 	public String getSearchWord() {
@@ -255,12 +273,12 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		this.pageNum = pageNum;
 	}
 
-	public int getSerachFlg() {
-		return serachFlg;
+	public int getSearchFlg() {
+		return searchFlg;
 	}
 
-	public void setSerachFlg(int serachFlg) {
-		this.serachFlg = serachFlg;
+	public void setSearchFlg(int searchFlg) {
+		this.searchFlg = searchFlg;
 	}
 
 

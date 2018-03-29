@@ -255,7 +255,7 @@
 
 	<div class="center" style="text-align: center;">
 		<s:if test="number > 8">
-			<s:if test="serachFlg == 1">
+			<s:if test="searchFlg == 1">
 
 
 				<!-- ページネーション:1ページ目のみ -->
@@ -270,7 +270,7 @@
 							<s:param name="pageNum" value="pageNum-1"/>
 							<s:param name="searchWord" value="searchWord"/>
 							<s:param name="categoryId" value="categoryId"/>
-							<s:param name="serachFlg" value="serachFlg"/>
+							<s:param name="searchFlg" value="searchFlg"/>
 							</s:url>'>&laquo;<s:text
 							name="戻る" /></a>
 
@@ -291,7 +291,7 @@
 							<s:param name="pageNum" value="pageNum+1"/>
 							<s:param name="searchWord" value="searchWord"/>
 							<s:param name="categoryId" value="categoryId"/>
-							<s:param name="serachFlg" value="serachFlg"/>
+							<s:param name="searchFlg" value="searchFlg"/>
 							</s:url>'><s:text
 							name="進む" />&raquo;</a>
 

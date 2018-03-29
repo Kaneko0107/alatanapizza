@@ -152,7 +152,7 @@ width: 50%;
 						</s:if>
 					</select>
 					<input type=hidden name="pageNum" value="1" />
-					<input type=hidden name="serachFlg" value="1" />
+					<input type=hidden name="searchFlg" value="1" />
 					<s:textfield name="searchWord" class="h_search" />
 					<s:submit type="image" class="img" value="" src="./images/icon/serch.png" />
 				</s:form>

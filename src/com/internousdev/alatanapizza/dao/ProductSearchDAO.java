@@ -20,7 +20,6 @@ public class ProductSearchDAO {
 
 
 
-
 	/*
 	 * 商品を検索
 	 */

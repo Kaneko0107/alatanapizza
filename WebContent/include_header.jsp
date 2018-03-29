@@ -4,6 +4,16 @@
 <%
 	String userId = (String)session.getAttribute("userId");
 %>
+<!-- ファビコン設定 -->
+<script>
+window.onload = function() {
+	var link = document.createElement("link");
+	link.setAttribute("rel", "icon");
+	link.setAttribute("href", './images/icon/favicon.ico');
+	document.head.appendChild(link);
+}
+</script>
+
 <style>
 header {
 	width:100%;

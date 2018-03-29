@@ -19,13 +19,7 @@ history.forward();
 </script>
 <style type="text/css">
 /*========TAG LAYOUT========*/
-#main{
-width:70%;
-background:rgba(0,0,0,0.5);
-margin-top:60px;
-margin-left:15%;
-margin-bottom:30px;
-}
+
 /*========ID LAYOUT========*/
 </style>
 </head>

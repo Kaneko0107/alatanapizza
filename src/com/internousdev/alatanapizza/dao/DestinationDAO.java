@@ -48,7 +48,6 @@ public class DestinationDAO {
 		ps.setString(4, destinationDTO.getFamilyNameKana());
 		ps.setString(5, destinationDTO.getFirstNameKana());
 		ps.setString(6, destinationDTO.getAddr11());
-//		ps.setString(6, destinationDTO.getUserAddress());
 		ps.setString(7, destinationDTO.getTelNumber());
 		ps.setString(8, destinationDTO.getEmail());
 		ps.setString(9, destinationDTO.getZip11());
@@ -106,7 +105,6 @@ public class DestinationDAO {
 				destinationDTO.setTelNumber(rs.getString("tel_number"));
 				destinationDTO.setZip11(rs.getString("postal_code"));
 				destinationDTO.setAddr11(rs.getString("user_address"));
-//				destinationDTO.setUserAddress(rs.getString("user_address"));
 				destinationList.add(destinationDTO);
 			}
 		}catch(SQLException e){

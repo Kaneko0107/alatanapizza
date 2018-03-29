@@ -13,7 +13,6 @@ public class DestinationDTO {
 	private String firstNameKana;
 	private String zip11;
 	private String addr11;
-//	private String userAddress;
 	private String telNumber;
 	private String email;
 	private Date registDate;
@@ -69,21 +68,12 @@ public class DestinationDTO {
 		this.zip11 =zip11;
 	}
 
-
 	public String getAddr11(){
 		return addr11;
 	}
 	public void setAddr11(String addr11){
 		this.addr11 =addr11;
 	}
-
-
-//	public String getUserAddress(){
-//		return userAddress;
-//	}
-//	public void setUserAddress(String userAddress){
-//		this.userAddress =userAddress;
-//	}
 
 	public String getTelNumber(){
 		return telNumber;

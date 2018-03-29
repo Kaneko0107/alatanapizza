@@ -36,6 +36,7 @@ h3{
 border-left:10px solid red;
 }
 
+/* placeholderが見えづらいので色指定 */
 ::-webkit-input-placeholder {
   color:#000000;
 }
@@ -95,47 +96,15 @@ tr td .memo{text-align:center;
 <script src="./js/jquery-1.8.2.min.js"></script>
 <script>
 
-
-/* マウス乗せるとでかくなる */
-// $(function(){
-// 	$(".login .image").hover(
-// 	function(){
-// 		$(this).animate({
-// 			width:"300px"
-// 		});
-// 	},
-// 	function(){
-// 		$(this).animate({
-// 			width:"238px"
-// 		});
-// 	});
-// });
-
 /* 全角では入力できないように */
-	function checkForm($this) {
-	    var str = $this.value;
-	    while (str.match(/[^A-Z^a-z\d\-]/)) {
-	        str = str.replace(/[^A-Z^a-z\d\-]/, "");
-	        alert('IDは半角英数字で入力してください。');//案内用
-	    }
-	    $this.value = str;
-	}
 
-/* 森山君コード */
-// 114行目-122行目と同じ働きをしていますが、1文字1文字を確認する
-// 機能がないので、1つでも大文字が入っていると全クリアになります。
-// こちらのコードは携帯画面に対応しているようなので、携帯画面で
-// 入力エラーになっていましたら、こちらのコードをONにしてください。
-
-// 	function checkForm($this){
-// 		var str = $this.value;
-// 		if(str.match(/[^A-Z^a-z0-9]+/)){
-// 			alert('IDは半角英数字で入力してください。');
-// 			$this.value = "";
-// 		}
-// 	}
-
-
+ 	function checkForm($this){
+ 		var str = $this.value;
+ 		if(str.match(/[^A-Z^a-z0-9]+/)){
+ 			alert('IDは半角英数字で入力してください。');
+ 			$this.value = "";
+ 		}
+ 	}
 
 </script>
 </head>

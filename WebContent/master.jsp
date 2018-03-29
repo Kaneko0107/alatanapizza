@@ -6,59 +6,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="Content-Style-Type" content="text/css" />
-	<link rel="stylesheet" href="./css/alatanapizza.css">
+	<link rel="stylesheet" href="./css/master.css">
 
 <title>管理者ページ</title>
 
-<style type="text/css">
-.itemList{
-	float:left;
-	width:32.5%;
-}
-.add{
-	clear:both;
-
-
-}
-
-h1{
-	margin-top:50px;
-	margin-left:130px;
-}
-
-h3{
-color:white;}
-
-
-.select1{
-width:50px;
-height:22px;
-background-color: rgba(0, 0, 0, 0.7);
-color:white;
-}
-
-.submit{
-width:120px;
-height:25px;
-font-size:13px;
-background-color:gray;
-color:white
-}
-
-fieldset{
-	width: 30%;
-	background: rgba(0, 0, 0, 0.5);
-	margin:0 auto;
-	margin;top:30px;
-	margin-bottom:30px;
-}
-
-img.example1 {
-width: 96px;
-height: 65px;
-}
-
-</style>
 
 </head>
 <body>
@@ -82,32 +33,35 @@ height: 65px;
 <span style="color: yellow;"><s:property value="message"/></span>
 </p>
 </fieldset>
-
+<br><br>
+<div id="main">
 	<s:iterator value="productList">
+
+
 	<div class="itemList">
 
-				<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
-					<img class="image" src="<s:property value='image_file_path'/>" alt="Photo" width="200" height="170"><br>
-				</a>
+				<p><a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
+					<img class="image" src="<s:property value='image_file_path'/>" alt="Photo" width="200" height="170">
+				</a></p>
 			<!-- 商品名 -->
-				<s:property value="product_name" /><br>
+				<p><s:property value="product_name" /></p>
 
 			<!-- 商品かな -->
-				<s:property value="product_name_kana" /><br>
+				<p><s:property value="product_name_kana" /></p>
 
 			<!-- カテゴリーが2(ピザ)の場合の価格 -->
 				<s:if test="category_id==2">
-				<span>(M)</span>￥<s:property value="msize_price" /> &nbsp<span>(L)</span>￥<s:property value="lsize_price" /><br>
+				<p><span>(M)</span>￥<s:property value="msize_price" /> &nbsp<span>(L)</span>￥<s:property value="lsize_price" /></p>
 				</s:if>
 
 			<!-- カテゴリーが3(サイド)の場合の価格 -->
 				<s:if test="category_id==3">
-				￥<s:property value="price"/><br>
+				<p>￥<s:property value="price"/></p>
 				</s:if>
 
 			<!-- カテゴリーが4(ドリンク)の場合の価格 -->
 				<s:if test="category_id==4">
-				￥<s:property value="price"/><br>
+				<p>￥<s:property value="price"/></p>
 				</s:if>
 
 				<s:form action="MasterProductChangeAction">
@@ -116,9 +70,11 @@ height: 65px;
 				<s:select name="stock" list="%{productStockList.get(product_id)}" value="%{stock}" class="select1" />
 				<s:submit value="在庫を変更する" class="submit"/>
 				</s:form>
-
 		</div>
+
+
 	</s:iterator>
+	</div>
 
 </body>
 </html>

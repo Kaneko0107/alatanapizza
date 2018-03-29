@@ -130,6 +130,7 @@ top:42px;
 <tr><td><a href='<s:url action="MyPageAction"/>'><img class="icon2"  src="./images/icon/modoru2.png"></a></td>
 <td><div class="btn1">同意する
 		<input id="checkBtn" type="checkbox"><br>
+		<input type="hidden" name="clearFlg" value="clearFlg"/>
 		<input id="submitBtn"  disabled="disabled" type="image" src="./images/icon/taikai.png" value="退会する"  class="icon1" onclick="return deleteCheck();">
 	</div></td></tr>
 

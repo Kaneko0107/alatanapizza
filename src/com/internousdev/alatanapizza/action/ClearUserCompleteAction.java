@@ -9,11 +9,14 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ClearUserCompleteAction extends ActionSupport implements SessionAware{
 	public Map<String,Object> session;
+	private String clearFlg;
 
 	public String execute() throws SQLException{
-		String result;
+		String result=ERROR;
+		System.out.println("-----");
+		System.out.println(clearFlg);
 
-		if(!(session.containsKey("clearUser"))){
+		if(clearFlg==null || !(session.containsKey("loginFlg"))){
 			result=ERROR;
 		}
 		else{
@@ -47,5 +50,13 @@ public class ClearUserCompleteAction extends ActionSupport implements SessionAwa
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+	public String getClearFlg() {
+		return clearFlg;
+	}
+
+	public void setClearFlg(String clearFlg) {
+		this.clearFlg = clearFlg;
 	}
 }

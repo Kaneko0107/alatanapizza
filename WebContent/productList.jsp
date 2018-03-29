@@ -295,7 +295,7 @@
 							</s:url>'><s:text
 							name="進む" />&raquo;</a>
 
-				</s:else>
+				</s:else><br><br>
 
 
 

@@ -16,7 +16,6 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	private String firstNameKana;
 	private String zip11;
 	private String addr11;
-//	private String userAddress;
 	private String telNumber;
 	private String email;
 	private ArrayList<String> errorMessageList=new ArrayList<>();
@@ -62,10 +61,6 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 			errorMessageList.add(i.addr11Chk(addr11));
 			result =ERROR;
 		}
-//		if(!i.userAddressChk(userAddress).equals("OK")){
-//			errorMessageList.add(i.userAddressChk(userAddress));
-//			result =ERROR;
-//		}
 		if(!i.telNumberChk(telNumber).equals("OK")){
 			errorMessageList.add(i.telNumberChk(telNumber));
 			result =ERROR;
@@ -82,7 +77,6 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 				&&!(firstNameKana.equals(""))
 				&&!(email.equals(""))
 				&&!(telNumber.equals(""))
-//				&&!(userAddress.equals(""))
 				&&!(zip11.equals(""))
 				&&!(addr11.equals(""))){
 			session.put("familyName", familyName);
@@ -93,7 +87,6 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 			session.put("telNumber", telNumber);
 			session.put("zip11", zip11);
 			session.put("addr11", addr11);
-//			session.put("userAddress", userAddress);
 		}
 
 		return result;
@@ -140,13 +133,6 @@ public class DestConfirmAction extends ActionSupport implements SessionAware {
 	public void setAddr11(String addr11){
 		this.addr11=addr11;
 	}
-
-//	public String getUserAddress(){
-//		return userAddress;
-//	}
-//	public void setUserAddress(String userAddress){
-//		this.userAddress=userAddress;
-//	}
 
 	public String getTelNumber(){
 		return telNumber;

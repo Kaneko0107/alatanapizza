@@ -13,8 +13,6 @@
 <style type="text/css">
 
 
-
-
 .totalprice{
 font-size:25px;
 width:50%;
@@ -95,14 +93,11 @@ text-align:center;
 					<div class="main_content" style="overflow: hidden;">
 
 						<div class="img">
-							<s:url id="url" action="ProductDetailsAction">
-								<s:param name="product_id" value="productId" />
-							</s:url>
-							<s:a href="%{url}">
+
 								<img src='<s:property value="imageFilePath"/>' width="200"
 									height="170" alt="画像なし" />
 
-							</s:a>
+
 						</div>
 
 

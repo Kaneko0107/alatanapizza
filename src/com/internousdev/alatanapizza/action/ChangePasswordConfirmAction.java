@@ -123,16 +123,13 @@ else{
 
 if(!(newpass.equals("")) && !(checkpass.equals(""))){
 		if(newpass.length()<=1){
-			hideUserId = hideString(userid,0,2);
 			hideNewPassword = hideString(newpass,0,0);
 			session.put("hideNewPassword",hideNewPassword);
 		}
 		if(newpass.length()==2){
-			hideUserId = hideString(userid,0,2);
 			hideNewPassword = hideString(newpass,0,1);
 		}
 		if(newpass.length()>=3){
-			hideUserId = hideString(userid,0,2);
 			hideNewPassword = hideString(newpass,0,2);
 			session.put("hideNewPassword",hideNewPassword);
 		}

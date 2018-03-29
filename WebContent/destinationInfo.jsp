@@ -114,20 +114,6 @@ $(function(){
     }
 });
 
-/* マウス乗せるとでかくなる */
-/* 	$(function(){
-		$(".imagehover .image").hover(
-		function(){
-			$(this).animate({
-				width:"150px"
-			});
-		},
-		function(){
-			$(this).animate({
-				width:"132px"
-			});
-		});
-	}); */
 
 </script>
 <style>
@@ -226,21 +212,10 @@ font-size:15px;
 					<td><s:textfield class ="form zenkakuTOhankaku" placeholder="15文字以上50文字以下" name="addr11" maxlength ='50' value="%{addr11}" /></td>
 				</tr>
 
-<%-- <!-- 住所 -->
-				<tr>
-					<td>住所</td>
-				</tr>
-				<tr>
-					<td>[半角英数字記号、漢字、ひらがな、カタカナ]</td>
-				</tr>
-				<tr>
-					<td><s:textfield class ="form" placeholder="15文字以上50文字以下" name="userAddress" maxlength ='50' value="%{userAddress}" /></td>
-				</tr>
- --%>
 
 <!-- 電話番号 -->
 				<tr>
-					<td>電話番号 [半角数字ハイフン]</td>
+					<td>電話番号 [半角数字「-」ハイフン]</td>
 				</tr>
 				<tr>
 					<td><s:textfield class ="form zenkakuTOhankaku" placeholder="11文字以上13文字以下" name="telNumber" maxlength ='13' value="%{telNumber}"  /></td>

@@ -83,25 +83,9 @@ left:20px;}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="./js/jquery-1.8.2.min.js"></script>
-<script type="text/javascript">
-
-
-/* 	$(function(){
-		$(".imagehover .image").hover(
-		function(){
-			$(this).animate({
-				width:"250px"
-			});
-		},
-		function(){
-			$(this).animate({
-				width:"180px"
-			});
-		});
-	}); */
-</script>
-
 <script>
+
+/* フォーム内にフォーム入れられないためこの形で実装 */
 function goDestCompleteAction(){
 	document.getElementById("form").action = "DestCompleteAction";
 }
@@ -190,14 +174,6 @@ function goDestAction(){
 					<input type=hidden name="addr11" value='<s:property value="addr11"/>' /></td>
 				</tr>
 
-<%-- <!-- 住所 -->
-				<tr>
-					<td>-住所-</td>
-				</tr>
-				<tr>
-					<td><s:property value="userAddress" escape="false"/>
-					<input type=hidden name="userAddress" value='<s:property value="userAddress"/>' /></td>
-				</tr> --%>
 
 <!-- 電話番号 -->
 				<tr>

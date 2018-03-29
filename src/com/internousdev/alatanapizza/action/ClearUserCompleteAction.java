@@ -13,7 +13,7 @@ public class ClearUserCompleteAction extends ActionSupport implements SessionAwa
 	public String execute() throws SQLException{
 		String result;
 
-		if(!(session.containsKey("userId"))){
+		if(!(session.containsKey("clearUser"))){
 			result=ERROR;
 		}
 		else{

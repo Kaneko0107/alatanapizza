@@ -8,6 +8,22 @@
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <link rel="stylesheet" href="./css/alatanapizza.css">
 <link rel="stylesheet" href="./css/userAdd.css">
+
+
+<style>
+
+
+.iconComplete{
+text-align:center;
+}
+
+h2{
+color:white;
+font-size:18px;
+}
+</style>
+
+
 <title>パスワード変更完了</title>
 
 </head>
@@ -29,7 +45,10 @@
 	<td colspan="2"><hr></td></tr>
 <tr>
 
-		<td><div class="iconpass"><a href='<s:url action="LoginAction"/>'><img class="iconpass" src="./images/icon/ログイン.png"></a></div></td>
+		<td><div class="iconComplete"><a href='<s:url action="MyPageAction"/>'>マイページへ</a></div></td></tr><tr>
+		<td><div class="iconComplete"><a href='<s:url action="HomeAction"/>'>ホームへ</a></div></td>
+
+
 	</tr>
 
 	</table>

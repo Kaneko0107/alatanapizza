@@ -132,11 +132,12 @@ h2{
 -------------------------------------------------------------------------*/
 
 .form {
-	    background-color:rgba(200, 200, 200, 0.5);
-	    width:200px;
-	    height:30px;
-	    border-radius:5px;
-	    }
+		background-color:rgba(200, 200, 200, 0.5);
+		width:230px;
+		height:30px;
+		border-radius:5px;
+		text-align:left;
+		}
 
 .icon {
 		text-align:left;

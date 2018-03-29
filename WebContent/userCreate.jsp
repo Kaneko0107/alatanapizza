@@ -29,17 +29,9 @@ table {
 		}
 
 hr {
-		width:90%;
+		width:95%;
 		position:relative;
 		right:15px;
-		}
-
-.form {
-		background-color:rgba(200, 200, 200, 0.5);
-		width:250px;
-		height:30px;
-		border-radius:5px;
-		text-align:left;
 		}
 
 </style>

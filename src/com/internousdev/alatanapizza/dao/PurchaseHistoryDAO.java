@@ -53,7 +53,7 @@ public class PurchaseHistoryDAO {
 				dto.setCount(rs.getInt("product_count"));
 				dto.setReleaseCompany(rs.getString("release_company"));
 				dto.setReleaseDate(rs.getString("release_date"));
-				dto.setRegistDate(rs.getString("regist_date"));
+				dto.setRegistDate(rs.getString("regist_date").replaceAll("\\.0$", ""));
 				dto.setImageFileName(rs.getString("image_file_name"));
 				dto.setImageFilePath(rs.getString("image_file_path"));
 				dto.setProductDescription(rs.getString("product_description"));
@@ -104,7 +104,7 @@ public class PurchaseHistoryDAO {
 				dto.setCount(rs.getInt("product_count"));
 				dto.setReleaseCompany(rs.getString("release_company"));
 				dto.setReleaseDate(rs.getString("release_date"));
-				dto.setRegistDate(rs.getString("regist_date"));
+				dto.setRegistDate(rs.getString("regist_date").replaceAll("\\.0$", ""));
 				dto.setImageFilePath(rs.getString("image_file_path"));
 
 				purchaseHistoryDTOList.add(dto);
@@ -149,7 +149,7 @@ public class PurchaseHistoryDAO {
 				dto.setCount(rs.getInt("product_count"));
 				dto.setReleaseCompany(rs.getString("release_company"));
 				dto.setReleaseDate(rs.getString("release_date"));
-				dto.setRegistDate(rs.getString("regist_date"));
+				dto.setRegistDate(rs.getString("regist_date").replaceAll("\\.0$", ""));
 				dto.setImageFilePath(rs.getString("image_file_path"));
 
 				purchaseHistoryDTOList.add(dto);

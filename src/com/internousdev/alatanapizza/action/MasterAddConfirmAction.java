@@ -49,28 +49,31 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 		}
 
 		if (itemName == null || itemPrice == null || itemStock == null || itemKanaName == null || imageName == null) {
-			errorMessageList.add("全ての項目を入力してください");
+			errorMessageList.add("【全ての項目を入力してください】");
 			return result;
 		}
 		//文字列が空白でなければsuccessを返す。何か空白が入っている場合は、errorを返す。
 
 		if (itemName.length() != 0 && itemKanaName.length() !=0 && itemPrice.length() != 0 && itemStock.length() != 0 && imageName.length() != 0) {
 			if (dao.checkItemInfo(itemName,itemKanaName)) {
-				errorMessageList.add("すでに登録されています");
+				errorMessageList.add("【すでに登録されています】");
 			}
 			if(itemName.length() > 20){
-				errorMessageList.add("商品名は20文字以下で入力してください");
+				errorMessageList.add("【商品名は20文字以下で入力してください】");
+			}
+			if(!itemName.matches("^[a-zA-Z.ぁ-ん.ァ-ン.一-龠]*$")) {
+				errorMessageList.add("【商品名に記号は使えません】");
 			}
 			if(itemKanaName.length() > 30){
-				errorMessageList.add("商品名(ひらがな)は30文字以下で入力してください");
+				errorMessageList.add("【商品名(ひらがな)は30文字以下で入力してください】");
 			}
-			if (!itemKanaName.matches("^[ぁ-んー]+$")) {
-				errorMessageList.add("商品名(ひらがな)はひらがなで入力してください");
+			if (!itemKanaName.matches("^[ぁ-ん]+$")) {
+				errorMessageList.add("【商品名(ひらがな)はひらがなで入力してください】");
 			}
 			if(!itemPrice.matches("^[1-9][0-9]{0,5}$")){ //itemPriceが数字でない時（あるいは0の時も）
-				errorMessageList.add("価格は半角数字で正しい値（上限1万円)を入力してください");
+				errorMessageList.add("【価格は半角数字で正しい値（上限1万円)を入力してください】");
 			} else if(Integer.parseInt(itemPrice) > 10000) {
-				errorMessageList.add("価格は1万円以内にしてください");
+				errorMessageList.add("【価格は1万円以内にしてください】");
 			}
 			imagePath = "./images/newSide/" + imageName;
 			session.put("itemKanaName", itemKanaName);
@@ -85,7 +88,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 			result = SUCCESS;
 			return result;
 		}else {
-			errorMessageList.add("全ての項目を入力してください");
+			errorMessageList.add("【全ての項目を入力してください】");
 		}
 		return result;
 	}

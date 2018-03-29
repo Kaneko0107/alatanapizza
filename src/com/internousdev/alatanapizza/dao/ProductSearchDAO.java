@@ -24,7 +24,8 @@ public class ProductSearchDAO {
 	/*
 	 * 商品を検索
 	 */
-	public ArrayList<ProductDTO> bySearchWord(String searchWordHiragana, String searchWord, int categoryId) {
+	public ArrayList<ProductDTO> bySearchWord(String searchWordHiragana,
+			String searchWord, int categoryId) throws SQLException {
 		ArrayList<ProductDTO> searchDTOList = new ArrayList<ProductDTO>();
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -68,6 +69,8 @@ public class ProductSearchDAO {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			con.close();
 		}
 		return searchDTOList;
 
@@ -79,7 +82,7 @@ public class ProductSearchDAO {
 	 * @param categoryId
 	 * @return searchDTOList
 	 */
-	public ArrayList<ProductDTO> byProductCategory(int categoryId) {
+	public ArrayList<ProductDTO> byProductCategory(int categoryId) throws SQLException {
 		ArrayList<ProductDTO> searchDTOList = new ArrayList<ProductDTO>();
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -118,6 +121,8 @@ public class ProductSearchDAO {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			con.close();
 		}
 		return searchDTOList;
 
@@ -128,7 +133,8 @@ public class ProductSearchDAO {
 	/*
 	 * 複数検索
 	 */
-	public ArrayList<ProductDTO> byWords(String[] serchWords, String[] keywords, int categoryId) {
+	public ArrayList<ProductDTO> byWords(String[] serchWords,
+			String[] keywords, int categoryId) throws SQLException {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 		ArrayList<ProductDTO> searchDTOList = new ArrayList<ProductDTO>();
@@ -182,6 +188,8 @@ public class ProductSearchDAO {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			con.close();
 		}
 		return searchDTOList;
 

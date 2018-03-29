@@ -22,7 +22,11 @@ margin-bottom:30px;
 .moji {
 	    text-align: center;
 	    font-size: 15px;
-	    color: #FFCC33;
+	    }
+	    .moji2 {
+	    text-align: center;
+	    font-size: 15px;
+	   color:#FFCC33;
 	    }
 </style>
 </head>
@@ -32,6 +36,7 @@ margin-bottom:30px;
 <span class="moji">退会処理が完了いたしました。</span>
 <div class="moji">またのご利用をお待ちしております。</div>
 <div class="moji">このページは5秒後に自動的にホーム画面に移動します。</div>
+<div class="moji2"><a href='<s:url action="HomeAction"/>'>ホームへ</a></div>
 </div>
 
 

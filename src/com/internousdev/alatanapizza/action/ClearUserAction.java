@@ -12,6 +12,7 @@ public class ClearUserAction extends ActionSupport implements SessionAware{
 
 	String result=ERROR;
 	if((boolean)session.get("loginFlg")){
+		session.put("clearUser","ssss");
 		result=SUCCESS;
 	}
 	return result;

@@ -19,8 +19,6 @@
 table{
 	margin:0 auto;
 	text-align: left;
-	padding-left: 20%;
-	padding-right: 20%;
 }
 
 image{text-align:center;
@@ -41,9 +39,9 @@ border-left:10px solid red;
 /*========ID LAYOUT========*/
 
 #main{
-width:70%;
+width:95%;
 background:rgba(0,0,0,0.5);
-margin-top:70px;
+margin-top:60px;
 margin-left:15%;
 margin-bottom:30px;
 }
@@ -61,19 +59,11 @@ margin-bottom:30px;
 	color:black;
 }
 
-tr td .imagehover{text-align:center;
-margin-top:40px;
-}
 
 tr td .memo{text-align:center;
 }
 
-.imagehover {
-	clear:both;
-	width: 250px;
-	height: 140px;
-	overflow: hidden;
-}
+
 
 .icon1{
 position:relative;
@@ -85,7 +75,7 @@ left:20px;}
 <script src="./js/jquery-1.8.2.min.js"></script>
 <script>
 
-/* フォーム内にフォーム入れられないためこの形で実装 */
+/* フォーム内にフォームを入れ子することができないためこの形で実装 */
 function goDestCompleteAction(){
 	document.getElementById("form").action = "DestCompleteAction";
 }
@@ -96,12 +86,13 @@ function goDestAction(){
 </script>
 
 </head>
+
+
+<header>
+	<jsp:include page="include_header.jsp" />
+</header>
+
 <body>
-
-<jsp:include page="include_header.jsp" />
-	<div id="top">
-	</div>
-
 	<div id="main">
 			<table>
 <s:form id="form" class="form">
@@ -219,9 +210,10 @@ function goDestAction(){
 		</table>
 		</div>
 
-<div class="footer">
-<jsp:include page="include_footer.jsp" />
-</div>
-
 </body>
+
+<footer>
+	<jsp:include page="include_footer.jsp" />
+</footer>
+
 </html>

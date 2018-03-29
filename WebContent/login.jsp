@@ -19,8 +19,6 @@
 table{
 	margin:0 auto;
 	text-align: left;
-	padding-left: 20%;
-	padding-right: 20%;
 }
 
 image{text-align:center;
@@ -35,6 +33,8 @@ hr{border: none;
 h3{
 border-left:10px solid red;
 }
+
+
 
 /* placeholderが見えづらいので色指定 */
 ::-webkit-input-placeholder {
@@ -55,10 +55,10 @@ border-left:10px solid red;
 /*========ID LAYOUT========*/
 
 #main{
-width:50%;
+width:70%;
 background:rgba(0,0,0,0.5);
-margin-top:70px;
-margin-left:25%;
+margin-top:60px;
+margin-left:15%;
 margin-bottom:30px;
 }
 
@@ -82,12 +82,12 @@ margin-top:40px;
 tr td .memo{text-align:center;
 }
 
-.login {
+/* .login {
  clear:both;
  width: 300px;
   height: 140px;
   overflow: hidden;
-}
+} */
 
 
 </style>
@@ -109,16 +109,14 @@ tr td .memo{text-align:center;
 </script>
 </head>
 
+
+
+<header>
+	<jsp:include page="include_header.jsp" />
+</header>
+
 <body>
-<jsp:include page="include_header.jsp" />
-		<div id="top">
-		</div>
-
 		<div id="main">
-
-		<br>
-
-
 
 			<!-- テーブルはじまり -->
 			<table>
@@ -226,14 +224,16 @@ tr td .memo{text-align:center;
 					<div class="memo"><a href="javascript:void(0)" onclick="javascript:history.back()"><img class="icon" src="./images/icon/modoru2.png"></a></div>
 				</td>
 			</tr>
-				</table></div>
+				</table>
 
-
-		<div id ="footer">
-			<jsp:include page="include_footer.jsp" />
-		</div>
-
-
+			</div>
 </body>
+
+<footer>
+	<jsp:include page="include_footer.jsp" />
+</footer>
+
+
+
 
 </html>

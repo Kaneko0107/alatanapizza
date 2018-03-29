@@ -19,8 +19,6 @@
 table{
 	margin:0 auto;
 	text-align: left;
-	padding-left: 20%;
-	padding-right: 20%;
 }
 
 image{text-align:center;
@@ -55,7 +53,7 @@ border-left:10px solid red;
 /*========ID LAYOUT========*/
 
 #main{
-	width:70%;
+	width:80%;
 	background:rgba(0,0,0,0.5);
 	margin-top:70px;
 	margin-left:15%;
@@ -126,12 +124,12 @@ font-size:15px;
 
 </head>
 
+<header>
+	<jsp:include page="include_header.jsp" />
+</header>
+
+
 <body>
-<jsp:include page="include_header.jsp" />
-
-	<div id="top">
-	</div>
-
 	<div id="main">
 
 	<br>
@@ -251,13 +249,12 @@ font-size:15px;
 
 		</table>
 
-
-
 	</div>
-	<div id ="footer">
-	<jsp:include page="include_footer.jsp" />
-	</div>
+
 </body>
 
+<footer>
+	<jsp:include page="include_footer.jsp" />
+</footer>
 
 </html>

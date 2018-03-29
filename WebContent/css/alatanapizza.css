@@ -3,6 +3,33 @@
 /*-------------------------------------------------------------------------
 	共通
 -------------------------------------------------------------------------*/
+@media(max-width:1000px){
+body {
+	margin-bottom:100px;;
+	padding: 0;
+	line-height: 2.0;
+	letter-spacing: 1.5px;
+	font-family: arial black, Helvetica, sans-serif;
+	font-size: 15px;
+	color: white;
+	text-align: center;
+	background-color: black;
+	background-image:url("../images/icon/background.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	display:inline;
+}
+
+.icon:hover{
+opacity:0.8;
+}
+
+.shousaiB{
+	width:75%;
+}
+}
 body {
 	margin-bottom:100px;;
 	padding: 0;

@@ -231,11 +231,10 @@ text-align:center;
 	<s:iterator value="notSameCategoryList">
 	<div id="nscl">
 
-		<a href="<s:url action="BuyItemCompleteAction">
-			 <s:param name="category_id" value="%{category_id}" /></s:url>">
-		</a>
+		<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
 
 		<img class="image" src="<s:property value='image_file_path'/> " alt="Photo" style="max-width: 250px; max-height: 200px;">
+		</a>
 
 							<div>
 								<s:property value="product_name" /><br>

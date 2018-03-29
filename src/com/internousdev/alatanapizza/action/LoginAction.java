@@ -59,21 +59,10 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		LoginDAO loginDAO=new LoginDAO();
 
 
-
-
-
-
-
-
-
-
 		//ユーザーID入力チェック
 		if(userId==null){
 			return "login";
 		}
-
-
-
 
 
 		if(userId.equals("")){ //userIdが空欄
@@ -113,7 +102,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		if(!userId.equals("")){ //Idが空欄ではないとき
 			if(!password.equals("")){ //passも空欄ではないとき
 
-				loginDTO=loginDAO.select(userId,password);
+				loginDTO=loginDAO.select(userId,password);//userIdとpasswordがどちらも存在する場所からuser_infoを参照
 
 				//ユーザーIDがDBに存在するか確認
 				if(!loginDAO.existsUserId(userId)){ //ユーザーIDがない

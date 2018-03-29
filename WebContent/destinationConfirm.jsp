@@ -102,6 +102,7 @@ left:20px;}
 </script>
 
 <script>
+/* フォーム内にフォーム入れられないためこの形で実装 */
 function goDestCompleteAction(){
 	document.getElementById("form").action = "DestCompleteAction";
 }

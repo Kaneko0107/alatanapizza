@@ -76,9 +76,24 @@ opacity:0.8;
 			<!-- ■並び替えのプルダウン■ -->
 			<s:form action="PurchaseHistoryAction">
 				<select class="sort" name="sort">
+					<s:if test="sort == 1">
 					<option selected value="1">注文日 新しい順</option>
+					</s:if>
+					<s:if test="sort != 1">
+					<option value="1">注文日 新しい順</option>
+					</s:if>
+					<s:if test="sort == 2">
+					<option selected value="2">値段 高い順</option>
+					</s:if>
+					<s:if test="sort != 2">
 					<option value="2">値段 高い順</option>
+					</s:if>
+					<s:if test="sort == 3">
+					<option selected value="3">値段 安い順</option>
+					</s:if>
+					<s:if test="sort != 3">
 					<option value="3">値段 安い順</option>
+					</s:if>
 				</select>
 				<s:submit class="icon1" value="並び替え" />
 			</s:form>

@@ -245,6 +245,13 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 //							return KESSAI;
 //						}
 
+						//カートページから跳んできた場合の判定
+						String target =(String) session.get("target");
+						if(target != null && session.containsKey("loginFlg")){
+							session.remove("target");
+						result = "target";
+						}
+
 					}else{
 						errorMessageList.add("【入力されたパスワードが異なります】");
 						result="login";
@@ -260,14 +267,8 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		}else{
 			//System.out.println("IDが入力されていません");
 			result ="login";
+
 		}
-
-
-		String target =(String) session.get("target");
-		if(target != null && session.containsKey("loginFlg")){
-			session.remove("target");
-		result = "target";}
-
 
 
 	return result;

@@ -7,47 +7,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="./css/alatanapizza.css">
 	<link rel="stylesheet" href="./css/cart.css">
+	<link rel="stylesheet" href="./css/PurchaceHistory.css">
 
 
-<style>
-.sort{
-width:150px;
-height:26px;
-background-color: rgba(0, 0, 0, 0.7);
-color:white;
-
-}
-.icon1{
-width:100px;
-height:26px;
-background-color:red;
-color:white;
-border-radius:5px;
-}
-
-.icon1:hover{
-opacity:0.8;
-}
-
-
-.icon2{
-width:180px;
-height:26px;
-background-color: rgba(0, 0, 0, 0.7);
-color:white;
-border-radius:5px;
-
-}
-
-.icon2:hover{
-opacity:0.8;
-}
-
-#boxList{
-	height:40%;
-}
-
-</style>
 
 
 

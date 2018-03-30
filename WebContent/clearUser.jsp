@@ -9,63 +9,9 @@
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <meta http-equiv="imagetoolbar" content="text/javascript"/>
 <link rel="stylesheet" href="./css/alatanapizza.css">
+<link rel="stylesheet" href="./css/clear.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <title>退会画面</title>
-<style>
-table {
-	width: 80%;
-	margin: 0 auto;
-	text-align: left;
-}
-
-h3 {
-	border-left: 10px solid red;
-}
-
-
-.moji {
-	    text-align: center;
-	    font-size: 17px;
-	    color: #FFCC33;
-	    }
-
-
-
-
-tr td {
-	padding-right: 30px;
-	padding-left: 20px;
-	padding-top: 5px;
-}
-
-
-.btn1{
- text-align:right;
-	    margin-top: 5px;}
-
-
-	    hr {
-	    text-align:left;
-	    border:none;
-	    border-top:dashed 1px #ccc;
-	    height:1px;
-	    color:#ffffff;
-	    margin:0 8 0 8;
-	    }
-
-.icon1{
-position:relative;
-top:20px;
-
-}
-.icon2{
-position:relative;
-top:42px;
-
-}
-
-
-</style>
 
 </head>
 <body>

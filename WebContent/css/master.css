@@ -17,11 +17,11 @@ body {
 }
 #main{
 width:80%;
-background:rgba(0, 0, 0, 0.5);
 margin:0 auto;
 margin-top:80px;
 margin-bottom:100px;
 text-align: center;
+display:block;
 }
 
 .icon:hover{
@@ -33,11 +33,10 @@ opacity:0.8;
 }
 
 .itemList{
- padding-right:60px;
-	    padding-left:20px;
-	float:left;
+ padding-right:50px;
+	    padding-left:50px;
 margin:0 auto;
-	display:inline;
+	display:inline-block;
 word-wrap:break-word;
 }
 
@@ -64,7 +63,6 @@ height:25px;
 font-size:13px;
 background-color:gray;
 color:white;
-clear:both;
 }
 
 fieldset{
@@ -98,11 +96,11 @@ body {
 }
 #main{
 width:80%;
-background:rgba(0, 0, 0, 0.5);
 margin:0 auto;
 margin-top:80px;
 margin-bottom:100px;
 text-align: center;
+display:block;
 }
 
 .icon:hover{
@@ -114,9 +112,9 @@ opacity:0.8;
 }
 
 .itemList{
- padding-right:60px;
-	    padding-left:20px;
-float:left;
+ padding-right:50px;
+	    padding-left:50px;
+	    display:inline-block;
 margin:0 auto;
 	word-wrap:break-word;
 }
@@ -144,7 +142,6 @@ height:25px;
 font-size:13px;
 background-color:gray;
 color:white;
-clear:both;
 }
 
 fieldset{

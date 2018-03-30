@@ -27,7 +27,7 @@
 <s:else>
 <br>
 <table>
-<tr><td><h2>再設定が完了しました。</h2></td></tr>
+<tr><td><h3>再設定が完了しました。</h3></td></tr>
 
 <tr>
 	<td colspan="2"><hr></td></tr>

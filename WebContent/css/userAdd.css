@@ -28,6 +28,9 @@ hr {text-align:left;
 	    color:#ffffff;
 	    margin:0 8 0 8;
 	    }
+th{
+text-align:left;
+}
 	    .form {
 	    background-color:rgba(200, 200, 200, 0.5);
 	    width:50%;

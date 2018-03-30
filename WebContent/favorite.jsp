@@ -76,7 +76,7 @@
 					<s:iterator value="favoriteList" status="st">
 						<div id="boxList">
 							<!-- ここにsプロパティの値が詰まっている。
-							元をたどるとfavoriteActionのList favoriteactionの記載のfavoriteDTOの変数名-->
+							元をたどるとfavoriteActionのList favoriteActionの記載のfavoriteDTOの変数名-->
 
 							<div class="ph-box">
 
@@ -108,10 +108,10 @@
 									</s:a>
 									<br>
 
-									<%-- <s:hidden name="imageFileName" value='<s:property value="imageFileName"/>' /> --%>
+
 									<span><s:property value="productName" /></span><br>
 
-									<%-- <s:hidden name="productNameKana" value='<s:property value="productNameKana"/>' /> --%>
+
 									<span><s:property value="productNameKana" /></span><br>
 
 									<s:if test="categoryId==2">
@@ -123,7 +123,7 @@
 									<s:if test="categoryId==3 || categoryId==4">
 										<span>¥<s:property value="price" /></span>
 										<br>
-										<%-- <s:hidden name="price" value="%{price}" /> --%>
+
 									</s:if>
 
 									<br> <br> <a

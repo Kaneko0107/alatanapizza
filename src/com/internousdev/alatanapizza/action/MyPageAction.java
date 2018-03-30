@@ -37,7 +37,7 @@ public class MyPageAction extends ActionSupport implements SessionAware, ErrorMe
 		/*---------------------------------------------------------
 		 セッション情報取得
 		---------------------------------------------------------*/
-		if (!(session.containsKey("userId"))) {//loginページで設定 <s:if test="Message!=''">
+		if (!(session.containsKey("userId"))) {
 
 			setMessage("このサービスをご利用になるにはログインしてください。");
 

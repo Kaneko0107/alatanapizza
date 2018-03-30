@@ -48,7 +48,7 @@ public class MasterProductChangeAction extends ActionSupport implements SessionA
 			result = "error";
 			return result;
 		}
-		System.out.println("新しい在庫数: " + productId + "    " + stock);
+
 
 		if (productId != null && stock != null) {
 			int stock = Integer.parseInt(this.stock);

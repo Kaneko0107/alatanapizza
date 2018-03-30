@@ -16,7 +16,7 @@ public class DestinationDeleteDAO {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
-		//deleteFlg.equals("1")
+
 		String sql="DELETE FROM destination_info where user_id =?";
 
 		int result = 0;
@@ -40,7 +40,7 @@ public class DestinationDeleteDAO {
 
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
-		//(checkFlg.equals("2"))
+
 		String sql = "DELETE FROM destination_info where id = ?";
 
 
@@ -54,13 +54,7 @@ public class DestinationDeleteDAO {
 			result = ps.executeUpdate();
 
 
-//		try{
-//			PreparedStatement ps =con.prepareStatement(sql);
-//			for(int i=0;i<checkList.size();i++){
-//				String checkId =checkList.get(i);
-//				ps.setString(1, checkId);
-//				result+=ps.executeUpdate();
-//			}
+
 
 
 
@@ -79,7 +73,7 @@ public class DestinationDeleteDAO {
 
 
 
-	}//
+	}
 
 
 

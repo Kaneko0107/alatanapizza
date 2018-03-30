@@ -10,13 +10,6 @@ import com.internousdev.alatanapizza.dto.DestinationDTO;
 import com.internousdev.alatanapizza.util.DBConnector;
 
 
-/**
- * ログインフラグ？
- * ログインした状態であるかの判定が必要かどうか不安
- * とりあえずデータ格納できるようには書いた
- * @author internousdev
- *
- */
 public class DestinationKessaiDAO {
 	/**
 	 * DBにコネクトするため
@@ -44,7 +37,6 @@ public class DestinationKessaiDAO {
 				destinationDTO.setFirstName(rs.getString("first_name"));
 				destinationDTO.setFamilyNameKana(rs.getString("family_name_kana"));
 				destinationDTO.setFirstNameKana(rs.getString("first_name_kana"));
-				//destinationDTO.setSex(rs.getString("sex"));
 				destinationDTO.setAddr11(rs.getString("user_address"));
 				destinationDTO.setTelNumber(rs.getString("tel_number"));
 				destinationDTO.setEmail(rs.getString("email"));
@@ -61,59 +53,4 @@ public class DestinationKessaiDAO {
 	}
 }
 
-	/*	/**
-	 * 値定義
-	 * @param userId
-	 * @param familyName
-	 * @param firstName
-	 * @param familyNameKana
-	 * @param firstNameKana
-	 * @param email
-	 * @param telNumber
-	 * @param userAddress
-	 * @throws SQLException
-	 */
 
-	/*
-	public void createDestination(
-			String userId,
-			String familyName,
-			String firstName,
-			String familyNameKana,
-			String firstNameKana,
-			String email,
-			String telNumber,
-			String userAddress)throws SQLException{
-		/**
-		 * IDはSQLファイルのほうでAUTO_INCREMENTがされているので
-		 * その他の項目をpreparedStatementでセットさせてる
-		 *
-
-		try{
-			PreparedStatement preparedStatement=connection.prepareStatement(sql);
-			preparedStatement.setString(1, userId);
-			preparedStatement.setString(2, familyName);
-			preparedStatement.setString(3, firstName);
-			preparedStatement.setString(4, familyNameKana);
-			preparedStatement.setString(5, firstNameKana);
-			preparedStatement.setString(6, email);
-			preparedStatement.setString(7, telNumber);
-			preparedStatement.setString(8, userAddress);
-			preparedStatement.setString(9, dateUtil.getDate());
-
-			preparedStatement.execute();
-
-		}catch(Exception e){
-			/**
-			 * エラーなったらエラー文出す
-			 *
-			e.printStackTrace();
-		}finally{
-			/**
-			 * 切断
-			 *
-			con.close();
-		}
-	}
-
-*/

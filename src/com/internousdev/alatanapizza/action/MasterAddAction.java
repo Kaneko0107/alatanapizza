@@ -51,9 +51,9 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 		String context = ServletActionContext.getServletContext().getRealPath("/images/newSide");
 		File[] files = new File(context).listFiles();
 		for (File file : files) {
-		    if (file.isFile()) {
-		        imageFileNames.add(file.getName());
-		    }
+			if (file.isFile()) {
+				imageFileNames.add(file.getName());
+			}
 		}
 
 		//管理者フラグを確認する
@@ -75,7 +75,7 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 			session.put("insertDate", dateUtil.getDate());
 
 			result = SUCCESS;
-			
+
 			return result;
 		}
 		return result;
@@ -84,7 +84,6 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 	public ArrayList<String> getImageFileNames() {
 		return imageFileNames;
 	}
-
 	public void setImageFileNames(ArrayList<String> imageFileNames) {
 		this.imageFileNames = imageFileNames;
 	}
@@ -92,7 +91,6 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 	public String getItemName() {
 		return itemName;
 	}
-
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
@@ -100,7 +98,6 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 	public String getItemKanaName() {
 		return itemName;
 	}
-
 	public void setItemKanaName(String itemName) {
 		this.itemName = itemName;
 	}
@@ -108,7 +105,6 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 	public String getItemPrice() {
 		return itemPrice;
 	}
-
 	public void setItemPrice(String itemPrice) {
 		this.itemPrice = itemPrice;
 	}
@@ -116,7 +112,6 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 	public String getItemStock() {
 		return itemStock;
 	}
-
 	public void setItemStock(String itemStock) {
 		this.itemStock = itemStock;
 	}
@@ -124,7 +119,6 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 	public String getImageFileName() {
 		return imageFileName;
 	}
-
 	public void setImageFileName(String imageFileName) {
 		this.imageFileName = imageFileName;
 	}
@@ -132,7 +126,6 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 	public String getImageContentType() {
 		return imageContentType;
 	}
-
 	public void setImageContentType(String imageContentType) {
 		this.imageContentType = imageContentType;
 	}
@@ -141,6 +134,4 @@ public class MasterAddAction extends ActionSupport implements SessionAware {
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
-
 }

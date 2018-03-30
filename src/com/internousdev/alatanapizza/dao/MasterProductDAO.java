@@ -38,7 +38,6 @@ public class MasterProductDAO {
 			ps.setString(i++, "新商品！");//今はコメント変更付加
 			ps.setString(i++, "3"); // 今はサイドメニューのみ対応
 
-			System.out.println(ps);
 			ps.executeUpdate();
 		}catch(Exception e){
 			throw new RuntimeException(e);

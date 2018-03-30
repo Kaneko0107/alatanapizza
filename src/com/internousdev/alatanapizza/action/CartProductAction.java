@@ -16,7 +16,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 
 	//商品ID_商品購入ページから持ってくる
 	private int productId;
-	private int product; // ピザを追加した時のサイズ別の値段
+	private int product; // ピザ追加時のサイズ別の値段
 	private String errorMessage;
 
 	//セッション情報
@@ -65,7 +65,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 			userId =(String)session.get("tempUserId");
 		}
 
-		// ブラウザのリロード時はカートを取得してすぐにsuccessにする。
+		// ブラウザのリロード時はカートを取得してsuccessに入れる
 		if (productId == 0 || productCount == 0) {
 			cartList = dao.showUserCartList(userId);
 			totalPrice = calcTotalPrice(cartList);
@@ -79,8 +79,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 			return "success";
 		}
 
-		// 以下はカートに商品追加時のための処理
-
+		//カートにトッピング追加時のための処理
 		if (topping_id_1 != null) toppings.add(1);
 		if (topping_id_2 != null) toppings.add(2);
 		if (topping_id_3 != null) toppings.add(3);
@@ -93,7 +92,6 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 		if (topping_id_10 != null) toppings.add(10);
 		if (topping_id_11 != null) toppings.add(11);
 		if (topping_id_12 != null) toppings.add(12);
-
 
 
 		String pizzaSize = null;
@@ -129,7 +127,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 		return totalPrice;
 	}
 
-	//セッション
+
 	public Map<String,Object>getSession(){
 		return session;
 	}
@@ -137,7 +135,6 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 		this.session = session;
 	}
 
-	//商品ID
 	public String getProductId(){
 		return Integer.valueOf(productId).toString();
 	}
@@ -145,7 +142,6 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 		this.productId = Integer.parseInt(productId);
 	}
 
-	//商品価格
 	public String getPrice(){
 		return price;
 	}
@@ -153,7 +149,6 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 		this.price = price;
 	}
 
-	//カート情報
 	public ArrayList<CartInfoDTO>getCartList(){
 		return cartList;
 	}
@@ -161,7 +156,6 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 		this.cartList = cartList;
 	}
 
-	//カート内の商品個数
 	public int getProductCount(){
 		return productCount;
 	}
@@ -169,7 +163,6 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 		this.productCount = productCount;
 	}
 
-	//カート個数
 	public int setCount(){
 		return count;
 	}
@@ -180,7 +173,6 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 	public int getProduct() {
 		return product;
 	}
-
 	public void setProduct(int product) {
 		this.product = product;
 	}
@@ -188,7 +180,6 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 	public String getErrorMessage() {
 		return errorMessage;
 	}
-
 	public void setErrorMessage(String errorMessage) {
 		this.errorMessage = errorMessage;
 	}

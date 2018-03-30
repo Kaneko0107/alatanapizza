@@ -21,37 +21,26 @@ public class MasterAddConfirmDAO {
 	ProductDTO dto=new ProductDTO();
 
 
-
 	private String sql="SELECT * from product_info where product_name= ? or product_name_kana = ?";
 
 
 
+	public boolean checkItemInfo(String itemName,String itemKanaName) throws SQLException{
 
-public boolean checkItemInfo(String itemName,String itemKanaName) throws SQLException{
+		try{
+			PreparedStatement preparedStatement=connection.prepareStatement(sql);
 
-	try{
-		PreparedStatement preparedStatement=connection.prepareStatement(sql);
-
-		preparedStatement.setString(1, itemName);
-		preparedStatement.setString(2, itemKanaName);
+			preparedStatement.setString(1, itemName);
+			preparedStatement.setString(2, itemKanaName);
 
 
-		ResultSet resultSet=preparedStatement.executeQuery();
-		return resultSet.next();
-	}catch(Exception e){
-		throw new RuntimeException(e);
-	}finally{
-		connection.close();
+			ResultSet resultSet=preparedStatement.executeQuery();
+			return resultSet.next();
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			connection.close();
+		}
 	}
 }
-
-
-}
-
-
-
-
-
-
-
 

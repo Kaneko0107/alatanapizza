@@ -11,24 +11,21 @@ import com.internousdev.alatanapizza.dto.CartInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
-
-//カート内の商品を削除するクラス
 public class CartDeleteAction extends ActionSupport implements SessionAware {
 
 
-		//カートID
-		private int id;
+	//カートID
+	private int id;
 
-		//セッション情報
-		private Map<String, Object> session;
+	private Map<String, Object> session;
 
-		//カート内の商品情報リスト
-		private ArrayList<CartInfoDTO>cartList = new ArrayList<CartInfoDTO>();
+	//カート内の商品情報リスト
+	private ArrayList<CartInfoDTO>cartList = new ArrayList<CartInfoDTO>();
 
-		//カート内の金額
-		public int total_price;
+	//カート内の金額
+	public int total_price;
 
-		private CartInfoDAO dao = new CartInfoDAO();
+	private CartInfoDAO dao = new CartInfoDAO();
 
 	//カート情報を削除するメソッド
 	public String execute() throws SQLException {
@@ -58,14 +55,13 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 	public int calcTotalPrice(ArrayList<CartInfoDTO>cartList){
 		int totalPrice = 0;
 		for(CartInfoDTO dto : cartList){
-		totalPrice += dto.getPrice();
-		System.out.println("合計" + totalPrice + "円");
+			totalPrice += dto.getPrice();
+			System.out.println("合計" + totalPrice + "円");
 		}
 		return totalPrice;
-		}
+	}
 
 
-	//セッション
 	public Map<String, Object> getSession() {
 		return session;
 	}
@@ -73,7 +69,6 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 		this.session = session;
 	}
 
-	//商品ID
 	public String getId() {
 		return Integer.valueOf(id).toString();
 	}
@@ -81,7 +76,6 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 		this.id = Integer.parseInt(id);
 	}
 
-	//カート情報
 	public ArrayList<CartInfoDTO> getCartList() {
 		return cartList;
 	}
@@ -89,7 +83,6 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 		this.cartList = cartList;
 	}
 
-	//合計金額
 	public int getTotalPrice() {
 		return total_price;
 	}

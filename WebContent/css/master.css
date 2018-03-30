@@ -1,0 +1,161 @@
+@media(max-width:700px){
+body {
+	margin-bottom:100px;;
+	padding: 0;
+	line-height: 2.0;
+	letter-spacing: 1.5px;
+	font-family: arial black, Helvetica, sans-serif;
+	font-size: 15px;
+	color: white;
+	text-align: center;
+	background-color: black;
+	background-image:url("../images/icon/background.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+#main{
+width:80%;
+background:rgba(0, 0, 0, 0.5);
+margin:0 auto;
+margin-top:80px;
+margin-bottom:100px;
+text-align: center;
+}
+
+.icon:hover{
+opacity:0.8;
+}
+
+.shousaiB{
+	width:75%;
+}
+
+.itemList{
+ padding-right:60px;
+	    padding-left:20px;
+	float:left;
+margin:0 auto;
+	display:inline;
+word-wrap:break-word;
+}
+
+
+h1{
+	margin-top:50px;
+	margin-left:130px;
+}
+
+h3{
+color:white;}
+
+
+.select1{
+width:50px;
+height:22px;
+background-color: rgba(0, 0, 0, 0.7);
+color:white;
+}
+
+.submit{
+width:120px;
+height:25px;
+font-size:13px;
+background-color:gray;
+color:white;
+clear:both;
+}
+
+fieldset{
+	width: 30%;
+	background: rgba(0, 0, 0, 0.5);
+	margin:0 auto;
+	margin;top:30px;
+	margin-bottom:30px;
+}
+
+img.example1 {
+width: 96px;
+height: 65px;
+}
+}
+body {
+	margin-bottom:100px;;
+	padding: 0;
+	line-height: 2.0;
+	letter-spacing: 1.5px;
+	font-family: arial black, Helvetica, sans-serif;
+	font-size: 15px;
+	color: white;
+	text-align: center;
+	background-color: black;
+	background-image:url("../images/icon/background.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+#main{
+width:80%;
+background:rgba(0, 0, 0, 0.5);
+margin:0 auto;
+margin-top:80px;
+margin-bottom:100px;
+text-align: center;
+}
+
+.icon:hover{
+opacity:0.8;
+}
+
+.shousaiB{
+	width:75%;
+}
+
+.itemList{
+ padding-right:60px;
+	    padding-left:20px;
+float:left;
+margin:0 auto;
+	word-wrap:break-word;
+}
+
+
+h1{
+	margin-top:50px;
+	margin-left:130px;
+}
+
+h3{
+color:white;}
+
+
+.select1{
+width:50px;
+height:22px;
+background-color: rgba(0, 0, 0, 0.7);
+color:white;
+}
+
+.submit{
+width:120px;
+height:25px;
+font-size:13px;
+background-color:gray;
+color:white;
+clear:both;
+}
+
+fieldset{
+	width: 30%;
+	background: rgba(0, 0, 0, 0.5);
+	margin:0 auto;
+	margin;top:30px;
+	margin-bottom:30px;
+}
+
+img.example1 {
+width: 96px;
+height: 65px;
+}

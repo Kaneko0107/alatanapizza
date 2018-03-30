@@ -9,10 +9,6 @@
 <link rel="stylesheet" href="./css/alatanapizza.css">
 <link rel="stylesheet" href="./css/userAdd.css">
 
-<style>
-
-</style>
-
 
 
 <title>パスワード変更画面</title>

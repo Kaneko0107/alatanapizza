@@ -27,15 +27,6 @@ public class TopAction extends ActionSupport implements SessionAware{
 			throw new RuntimeException(e);
 			}
 
-		/*if ((boolean)session.get("loginFlg")) {
-			miniCartList = cartDAO.UserMiniCart(session.get("userId").toString());
-
-			session.put("miniCartList", miniCartList);
-		}else {
-			miniCartList = cartDAO.TempUserMiniCart(session.get("tempUserId").toString());
-
-			session.put("miniCartList", miniCartList);
-		}*/
 
 return SUCCESS;
 }

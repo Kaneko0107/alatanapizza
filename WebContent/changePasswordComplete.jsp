@@ -10,18 +10,6 @@
 <link rel="stylesheet" href="./css/userAdd.css">
 
 
-<style>
-
-
-.iconComplete{
-text-align:center;
-}
-
-h2{
-color:white;
-font-size:18px;
-}
-</style>
 
 
 <title>パスワード変更完了</title>
@@ -45,7 +33,8 @@ font-size:18px;
 	<td colspan="2"><hr></td></tr>
 <tr>
 
-		<td><div class="iconComplete"><a href='<s:url action="MyPageAction"/>'>マイページへ</a></div></td></tr><tr>
+		<td><div class="iconComplete"><a href='<s:url action="MyPageAction"/>'>マイページへ</a></div></td></tr>
+		<tr>
 		<td><div class="iconComplete"><a href='<s:url action="HomeAction"/>'>ホームへ</a></div></td>
 
 

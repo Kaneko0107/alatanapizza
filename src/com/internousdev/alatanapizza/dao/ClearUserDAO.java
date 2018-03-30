@@ -39,22 +39,7 @@ public class ClearUserDAO {
 		}
 		return result;
 	}
-	/*public int deleteCartToppingInfo(String user_id) throws SQLException{
-		DBConnector db=new DBConnector();
-		Connection con = db.getConnection();
-		String sql="DELETE FROM cart_topping_info WHERE user_id = ?";
-		int result =0;
-		try{
-			PreparedStatement preparedStatement = con.prepareStatement(sql);
-		preparedStatement.setString(1,user_id);
-		result = preparedStatement.executeUpdate();
-		}catch(SQLException e){
-			e.printStackTrace();
-		}finally{
-			con.close();
-		}
-		return result;
-	}*/
+
 	public int deleteFavoriteInfo(String user_id) throws SQLException{
 		DBConnector db=new DBConnector();
 		Connection con = db.getConnection();

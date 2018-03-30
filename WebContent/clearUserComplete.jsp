@@ -9,26 +9,9 @@
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <meta http-equiv="Content-Script-Type" content="text/javascript"/>
 <link rel="stylesheet" href="./css/alatanapizza.css">
+<link rel="stylesheet" href="./css/clear.css">
 <title>退会完了</title>
-<style>
-.main{
-width:70%;
-height:80%
-background:rgba(0,0,0,0.5);
-margin-top:70px;
-margin-left:15%;
-margin-bottom:30px;
-}
-.moji {
-	    text-align: center;
-	    font-size: 15px;
-	    }
-	    .moji2 {
-	    text-align: center;
-	    font-size: 15px;
-	   color:#FFCC33;
-	    }
-</style>
+
 </head>
 <body>
 <jsp:include page="include_header.jsp" />

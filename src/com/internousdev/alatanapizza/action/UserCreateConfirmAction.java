@@ -99,7 +99,6 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 				if(loginPassword.length()<=1){
 					hidePassword = hideString(loginPassword,0,0);
-//					session.put("hidePassword", hidePassword);
 				}
 				if(loginPassword.length()==2){
 					hidePassword = hideString(loginPassword,0,1);

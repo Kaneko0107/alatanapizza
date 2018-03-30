@@ -56,7 +56,7 @@ margin-bottom:30px;
 .id {text-align:right;
 	}
 
-.form {
+.form-form {
 	background-color: rgba(200, 200, 200, 0.5);
 	width: 80px;
 	height: 30px;
@@ -82,11 +82,11 @@ text-align:right;
 
 /* フォーム内にフォームを入れ子することができないためこの形で実装 */
 function goDestCompleteAction(){
-	document.getElementById("form").action = "DestCompleteAction";
+	document.getElementById("form-form").action = "DestCompleteAction";
 }
 function goDestAction(){
 
-	document.getElementById("form").action = "DestAction";
+	document.getElementById("form-form").action = "DestAction";
 }
 </script>
 
@@ -100,7 +100,7 @@ function goDestAction(){
 <body>
 	<div id="main">
 			<table>
-<s:form id="form" class="form">
+<s:form id="form-form" class="form-form">
 
 
 

@@ -13,25 +13,6 @@
 	<link rel="stylesheet" href="./css/userAdd.css">
 	<link rel="stylesheet" href="./css/userComplete.css">
 
-<style>
-
-/* #main {
-		width:50%;
-		height:50%;
-		}
-
-tr td {
-	    padding-right:30px;
-	    padding-left:20px;
-	    padding-top:5px;
-	    }
-
-.icon5 {
-		text-align:center;
-		} */
-
-</style>
-
 	<title>ユーザー登録 完了</title>
 
 </head>

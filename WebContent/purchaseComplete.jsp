@@ -6,23 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/alatanapizza.css">
+<link rel="stylesheet" href="./css/PurchaceHistory.css">
 <title>決済完了</title>
-
-<style>
-
-.main{
-width:50%;
-height:70%;
-background:rgba(0,0,0,0.5);
-margin-top:80px;
-margin-left:25%;
-margin-bottom:30px;
-}
-
-h3{
-text-align:center;
-}
-</style>
 
 
 

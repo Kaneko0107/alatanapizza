@@ -17,7 +17,8 @@
 /*========TAG LAYOUT========*/
 
 table{
-	margin:0 auto;
+	margin-left: 100px;
+	margin-right: auto;
 	text-align: left;
 }
 
@@ -66,8 +67,8 @@ tr td .memo{text-align:center;
 
 
 .icon1{
-position:relative;
-left:20px;}
+text-align:right;
+}
 
 </style>
 

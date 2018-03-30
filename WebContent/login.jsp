@@ -75,19 +75,11 @@ margin-bottom:30px;
 	color:black;
 }
 
-tr td .login{text-align:center;
-margin-top:40px;
-}
 
 tr td .memo{text-align:center;
 }
 
-/* .login {
- clear:both;
- width: 300px;
-  height: 140px;
-  overflow: hidden;
-} */
+
 
 
 </style>
@@ -182,7 +174,7 @@ tr td .memo{text-align:center;
 <!-- マウスオーバーの設定と、真ん中に配置してください -->
 			<tr>
 				<td>
-					<div class="login"><s:submit class="icon" type="image" value="" src="./images/icon/ログイン.png"/></div>
+					<div class="memo"><s:submit class="icon" type="image" value="" src="./images/icon/ログイン.png"/></div>
 				</td>
 			</tr>
 

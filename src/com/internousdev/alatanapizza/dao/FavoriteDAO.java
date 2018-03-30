@@ -41,8 +41,8 @@ public class FavoriteDAO {
 			dto.setImageFilePath(rs.getString("image_file_path"));
 			dto.setImageFileName(rs.getString("image_file_name"));
 			dto.setPrice(rs.getString("price"));
-			dto.setMsizePrice(rs.getString("lsize_price"));
-			dto.setLsizePrice(rs.getString("msize_price"));
+			dto.setMsizePrice(rs.getString("msize_price"));
+			dto.setLsizePrice(rs.getString("lsize_price"));
 			dto.setCategoryId(rs.getInt("category_id"));
 			favoriteDTO.add(dto);
 		}

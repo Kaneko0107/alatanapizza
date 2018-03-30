@@ -43,17 +43,6 @@ public class PurchaseCompleteDAO {
 				dto.setUpdateDate(rs.getDate("update_date"));
 				dto.setRegistDate(rs.getDate("regist_date"));
 
-				/*// コンソールに処理を表示
-				System.out.println("------getCartInfo");
-				System.out.println(dto.getUserId());
-				System.out.println(dto.getProductId());
-				System.out.println(dto.getProductCount());
-				System.out.println(dto.getPrice());
-				System.out.println(dto.getUpdateDate());
-				System.out.println(dto.getRegistDate());
-				System.out.println("------------------");
-				//*/
-
 				cartList.add(dto);
 
 			}

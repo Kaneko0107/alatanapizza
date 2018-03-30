@@ -53,10 +53,10 @@ border-left:10px solid red;
 /*========ID LAYOUT========*/
 
 #main{
-	width:80%;
+	width:50%;
 	background:rgba(0,0,0,0.5);
 	margin-top:70px;
-	margin-left:15%;
+	margin-left:25%;
 	margin-bottom:30px;
 }
 
@@ -64,14 +64,14 @@ border-left:10px solid red;
 
 .form {
 	background-color: rgba(200, 200, 200, 0.5);
-	width: 350px;
+	width: 100%;
 	height: 30px;
 	border-radius: 5px;
 	color:black;
 }
 
 table{
-width:70%;
+width:60%;
 }
 
 

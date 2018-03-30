@@ -119,21 +119,6 @@ background-color: rgba(150, 150, 150, 0.5);
 								</tr>
 
 								<tr>
-									<td class="line">秘密の質問</td>
-									<td class="line1"> <s:if test="secretQuestion==1">好きな食べ物</s:if>
-											<s:if test="secretQuestion==2">嫌いな食べ物</s:if>
-										</td>
-								</tr>
-
-								<tr>
-									<td class="line">答え</td>
-									<td class="line1">
-											<s:property value="secretAnswer" />
-										</td>
-								</tr>
-
-
-								<tr>
 									<td class="line">パスワード</td>
 									<td class="line1">
 											<s:property value="password" />
@@ -146,6 +131,9 @@ background-color: rgba(150, 150, 150, 0.5);
 							</s:iterator>
 <tr><td colspan="2"><hr></td></tr>
 					</table>
+
+
+
 
 
 			<!-- 購入履歴ページに遷移 -->
@@ -169,8 +157,8 @@ background-color: rgba(150, 150, 150, 0.5);
 							<a href='<s:url action="UserUpdateAction"/>'>ユーザー情報を変更する</a>
 						</div>
 			<!-- 退会 -->
-						<div class="btnn4"><s:if test="!session.masterFlg">
-							<a href='<s:url action="ClearUserAction"/>'>退会処理へ</a></s:if>
+						<div class="btnn4">
+							<a href='<s:url action="ClearUserAction"/>'>退会処理へ</a>
 						</div>
 
 

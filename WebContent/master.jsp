@@ -17,6 +17,7 @@
 	<jsp:include page="include_header.jsp" />
 
 
+
 <fieldset>
 <legend>
 <h3>在庫数 変更方法</h3>

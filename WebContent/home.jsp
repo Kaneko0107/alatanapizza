@@ -26,10 +26,10 @@
 
 body{
 background-image:url("./images/icon/HomeBackground.jpg");
-margin-bottom:30px;
 }
 .slide-wrapper {
 width:70%;
+height:auto;
 margin:0 auto;
 
 }
@@ -50,7 +50,7 @@ height:auto;
         $('.slide').bxSlider({
             auto:true,
             speed:1000,
-            slidewidth:400
+            slidewidth:300
         });
     });
   </script>

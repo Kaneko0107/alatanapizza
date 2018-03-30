@@ -28,14 +28,17 @@ width:50%;
 image{text-align:center;
 }
 
-hr{border: none;
-	border-top: dashed 1px #ccc;
-	height: f1px;
-	color: #ffffff;
-	margin: 0 8 0 8;}
-
+hr {text-align:left;
+	    border:none;
+	    border-top:dashed 1px #ccc;
+	    height:1px;
+	    color:#ffffff;
+	    margin:0 8 0 8;
+	    display:inline-block;
+	    word-wrap: break-word;
+	    }
 tr td{
- display:inline;
+ display:inline-block;
 	    word-wrap:break-word;
 }
 
@@ -87,11 +90,13 @@ width:50%;
 image{text-align:center;
 }
 
-hr{border: none;
-	border-top: dashed 1px #ccc;
-	height: f1px;
-	color: #ffffff;
-	margin: 0 8 0 8;}
+hr {text-align:left;
+	    border:none;
+	    border-top:dashed 1px #ccc;
+	    height:1px;
+	    color:#ffffff;
+	    margin:0 8 0 8;
+	    }
 
 tr td{
 word-wrap:break-word;

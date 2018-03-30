@@ -225,7 +225,6 @@
 								<s:if test="category_id==3 || category_id==4">
 									￥<s:property value="price" />
 								</s:if>
-<%-- 								<s:hidden name="product_id" value="%{product_id}" /> --%>
 
 								<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{product_id}" /></s:url>">
 									<img class="icon shousaiB" src=./images/icon/shousai.png><br>

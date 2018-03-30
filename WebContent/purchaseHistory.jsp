@@ -114,11 +114,11 @@ opacity:0.8;
 			<label>
 									<s:if test="#st.index == 0">
 										<s:checkbox name="checkList" value="1"
-											fieldValue="%{productId}" />
+											fieldValue="%{id}" />
 									</s:if>
 									<s:else>
 										<s:checkbox name="checkList" value="0"
-											fieldValue="%{productId}" />
+											fieldValue="%{id}" />
 									</s:else>
 
 

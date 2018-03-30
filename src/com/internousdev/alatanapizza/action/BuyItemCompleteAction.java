@@ -42,7 +42,6 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 	public ProductInfoCategoryDAO categorydao = new ProductInfoCategoryDAO();
 	public String execute() throws SQLException {
 		String result = ERROR;
-		System.out.println("-----------BuyItemCompleteAction--------------");
 
 		// 決済情報取得メソッド
 		// 確認画面の商品情報は、カート情報をそのままもってきている。
@@ -54,12 +53,7 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 		//"登録ユーザー"と"ゲストユーザー"のどちらでログインしているか確認し、定義した"userId"に代入する
 
 
-	/*	//ログインしていなければ、セッションプットしてログイン画面へとばす
-		if(!(session.containsKey("loginFlg"))){
 
-			return ERROR;
-		}
-*/
 
 		if((boolean)session.get("loginFlg")){
 			userId =(String)session.get("userId");
@@ -137,51 +131,6 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 
 
 
-
-//		//deleteFlgが初期化されていないことがあるので、nullではないという条件を追加
-//		if(deleteFlg != null && deleteFlg.equals("1")) {
-//			delete();
-//			destinationListDTO = null;
-//
-//		}else if(deleteFlg != null && deleteFlg.equals("2")) {
-//			 deletePart();
-//			 DestinationDAO destinationInfoDAO = new DestinationDAO();
-//			 destinationListDTO.addAll(destinationInfoDAO.obtainingDestinationInfo(session.get("userId").toString()));
-//		}
-//
-//
-//
-//		return result;
-//	}
-
-//	public void delete() throws SQLException {
-//
-//		String user_id = session.get("userId").toString();
-//
-//		int res = dao.deleteAllDestination(user_id);
-//
-//		if (res > 0) {
-//			destinationList = null;
-//			setMessage("注文履歴をすべて削除しました");
-//		} else if (res == 0) {
-//			setMessage("履歴の削除に失敗しました。");
-//		}
-//
-//	}
-//	//個別削除メソッド-----------------------------------------
-//
-//		public void deletePart() throws SQLException {
-//			if (checkList == null) {
-//				setMessage("削除できませんでした。");
-//			}
-//		int res=dao.deletePartDestination(checkList);
-//
-//		if(res>0){
-//			setMessage(res + "件削除しました");
-//		}else if (res == 0){
-//			setMessage("削除できませんでした");
-//		}
-//		}
 
 
 

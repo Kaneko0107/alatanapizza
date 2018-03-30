@@ -107,12 +107,21 @@ opacity:0.8;
 			<s:form action="PurchaseHistoryAction">
 				<input type="hidden" name="deleteFlg" value="2"/>
 
-		<s:iterator value="historyList">
+		<s:iterator value="historyList" status="st">
 		<div id="boxList">
 
 			<!-- チェックボックス,選択したものだけを削除 -->
 			<label>
-			<s:checkbox name="checkList" value="2" fieldValue="%{id}" />
+									<s:if test="#st.index == 0">
+										<s:checkbox name="checkList" value="1"
+											fieldValue="%{productId}" />
+									</s:if>
+									<s:else>
+										<s:checkbox name="checkList" value="0"
+											fieldValue="%{productId}" />
+									</s:else>
+
+
 
 			<!-- 購入日時 -->
 			<s:property value="registDate" />

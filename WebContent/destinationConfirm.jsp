@@ -135,7 +135,6 @@ padding-top:10px;
 }
 
 
-
 .icon1{
 text-align:right;
 }
@@ -169,7 +168,6 @@ function goDestAction(){
 <s:form id="form-form" class="form-form">
 
 
-
 			<tr>
 				<td colspan="2"><h3>以下の内容で登録します</h3></td>
 			</tr>
@@ -178,8 +176,6 @@ function goDestAction(){
 			<tr>
 				<td colspan="2"><hr></td>
 			</tr>
-
-
 
 <!-- 姓 -->
 				<tr>
@@ -226,7 +222,6 @@ function goDestAction(){
 					<input type =hidden name ="zip11" value ='<s:property value ="zip11"/>' /></td>
 				</tr>
 
-
 <!-- 住所 -->
 				<tr>
 					<td>-住所-</td>
@@ -235,7 +230,6 @@ function goDestAction(){
 					<td><s:property value="addr11" escape="false"/>
 					<input type=hidden name="addr11" value='<s:property value="addr11"/>' /></td>
 				</tr>
-
 
 <!-- 電話番号 -->
 				<tr>
@@ -259,8 +253,6 @@ function goDestAction(){
 			<tr>
 				<td colspan="2"><hr></td>
 			</tr>
-
-
 
 <!-- 戻る画像アイコン -->
 

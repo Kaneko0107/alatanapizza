@@ -36,9 +36,7 @@ public class ProductSearchDAO {
 		}
 
 		try {
-			System.out.println(sql);
 			PreparedStatement ps = con.prepareStatement(sql);
-//			ps.setInt(1, categoryId);
 			if (categoryId > 1) {
 				ps.setInt(1, categoryId);
 			}
@@ -77,9 +75,6 @@ public class ProductSearchDAO {
 
 	/**
 	 * カテゴリのみで検索
-	 *
-	 * @param categoryId
-	 * @return searchDTOList
 	 */
 	public ArrayList<ProductDTO> byProductCategory(int categoryId) throws SQLException {
 		ArrayList<ProductDTO> searchDTOList = new ArrayList<ProductDTO>();

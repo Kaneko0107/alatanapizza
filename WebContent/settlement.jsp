@@ -10,60 +10,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/alatanapizza.css">
 <link rel="stylesheet" href="./css/cart.css">
-<style type="text/css">
+<link rel="stylesheet" href="./css/settlement.css">
 
-
-.totalprice{
-font-size:25px;
-width:50%;
-background:rgba(0,0,0,0.5);
-margin-left:25%;
-height:80px;
-line-height:80px;
-}
-/* #boxList{ */
-
-/* 	height:340px;} */
-
-.icon2{
-position:relative;
-top:10px;}
-
-.icon1{
-width:180px;
-height:40px;
-color:white;
-border-radius: 3px;
-background-color:rgba(0,0,0,0.5);
-margin-top:30px;
-margin-right:40px;
-margin-left:20px;
-
-}
-
-.icon2:hover{
-opacity:0.8;
-}
-.icon1:hover{
-opacity:0.8;
-}
-
-.adress{
-marign-top:20px;
-
-}
-
-.recomend{
-width:100%;
-}
-
-.memo{both:clear;
-width:100%;
-text-align:center;
-}
-
-
-</style>
 <script type="text/javascript">
 	window.onunload = function() {
 	};
@@ -224,7 +172,7 @@ text-align:center;
 
 
 <br><br>
-	<h2>こちらの商品も一緒にいかかですか？</h2>
+	<h2>こちらの商品も一緒にいかがですか？</h2>
 	<br>
 	<br>
 <p class="recomend">

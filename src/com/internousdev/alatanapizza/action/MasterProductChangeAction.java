@@ -16,19 +16,17 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class MasterProductChangeAction extends ActionSupport implements SessionAware {
 
-	//セッション
 	private Map<String,Object>session;
-    private ProductListDAO productListDAO = new ProductListDAO();
-    public ArrayList<ProductDTO> productList = new ArrayList<>();
-    public Map<Integer, int[]> productStockList = new HashMap<Integer, int[]>();
-    private String stock;
-    private Integer productId;
-    public String message;
+	private ProductListDAO productListDAO = new ProductListDAO();
+	public ArrayList<ProductDTO> productList = new ArrayList<>();
+	public Map<Integer, int[]> productStockList = new HashMap<Integer, int[]>();
+	private String stock;
+	private Integer productId;
+	public String message;
 
 	public Integer getProductId() {
 		return productId;
 	}
-
 	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
@@ -36,13 +34,13 @@ public class MasterProductChangeAction extends ActionSupport implements SessionA
 	public String getStock() {
 		return stock;
 	}
-
 	public void setStock(String stock) {
 		this.stock = stock;
 	}
 
 	public String execute() throws SQLException {
 		String result;
+
 		//管理者フラグを確認する
 		if (session.containsKey("masterFlg") && ((Boolean) session.get("masterFlg"))) {
 			result = "master";
@@ -60,12 +58,12 @@ public class MasterProductChangeAction extends ActionSupport implements SessionA
 		productList = productListDAO.getProductInfo();
 		for (ProductDTO product: productList) {
 			productStockList.put(
-				product.getProduct_id(),
-				IntStream.range(
-						Math.max(0, product.getStock() - 20),
-						Math.min(product.getStock() + 20, 100) + 1
-				).toArray()
-			);
+					product.getProduct_id(),
+					IntStream.range(
+							Math.max(0, product.getStock() - 20),
+							Math.min(product.getStock() + 20, 100) + 1
+							).toArray()
+					);
 		}
 		return result;
 	}
@@ -74,6 +72,5 @@ public class MasterProductChangeAction extends ActionSupport implements SessionA
 		this.session=session;
 	}
 
-
-	}
+}
 

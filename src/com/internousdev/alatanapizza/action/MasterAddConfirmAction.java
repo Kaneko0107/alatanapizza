@@ -38,9 +38,9 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 		String context = ServletActionContext.getServletContext().getRealPath("/images/newSide");
 		File[] files = new File(context).listFiles();
 		for (File file : files) {
-		    if (file.isFile()) {
-		        imageFileNames.add(file.getName());
-		    }
+			if (file.isFile()) {
+				imageFileNames.add(file.getName());
+			}
 		}
 
 		//管理者フラグを確認する
@@ -94,40 +94,38 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	}
 
 
-	//ゲッター、セッター
-	//---------------------------------------------------
 	public void setSession(Map<String,Object>session) {
 		this.session=session;
 	}
-	//---------------------------------------------------
+
 	public String getItemName() {
 		return itemName;
 	}
 	public void setItemName(String itemName) {
 		this.itemName=itemName;
 	}
-	//---------------------------------------------------
+
 	public String getItemKanaName() {
 		return itemKanaName;
 	}
 	public void setItemKanaName(String itemKanaName) {
 		this.itemKanaName=itemKanaName;
 	}
-	//---------------------------------------------------
+
 	public String getItemPrice() {
 		return itemPrice;
 	}
 	public void setItemPrice(String itemPrice) {
 		this.itemPrice=itemPrice;
 	}
-	//---------------------------------------------------
+
 	public String getItemStock() {
 		return itemStock;
 	}
 	public void setItemStock(String itemStock) {
 		this.itemStock=itemStock;
 	}
-	//---------------------------------------------------
+
 	public void setImageName(String image) {
 		this.imageName = image;
 	}
@@ -135,7 +133,6 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 		return imageName;
 	}
 
-	//---------------------------------------------------
 	public String getImageContentType() {
 		return imageContentType;
 	}
@@ -143,7 +140,6 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 		this.imageContentType = imageContentType;
 	}
 
-	//---------------------------------------------------
 	public ArrayList<String> getErrorMessageList() {
 		return errorMessageList;
 	}
@@ -151,28 +147,18 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 		this.errorMessageList = errorMessageList;
 	}
 
-
 	public String getImagePath() {
 		return imagePath;
 	}
-
-
 	public void setImageFilePath(String imageFilePath) {
 		this.imagePath = imageFilePath;
 	}
 
-
 	public ArrayList<String> getImageFileNames() {
 		return imageFileNames;
 	}
-
-
 	public void setImageFileNames(ArrayList<String> imageFileNames) {
 		this.imageFileNames = imageFileNames;
 	}
-
 }
-
-
-
 

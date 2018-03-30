@@ -34,11 +34,9 @@ public class CartInfoDAO extends ActionSupport{
 			ps.setString(7, pizzaSize);
 
 			count = ps.executeUpdate();
-			System.out.println("cart idは" + cartId);
 			for (Integer topping: toppings) {
-				System.out.println("トッピングは" + topping);
 				String cartSql = "INSERT INTO cart_topping_info(cart_id, topping_id, regist_date, update_date)" +
-				  "VALUES(?,?,NOW(),NOW())";
+						"VALUES(?,?,NOW(),NOW())";
 				PreparedStatement cartPs = (PreparedStatement) con.prepareStatement(cartSql);
 				cartPs.setInt(1, cartId);
 				cartPs.setInt(2, topping);
@@ -85,8 +83,8 @@ public class CartInfoDAO extends ActionSupport{
 				ArrayList<String> toppings = new ArrayList<String>();
 				ArrayList<Integer> toppingIds = new ArrayList<Integer>();
 				String toppingSql = "SELECT m_topping.topping_id, m_topping.topping_name FROM cart_topping_info " +
-				                     "LEFT JOIN m_topping " +
-						             "ON cart_topping_info.topping_id = m_topping.id WHERE cart_topping_info.cart_id = ?";
+						"LEFT JOIN m_topping " +
+						"ON cart_topping_info.topping_id = m_topping.id WHERE cart_topping_info.cart_id = ?";
 				PreparedStatement toppingPs = con.prepareStatement(toppingSql);
 				toppingPs.setInt(1, cartId);
 				ResultSet toppingRs = toppingPs.executeQuery();
@@ -236,7 +234,6 @@ public class CartInfoDAO extends ActionSupport{
 
 	//在庫更新
 	public void changeStockCount(int productStock, int productId) throws SQLException {
-		System.out.println("Stockを変更");
 		String sql = "UPDATE product_info SET stock=stock - ? WHERE product_id = ?";
 
 		try {
@@ -246,7 +243,6 @@ public class CartInfoDAO extends ActionSupport{
 			ps.setInt(2, productId);
 
 			ps.executeUpdate();
-			System.out.println(ps);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		} finally {
@@ -269,4 +265,4 @@ public class CartInfoDAO extends ActionSupport{
 		}
 	}
 
-	}
+}

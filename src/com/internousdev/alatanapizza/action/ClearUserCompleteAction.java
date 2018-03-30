@@ -13,8 +13,6 @@ public class ClearUserCompleteAction extends ActionSupport implements SessionAwa
 
 	public String execute() throws SQLException{
 		String result=ERROR;
-		System.out.println("-----");
-		System.out.println(clearFlg);
 
 		if(clearFlg==null || !(session.containsKey("loginFlg"))){
 			result=ERROR;
@@ -25,7 +23,6 @@ public class ClearUserCompleteAction extends ActionSupport implements SessionAwa
 
 			ClearDAO.deleteUserInfo(deleteUserId);
 			ClearDAO.deleteCartInfo(deleteUserId);
-			//resultcount+=ClearDAO.deleteCartToppingInfo(deleteUserId);
 			ClearDAO.deleteFavoriteInfo(deleteUserId);
 			ClearDAO.deletePurchaseHistoryInfo(deleteUserId);
 			ClearDAO.deleteDestinationInfo(deleteUserId);
@@ -34,8 +31,6 @@ public class ClearUserCompleteAction extends ActionSupport implements SessionAwa
 			Integer tempUserId = Integer.valueOf((int) (Math.random() * 1000000));
 			session.put("tempUserId",tempUserId.toString());
 			session.put("loginFlg", false);
-			System.out.println("====");
-			System.out.println(session.get("tempUserId"));
 			result=SUCCESS;
 		}
 

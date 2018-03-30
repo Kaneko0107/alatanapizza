@@ -1,0 +1,66 @@
+@CHARSET "UTF-8";
+
+
+
+
+/* --------------------------------------
+決済完了画面
+-------------------------------------- */
+.main{
+width:50%;
+height:70%;
+background:rgba(0,0,0,0.5);
+margin-top:80px;
+margin-left:25%;
+margin-bottom:30px;
+}
+
+h3{
+text-align:center;
+}
+
+
+/* --------------------------------------
+購入履歴
+-------------------------------------- */
+
+
+.sort{
+width:150px;
+height:26px;
+background-color: rgba(0, 0, 0, 0.7);
+color:white;
+
+}
+.icon1{
+width:100px;
+height:26px;
+background-color:red;
+color:white;
+border-radius:5px;
+}
+
+.icon1:hover{
+opacity:0.8;
+}
+
+
+.icon2{
+width:180px;
+height:26px;
+background-color: rgba(0, 0, 0, 0.7);
+color:white;
+border-radius:5px;
+
+}
+
+.icon2:hover{
+opacity:0.8;
+}
+
+#boxList{
+	height:40%;
+}
+
+
+

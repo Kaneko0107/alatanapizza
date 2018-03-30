@@ -10,12 +10,14 @@
 .product {
 	float: left;
 	width: 100%;
+	display: block;
 
 }
 
 .product ul {
 	float: right;
 	width: 80%;
+
 }
 
 .product ul li {
@@ -59,17 +61,6 @@ opacity:0.8;}
 	position:relative;
 bottom:6px;
 }
-
-/* .img{width:65px; */
-/* height:38px; */
-/* font-size:15px; */
-/* color:white; */
-/* font-weight:900; */
-/* background-color:#f3142c; */
-/* border-radius: 8px; */
-/* font-family: arial black, Helvetica, sans-serif; */
-
-/* } */
 
 .img:hover{
 opacity:0.8;}

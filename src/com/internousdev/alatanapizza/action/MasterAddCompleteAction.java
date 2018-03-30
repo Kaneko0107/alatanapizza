@@ -70,7 +70,6 @@ public class MasterAddCompleteAction extends ActionSupport implements SessionAwa
 	public String getItemName() {
 		return itemName;
 	}
-
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
@@ -78,7 +77,6 @@ public class MasterAddCompleteAction extends ActionSupport implements SessionAwa
 	public String getItemKanaName() {
 		return itemKanaName;
 	}
-
 	public void setItemKanaName(String itemKanaName) {
 		this.itemKanaName = itemKanaName;
 	}
@@ -86,7 +84,6 @@ public class MasterAddCompleteAction extends ActionSupport implements SessionAwa
 	public String getItemPrice() {
 		return itemPrice;
 	}
-
 	public void setItemPrice(String itemPrice) {
 		this.itemPrice = itemPrice;
 	}
@@ -94,7 +91,6 @@ public class MasterAddCompleteAction extends ActionSupport implements SessionAwa
 	public String getItemStock() {
 		return itemStock;
 	}
-
 	public void setItemStock(String itemStock) {
 		this.itemStock = itemStock;
 	}
@@ -107,7 +103,6 @@ public class MasterAddCompleteAction extends ActionSupport implements SessionAwa
 	public String getImageContentType() {
 		return imageContentType;
 	}
-
 	public void setImageContentType(String imageContentType) {
 		this.imageContentType = imageContentType;
 	}
@@ -115,7 +110,6 @@ public class MasterAddCompleteAction extends ActionSupport implements SessionAwa
 	public String getImageFileName() {
 		return imageFileName;
 	}
-
 	public void setImageFileName(String imageFileName) {
 		this.imageFileName = imageFileName;
 	}

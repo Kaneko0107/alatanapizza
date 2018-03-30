@@ -47,7 +47,7 @@ hr {text-align:left;
 	    color:#FFCC33;
 	    }
 	    }
-	    #main{
+ #main{
 width:70%;
 background:rgba(0, 0, 0, 0.5);
 margin:0 auto;
@@ -103,6 +103,9 @@ hr {text-align:left;
 :-ms-input-placeholder {
 		color:#000000;
 		}
+h3{
+border-left:10px solid red;
+}
 
 
 /*-------------------------------------------------------------------------
@@ -139,6 +142,11 @@ h2{
 	text-align:center;
 	    font-size:15px;
 	    color:#FFCC33;
+}
+.iconComplete{
+text-align:center;
+position:relative;
+right:10px;
 }
 
 

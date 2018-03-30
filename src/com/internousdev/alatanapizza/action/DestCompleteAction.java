@@ -44,7 +44,7 @@ public class DestCompleteAction extends ActionSupport implements SessionAware {
 		if(destinationDAO.registerDestination(destinationDTO)){ //update成功時にtrueが返される
 			result =SUCCESS;
 		}else{ //falseの時
-//			System.out.println("エラーです。ホームへ");
+
 		}
 		return result;
 

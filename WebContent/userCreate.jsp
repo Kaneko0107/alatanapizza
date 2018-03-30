@@ -12,30 +12,6 @@
 	<link rel="stylesheet" href="./css/alatanapizza.css">
 	<link rel="stylesheet" href="./css/userAdd.css">
 
-
-<style>
-
-table {
-		width:60%;
-		margin:0 auto;
-		text-align:left;
-		}
-
- tr td {
-		padding-right:20px;
-		padding-left:20px;
-		padding-top:5px;
-		width:50%;
-		}
-
-hr {
-		width:95%;
-		position:relative;
-		right:15px;
-		}
-
-</style>
-
 	<title>ユーザー登録</title>
 
 </head>

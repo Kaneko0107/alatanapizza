@@ -12,9 +12,6 @@ public class HomeAction extends ActionSupport implements SessionAware {
 
 	public String execute(){
 
-//		if(!"saveId".equals("")){
-//			session.get("saveId");
-//		}
 		return SUCCESS;
 	}
 

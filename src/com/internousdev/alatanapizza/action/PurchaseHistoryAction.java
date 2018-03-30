@@ -71,14 +71,6 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 			historyList = purchaseHistoryDAO.getPurchaseHistory(userId);
 		}
 
-		// if (!(checkList == null)) {
-		// for (String deleteId : checkList) {
-		// dao.deleteHistoryInfo(deleteId);
-		// }
-
-		// result = "delete";//購入履歴画面（SUCCESSと同じ効果）
-		// }
-		//
 
 		// ソート機能↓------------------------------------------------------
 		if (sort == 1) { // デフォルトの注文日順
@@ -128,9 +120,7 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 		}
 	}
 
-	/*----------------------------------------------------------------
 
-	 ----------------------------------------------------------------*/
 
 	// deleteFlg
 	public String getDeleteFlg() {

@@ -151,8 +151,6 @@ font-size:15px;
 				<td><h4>下記に必要事項を記入してください</h4></td>
 			</tr>
 
-
-
 			<s:form action="DestConfirmAction">
 
 				<tr>
@@ -244,7 +242,6 @@ font-size:15px;
 			</tr>
 
 			</s:form>
-
 
 
 		</table>

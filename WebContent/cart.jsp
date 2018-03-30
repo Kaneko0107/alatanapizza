@@ -143,7 +143,6 @@
 		$(function() {
 			$(document).keydown(function(event) {
 				//クリックされたキーコードを取得する
-				//KeyCodeはネットで調べる
 				var keyCode = event.keyCode;
 
 				//F5の場合はfalseをリターン

@@ -16,8 +16,9 @@
 <style type="text/css">
 /*========TAG LAYOUT========*/
 
+@media(max-width:1150px){
 table{
-width:60%;
+width:50%;
 	margin:0 auto;
 	margin-left: 100px;
 	margin-right: auto;
@@ -34,7 +35,8 @@ hr{border: none;
 	margin: 0 8 0 8;}
 
 tr td{
-width:30%;
+ display:inline;
+	    word-wrap:break-word;
 }
 
 h3{
@@ -66,6 +68,65 @@ margin-bottom:30px;
 
 
 tr td .memo{text-align:center;
+}
+
+
+
+.icon1{
+text-align:right;
+}
+}
+table{
+width:50%;
+	margin:0 auto;
+	margin-left: 100px;
+	margin-right: auto;
+	text-align: left;
+}
+
+image{text-align:center;
+}
+
+hr{border: none;
+	border-top: dashed 1px #ccc;
+	height: f1px;
+	color: #ffffff;
+	margin: 0 8 0 8;}
+
+tr td{
+word-wrap:break-word;
+}
+
+h3{
+border-left:10px solid red;
+}
+
+/*========ID LAYOUT========*/
+
+#main{
+width:50%;
+background:rgba(0,0,0,0.5);
+margin-top:60px;
+margin-left:25%;
+margin-bottom:30px;
+}
+
+/*========CLASS LAYOUT========*/
+
+.id {text-align:right;
+	}
+
+.form-form {
+	background-color: rgba(200, 200, 200, 0.5);
+	width: 80px;
+	height: 30px;
+	border-radius: 5px;
+	color:black;
+}
+
+
+tr td .memo{text-align:center;
+padding-top:10px;
 }
 
 

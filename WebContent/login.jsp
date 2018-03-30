@@ -69,12 +69,11 @@ margin-bottom:30px;
 
 .form {
 	background-color: rgba(200, 200, 200, 0.5);
-	width: 270px;
+	width: 100%;
 	height: 30px;
 	border-radius: 5px;
 	color:black;
 }
-
 
 tr td .memo{text-align:center;
 }

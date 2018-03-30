@@ -17,6 +17,8 @@
 /*========TAG LAYOUT========*/
 
 table{
+width:60%;
+	margin:0 auto;
 	margin-left: 100px;
 	margin-right: auto;
 	text-align: left;
@@ -31,7 +33,9 @@ hr{border: none;
 	color: #ffffff;
 	margin: 0 8 0 8;}
 
-
+tr td{
+width:30%;
+}
 
 h3{
 border-left:10px solid red;
@@ -40,10 +44,10 @@ border-left:10px solid red;
 /*========ID LAYOUT========*/
 
 #main{
-width:95%;
+width:50%;
 background:rgba(0,0,0,0.5);
 margin-top:60px;
-margin-left:15%;
+margin-left:25%;
 margin-bottom:30px;
 }
 
@@ -54,7 +58,7 @@ margin-bottom:30px;
 
 .form {
 	background-color: rgba(200, 200, 200, 0.5);
-	width: 270px;
+	width: 80px;
 	height: 30px;
 	border-radius: 5px;
 	color:black;

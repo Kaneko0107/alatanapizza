@@ -49,7 +49,6 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 			return "target";
 		}
 
-		System.out.println("CATEGORYID:"+categoryId);
 		String result = ERROR;
 
 
@@ -67,7 +66,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 		-----------------------------------------------------------*/
 	    searchWordHiragana = Normalizer.normalize(searchWord, Normalizer.Form.NFKC);
 		searchWordHiragana = toHiragana.toZenkakuHiragana(searchWordHiragana);
-		System.out.println("searchWordHiragana:" + searchWordHiragana);
+
 		searchWordHiragana = searchWordHiragana.trim();
 		if (searchWordHiragana.matches("^[\\p{Punct}]+$")) {
 			msgList.add("一般的な検索ワードを使ってください");
@@ -90,17 +89,12 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 			 * searchWordHiraganaを空白の場所ごとに分解
 			 */
 			searchWords = searchWordHiragana.replace("　", " ").split("[\\s]+");
-			for (String str : searchWords) {
-				System.out.println(str);
-			}
 
 			/*
 			 * searchWordを空白の場所ごとに分解
 			 */
 			keywords = searchWord.replace("　", " ").split("[\\s]+");
-			for (String str : keywords) {
-				System.out.println(str);
-			}
+
 		}
 
 
@@ -113,7 +107,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
         if (categoryId == 1) {
         	//全てのカテゴリーを選択した場合
 //        	if (!(searchWord.isEmpty())) {
-        	if (searchWord != null) {
+        	if (!(searchWord.isEmpty())) {
         		//検索ワードを入力した場合
         		if (kuuhakunobasho > 0) {
         			//検索ワードが複数あった場合
@@ -156,7 +150,6 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
         	pageNation(number);
         }
 
-//		searchWordHiragana = searchWord;
 		return result;
 	}
 
@@ -166,7 +159,6 @@ public class ProductSearchAction extends ActionSupport implements SessionAware {
 
 		//商品の数をnumberに格納
         this.number = searchDTOList.size();
-        System.out.println("number = " + number);
 
         Iterator<ProductDTO> iterator = searchDTOList.iterator();
         if(!iterator.hasNext()) {

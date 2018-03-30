@@ -122,7 +122,7 @@ public class CartProductAction extends ActionSupport implements SessionAware{
 		int totalPrice = 0;
 		for(CartInfoDTO dto : cartList){
 			totalPrice += dto.getPrice();
-			System.out.println("合計" + totalPrice + "円");
+
 		}
 		return totalPrice;
 	}

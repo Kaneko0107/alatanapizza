@@ -46,14 +46,6 @@ public class PurchaseCompleteAction extends ActionSupport implements SessionAwar
 				return "other";//■cart.jspへ
 			}
 
-			/* コンソールに処理を表示-------------------------------
-			System.out.println("----PurchaseCompleteAction:execute");
-			System.out.println(cartList.get(0).getUserId());
-			System.out.println(cartList.get(0).getPrice());
-			System.out.println(cartList.get(0).getProductId());
-			System.out.println(cartList.get(0).getProductCount());
-			System.out.println("------------------------");
-			/*------------------------------------------------------*/
 
 		/*---------------------------------------------------------
 		②購入履歴に登録(setPurchseHistory)
@@ -91,7 +83,7 @@ public class PurchaseCompleteAction extends ActionSupport implements SessionAwar
 			}
 
 			int i = purchaseCompleteDAO.setPurchseHistory(cartList);
-			System.out.println(cartList);
+
 
 		/*---------------------------------------------------------
 		③カートテーブル情報を削除
@@ -115,14 +107,14 @@ public class PurchaseCompleteAction extends ActionSupport implements SessionAwar
 			int totalPrice = 0;
 			for (CartInfoDTO dto : cartList) {
 				totalPrice += dto.getPrice() * dto.getProductCount();
-				System.out.println("合計" + totalPrice + "円");
+
 			}
 			return totalPrice;
 		}
 
 
 
-	//	 ユーザーID
+
 	public String getUserId() {
 		return userId;
 	}
@@ -130,7 +122,7 @@ public class PurchaseCompleteAction extends ActionSupport implements SessionAwar
 		this.userId = userId;
 	}
 
-	//
+
 	public ArrayList<CartInfoDTO> getCartList() {
 		return cartList;
 	}
@@ -138,7 +130,7 @@ public class PurchaseCompleteAction extends ActionSupport implements SessionAwar
 	public void setCartList(ArrayList<CartInfoDTO> cartList) {
 		this.cartList = cartList;
 	}
-    //セッション
+
 	public Map<String, Object> getSession() {
 		return session;
 	}

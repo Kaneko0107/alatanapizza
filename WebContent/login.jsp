@@ -166,7 +166,6 @@ tr td .memo{text-align:center;
 				</td>
 			</tr>
 <!-- ログインボタン -->
-<!-- マウスオーバーの設定と、真ん中に配置してください -->
 			<tr>
 				<td>
 					<div class="memo"><s:submit class="icon" type="image" value="" src="./images/icon/ログイン.png"/></div>
@@ -176,7 +175,7 @@ tr td .memo{text-align:center;
 			</s:form>
 
 
-			<!--  白い点線 -->
+<!--  白い点線 -->
 			<tr>
 				<td>
 					<hr>

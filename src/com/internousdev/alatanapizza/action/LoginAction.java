@@ -25,7 +25,6 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport implements SessionAware,ErrorMessageConstants {
 
-//	private static final String KESSAI="kessai";
 
 	private String userId;//ユーザーID
 	private String password;//パスワード
@@ -33,7 +32,6 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 	private Map<String,Object>session;//セッション
 	private ArrayList<String> errorMessageList=new ArrayList<>();//jsp側で表示するエラーメッセージを格納するリスト
 	//決済ページへ
-//	private int kessai;
 	private int totalPrice;//合計金額
 
 	private ArrayList<DestinationDTO> destinationInfoListDTO= new ArrayList<DestinationDTO>();//宛先情報一覧
@@ -85,11 +83,9 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 		if(loginDTO != null){
 			if(saveLogin){ //boolean型を使ったif文
 				//trueの時の処理
-				//System.out.println("ID保持=="+userId);
 				session.put("saveId", userId);
 			}else{
 				//falseの時の処理
-				//System.out.println("ID保持は希望しない");
 				session.remove("saveId");
 			}
 		}
@@ -108,8 +104,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 					session.put("userId", loginDTO.getUserId()); //
 					session.put("masterFlg", true);//管理者フラグをたてる
 					session.put("loginFlg", true);
-					//System.out.println("管理者フラグ=true");
-					//System.out.println("管理者ログイン");
+
 					result = "master";
 
 				}else{
@@ -117,16 +112,16 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 					//ログイン判定
 					if(userId.equals(loginDTO.getUserId()) && password.equals(loginDTO.getPassword())){ //二つとも一致した場合
 						loginDAO.login(loginDTO);
-						//System.out.println("ログイン成功");
+
 						result=SUCCESS;
 
 						//Mapセッション情報の更新をする
 						session.put("userId", loginDTO.getUserId()); //
 						session.put("loginFirstName", loginDTO.getFirstName());
 						session.put("loginFlg", true); //ログインフラグ立て
-						//System.out.println("ログインフラグ=true");
+
 						session.put("masterFlg", false);//管理者フラグ立て
-						//System.out.println("管理者フラグ=false");
+
 
 						CartInfoDAO cartInfoDAO=new CartInfoDAO(); //newカートリスト
 						DestinationDAO destinationDAO=new DestinationDAO(); //new宛先
@@ -166,6 +161,7 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 						}
 
 					}else{
+						//Passwordが異なる
 						errorMessageList.add("【入力されたパスワードが異なります】");
 						result="login";
 					}
@@ -173,12 +169,12 @@ public class LoginAction extends ActionSupport implements SessionAware,ErrorMess
 				}
 
 			}else{
-				//System.out.println("Passwordが入力されていません");
+				//Passwordが入力されていない
 				result ="login";
 			}
 
 		}else{
-			//System.out.println("IDが入力されていません");
+			//IDが入力されていない
 			result ="login";
 
 		}

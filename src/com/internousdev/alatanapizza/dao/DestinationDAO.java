@@ -51,12 +51,11 @@ public class DestinationDAO {
 		ps.setString(7, destinationDTO.getTelNumber());
 		ps.setString(8, destinationDTO.getEmail());
 		ps.setString(9, destinationDTO.getZip11());
-		//System.out.println(ps);
+
 		updateCount = ps.executeUpdate();
 
 	}catch(SQLException e){
 		//例外時
-		//System.out.println("例外が発生しました");
 		e.printStackTrace();
 	}finally{
 		//接続を切る
@@ -66,7 +65,6 @@ public class DestinationDAO {
 	if(updateCount==1){
 		result =true;
 	}
-	//System.out.println(result);
 	return result;
 }
 
@@ -92,7 +90,6 @@ public class DestinationDAO {
 			PreparedStatement ps =con.prepareStatement(sql);
 			ps.setString(1, userId);
 			ResultSet rs =ps.executeQuery();
-			//System.out.println("SELECTsql文実行");
 
 			while(rs.next()){
 				DestinationDTO destinationDTO =new DestinationDTO();
@@ -108,7 +105,6 @@ public class DestinationDAO {
 				destinationList.add(destinationDTO);
 			}
 		}catch(SQLException e){
-			//System.out.println("例外が発生しました");
 			e.printStackTrace();
 		}finally{
 			con.close();

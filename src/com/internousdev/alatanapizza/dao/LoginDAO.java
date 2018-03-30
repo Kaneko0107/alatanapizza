@@ -15,9 +15,6 @@ public class LoginDAO  {
 	private Connection con=db.getConnection();
 	public LoginDTO select(String userId,String password){
 
-		//System.out.println(userId);
-		//System.out.println(password);
-
 		String sql="select * from user_info where user_id = ? and password = ?";
 
 		try{
@@ -29,8 +26,6 @@ public class LoginDAO  {
 			ResultSet rs=ps.executeQuery();
 
 			if(rs.next()){
-				//System.out.println(rs.getString("user_id"));
-				//System.out.println(rs.getString("password"));
 
 				loginDTO.setUserId(rs.getString("user_id"));
 				loginDTO.setPassword(rs.getString("password"));
@@ -67,7 +62,6 @@ public class LoginDAO  {
 			updateCount=ps.executeUpdate();
 			//カウントが1以上ならtrue
 			if(updateCount>0){
-				//System.out.println("ログイン済み");
 				result =true;
 			}
 		}catch(SQLException e){ //例外が発生した場合の処理(例外が発生しなければ行われない処理)

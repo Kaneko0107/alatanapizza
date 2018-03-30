@@ -127,21 +127,6 @@ public class InputChecker {
 
 	}
 
-//	public String userAddressChk(String userAddress){
-//		String result ="OK";
-//
-//		if(userAddress.equals("")){
-//			result ="【住所を入力してください】";
-//		}else if(userAddress.length() <15 || userAddress.length() >50){
-//			result ="【住所は15文字以上50文字以下で入力してください】";
-//		}else if(!userAddress.matches("^[a-zA-Z0-9ぁ-ゞァ-ヾ一-龠々!-~]+$")){
-//			result ="【住所は半角英数字、漢字、ひらがな、カタカナおよび半角記号で入力してください】";
-//		}
-//		return result;
-//
-//	}
-
-
 	public String telNumberChk(String telNumber){
 		String result ="OK";
 

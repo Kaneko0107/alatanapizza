@@ -78,9 +78,6 @@ margin-bottom:30px;
 tr td .memo{text-align:center;
 }
 
-
-
-
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -99,7 +96,6 @@ tr td .memo{text-align:center;
 
 </script>
 </head>
-
 
 
 <header>
@@ -177,10 +173,7 @@ tr td .memo{text-align:center;
 				</td>
 			</tr>
 
-
 			</s:form>
-
-
 
 
 			<!--  白い点線 -->
@@ -223,8 +216,6 @@ tr td .memo{text-align:center;
 <footer>
 	<jsp:include page="include_footer.jsp" />
 </footer>
-
-
 
 
 </html>

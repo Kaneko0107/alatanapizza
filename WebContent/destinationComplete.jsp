@@ -38,7 +38,6 @@ history.forward();
 
 		</div>
 
-		<span></span>
 		<a href='<s:url action="BuyItemCompleteAction"/>'>購入画面へ</a>
 
 

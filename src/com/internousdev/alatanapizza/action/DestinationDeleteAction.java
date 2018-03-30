@@ -18,7 +18,6 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class DestinationDeleteAction extends ActionSupport implements SessionAware {
 
-	// セッション
 	private Map<String, Object> session;
 	private ArrayList<DestinationDTO> destinationList = new ArrayList<DestinationDTO>();
 	private String message; // 削除メッセージ
@@ -26,7 +25,6 @@ public class DestinationDeleteAction extends ActionSupport implements SessionAwa
 	private DestinationDeleteDAO dao = new DestinationDeleteDAO();
 	private DestinationDAO destinationdao=new DestinationDAO();
 	private int id; // 個別削除id取得 DAOメソッドの戻り値
-	//private List<String> checkList;// checkBoxの値
 	String userId;
 	private List<CartInfoDTO> cartList = new ArrayList<CartInfoDTO>(); // カート情報一覧
 	public List<CartInfoDTO> getCartList() {
@@ -59,69 +57,42 @@ public class DestinationDeleteAction extends ActionSupport implements SessionAwa
 		String result=SUCCESS;
 
 
-//
-//		if (deleteFlg == null) {
-//			setMessage("チェックを入れてください");
-//			result=SUCCESS;
-//		}
-
-
 		if(deleteFlg.equals("1")) {
 			delete();
 			result = "DESTINATION";
 
 
 		}else if(deleteFlg.equals("2")) {
-			 deletePart();
-			 destinationList=destinationdao.obtainingDestinationInfo(userId);
-			 result=SUCCESS;
-
+			deletePart();
+			destinationList=destinationdao.obtainingDestinationInfo(userId);
+			result=SUCCESS;
 		}
 
-
-		// ↓ログインユーザーのカート情報を全表示させる↓
+		// ログインユーザーのカート情報を全表示
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 		cartList = cartInfoDAO.showUserCartList(userId);
 
-		// もしログインしていたら
-		// ↓指定したユーザーの宛先情報取得 obtaining==入手
-		//↓"containsKey"はログインフラグの有無を確認しているだけで中身を取り出していないのでgetにする
-		// if (session.containsKey("loginFlg"))
 		if((boolean)session.get("loginFlg")) {
 			DestinationDAO destinationInfoDAO = new DestinationDAO();
 			destinationListDTO.addAll(destinationInfoDAO.obtainingDestinationInfo(session.get("userId").toString()));
-
 		}
-
-		// もしログインしてなければログインに飛ばす
-		// elseで動くので、簡単にする
-		// else if (!session.containsKey("loginFlg")) {
 		else {
-			return ERROR; // ■login.jspへ
+			return ERROR;
 		}
 
-		// カートに何も入っていない場合
 		if (cartList.size() == 0) {
-			return "other";// ■cart.jspへ。
+			return "other";
 		}
 		for (CartInfoDTO dto : cartList) {
 			setTotalPrice(getTotalPrice() + dto.getPrice());
 		}
 
-		// もし宛先情報が入っていれば、
 		if (destinationListDTO.size() > 0) {
-			result = SUCCESS;// ■決済完了画面へ（settlement.jsp）
+			result = SUCCESS;
 		}
-		// 宛先情報が入っていなければ、
 		else {
-			result = "DESTINATION"; // ■宛先新規登録画面へ（destinationinfo.jsp)
-
+			result = "DESTINATION";
 		}
-
-
-
-
-
 
 		try {
 			notSameCategoryList = categorydao.notSameCategoryList(category_id);
@@ -132,8 +103,6 @@ public class DestinationDeleteAction extends ActionSupport implements SessionAwa
 				session.put("image_file_name", dto.getImage_file_name());
 				session.put("image_file_path", dto.getImage_file_path());
 				session.put("category_id", dto.getCategory_id());
-
-
 			}
 
 		} catch (SQLException e) {
@@ -141,10 +110,10 @@ public class DestinationDeleteAction extends ActionSupport implements SessionAwa
 		}
 
 
-return result;
+		return result;
 	}
 
-	// 全件削除メソッド----------------------------------------------------------
+	// 全件削除メソッド
 	public void delete() throws SQLException {
 
 		String user_id = session.get("userId").toString();
@@ -157,48 +126,31 @@ return result;
 		} else if (res == 0) {
 			setMessage("履歴の削除に失敗しました。");
 		}
-
 	}
 
-
-
-	//個別削除メソッド-----------------------------------------
-
+	//個別削除メソッド
 	public void deletePart() throws SQLException {
-		//if (checkList == null) {
-		//	setMessage("削除できませんでした。");
-		//}
-	//int a=5;
-	//int res=dao.deletePartDestination(a);
-		//System.out.println(id);
-	int res=dao.deletePartDestination(id);
+		int res=dao.deletePartDestination(id);
 
-	if(res>0){
-		setMessage(res + "件削除しました");
-	}else if (res == 0){
-		setMessage("削除できませんでした");
-	}
+		if(res>0){
+			setMessage(res + "件削除しました");
+		}else if (res == 0){
+			setMessage("削除できませんでした");
+		}
 	}
 
 
-
-
-
-
-	// deleteFlg
 	public String getDeleteFlg() {
 		return deleteFlg;
 	}
-
 	public void setDeleteFlg(String deleteFlg) {
 		this.deleteFlg = deleteFlg;
 	}
 
-	// jspからIDもってくる
+
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -207,12 +159,10 @@ return result;
 	public String getMessage() {
 		return message;
 	}
-
 	public void setMessage(String message) {
 		this.message = message;
 	}
 
-	// session
 	public Map<String, Object> getSession() {
 		return session;
 	}
@@ -222,19 +172,9 @@ return result;
 		this.session = session;
 	}
 
-//	// checkBoxの値
-//	public List<String> getCheckList() {
-//		return checkList;
-//	}
-//
-//	public void setCheckList(List<String> checkList) {
-//		this.checkList = checkList;
-//	}
-
 	public ArrayList<DestinationDTO> getDestinationList() {
 		return destinationList;
 	}
-
 	public void setDestinationList(ArrayList<DestinationDTO> destinationList) {
 		this.destinationList = destinationList;
 	}
@@ -242,7 +182,6 @@ return result;
 	public String getUserId() {
 		return userId;
 	}
-
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
@@ -250,7 +189,6 @@ return result;
 	public int getTotalPrice() {
 		return totalPrice;
 	}
-
 	public void setTotalPrice(int totalPrice) {
 		this.totalPrice = totalPrice;
 	}

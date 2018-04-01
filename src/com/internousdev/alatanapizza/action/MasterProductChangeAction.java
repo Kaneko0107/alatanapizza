@@ -52,8 +52,13 @@ public class MasterProductChangeAction extends ActionSupport implements SessionA
 
 		if (productId != null && stock != null) {
 			int stock = Integer.parseInt(this.stock);
-			message = "在庫を変更しました。";
-			productListDAO.updateStock(productId, stock);
+			productList = productListDAO.getProductInfo();
+			for (ProductDTO product: productList) {
+				if (product.getProduct_id() == productId && product.getStock() != stock) {
+					message = "在庫を変更しました。";
+					productListDAO.updateStock(productId, stock);
+				}
+			}
 		}
 		productList = productListDAO.getProductInfo();
 		for (ProductDTO product: productList) {

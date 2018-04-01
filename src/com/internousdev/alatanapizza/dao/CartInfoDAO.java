@@ -152,7 +152,7 @@ public class CartInfoDAO extends ActionSupport{
 
 			ResultSet rs = ps.executeQuery();
 
-			if(rs.next()){
+			while(rs.next()){
 				int cartId = rs.getInt("id");
 				String toppingSql = "SELECT topping_id FROM cart_topping_info  WHERE cart_topping_info.cart_id = ?";
 				PreparedStatement toppingPs = con.prepareStatement(toppingSql);
